@@ -1,0 +1,15 @@
+<content-type>
+  <display-name i18n="cty.url.displayname">Url</display-name> 
+  <display-name-label i18n="cty.url.displayname.label">Url</display-name-label>
+  <description>Create a new url</description> 
+  <super-type>base:structured</super-type> 
+  <is-abstract>false</is-abstract> 
+  <is-final>true</is-final> 
+  <is-built-in>false</is-built-in>  
+  <allow-child-content>true</allow-child-content> 
+  <form> 
+    <input name="Url" type="TextLine">
+      <label>Url</label>
+    </input>
+  </form>
+</content-type>

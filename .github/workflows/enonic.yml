@@ -1,0 +1,17 @@
+name: Enonic CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build, Test and Deploy app
+        uses: docker://enonic/enonic-ci:7.3
+        env:
+          ENONIC_CLI_REMOTE_URL: ${{ secrets.ENONIC_CLI_REMOTE_URL }}
+          ENONIC_CLI_REMOTE_USER: ${{ secrets.ENONIC_CLI_REMOTE_USER }}
+          ENONIC_CLI_REMOTE_PASS: ${{ secrets.ENONIC_CLI_REMOTE_PASS }}
+        with:
+          args: bash -c "enonic project build && enonic app install --file build/libs/*.jar"

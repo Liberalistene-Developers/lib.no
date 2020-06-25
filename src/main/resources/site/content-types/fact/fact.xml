@@ -1,0 +1,28 @@
+<content-type>
+  <display-name i18n="cty.fact.displayname">Fact</display-name> 
+  <display-name-label i18n="cty.url.displayname.label">Fact</display-name-label>
+  <description>Create a new fact</description> 
+  <super-type>base:structured</super-type> 
+  <is-abstract>false</is-abstract> 
+  <is-final>true</is-final> 
+  <is-built-in>false</is-built-in>  
+  <allow-child-content>true</allow-child-content> 
+  <form> 
+    <input name="fact" type="HtmlArea">
+      <label>Fact</label>
+      <default><h3>Enter your fact here</h3></default>
+    </input>
+    <input name="tags" type="ContentSelector">
+      <label>Tags</label>
+      <occurrences minimum="0" maximum="0"/>
+      <config>
+        <allowContentType>tag</allowContentType> 
+        <allowPath>${site}/tags/</allowPath> 
+        <allowPath>./*</allowPath>
+        <treeMode>true</treeMode>  
+        <showStatus>true</showStatus>  
+        <hideToggleIcon>true</hideToggleIcon> 
+      </config>
+    </input>
+  </form>
+</content-type>
