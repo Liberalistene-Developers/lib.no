@@ -8,10 +8,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Build, Test and Deploy app
-        uses: docker://enonic/enonic-ci:7.3
+        uses: docker://enonic/enonic-ci:7.2
         env:
           ENONIC_CLI_REMOTE_URL: ${{ secrets.ENONIC_CLI_REMOTE_URL }}
           ENONIC_CLI_REMOTE_USER: ${{ secrets.ENONIC_CLI_REMOTE_USER }}
           ENONIC_CLI_REMOTE_PASS: ${{ secrets.ENONIC_CLI_REMOTE_PASS }}
         with:
-          args: bash -c "enonic project build && enonic app install --file build/libs/*.jar"
+          args: bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash && nvm install 12 && enonic project build && enonic app install --file build/libs/*.jar"
