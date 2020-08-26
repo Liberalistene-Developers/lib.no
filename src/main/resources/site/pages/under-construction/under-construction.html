@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title th:text="${title}">Her kommer Liberalistene</title>
+		<link data-th-href="${portal.assetUrl({'_path=css/under-construction-1.0.0.css'})}" href="../assets/css/under-construction-1.0.0.css" rel="stylesheet"/>
+  </head>
+
+	<body class="xp-page">
+		<main data-portal-region="main" class="xp-region">
+			<th:block data-th-if="${mainRegion}">
+				<th:block data-th-each="component : ${mainRegion.components}">
+					<th:block data-portal-component="${component.path}"></th:block>
+				</th:block>
+			</th:block>
+		</main>
+	</body>
+</html>
