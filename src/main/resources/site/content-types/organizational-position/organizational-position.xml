@@ -1,0 +1,21 @@
+<content-type>
+  <display-name i18n="cty.faq.displayname">Organizational Position</display-name> 
+  <display-name-label i18n="cty.faq.displayname.label">Position</display-name-label>
+  <description>Create a new FAQ question</description> 
+  <super-type>base:structured</super-type> 
+  <is-abstract>false</is-abstract> 
+  <is-final>true</is-final> 
+  <is-built-in>false</is-built-in>  
+  <allow-child-content>true</allow-child-content> 
+  <form> 
+    <input name="short-description" type="HtmlArea">
+      <label>Short description</label>
+      <default><h3>Enter the short description here</h3></default>
+    </input>
+    <input name="description" type="HtmlArea">
+      <label>Description</label>
+      <default><h3>Enter the full description here</h3></default>
+    </input>
+    <mixin name="tags" />
+  </form>
+</content-type>
