@@ -1,0 +1,53 @@
+<content-type>
+  <display-name i18n="cty.faq.displayname">Person</display-name> 
+  <display-name-label i18n="cty.faq.displayname.label">Person</display-name-label>
+  <description>Create a new Person</description> 
+  <super-type>base:structured</super-type> 
+  <is-abstract>false</is-abstract> 
+  <is-final>true</is-final> 
+  <is-built-in>false</is-built-in>  
+  <allow-child-content>true</allow-child-content> 
+  <form> 
+    <mixin name="tags" />
+    <input name="organizational-position" type="ContentSelector">
+      <label>Positions</label>
+      <occurrences minimum="0" maximum="0"/>
+      <config>
+        <allowContentType>organizational-position</allowContentType> 
+        <allowPath>${site}/positions/</allowPath> 
+        <allowPath>./*</allowPath>
+        <treeMode>true</treeMode>  
+        <showStatus>true</showStatus>  
+        <hideToggleIcon>true</hideToggleIcon> 
+      </config>
+    </input>
+    <input name="short-description" type="TextArea">
+      <label>Short description</label>
+    </input>
+    <input name="description" type="HtmlArea">
+      <label>Description</label>
+      <default><h3>Enter the full description here</h3></default>
+    </input>
+    <input name="address" type="TextArea">
+      <label>Address</label>
+    </input>
+    <input name="email" type="TextLine">
+      <label>E-mail</label>
+    </input>
+    <input name="phone" type="TextLine">
+      <label>Primary phone</label>
+    </input>
+    <input name="facebook" type="TextLine">
+      <label>Facebook</label>
+    </input>
+    <input name="twitter" type="TextLine">
+      <label>Twitter</label>
+    </input>
+    <input name="instagram" type="TextLine">
+      <label>Instagram</label>
+    </input>
+    <input name="linkedin" type="TextLine">
+      <label>LinkedIn</label>
+    </input>
+  </form>
+</content-type>
