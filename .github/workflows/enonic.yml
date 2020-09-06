@@ -36,4 +36,4 @@ jobs:
           ENONIC_CLI_REMOTE_USER: ${{ secrets.ENONIC_CLI_REMOTE_USER }}
           ENONIC_CLI_REMOTE_PASS: ${{ secrets.ENONIC_CLI_REMOTE_PASS }}
         with:
-          args: bash -c "enonic project build && enonic app install --file build/libs/*.jar"
+          args: bash -c "enonic app install --file ./build/libs/*.jar"
