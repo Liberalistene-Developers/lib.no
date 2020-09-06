@@ -8,8 +8,8 @@
   <is-built-in>false</is-built-in>  
   <allow-child-content>true</allow-child-content> 
   <form> 
-    <input name="Tag" type="TextLine">
-      <label>Tag</label>
+    <input name="description" type="TextArea">
+      <label>Description</label>
     </input>
   </form>
 </content-type>
