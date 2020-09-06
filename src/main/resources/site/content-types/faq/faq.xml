@@ -1,6 +1,6 @@
 <content-type>
   <display-name i18n="cty.faq.displayname">FAQ</display-name> 
-  <display-name-label i18n="cty.faq.displayname.label">FAQ</display-name-label>
+  <display-name-label i18n="cty.faq.displayname.label">Question</display-name-label>
   <description>Create a new FAQ question</description> 
   <super-type>base:structured</super-type> 
   <is-abstract>false</is-abstract> 
@@ -8,23 +8,10 @@
   <is-built-in>false</is-built-in>  
   <allow-child-content>true</allow-child-content> 
   <form> 
-    <input name="question" type="TextLine">
-      <label>Question</label>
-    </input>
-    <input name="answer" type="TextLine">
+    <input name="answer" type="HtmlArea">
       <label>Answer</label>
+      <default><h3>Enter the answer here</h3></default>
     </input>
-    <input name="tags" type="ContentSelector">
-      <label>Tags</label>
-      <occurrences minimum="0" maximum="0"/>
-      <config>
-        <allowContentType>tag</allowContentType> 
-        <allowPath>${site}/tags/</allowPath> 
-        <allowPath>./*</allowPath>
-        <treeMode>true</treeMode>  
-        <showStatus>true</showStatus>  
-        <hideToggleIcon>true</hideToggleIcon> 
-      </config>
-    </input>
+    <mixin name="tags" />
   </form>
 </content-type>

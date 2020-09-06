@@ -1,0 +1,16 @@
+<mixin>
+  <form>
+    <input name="tagSelector" type="ContentSelector">
+      <label>Tags</label>
+      <occurrences minimum="0" maximum="0"/>
+      <config>
+        <allowContentType>tag</allowContentType> 
+        <allowPath>${site}/tags/</allowPath> 
+        <allowPath>./*</allowPath>
+        <treeMode>true</treeMode>  
+        <showStatus>true</showStatus>  
+        <hideToggleIcon>true</hideToggleIcon> 
+      </config>
+    </input>
+  </form>
+</mixin>

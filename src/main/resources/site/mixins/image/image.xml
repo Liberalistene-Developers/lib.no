@@ -1,0 +1,14 @@
+<mixin>
+  <form>
+    <input name="image" type="ImageSelector">
+      <label>Image</label>
+      <occurrences minimum="0" maximum="1"/>
+      <config> 
+        <allowPath>${site}/*</allowPath> 
+        <treeMode>true</treeMode>
+        <showStatus>true</showStatus>
+        <hideToggleIcon>true</hideToggleIcon>
+      </config>
+    </input>
+  </form>
+</mixin>
