@@ -5,8 +5,30 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+    
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+      
+      - name: Use Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Install project dependences
+        run: npm install
+      
+      - name: Build jar file
+        run: npm run rebuild
+      
       - name: Build, Test and Deploy app
         uses: docker://enonic/enonic-ci:7.2
         env:
@@ -14,4 +36,4 @@ jobs:
           ENONIC_CLI_REMOTE_USER: ${{ secrets.ENONIC_CLI_REMOTE_USER }}
           ENONIC_CLI_REMOTE_PASS: ${{ secrets.ENONIC_CLI_REMOTE_PASS }}
         with:
-          args: bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash && export NVM_DIR=\"$HOME/.nvm\" && [ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\" && nvm install 12 && npm install && enonic project build && enonic app install --file build/libs/*.jar"
+          args: bash -c "enonic project build && enonic app install --file build/libs/*.jar"
