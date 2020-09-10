@@ -1,4 +1,5 @@
 <mixin>
+  <display-name>Image</display-name>
   <form>
     <input name="image" type="ImageSelector">
       <label>Image</label>

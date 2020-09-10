@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <page>
   <display-name>Default page</display-name>
-  <form/>
+  <form>
+    <mixin name="tags" />
+  </form>
   <regions>
     <region name="main"/>
   </regions>
