@@ -8,6 +8,7 @@
   <is-built-in>false</is-built-in>  
   <allow-child-content>true</allow-child-content> 
   <form> 
+    <mixin name="image" />
     <mixin name="tags" />
     <input name="organizational-position" type="ContentSelector">
       <label>Positions</label>
