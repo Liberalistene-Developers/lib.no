@@ -1,0 +1,16 @@
+<mixin>
+  <form>
+    <input name="facebook" type="TextLine">
+      <label>Facebook</label>
+    </input>
+    <input name="twitter" type="TextLine">
+      <label>Twitter</label>
+    </input>
+    <input name="instagram" type="TextLine">
+      <label>Instagram</label>
+    </input>
+    <input name="linkedin" type="TextLine">
+      <label>LinkedIn</label>
+    </input>
+  </form>
+</mixin>

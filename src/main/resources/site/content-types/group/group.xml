@@ -1,7 +1,7 @@
 <content-type>
-  <display-name i18n="cty.faq.displayname">Person</display-name> 
-  <display-name-label i18n="cty.faq.displayname.label">Person</display-name-label>
-  <description>Create a new Person</description> 
+  <display-name i18n="cty.group.displayname">Group</display-name> 
+  <display-name-label i18n="cty.group.displayname.label">Group</display-name-label>
+  <description>Create a new Group</description> 
   <super-type>base:structured</super-type> 
   <is-abstract>false</is-abstract> 
   <is-final>true</is-final> 
@@ -10,18 +10,6 @@
   <form> 
     <mixin name="image" />
     <mixin name="tags" />
-    <input name="organizational-position" type="ContentSelector">
-      <label>Positions</label>
-      <occurrences minimum="0" maximum="0"/>
-      <config>
-        <allowContentType>organizational-position</allowContentType> 
-        <allowPath>${site}/positions/</allowPath> 
-        <allowPath>./*</allowPath>
-        <treeMode>true</treeMode>  
-        <showStatus>true</showStatus>  
-        <hideToggleIcon>true</hideToggleIcon> 
-      </config>
-    </input>
     <input name="short-description" type="TextArea">
       <label>Short description</label>
     </input>
@@ -33,6 +21,21 @@
     </input>
     <input name="address" type="TextArea">
       <label>Address</label>
+    </input>
+    <input name="geopoint" type="GeoPoint">
+      <label>Map address</label>
+    </input>
+    <input name="peopleSelector" type="ContentSelector">
+      <label>Board</label>
+      <occurrences minimum="0" maximum="0"/>
+      <config>
+        <allowContentType>person</allowContentType> 
+        <allowPath>${site}/people/</allowPath> 
+        <allowPath>./*</allowPath>
+        <treeMode>true</treeMode>  
+        <showStatus>true</showStatus>  
+        <hideToggleIcon>true</hideToggleIcon> 
+      </config>
     </input>
     <input name="email" type="TextLine">
       <label>E-mail</label>
