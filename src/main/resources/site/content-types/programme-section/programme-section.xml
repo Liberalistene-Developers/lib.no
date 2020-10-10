@@ -1,7 +1,7 @@
 <content-type>
-  <display-name i18n="cty.faq.displayname">Programme part</display-name> 
-  <display-name-label i18n="cty.faq.displayname.label">Programme part</display-name-label>
-  <description>Create a new Programme part</description> 
+  <display-name i18n="cty.programmesection.displayname">Programme Section</display-name> 
+  <display-name-label i18n="cty.programmesection.displayname.label">Programme Section</display-name-label>
+  <description>Create a new Programme section</description> 
   <super-type>base:structured</super-type> 
   <is-abstract>false</is-abstract> 
   <is-final>true</is-final> 
@@ -9,8 +9,8 @@
   <allow-child-content>true</allow-child-content> 
   <form> 
     <input name="description" type="HtmlArea">
-      <label>Part</label>
-      <default>Enter the part here</default>
+      <label>Description</label>
+      <default>Description</default>
     </input>
     <mixin name="tags" />
   </form>
