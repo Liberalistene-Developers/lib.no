@@ -1,6 +1,6 @@
 {
   "name": "lib.no",
-  "version": "0.0.2",
+  "version": "1.0.1",
   "description": "Liberalistene homepage",
   "scripts": {
     "install:dev": "nsi",
@@ -14,7 +14,7 @@
     "watch": "npm-run-all --parallel watch:xp watch:react4xp",
     "watch:all": "npm-run-all --parallel watch:gradle watch:xp watch:react4xp",
     "watch:gradle": "./gradlew deploy --info -t",
-    "watch:react4xp": "webpack --env.REACT4XP_CONFIG_FILE=build/react4xp_constants.json --config node_modules/react4xp-build-components/webpack.config.js --progress --watch",
+    "watch:react4xp": "webpack --env.REACT4XP_CONFIG_FILE=build/react4xp_constants.json --config node_modules/react4xp-build-components/webpack.config.js --watch",
     "watch:xp": "babel src/main/resources --out-dir build/resources/main --ignore **/*.jsx --watch"
   },
   "repository": {
@@ -29,6 +29,7 @@
   "homepage": "https://github.com/Liberalistene-Developers/lib.no#readme",
   "dependencies": {
     "node-fetch": "^2.6.1",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react4xp": "^1.1.4"
@@ -36,16 +37,15 @@
   "devDependencies": {
     "@babel/cli": "^7.11.6",
     "@babel/compat-data": "^7.11.0",
-    "@babel/core": "7.11.6",
+    "@babel/core": "^7.11.6",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
     "@babel/plugin-transform-arrow-functions": "^7.10.4",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.0.6",
-    "lodash": "^4.17.20",
     "npm-run-all": "^4.1.5",
-    "webpack": "^4.44.2",
+    "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   },
   "babel": {
