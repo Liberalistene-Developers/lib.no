@@ -12,6 +12,7 @@
       <label>Description</label>
       <default>Description</default>
     </input>
+    <mixin name="order" />
     <mixin name="tags" />
   </form>
 </content-type>

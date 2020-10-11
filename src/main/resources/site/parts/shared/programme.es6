@@ -11,16 +11,27 @@ const getChildren = (search) => contentLib.getChildren(search);
 export const getConclusions = (search) => {
   const children = getChildren(search);
   
+  // log.info(JSON.stringify(children, null, 4));
+  
   const conclusions = children.count && children
     .hits
     .filter(({ type }) => type === Programme.Conclusion)
-    .map(({ _id: key, displayName: conclusion }) => ({ key, conclusion, }));
+    .map(({
+      _id: key,
+      displayName: conclusion,
+      data: {
+        order = 0,
+      },
+    }) => ({ key, conclusion, order }))
+    .sort((a, b) => a.order < b.order);
 
   return conclusions;
 };
 
 export const getParts = (search) => {
   const children = getChildren(search);
+  
+  // log.info(JSON.stringify(children, null, 4));
 
   const parts = children && children.count && children
     .hits
@@ -31,6 +42,7 @@ export const getParts = (search) => {
       displayName: partTitle,
       data: {
         description: partDescription,
+        order = 0,
         tags = [],
       } = {},
       page: {
@@ -49,6 +61,8 @@ export const getParts = (search) => {
       
       const conclusions = getConclusions({ key });
       
+      // log.info(JSON.stringify(conclusions, null, 4));
+
       return {
         key: partKey,
         title: partTitle,
@@ -56,12 +70,18 @@ export const getParts = (search) => {
         conclusionTitle,
         conclusions,
         tags,
-      };
-    });
+        order,
+      };      
+    })
+    .sort((a, b) => a.order < b.order);
+    
+  return parts;
 };
 
 export const getSections = (search) => {
   const children = getChildren(search);
+  
+  // log.info(JSON.stringify(children, null, 4));
   
   const sections = children && children.count && children
     .hits
@@ -72,16 +92,24 @@ export const getSections = (search) => {
       displayName: sectionTitle,
       data: {
         description: sectionDescription,
+        order = 0,
         tags = [],
       } = {},
     }) => {
       const parts = getParts({ key });
       
+      // log.info(JSON.stringify(parts, null, 4));
+      
       return {
         key: sectionKey,
         title: sectionTitle,
         description: sectionDescription,
-        sections,
+        parts,
+        tags,
+        order,
       };
-    });
+    })
+    .sort((a, b) => a.order < b.order);
+    
+  return sections;
 };

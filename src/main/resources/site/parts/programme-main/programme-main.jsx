@@ -7,7 +7,7 @@ export default ({ title, description, sections, tags }) => (
     <h1 title={description}>{title}</h1>
     { sections && (
       <div>
-        { sections.length && parts.map(({ key, ...props }) =>
+        { sections.length && sections.map(({ key, ...props }) =>
           <Section key={ key } { ...props } />
         )}
       </div>

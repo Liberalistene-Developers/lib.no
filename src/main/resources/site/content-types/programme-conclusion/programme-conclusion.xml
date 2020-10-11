@@ -12,6 +12,7 @@
       <label>Conclusion</label>
       <default>One liner</default>
     </input>
+    <mixin name="order" />
     <mixin name="tags" />
   </form>
 </content-type>

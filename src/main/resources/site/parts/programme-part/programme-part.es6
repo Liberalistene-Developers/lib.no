@@ -1,16 +1,12 @@
 const portal = require('/lib/xp/portal');
-const contentLib = require('/lib/xp/content');
 const React4xp = require('/lib/enonic/react4xp');
 
 // const utils = require('/lib/util');
-const { getConclusions } = require('../../lib/programme');
+const { getConclusions } = require('../shared/programme');
 
 exports.get = function(request) {
     const content = portal.getContent();
     const component = portal.getComponent();
-    const children = contentLib.getChildren({
-      key: content._path,
-    });
 
     const {
       _path: key,
