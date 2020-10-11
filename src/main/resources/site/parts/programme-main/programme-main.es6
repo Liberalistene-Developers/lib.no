@@ -2,17 +2,15 @@ const portal = require('/lib/xp/portal');
 const contentLib = require('/lib/xp/content');
 const React4xp = require('/lib/enonic/react4xp');
 
-// const utils = require('/lib/util');
-const { getConclusions } = require('programme');
+const utils = require('/lib/util');
+
+const { getSections } = require('programme');
 
 exports.get = function(request) {
     const content = portal.getContent();
     const component = portal.getComponent();
-    const children = contentLib.getChildren({
-      key: content._path,
-    });
-
-    const {
+    
+    const {      
       _path: key,
       displayName: title,
       data: {
@@ -20,17 +18,12 @@ exports.get = function(request) {
         tags = '',
       } = {},
     } = content;
-    const {
-      config: {
-        conclusionTitle = '',
-      } = {},
-    } = component;
     
-    const conclusions = getConclusions({
+    const sections = getSections({
       key,
-    })
-    
-    const props = { title, description, conclusionTitle, conclusions, tags };
+    });
+
+    const props = { title, description, sections, tags };
 
     return React4xp.render(component, props, request);
 };
