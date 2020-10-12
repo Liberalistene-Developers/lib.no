@@ -1,6 +1,6 @@
 <content-type>
   <display-name i18n="cty.fact.displayname">Fact</display-name> 
-  <display-name-label i18n="cty.url.displayname.label">Fact</display-name-label>
+  <display-name-label i18n="cty.fact.displayname.label">Fact</display-name-label>
   <description>Create a new fact</description> 
   <super-type>base:structured</super-type> 
   <is-abstract>false</is-abstract> 

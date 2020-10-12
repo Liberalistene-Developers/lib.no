@@ -9,7 +9,6 @@
   <allow-child-content>true</allow-child-content> 
   <form> 
     <mixin name="image" />
-    <mixin name="tags" />
     <input name="short-description" type="TextArea">
       <label>Short description</label>
     </input>
@@ -22,21 +21,34 @@
     <input name="address" type="TextArea">
       <label>Address</label>
     </input>
-    <input name="geopoint" type="GeoPoint">
-      <label>Map address</label>
-    </input>
-    <input name="peopleSelector" type="ContentSelector">
-      <label>Board</label>
-      <occurrences minimum="0" maximum="0"/>
-      <config>
-        <allowContentType>person</allowContentType> 
-        <allowPath>${site}/people/</allowPath> 
-        <allowPath>./*</allowPath>
-        <treeMode>true</treeMode>  
-        <showStatus>true</showStatus>  
-        <hideToggleIcon>true</hideToggleIcon> 
-      </config>
-    </input>
+    <mixin name="map" />
+    <field-set>
+      <label i18n="cty.group.board.label">Board</label>
+      <items>
+        <item-set name="member">
+          <label i18n="cty.group.board.member.label">Member</label>
+          <occurrences minimum="0" maximum="0"/>
+          <items>
+            <input name="role" type="TextLine">
+              <label i18n="cty.group.board.role.label">Role</label>
+            </input>
+            <input name="peopleSelector" type="ContentSelector">
+              <label i18n="cty.group.board.member.label">Member</label>
+              <occurrences minimum="0" maximum="1"/>
+              <config>
+                <allowContentType>Person</allowContentType> 
+                <allowPath>${site}/persons/</allowPath>
+                <allowPath>${site}/authors/</allowPath> 
+                <allowPath>./*</allowPath>
+                <treeMode>true</treeMode>  
+                <showStatus>true</showStatus>  
+                <hideToggleIcon>false</hideToggleIcon> 
+              </config>
+            </input>
+          </items>
+        </item-set>
+      </items>
+    </field-set>
     <input name="email" type="TextLine">
       <label>E-mail</label>
     </input>
@@ -44,5 +56,6 @@
       <label>Primary phone</label>
     </input>
     <mixin name="social" />
+    <mixin name="tags" />
   </form>
 </content-type>
