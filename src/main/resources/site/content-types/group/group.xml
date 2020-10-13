@@ -1,13 +1,13 @@
 <content-type>
-  <display-name i18n="cty.group.displayname">Group</display-name> 
+  <display-name i18n="cty.group.displayname">Group</display-name>
   <display-name-label i18n="cty.group.displayname.label">Group</display-name-label>
-  <description>Create a new Group</description> 
-  <super-type>base:structured</super-type> 
-  <is-abstract>false</is-abstract> 
-  <is-final>true</is-final> 
-  <is-built-in>false</is-built-in>  
-  <allow-child-content>true</allow-child-content> 
-  <form> 
+  <description>Create a new Group</description>
+  <super-type>base:structured</super-type>
+  <is-abstract>false</is-abstract>
+  <is-final>true</is-final>
+  <is-built-in>false</is-built-in>
+  <allow-child-content>true</allow-child-content>
+  <form>
     <mixin name="image" />
     <input name="short-description" type="TextArea">
       <label>Short description</label>
@@ -29,20 +29,31 @@
           <label i18n="cty.group.board.member.label">Member</label>
           <occurrences minimum="0" maximum="0"/>
           <items>
-            <input name="role" type="TextLine">
+            <input name="role" type="ContentSelector">
               <label i18n="cty.group.board.role.label">Role</label>
-            </input>
-            <input name="peopleSelector" type="ContentSelector">
-              <label i18n="cty.group.board.member.label">Member</label>
-              <occurrences minimum="0" maximum="1"/>
+              <occurrences minimum="1" maximum="1"/>
               <config>
-                <allowContentType>Person</allowContentType> 
-                <allowPath>${site}/persons/</allowPath>
-                <allowPath>${site}/authors/</allowPath> 
+                <allowContentType>lib.no:organizational-position</allowContentType>
+                <allowPath>${site}/roles/</allowPath>
+                <allowPath>${site}/roller/</allowPath>
+                <allowPath>${site}/roller/lag</allowPath>
                 <allowPath>./*</allowPath>
-                <treeMode>true</treeMode>  
-                <showStatus>true</showStatus>  
-                <hideToggleIcon>false</hideToggleIcon> 
+                <treeMode>true</treeMode>
+                <showStatus>true</showStatus>
+                <hideToggleIcon>false</hideToggleIcon>
+              </config>
+            </input>
+            <input name="person" type="ContentSelector">
+              <label i18n="cty.group.board.member.label">Member</label>
+              <occurrences minimum="1" maximum="1"/>
+              <config>
+                <allowContentType>Person</allowContentType>
+                <allowPath>${site}/persons/</allowPath>
+                <allowPath>${site}/authors/</allowPath>
+                <allowPath>./*</allowPath>
+                <treeMode>true</treeMode>
+                <showStatus>true</showStatus>
+                <hideToggleIcon>false</hideToggleIcon>
               </config>
             </input>
           </items>
