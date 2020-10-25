@@ -1,27 +1,27 @@
 <content-type>
-  <display-name i18n="cty.quote.displayname">Quote</display-name> 
-  <display-name-label i18n="cty.quote.displayname.label">Quote</display-name-label>
-  <description>Create a new quote</description> 
-  <super-type>base:structured</super-type> 
-  <is-abstract>false</is-abstract> 
-  <is-final>true</is-final> 
-  <is-built-in>false</is-built-in>  
-  <allow-child-content>true</allow-child-content> 
-  <form> 
+  <display-name i18n="content_types.quote.displayname">Quote</display-name>
+  <display-name-label i18n="content_types.quote.displayname.label">Quote</display-name-label>
+  <description i18n="content_types.quote.description">Create a new quote</description>
+  <super-type>base:structured</super-type>
+  <is-abstract>false</is-abstract>
+  <is-final>true</is-final>
+  <is-built-in>false</is-built-in>
+  <allow-child-content>true</allow-child-content>
+  <form>
     <input name="qoute" type="HtmlArea">
-      <label>Qoute</label>
-      <default><p>Enter your quote here</p></default>
+      <label i18n="content_types.quote.inpute.description">Qoute</label>
+      <default i18n="content_types.quote.input.description.default"><p>Enter your quote here</p></default>
     </input>
     <input name="peopleSelector" type="ContentSelector">
-      <label>By</label>
+      <label i18n="content_types.quote.input.person">By</label>
       <occurrences minimum="0" maximum="1"/>
       <config>
-        <allowContentType>person</allowContentType> 
-        <allowPath>${site}/people/</allowPath> 
+        <allowContentType>person</allowContentType>
+        <allowPath>${site}/people/</allowPath>
         <allowPath>./*</allowPath>
-        <treeMode>true</treeMode>  
-        <showStatus>true</showStatus>  
-        <hideToggleIcon>true</hideToggleIcon> 
+        <treeMode>true</treeMode>
+        <showStatus>true</showStatus>
+        <hideToggleIcon>true</hideToggleIcon>
       </config>
     </input>
     <mixin name="tags" />

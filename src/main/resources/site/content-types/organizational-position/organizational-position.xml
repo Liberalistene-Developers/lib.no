@@ -1,7 +1,7 @@
 <content-type>
-  <display-name i18n="cty.organizational-position.displayname">Organizational Position</display-name>
-  <display-name-label i18n="cty.organizational-position.displayname.label">Position</display-name-label>
-  <description i18n="cty.organizational-position.description">Create a new Organizational Position</description>
+  <display-name i18n="content_types.organizational-position.displayname">Organizational Position</display-name>
+  <display-name-label i18n="content_types.organizational-position.displayname.label">Position</display-name-label>
+  <description i18n="content_types.organizational-position.description">Create a new Organizational Position</description>
   <super-type>base:structured</super-type>
   <is-abstract>false</is-abstract>
   <is-final>true</is-final>
@@ -9,12 +9,12 @@
   <allow-child-content>true</allow-child-content>
   <form>
     <input name="short_description" type="HtmlArea">
-      <label>Ingress/Short description</label>
-      <default>Enter the short description here</default>
+      <label i18="content_types.description.short">Ingress/Short description</label>
+      <default i18n="content_types.description.short.default">Enter the short description here</default>
     </input>
     <input name="description" type="HtmlArea">
-      <label>Description</label>
-      <default>Enter the full description here</default>
+      <label i18m="content_types.description">Description</label>
+      <default i18n="content_types.description.default">Enter the full description here</default>
     </input>
     <mixin name="tags" />
   </form>

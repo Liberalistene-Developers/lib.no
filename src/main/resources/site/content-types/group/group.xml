@@ -1,7 +1,7 @@
 <content-type>
-  <display-name i18n="cty.group.displayname">Group</display-name>
-  <display-name-label i18n="cty.group.displayname.label">Group</display-name-label>
-  <description>Create a new Group</description>
+  <display-name i18n="content_types.group.displayname">Group</display-name>
+  <display-name-label i18n="content_types.group.displayname.label">Group</display-name-label>
+  <description i18n="content_types.group.description">Create a new Group</description>
   <super-type>base:structured</super-type>
   <is-abstract>false</is-abstract>
   <is-final>true</is-final>
@@ -10,27 +10,27 @@
   <form>
     <mixin name="image" />
     <input name="short-description" type="TextArea">
-      <label>Short description</label>
+      <label i18n="content_types.description.short">Short description</label>
     </input>
     <input name="description" type="HtmlArea">
-      <label>Description</label>
-      <default>
+      <label i18n="content_types.description">Description</label>
+      <default i18n="content_types.description.default">
         <p>Enter full description here</p>
       </default>
     </input>
     <input name="address" type="TextArea">
-      <label>Address</label>
+      <label i18n="content_types.address">Address</label>
     </input>
     <mixin name="map" />
     <field-set>
-      <label i18n="cty.group.board.label">Board</label>
+      <label i18n="content_types.group.board.label">Board</label>
       <items>
         <item-set name="member">
-          <label i18n="cty.group.board.member.label">Member</label>
+          <label i18n="content_types.group.board.member.label">Member</label>
           <occurrences minimum="0" maximum="0"/>
           <items>
             <input name="role" type="ContentSelector">
-              <label i18n="cty.group.board.role.label">Role</label>
+              <label i18n="content_types.group.board.member.role.label">Role</label>
               <occurrences minimum="1" maximum="1"/>
               <config>
                 <allowContentType>lib.no:organizational-position</allowContentType>
@@ -44,7 +44,7 @@
               </config>
             </input>
             <input name="person" type="ContentSelector">
-              <label i18n="cty.group.board.member.label">Member</label>
+              <label i18n="content_types.group.board.member.label">Member</label>
               <occurrences minimum="1" maximum="1"/>
               <config>
                 <allowContentType>Person</allowContentType>
@@ -61,10 +61,10 @@
       </items>
     </field-set>
     <input name="email" type="TextLine">
-      <label>E-mail</label>
+      <label i18n="content_types.email">E-mail</label>
     </input>
     <input name="phone" type="TextLine">
-      <label>Primary phone</label>
+      <label i18n="content_types.phone">Primary phone</label>
     </input>
     <mixin name="social" />
     <mixin name="tags" />

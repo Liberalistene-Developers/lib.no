@@ -1,11 +1,11 @@
 <mixin>
-  <display-name>Image</display-name>
+  <display-name i18n="content_types.image.displayname">Image</display-name>
   <form>
     <input name="image" type="ImageSelector">
-      <label>Image</label>
+      <label i18n="content_types.image.displayname.label">Image</label>
       <occurrences minimum="0" maximum="1"/>
-      <config> 
-        <allowPath>${site}/*</allowPath> 
+      <config>
+        <allowPath>${site}/*</allowPath>
         <treeMode>true</treeMode>
         <showStatus>true</showStatus>
         <hideToggleIcon>true</hideToggleIcon>

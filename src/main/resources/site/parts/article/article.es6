@@ -12,52 +12,52 @@ exports.get = function(request) {
       _path: key,
       displayName: title,
       data: {
-        'short-description': shortDescription = '',
         description = '',
+        ingress = '',
+        text = '',
         image = '',
         tags = '',
-        member = [],
+        author = []
       } = {},
     } = content;
 
-    log.info(JSON.stringify(content, null, 4));
+    const authors = [].concat(author);
 
-    const members = [].concat(member);
+    // log.info(JSON.stringify(content, null, 4));
+    // log.info(JSON.stringify(author, null, 4))
 
     const props = {
       title,
       imageUrl: imageUrl(image),
-      shortDescription,
       description,
-      board: members.map(({
-        role: roleId,
-        person: personId,
-      }) => {
-        const {
-          displayName: role
-        } = contentLib.get({ key: roleId });
+      tags,
+      authors: authors.map((authorID) => {
         const {
           displayName: person,
           _path: personPath,
           data: {
             image: imageKey,
           },
-        } = contentLib.get({ key: personId });
+          ...rest
+        } = contentLib.get({ key: authorID });
 
-        log.info(JSON.stringify(role, null, 4));
-        log.info(JSON.stringify(person, null, 4));
+        log.info(JSON.stringify(rest, null, 4));
+        log.info(portal.pageUrl({
+          path: personPath,
+        }));
 
         return {
-          role,
-          person,
+          authorID,
           personUrl: portal
             .pageUrl({
               path: personPath,
             }),
+          person,
           image: imageUrl(imageKey, 'block(96,128)')
         };
       }),
-      tags,
+      ingress,
+      text,
     };
 
     return React4xp.render(component, props, request);

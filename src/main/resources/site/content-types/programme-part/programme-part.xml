@@ -1,13 +1,13 @@
 <content-type>
-  <display-name i18n="cty.faq.displayname">Programme part</display-name> 
-  <display-name-label i18n="cty.faq.displayname.label">Programme part</display-name-label>
-  <description>Create a new Programme part</description> 
-  <super-type>base:structured</super-type> 
-  <is-abstract>false</is-abstract> 
-  <is-final>true</is-final> 
-  <is-built-in>false</is-built-in>  
-  <allow-child-content>true</allow-child-content> 
-  <form> 
+  <display-name i18n="content_types.programmepart.displayname">Programme part</display-name>
+  <display-name-label i18n="content_types.programmepart.displayname.label">Programme part</display-name-label>
+  <description i18n="content_types.programmepart.description">Create a new Programme part</description>
+  <super-type>base:structured</super-type>
+  <is-abstract>false</is-abstract>
+  <is-final>true</is-final>
+  <is-built-in>false</is-built-in>
+  <allow-child-content>true</allow-child-content>
+  <form>
     <input name="description" type="HtmlArea">
       <label>Part</label>
       <default>Enter the part here</default>

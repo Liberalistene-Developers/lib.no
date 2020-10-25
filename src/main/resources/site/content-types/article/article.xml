@@ -1,32 +1,32 @@
 <content-type>
-  <display-name i18n="cty.article.displayname">Article</display-name> 
-  <display-name-label i18n="cty.article.displayname.label">Article</display-name-label>
-  <description>Create a new Artile</description> 
-  <super-type>base:structured</super-type> 
-  <is-abstract>false</is-abstract> 
-  <is-final>true</is-final> 
-  <is-built-in>false</is-built-in>  
-  <allow-child-content>true</allow-child-content> 
-  <form> 
+  <display-name i18n="content_types.article.displayname">Article</display-name>
+  <display-name-label i18n="content_types.article.displayname.label">Article</display-name-label>
+  <description>Create a new Artile</description>
+  <super-type>base:structured</super-type>
+  <is-abstract>false</is-abstract>
+  <is-final>true</is-final>
+  <is-built-in>false</is-built-in>
+  <allow-child-content>true</allow-child-content>
+  <form>
     <mixin name="image" />
-    <input name="authorSelector" type="ContentSelector">
-      <label>Author</label>
+    <input name="author" type="ContentSelector">
+      <label i18n="content_types.author">Author(s)</label>
       <occurrences minimum="0" maximum="0"/>
       <config>
-        <allowContentType>person</allowContentType> 
+        <allowContentType>person</allowContentType>
         <allowPath>${site}/persons/</allowPath>
-        <allowPath>${site}/authors/</allowPath> 
+        <allowPath>${site}/authors/</allowPath>
         <allowPath>./*</allowPath>
-        <treeMode>true</treeMode>  
-        <showStatus>true</showStatus>  
-        <hideToggleIcon>true</hideToggleIcon> 
+        <treeMode>true</treeMode>
+        <showStatus>true</showStatus>
+        <hideToggleIcon>true</hideToggleIcon>
       </config>
     </input>
     <input name="ingress" type="HtmlArea">
-      <label>Ingress</label>
+      <label i18n="content_types.ingress.label">Ingress</label>
     </input>
     <input name="text" type="HtmlArea">
-      <label>Body text</label>
+      <label i18n="content_types.article.text.label">Body text</label>
     </input>
     <mixin name="tags" />
   </form>
