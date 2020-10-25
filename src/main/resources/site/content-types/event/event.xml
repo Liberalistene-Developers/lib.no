@@ -1,82 +1,82 @@
 <content-type>
-  <display-name i18n="cty.event.displayname">Event</display-name> 
-  <display-name-label i18n="cty.fact.displayname.label">Event</display-name-label>
-  <description>Create a new event</description> 
-  <super-type>base:structured</super-type> 
-  <is-abstract>false</is-abstract> 
-  <is-final>true</is-final> 
-  <is-built-in>false</is-built-in>  
-  <allow-child-content>true</allow-child-content> 
+  <display-name i18n="content_types.event.displayname">Event</display-name>
+  <display-name-label i18n="content_types.fact.displayname.label">Event</display-name-label>
+  <description i18n="content_types.event.description">Create a new event</description>
+  <super-type>base:structured</super-type>
+  <is-abstract>false</is-abstract>
+  <is-final>true</is-final>
+  <is-built-in>false</is-built-in>
+  <allow-child-content>true</allow-child-content>
   <form>
     <field-set>
       <items>
         <input name="from" type="DateTime">
-          <label>From/when</label>
+          <label i18n="content_types.event.from">From/when</label>
           <default>now</default>
         </input>
         <input name="to" type="DateTime">
-          <label>To</label>
+          <label i18n="content_types.event.to">To</label>
           <default>now</default>
         </input>
         <input name="place" type="TextLine">
-          <label>Place</label>
+          <label i18n="content_types.event.place">Place</label>
         </input>
         <mixin name="map" />
       </items>
     </field-set>
     <input name="description" type="HtmlArea">
-      <label>Description</label>
+      <label i18n="content_types.description">Description</label>
       <default><p>Description</p></default>
     </input>
     <field-set>
-      <label i18n="cty.event.organizers.label">Organizers</label>
+      <label i18n="organizer.event.organizers">Organizers</label>
       <items>
         <input name="organizerSelector" type="ContentSelector">
-          <label i18n="cty.event.organizer.label">Organizer</label>
+          <label i18n="content_types.event.organizer.label">Organizer</label>
           <occurrences minimum="0" maximum="0"/>
           <config>
-            <allowContentType>person</allowContentType> 
-            <allowContentType>group</allowContentType> 
+            <allowContentType>person</allowContentType>
+            <allowContentType>group</allowContentType>
             <allowPath>${site}/persons/</allowPath>
-            <allowPath>${site}/authors/</allowPath> 
+            <allowPath>${site}/authors/</allowPath>
             <allowPath>./*</allowPath>
-            <treeMode>true</treeMode>  
-            <showStatus>true</showStatus>  
-            <hideToggleIcon>true</hideToggleIcon> 
+            <treeMode>true</treeMode>
+            <showStatus>true</showStatus>
+            <hideToggleIcon>true</hideToggleIcon>
           </config>
         </input>
       </items>
     </field-set>
     <field-set>
-      <label i18n="cty.event.speakers.label">Speakers</label>
+      <label i18n="content_types.event.speakers">Speakers</label>
       <items>
         <input name="speakerSelector" type="ContentSelector">
-          <label>Speaker</label>
+          <label i18n="content_types.event.speaker.label">Speaker</label>
           <occurrences minimum="0" maximum="0"/>
           <config>
-            <allowContentType>Person</allowContentType> 
+            <allowContentType>Person</allowContentType>
             <allowPath>${site}/persons/</allowPath>
-            <allowPath>${site}/authors/</allowPath> 
+            <allowPath>${site}/authors/</allowPath>
             <allowPath>./*</allowPath>
-            <treeMode>true</treeMode>  
-            <showStatus>true</showStatus>  
-            <hideToggleIcon>false</hideToggleIcon> 
+            <treeMode>true</treeMode>
+            <showStatus>true</showStatus>
+            <hideToggleIcon>false</hideToggleIcon>
           </config>
         </input>
       </items>
     </field-set>
     <field-set>
-      <label i18n="cty.event.agendas.label">Agenda</label>
+      <label i18n="content_types.event.agenda">Agenda</label>
       <items>
         <item-set name="topics">
-          <label i18n="cty.event.agendas.label">Topic</label>
+          <label i18n="content_types.event.agenda.topic">Topic</label>
           <occurrences minimum="0" maximum="0"/>
           <items>
             <input name="topic" type="TextLine">
-              <label i18n="cty.event.agenda.topic.label">topic</label>
+              <label i18n="content_types.event.agenda.topic.label">Topic</label>
             </input>
             <input name="topic_description" type="HtmlArea">
-              <label i18n="cty.event.agenda.description.label">Description</label>
+              <label i18n="content_types.description">Description</label>
             </input>
           </items>
         </item-set>

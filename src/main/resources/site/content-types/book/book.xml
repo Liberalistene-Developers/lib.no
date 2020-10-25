@@ -1,18 +1,18 @@
 <content-type>
-  <display-name i18n="cty.book.displayname">Book</display-name> 
-  <display-name-label i18n="cty.book.displayname.label">Book</display-name-label>
-  <description>Create a new book</description> 
-  <super-type>base:structured</super-type> 
-  <is-abstract>false</is-abstract> 
-  <is-final>true</is-final> 
-  <is-built-in>false</is-built-in>  
-  <allow-child-content>true</allow-child-content> 
-  <form> 
+  <display-name i18n="content_types.book.displayname">Book</display-name>
+  <display-name-label i18n="common_types.book.displayname.label">Book</display-name-label>
+  <description i18n="content_types.book.description">Create a new book</description>
+  <super-type>base:structured</super-type>
+  <is-abstract>false</is-abstract>
+  <is-final>true</is-final>
+  <is-built-in>false</is-built-in>
+  <allow-child-content>true</allow-child-content>
+  <form>
     <input name="description" type="TextArea">
-      <label>Description</label>
+      <label i18n="content_types.description">Description</label>
     </input>
     <input name="buy" type="TextLine">
-      <label>Buy</label>
+      <label i18n="content_types.book.buy.label">Buy</label>
     </input>
     <mixin name="tags" />
   </form>

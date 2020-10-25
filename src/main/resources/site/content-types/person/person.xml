@@ -1,44 +1,44 @@
 <content-type>
-  <display-name i18n="cty.faq.displayname">Person</display-name> 
-  <display-name-label i18n="cty.faq.displayname.label">Person</display-name-label>
-  <description>Create a new Person</description> 
-  <super-type>base:structured</super-type> 
-  <is-abstract>false</is-abstract> 
-  <is-final>true</is-final> 
-  <is-built-in>false</is-built-in>  
-  <allow-child-content>true</allow-child-content> 
-  <form> 
+  <display-name i18n="content_types.person.displayname">Person</display-name>
+  <display-name-label i18n="content_types.person.displayname.label">Person</display-name-label>
+  <description i18n="content_types.person.description">Create a new Person</description>
+  <super-type>base:structured</super-type>
+  <is-abstract>false</is-abstract>
+  <is-final>true</is-final>
+  <is-built-in>false</is-built-in>
+  <allow-child-content>true</allow-child-content>
+  <form>
     <mixin name="image" />
     <mixin name="tags" />
     <input name="organizational-position" type="ContentSelector">
-      <label>Positions</label>
+      <label i18n="content_types.person.positions">Positions</label>
       <occurrences minimum="0" maximum="0"/>
       <config>
-        <allowContentType>organizational-position</allowContentType> 
-        <allowPath>${site}/positions/</allowPath> 
+        <allowContentType>organizational-position</allowContentType>
+        <allowPath>${site}/positions/</allowPath>
         <allowPath>./*</allowPath>
-        <treeMode>true</treeMode>  
-        <showStatus>true</showStatus>  
-        <hideToggleIcon>true</hideToggleIcon> 
+        <treeMode>true</treeMode>
+        <showStatus>true</showStatus>
+        <hideToggleIcon>true</hideToggleIcon>
       </config>
     </input>
     <input name="short-description" type="TextArea">
-      <label>Short description</label>
+      <label i18n="content_types.description.short">Short description</label>
     </input>
     <input name="description" type="HtmlArea">
-      <label>Description</label>
-      <default>
+      <label i18n="content_types.description">Description</label>
+      <default i18n="content_types.description.default">
         <p>Enter full description here</p>
       </default>
     </input>
     <input name="address" type="TextArea">
-      <label>Address</label>
+      <label i18n="content_types.address">Address</label>
     </input>
     <input name="email" type="TextLine">
-      <label>E-mail</label>
+      <label i18n="content_types.email">E-mail</label>
     </input>
     <input name="phone" type="TextLine">
-      <label>Primary phone</label>
+      <label i18n="content_types.phone">Primary phone</label>
     </input>
     <mixin name="social" />
   </form>

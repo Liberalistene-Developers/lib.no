@@ -1,16 +1,16 @@
 <content-type>
-  <display-name i18n="cty.programmesection.displayname">Programme Section</display-name> 
-  <display-name-label i18n="cty.programmesection.displayname.label">Programme Section</display-name-label>
-  <description>Create a new Programme section</description> 
-  <super-type>base:structured</super-type> 
-  <is-abstract>false</is-abstract> 
-  <is-final>true</is-final> 
-  <is-built-in>false</is-built-in>  
-  <allow-child-content>true</allow-child-content> 
-  <form> 
+  <display-name i18n="content_types.programmesection.displayname">Programme Section</display-name>
+  <display-name-label i18n="content_types.programmesection.displayname.label">Programme Section</display-name-label>
+  <description i18n="content_types.programmesection.description">Create a new Programme section</description>
+  <super-type>base:structured</super-type>
+  <is-abstract>false</is-abstract>
+  <is-final>true</is-final>
+  <is-built-in>false</is-built-in>
+  <allow-child-content>true</allow-child-content>
+  <form>
     <input name="description" type="HtmlArea">
-      <label>Description</label>
-      <default>Description</default>
+      <label i18n="content_types.programmesection.input.description">Description</label>
+      <default i18n="content_types.programmesection.input.description.default">Description</default>
     </input>
     <mixin name="order" />
     <mixin name="tags" />

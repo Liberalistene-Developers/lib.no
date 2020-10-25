@@ -19,21 +19,19 @@ export default ({
     <div dangerouslySetInnerHTML={{ __html: description }} />
     { board && board.length && (
       <ul>
-        { board.map(({ role, person, image }) => (
+        { board.map(({ role, person, personUrl, image }) => (
           <li>
-            <div>
-            { image && (
-              <img src={image} />
-            )}
-            </div>
-            <div>
+            <a href={personUrl}>
+              { image && (
+                <img src={image} />
+              )}
               <span>
-              {role}
+                {role}
               </span>
               <span>
-              {person}
+                {person}
               </span>
-            </div>
+            </a>
           </li>
         ))}
       </ul>

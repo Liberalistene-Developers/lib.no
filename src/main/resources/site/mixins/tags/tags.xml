@@ -1,7 +1,7 @@
 <mixin>
   <form>
     <input name="tags" type="Tag">
-      <label>Tags</label>
+      <label i18n="content_types.tags.label">Tags</label>
       <occurrences minimum="0" maximum="0"/>
     </input>
   </form>

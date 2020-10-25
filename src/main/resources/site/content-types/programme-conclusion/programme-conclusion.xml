@@ -1,16 +1,16 @@
 <content-type>
-  <display-name i18n="cty.programmepartconclusion.displayname">Programme part conclusion</display-name> 
-  <display-name-label i18n="cty.programmepartconclusion.displayname.label">Programme part conclusion</display-name-label>
-  <description>Create a new Programme part conclusion</description> 
-  <super-type>base:structured</super-type> 
-  <is-abstract>false</is-abstract> 
-  <is-final>true</is-final> 
-  <is-built-in>false</is-built-in>  
-  <allow-child-content>true</allow-child-content> 
-  <form> 
+  <display-name i18n="content_types.programmepartconclusion.displayname">Programme part conclusion</display-name>
+  <display-name-label i18n="content_types.programmepartconclusion.displayname.label">Programme part conclusion</display-name-label>
+  <description i18n="content_types.programmepartconclusion.description">Create a new Programme part conclusion</description>
+  <super-type>base:structured</super-type>
+  <is-abstract>false</is-abstract>
+  <is-final>true</is-final>
+  <is-built-in>false</is-built-in>
+  <allow-child-content>true</allow-child-content>
+  <form>
     <input name="description" type="HtmlArea">
-      <label>Conclusion</label>
-      <default>One liner</default>
+      <label i18n="content_types.programmepartconclusion.conclusion">Conclusion</label>
+      <default i18n="content_types.programmepartconclusion.description.default">One liner</default>
     </input>
     <mixin name="order" />
     <mixin name="tags" />

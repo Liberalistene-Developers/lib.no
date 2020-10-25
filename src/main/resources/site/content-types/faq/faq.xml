@@ -1,16 +1,16 @@
 <content-type>
-  <display-name i18n="cty.faq.displayname">FAQ</display-name> 
-  <display-name-label i18n="cty.faq.displayname.label">Question</display-name-label>
-  <description>Create a new FAQ question</description> 
-  <super-type>base:structured</super-type> 
-  <is-abstract>false</is-abstract> 
-  <is-final>true</is-final> 
-  <is-built-in>false</is-built-in>  
-  <allow-child-content>true</allow-child-content> 
-  <form> 
+  <display-name i18n="content_types.faq.displayname">FAQ</display-name>
+  <display-name-label i18n="content_types.faq.displayname.label">Question</display-name-label>
+  <description i18n="content_types.faq.description">Create a new FAQ</description>
+  <super-type>base:structured</super-type>
+  <is-abstract>false</is-abstract>
+  <is-final>true</is-final>
+  <is-built-in>false</is-built-in>
+  <allow-child-content>true</allow-child-content>
+  <form>
     <input name="answer" type="HtmlArea">
-      <label>Answer</label>
-      <default><h3>Enter the answer here</h3></default>
+      <label i18n="content_types.faq.answer.label">Answer</label>
+      <default i18m="content_types.faq.anwer.default"><h3>Enter the answer here</h3></default>
     </input>
     <mixin name="tags" />
   </form>

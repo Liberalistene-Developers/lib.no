@@ -1,16 +1,16 @@
 <mixin>
   <form>
-    <input name="facebook" type="TextLine">
-      <label>Facebook</label>
-    </input>
-    <input name="twitter" type="TextLine">
-      <label>Twitter</label>
-    </input>
-    <input name="instagram" type="TextLine">
-      <label>Instagram</label>
-    </input>
-    <input name="linkedin" type="TextLine">
-      <label>LinkedIn</label>
-    </input>
+    <item-set name="social">
+      <label i18n="content_types.social.label">Social</label>
+      <occurrences minimum="0" maximum="0"/>
+      <items>
+        <input name="site" type="TextLine">
+          <label i18n="content_types.social.site.label">Site</label>
+        </input>
+        <input name="address" type="TextLine">
+          <label i18n="content_types.social.address.label">ID/Address</label>
+        </input>
+      </items>
+    </item-set>
   </form>
 </mixin>
