@@ -8,8 +8,9 @@
   <is-built-in>false</is-built-in>
   <allow-child-content>true</allow-child-content>
   <form>
+    <mixin name="image" />
     <input name="qoute" type="HtmlArea">
-      <label i18n="content_types.quote.inpute.description">Qoute</label>
+      <label i18n="content_types.quote.input.description">Qoute</label>
       <default i18n="content_types.quote.input.description.default"><p>Enter your quote here</p></default>
     </input>
     <input name="peopleSelector" type="ContentSelector">
@@ -17,7 +18,9 @@
       <occurrences minimum="0" maximum="1"/>
       <config>
         <allowContentType>person</allowContentType>
-        <allowPath>${site}/people/</allowPath>
+        <allowPath>${site}/persons/</allowPath>
+        <allowPath>${site}/authors/</allowPath>
+        <allowPath>${site}/*</allowPath>
         <allowPath>./*</allowPath>
         <treeMode>true</treeMode>
         <showStatus>true</showStatus>

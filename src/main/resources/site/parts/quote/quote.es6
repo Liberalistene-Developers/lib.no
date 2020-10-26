@@ -41,8 +41,6 @@ exports.get = function(request) {
           ...rest
         } = contentLib.get({ key: authorID });
 
-        log.info(JSON.stringify(rest, null, 4));
-
         return {
           authorID,
           personUrl: portal

@@ -8,6 +8,24 @@
   <is-built-in>false</is-built-in>
   <allow-child-content>true</allow-child-content>
   <form>
+    <mixin name="image">
+    <input name="author" type="ContentSelector">
+      <label i18n="content_types.author">Author(s)</label>
+      <occurrences minimum="0" maximum="0"/>
+      <config>
+        <allowContentType>person</allowContentType>
+        <allowPath>${site}/persons/</allowPath>
+        <allowPath>${site}/authors/</allowPath>
+        <allowPath>${site}/*</allowPath>
+        <allowPath>./*</allowPath>
+        <treeMode>true</treeMode>
+        <showStatus>true</showStatus>
+        <hideToggleIcon>true</hideToggleIcon>
+      </config>
+    </input>
+    <input name="ingress" type="TextArea">
+      <label i18n="content_types.description.short">Ingress</label>
+    </input>
     <input name="description" type="TextArea">
       <label i18n="content_types.description">Description</label>
     </input>
