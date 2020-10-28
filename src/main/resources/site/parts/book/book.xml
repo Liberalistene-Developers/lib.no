@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <part>
-  <display-name>Book</display-name>
-  <description>
+  <display-name i18n="content_types.book.displayname">Book</display-name>
+  <description i18n="content_types.book.part.description">
     Display Book
   </description>
   <form />
