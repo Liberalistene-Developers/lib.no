@@ -23,7 +23,7 @@ dependencies {
     include "com.enonic.xp:lib-portal:${xpVersion}"
     //include "com.enonic.xp:lib-auth:${xpVersion}"
     //include "com.enonic.xp:lib-context:${xpVersion}"
-    //include "com.enonic.xp:lib-i18n:${xpVersion}"
+    include "com.enonic.xp:lib-i18n:${xpVersion}"
     //include "com.enonic.xp:lib-io:${xpVersion}"
     //include "com.enonic.xp:lib-mail:${xpVersion}"
     //include "com.enonic.xp:lib-repo:${xpVersion}"
@@ -32,7 +32,8 @@ dependencies {
     include "com.enonic.lib:lib-mustache:2.0.0"
     include "com.enonic.lib:lib-util:2.3.0"
     include "com.enonic.lib:lib-guillotine:4.2.0"
-
+    include "com.enonic.lib:lib-menu:3.1.0"
+    
     include "com.enonic.lib:lib-react4xp:${rootProject.ext.LIB_REACT4XP_VERSION}"
 }
 

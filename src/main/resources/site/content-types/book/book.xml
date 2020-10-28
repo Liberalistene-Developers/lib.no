@@ -8,7 +8,7 @@
   <is-built-in>false</is-built-in>
   <allow-child-content>true</allow-child-content>
   <form>
-    <mixin name="image">
+    <mixin name="image" />
     <input name="author" type="ContentSelector">
       <label i18n="content_types.author">Author(s)</label>
       <occurrences minimum="0" maximum="0"/>

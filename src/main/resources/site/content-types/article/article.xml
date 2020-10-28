@@ -29,6 +29,19 @@
     <input name="text" type="HtmlArea">
       <label i18n="content_types.article.text.label">Body text</label>
     </input>
+    <input name="category" type="ContentSelector">
+      <label i18n="content_types.category.label">Category(s)</label>
+      <occurrences minimum="0" maximum="0"/>
+      <config>
+        <allowContentType>category</allowContentType>
+        <allowPath>${site}/categories/</allowPath>
+        <allowPath>${site}/*</allowPath>
+        <allowPath>./*</allowPath>
+        <treeMode>true</treeMode>
+        <showStatus>true</showStatus>
+        <hideToggleIcon>true</hideToggleIcon>
+      </config>
+    </input>
     <mixin name="tags" />
   </form>
 </content-type>
