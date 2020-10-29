@@ -10,7 +10,7 @@
   <form>
     <input name="fact" type="HtmlArea">
       <label i18n="content_types.input.fact.label">Fact</label>
-      <default i18n="content_types.input.fact.default"><h3>Enter your fact here</h3></default>
+      <default i18n="content_types.input.fact.default">Enter your fact here</default>
     </input>
     <mixin name="tags" />
   </form>

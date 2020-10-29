@@ -14,8 +14,7 @@
       <occurrences minimum="0" maximum="0"/>
       <config>
         <allowContentType>person</allowContentType>
-        <allowPath>${site}/persons/</allowPath>
-        <allowPath>${site}/authors/</allowPath>
+        <allowPath>${site}/person/</allowPath>
         <allowPath>${site}/*</allowPath>
         <allowPath>./*</allowPath>
         <treeMode>true</treeMode>
@@ -23,15 +22,24 @@
         <hideToggleIcon>true</hideToggleIcon>
       </config>
     </input>
-    <input name="ingress" type="TextArea">
+    <input name="ingress" type="HtmlArea">
       <label i18n="content_types.description.short">Ingress</label>
     </input>
-    <input name="description" type="TextArea">
+    <input name="description" type="HtmlArea">
       <label i18n="content_types.description">Description</label>
     </input>
-    <input name="buy" type="TextLine">
-      <label i18n="content_types.book.buy.label">Buy</label>
-    </input>
+    <item-set name="buy">
+      <label i18n="content_types.book.buy.label">Where to buy</label>
+      <occurrences minimum="0" maximum="0"/>
+      <items>
+        <input name="topic" type="TextLine">
+          <label i18n="content_types.book.buy.site.label">Store name</label>          
+        </input>
+        <input name="url" type="TextLine">
+          <label i18n="content_types.book.buy.url.label">Url</label>          
+        </input>
+      </items>
+    </item-set>
     <mixin name="tags" />
   </form>
 </content-type>

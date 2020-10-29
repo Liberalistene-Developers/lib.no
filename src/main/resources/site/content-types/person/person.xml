@@ -10,18 +10,6 @@
   <form>
     <mixin name="image" />
     <mixin name="tags" />
-    <input name="organizational-position" type="ContentSelector">
-      <label i18n="content_types.person.positions">Positions</label>
-      <occurrences minimum="0" maximum="0"/>
-      <config>
-        <allowContentType>organizational-position</allowContentType>
-        <allowPath>${site}/positions/</allowPath>
-        <allowPath>./*</allowPath>
-        <treeMode>true</treeMode>
-        <showStatus>true</showStatus>
-        <hideToggleIcon>true</hideToggleIcon>
-      </config>
-    </input>
     <input name="short-description" type="TextArea">
       <label i18n="content_types.description.short">Short description</label>
     </input>
