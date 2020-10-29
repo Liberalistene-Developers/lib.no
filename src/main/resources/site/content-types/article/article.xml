@@ -28,6 +28,19 @@
     <input name="text" type="HtmlArea">
       <label i18n="content_types.article.text.label">Body text</label>
     </input>
+    <input name="faq" type="ContentSelector">
+      <label i18n="content_types.category.label">FAQ(s)</label>
+      <occurrences minimum="0" maximum="0"/>
+      <config>
+        <allowContentType>faq</allowContentType>
+        <allowPath>${site}/faq/</allowPath>
+        <allowPath>${site}/*</allowPath>
+        <allowPath>./*</allowPath>
+        <treeMode>true</treeMode>
+        <showStatus>true</showStatus>
+        <hideToggleIcon>true</hideToggleIcon>
+      </config>
+    </input>
     <input name="category" type="ContentSelector">
       <label i18n="content_types.category.label">Category(s)</label>
       <occurrences minimum="0" maximum="0"/>
