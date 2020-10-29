@@ -8,7 +8,7 @@
   <is-built-in>false</is-built-in>
   <allow-child-content>true</allow-child-content>
   <form>
-    <input name="description" type="TextArea">
+    <input name="description" type="HtmlArea">
       <label i18n="content_types.tag.input.description">Description</label>
     </input>
   </form>
