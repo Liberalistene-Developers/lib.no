@@ -14,8 +14,7 @@
       <occurrences minimum="0" maximum="0"/>
       <config>
         <allowContentType>person</allowContentType>
-        <allowPath>${site}/persons/</allowPath>
-        <allowPath>${site}/authors/</allowPath>
+        <allowPath>${site}/person/</allowPath>
         <allowPath>${site}/*</allowPath>
         <allowPath>./*</allowPath>
         <treeMode>true</treeMode>

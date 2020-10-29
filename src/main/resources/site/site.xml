@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
   <x-data name="menu-item" />
+  <mappings>
+    <mapping controller="/lib/urlredirect.js">
+      <match>type:'lib.no:url'</match>
+    </mapping>
+  </mappings>
   <form />
 </site>

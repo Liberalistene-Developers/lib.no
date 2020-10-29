@@ -10,7 +10,7 @@
   <form>
     <input name="answer" type="HtmlArea">
       <label i18n="content_types.faq.answer.label">Answer</label>
-      <default i18m="content_types.faq.anwer.default"><h3>Enter the answer here</h3></default>
+      <default i18m="content_types.faq.anwer.default">Enter the answer here</default>
     </input>
     <mixin name="tags" />
   </form>

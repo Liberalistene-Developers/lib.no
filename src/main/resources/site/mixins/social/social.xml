@@ -5,7 +5,7 @@
       <occurrences minimum="0" maximum="0"/>
       <items>
         <input name="site" type="TextLine">
-          <label i18n="content_types.social.site.label">Site</label>
+          <label i18n="content_types.social.site.label">Site/Type</label>
         </input>
         <input name="address" type="TextLine">
           <label i18n="content_types.social.address.label">ID/Address</label>
