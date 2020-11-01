@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part>
+  <display-name i18n="content_types.faqs.part.displayname">FAQ(s)</display-name>
+  <description i18n="content_types.faqs.part.description">
+    Display list of FAQ
+  </description>
+  <form />
+</part>
