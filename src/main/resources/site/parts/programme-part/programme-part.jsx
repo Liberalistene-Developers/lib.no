@@ -4,10 +4,10 @@ export default ({ title, description, conclusionTitle, conclusions, tags }) => (
   <div>
     <h3>{title}</h3>
     <div dangerouslySetInnerHTML={{ __html: description }} />
-    <div className="conclusions">
-      <div className="title">{ conclusionTitle }</div>
+    { conclusions && conclusions.length && (
       <div>
-        { conclusions && conclusions.length && (
+        <div className="conclusions">
+          <div className="title">{ conclusionTitle }</div>
           <ul>
             { conclusions.map(({ key, conclusion }) => (
               <li key={key}>
@@ -15,8 +15,8 @@ export default ({ title, description, conclusionTitle, conclusions, tags }) => (
               </li>
             ))}
           </ul>
-        )}
+        </div>
       </div>
-    </div>
+    )}
   </div>
 );
