@@ -12,7 +12,6 @@
       <label>Part</label>
       <default>Enter the part here</default>
     </input>
-    <mixin name="order" />
     <mixin name="tags" />
   </form>
 </content-type>

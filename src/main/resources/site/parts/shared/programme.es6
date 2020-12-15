@@ -19,11 +19,7 @@ export const getConclusions = (search) => {
     .map(({
       _id: key,
       displayName: conclusion,
-      data: {
-        order = 0,
-      },
-    }) => ({ key, conclusion, order }))
-    .sort((a, b) => a.order < b.order);
+    }) => ({ key, conclusion }));
 
   return conclusions;
 };
@@ -42,7 +38,6 @@ export const getParts = (search) => {
       displayName: partTitle,
       data: {
         description: partDescription,
-        order = 0,
         tags = [],
       } = {},
       page: {
@@ -70,10 +65,8 @@ export const getParts = (search) => {
         conclusionTitle,
         conclusions,
         tags,
-        order,
       };      
-    })
-    .sort((a, b) => a.order < b.order);
+    });
     
   return parts;
 };
@@ -92,7 +85,6 @@ export const getSections = (search) => {
       displayName: sectionTitle,
       data: {
         description: sectionDescription,
-        order = 0,
         tags = [],
       } = {},
     }) => {
@@ -106,10 +98,8 @@ export const getSections = (search) => {
         description: sectionDescription,
         parts,
         tags,
-        order,
       };
-    })
-    .sort((a, b) => a.order < b.order);
+    });
     
   return sections;
 };

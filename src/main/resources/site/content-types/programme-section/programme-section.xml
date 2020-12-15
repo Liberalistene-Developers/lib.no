@@ -8,11 +8,6 @@
   <is-built-in>false</is-built-in>
   <allow-child-content>true</allow-child-content>
   <form>
-    <input name="description" type="HtmlArea">
-      <label i18n="content_types.programmesection.input.description">Description</label>
-      <default i18n="content_types.programmesection.input.description.default">Description</default>
-    </input>
-    <mixin name="order" />
     <mixin name="tags" />
   </form>
 </content-type>
