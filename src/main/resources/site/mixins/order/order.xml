@@ -1,9 +1,0 @@
-<mixin>
-  <display-name>Order</display-name>
-  <form>
-    <input name="order" type="Long">
-      <label>Order</label>
-      <default>1</default> 
-    </input>
-  </form>
-</mixin>
