@@ -18,10 +18,10 @@
       <occurrences minimum="0" maximum="1"/>
       <config>
         <allowContentType>person</allowContentType>
-        <allowPath>${site}/person/</allowPath>
-        <allowPath>${site}/*</allowPath>
+        <allowPath>/*/person/*</allowPath>
+        <allowPath>{site}/*/person/*</allowPath>
         <allowPath>./*</allowPath>
-        <treeMode>true</treeMode>
+        <treeMode>false</treeMode>
         <showStatus>true</showStatus>
         <hideToggleIcon>true</hideToggleIcon>
       </config>

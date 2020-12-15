@@ -38,10 +38,11 @@
           <config>
             <allowContentType>person</allowContentType>
             <allowContentType>group</allowContentType>
-            <allowPath>${site}/person/*</allowPath>
+            <allowPath>/*/person/*</allowPath>
+            <allowPath>${site}/*/person/*</allowPath>
             <allowPath>${site}/lag/</allowPath>
             <allowPath>./*</allowPath>
-            <treeMode>true</treeMode>
+            <treeMode>false</treeMode>
             <showStatus>true</showStatus>
             <hideToggleIcon>true</hideToggleIcon>
           </config>
@@ -56,11 +57,12 @@
           <occurrences minimum="0" maximum="0"/>
           <config>
             <allowContentType>Person</allowContentType>
-            <allowPath>${site}/person/*</allowPath>
+            <allowPath>/*/person/*</allowPath>
+            <allowPath>${site}/*/person/*</allowPath>
             <allowPath>./*</allowPath>
-            <treeMode>true</treeMode>
+            <treeMode>false</treeMode>
             <showStatus>true</showStatus>
-            <hideToggleIcon>false</hideToggleIcon>
+            <hideToggleIcon>true</hideToggleIcon>
           </config>
         </input>
       </items>
@@ -80,9 +82,10 @@
               <occurrences minimum="0" maximum="0"/>
               <config>
                 <allowContentType>Person</allowContentType>
-                <allowPath>${site}/person/*</allowPath>
+                <allowPath>/*/person/*</allowPath>
+                <allowPath>${site}/*/person/*</allowPath>
                 <allowPath>./*</allowPath>
-                <treeMode>true</treeMode>
+                <treeMode>false</treeMode>
                 <showStatus>true</showStatus>
                 <hideToggleIcon>false</hideToggleIcon>
               </config>
