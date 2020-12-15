@@ -8,10 +8,6 @@
   <is-built-in>false</is-built-in>
   <allow-child-content>true</allow-child-content>
   <form>
-    <input name="description" type="HtmlArea">
-      <label i18n="content_types.programmepartconclusion.conclusion">Conclusion</label>
-      <default i18n="content_types.programmepartconclusion.description.default">One liner</default>
-    </input>
     <mixin name="tags" />
   </form>
 </content-type>
