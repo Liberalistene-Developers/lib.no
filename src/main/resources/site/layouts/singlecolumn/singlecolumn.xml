@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<layout>
+  <display-name i18n="layouts.singlecolumn.displayname">Single column</display-name>
+  <form />
+  <regions>
+    <region name="content"/>
+  </regions>
+</layout>

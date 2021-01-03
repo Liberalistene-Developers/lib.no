@@ -11,10 +11,10 @@
     <mixin name="image" />
     <mixin name="tags" />
     <input name="short-description" type="TextArea">
-      <label i18n="content_types.description.short">Short description</label>
+      <label i18n="content_types.description.short.label">Short description</label>
     </input>
     <input name="description" type="HtmlArea">
-      <label i18n="content_types.description">Description</label>
+      <label i18n="content_types.description.label">Description</label>
       <default i18n="content_types.description.default">
         <p>Enter full description here</p>
       </default>

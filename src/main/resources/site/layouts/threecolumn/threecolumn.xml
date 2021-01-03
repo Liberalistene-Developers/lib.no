@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <layout>
-  <display-name>3 Columns</display-name>
+  <display-name i18n="layouts.3columns.displayname">3 Columns</display-name>
   <form />
   <regions>
     <region name="left"/>

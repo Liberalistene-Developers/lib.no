@@ -1,0 +1,35 @@
+.three-column-parent {
+  display: flex;
+  flex-direction: row;
+}
+
+.three-column-child {
+  width: 33%;
+}
+
+.person-list {
+  display: flex;
+}
+
+.person-list.grid {
+  flex-direction: row;
+}
+
+.person-list.list {
+  flex-direction: column;
+}
+
+.person-list .person-list-grid-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.person-list .person-list-list-item {
+  display: flex;
+  flex-direction: row;  
+}
+
+.person-list .person-list-list-item img {
+  width: 100px;
+  padding: 10px;
+}
