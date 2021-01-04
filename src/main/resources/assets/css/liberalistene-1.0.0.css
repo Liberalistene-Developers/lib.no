@@ -1,3 +1,7 @@
+body {
+  font-family: Lato, sans-serif;
+}
+
 .three-column-parent {
   display: flex;
   flex-direction: row;
