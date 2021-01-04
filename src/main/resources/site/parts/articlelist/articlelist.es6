@@ -16,13 +16,13 @@ exports.get = function(request) {
       config: {
         description,
         displaytype,
-        persons = [],
+        items: itemList = [],
         shortDescription,
         title,
       } = {},
     } = component;
     
-    const items = [].concat(persons);
+    const items = [].concat(itemList);
     
     log.info(JSON.stringify(content, null, 4));
     log.info(JSON.stringify(component, null, 4));

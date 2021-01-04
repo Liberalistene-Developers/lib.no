@@ -16,7 +16,7 @@ export default ({
   const Item = displaytype === 'list' ? ListItem : GridItem;
   
   return (
-    <div className="person-list-holder">
+    <div className="article-list-holder">
       { title && (
         <h2 title={title}>{title}</h2>
       )} 
@@ -36,7 +36,7 @@ export default ({
       )}
       
       { items && items.length > 0 && (
-        <div className={`person-list ${displaytype}`}>
+        <div className={`article-list ${displaytype}`}>
           { items.map((item) => (
             <Item
               key={item.itemID}

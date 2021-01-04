@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <part>
-  <display-name i18n="parts.personlist.name">Person list</display-name>
-  <description i18n="parts.personlist.description">
-    Display Person list
+  <display-name i18n="parts.articlelist.name">Article list</display-name>
+  <description i18n="parts.articlelist.description">
+    Display Article list
   </description>
   <form>
     <input type="TextLine" name="title" > 
@@ -12,13 +12,13 @@
       <occurrences minimum="0" maximum="1"/>  
       <config/> 
     </input>
-    <input name="persons" type="ContentSelector">
-      <label i18n="parts.personlist.persons.label">Person(s)</label>
+    <input name="items" type="ContentSelector">
+      <label i18n="parts.articlelist.articles.label">Article(s)</label>
       <occurrences minimum="1" maximum="0"/>
       <config>
-        <allowContentType>person</allowContentType>
-        <allowPath>/*/person/*</allowPath>
-        <allowPath>${site}/*/person/*</allowPath>
+        <allowContentType>article</allowContentType>
+        <allowPath>/*/artikler/*</allowPath>
+        <allowPath>${site}/*/artikler/*</allowPath>
         <allowPath>${site}/*</allowPath>
         <allowPath>./*</allowPath>
         <treeMode>false</treeMode>

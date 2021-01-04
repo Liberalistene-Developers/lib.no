@@ -19,17 +19,31 @@
   flex-direction: column;
 }
 
-.person-list .person-list-grid-item {
+.grid-item {
   display: flex;
   flex-direction: column;
 }
 
-.person-list .person-list-list-item {
+.grid-item-info {
+  padding-left: 10px;
+}
+
+.person-list .grid-item img {
+  width: 256px;
+  padding: 10px;
+}
+
+.list-item {
   display: flex;
   flex-direction: row;  
 }
 
-.person-list .person-list-list-item img {
+.list-item-info {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.person-list .list-item img {
   width: 100px;
   padding: 10px;
 }
