@@ -1,0 +1,15 @@
+<mixin>
+  <display-name i18n="mixin.imagesize.displayname">Image size</display-name>
+  <form>
+    <input name="imagesize" type="RadioButton">
+      <label i18n="mixin.imagesize.label">Image size</label>
+      <occurrences minimum="1" maximum="1"/> 
+      <config>
+        <option value="small" i18n="mixin.imagesize.small.label">Small</option> 
+        <option value="medium" i18n="mixin.imagesize.medium.label">Medium</option>
+        <option value="large" i18n="mixin.imagesize.large.label">Large</option>
+      </config>
+      <default>medium</default> 
+    </input>
+  </form>
+</mixin>

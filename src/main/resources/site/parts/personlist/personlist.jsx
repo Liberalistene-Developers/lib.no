@@ -9,6 +9,8 @@ export default ({
   fields,
   imageUrl,
   shortDescription,
+  imagesize,
+  imagetype,
   items,
   tags,
   title,
@@ -42,6 +44,8 @@ export default ({
               key={item.itemID}
               item={item}
               fields={fields}
+              imageSize={imagesize}
+              imageType={(imagetype && 'round') || ''}
             />
           ))}
         </div>

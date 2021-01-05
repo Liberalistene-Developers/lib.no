@@ -1,0 +1,12 @@
+<mixin>
+  <display-name i18n="mixin.imagesize.displayname">Image type</display-name>
+  <form>
+    <input  name="imagetype" type="CheckBox">
+      <label i18n="mixin.imagetype.label">Round image</label>
+      <default>checked</default> 
+      <config>
+        <alignment>right</alignment> 
+      </config>
+    </input>
+  </form>
+</mixin>

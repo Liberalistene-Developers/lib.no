@@ -32,8 +32,7 @@ body {
   padding-left: 10px;
 }
 
-.person-list .grid-item img {
-  width: 256px;
+.grid-item img {
   padding: 10px;
 }
 
@@ -47,7 +46,34 @@ body {
   padding-top: 10px;
 }
 
-.person-list .list-item img {
-  width: 100px;
+.list-item img {
   padding: 10px;
+}
+
+img.round {
+  border-radius: 50%;
+}
+
+.grid-item .small>img {
+  width: 100px;
+}
+
+.grid-item .medium>img {
+  width: 256px;
+}
+
+.grid-item .large>img {
+  width: 356px;
+}
+
+.list-item .small>img {
+  width: 100px;
+}
+
+.list-item .medium>img {
+  width: 200px;
+}
+
+.list-item .large>img {
+  width: 300px;
 }

@@ -27,5 +27,7 @@
       </config>
     </input>
     <mixin name="displaytype" />
+    <mixin name="imagesize" />
+    <mixin name="imagetype" />
   </form>
 </part>

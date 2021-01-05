@@ -16,6 +16,8 @@ exports.get = function(request) {
       config: {
         description,
         displaytype,
+        imagesize,
+        imagetype,
         persons = [],
         shortDescription,
         title,
@@ -32,6 +34,8 @@ exports.get = function(request) {
       displaytype,
       description,
       shortDescription,
+      imagesize,
+      imagetype,
       items: items.map((itemID) => {
         const {
           displayName: name,
