@@ -1,0 +1,11 @@
+<mixin>
+  <display-name i18n="mixin.borderbottom.displayname">Bottom Border</display-name>
+  <form>
+    <input  name="borderbottom" type="CheckBox">
+      <label i18n="mixin.borderbottom.label">Bottom Border</label>
+      <config>
+        <alignment>right</alignment> 
+      </config>
+    </input>
+  </form>
+</mixin>

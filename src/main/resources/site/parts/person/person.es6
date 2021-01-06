@@ -22,7 +22,7 @@ exports.get = function(request) {
 
     const props = {
       title,
-      imageUrl: imageUrl(image, 'block(192,256)'),
+      image: imageUrl(image, 'block(192,256)'),
       description,
       shortDescription,
       tags,

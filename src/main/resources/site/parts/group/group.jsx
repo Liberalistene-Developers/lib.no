@@ -1,8 +1,10 @@
 import React from 'react';
 
+import Image from '../image/image.jsx';
+
 export default ({
   title,
-  imageUrl,
+  image,
   shortDescription,
   description,
   board,
@@ -10,13 +12,17 @@ export default ({
 }) => (
   <div>
     <h1 title={title}>{title}</h1>
-    <div>
-      { imageUrl && (
-        <img src={imageUrl} />
-      )}
-    </div>
-    <div dangerouslySetInnerHTML={{ __html: shortDescription }} />
-    <div dangerouslySetInnerHTML={{ __html: description }} />
+    
+    <Image image={image} />
+
+    { shortDescription && (
+      <div dangerouslySetInnerHTML={{ __html: shortDescription }} />
+    )}
+    
+    { description && (
+      <div dangerouslySetInnerHTML={{ __html: description }} />  
+    )}
+
     { board && board.length && (
       <ul>
         { board.map(({ role, person, personUrl, image }) => (

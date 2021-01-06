@@ -1,0 +1,11 @@
+<mixin>
+  <display-name i18n="mixin.fullwidth.displayname">Full width</display-name>
+  <form>
+    <input  name="fullwidth" type="CheckBox">
+      <label i18n="mixin.fullwidth.label">Full width</label>
+      <config>
+        <alignment>right</alignment> 
+      </config>
+    </input>
+  </form>
+</mixin>

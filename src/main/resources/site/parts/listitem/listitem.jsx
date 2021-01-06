@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Image from '../image/image.jsx';
+
 export default ({
   imageSize,
   imageType,
@@ -12,11 +14,9 @@ export default ({
   fields,
 }) => (
   <div className="list-item">
-    { image && (
-      <div className={imageSize}>
-        <img src={image} className={imageType} />
-      </div>
-    )}
+    
+    <Image image={image} className={imageSize} imageClassName={imageType} />
+    
     { name && (
       <div className="list-item-info">
         <div>

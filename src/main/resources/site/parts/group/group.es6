@@ -26,7 +26,7 @@ exports.get = function(request) {
 
     const props = {
       title,
-      imageUrl: imageUrl(image),
+      image: imageUrl(image),
       shortDescription,
       description,
       board: members.map(({

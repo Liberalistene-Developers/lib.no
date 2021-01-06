@@ -8,9 +8,22 @@ exports.get = function(req) {
   // Find the current component.
   const component = portal.getComponent();
 
+  const {
+    config: {
+      fullwidth: fullWidth,
+      borderbottom: borderBottom,
+    },
+    regions: {
+      content: contentRegion,
+    },
+  } = component;
+
+
   // Define the model
   const model = {
-    contentRegion: component.regions['content']
+    borderBottom,
+    contentRegion,
+    fullWidth,
   };
 
   // Render a thymeleaf template

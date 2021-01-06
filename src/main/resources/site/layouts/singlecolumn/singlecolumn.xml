@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <layout>
   <display-name i18n="layouts.singlecolumn.displayname">Single column</display-name>
-  <form />
+  <form>
+    <mixin name="fullwidth" />
+    <mixin name="borderbottom" />
+  </form>
   <regions>
     <region name="content"/>
   </regions>

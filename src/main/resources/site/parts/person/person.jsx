@@ -1,20 +1,25 @@
 import React from 'react';
 
+import Image from '../image/image.jsx';
+
 export default ({
   title,
-  imageUrl,
+  image,
   description,
   shortDescription,
   tags,
 }) => (
   <div>
     <h1 title={title}>{title}</h1>
-    { imageUrl && (
-      <div>
-        <img src={imageUrl} />
-      </div>
+    
+    <Image image={image} />
+    
+    { shortDescription && (
+      <div dangerouslySetInnerHTML={{ __html: shortDescription }} />  
     )}
-    <div dangerouslySetInnerHTML={{ __html: shortDescription }} />
-    <div dangerouslySetInnerHTML={{ __html: description }} />
+    
+    { description && (
+      <div dangerouslySetInnerHTML={{ __html: description }} />  
+    )}
   </div>
 );

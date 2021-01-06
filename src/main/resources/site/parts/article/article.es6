@@ -28,7 +28,7 @@ exports.get = function(request) {
 
     const props = {
       title,
-      imageUrl: imageUrl(image),
+      image: imageUrl(image),
       description,
       tags,
       authors: authors.map((authorID) => {

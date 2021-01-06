@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Image from '../image/image.jsx';
+
 import ListItem from '../listitem/listitem.jsx';
 import GridItem from '../griditem/griditem.jsx';
 
@@ -7,7 +9,7 @@ export default ({
   description,
   displaytype,
   fields,
-  imageUrl,
+  image,
   shortDescription,
   items,
   tags,
@@ -21,11 +23,7 @@ export default ({
         <h2 title={title}>{title}</h2>
       )} 
       
-      { imageUrl && (
-        <div>
-          <img src={imageUrl} />
-        </div>
-      )}
+      <Image image={image} />
       
       { shortDescription && (
         <div dangerouslySetInnerHTML={{ __html: shortDescription }} />

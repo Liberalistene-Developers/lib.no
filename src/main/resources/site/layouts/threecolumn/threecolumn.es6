@@ -9,10 +9,25 @@ exports.get = function(req) {
   const component = portal.getComponent();
 
   // Define the model
+  const {
+    config: {
+      fullwidth: fullWidth,
+      borderbottom: borderBottom,
+    },
+    regions: {
+      left: leftRegion,
+      middle: middleRegion,
+      right: rightRegion,
+    }
+  } = component;
+  
+
   const model = {
-    leftRegion: component.regions['left'],
-    middleRegion: component.regions['middle'],
-    rightRegion: component.regions['right'],
+    borderBottom,
+    fullWidth,
+    leftRegion,
+    middleRegion,
+    rightRegion,
   };
 
   // Render a thymeleaf template

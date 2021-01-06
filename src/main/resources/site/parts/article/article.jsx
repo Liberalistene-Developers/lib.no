@@ -2,7 +2,7 @@ import React from 'react';
 
 export default ({
   title,
-  imageUrl,
+  image,
   authors,
   ingress,
   text,
@@ -11,9 +11,9 @@ export default ({
 }) => (
   <div>
     <h1 title={title}>{title}</h1>
-    { imageUrl && (
+    { image && (
       <div>
-        <img src={imageUrl} />
+        <img src={image.url} alt={image.alternativeText} />
       </div>
     )}
     { authors && authors.length > 0 && (

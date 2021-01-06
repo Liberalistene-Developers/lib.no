@@ -1,8 +1,10 @@
 import React from 'react';
 
+import Image from '../image/image.jsx';
+
 export default ({
   title,
-  imageUrl,
+  image,
   authors,
   ingress,
   text,
@@ -11,11 +13,9 @@ export default ({
 }) => (
   <div>
     <h1 title={title}>{title}</h1>
-    { imageUrl && (
-      <div>
-        <img src={imageUrl} />
-      </div>
-    )}
+    
+    <Image image={image} />
+
     { authors && authors.length > 0 && (
       <ul>
         { authors.map(({ authorID, person, personUrl, image }) => (
