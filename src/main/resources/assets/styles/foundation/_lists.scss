@@ -1,0 +1,26 @@
+.list-item {
+  display: flex;
+  flex-direction: row; 
+  
+  & img {
+    margin: 10px;
+  }
+  
+  & .small {
+    &>img {
+      width: 100px;
+    }
+  }
+  
+  & .medium {
+    &>img {
+      width: 200px;
+    }
+  }
+  
+  & .large {
+    &>img {
+      width: 300px;
+    }
+  }
+}

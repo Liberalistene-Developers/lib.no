@@ -1,0 +1,30 @@
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  
+  & img {
+    padding: 10px;  
+  }
+  
+  & .small {
+    &>img {
+      width: 100px;
+    }
+  }
+  
+  & .medium {
+    &>img {
+      width: 256px;
+    }
+  }
+
+  & .large {
+    &>img {
+      width: 356px;
+    }
+  }
+}
+
+.grid-item-info {
+  padding-left: 10px;
+}

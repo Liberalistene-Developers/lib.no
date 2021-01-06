@@ -1,0 +1,11 @@
+.person-list {
+  display: flex;
+}
+
+.person-list.grid {
+  flex-direction: row;
+}
+
+.person-list.list {
+  flex-direction: column;
+}

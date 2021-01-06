@@ -11,10 +11,11 @@
     "rebuild": "npm run clean && npm run build",
     "redeploy": "npm run rebuild && npm run deploy",
     "dev": "npm run redeploy && npm run watch:all",
-    "watch": "npm-run-all --parallel watch:xp watch:react4xp",
-    "watch:all": "npm-run-all --parallel watch:gradle watch:xp watch:react4xp",
+    "watch": "npm-run-all --parallel watch:xp watch:styles watch:react4xp",
+    "watch:all": "npm-run-all --parallel watch:gradle watch:xp watch:styles watch:react4xp",
     "watch:gradle": "./gradlew deploy --info -t",
     "watch:react4xp": "webpack --env.REACT4XP_CONFIG_FILE=build/react4xp_constants.json --config node_modules/react4xp-build-components/webpack.config.js --watch",
+    "watch:styles": "webpack --config webpack.client.config.js --color --hide-modules",
     "watch:xp": "babel src/main/resources --out-dir build/resources/main --ignore **/*.jsx --watch"
   },
   "repository": {
@@ -44,11 +45,27 @@
     "@babel/plugin-transform-arrow-functions": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
+    "autoprefixer": "^9.8.6",
     "babel-loader": "^8.2.1",
+    "browserslist": "^4.16.1",
+    "browserslist-config-enonic": "^1.0.5",
+    "css-loader": "^4.3.0",
+    "cssnano": "^4.1.10",
+    "file-loader": "^6.1.0",
+    "mini-css-extract-plugin": "^0.11.2",
+    "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
+    "postcss-loader": "^3.0.0",
+    "postcss-normalize": "^9.0.0",
+    "ramda": "^0.27.1",
+    "sass-loader": "^9.0.3",
+    "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   },
+  "browserslist": [
+    "extends browserslist-config-enonic"
+  ],
   "babel": {
     "presets": [
       "@babel/preset-env"

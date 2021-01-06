@@ -1,0 +1,33 @@
+.content {
+  width: 1296px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  &.full {
+    width: 1800px;
+    
+    & > .content-item {
+      width: 100%;    
+    }
+  }
+  
+  & > .content-item {
+    width: 911px;
+    margin-left: auto;
+    margin-right: auto;    
+  }
+  
+  & > .divider.visible {
+    border: 2px solid rgba(74, 16, 74, 0.18);
+    height: 0px;
+  }
+}
+
+.three-column-parent {
+  display: flex;
+  flex-direction: row;
+}
+
+.three-column-child {
+  width: 33%;
+}

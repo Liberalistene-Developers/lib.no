@@ -1,0 +1,47 @@
+body {
+  background-color: var(--lib-color-background-100);
+  color: var(--lib-color-primary-100);
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+/* TYPOGRAPHY */
+
+h1 {
+  color: var(--lib-color-primary-500);
+  font-family: Lato;
+  font-size: 38px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 46px;
+}
+
+h2 {
+  color: var(--lib-color-primary-500);
+  font-family: Lato;
+  font-size: 38px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 46px;
+}
+
+h3 {
+  color: var(--lib-color-primary-500);
+  font-family: Lato;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 29px;
+}
+
+.rich-text {
+  color: var(--lib-color-primary-300);
+  font-family: Lato;
+  line-height: 22px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+}
