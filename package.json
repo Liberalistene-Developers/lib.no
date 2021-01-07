@@ -16,7 +16,9 @@
     "watch:gradle": "./gradlew deploy --info -t",
     "watch:react4xp": "webpack --env.REACT4XP_CONFIG_FILE=build/react4xp_constants.json --config node_modules/react4xp-build-components/webpack.config.js --watch",
     "watch:styles": "webpack --config webpack.client.config.js --color --hide-modules",
-    "watch:xp": "babel src/main/resources --out-dir build/resources/main --ignore **/*.jsx --watch"
+    "watch:xp": "babel src/main/resources --out-dir build/resources/main --ignore **/*.jsx --watch",
+    "storybook": "start-storybook -s ./public -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,10 @@
   },
   "homepage": "https://github.com/Liberalistene-Developers/lib.no#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "ini": "^2.0.0",
     "node-fetch": "^2.6.1",
     "prop-types": "^15.7.2",
@@ -45,10 +51,15 @@
     "@babel/plugin-transform-arrow-functions": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
+    "@storybook/addon-actions": "^6.1.11",
+    "@storybook/addon-essentials": "^6.1.11",
+    "@storybook/addon-links": "^6.1.11",
+    "@storybook/react": "^6.1.11",
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.2.1",
     "browserslist": "^4.16.1",
     "browserslist-config-enonic": "^1.0.5",
+    "core-js": "^3.8.2",
     "css-loader": "^4.3.0",
     "cssnano": "^4.1.10",
     "file-loader": "^6.1.0",

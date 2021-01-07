@@ -1,0 +1,19 @@
+.menu-item {
+  align-items: center;
+  background-color: var(--lib-color-primary-700);
+  border: 1px solid #FFFFFF;
+  color: var(--lib-color-button-color-100);  
+  display: flex;
+  font-size: 25px;
+  font-weight: 500;
+  height: 66px;
+  justify-content: center;
+  line-height: 30px;
+  width: 278px;
+  transform: skew(20deg);
+    
+  & .menu-item-title {
+    transform: skew(-20deg);
+    z-index: 10;
+  }
+}

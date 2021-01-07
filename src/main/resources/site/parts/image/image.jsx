@@ -1,6 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default ({
+/**
+ * Primary Image holder for solution.
+ */
+const Image = ({
   className,
   image,
   imageClassName,
@@ -14,4 +18,42 @@ export default ({
       <img src={image.url} alt={image.alternativeText} className={imageClassName} />
     </div>
   );
+};
+
+Image.propTypes = {
+  /**
+   * Class of image holder.
+   */
+  className: PropTypes.oneOf(['small', 'medium', 'large']),
+  
+  /**
+   * the image
+   */
+  image: PropTypes.shape({
+   url: PropTypes.string,
+   alternativeText: PropTypes.string,
+  }),
+  
+  /**
+   * Class of the image.
+   */
+  imageClassName: PropTypes.string,
+  
+  /**
+   * Optional click handler
+   */
+  onClick: PropTypes.func,
+};
+
+Image.defaultProps = {
+  className: '',
+  image: null,
+  imageClassName: '',
+  onClick: undefined,
+};
+
+export default Image;
+
+export {
+  Image,
 };

@@ -1,0 +1,16 @@
+.list-item-content {
+  & .event-info {
+    color: var(--lib-color-subtext-100);
+    display: flex;
+    font-weight: 600;
+    font-size: 14px;
+    justify-content: space-between;
+    line-height: 17px;
+    margin-bottom: 10px;
+    width: 50%;
+    
+    & a {
+      color: var(--lib-color-subtext-100);
+    }
+  }
+}
