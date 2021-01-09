@@ -1,3 +1,50 @@
+body {
+  margin: 0px;
+  min-height: 100vh;
+}
+
+header, footer {
+  background-color: var(--lib-color-menu-background);
+  display: flex;
+  min-height: 60px;
+}
+
+header {
+  align-items: center;
+  
+  & img {
+    margin-right: 20px;
+  }
+}
+
+footer {
+  bottom: 0px;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  
+  & > .menu {
+    border: 1px solid #F4F4F4;
+    margin-left: -1px;
+    margin-right: -1px;
+    min-height: 60px;
+  }
+  
+  & > .contact {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      & > * {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 33%;        
+      }
+  }
+}
+
 .content {
   width: 1296px;
   margin-left: auto;

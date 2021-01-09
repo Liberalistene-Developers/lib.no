@@ -10,12 +10,28 @@
 	</head>
 
 	<body class="xp-page">
+		<header>
+			<th:block data-th-if="${image}">
+				<a href="/" title="Hjem"><img th:src="${image.url}" /></a>
+			</th:block>
+		</header>
+		
 		<main data-portal-region="main" class="xp-region">
 			<th:block data-th-if="${mainRegion}">
 				<th:block data-th-each="component : ${mainRegion.components}">
 					<th:block data-portal-component="${component.path}"></th:block>
 				</th:block>
-			</th:block>
+			</th:block>			
 		</main>
+		
+		<footer>
+			<div class="menu">
+			</div>
+			<div class="contact">
+        <div class="place" th:text="${place}">Oslo</div>
+        <div class="phone" th:text="${phone}">88 55 00 00</div>
+        <div class="email" th:text="${email}">contact@liberalistene.org</div>
+    	</div>				
+		</footer>
 	</body>
 </html>
