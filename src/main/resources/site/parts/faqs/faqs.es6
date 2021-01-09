@@ -10,7 +10,7 @@ exports.get = function(request) {
 
     const {
       data: {
-        faq,
+        faq = [],
       } = {},
     } = content;
 
@@ -20,7 +20,7 @@ exports.get = function(request) {
     // log.info(JSON.stringify(author, null, 4))
 
     const props = {
-      faqs: faq.map((faqID) => {
+      faqs: faqs.map((faqID) => {
         const {
           _path: faqPath,
           displayName: question,

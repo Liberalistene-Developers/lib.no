@@ -23,25 +23,27 @@ export default ({
       <div dangerouslySetInnerHTML={{ __html: description }} />  
     )}
 
-    { board && board.length && (
-      <ul>
-        { board.map(({ role, person, personUrl, image }) => (
-          <li>
-            <a href={personUrl}>
-              { image && (
-                <img src={image} />
-              )}
-              <span>
-                {role}
-              </span>
-              <span>
-                {person}
-              </span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    )}
-
+    { board && board.length > 0 ? (
+        <ul>
+          { board.map(({ role, person, personUrl, image }) => (
+            <li>
+              <a href={personUrl}>
+                { image && (
+                  <img src={image} />
+                )}
+                <span>
+                  {role}
+                </span>
+                <span>
+                  {person}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>        
+      )
+      : null
+    }
+    
   </div>
 );

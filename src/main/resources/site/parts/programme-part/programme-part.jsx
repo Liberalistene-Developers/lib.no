@@ -4,7 +4,7 @@ export default ({ title, description, conclusionTitle, conclusions, tags }) => (
   <div>
     <h3>{title}</h3>
     <div dangerouslySetInnerHTML={{ __html: description }} />
-    { conclusions && conclusions.length && (
+    { conclusions && conclusions.length > 0 ? (
       <div>
         <div className="conclusions">
           <div className="title">{ conclusionTitle }</div>
@@ -17,6 +17,6 @@ export default ({ title, description, conclusionTitle, conclusions, tags }) => (
           </ul>
         </div>
       </div>
-    )}
+    ) : null }
   </div>
 );

@@ -23,6 +23,14 @@ const Typography = () => (
          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula, libero vel egestas fringilla, purus tortor faucibus
         </p>
       </div>
+      
+      <div>
+        Social Icons
+        <div className="social-icons">
+          <i className="fab fa-twitter-square"></i>
+          <i className="fas fa-cat"></i>
+        </div>
+      </div>
     </div>
   </div>
 );

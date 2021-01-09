@@ -140,7 +140,17 @@ function addSassSupport(cfg) {
     test: /\.(sass|scss)$/,
     use: [
       ...createDefaultCssLoaders(),
-      {loader: 'sass-loader', options: {sourceMap: !isProd}},
+      {
+        loader: 'sass-loader',
+        options: {
+          sourceMap: !isProd,
+          sassOptions: {
+            includePaths: [
+                require('path').resolve(__dirname, 'node_modules')
+            ],            
+          },
+        },
+      },
     ]
   };
 
