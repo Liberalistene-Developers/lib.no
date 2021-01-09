@@ -1,0 +1,14 @@
+<mixin>
+  <display-name i18n="mixin.headercolor.displayname">Header color</display-name>
+  <form>
+    <input name="headerColor" type="ComboBox">
+      <label i18n="mixin.headercolor.label">Header color</label>
+      <occurrences minimum="1" maximum="1"/>
+      <config>
+        <option value="light">Light</option>
+        <option value="right">Dark</option>
+      </config>
+      <default>light</default> 
+    </input>
+  </form>
+</mixin>

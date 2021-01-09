@@ -25,6 +25,9 @@
         <mixin name="map" />
       </items>
     </field-set>
+    <input name="ingress" type="HtmlArea">
+      <label i18n="content_types.ingress">Ingress</label>
+    </input>
     <input name="description" type="HtmlArea">
       <label i18n="content_types.description">Description</label>
       <default><p>Description</p></default>

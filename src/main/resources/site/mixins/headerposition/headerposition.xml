@@ -1,0 +1,15 @@
+<mixin>
+  <display-name i18n="mixin.headerposition.displayname">Header position</display-name>
+  <form>
+    <input name="headerPosition" type="ComboBox">
+      <label i18n="mixin.headerposition.label">Header position</label>
+      <occurrences minimum="1" maximum="1"/>
+      <config>
+        <option value="left">Left</option> 
+        <option value="center">Center</option>
+        <option value="right">Right</option>
+      </config>
+      <default>right</default> 
+    </input>
+  </form>
+</mixin>

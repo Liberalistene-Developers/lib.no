@@ -3,44 +3,44 @@ const React4xp = require('/lib/enonic/react4xp');
 
 const { imageUrl } = require('../shared/image');
 
-const utils = require('/lib/util');
-
 exports.get = function(request) {
     const content = portal.getContent();
     const component = portal.getComponent();
 
     const {
       config: {
-        headerColor,
-        headerPosition,
+        headerColor: text,
+        headerPosition: position,
+        headerType: Tag,
+        image: configImageKey,
+        ingress: configIngress,
+        title: configTitle,
       } = {},
     } = component;
-    
+
     const {
-      _path: key,
-      displayName: title,
       data: {
-        description = '',        
         image: imageKey = '',
         ingress = '',
-        tags = '',
+        title = '',
       } = {},
     } = content;
 
     log.info(JSON.stringify(content, null, 4));
 
     const props = {
-      title,
-      description,
-      headerColor,
-      headerPosition,
+      Tag,
       image: {
-        ...imageUrl(imageKey, 'block(1296,424)'),
-        url: portal.attachmentUrl({ id: imageKey }),
+        ...imageUrl(configImageKey || imageKey, 'block(1296,424)'),
+        url: portal.attachmentUrl({ id: configImageKey || imageKey }),
       },
-      ingress,
-      tags,
+      ingress: configIngress || ingress,
+      position,
+      text,
+      title: configTitle || title,
     };
+    
+    log.info(JSON.stringify(props, null, 4));
 
     return React4xp.render(component, props, request);
 };

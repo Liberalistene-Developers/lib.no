@@ -1,0 +1,47 @@
+.image-block {
+  display: flex;
+  position: relative;
+  
+  & .full {
+    & > img {
+      width: 100%;
+    }
+  }
+  
+  & > .content {
+    position: absolute;
+    z-index: 10;
+    top: 20%;
+    
+    &.right {
+      right: 10%;
+    }
+    
+    &.left {
+      left: 10%;
+    }
+    
+    &.center {
+      left: 50%; // ^1
+      transform:translateX(-50%); // ^2,3
+    }
+    
+    &.light {
+      & h1, h2, h3 {
+        color: #fff;
+      }      
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

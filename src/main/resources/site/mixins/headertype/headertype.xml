@@ -1,0 +1,15 @@
+<mixin>
+  <display-name i18n="mixin.headertype.displayname">Header type</display-name>
+  <form>
+    <input name="headerType" type="ComboBox">
+      <label i18n="mixin.headertype.label">Header type</label>
+      <occurrences minimum="1" maximum="1"/>
+      <config>
+        <option value="h1">H1</option> 
+        <option value="h2">H2</option>
+        <option value="h3">H3</option>
+      </config>
+      <default>h1</default> 
+    </input>
+  </form>
+</mixin>

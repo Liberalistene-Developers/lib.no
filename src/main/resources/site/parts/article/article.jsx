@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { ImageBlock } from '../imageblock/imageblock.jsx';
+
 export default ({
   title,
   image,
@@ -10,12 +12,7 @@ export default ({
   tags,
 }) => (
   <div>
-    <h1 title={title}>{title}</h1>
-    { image && (
-      <div>
-        <img src={image.url} alt={image.alternativeText} />
-      </div>
-    )}
+    <ImageBlock title={title} image={image} ingress={ingress} />
     { authors && authors.length > 0 && (
       <ul>
         { authors.map(({ authorID, person, personUrl, image }) => (
@@ -34,7 +31,8 @@ export default ({
         ))}
       </ul>
     )}
-    <div dangerouslySetInnerHTML={{ __html: ingress }} />
-    <div dangerouslySetInnerHTML={{ __html: text }} />
+    { text && (
+      <div dangerouslySetInnerHTML={{ __html: text }} />
+    )}
   </div>
 );

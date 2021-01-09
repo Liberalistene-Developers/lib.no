@@ -4,5 +4,8 @@
   <description>
     Display Event
   </description>
-  <form />
+  <form>
+    <mixin name="headerposition" />
+    <mixin name="headercolor" />    
+  </form>
 </part>
