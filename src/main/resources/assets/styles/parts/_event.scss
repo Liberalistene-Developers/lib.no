@@ -1,0 +1,6 @@
+.event {
+  & .location, .leaflet-container {
+    height: 500px;
+    width: 500px;
+  }
+}

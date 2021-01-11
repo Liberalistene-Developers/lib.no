@@ -11,12 +11,20 @@ const Event = ({
   image,
   ingress,  
   tags,
+  informationLabel
 }) => (
-  <div>
+  <div className="event">
     <ImageBlock title={title} image={image} ingress={ingress} text={headerColor} position={headerPosition} />
     
     { description && (
-      <div dangerouslySetInnerHTML={{ __html: description }} />
+      <div className="details">
+        <div className="info">
+          { informationLabel && (
+            <h2>{informationLabel}</h2>
+          )}
+          <div dangerouslySetInnerHTML={{ __html: description }} />
+        </div>
+      </div>
     )}
   </div>
 );
