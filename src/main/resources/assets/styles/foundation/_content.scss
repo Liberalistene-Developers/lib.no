@@ -45,31 +45,57 @@ footer {
   }
 }
 
-main > .content {
-  width: 1296px;
-  margin-left: auto;
-  margin-right: auto;
-  
-  &.full {
-    width: 1800px;
-    
-    & > .content-item {
-      width: 100%;    
+main {
+  & > .content-holder {
+    &.purple {
+      background-color: var(--lib-color-primary-700);
+      
+      & h1 {
+        color: var(--lib-color-background-100);
+      }
     }
-  }
-  
-  & > .content-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;    
-    width: 911px;
-  }
-  
-  & > .divider.visible {
-    border: 2px solid rgba(74, 16, 74, 0.18);
-    height: 0px;
+    
+    &.white {
+      background-color: #fff;
+    }
+    
+    &.standard {
+      
+    }
+    
+    &.yellow {
+      background-color: rgb(255,255,0);
+    }
+    
+    & > .content {
+      width: 1296px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 20px;
+      padding-top: 20px;
+      
+      &.full {
+        width: 1800px;
+        
+        & > .content-item {
+          width: 100%;    
+        }
+      }
+      
+      & > .content-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;    
+        width: 911px;
+      }
+      
+      & > .divider.visible {
+        border: 2px solid rgba(74, 16, 74, 0.18);
+        height: 0px;
+      }
+    }
   }
 }
 

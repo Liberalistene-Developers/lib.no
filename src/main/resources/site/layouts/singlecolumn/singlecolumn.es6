@@ -10,6 +10,7 @@ exports.get = function(req) {
 
   const {
     config: {
+      background,
       fullwidth: fullWidth,
       borderbottom: borderBottom,
     },
@@ -21,6 +22,7 @@ exports.get = function(req) {
 
   // Define the model
   const model = {
+    background,
     borderBottom,
     contentRegion,
     fullWidth,

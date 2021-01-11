@@ -1,8 +1,10 @@
-<div class="content" th:classappend="${fullWidth} ? full : ''">
-  <div data-portal-region="content" class="content-item" >
-    <div data-th-each="component : ${contentRegion.components}" data-th-remove="tag">
-      <div data-portal-component="${component.path}" data-th-remove="tag" />
+<div class="content-holder" th:classappend="${background}">
+  <div class="content" th:classappend="${fullWidth ? 'full'}"">
+    <div data-portal-region="content" class="content-item" >
+      <div data-th-each="component : ${contentRegion.components}" data-th-remove="tag">
+        <div data-portal-component="${component.path}" data-th-remove="tag" />
+      </div>
     </div>
+    <div class="divider" th:classappend="${borderBottom?'visible'}"></div>
   </div>
-  <div class="divider" th:classappend="${borderBottom} ? visible : ''"></div>
 </div>

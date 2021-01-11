@@ -4,6 +4,7 @@
   <form>
     <mixin name="fullwidth" />
     <mixin name="borderbottom" />
+    <mixin name="background" />
   </form>
   <regions>
     <region name="content"/>
