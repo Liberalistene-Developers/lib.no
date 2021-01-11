@@ -42,7 +42,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-leaflet": "^3.0.5",
-    "react4xp": "^1.1.4"
+    "react4xp": "^1.1.4",
+    "slugify": "^1.4.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",

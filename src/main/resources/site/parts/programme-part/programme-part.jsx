@@ -1,8 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default ({ title, description, conclusionTitle, conclusions, tags }) => (
+import slugify from 'slugify';
+
+const ProgrammePart = ({ anchor, title, description, conclusionTitle, conclusions, parentTitle, tags }) => (
   <div>
-    <h3>{title}</h3>
+    <h3 id={anchor ? slugify(`${parentTitle} ${title}`.trim()) : undefined }>{title}</h3>
     <div dangerouslySetInnerHTML={{ __html: description }} />
     { conclusions && conclusions.length > 0 ? (
       <div>
@@ -20,3 +23,28 @@ export default ({ title, description, conclusionTitle, conclusions, tags }) => (
     ) : null }
   </div>
 );
+
+ProgrammePart.propTypes = {
+  /**
+   * Add anchor to title.
+   */
+   anchor: PropTypes.bool,
+   description: PropTypes.string,
+   conclusions: PropTypes.array,
+   parentTitle: PropTypes.string,
+   title: PropTypes.string,
+};
+
+ProgrammePart.defaultProps = {
+  anchor: false,
+  description: '',
+  conclusions: [],
+  parentTitle: '',
+  title: '',  
+};
+
+export default ProgrammePart;
+
+export {
+  ProgrammePart,
+};
