@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { Menu } from '../main/resources/site/parts/menu/menu.jsx';
+import { Menu } from '../../main/resources/site/parts/menu/menu.jsx';
+
+import { SingleLayout } from '../layouts';
 
 export default {
   title: 'Parts/Menu/Menu',

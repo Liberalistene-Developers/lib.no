@@ -1,12 +1,14 @@
 import React from 'react';
 
-import { EventListItem } from '../main/resources/site/parts/eventlistitem/eventlistitem.jsx';
+import { EventCard } from '../../main/resources/site/parts/eventcard/eventcard.jsx';
 
-import '../main/resources/assets/styles/main.scss';
+import { SingleLayout } from '../layouts';
+
+import '../../main/resources/assets/styles/main.scss';
 
 export default {
-  title: 'Parts/Lists/EventListItem',
-  component: EventListItem,
+  title: 'Parts/Cards/EventCard',
+  component: EventCard,
 };
 
 const image = {
@@ -14,11 +16,11 @@ const image = {
 };
 
 const Template = (args) => (
-  <div className="content">
-    <div className="content-item">
-      <EventListItem {...args} />
+  <SingleLayout>
+    <div style={ { width: 496 }}>
+      <EventCard {...args} />
     </div>
-  </div>
+  </SingleLayout>
 );
 
 export const Normal = Template.bind({});

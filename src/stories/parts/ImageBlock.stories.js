@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { ImageBlock } from '../main/resources/site/parts/imageblock/imageblock.jsx';
+import { ImageBlock } from '../../main/resources/site/parts/imageblock/imageblock.jsx';
+
+import { SingleLayout } from '../layouts';
 
 export default {
   title: 'Parts/ImageBlock',
@@ -9,13 +11,9 @@ export default {
 };
 
 const Template = (args) => (
-  <main>
-    <div className="content">
-      <div className="content-item">
-        <ImageBlock {...args} />
-      </div>
-    </div>
-  </main>
+  <SingleLayout>
+    <ImageBlock {...args} />
+  </SingleLayout>
 );
 
 export const NoHeader = Template.bind({});

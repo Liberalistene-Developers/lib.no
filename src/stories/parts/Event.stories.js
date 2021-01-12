@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { Event } from '../main/resources/site/parts/event/event.jsx';
+import { Event } from '../../main/resources/site/parts/event/event.jsx';
 
-import '../main/resources/assets/styles/main.scss';
+import { SingleLayout } from '../layouts';
+
+import '../../main/resources/assets/styles/main.scss';
 
 export default {
   title: 'Parts/Event',
@@ -14,13 +16,9 @@ const image = {
 };
 
 const Template = (args) => (
-  <main>
-    <div className="content">
-      <div className="content-item">
-        <Event {...args} />
-      </div>
-    </div>
-  </main>
+  <SingleLayout>
+    <Event {...args} />
+  </SingleLayout>
 );
 
 export const Normal = Template.bind({});

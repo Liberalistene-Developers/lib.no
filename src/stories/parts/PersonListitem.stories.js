@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { ListItem } from '../main/resources/site/parts/listitem/listitem.jsx';
+import { ListItem } from '../../main/resources/site/parts/listitem/listitem.jsx';
+import { SingleLayout } from '../layouts';
 
 export default {
   title: 'Parts/Lists/ListItem',
@@ -9,11 +10,9 @@ export default {
 };
 
 const Template = (args) => (
-  <div className="content">
-    <div className="content-item">
-      <ListItem {...args} />
-    </div>
-  </div>
+  <SingleLayout>
+    <ListItem {...args} />
+  </SingleLayout>
 );
 
 

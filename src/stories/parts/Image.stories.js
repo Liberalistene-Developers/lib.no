@@ -1,13 +1,19 @@
 import React from 'react';
 
-import { Image } from '../main/resources/site/parts/image/image.jsx';
+import { Image } from '../../main/resources/site/parts/image/image.jsx';
+
+import { SingleLayout } from '../layouts';
 
 export default {
   title: 'Parts/Image',
   component: Image,
 };
 
-const Template = (args) => <Image {...args} />;
+const Template = (args) => (
+  <SingleLayout>
+    <Image {...args} />
+  </SingleLayout>
+);
 
 const image = {
   url: 'kandidatbilde1.jpg',
