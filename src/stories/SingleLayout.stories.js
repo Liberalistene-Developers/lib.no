@@ -35,6 +35,9 @@ const Template = (args) => (
 export const StandardBackground = Template.bind({});
 StandardBackground.args = {
   background: 'standard',
+  fullWidth: false,
+  paddingBottom: false,
+  paddingTop: false,
 };
 
 export const StandardBackgroundFullWidth = Template.bind({});
@@ -45,6 +48,7 @@ StandardBackgroundFullWidth.args = {
 
 export const PurpleBackground = Template.bind({});
 PurpleBackground.args = {
+  ...StandardBackground.args,
   background: 'purple',
 };
 
@@ -54,8 +58,28 @@ PurpleBackgroundFullWidth.args = {
   fullWidth: true,
 };
 
+export const PurpleBackgroundPaddingTop = Template.bind({});
+PurpleBackgroundPaddingTop.args = {
+  ...PurpleBackground.args,
+  paddingTop: true,
+};
+
+export const PurpleBackgroundPaddingBottom = Template.bind({});
+PurpleBackgroundPaddingBottom.args = {
+  ...PurpleBackground.args,
+  paddingBottom: true,
+};
+
+export const PurpleBackgroundPaddingTopAndBottom = Template.bind({});
+PurpleBackgroundPaddingTopAndBottom.args = {
+  ...PurpleBackground.args,
+  paddingBottom: true,
+  paddingTop: true,
+};
+
 export const WhiteBackground = Template.bind({});
 WhiteBackground.args = {
+  ...StandardBackground.args,
   background: 'white',
 };
 
@@ -67,6 +91,7 @@ WhiteBackgroundFullWidth.args = {
 
 export const YellowBackground = Template.bind({});
 YellowBackground.args = {
+  ...StandardBackground.args,
   background: 'yellow',
 };
 

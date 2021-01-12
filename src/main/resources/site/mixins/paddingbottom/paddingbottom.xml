@@ -1,0 +1,11 @@
+<mixin>
+  <display-name i18n="mixin.paddingbottom.displayname">Extra padding bottom</display-name>
+  <form>
+    <input  name="paddingbottom" type="CheckBox">
+      <label i18n="mixin.paddingbottom.label">Extra padding bottom</label>
+      <config>
+        <alignment>right</alignment> 
+      </config>
+    </input>
+  </form>
+</mixin>

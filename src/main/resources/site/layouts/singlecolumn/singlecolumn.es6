@@ -11,8 +11,10 @@ exports.get = function(req) {
   const {
     config: {
       background,
-      fullwidth: fullWidth,
       borderbottom: borderBottom,
+      fullwidth: fullWidth,
+      paddingbottom: paddingBottom,
+      paddingtop: paddingTop,
     },
     regions: {
       content: contentRegion,
@@ -26,6 +28,8 @@ exports.get = function(req) {
     borderBottom,
     contentRegion,
     fullWidth,
+    paddingBottom,
+    paddingTop,
   };
 
   // Render a thymeleaf template

@@ -67,6 +67,14 @@ main {
       background-color: rgb(255,255,0);
     }
     
+    &.padding-top {
+      padding-top: 50px;
+    }
+    
+    &.padding-bottom {
+      padding-bottom: 50px;
+    }
+    
     & > .content {
       width: 1296px;
       margin-left: auto;

@@ -5,6 +5,8 @@
     <mixin name="fullwidth" />
     <mixin name="borderbottom" />
     <mixin name="background" />
+    <mixin name="paddingtop" />
+    <mixin name="paddingbottom" />
   </form>
   <regions>
     <region name="content"/>
