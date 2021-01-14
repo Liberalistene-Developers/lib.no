@@ -29,7 +29,7 @@ const Article = ({
     )}
     
     { authors && authors.length > 0 && (
-      <ul class="authors">
+      <ul className="authors">
         { authors.map(({ authorID, person, personUrl, image }) => (
           <li key={authorID}>
             <div>
@@ -50,7 +50,7 @@ const Article = ({
     )}
     
     { !ingressInImage && ingress && (
-      <div className="rich-text" dangerouslySetInnerHTML={{ __html: ingress }} />
+      <div className="ingress rich-text" dangerouslySetInnerHTML={{ __html: ingress }} />
     )}
     
     { text && (

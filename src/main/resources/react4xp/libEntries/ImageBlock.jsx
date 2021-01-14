@@ -22,7 +22,7 @@ const ImageBlock = ({
           </div>
         )}
         { ingress && (
-          <div class="ingress" dangerouslySetInnerHTML={{ __html: ingress }} />
+          <div className="ingress" dangerouslySetInnerHTML={{ __html: ingress }} />
         )}
       </div>
     )}

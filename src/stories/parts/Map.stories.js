@@ -23,4 +23,12 @@ const Template = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
+  position: undefined,
+  address: null,
+};
+
+export const WithAddressOnly = Template.bind({});
+WithAddressOnly.args = {
+  position: [],
+  address: 'Allegaten 6\n4400 Flekkefjord',
 };

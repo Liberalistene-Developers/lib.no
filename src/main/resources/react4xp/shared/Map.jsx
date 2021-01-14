@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
@@ -6,22 +6,48 @@ const Map = ({
   address,
   position,
 }) => {
-  if (!position || position.length < 2) {
+  const [pos, setPos] = useState(position);
+  
+  useEffect(() => {
+    if (position.length < 2 && address) {
+      const addr = address.replace(/\\n/g, ',').replace(/ /g, '+');
+      
+      fetch(`https://nominatim.openstreetmap.org/search?q=${addr}&format=json&polygon=1&addressdetails=1`)
+        .then((result) => {
+          if (result.ok) {
+            return result.json();;
+          }
+          
+          return result;
+        })
+        .then((result) => {
+          console.info(result);
+          if (result && result.length) {
+            const [{ lat, lon }] = result;
+            setPos([lat, lon].map(parseFloat));
+          } 
+          
+          return result;
+        });
+    }
+  }, [position, address]);
+  
+  if (!pos || pos.length < 2) {
     return null;
   }
 
   return (
     <MapContainer
-      center={position}
+      center={pos}
       zoom={17}
       scrollWheelZoom={false}
       className="map-container"
     >
       <TileLayer
-        attribution="&copy; OpenStreetMap contributors"
+        attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={position}>
+      <Marker position={pos}>
         <Popup>
           {`${address}`}
         </Popup>

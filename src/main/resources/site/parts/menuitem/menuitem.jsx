@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const MenuItem = ({ title, url, onClick }) => (
-  <a href={url} class="menu-item">
+  <a href={url} className="menu-item">
     <span className="menu-item-title">{title}</span>
   </a>
 );

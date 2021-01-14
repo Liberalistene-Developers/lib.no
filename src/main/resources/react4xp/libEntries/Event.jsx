@@ -34,7 +34,7 @@ const Event = ({
       <div className="rich-text" dangerouslySetInnerHTML={{ __html: ingress }} />
     )}
 
-    <div class="event-content">
+    <div className="event-content">
       { description && (
         <div className="details">
           <div className="info">
