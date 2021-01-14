@@ -1,0 +1,11 @@
+<mixin>
+  <display-name i18n="mixin.titleinimage.displayname">Add title to headder image</display-name>
+  <form>
+    <input  name="titleInImage" type="CheckBox">
+      <label i18n="mixin.titleinimage.label">Add title to header image</label>
+      <config>
+        <alignment>right</alignment> 
+      </config>
+    </input>
+  </form>
+</mixin>

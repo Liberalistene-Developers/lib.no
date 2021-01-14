@@ -1,0 +1,17 @@
+.article {
+  & ul {
+    &.authors {    
+      list-style-type: none;
+    
+      & a {
+        display: flex;
+        justify-content: center;
+
+        & img {
+          width: 40px;
+          margin-right: 10px;
+        }
+      }
+    }  
+  }
+}

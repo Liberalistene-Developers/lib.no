@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ImageBlock } from '../../main/resources/react4xp/_entries/ImageBlock';
+import { ImageBlock } from '../../main/resources/react4xp/libEntries/ImageBlock';
 
 import { SingleLayout } from '../layouts';
 

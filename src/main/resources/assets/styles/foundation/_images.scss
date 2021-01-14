@@ -5,6 +5,11 @@ img {
   }
 }
 
+.extra-small {
+  &>image {
+    width: 50px;
+  }
+}
 
 .small {
   &>img {

@@ -4,5 +4,10 @@
   <description>
     Display Group
   </description>
-  <form />
+  <form>
+    <mixin name="headerposition" />
+    <mixin name="headercolor" />
+    <mixin name="ingressinimage" />
+    <mixin name="titleinimage" />
+  </form>
 </part>

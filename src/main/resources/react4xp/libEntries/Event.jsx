@@ -4,32 +4,52 @@ import PropTypes from 'prop-types';
 import { ImageBlock } from './ImageBlock';
 import { Map } from '../shared/Map';
 
-const Event = ({
+const Event = ({  
   headerColor,
   headerPosition,
   title,
+  titleInImage,
   description,
+  location,
   image,
   ingress,
+  ingressInImage,
   tags,
   informationLabel,
   map,
 }) => (
   <div className="event">
-    <ImageBlock title={title} image={image} ingress={ingress} text={headerColor} position={headerPosition} />
-
-    { description && (
-      <div className="details">
-        <div className="info">
-          { informationLabel && (
-            <h2>{informationLabel}</h2>
-          )}
-          <div dangerouslySetInnerHTML={{ __html: description }} />
-        </div>
-      </div>
+    <ImageBlock
+      title={titleInImage && title}
+      image={image}
+      ingress={ingressInImage && shortDescription} text={headerColor}
+      position={headerPosition}
+    />
+    
+    { !titleInImage && title && (
+      <h1>{title}</h1>
     )}
-    <div>
-      <Map position={map} />
+    
+    { !ingressInImage && ingress && (
+      <div className="rich-text" dangerouslySetInnerHTML={{ __html: ingress }} />
+    )}
+
+    <div class="event-content">
+      { description && (
+        <div className="details">
+          <div className="info">
+            { informationLabel && (
+              <h2 id={informationLabel}>{informationLabel}</h2>
+            )}
+            <div dangerouslySetInnerHTML={{ __html: description }} />
+          </div>
+        </div>
+      )}
+      { (map && map.length === 2) || (location && location.address) && (
+        <div>
+          <Map position={map} address={location && location.address} />
+        </div>        
+      )}
     </div>
   </div>
 );

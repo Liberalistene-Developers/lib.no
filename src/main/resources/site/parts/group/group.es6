@@ -9,6 +9,15 @@ exports.get = function(request) {
     const component = portal.getComponent();
 
     const {
+      config: {
+        headerColor,
+        headerPosition,
+        ingressInImage,
+        titleInImage,
+      } = {},
+    } = component;
+
+    const {
       _path: key,
       displayName: title,
       data: {
@@ -17,6 +26,7 @@ exports.get = function(request) {
         image = '',
         tags = '',
         member = [],
+        address = '',
       } = {},
     } = content;
 
@@ -26,9 +36,16 @@ exports.get = function(request) {
 
     const props = {
       title,
-      image: imageUrl(image),
+      image: imageUrl(image, 'full'),
+      headerColor,
+      headerPosition,
+      ingressInImage,
+      titleInImage,
       shortDescription,
       description,
+      location: {
+        address: address.replace('\n', ',').replace(/ /g, '+'),
+      },
       board: members.map(({
         role: roleId,
         person: personId,
@@ -54,11 +71,11 @@ exports.get = function(request) {
             .pageUrl({
               path: personPath,
             }),
-          image: imageUrl(imageKey, 'block(96,128)')
+          image: imageUrl(imageKey, 'full')
         };
       }),
       tags,
     };
 
-    return React4xp.render(component, props, request);
+    return React4xp.render('Group', props, request);
 };

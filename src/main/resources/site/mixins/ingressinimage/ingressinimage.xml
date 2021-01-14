@@ -1,0 +1,11 @@
+<mixin>
+  <display-name i18n="mixin.ingressinimage.displayname">Add ingress to headder image</display-name>
+  <form>
+    <input  name="ingressInImage" type="CheckBox">
+      <label i18n="mixin.ingressinimage.label">Add ingress to header image</label>
+      <config>
+        <alignment>right</alignment> 
+      </config>
+    </input>
+  </form>
+</mixin>

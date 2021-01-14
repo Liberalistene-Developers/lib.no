@@ -4,5 +4,10 @@
   <description i18n="content_types.article.part.description">
     Display Article
   </description>
-  <form />
+  <form>
+    <mixin name="headerposition" />
+    <mixin name="headercolor" />
+    <mixin name="ingressinimage" />
+    <mixin name="titleinimage" />
+  </form>
 </part>

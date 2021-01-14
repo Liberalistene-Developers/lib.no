@@ -13,6 +13,8 @@ exports.get = function(request) {
       config: {
         headerColor,
         headerPosition,
+        ingressInImage,
+        titleInImage,
       } = {},
     } = component;
 
@@ -36,11 +38,12 @@ exports.get = function(request) {
       headerColor,
       headerPosition,
       image: imageKey && {
-        ...imageUrl(imageKey, 'block(1296,424)'),
-        url: portal.attachmentUrl({ id: imageKey }),
+        ...imageUrl(imageKey, 'full'),
       },
       ingress,
+      ingressInImage,
       tags,
+      titleInImage,
       map: map_geopoint.split(',').map(parseFloat),
     };
 

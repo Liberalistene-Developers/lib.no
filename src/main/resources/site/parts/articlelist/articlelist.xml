@@ -5,6 +5,7 @@
     Display Article list
   </description>
   <form>
+    <mixin name="image" />
     <input type="TextLine" name="title" > 
       <label i18n="parts.title.label">Title</label> 
       <default i18n="parts.title.default">Title</default>

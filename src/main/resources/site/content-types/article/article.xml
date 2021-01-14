@@ -1,7 +1,7 @@
 <content-type>
   <display-name i18n="content_types.article.displayname">Article</display-name>
   <display-name-label i18n="content_types.article.displayname.label">Article</display-name-label>
-  <description>Create a new Artile</description>
+  <description>Create a new Article</description>
   <super-type>base:structured</super-type>
   <is-abstract>false</is-abstract>
   <is-final>true</is-final>
@@ -22,6 +22,10 @@
         <showStatus>true</showStatus>
         <hideToggleIcon>true</hideToggleIcon>
       </config>
+    </input>
+    <input name="date" type="Date">
+      <occurrences minimum="1" maximum="1"/>
+      <label i18n="content_types.article.date.label">Publish date:</label>
     </input>
     <input name="ingress" type="HtmlArea">
       <label i18n="content_types.ingress.label">Ingress</label>

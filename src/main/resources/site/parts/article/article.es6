@@ -9,9 +9,19 @@ exports.get = function(request) {
     const component = portal.getComponent();
 
     const {
+      config: {
+        headerColor,
+        headerPosition,
+        ingressInImage,
+        titleInImage,
+      } = {},
+    } = component;
+
+    const {
       _path: key,
       displayName: title,
       data: {
+        date,
         description = '',
         ingress = '',
         text = '',
@@ -27,8 +37,12 @@ exports.get = function(request) {
     // log.info(JSON.stringify(author, null, 4))
 
     const props = {
+      headerColor,
+      headerPosition,
+      ingressInImage,
+      titleInImage,
       title,
-      image: imageUrl(image),
+      image: imageUrl(image, 'full'),
       description,
       tags,
       authors: authors.map((authorID) => {
@@ -50,7 +64,7 @@ exports.get = function(request) {
               path: personPath,
             }),
           person,
-          image: imageUrl(imageKey, 'block(96,128)')
+          image: imageUrl(imageKey, 'square(40)'),
         };
       }),
       ingress,
