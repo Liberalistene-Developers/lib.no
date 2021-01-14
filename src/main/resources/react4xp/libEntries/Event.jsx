@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ImageBlock } from '../imageblock/imageblock.jsx';
+import { ImageBlock } from './ImageBlock';
+import { Map } from '../shared/Map';
 
 const Event = ({
   headerColor,
@@ -9,13 +10,14 @@ const Event = ({
   title,
   description,
   image,
-  ingress,  
+  ingress,
   tags,
-  informationLabel
+  informationLabel,
+  map,
 }) => (
   <div className="event">
     <ImageBlock title={title} image={image} ingress={ingress} text={headerColor} position={headerPosition} />
-    
+
     { description && (
       <div className="details">
         <div className="info">
@@ -26,6 +28,9 @@ const Event = ({
         </div>
       </div>
     )}
+    <div>
+      <Map position={map} />
+    </div>
   </div>
 );
 

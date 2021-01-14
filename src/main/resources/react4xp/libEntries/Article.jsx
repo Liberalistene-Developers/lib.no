@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ImageBlock } from '../imageblock/imageblock.jsx';
+import { ImageBlock } from './ImageBlock';
 
 export default ({
   title,

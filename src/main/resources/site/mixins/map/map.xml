@@ -2,9 +2,8 @@
   <display-name>Map</display-name>
   <form>
     <input name="map_geopoint" type="GeoPoint">
-      <label>Map (Geo point)</label>
+      <label>Map (Geo point: 59.9139,10.7522)</label>
       <occurrences minimum="0" maximum="1"/>
-      <default>59.9139,10.7522</default>
     </input>
   </form>
 </mixin>

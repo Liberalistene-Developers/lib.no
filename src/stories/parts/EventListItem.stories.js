@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { EventListItem } from '../../main/resources/site/parts/eventlistitem/eventlistitem.jsx';
+import { EventListItem } from '../../main/resources/react4xp/shared/EventListItem';
 
 import { SingleLayout } from '../layouts';
 
@@ -42,4 +42,3 @@ Virtual.args = {
   },
   locationType: 'virtual',
 }
-

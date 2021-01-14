@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Image } from '../../main/resources/site/parts/image/image.jsx';
+import { Image } from '../../main/resources/react4xp/shared/Image';
 
 import { SingleLayout } from '../layouts';
 

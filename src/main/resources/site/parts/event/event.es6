@@ -15,15 +15,16 @@ exports.get = function(request) {
         headerPosition,
       } = {},
     } = component;
-    
+
     const {
       _path: key,
       displayName: title,
       data: {
-        description = '',        
+        description = '',
         image: imageKey = '',
         ingress = '',
         tags = '',
+        map_geopoint = '',
       } = {},
     } = content;
 
@@ -34,13 +35,14 @@ exports.get = function(request) {
       description,
       headerColor,
       headerPosition,
-      image: {
+      image: imageKey && {
         ...imageUrl(imageKey, 'block(1296,424)'),
         url: portal.attachmentUrl({ id: imageKey }),
       },
       ingress,
       tags,
+      map: map_geopoint.split(',').map(parseFloat),
     };
 
-    return React4xp.render(component, props, request);
+    return React4xp.render('Event', props, request, { clientRender: true });
 };

@@ -39,8 +39,8 @@ exports.get = function(request) {
       text,
       title: configTitle || title,
     };
-    
+
     log.info(JSON.stringify(props, null, 4));
 
-    return React4xp.render(component, props, request);
+    return React4xp.render('ImageBlock', props, request);
 };

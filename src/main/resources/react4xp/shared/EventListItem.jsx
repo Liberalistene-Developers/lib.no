@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock, faGlobe, faMap } from '@fortawesome/free-solid-svg-icons'
 
-import { ListItem } from '../listitem/listitem.jsx';
+import { ListItem } from './ListItem';
 
 /**
  * Primary Image holder for solution.
@@ -37,14 +37,14 @@ const EventListItem = ({
 
 EventListItem.propTypes = {
   ...ListItem.propTypes,
-  
+
   location: PropTypes.shape({
     address: PropTypes.string,
     name: PropTypes.string,
   }),
-  
+
   locationLabel: PropTypes.string,
-  
+
   locationType: PropTypes.oneOf(['place', 'virtual']),
 };
 

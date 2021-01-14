@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Image from '../image/image.jsx';
+import Image from '../shared/Image';
 
 const ImageBlock = ({
   Tag,
@@ -11,9 +11,9 @@ const ImageBlock = ({
   title,
   ingress,
 }) => (
-  <div className="image-block">    
+  <div className="image-block">
     <Image image={image} className="full" />
-    
+
     { (title || ingress) && (
       <div className={`content ${text} ${position}`}>
         { title && (
@@ -24,7 +24,7 @@ const ImageBlock = ({
         { ingress && (
           <div class="ingress" dangerouslySetInnerHTML={{ __html: ingress }} />
         )}
-      </div>      
+      </div>
     )}
   </div>
 );

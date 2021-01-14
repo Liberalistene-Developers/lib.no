@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Image from '../image/image.jsx';
+import Image from './Image';
 
 const ListItem = ({
   children,
@@ -16,9 +16,9 @@ const ListItem = ({
   fields,
 }) => (
   <div className="list-item">
-    
+
     <Image image={image} className={imageSize} imageClassName={imageType} />
-    
+
     { name && (
       <div className="list-item-content">
         <div className="list-item-title">
@@ -30,9 +30,9 @@ const ListItem = ({
             <span className="rich-text">
               {shortDescription}
             </span>
-          </div>           
+          </div>
         )}
-      </div>  
+      </div>
     )}
   </div>
 );

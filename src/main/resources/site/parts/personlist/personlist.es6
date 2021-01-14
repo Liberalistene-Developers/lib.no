@@ -11,7 +11,7 @@ exports.get = function(request) {
     const {
       _path: key,
     } = content;
-    
+
     const {
       config: {
         description,
@@ -23,9 +23,9 @@ exports.get = function(request) {
         title,
       } = {},
     } = component;
-    
+
     const items = [].concat(persons);
-    
+
     log.info(JSON.stringify(content, null, 4));
     log.info(JSON.stringify(component, null, 4));
 
@@ -61,10 +61,10 @@ exports.get = function(request) {
           shortDescription: personShortDescription,
           image: imageUrl(imageKey, 'square(256)')
         };
-      }), 
+      }),
     };
-    
+
     log.info(JSON.stringify(props, null, 4));
 
-    return React4xp.render(component, props, request);
+    return React4xp.render('PersonList', props, request);
 };

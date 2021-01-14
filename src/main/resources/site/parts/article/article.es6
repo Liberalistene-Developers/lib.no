@@ -57,5 +57,5 @@ exports.get = function(request) {
       text,
     };
 
-    return React4xp.render(component, props, request);
+    return React4xp.render('Article', props, request);
 };

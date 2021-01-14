@@ -6,7 +6,10 @@ const Map = ({
   address,
   position,
 }) => {
-  
+  if (!position || position.length < 2) {
+    return null;
+  }
+
   return (
     <MapContainer
       center={position}
@@ -33,7 +36,7 @@ Map.propTypes = {
 };
 
 Map.defaultProps = {
-  address: 'Oslo',
+  address: 'Allegaten 6, 4400 Flekkefjord',
   position: [58.2953903, 6.6580986],
 };
 
@@ -42,7 +45,3 @@ export default Map;
 export {
   Map,
 }
-
-
-
-

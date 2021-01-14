@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Image from '../image/image.jsx';
+import Image from './Image';
 
 export default ({
   imageSize,
@@ -14,9 +14,9 @@ export default ({
   fields,
 }) => (
   <div className="grid-item">
-     
+
      <Image image={image} className={imageSize} imageClassName={imageType} />
-     
+
      { name && (
        <div className="grid-item-info">
          <div>
@@ -25,9 +25,9 @@ export default ({
          { shortDescription && (
            <div>
              {shortDescription}
-           </div>           
+           </div>
          )}
-       </div>  
+       </div>
      )}
   </div>
 );

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { ImageBlock } from '../../main/resources/site/parts/imageblock/imageblock.jsx';
+import { ImageBlock } from '../../main/resources/react4xp/_entries/ImageBlock';
 
 import { SingleLayout } from '../layouts';
 
 export default {
   title: 'Parts/ImageBlock',
-  
+
   component: ImageBlock,
 };
 
@@ -20,7 +20,7 @@ export const NoHeader = Template.bind({});
 NoHeader.args = {
   image: {
     url: 'imageblockimage.png',
-  },    
+  },
 };
 
 export const H1RightLight = Template.bind({});

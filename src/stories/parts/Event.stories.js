@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Event } from '../../main/resources/site/parts/event/event.jsx';
+import { Event } from '../../main/resources/react4xp/_entries/Event';
 
 import { SingleLayout } from '../layouts';
 
@@ -42,4 +42,3 @@ Virtual.args = {
   },
   locationType: 'virtual',
 }
-

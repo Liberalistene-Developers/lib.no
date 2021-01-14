@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Image from '../image/image.jsx';
+import Image from '../../../react4xp/shared/Image.jsx';
 
 export default ({
   title,
@@ -13,7 +13,7 @@ export default ({
 }) => (
   <div>
     <h1 title={title}>{title}</h1>
-    
+
     <Image image={image} />
 
     { authors && authors.length > 0 && (

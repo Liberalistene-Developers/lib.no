@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Image from '../image/image.jsx';
+import Image from '../../../react4xp/shared/Image.jsx';
 
 export default ({
   title,
@@ -12,15 +12,15 @@ export default ({
 }) => (
   <div>
     <h1 title={title}>{title}</h1>
-    
+
     <Image image={image} />
 
     { shortDescription && (
       <div dangerouslySetInnerHTML={{ __html: shortDescription }} />
     )}
-    
+
     { description && (
-      <div dangerouslySetInnerHTML={{ __html: description }} />  
+      <div dangerouslySetInnerHTML={{ __html: description }} />
     )}
 
     { board && board.length > 0 ? (
@@ -40,10 +40,10 @@ export default ({
               </a>
             </li>
           ))}
-        </ul>        
+        </ul>
       )
       : null
     }
-    
+
   </div>
 );
