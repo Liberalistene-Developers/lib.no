@@ -24,8 +24,20 @@ exports.get = function(req) {
       email,
       image: imageKey,
       phone,
-      place,      
+      place,
+      social = [],
     } = config;
+        
+    const some = [].concat(social).map(({ address }) => {
+      log.info(address);
+      const url = address.match(/^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/\n]+)/);
+      const host = url[1].split('.');
+      
+      return {
+        href: address,
+        className: `fa-${host[host.length - 2]}`,
+      };
+    })
 
     log.info(JSON.stringify(content, null, 4));
 
@@ -38,6 +50,7 @@ exports.get = function(req) {
       phone,
       place,
       // title,
+      some,
     };
 
     // Render the dynamic HTML with values from the model

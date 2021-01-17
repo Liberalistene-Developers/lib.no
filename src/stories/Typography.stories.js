@@ -25,11 +25,11 @@ const Typography = () => (
       </p>
     </div>
     
-    <div>
+    <div style={{ height: 60 }}>
       Social Icons
       <div className="social-icons">
-        <i className="fab fa-twitter-square"></i>
-        <i className="fas fa-cat"></i>
+        <i className="fab fa-twitter"></i>
+        <i className="fab fa-facebook"></i>
       </div>
     </div>
   </SingleLayout>

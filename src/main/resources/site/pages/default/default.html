@@ -29,9 +29,13 @@
 
 		<footer>
 			<div class="menu">
-				<div className="social-icons">
-					<i className="fab fa-twitter-square"></i>
-				</div>
+				<th:block data-th-if="${some}">
+					<div class="social-icons">
+						<th:block data-th-each="urls : ${some}">
+							<a data-th-href="${urls.href}"><i class="fab" th:classappend="${urls.className}"></i></a>
+						</th:block>
+					</div>
+				</th:block>						
 			</div>
 			<div class="contact">
         <div class="place" th:text="${place}">Oslo</div>

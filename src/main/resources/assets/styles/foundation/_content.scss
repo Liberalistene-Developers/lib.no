@@ -28,6 +28,8 @@ footer {
     margin-left: -1px;
     margin-right: -1px;
     min-height: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   
   & > .contact {
@@ -42,6 +44,46 @@ footer {
         justify-content: center;
         width: 33%;        
       }
+  }
+}
+
+.social-icons {
+  align-items: center;
+  display: flex;
+  font-size: 23px;
+  gap: 10px;
+  line-height: 23px;
+  
+  & i {
+    text-align: center;
+    min-width: 24px;
+    min-height: 24px;
+  }
+  
+  & .fa-facebook:before {
+    content: "\f39e";
+  }
+    
+  & a {
+    background-color: var(--lib-color-menu-background);
+    color: #63678A;
+    text-decoration: none;
+
+    &:link {
+      
+    }
+    
+    &:visited {
+      
+    }
+    
+    &:hover {
+      
+    }
+    
+    &:active {
+      
+    }
   }
 }
 
