@@ -1,19 +1,46 @@
 .event {
-  & .location, .leaflet-container {
+  & .leaflet-container {
     height: 500px;
-    width: 500px;
+    width: 100%;
   }
   
   & .event-content {
-    display: flex;
-    padding-top: 20px;
+    display: flex;    
+    justify-content: space-between;
+    padding-top: 40px;
+    width: 100%;
+    
+    & h2 {
+      font-size: 38px;
+      line-height: 46px;
+      
+      margin-bottom: 20px;
+    }
     
     & .details {
-      & .info {
-        & h2 {
-          margin-bottom: 20px;
+      width: 66%;
+      
+      & .info, .more-info {
+        margin-bottom: 40px;      
+        & .text {
+          max-width: 964px;
         }
       }
+    }
+    
+    & .location {
+      width: 33%;
+      
+      & .map-container, .event-place {
+        margin-bottom: 40px;
+      }
+      
+      & .event-place, .event-time {
+        color: var(--lib-color-subtext-100);        
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 30px;
+      }      
     }
   }
 }

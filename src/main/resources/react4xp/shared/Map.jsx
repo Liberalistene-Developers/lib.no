@@ -10,7 +10,10 @@ const Map = ({
   
   useEffect(() => {
     if (position.length < 2 && address) {
-      const addr = address.replace(/\\n/g, ',').replace(/ /g, '+');
+      console.info(address);
+      
+      const addr = address.replace(/\n/g, ',').replace(/ /g, '+');
+      console.info(addr);
       
       fetch(`https://nominatim.openstreetmap.org/search?q=${addr}&format=json&polygon=1&addressdetails=1`)
         .then((result) => {

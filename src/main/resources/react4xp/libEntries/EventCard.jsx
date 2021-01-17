@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock, faGlobe, faMap } from '@fortawesome/free-solid-svg-icons'
 
-import { Card } from '../card/card.jsx';
+import { Card } from './Card';
+import { EventPlace } from '../shared/EventPlace';
+import { EventTime } from '../shared/EventTime';
 
 /**
  * Primary Image holder for solution.
@@ -21,12 +23,8 @@ const EventCard = ({
   return (
     <Card image={image} title={title} text={text}>
       <div className="event-info">
-        <div className="event-place">
-          <FontAwesomeIcon icon={locationType === 'place' ? faMap : faGlobe} />  {locationLabel} <a href={locationType === 'place' ? `https://maps.google.com?q=${location.address}` : location.address}>{location.name || location.address}</a>
-        </div>
-        <div className="event-time">
-          <FontAwesomeIcon icon={faClock} /> <time datetime={date}>{date}</time>
-        </div>
+        <EventPlace location={location} locationLabel={locationLabel} />
+        <EventTime date={date} />
       </div>
     </Card>
   );

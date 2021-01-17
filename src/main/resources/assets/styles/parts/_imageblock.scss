@@ -10,8 +10,21 @@
   
   & > .content {
     position: absolute;
+    top: 90px;
+    width: 33%;
     z-index: 10;
-    top: 20%;
+    
+    & .ingress {
+      font-size: 35px;
+      font-weight: 500;
+      line-height: 42px;
+    }
+    
+    h1 {
+      font-size: 100px;
+      font-weight: 800;
+      line-height: 120px;
+    }
     
     &.right {
       right: 10%;
@@ -27,9 +40,10 @@
     }
     
     &.light {
-      & h1, h2, h3 {
+      & h1, h2, h3, .ingress {
         color: #fff;
-      }      
+      }
+          
     }
   }
 }

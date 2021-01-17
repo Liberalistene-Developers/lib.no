@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { EventCard } from '../../main/resources/site/parts/eventcard/eventcard.jsx';
+import { EventCard } from '../../main/resources/react4xp/libEntries/EventCard';
 
 import { SingleLayout } from '../layouts';
 
