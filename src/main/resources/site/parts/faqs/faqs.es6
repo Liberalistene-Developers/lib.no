@@ -3,6 +3,7 @@ const contentLib = require('/lib/xp/content');
 const React4xp = require('/lib/enonic/react4xp');
 
 const { imageUrl } = require('../shared/image');
+const { processHtml } = require('../shared/html');
 
 exports.get = function(request) {
     const content = portal.getContent();
@@ -39,7 +40,7 @@ exports.get = function(request) {
               path: faqPath,
             }),
           question,
-          answer,
+          answer: processHtml(answer),
         };
       }),
     };

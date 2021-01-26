@@ -2,6 +2,7 @@ const portal = require('/lib/xp/portal');
 const React4xp = require('/lib/enonic/react4xp');
 
 const { imageUrl } = require('../shared/image');
+const { processHtml } = require('../shared/html');
 
 exports.get = function(request) {
     const content = portal.getContent();
@@ -23,7 +24,7 @@ exports.get = function(request) {
     const props = {
       title,
       image: imageUrl(image, 'block(192,256)'),
-      description,
+      description: processHtml(description),
       shortDescription,
       tags,
     };

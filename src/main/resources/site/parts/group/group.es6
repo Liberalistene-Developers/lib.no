@@ -3,6 +3,7 @@ const contentLib = require('/lib/xp/content');
 const React4xp = require('/lib/enonic/react4xp');
 
 const { imageUrl } = require('../shared/image');
+const { processHtml } = require('../shared/html');
 
 exports.get = function(request) {
     const content = portal.getContent();
@@ -42,7 +43,7 @@ exports.get = function(request) {
       ingressInImage,
       titleInImage,
       shortDescription,
-      description,
+      description: processHtml(description),
       location: {
         address: address.replace('\n', ',').replace(/ /g, '+'),
       },

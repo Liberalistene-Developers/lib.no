@@ -3,6 +3,7 @@ const contentLib = require('/lib/xp/content');
 const React4xp = require('/lib/enonic/react4xp');
 
 const { imageUrl } = require('../shared/image');
+const { processHtml } = require('../shared/html');
 
 exports.get = function(request) {
     const content = portal.getContent();
@@ -67,8 +68,8 @@ exports.get = function(request) {
           image: imageUrl(imageKey, 'square(40)'),
         };
       }),
-      ingress,
-      text,
+      ingress: processHtml(ingress),
+      text: processHtml(text),
     };
 
     return React4xp.render('Article', props, request);

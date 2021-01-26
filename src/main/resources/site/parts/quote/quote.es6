@@ -3,6 +3,7 @@ const contentLib = require('/lib/xp/content');
 const React4xp = require('/lib/enonic/react4xp');
 
 const { imageUrl } = require('../shared/image');
+const { processHtml } = require('../shared/html');
 
 exports.get = function(request) {
     const content = portal.getContent();
@@ -13,8 +14,7 @@ exports.get = function(request) {
       displayName: title,
       data: {
         description = '',
-        ingress = '',
-        text = '',
+        qoute = '',
         image = '',
         tags = '',
         author = []
@@ -29,7 +29,8 @@ exports.get = function(request) {
     const props = {
       title,
       image: imageUrl(image),
-      description,
+      qoute: processHtml(qoute),
+      description: processHtml(description),
       tags,
       authors: authors.map((authorID) => {
         const {
@@ -51,8 +52,6 @@ exports.get = function(request) {
           image: imageUrl(imageKey, 'block(96,128)')
         };
       }),
-      ingress,
-      text,
     };
 
     return React4xp.render(component, props, request);

@@ -2,6 +2,7 @@ const portal = require('/lib/xp/portal');
 const React4xp = require('/lib/enonic/react4xp');
 
 const { imageUrl } = require('../shared/image');
+const { processHtml } = require('../shared/html');
 
 const utils = require('/lib/util');
 
@@ -34,13 +35,13 @@ exports.get = function(request) {
 
     const props = {
       title,
-      description,
+      description: processHtml(description),
       headerColor,
       headerPosition,
       image: imageKey && {
         ...imageUrl(imageKey, 'full'),
       },
-      ingress,
+      ingress: processHtml(ingress),
       ingressInImage,
       tags,
       titleInImage,

@@ -6,8 +6,7 @@ export default ({
   title,
   image,
   authors,
-  ingress,
-  text,
+  quote,
   description,
   tags,
 }) => (
@@ -34,11 +33,11 @@ export default ({
         ))}
       </ul>
     )}
-    { ingress && (
-      <div dangerouslySetInnerHTML={{ __html: ingress }} />
+    { quote && (
+      <div dangerouslySetInnerHTML={{ __html: quote }} />
     )}
-    { (text || description) && (
-      <div dangerouslySetInnerHTML={{ __html: text || description }} />
+    { description && (
+      <div dangerouslySetInnerHTML={{ __html: quote || description }} />
     )}
   </div>
 );
