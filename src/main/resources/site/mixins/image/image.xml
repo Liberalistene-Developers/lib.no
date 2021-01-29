@@ -6,7 +6,7 @@
       <occurrences minimum="0" maximum="1"/>
       <config>
         <allowPath>${site}/*</allowPath>
-        <treeMode>true</treeMode>
+        <treeMode>false</treeMode>
         <showStatus>true</showStatus>
         <hideToggleIcon>true</hideToggleIcon>
       </config>

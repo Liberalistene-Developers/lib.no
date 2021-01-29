@@ -14,6 +14,7 @@ const SingleLayout = ({ background, fullWidth, paddingBottom, paddingTop, childr
   </main>
 );
 
+
 SingleLayout.propTypes = {
   background: PropTypes.oneOf(['standard', 'white', 'purple', 'yellow']),
   fullWidth: PropTypes.bool,
@@ -28,8 +29,43 @@ SingleLayout.defaultProps = {
   paddingTop: false,
 };
 
+const TwoColumnLayout = ({ background, fullWidth, paddingBottom, paddingTop, children, leftClassName, rightClassName }) => {
+  const [first, second] = children ? [].concat(children) : [];
+  
+  return (
+    <main>
+      <div class={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
+        <div class={`content${fullWidth?' full':''}`}>
+          <div class="content-item items">
+            <div class={`content-child left ${leftClassName}`}>
+              {first}
+            </div>
+            <div class={`content-child right ${rightClassName}`}>
+              {first}
+            </div>          
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+};
+const classes = PropTypes.oneOf(['', 'one', 'one-20', 'one-30', 'one-33', 'one-40', 'two-60', 'two-66', 'two-70', 'four']);
+
+TwoColumnLayout.propTypes = {
+  ...SingleLayout.propTypes,
+  rightClassName: classes,
+  leftClassName: classes,
+};
+
+TwoColumnLayout.defaultProps = {
+  ...SingleLayout.defaultProps,
+  leftClassName: 'one',
+  rightClassName: 'one',
+};
+
 export default SingleLayout;
 
 export {
   SingleLayout,
+  TwoColumnLayout,
 }
