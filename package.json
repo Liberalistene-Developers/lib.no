@@ -18,7 +18,11 @@
     "watch:styles": "webpack --config webpack.client.config.js --color --hide-modules",
     "watch:xp": "babel src/main/resources --out-dir build/resources/main --ignore **/*.jsx --progress --watch",
     "storybook": "start-storybook -s ./public -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
+    "release:major": "standard-version --release-as major"
   },
   "repository": {
     "type": "git",
@@ -36,6 +40,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "classnames": "^2.2.6",
+    "husky": "^4.3.8",
     "ini": "^2.0.0",
     "leaflet": "^1.7.1",
     "node-fetch": "^2.6.1",
@@ -56,6 +61,8 @@
     "@babel/plugin-transform-arrow-functions": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@storybook/addon-actions": "^6.1.15",
     "@storybook/addon-essentials": "^6.1.15",
     "@storybook/addon-links": "^6.1.15",
@@ -75,6 +82,7 @@
     "postcss-normalize": "^9.0.0",
     "ramda": "^0.27.1",
     "sass-loader": "^10.1.1",
+    "standard-version": "^9.1.0",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
@@ -90,5 +98,10 @@
       "@babel/plugin-proposal-object-rest-spread",
       "@babel/plugin-transform-arrow-functions"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
