@@ -1,0 +1,11 @@
+<mixin>
+  <display-name i18n="mixin.expandable.displayname">Expandable</display-name>
+  <form>
+    <input  name="expandable" type="CheckBox">
+      <label i18n="mixin.expandable.label">Expandable</label>
+      <config>
+        <alignment>right</alignment>
+      </config>
+    </input>
+  </form>
+</mixin>

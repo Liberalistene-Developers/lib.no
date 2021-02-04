@@ -19,5 +19,5 @@ exports.get = function(request) {
       tags,
     };
 
-    return React4xp.render(component, props, request);
+    return React4xp.render('Faq', props, request);
 };

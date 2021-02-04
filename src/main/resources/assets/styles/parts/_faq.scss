@@ -1,0 +1,13 @@
+div[itemprop="mainEntity"] {
+  & > [itemprop="name"] {
+    margin-bottom: 20px;
+
+    & > svg {
+      width: 34px;
+    }
+  }
+}
+
+div[itemprop="acceptedAnswer"] {
+  margin-bottom: 20px;
+}
