@@ -36,11 +36,11 @@ const Event = ({
       ingress={ingressInImage && ingress} text={headerColor}
       position={headerPosition}
     />
-    
+
     { !titleInImage && title && (
       <h1>{title}</h1>
     )}
-    
+
     { !ingressInImage && ingress && (
       <div className="rich-text" dangerouslySetInnerHTML={{ __html: ingress }} />
     )}
@@ -53,13 +53,13 @@ const Event = ({
                 <h2 id={informationLabel}>{informationLabel}</h2>
               )}
               <div className="text rich-text" dangerouslySetInnerHTML={{ __html: description }} />
-            </div>          
+            </div>
           )}
           { email && (
             <div className="more-info">
               { moreInformationLabel && (
                 <h2 id={moreInformationLabel}>{moreInformationLabel}</h2>
-              )}              
+              )}
               <div className="email rich-text">
                 {contactLabel} <a href={`mailto:${email}?subject=${title}`}>{email}</a>
               </div>
@@ -73,10 +73,10 @@ const Event = ({
             <h2 id={locationLabel}>{locationLabel}</h2>
           )}
 
-          <Map position={map} address={location && location.address} />          
+          <Map position={map} address={location && location.address} />
           <EventPlace location={location} locationLabel={placeLabel} />
           <EventTime date={date} dateLabel={dateLabel} time={time} timeLabel={timeLabel} />
-        </div>        
+        </div>
       )}
     </div>
   </div>

@@ -1,4 +1,5 @@
 const portal = require('/lib/xp/portal');
+const contentLib = require('/lib/xp/content');
 const React4xp = require('/lib/enonic/react4xp');
 
 const { processHtml } = require('../shared/html');
@@ -22,7 +23,7 @@ exports.get = function(request) {
 
     log.info(JSON.stringify(content, null, 4));
     log.info(JSON.stringify(component, null, 4));
-    
+
     const props = {
       expandable,
       expanded,
@@ -47,10 +48,12 @@ exports.get = function(request) {
               path: itemPath,
             }),
           question,
-          answer,
+          answer: processHtml(answer),
         };
       }),
     }
 
-    return React4xp.render('FaqList', props, request);
+    log.info(JSON.stringify(request, null, 2));
+
+    return React4xp.render('FaqList', props, request, { clientRender: expandable });
 };

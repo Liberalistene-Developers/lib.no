@@ -13,11 +13,21 @@ exports.get = function(request) {
         tags,
       },
     } = content;
+
+    const {
+      config: {
+        expandable,
+        expanded,
+      } = {},
+    } = component;
+
     const props = {
+      expandable,
+      expanded,
       question,
       answer: processHtml(answer),
       tags,
     };
 
-    return React4xp.render('Faq', props, request);
+    return React4xp.render('FaqItem', props, request, { clientRender: expandable });
 };

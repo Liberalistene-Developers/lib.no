@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Menu } from '../../main/resources/site/parts/menu/menu.jsx';
+import { Menu } from '../../main/resources/react4xp/libEntries/Menu.jsx';
 
 import { SingleLayout } from '../layouts';
 
 export default {
   title: 'Parts/Menu/Menu',
-  
+
   component: Menu,
 };
 
@@ -36,5 +36,3 @@ Default.args = {
     },
   ],
 };
-
-

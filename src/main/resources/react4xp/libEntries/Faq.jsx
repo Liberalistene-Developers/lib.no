@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 
-export const Faq = ({ question, answer, expandable = false, expanded = true, Tag = 'h2' }) => {
+const Faq = ({ question, answer, expandable = false, expanded = true, Tag = 'h2' }) => {
   const [visible, setVisible] = useState(expanded);
 
   const toggleIcon = () => setVisible(!visible);
@@ -26,4 +26,24 @@ export const Faq = ({ question, answer, expandable = false, expanded = true, Tag
   );
 };
 
+Faq.propTypes = {
+  question: PropTypes.string,
+  answer: PropTypes.string,
+  expandable: PropTypes.bool,
+  expanded: PropTypes.bool,
+  Tag: PropTypes.string,
+};
+
+Faq.defaultProps = {
+  question: '',
+  answer: '',
+  expandable: false,
+  expanded: true,
+  Tag: 'h2',
+};
+
 export default Faq;
+
+export {
+  Faq,
+};

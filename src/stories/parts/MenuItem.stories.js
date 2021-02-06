@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { MenuItem } from '../../main/resources/site/parts/menuitem/menuitem.jsx';
+import { MenuItem } from '../../main/resources/react4xp/libEntries/MenuItem.jsx';
 import { SingleLayout } from '../layouts';
 
 export default {
   title: 'Parts/Menu/MenuItem',
-  
+
   component: MenuItem,
 };
 
@@ -19,5 +19,3 @@ export const Default = Template.bind({});
 Default.args = {
   title: 'Menu',
 };
-
-
