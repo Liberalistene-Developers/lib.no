@@ -6,7 +6,8 @@ import Image from '../shared/Image';
 import PersonListItem from '../shared/PersonListItem';
 
 const Group = ({
-  imageType,
+  imagesize,
+  imagetype,
   headerColor,
   headerPosition,
   ingressInImage,
@@ -28,47 +29,56 @@ const Group = ({
         position={headerPosition}
       />
     )}
-    
-    { (!titleInImage || !image) && title && (
-      <h1>{title}</h1>
-    )}
-    
-    { (!ingressInImage || !image) && shortDescription && (
-      <div className="rich-text" dangerouslySetInnerHTML={{ __html: shortDescription }} />
-    )}
+  
+    <div className="group-content">
+      { (!titleInImage || !image) && title && (
+        <h1>{title}</h1>
+      )}
+      
+      { (!ingressInImage || !image) && shortDescription && (
+        <div className="rich-text" dangerouslySetInnerHTML={{ __html: shortDescription }} />
+      )}
 
-    { description && (
-      <div className="info">
-        { informationLabel && (
-          <h2>{informationLabel}</h2>
-        )}
-        
-        <div
-          className="group-content"
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
-      </div>
-    )}
-
-    { board && board.length > 0 ? (
-        <div className="board">
-          <div className="leader">
-            {board.slice(0, 1).map((item) => (
-              <PersonListItem item={item} imageType={imageType} />
-            ))}
-          </div>
-          { board.length > 1 && (
-            <div className="members">
-            { board.slice(1).map((item) => (
-              <PersonListItem item={item} imageType={imageType}/>
-            ))}
-            </div>            
+      { description && (
+        <div className="info">
+          { informationLabel && (
+            <h2>{informationLabel}</h2>
           )}
+          
+          <div
+            className="group-description"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
         </div>
-      )
-      : null
-    }
+      )}
 
+      { board && board.length > 0 ? (
+          <div className="board">
+            <div className="leader">
+              {board.slice(0, 1).map((item) => (
+                <PersonListItem
+                  item={item}
+                  imageSize={imagesize}
+                  imageType={(imagetype && 'round') || ''}
+                />
+              ))}
+            </div>
+            { board.length > 1 && (
+              <div className="members">
+              { board.slice(1).map((item) => (
+                <PersonListItem
+                  item={item}
+                  imageSize={imagesize}
+                  imageType={(imagetype && 'round') || ''}
+                />
+              ))}
+              </div>            
+            )}
+          </div>
+        )
+        : null
+      }
+    </div>
   </div>
 );
 
@@ -84,7 +94,8 @@ Group.defaultProps = {
   ingressInImage: true,
   title : '',
   titleInImage: true,
-  imageType: 'round',
+  imagetype: 'round',
+  imagesize: 'medium',
 };
 
 export default Group;

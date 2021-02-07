@@ -15,6 +15,8 @@ exports.get = function(request) {
         headerPosition,
         ingressInImage,
         titleInImage,
+        imagesize,
+        imagetype,
       } = {},
     } = component;
 
@@ -38,6 +40,8 @@ exports.get = function(request) {
     const props = {
       title,
       image: imageUrl(image, 'full'),
+      imagesize,
+      imagetype,
       headerColor,
       headerPosition,
       ingressInImage,
@@ -59,7 +63,7 @@ exports.get = function(request) {
           _path: personPath,
           data: {
             image: imageKey,
-            shortDescription: boardShortDescription,
+            'short-description': boardShortDescription,
           },
         } = contentLib.get({ key: personId });
 

@@ -9,5 +9,12 @@
     <mixin name="headercolor" />
     <mixin name="ingressinimage" />
     <mixin name="titleinimage" />
+    <field-set>
+      <label>How to show board members</label>
+      <items>
+        <mixin name="imagesize" />
+        <mixin name="imagetype" />
+      </items>
+    </field-set>
   </form>
 </part>
