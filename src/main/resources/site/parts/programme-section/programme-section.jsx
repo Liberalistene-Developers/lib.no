@@ -6,10 +6,13 @@ import slugify from 'slugify';
 import Part from '../programme-part/programme-part.jsx';
 
 const ProgrammeSection = ({ anchor, title, description, parts = [], tags }) => (
-  <div>
-    <h2 title={description||title} id={anchor ? slugify(title) : undefined}>{title}</h2>
+  <div className="programme-section">
+    <h2 title={title} id={anchor ? slugify(title) : undefined}>{title}</h2>
+    { description && (
+        <div className="programme-section-description" dangerouslySetInnerHTML={{ __html: description }} />
+    )}
     { parts && parts.length > 0 ? (
-      <div>
+      <div className="programme-sections-parts">
         { parts.map(({ key, ...props }) =>
           <Part key={ key } { ...props } parentTitle={title} anchor={anchor} />
         )}

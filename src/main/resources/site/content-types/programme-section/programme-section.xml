@@ -8,6 +8,10 @@
   <is-built-in>false</is-built-in>
   <allow-child-content>true</allow-child-content>
   <form>
+    <input name="description" type="HtmlArea">
+      <label>Section</label>
+      <default>Enter the section here</default>
+    </input>
     <mixin name="tags" />
   </form>
 </content-type>
