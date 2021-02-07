@@ -1,3 +1,14 @@
+.list-item.person {
+  & .role {
+    color: var(--lib-color-primary-300);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 26px;
+    margin-bottom: 5px;
+  }
+}
+
 .person-list {
   display: flex;
 }

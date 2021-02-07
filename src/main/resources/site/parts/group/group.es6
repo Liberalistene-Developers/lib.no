@@ -59,6 +59,7 @@ exports.get = function(request) {
           _path: personPath,
           data: {
             image: imageKey,
+            shortDescription: boardShortDescription,
           },
         } = contentLib.get({ key: personId });
 
@@ -66,9 +67,10 @@ exports.get = function(request) {
         log.info(JSON.stringify(person, null, 4));
 
         return {
+          name: person,
           role,
-          person,
-          personUrl: portal
+          shortDescription: boardShortDescription,
+          url: portal
             .pageUrl({
               path: personPath,
             }),

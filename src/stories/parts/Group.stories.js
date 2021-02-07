@@ -16,7 +16,7 @@ const image = {
 };
 
 const Template = (args) => (
-  <SingleLayout>
+  <SingleLayout fullWidth="true">
     <Group {...args} />
   </SingleLayout>
 );
@@ -33,4 +33,67 @@ Normal.args = {
     address: 'Markensgate 39, Kristiansand'
   },
   informationLabel: 'Informasjon',
+};
+
+export const SentralStyret = Template.bind({});
+SentralStyret.args = {
+  title: 'Sentralstyret',
+  board: [
+    {
+      name: 'Ronny Skjæveland',
+      role: 'Partileder',
+      shortDescription: 'Ronny Skjæveland er partileder i Liberalistene',
+      image: {
+        url: 'partyleader.jpg',
+      },
+    },
+    {
+      name: 'Roald Ribe',
+      role: 'Politisk Nestleder',
+      shortDescription: 'Roald Ribe er politisk nestleder i Liberalistene.',
+      image: {
+        url: 'politicalnestleader.jpg',
+      },
+    },
+    {
+      name: 'Aleksander Aas',
+      role: 'Organisatorisk Nestleder',
+      shortDescription: 'Aleksander Aas er organisatorisk nestleder i Liberalistene.',
+      image: {
+        url: 'orgnestleader.jpg',
+      },
+    },
+    {
+      name: 'Jan-Øyvind Lorgen',
+      role: 'Sekretær',
+      shortDescription: 'Jan-Øyvind Lorgen er sekretær i Liberalistene.',
+      image: {
+        url: 'secretary.jpg',
+      },
+    },
+    {
+      name: 'Amund Farberg',
+      role: 'Styremedlem',
+      shortDescription: 'Amund Farberg er styremedlem i Liberalistene.',
+      image: {
+        url: 'boardmember1.jpg',
+      },
+    },
+    {
+      name: 'Nicolay Normann Grundt',
+      role: 'Styremedlem',
+      shortDescription: 'Nicolay Normann Grundt er styremedlem i Liberalistene.',
+      image: {
+        url: 'boardmember2.jpg',
+      },
+    },
+    {
+      name: 'Daisy Sælem Hafstad',
+      role: 'Styremedlem',
+      shortDescription: 'Daisy Sælem Hafstad er styremedlem i Liberalistene.',
+      image: {
+        url: 'boardmember3.jpg',
+      },
+    },
+  ]
 };

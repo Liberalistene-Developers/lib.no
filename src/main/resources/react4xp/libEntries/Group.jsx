@@ -2,8 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { ImageBlock } from './ImageBlock';
+import Image from '../shared/Image';
+import PersonListItem from '../shared/PersonListItem';
 
 const Group = ({
+  imageType,
   headerColor,
   headerPosition,
   ingressInImage,
@@ -48,23 +51,20 @@ const Group = ({
     )}
 
     { board && board.length > 0 ? (
-        <ul>
-          { board.map(({ role, person, personUrl, image }) => (
-            <li>
-              <a href={personUrl}>
-                { image && (
-                  <img src={image} />
-                )}
-                <span>
-                  {role}
-                </span>
-                <span>
-                  {person}
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="board">
+          <div className="leader">
+            {board.slice(0, 1).map((item) => (
+              <PersonListItem item={item} imageType={imageType} />
+            ))}
+          </div>
+          { board.length > 1 && (
+            <div className="members">
+            { board.slice(1).map((item) => (
+              <PersonListItem item={item} imageType={imageType}/>
+            ))}
+            </div>            
+          )}
+        </div>
       )
       : null
     }
@@ -84,6 +84,7 @@ Group.defaultProps = {
   ingressInImage: true,
   title : '',
   titleInImage: true,
+  imageType: 'round',
 };
 
 export default Group;

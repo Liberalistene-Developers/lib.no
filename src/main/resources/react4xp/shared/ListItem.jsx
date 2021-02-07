@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import Image from './Image';
 
 const ListItem = ({
   children,
+  className,
   imageSize,
   imageType,
   item: {
@@ -15,7 +17,7 @@ const ListItem = ({
   } = {},
   fields,
 }) => (
-  <div className="list-item">
+  <div className={classNames('list-item', className)}>
 
     <Image image={image} className={imageSize} imageClassName={imageType} />
 
