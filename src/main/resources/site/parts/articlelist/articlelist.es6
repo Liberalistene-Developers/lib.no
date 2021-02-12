@@ -3,6 +3,7 @@ const portal = require('/lib/xp/portal');
 const contentLib = require('/lib/xp/content');
 
 const { imageUrl } = require('../shared/image');
+const { findItems } = require('../shared/query');
 
 exports.get = function(request) {
     const content = portal.getContent();
@@ -16,16 +17,43 @@ exports.get = function(request) {
       config: {
         description,
         displaytype,
-        items: itemList = [],
+        items: oldItemList = [],
+        itemsSet: {
+          '_selected': selection,
+          manual: {
+            items: itemList = [],
+          } = {},
+          query: {
+            queryroot,
+            querysorting = 'normal',
+            count = 10,            
+          } = {},
+        } = {},
         shortDescription,
         title,
       } = {},
     } = component;
 
-    const items = [].concat(itemList);
+    const items = [].concat(oldItemList);
 
-    log.info(JSON.stringify(content, null, 4));
-    log.info(JSON.stringify(component, null, 4));
+    log.info(JSON.stringify(content, null, 2));
+    log.info(JSON.stringify(component, null, 2));
+    
+    switch (selection) {
+      case 'manual':
+        items.push(...[].concat(itemList));
+        break;
+        
+      case 'query':
+        if (queryroot) {
+          const list = findItems('lib.no:article', queryroot, querysorting, count, 0);
+          
+          if (list.length) {
+            items.push(...list);
+          }        
+        }  
+        break;        
+    }
 
     const props = {
       title,
