@@ -7,19 +7,41 @@
   <form>
     <mixin name="expandable" />
     <mixin name="expanded" />
-    <input name="items" type="ContentSelector">
-      <label i18n="parts.faqlist.faqs.label">FAQ(s)</label>
-      <occurrences minimum="1" maximum="0"/>
-      <config>
-        <allowContentType>faq</allowContentType>
-        <allowPath>/*/FAQ/*</allowPath>
-        <allowPath>${site}/*/FAQ/*</allowPath>
-        <allowPath>${site}/*</allowPath>
-        <allowPath>./*</allowPath>
-        <treeMode>false</treeMode>
-        <showStatus>true</showStatus>
-        <hideToggleIcon>true</hideToggleIcon>
-      </config>
-    </input>
+    <option-set name="itemsSet">
+      <label i18n="checkOptionSet.label">Items</label>
+      <expanded>true</expanded> 
+      <occurrences minimum="1" maximum="1"/> 
+      <help-text>You can select up to 2 options</help-text>
+      <options minimum="1" maximum="1">    
+        <option name="manual">
+          <label>Manual selection</label>
+          <help-text>Select items to show</help-text>
+          <default>true</default>
+          <items>
+            <input name="items" type="ContentSelector">
+              <label i18n="parts.faqlist.faqs.label">FAQ(s)</label>
+              <occurrences minimum="0" maximum="0"/>
+              <config>
+                <allowContentType>faq</allowContentType>
+                <allowPath>/*/FAQ/*</allowPath>
+                <allowPath>${site}/*/FAQ/*</allowPath>
+                <allowPath>${site}/*</allowPath>
+                <allowPath>./*</allowPath>
+                <treeMode>false</treeMode>
+                <showStatus>true</showStatus>
+                <hideToggleIcon>true</hideToggleIcon>
+              </config>
+            </input>
+          </items>
+        </option>
+        <option name="query">
+          <label>Query selection</label>
+          <help-text>Select which query to use for items</help-text>
+          <items>
+            <mixin name="query" />
+          </items>
+        </option>
+      </options>
+    </option-set>
   </form>
 </part>
