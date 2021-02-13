@@ -16,6 +16,7 @@ exports.get = function(req) {
       paddingbottom: paddingBottom,
       paddingtop: paddingTop,
       columnsLayout = '',
+      reverseroworder = false,
     },
     regions: {
       top: topRegion,
@@ -25,7 +26,6 @@ exports.get = function(req) {
   } = component;
   
   const [leftClassName, rightClassName] = columnsLayout.split(',');
-
 
   // Define the model
   const model = {
@@ -39,6 +39,7 @@ exports.get = function(req) {
     rightClassName,
     rightRegion,
     topRegion,
+    orderClass: reverseroworder ? 'reverse' : '',
   };
 
   // Render a thymeleaf template

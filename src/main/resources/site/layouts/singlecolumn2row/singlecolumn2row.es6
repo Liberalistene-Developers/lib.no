@@ -15,6 +15,7 @@ exports.get = function(req) {
       fullwidth: fullWidth,
       paddingbottom: paddingBottom,
       paddingtop: paddingTop,
+      reverseroworder = false,
     },
     regions: {
       top: topRegion,
@@ -32,6 +33,7 @@ exports.get = function(req) {
     paddingBottom,
     paddingTop,
     topRegion,
+    orderClass: reverseroworder ? 'reverse' : '',
   };
 
   // Render a thymeleaf template
