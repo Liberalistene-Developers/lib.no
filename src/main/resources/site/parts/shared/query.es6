@@ -30,8 +30,8 @@ export const runQuery = (key, count, type, sortMethod = undefined, start = 0) =>
   return getItems(search, type);
 };
 
-export const findItems = (type, key, sortMethod, count, start = 0) => {
-  switch (sortMethod) {
+export const findItems = (type, key, sort, count, start = 0) => {
+  switch (sort) {
     case 'normal': {
       const list = runQuery(key, count, type, undefined, 0);
       
