@@ -29,6 +29,39 @@ SingleLayout.defaultProps = {
   paddingTop: false,
 };
 
+
+const SingleColumn2row = ({ background, fullWidth, paddingBottom, paddingTop, children, order}) => {
+  const [first, second] = children ? [].concat(children) : [];
+
+  return (
+    <main>
+      <div class={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
+        <div class={`content${fullWidth?' full':''}`}>
+          <div class={`content-item items ${order}`}>
+            <div class="content-child full">
+              {first}
+            </div>
+            <div class="content-child full">
+              {second}
+            </div>          
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+};
+
+SingleColumn2row.propTypes = {
+  ...SingleLayout.propTypes,
+  order: PropTypes.string,
+};
+
+SingleColumn2row.defaultProps = {
+  ...SingleLayout.defaultProps,
+  order: '',
+};
+
+
 const TwoColumnLayout = ({ background, fullWidth, paddingBottom, paddingTop, children, leftClassName, rightClassName }) => {
   const [first, second] = children ? [].concat(children) : [];
   
@@ -41,7 +74,7 @@ const TwoColumnLayout = ({ background, fullWidth, paddingBottom, paddingTop, chi
               {first}
             </div>
             <div class={`content-child right ${rightClassName}`}>
-              {first}
+              {second}
             </div>          
           </div>
         </div>
@@ -67,5 +100,6 @@ export default SingleLayout;
 
 export {
   SingleLayout,
+  SingleColumn2row,
   TwoColumnLayout,
 }

@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { TwoColumnLayout } from './Layout';;
+import { SingleColumn2row } from './Layout';;
 
 export default {
-  title: 'Layouts/TwoColumnLayout/70-30',
+  title: 'Layouts/SingleLayout+1',
   
-  component: TwoColumnLayout,
+  component: SingleColumn2row,
 };
 
 const Template = (args) => (
-  <TwoColumnLayout {...args}>
+  <SingleColumn2row {...args}>
     <div style={{ paddingTop: 20, paddingBottom: 20 }}>
       <h1>Lorem ipsum 1</h1>
       
@@ -24,7 +24,7 @@ const Template = (args) => (
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper lorem a felis posuere, eu convallis lorem tempor. Sed efficitur varius dictum. Quisque tellus sapien, lobortis eget elementum ut, dignissim sed mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam gravida convallis ante, eu porttitor nulla lobortis et. Proin nulla dui, feugiat ut arcu vitae, finibus consequat dolor. Morbi aliquet ex vel eleifend auctor. Integer placerat leo ac laoreet interdum.
       </p>
     </div>
-  </TwoColumnLayout>
+  </SingleColumn2row>
 );
 
 export const StandardBackground = Template.bind({});
@@ -33,8 +33,12 @@ StandardBackground.args = {
   fullWidth: false,
   paddingBottom: false,
   paddingTop: false,
-  leftClassName: 'two-70',
-  rightClassName: 'one-30',
+};
+
+export const StandardBackgroundReverse = Template.bind({});
+StandardBackgroundReverse.args = {
+  ...StandardBackground.args,
+  order: 'reverse',
 };
 
 export const StandardBackgroundFullWidth = Template.bind({});
@@ -42,6 +46,14 @@ StandardBackgroundFullWidth.args = {
   ...StandardBackground.args,
   fullWidth: true,
 };
+
+export const StandardBackgroundFullWidthReverse = Template.bind({});
+StandardBackgroundFullWidthReverse.args = {
+  ...StandardBackgroundFullWidth.args,
+  order: 'reverse',
+  
+};
+
 
 export const PurpleBackground = Template.bind({});
 PurpleBackground.args = {

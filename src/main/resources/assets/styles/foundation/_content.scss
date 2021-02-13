@@ -1,4 +1,4 @@
-/* Bug on edit pages fix */
+npm /* Bug on edit pages fix */
 body {
   &.xp-page-editor-page-view {
     height: 100vh;
@@ -161,14 +161,25 @@ main {
         
         &.items {
           flex-direction: row;
+          flex-wrap: wrap;
+          
+          &.reverse {
+            flex-wrap: wrap-reverse;
+          }
           
           & .content-child {
             &.left {
               padding-right: 20px;
+              margin-left: -20px;
             }
             
             &.right {
               padding-left: 20px;
+              margin-right: -20px;
+            }
+            
+            &.full {
+              width: 100%;
             }
             
             &.one {

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<layout>
+  <display-name i18n="layouts.singlecolumn2row.displayname">Single column + 1</display-name>
+  <form>
+    <mixin name="fullwidth" />
+    <mixin name="borderbottom" />
+    <mixin name="background" />
+    <mixin name="paddingtop" />
+    <mixin name="paddingbottom" />
+  </form>
+  <regions>
+    <region name="top"/>
+    <region name="bottom"/>
+  </regions>
+</layout>
