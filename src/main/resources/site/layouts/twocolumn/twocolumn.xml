@@ -4,7 +4,7 @@
   <description>Two column layout</description>
   <form>
     <input name="columnsLayout" type="ComboBox">
-      <label i18n="mixin.headercolor.label">Header color</label>
+      <label i18n="mixin.columnlayout.label">Column layout</label>
       <occurrences minimum="1" maximum="1"/>
       <config>
         <option value="one,one">50% - 50%</option>

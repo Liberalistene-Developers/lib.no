@@ -11,8 +11,12 @@ exports.get = function(req) {
   // Define the model
   const {
     config: {
-      fullwidth: fullWidth,
+      background,
       borderbottom: borderBottom,
+      fullwidth: fullWidth,
+      paddingbottom: paddingBottom,
+      paddingtop: paddingTop,
+      columnsLayout = '',
     },
     regions: {
       left: leftRegion,
@@ -21,12 +25,19 @@ exports.get = function(req) {
     }
   } = component;
   
+  const [leftClassName, middleClassName, rightClassName] = columnsLayout.split(',');
 
   const model = {
+    background,
     borderBottom,
     fullWidth,
+    leftClassName,
     leftRegion,
+    middleClassName,
     middleRegion,
+    paddingBottom,
+    paddingTop,
+    rightClassName,
     rightRegion,
   };
 
