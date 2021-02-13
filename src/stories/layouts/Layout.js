@@ -82,6 +82,7 @@ const TwoColumnLayout = ({ background, fullWidth, paddingBottom, paddingTop, chi
     </main>
   );
 };
+
 const classes = PropTypes.oneOf(['', 'one', 'one-20', 'one-30', 'one-33', 'one-40', 'two-60', 'two-66', 'two-70', 'four']);
 
 TwoColumnLayout.propTypes = {
@@ -96,10 +97,74 @@ TwoColumnLayout.defaultProps = {
   rightClassName: 'one',
 };
 
+const TwoColumn2rowLayout = ({ background, fullWidth, paddingBottom, paddingTop, children, leftClassName, rightClassName, order }) => {
+  const [first, second, third] = children ? [].concat(children) : [];
+  
+  return (
+    <main>
+      <div class={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
+        <div class={`content${fullWidth?' full':''}`}>
+          <div class={`content-item items ${order}`}>
+            <div class="content-child full">
+              {first}
+            </div>
+            <div class={`content-child left ${leftClassName}`}>
+              {second}
+            </div>
+            <div class={`content-child right ${rightClassName}`}>
+              {third}
+            </div>          
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+};
+
+const ThreeColumnLayout = ({ background, fullWidth, paddingBottom, paddingTop, children, leftClassName, middleClassName, rightClassName }) => {
+  const [first, second, third] = children ? [].concat(children) : [];
+  
+  return (
+    <main>
+      <div class={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
+        <div class={`content${fullWidth?' full':''}`}>
+          <div class="content-item items">
+            <div class={`content-child left ${leftClassName}`}>
+              {first}
+            </div>
+            <div class={`content-child middle ${middleClassName}`}>
+              {second}
+            </div>          
+            <div class={`content-child right ${rightClassName}`}>
+              {third}
+            </div>          
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+};
+
+ThreeColumnLayout.propTypes = {
+  ...SingleLayout.propTypes,
+  rightClassName: classes,
+  middleClassName: classes,
+  leftClassName: classes,
+};
+
+ThreeColumnLayout.defaultProps = {
+  ...SingleLayout.defaultProps,
+  middleClassName: 'one-33',
+  leftClassName: 'one-33',  
+  rightClassName: 'one-33',
+};
+
 export default SingleLayout;
 
 export {
   SingleLayout,
   SingleColumn2row,
   TwoColumnLayout,
+  TwoColumn2rowLayout,
+  ThreeColumnLayout,
 }

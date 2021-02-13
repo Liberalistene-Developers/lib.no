@@ -162,6 +162,7 @@ main {
         &.items {
           flex-direction: row;
           flex-wrap: wrap;
+          column-gap: 40px;
           
           &.reverse {
             flex-wrap: wrap-reverse;
@@ -169,13 +170,28 @@ main {
           
           & .content-child {
             &.left {
-              padding-right: 20px;
+              margin-right: -20px;
+              &>* {
+                padding-right: 20px;
+              }
+            }
+            
+            &.middle {
               margin-left: -20px;
+              margin-right: -20px;
+              
+              &>* {
+                padding-left: 20px;
+                padding-right: 20px;
+              }
             }
             
             &.right {
-              padding-left: 20px;
-              margin-right: -20px;
+              margin-left: -20px;
+              
+              &>* {
+                padding-left: 20px;
+              }
             }
             
             &.full {
