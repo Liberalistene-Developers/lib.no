@@ -1,0 +1,4 @@
+# .husky/commit-msg
+# 
+# follow commit message rules
+npm run commit:msg

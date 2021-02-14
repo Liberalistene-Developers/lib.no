@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "Liberalistene homepage",
   "scripts": {
+    "commit:msg": "commitlint --edit $1",
     "install:dev": "nsi",
     "install:prod": "npm install",
     "clean": "./gradlew clean --refresh-dependencies  --info",
