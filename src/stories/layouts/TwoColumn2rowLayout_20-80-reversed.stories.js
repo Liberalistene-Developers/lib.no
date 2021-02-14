@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { SingleColumn2row } from './Layout';;
+import { TwoColumn2rowLayout } from './Layout';;
 
 export default {
-  title: 'Layouts/SingleLayout+1/Default',
+  title: 'Layouts/TwoColumnLayout + 1/Reversed/20-80',
   
-  component: SingleColumn2row,
+  component: TwoColumn2rowLayout,
 };
 
 const Template = (args) => (
-  <SingleColumn2row {...args}>
+  <TwoColumn2rowLayout {...args}>
     <div style={{ paddingTop: 20, paddingBottom: 20 }}>
       <h1>Lorem ipsum 1</h1>
       
@@ -24,7 +24,14 @@ const Template = (args) => (
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper lorem a felis posuere, eu convallis lorem tempor. Sed efficitur varius dictum. Quisque tellus sapien, lobortis eget elementum ut, dignissim sed mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam gravida convallis ante, eu porttitor nulla lobortis et. Proin nulla dui, feugiat ut arcu vitae, finibus consequat dolor. Morbi aliquet ex vel eleifend auctor. Integer placerat leo ac laoreet interdum.
       </p>
     </div>
-  </SingleColumn2row>
+    <div style={{ paddingTop: 20, paddingBottom: 20 }}>
+      <h1>Lorem ipsum 3</h1>
+      
+      <p className="rich-text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper lorem a felis posuere, eu convallis lorem tempor. Sed efficitur varius dictum. Quisque tellus sapien, lobortis eget elementum ut, dignissim sed mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam gravida convallis ante, eu porttitor nulla lobortis et. Proin nulla dui, feugiat ut arcu vitae, finibus consequat dolor. Morbi aliquet ex vel eleifend auctor. Integer placerat leo ac laoreet interdum.
+      </p>
+    </div>
+  </TwoColumn2rowLayout>
 );
 
 export const StandardBackground = Template.bind({});
@@ -33,6 +40,9 @@ StandardBackground.args = {
   fullWidth: false,
   paddingBottom: false,
   paddingTop: false,
+  leftClassName: 'one-20',
+  rightClassName: 'four',
+  order: 'reverse',
 };
 
 export const StandardBackgroundFullWidth = Template.bind({});
@@ -78,6 +88,12 @@ WhiteBackground.args = {
   background: 'white',
 };
 
+export const WhiteBackgroundReverse = Template.bind({});
+WhiteBackgroundReverse.args = {
+  ...WhiteBackground.args,
+  order: 'reverse',
+};
+
 export const WhiteBackgroundFullWidth = Template.bind({});
 WhiteBackgroundFullWidth.args = {
   ...WhiteBackground.args,
@@ -95,3 +111,14 @@ YellowBackgroundFullWidth.args = {
   ...YellowBackground.args,
   fullWidth: true,
 };
+
+
+
+
+
+
+
+
+
+
+

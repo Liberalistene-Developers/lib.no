@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { SingleColumn2row } from './Layout';;
+import { FourColumnLayout } from './Layout';;
 
 export default {
-  title: 'Layouts/SingleLayout+1/Default',
+  title: 'Layouts/FourColumnLayout/Default/25-25-25-25',
   
-  component: SingleColumn2row,
+  component: FourColumnLayout,
 };
 
 const Template = (args) => (
-  <SingleColumn2row {...args}>
+  <FourColumnLayout {...args}>
     <div style={{ paddingTop: 20, paddingBottom: 20 }}>
       <h1>Lorem ipsum 1</h1>
       
@@ -24,7 +24,21 @@ const Template = (args) => (
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper lorem a felis posuere, eu convallis lorem tempor. Sed efficitur varius dictum. Quisque tellus sapien, lobortis eget elementum ut, dignissim sed mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam gravida convallis ante, eu porttitor nulla lobortis et. Proin nulla dui, feugiat ut arcu vitae, finibus consequat dolor. Morbi aliquet ex vel eleifend auctor. Integer placerat leo ac laoreet interdum.
       </p>
     </div>
-  </SingleColumn2row>
+    <div style={{ paddingTop: 20, paddingBottom: 20 }}>
+      <h1>Lorem ipsum 3</h1>
+      
+      <p className="rich-text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper lorem a felis posuere, eu convallis lorem tempor. Sed efficitur varius dictum. Quisque tellus sapien, lobortis eget elementum ut, dignissim sed mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam gravida convallis ante, eu porttitor nulla lobortis et. Proin nulla dui, feugiat ut arcu vitae, finibus consequat dolor. Morbi aliquet ex vel eleifend auctor. Integer placerat leo ac laoreet interdum.
+      </p>
+    </div>
+    <div style={{ paddingTop: 20, paddingBottom: 20 }}>
+      <h1>Lorem ipsum 4</h1>
+      
+      <p className="rich-text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper lorem a felis posuere, eu convallis lorem tempor. Sed efficitur varius dictum. Quisque tellus sapien, lobortis eget elementum ut, dignissim sed mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam gravida convallis ante, eu porttitor nulla lobortis et. Proin nulla dui, feugiat ut arcu vitae, finibus consequat dolor. Morbi aliquet ex vel eleifend auctor. Integer placerat leo ac laoreet interdum.
+      </p>
+    </div>
+  </FourColumnLayout>
 );
 
 export const StandardBackground = Template.bind({});
@@ -33,6 +47,10 @@ StandardBackground.args = {
   fullWidth: false,
   paddingBottom: false,
   paddingTop: false,
+  middleLeftClassName: 'one-25',
+  middleRightClassName: 'one-25',
+  leftClassName: 'one-25',
+  rightClassName: 'one-25',
 };
 
 export const StandardBackgroundFullWidth = Template.bind({});

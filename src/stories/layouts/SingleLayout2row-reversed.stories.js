@@ -3,7 +3,7 @@ import React from 'react';
 import { SingleColumn2row } from './Layout';;
 
 export default {
-  title: 'Layouts/SingleLayout+1/Default',
+  title: 'Layouts/SingleLayout+1/Reversed',
   
   component: SingleColumn2row,
 };
@@ -33,6 +33,7 @@ StandardBackground.args = {
   fullWidth: false,
   paddingBottom: false,
   paddingTop: false,
+  order: 'reverse',
 };
 
 export const StandardBackgroundFullWidth = Template.bind({});

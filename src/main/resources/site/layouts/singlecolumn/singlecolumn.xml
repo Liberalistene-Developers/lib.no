@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <layout>
-  <display-name i18n="layouts.singlecolumn.displayname">Single column</display-name>
+  <display-name i18n="layouts.singlecolumn.displayname">1 column</display-name>
+  <description>Create a row with 1 column.</description>
   <form>
     <mixin name="fullwidth" />
     <mixin name="borderbottom" />

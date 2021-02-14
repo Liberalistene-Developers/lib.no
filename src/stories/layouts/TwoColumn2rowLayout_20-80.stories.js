@@ -3,7 +3,7 @@ import React from 'react';
 import { TwoColumn2rowLayout } from './Layout';;
 
 export default {
-  title: 'Layouts/TwoColumnLayout + 1/20-80',
+  title: 'Layouts/TwoColumnLayout + 1/Default/20-80',
   
   component: TwoColumn2rowLayout,
 };
@@ -45,35 +45,16 @@ StandardBackground.args = {
   order: '',
 };
 
-export const StandardBackgroundReverse = Template.bind({});
-StandardBackgroundReverse.args = {
-  ...StandardBackground.args,
-  order: 'reverse',
-};
-
-
 export const StandardBackgroundFullWidth = Template.bind({});
 StandardBackgroundFullWidth.args = {
   ...StandardBackground.args,
   fullWidth: true,
 };
 
-export const StandardBackgroundFullWidthReverse = Template.bind({});
-StandardBackgroundFullWidthReverse.args = {
-  ...StandardBackgroundFullWidth.args,
-  order: 'reverse',
-}
-
 export const PurpleBackground = Template.bind({});
 PurpleBackground.args = {
   ...StandardBackground.args,
   background: 'purple',
-};
-
-export const PurpleBackgroundReverse= Template.bind({});
-PurpleBackgroundReverse.args = {
-  ...PurpleBackground.args,
-  order: 'reverse',
 };
 
 export const PurpleBackgroundFullWidth = Template.bind({});
@@ -82,22 +63,10 @@ PurpleBackgroundFullWidth.args = {
   fullWidth: true,
 };
 
-export const PurpleBackgroundFullWidthReverse = Template.bind({});
-PurpleBackgroundFullWidthReverse.args = {
-  ...PurpleBackgroundFullWidth.args,
-  order: 'reverse',
-};
-
 export const PurpleBackgroundPaddingTop = Template.bind({});
 PurpleBackgroundPaddingTop.args = {
   ...PurpleBackground.args,
   paddingTop: true,
-};
-
-export const PurpleBackgroundPaddingTopReverse = Template.bind({});
-PurpleBackgroundPaddingTopReverse.args = {
-  ...PurpleBackgroundPaddingTop.args,
-  order: 'reverse',
 };
 
 export const PurpleBackgroundPaddingBottom = Template.bind({});
@@ -106,23 +75,11 @@ PurpleBackgroundPaddingBottom.args = {
   paddingBottom: true,
 };
 
-export const PurpleBackgroundPaddingBottomReverse = Template.bind({});
-PurpleBackgroundPaddingBottomReverse.args = {
-  ...PurpleBackgroundPaddingBottom.args,
-  order: 'reverse',
-};
-
 export const PurpleBackgroundPaddingTopAndBottom = Template.bind({});
 PurpleBackgroundPaddingTopAndBottom.args = {
   ...PurpleBackground.args,
   paddingBottom: true,
   paddingTop: true,
-};
-
-export const PurpleBackgroundPaddingTopAndBottomReverse = Template.bind({});
-PurpleBackgroundPaddingTopAndBottomReverse.args = {
-  ...PurpleBackgroundPaddingTopAndBottom.args,
-  order: 'reverse',
 };
 
 export const WhiteBackground = Template.bind({});
@@ -143,32 +100,14 @@ WhiteBackgroundFullWidth.args = {
   fullWidth: true,
 };
 
-export const WhiteBackgroundFullWidthReverse = Template.bind({});
-WhiteBackgroundFullWidthReverse.args = {
-  ...WhiteBackgroundFullWidth.args,
-  order: 'reverse',
-};
-
 export const YellowBackground = Template.bind({});
 YellowBackground.args = {
   ...StandardBackground.args,
   background: 'yellow',
 };
 
-export const YellowBackgroundReverse = Template.bind({});
-YellowBackgroundReverse.args = {
-  ...YellowBackground.args,
-  order: 'reverse',
-};
-
 export const YellowBackgroundFullWidth = Template.bind({});
 YellowBackgroundFullWidth.args = {
   ...YellowBackground.args,
   fullWidth: true,
-};
-
-export const YellowBackgroundFullWidthReverse = Template.bind({});
-YellowBackgroundFullWidthReverse.args = {
-  ...YellowBackgroundFullWidth.args,
-  order: 'reverse',
 };

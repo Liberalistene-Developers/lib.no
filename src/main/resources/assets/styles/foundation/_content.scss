@@ -1,4 +1,4 @@
-npm /* Bug on edit pages fix */
+/* Bug on edit pages fix */
 body {
   &.xp-page-editor-page-view {
     height: 100vh;
@@ -160,9 +160,10 @@ main {
         width: 911px;
         
         &.items {
+          column-gap: 40px;
           flex-direction: row;
           flex-wrap: wrap;
-          column-gap: 40px;
+          justify-content: space-between;
           
           &.reverse {
             flex-wrap: wrap-reverse;

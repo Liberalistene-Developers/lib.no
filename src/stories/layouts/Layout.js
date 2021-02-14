@@ -14,7 +14,6 @@ const SingleLayout = ({ background, fullWidth, paddingBottom, paddingTop, childr
   </main>
 );
 
-
 SingleLayout.propTypes = {
   background: PropTypes.oneOf(['standard', 'white', 'purple', 'yellow']),
   fullWidth: PropTypes.bool,
@@ -28,7 +27,6 @@ SingleLayout.defaultProps = {
   paddingBottom: false,
   paddingTop: false,
 };
-
 
 const SingleColumn2row = ({ background, fullWidth, paddingBottom, paddingTop, children, order}) => {
   const [first, second] = children ? [].concat(children) : [];
@@ -159,6 +157,143 @@ ThreeColumnLayout.defaultProps = {
   rightClassName: 'one-33',
 };
 
+const ThreeColumn2rowLayout = ({ background, fullWidth, paddingBottom, paddingTop, children, leftClassName, middleClassName, rightClassName, order }) => {
+  const [first, second, third, fourth] = children ? [].concat(children) : [];
+  
+  return (
+    <main>
+      <div class={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
+        <div class={`content${fullWidth?' full':''}`}>
+          <div class={`content-item items ${order}`}>
+            <div class="content-child full">
+              {first}
+            </div>
+            <div class={`content-child left ${leftClassName}`}>
+              {second}
+            </div>
+            { third && (
+              <div class={`content-child middle ${middleClassName}`}>
+                {third}
+              </div>
+            )}    
+            { fourth && (
+              <div class={`content-child right ${rightClassName}`}>
+                {fourth}
+              </div> 
+            )}   
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+};
+
+ThreeColumn2rowLayout.propTypes = {
+  ...ThreeColumnLayout.propTypes,
+  order: PropTypes.oneOf(['', 'reverse']),
+};
+
+ThreeColumn2rowLayout.defaultProps = {
+  ...ThreeColumnLayout.defaultProps,
+  order: '',
+};
+
+const FourColumnLayout = ({ background, fullWidth, paddingBottom, paddingTop, children, leftClassName, middleLeftClassName, middleRightClassName, rightClassName }) => {
+  const [first, second, third, fourth] = children ? [].concat(children) : [];
+  
+  return (
+    <main>
+      <div class={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
+        <div class={`content${fullWidth?' full':''}`}>
+          <div class="content-item items">
+            <div class={`content-child left ${leftClassName}`}>
+              {first}
+            </div>
+            { second && (
+              <div class={`content-child middle ${middleLeftClassName}`}>
+                {second}
+              </div>
+            )}    
+            { third && (
+              <div class={`content-child middle ${middleRightClassName}`}>
+                {third}
+              </div> 
+            )}   
+            { fourth && (
+              <div class={`content-child right ${rightClassName}`}>
+                {fourth}
+              </div> 
+            )}   
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+};
+
+FourColumnLayout.propTypes = {
+  ...SingleLayout.propTypes,
+  middleLeftClassName: classes,
+  middleRightClassName: classes,
+  leftClassName: classes,  
+  rightClassName: classes,
+};
+
+FourColumnLayout.defaultProps = {
+  ...SingleLayout.defaultProps,
+  middleLeftClassName: 'one-25',
+  middleRightClassName: 'one-25',
+  leftClassName: 'one-25',  
+  rightClassName: 'one-25',
+};
+
+
+const FourColumn2rowLayout = ({ background, fullWidth, paddingBottom, paddingTop, children, leftClassName, middleLeftClassName, middleRightClassName, rightClassName, order }) => {
+  const [first, second, third, fourth, fifth] = children ? [].concat(children) : [];
+  
+  return (
+    <main>
+      <div class={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
+        <div class={`content${fullWidth?' full':''}`}>
+          <div class={`content-item items ${order}`}>
+            <div class="content-child full">
+              {first}
+            </div>
+            <div class={`content-child left ${leftClassName}`}>
+              {second}
+            </div>
+            { third && (
+              <div class={`content-child middle ${middleLeftClassName}`}>
+                {third}
+              </div>
+            )}    
+            { fourth && (
+              <div class={`content-child middle ${middleRightClassName}`}>
+                {fourth}
+              </div> 
+            )}   
+            { fifth && (
+              <div class={`content-child right ${rightClassName}`}>
+                {fifth}
+              </div> 
+            )}   
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+};
+
+FourColumn2rowLayout.propTypes = {
+  ...FourColumnLayout.propTypes,
+  order: PropTypes.oneOf(['', 'reverse']),
+};
+
+FourColumn2rowLayout.defaultProps = {
+  ...FourColumnLayout.defaultProps,
+  order: '',
+};
+
 export default SingleLayout;
 
 export {
@@ -167,4 +302,7 @@ export {
   TwoColumnLayout,
   TwoColumn2rowLayout,
   ThreeColumnLayout,
+  ThreeColumn2rowLayout,
+  FourColumnLayout,
+  FourColumn2rowLayout,
 }

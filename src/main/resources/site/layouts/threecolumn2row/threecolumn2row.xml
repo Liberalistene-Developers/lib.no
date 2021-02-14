@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <layout>
-  <display-name i18n="layouts.3columns.displayname">3 Columns</display-name>
-  <description>Create a row with 3 columns.</description>
+  <display-name i18n="layouts.3columns.displayname">3 Columns + 1</display-name>
+  <description>Top row (single column) with a row underneath with 3 columns.</description>
   <form>
     <input name="columnsLayout" type="ComboBox">
       <label i18n="mixin.columnlayout.label">Column layout</label>
@@ -23,8 +23,10 @@
     <mixin name="background" />
     <mixin name="paddingtop" />
     <mixin name="paddingbottom" />
+    <mixin name="reverseroworder" />
   </form>
   <regions>
+    <region name="top"/>
     <region name="left"/>
     <region name="middle"/>
     <region name="right"/>

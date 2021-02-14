@@ -2,7 +2,7 @@ const portal = require('/lib/xp/portal');
 const thymeleaf = require('/lib/thymeleaf');
 
 // Resolve the view  
-const view = resolve('twocolumn.html');
+const view = resolve('twocolumn2row.html');
 
 exports.get = function(req) {
   // Find the current component.

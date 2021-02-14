@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { SingleColumn2row } from './Layout';;
+import { FourColumn2rowLayout } from './Layout';;
 
 export default {
-  title: 'Layouts/SingleLayout+1/Default',
+  title: 'Layouts/FourColumnLayout + 1/Default/20-20-20-20',
   
-  component: SingleColumn2row,
+  component: FourColumn2rowLayout,
 };
 
 const Template = (args) => (
-  <SingleColumn2row {...args}>
+  <FourColumn2rowLayout {...args}>
     <div style={{ paddingTop: 20, paddingBottom: 20 }}>
       <h1>Lorem ipsum 1</h1>
       
@@ -24,7 +24,28 @@ const Template = (args) => (
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper lorem a felis posuere, eu convallis lorem tempor. Sed efficitur varius dictum. Quisque tellus sapien, lobortis eget elementum ut, dignissim sed mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam gravida convallis ante, eu porttitor nulla lobortis et. Proin nulla dui, feugiat ut arcu vitae, finibus consequat dolor. Morbi aliquet ex vel eleifend auctor. Integer placerat leo ac laoreet interdum.
       </p>
     </div>
-  </SingleColumn2row>
+    <div style={{ paddingTop: 20, paddingBottom: 20 }}>
+      <h1>Lorem ipsum 3</h1>
+      
+      <p className="rich-text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper lorem a felis posuere, eu convallis lorem tempor. Sed efficitur varius dictum. Quisque tellus sapien, lobortis eget elementum ut, dignissim sed mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam gravida convallis ante, eu porttitor nulla lobortis et. Proin nulla dui, feugiat ut arcu vitae, finibus consequat dolor. Morbi aliquet ex vel eleifend auctor. Integer placerat leo ac laoreet interdum.
+      </p>
+    </div>
+    <div style={{ paddingTop: 20, paddingBottom: 20 }}>
+      <h1>Lorem ipsum 4</h1>
+      
+      <p className="rich-text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper lorem a felis posuere, eu convallis lorem tempor. Sed efficitur varius dictum. Quisque tellus sapien, lobortis eget elementum ut, dignissim sed mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam gravida convallis ante, eu porttitor nulla lobortis et. Proin nulla dui, feugiat ut arcu vitae, finibus consequat dolor. Morbi aliquet ex vel eleifend auctor. Integer placerat leo ac laoreet interdum.
+      </p>
+    </div>
+    <div style={{ paddingTop: 20, paddingBottom: 20 }}>
+      <h1>Lorem ipsum 5</h1>
+      
+      <p className="rich-text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper lorem a felis posuere, eu convallis lorem tempor. Sed efficitur varius dictum. Quisque tellus sapien, lobortis eget elementum ut, dignissim sed mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam gravida convallis ante, eu porttitor nulla lobortis et. Proin nulla dui, feugiat ut arcu vitae, finibus consequat dolor. Morbi aliquet ex vel eleifend auctor. Integer placerat leo ac laoreet interdum.
+      </p>
+    </div>
+  </FourColumn2rowLayout>
 );
 
 export const StandardBackground = Template.bind({});
@@ -33,6 +54,10 @@ StandardBackground.args = {
   fullWidth: false,
   paddingBottom: false,
   paddingTop: false,
+  middleLeftClassName: 'one-20',
+  middleRightClassName: 'one-20',
+  leftClassName: 'one-20',
+  rightClassName: 'one-20',
 };
 
 export const StandardBackgroundFullWidth = Template.bind({});
