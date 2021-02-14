@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <layout>
   <display-name i18n="layouts.3columns.displayname">4 Columns</display-name>
-  <description>Create a row with 4 columns layout.</description>
+  <description>Create a row with 4 columns.</description>
   <form>
     <input name="columnsLayout" type="ComboBox">
       <label i18n="mixin.columnlayout.label">Column layout</label>
