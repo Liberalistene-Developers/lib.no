@@ -1,0 +1,28 @@
+.programme-main {
+  margin-top: 40px;
+}
+
+.programme-section {
+  margin-top: 40px;
+  
+  & .programme-section-description {
+    margin-top: 20px;
+  }
+  
+  & .programme-sections-parts {
+    &>.conclusions {
+      &>ul {
+        margin-bottom: 0px;
+        margin-top: 0px;
+      }
+    }
+  }
+}
+
+.programme-part {
+  margin-top: 40px;
+  
+  & .programme-part-description {
+    margin-top: 20px;
+  }    
+}

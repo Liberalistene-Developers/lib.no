@@ -6,16 +6,20 @@ import slugify from 'slugify';
 import Section from '../programme-section/programme-section.jsx';
 
 const ProgrammeMain = ({ title, description, sections, tags }) => (
-  <div>
-    <h1 title={description||title} id={slugify(title)}>{title}</h1>
-    { sections && sections.length > 0 ? (
-      <div>
-        { sections.map(({ key, ...props }) =>
-          <Section key={ key } { ...props } anchor={true}/>
-        )}
+  <div className="page-content">
+    <div className="programme-main">
+      <div className="programme-main-title">
+        <h1 title={description||title} id={slugify(title)}>{title}</h1>
       </div>
-    ) : null
-    }
+      { sections && sections.length > 0 ? (
+        <div className="programme-main-sections">
+          { sections.map(({ key, ...props }) =>
+            <Section key={ key } { ...props } parentTitle={title} anchor={true}/>
+          )}
+        </div>
+      ) : null
+      }
+    </div>
   </div>
 );
 

@@ -13,15 +13,17 @@ export const getConclusions = (search) => {
   
   // log.info(JSON.stringify(children, null, 4));
   
-  const conclusions = children.count && children
-    .hits
-    .filter(({ type }) => type === Programme.Conclusion)
-    .map(({
-      _id: key,
-      displayName: conclusion,
-    }) => ({ key, conclusion }));
-
-  return conclusions;
+  if (children.count) {
+    return children
+      .hits
+      .filter(({ type }) => type === Programme.Conclusion)
+      .map(({
+        _id: key,
+        displayName: conclusion,
+      }) => ({ key, conclusion }));
+  }
+  
+  return [];
 };
 
 export const getParts = (search) => {
@@ -29,46 +31,59 @@ export const getParts = (search) => {
   
   // log.info(JSON.stringify(children, null, 4));
 
-  const parts = children && children.count && children
-    .hits
-    .filter(({ type }) => Programme.Part)
-    .map(({
-      _id: partKey,        
-      _path: key, 
-      displayName: partTitle,
-      data: {
-        description: partDescription,
-        tags = [],
-      } = {},
-      page: {
-        regions: {
-          main: {
-            components = [],
+  if (children && children.count) {
+    return children
+        .hits
+        .filter(({ type }) => type === Programme.Part || type === Programme.Conclusion)
+        .map(({
+          _id: partKey,        
+          _path: key, 
+          type,
+          displayName: partTitle,
+          data: {
+            description: partDescription,
+            tags = [],
           } = {},
-        } = {},
-      } = {},        
-    }) => {
-      const [{
-        config: {
-          conclusionTitle = '',
-        } = {},
-      } = {}] = (components && components.filter(({ descriptor }) => descriptor === Programme.Part)) || {};
-      
-      const conclusions = getConclusions({ key });
-      
-      // log.info(JSON.stringify(conclusions, null, 4));
+          page: {
+            regions: {
+              main: {
+                components = [],
+              } = {},
+            } = {},
+          } = {},     
+          ...rest   
+        }) => {
+          const [{
+            config: {
+              conclusionTitle = '',
+            } = {},
+          } = {}] = (components && components.filter(({ descriptor }) => descriptor === Programme.Part)) || {};
+          
+          const conclusions = getConclusions({ key });
+          
+          log.info(JSON.stringify(rest, null, 4));
 
-      return {
-        key: partKey,
-        title: partTitle,
-        description: partDescription,
-        conclusionTitle,
-        conclusions,
-        tags,
-      };      
-    });
+          if (type === Programme.Part) {
+            return {
+              type,
+              key: partKey,
+              title: partTitle,
+              description: partDescription,
+              conclusionTitle,
+              conclusions,
+              tags,
+            };              
+          }
+          
+          return {
+            type,
+            key: partKey,
+            title: partTitle,
+          };      
+        });
+  }
     
-  return parts;
+  return [];
 };
 
 export const getSections = (search) => {
@@ -76,30 +91,32 @@ export const getSections = (search) => {
   
   // log.info(JSON.stringify(children, null, 4));
   
-  const sections = children && children.count && children
-    .hits
-    .filter(({ type }) => Programme.Section)
-    .map(({
-      _id: sectionKey,        
-      _path: key, 
-      displayName: sectionTitle,
-      data: {
-        description: sectionDescription,
-        tags = [],
-      } = {},
-    }) => {
-      const parts = getParts({ key });
-      
-      // log.info(JSON.stringify(parts, null, 4));
-      
-      return {
-        key: sectionKey,
-        title: sectionTitle,
-        description: sectionDescription,
-        parts,
-        tags,
-      };
-    });
+  if (children && children.count) {
+    return children
+      .hits
+      .filter(({ type }) => type === Programme.Section)
+      .map(({
+        _id: sectionKey,        
+        _path: key, 
+        displayName: sectionTitle,
+        data: {
+          description: sectionDescription,
+          tags = [],
+        } = {},
+      }) => {
+        const parts = getParts({ key });
+        
+        // log.info(JSON.stringify(parts, null, 4));
+        
+        return {
+          key: sectionKey,
+          title: sectionTitle,
+          description: sectionDescription,
+          parts,
+          tags,
+        };
+      });    
+  }
     
-  return sections;
+  return [];
 };

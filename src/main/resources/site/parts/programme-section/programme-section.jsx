@@ -5,19 +5,58 @@ import slugify from 'slugify';
 
 import Part from '../programme-part/programme-part.jsx';
 
-const ProgrammeSection = ({ anchor, title, description, parts = [], tags }) => (
-  <div className="programme-section">
-    <h2 title={title} id={anchor ? slugify(title) : undefined}>{title}</h2>
-    { description && (
-        <div className="programme-section-description" dangerouslySetInnerHTML={{ __html: description }} />
-    )}
-    { parts && parts.length > 0 ? (
-      <div className="programme-sections-parts">
-        { parts.map(({ key, ...props }) =>
-          <Part key={ key } { ...props } parentTitle={title} anchor={anchor} />
-        )}
+const Conclusion = ({ title: conclusion }) => (
+  <div className="conclusions">
+    <ul>
+      <li>
+        { conclusion }
+      </li>
+    </ul>
+  </div>
+);
+
+const Title = ({ title, parentTitle }) => {
+  const id = parentTitle && slugify(`${parentTitle} ${title}`.trim());
+  
+  if (parentTitle) {
+    return (
+      <h2 id={id} title={title}>{title}</h2>
+    );
+  }
+  
+  return (
+    <h1 title={title}>{title}</h1>
+  );
+}
+
+const ProgrammeSection = ({ anchor, title, parentTitle = '', description, parts = [], tags }) => (
+  <div className={ parentTitle ? '' : 'page-content'}>
+    <div className="programme-section">
+      <div className="programme-section-title">
+        <Title title={title} parentTitle={parentTitle} />
       </div>
-    ) : null }
+      
+      { description && (
+          <div className="programme-section-description" dangerouslySetInnerHTML={{ __html: description }} />
+      )}
+      { parts && parts.length > 0 ? (
+        <div className="programme-sections-parts">
+          { parts.map(({ key, type, ...props }) => {
+            
+            if (type === 'lib.no:programme-part') {
+              return (
+                <Part key={ key } { ...props } parentTitle={title} anchor={anchor} />
+              );
+            }
+            
+            return (
+              <Conclusion key={ key } { ...props } />
+            );
+          })}
+        </div>
+      ) : null }    
+
+    </div>
   </div>
 );
 
