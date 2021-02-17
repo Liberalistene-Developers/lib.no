@@ -24,10 +24,12 @@ const Article = ({
       text={headerColor}
       position={headerPosition} />
     
-    { !titleInImage && title && (
-      <h1>{title}</h1>
-    )}
-    
+    <div className="article-title">
+      { !titleInImage && title && (
+        <h1>{title}</h1>
+      )}
+    </div>
+      
     { authors && authors.length > 0 && (
       <ul className="authors">
         { authors.map(({ authorID, person, personUrl, image }) => (
@@ -48,14 +50,16 @@ const Article = ({
         ))}
       </ul>
     )}
-    
-    { !ingressInImage && ingress && (
-      <div className="ingress rich-text" dangerouslySetInnerHTML={{ __html: ingress }} />
-    )}
-    
-    { text && (
-      <div dangerouslySetInnerHTML={{ __html: text }} />
-    )}
+
+    <div className="page-content">      
+      { !ingressInImage && ingress && (
+        <div className="ingress rich-text" dangerouslySetInnerHTML={{ __html: ingress }} />
+      )}
+      
+      { text && (
+        <div dangerouslySetInnerHTML={{ __html: text }} />
+      )}
+    </div>
   </div>
 );
 
