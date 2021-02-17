@@ -33,7 +33,7 @@
       <label i18n="content_types.book.buy.label">Where to buy</label>
       <occurrences minimum="0" maximum="0"/>
       <items>
-        <input name="topic" type="TextLine">
+        <input name="store" type="TextLine">
           <label i18n="content_types.book.buy.site.label">Store name</label>          
         </input>
         <input name="url" type="TextLine">

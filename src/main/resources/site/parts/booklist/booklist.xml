@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <part>
-  <display-name i18n="parts.articlelist.name">Article list</display-name>
+  <display-name i18n="parts.booklist.name">Book list</display-name>
   <description i18n="parts.articlelist.description">
-    Display Article list
+    Display Book list
   </description>
   <form>
     <mixin name="image" />
@@ -25,12 +25,12 @@
           <default>true</default>
           <items>
             <input name="items" type="ContentSelector">
-              <label i18n="parts.articlelist.articles.label">Article(s)</label>
+              <label i18n="parts.booklist.books.label">Book(s)</label>
               <occurrences minimum="1" maximum="0"/>
               <config>
-                <allowContentType>article</allowContentType>
-                <allowPath>/*/artikler/*</allowPath>
-                <allowPath>${site}/*/artikler/*</allowPath>
+                <allowContentType>book</allowContentType>
+                <allowPath>/*/litteratur/*</allowPath>
+                <allowPath>${site}/*/litteratur/*</allowPath>
                 <allowPath>${site}/*</allowPath>
                 <allowPath>./*</allowPath>
                 <treeMode>false</treeMode>
@@ -50,5 +50,12 @@
       </options>
     </option-set>
     <mixin name="displaytype" />
+    <input type="TextLine" name="buyFromText" > 
+      <label i18n="parts.buyFromText.label">Buy from text</label> 
+      <default i18n="parts.buyFromText.default">Buy from</default>
+      <help-text i18n="parts.title.help-text">Text infront from the store.</help-text>  
+      <occurrences minimum="1" maximum="1"/>  
+      <config/> 
+    </input>
   </form>
 </part>
