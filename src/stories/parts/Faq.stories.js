@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Faq } from '../../main/resources/react4xp/libEntries/Faq';
+import { FaqItem as Faq } from '../../main/resources/react4xp/libEntries/FaqItem';
 
 import { SingleLayout } from '../layouts';
 

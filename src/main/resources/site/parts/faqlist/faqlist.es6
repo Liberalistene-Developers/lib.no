@@ -83,5 +83,5 @@ exports.get = function(request) {
     log.info(JSON.stringify(request, null, 2));
     log.info(JSON.stringify(app, null, 2));
 
-    return React4xp.render('FaqList', props, request, { clientRender: expandable });
+    return React4xp.render('FaqList', props, request, { clientRender: true });
 };

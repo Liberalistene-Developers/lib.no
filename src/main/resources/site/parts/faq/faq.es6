@@ -29,5 +29,5 @@ exports.get = function(request) {
       tags,
     };
 
-    return React4xp.render('FaqItem', props, request, { clientRender: expandable });
+    return React4xp.render('FaqItem', props, request, { clientRender: true });
 };

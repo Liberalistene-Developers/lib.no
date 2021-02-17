@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Faq } from './Faq';
+import { Faq } from '../shared/Faq';
 
 const FaqList = ({
   items = [],
@@ -9,18 +9,20 @@ const FaqList = ({
   expanded = true,
 }) => {
   return (
-    <div className="faq-list">
-      { items && items.map(({ itemID, answer, question, url }) => (
-        <Faq
-          key={itemID}
-          answer={answer}
-          question={question}
-          expandable={expandable}
-          expanded={expanded}
-          url={url}
-          Tag="h3"
-        />
-      ))}
+    <div className="page-content">
+      <div className="faq-list">
+        { items && items.map(({ itemID, answer, question, url }) => (
+          <Faq
+            key={itemID}
+            answer={answer}
+            question={question}
+            expandable={expandable}
+            expanded={expanded}
+            url={url}
+            Tag="h3"
+          />
+        ))}
+      </div>
     </div>
   );
 };
