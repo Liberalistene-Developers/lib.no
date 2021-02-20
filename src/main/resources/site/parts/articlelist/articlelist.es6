@@ -16,7 +16,18 @@ exports.get = function(request) {
     const {
       config: {
         description,
-        displaytype,
+        displaytype: {
+          _selected: displaytype,
+          list: {
+            image: {
+              _selected: imageSelection = 'hide',
+              show: {
+                imagesize: imageSize = 'small',
+                imagetype: imageRound = false,
+              } = {},
+            } = {},
+          } = {},
+        },
         items: oldItemList = [],
         itemsSet: {
           '_selected': selection,
@@ -60,17 +71,46 @@ exports.get = function(request) {
       displaytype,
       description,
       shortDescription,
+      showImage: displaytype === 'list' && imageSelection === 'show',
+      imageSize,
+      imageType: imageRound ? 'round' : '',
       items: items.map((itemID) => {
         const {
           displayName: name,
           _path: itemPath,
           data: {
+            date: datePublished,
             image: imageKey,
-            'short-description': personShortDescription = '',
+            ingress: articleShortDescription = '',
+            author = [],
             ...dataRest
           },
           ...rest
         } = contentLib.get({ key: itemID });
+        
+        const authors = [].concat(author)
+          .map((authorID) => {
+            const {
+              displayName: person,
+              _path: personPath,
+              data: {
+                image: personImageKey,
+              },
+              ...authorRest
+            } = contentLib.get({ key: authorID });
+
+            log.info(JSON.stringify(authorRest, null, 4));
+
+            return {
+              authorID,
+              personUrl: portal
+                .pageUrl({
+                  path: personPath,
+                }),
+              person,
+              image: imageUrl(personImageKey, 'square(40)'),
+            };
+          });
 
         log.info(JSON.stringify(rest, null, 4));
         log.info(JSON.stringify(dataRest, null, 4));
@@ -82,8 +122,10 @@ exports.get = function(request) {
               path: itemPath,
             }),
           name,
-          shortDescription: personShortDescription,
-          image: imageUrl(imageKey, 'square(256)')
+          authors,
+          datePublished,
+          shortDescription: articleShortDescription,
+          image: imageUrl(imageKey, displaytype === 'list' ? 'square(256)' : 'block(459,295)', 'rounded(3);'),
         };
       }),
     };

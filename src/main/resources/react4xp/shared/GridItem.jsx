@@ -2,7 +2,7 @@ import React from 'react';
 
 import Image from './Image';
 
-export default ({
+const GridItem = ({
   imageSize,
   imageType,
   item: {
@@ -19,15 +19,21 @@ export default ({
 
      { name && (
        <div className="grid-item-info">
-         <div>
+         <div className="grid-item-title">
            <a href={url} title={name}>{name}</a>
          </div>
          { shortDescription && (
-           <div>
-             {shortDescription}
+           <div className="grid-item-description">
+             <div className="rich-text" dangerouslySetInnerHTML={{ __html: shortDescription }} />
            </div>
          )}
        </div>
      )}
   </div>
 );
+
+export default GridItem;
+
+export {
+  GridItem,
+};

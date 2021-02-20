@@ -22,7 +22,6 @@
         <option name="manual">
           <label>Manual selection</label>
           <help-text>Select items to show</help-text>
-          <default>true</default>
           <items>
             <input name="items" type="ContentSelector">
               <label i18n="parts.articlelist.articles.label">Article(s)</label>

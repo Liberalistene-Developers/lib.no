@@ -22,7 +22,7 @@ exports.get = function(request) {
       _path: key,
       displayName: title,
       data: {
-        date,
+        date: datePublished,
         description = '',
         ingress = '',
         text = '',
@@ -43,6 +43,7 @@ exports.get = function(request) {
       ingressInImage,
       titleInImage,
       title,
+      datePublished,
       image: imageUrl(image, 'full'),
       description,
       tags,

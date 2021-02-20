@@ -1,14 +1,45 @@
 <mixin>
   <display-name i18n="mixin.displaytype.displayname">Display selector</display-name>
   <form>
-    <input name="displaytype" type="RadioButton">
+    <option-set name="displaytype">
       <label i18n="mixin.displaytype.label">Display as</label>
+      <expanded>true</expanded> 
       <occurrences minimum="1" maximum="1"/> 
-      <config>
-        <option value="list" i18n="mixin.displaytype.list.label">List</option> 
-        <option value="grid" i18n="mixin.displaytype.grid.label">Grid</option>
-      </config>
-      <default>list</default> 
-    </input>
+      <help-text>You can select up to 1 options</help-text>
+      <options minimum="1" maximum="1">    
+        <option name="grid">
+          <label i18n="mixin.displaytype.grid.label">Grid</label>
+          <help-text>Show as grid</help-text>
+          <items />
+        </option>
+        <option name="list">
+          <label i18n="mixin.displaytype.list.label">List</label>
+          <help-text>Show as list</help-text>
+          <items>
+            <option-set name="image">
+              <label i18n="mixin.displaytype.image.label">Image</label>
+              <expanded>true</expanded> 
+              <occurrences minimum="1" maximum="1"/> 
+              <help-text>Select if you want image or not.</help-text>
+              <options minimum="1" maximum="1">
+                <option name="hide">
+                  <label i18n="mixin.displaytype.image.hide.label">Hide image</label>
+                  <help-text>Don't display image</help-text>
+                  <items />
+                </option>
+                <option name="show">
+                  <label i18n="mixin.displaytype.image.show.label">Show Image</label>
+                  <help-text>Display image</help-text>
+                  <items>
+                    <mixin name="imagesize" />
+                    <mixin name="imagetype" />                      
+                  </items>
+                </option>
+              </options>
+            </option-set>
+          </items>
+        </option>
+      </options>
+    </option-set>
   </form>
 </mixin>

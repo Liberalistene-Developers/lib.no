@@ -2,8 +2,8 @@ import React from 'react';
 
 import Image from '../shared/Image';
 
-import ListItem from '../shared/ListItem';
-import GridItem from '../shared/GridItem';
+import ListItem from '../shared/ArticleListItem';
+import GridItem from '../shared/ArticleCard';
 
 export default ({
   description,
@@ -14,6 +14,9 @@ export default ({
   items,
   tags,
   title,
+  showImage,
+  imageType,
+  imageSize,
 }) => {
   const Item = displaytype === 'list' ? ListItem : GridItem;
 
@@ -40,6 +43,10 @@ export default ({
               key={item.itemID}
               item={item}
               fields={fields}
+              showImage={showImage}
+              imageSize={imageSize}
+              imageType={imageType}
+              className="article"
             />
           ))}
         </div>

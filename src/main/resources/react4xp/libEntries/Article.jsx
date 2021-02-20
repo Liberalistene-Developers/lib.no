@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { ImageBlock } from './ImageBlock';
 import { Image } from '../shared/Image';
+import { AuthorLink } from '../shared/AuthorLink'
 
 const Article = ({
   headerColor,
@@ -15,6 +16,7 @@ const Article = ({
   ingressInImage,
   text,
   tags,
+  datePublished,
 }) => (
   <div className="article">
     <ImageBlock
@@ -30,26 +32,18 @@ const Article = ({
       )}
     </div>
       
-    { authors && authors.length > 0 && (
-      <ul className="authors">
-        { authors.map(({ authorID, person, personUrl, image }) => (
-          <li key={authorID}>
-            <div>
-              <a href={personUrl}>
-                <Image
-                  image={image}
-                  className="extra-small"
-                  imageClassName="round"
-                />
-                <span>
-                  {person}
-                </span>
-              </a>
-            </div>
-          </li>
-        ))}
-      </ul>
-    )}
+    <div className="article-creds">
+      { authors && authors.length > 0 && (
+        <ul className="authors">
+          { authors.map(({ authorID, person, personUrl, image }) => (
+            <AuthorLink key={author} author={person} url={personUrl} image={image} />
+          ))}
+        </ul>
+      )}
+      <div className="article-date">
+        {datePublished}
+      </div>
+    </div>
 
     <div className="page-content">      
       { !ingressInImage && ingress && (
