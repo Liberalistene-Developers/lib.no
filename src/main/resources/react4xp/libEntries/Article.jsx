@@ -36,7 +36,7 @@ const Article = ({
       { authors && authors.length > 0 && (
         <ul className="authors">
           { authors.map(({ authorID, person, personUrl, image }) => (
-            <AuthorLink key={author} author={person} url={personUrl} image={image} />
+            <AuthorLink key={authorID} author={person} url={personUrl} image={image} />
           ))}
         </ul>
       )}
