@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { TwoColumnLayout } from './Layout';;
+import { TwoColumnLayout } from './Layout';
+import { Page } from '../pages';
 
 export default {
   title: 'Layouts/TwoColumnLayout/20-80',
@@ -9,22 +10,24 @@ export default {
 };
 
 const Template = (args) => (
-  <TwoColumnLayout {...args}>
-    <div style={{ paddingTop: 20, paddingBottom: 20 }}>
-      <h1>Lorem ipsum 1</h1>
-      
-      <p className="rich-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper lorem a felis posuere, eu convallis lorem tempor. Sed efficitur varius dictum. Quisque tellus sapien, lobortis eget elementum ut, dignissim sed mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam gravida convallis ante, eu porttitor nulla lobortis et. Proin nulla dui, feugiat ut arcu vitae, finibus consequat dolor. Morbi aliquet ex vel eleifend auctor. Integer placerat leo ac laoreet interdum.
-      </p>
-    </div>
-    <div style={{ paddingTop: 20, paddingBottom: 20 }}>
-      <h1>Lorem ipsum 2</h1>
-      
-      <p className="rich-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper lorem a felis posuere, eu convallis lorem tempor. Sed efficitur varius dictum. Quisque tellus sapien, lobortis eget elementum ut, dignissim sed mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam gravida convallis ante, eu porttitor nulla lobortis et. Proin nulla dui, feugiat ut arcu vitae, finibus consequat dolor. Morbi aliquet ex vel eleifend auctor. Integer placerat leo ac laoreet interdum.
-      </p>
-    </div>
-  </TwoColumnLayout>
+  <Page>
+    <TwoColumnLayout {...args}>
+      <div style={{ paddingTop: 20, paddingBottom: 20 }}>
+        <h1>Lorem ipsum 1</h1>
+        
+        <p className="rich-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper lorem a felis posuere, eu convallis lorem tempor. Sed efficitur varius dictum. Quisque tellus sapien, lobortis eget elementum ut, dignissim sed mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam gravida convallis ante, eu porttitor nulla lobortis et. Proin nulla dui, feugiat ut arcu vitae, finibus consequat dolor. Morbi aliquet ex vel eleifend auctor. Integer placerat leo ac laoreet interdum.
+        </p>
+      </div>
+      <div style={{ paddingTop: 20, paddingBottom: 20 }}>
+        <h1>Lorem ipsum 2</h1>
+        
+        <p className="rich-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper lorem a felis posuere, eu convallis lorem tempor. Sed efficitur varius dictum. Quisque tellus sapien, lobortis eget elementum ut, dignissim sed mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam gravida convallis ante, eu porttitor nulla lobortis et. Proin nulla dui, feugiat ut arcu vitae, finibus consequat dolor. Morbi aliquet ex vel eleifend auctor. Integer placerat leo ac laoreet interdum.
+        </p>
+      </div>
+    </TwoColumnLayout>
+  </Page>
 );
 
 export const StandardBackground = Template.bind({});

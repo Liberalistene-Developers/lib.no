@@ -32,20 +32,18 @@ const SingleColumn2row = ({ background, fullWidth, paddingBottom, paddingTop, ch
   const [first, second] = children ? [].concat(children) : [];
 
   return (
-    <main>
-      <div class={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
-        <div class={`content${fullWidth?' full':''}`}>
-          <div class={`content-item items ${order}`}>
-            <div class="content-child full">
-              {first}
-            </div>
-            <div class="content-child full">
-              {second}
-            </div>          
+    <div class={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
+      <div class={`content${fullWidth?' full':''}`}>
+        <div class={`content-item items ${order}`}>
+          <div class="content-child full">
+            {first}
           </div>
+          <div class="content-child full">
+            {second}
+          </div>          
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 
