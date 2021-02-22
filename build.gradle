@@ -28,11 +28,11 @@ dependencies {
     //include "com.enonic.xp:lib-mail:${xpVersion}"
     //include "com.enonic.xp:lib-repo:${xpVersion}"
     //include "com.enonic.xp:lib-websocket:${xpVersion}"
-    include "com.enonic.lib:lib-thymeleaf:2.0.0"
+    include "com.enonic.lib:lib-thymeleaf:2.0.1"
+    include "com.enonic.lib:lib-guillotine:4.2.0"
     include "com.enonic.lib:lib-mustache:2.0.0"
     include "com.enonic.lib:lib-util:2.3.0"
-    include "com.enonic.lib:lib-guillotine:4.2.0"
-    include "com.enonic.lib:lib-menu:3.1.0"
+    include "com.enonic.lib:lib-menu:4.0.1"
     include "com.enonic.lib:lib-urlredirect:3.0.0"
     
     include "com.enonic.lib:lib-react4xp:${rootProject.ext.LIB_REACT4XP_VERSION}"
@@ -71,9 +71,25 @@ jar.dependsOn += 'clientWebpack'
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+// The react4xp NPM package also carries additional .gradle files that are required by this gradle setup (further below).
+// If they don't exist, run 'npm install' as a shell command (can't be done as a regular gradle task,
+// since they are needed in the gradle config phase).
+def react4xpGradlePath = 'node_modules/react4xp/react4xp.gradle'
+def react4xpGradleFile = new File(react4xpGradlePath)
+if (!react4xpGradleFile.exists()) {
+    println "\nNot found: $react4xpGradlePath"
+    def command = "npm install"
+    println "Running shell command: $command"
+    def proc = command.execute()
+    proc.in.eachLine { line -> println line }
+    proc.out.close()
+    proc.waitFor()
+}
+
 // Necessary react4xp build setup.
-// Used by the mandatory 'jar' task, so 'npm i' or 'gradlew npmInstall' must be run separately before e.g. 'gradlew build' or 'enonic project deploy'.
-apply from: 'node_modules/react4xp/react4xp.gradle'
+// node_modules/react4xp/react4xp.gradle (react4xpGradlePath) etc. are used by the gradle tasks, so 'npm install' should have been run automatically by now (above).
+apply from: react4xpGradlePath
+
 
 // Optional dev convenience:
 // Adjusts the regular 'npmInstall' gradle task with two improvements:
@@ -86,7 +102,6 @@ apply from: 'node_modules/react4xp/npmInstall.gradle'
 // Optional dev convenience:
 // Adds the 'updateReadme' gradle task which generates readme files at root from docs/README.src.md
 apply from: 'node_modules/react4xp/updaters.gradle'
-jar.dependsOn += 'updateReadme'
 
 
 

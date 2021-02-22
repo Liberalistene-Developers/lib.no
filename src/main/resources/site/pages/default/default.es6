@@ -1,6 +1,10 @@
 const portal = require('/lib/xp/portal');
 const thymeleaf = require('/lib/thymeleaf');
 
+const libs = {
+  menu: require('/lib/menu'),
+};
+
 const { imageUrl } = require('../../parts/shared/image');
 
 // Specify the view file to use
@@ -11,6 +15,10 @@ exports.get = function(req) {
     // Get the content that is using the page
     const content = portal.getContent();
     const config = portal.getSiteConfig();
+    
+    const menuItems = libs.menu.getMenuTree(1); 
+    
+    log.info(JSON.stringify(menuItems, null, 2));
     
     const {
       page: {
@@ -37,7 +45,7 @@ exports.get = function(req) {
         href: address,
         className: `fa-${host[host.length - 2]}`,
       };
-    })
+    });
 
     log.info(JSON.stringify(content, null, 4));
 
@@ -49,6 +57,7 @@ exports.get = function(req) {
       mainRegion,
       phone,
       place,
+      menu: menuItems,
       // title,
       some,
     };

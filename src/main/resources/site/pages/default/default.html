@@ -18,6 +18,15 @@
 				<th:block data-th-if="${image}">
 					<a href="/" title="Hjem"><img th:src="${image.url}" /></a>
 				</th:block>
+				<th:block data-th-if="${menu}">
+					<ul class="main-menu" aria-label="${menu.ariaLabel}">
+						<th:block data-th-each="menuItem : ${menu.menuItems}">
+							<li>
+								<a data-th-href="${menuItem.url}" th:title="${menuItem.title}" th:text="${menuItem.title}">Item</a>
+							</li>
+						</th:block>
+					</ul>
+				</th:block>
 			</header>
 
 			<main data-portal-region="main">
@@ -36,7 +45,16 @@
 								<a data-th-href="${urls.href}"><i class="fab" th:classappend="${urls.className}"></i></a>
 							</th:block>
 						</div>
-					</th:block>						
+					</th:block>
+					<th:block data-th-if="${menu}">
+						<ul class="main-menu" aria-label="${menu.ariaLabel}">
+							<th:block data-th-each="menuItem : ${menu.menuItems}">
+								<li>
+									<a data-th-href="${menuItem.url}" th:title="${menuItem.title}" th:text="${menuItem.title}">Item</a>
+								</li>
+							</th:block>
+						</ul>
+					</th:block>				
 				</div>
 				<div class="contact">
 	        <div class="place" th:text="${place}">Oslo</div>
