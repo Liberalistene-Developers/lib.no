@@ -44,6 +44,8 @@
             <allowPath>/*/person/*</allowPath>
             <allowPath>${site}/*/person/*</allowPath>
             <allowPath>${site}/lag/</allowPath>
+            <allowPath>${site}/forfatter/*</allowPath>
+            <allowPath>${site}/ekstern-person/*</allowPath>
             <allowPath>./*</allowPath>
             <treeMode>false</treeMode>
             <showStatus>true</showStatus>
@@ -62,6 +64,8 @@
             <allowContentType>Person</allowContentType>
             <allowPath>/*/person/*</allowPath>
             <allowPath>${site}/*/person/*</allowPath>
+            <allowPath>${site}/forfatter/*</allowPath>
+            <allowPath>${site}/ekstern-person/*</allowPath>
             <allowPath>./*</allowPath>
             <treeMode>false</treeMode>
             <showStatus>true</showStatus>
@@ -87,6 +91,8 @@
                 <allowContentType>Person</allowContentType>
                 <allowPath>/*/person/*</allowPath>
                 <allowPath>${site}/*/person/*</allowPath>
+                <allowPath>${site}/forfatter/*</allowPath>
+                <allowPath>${site}/ekstern-person/*</allowPath>
                 <allowPath>./*</allowPath>
                 <treeMode>false</treeMode>
                 <showStatus>true</showStatus>
