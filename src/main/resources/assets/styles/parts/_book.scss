@@ -2,9 +2,10 @@
   &.grid {
     display: flex;
     flex-wrap: wrap;
-    row-gap: 20px;
-    column-gap: 20px;
+    row-gap: 40px;
+    column-gap: 40px;
     align-content: space-between;
+    justify-content: center;
   }
 }
 
