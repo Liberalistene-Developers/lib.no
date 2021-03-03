@@ -27,7 +27,7 @@ exports.get = function(request) {
               } = {},
             } = {},
           } = {},
-        },
+        } = {},
         items: oldItemList = [],
         itemsSet: {
           '_selected': selection,
@@ -132,5 +132,5 @@ exports.get = function(request) {
 
     log.info(JSON.stringify(props, null, 4));
 
-    return React4xp.render('ArticleList', props, request);
+    return React4xp.render('ArticleList', props, request, { clientRender: true });
 };
