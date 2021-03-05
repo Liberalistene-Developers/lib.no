@@ -1,5 +1,5 @@
 export const Page = ({ children }) => (
-  <div class="main-wrapper">
+  <div className="main-wrapper">
     <header>
         <a href="/" title="Hjem"><img src="liberalistene.png"/></a>
         <div className="main-menu-wrapper">
@@ -46,8 +46,8 @@ export const Page = ({ children }) => (
         {children}
     </main>
     <footer>
-      <div class="footer-menu">      
-        <ul class="main-menu">
+      <div className="footer-menu">      
+        <ul className="main-menu">
           <li>
             <a href="/admin/site/inline/default/draft/liberalistene-hovedside/politikk" title="Politikk">Politikk</a>
           </li>
@@ -81,10 +81,10 @@ export const Page = ({ children }) => (
           </li>			
         </ul>
       </div>
-      <div class="contact">
-        <div class="place">Oslo</div>
-        <div class="phone">88 55 00 00</div>
-        <div class="email">contact@liberalistene.org</div>
+      <div className="contact">
+        <div className="place">Oslo</div>
+        <div className="phone">88 55 00 00</div>
+        <div className="email">contact@liberalistene.org</div>
       </div>
     </footer>
   </div>

@@ -4,9 +4,9 @@ import classNames from 'classnames';
 
 const SingleLayout = ({ background, fullWidth, paddingBottom, paddingTop, children }) => (
   <main>
-    <div class={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
-      <div class={`content${fullWidth?' full':''}`}>
-        <div class="content-item">
+    <div className={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
+      <div className={`content${fullWidth?' full':''}`}>
+        <div className="content-item">
           {children}
         </div>
       </div>
@@ -32,13 +32,13 @@ const SingleColumn2row = ({ background, fullWidth, paddingBottom, paddingTop, ch
   const [first, second] = children ? [].concat(children) : [];
 
   return (
-    <div class={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
-      <div class={`content${fullWidth?' full':''}`}>
-        <div class={`content-item items ${order}`}>
-          <div class="content-child full">
+    <div className={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
+      <div className={`content${fullWidth?' full':''}`}>
+        <div className={`content-item items ${order}`}>
+          <div className="content-child full">
             {first}
           </div>
-          <div class="content-child full">
+          <div className="content-child full">
             {second}
           </div>          
         </div>
@@ -63,13 +63,13 @@ const TwoColumnLayout = ({ background, fullWidth, paddingBottom, paddingTop, chi
   
   return (
     <main>
-      <div class={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
-        <div class={`content${fullWidth?' full':''}`}>
-          <div class="content-item items">
-            <div class={`content-child left ${leftClassName}`}>
+      <div className={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
+        <div className={`content${fullWidth?' full':''}`}>
+          <div className="content-item items">
+            <div className={`content-child left ${leftClassName}`}>
               {first}
             </div>
-            <div class={`content-child right ${rightClassName}`}>
+            <div className={`content-child right ${rightClassName}`}>
               {second}
             </div>          
           </div>
@@ -98,16 +98,16 @@ const TwoColumn2rowLayout = ({ background, fullWidth, paddingBottom, paddingTop,
   
   return (
     <main>
-      <div class={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
-        <div class={`content${fullWidth?' full':''}`}>
-          <div class={`content-item items ${order}`}>
-            <div class="content-child full">
+      <div className={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
+        <div className={`content${fullWidth?' full':''}`}>
+          <div className={`content-item items ${order}`}>
+            <div className="content-child full">
               {first}
             </div>
-            <div class={`content-child left ${leftClassName}`}>
+            <div className={`content-child left ${leftClassName}`}>
               {second}
             </div>
-            <div class={`content-child right ${rightClassName}`}>
+            <div className={`content-child right ${rightClassName}`}>
               {third}
             </div>          
           </div>
@@ -122,16 +122,16 @@ const ThreeColumnLayout = ({ background, fullWidth, paddingBottom, paddingTop, c
   
   return (
     <main>
-      <div class={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
-        <div class={`content${fullWidth?' full':''}`}>
-          <div class="content-item items">
-            <div class={`content-child left ${leftClassName}`}>
+      <div className={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
+        <div className={`content${fullWidth?' full':''}`}>
+          <div className="content-item items">
+            <div className={`content-child left ${leftClassName}`}>
               {first}
             </div>
-            <div class={`content-child middle ${middleClassName}`}>
+            <div className={`content-child middle ${middleClassName}`}>
               {second}
             </div>          
-            <div class={`content-child right ${rightClassName}`}>
+            <div className={`content-child right ${rightClassName}`}>
               {third}
             </div>          
           </div>
@@ -160,22 +160,22 @@ const ThreeColumn2rowLayout = ({ background, fullWidth, paddingBottom, paddingTo
   
   return (
     <main>
-      <div class={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
-        <div class={`content${fullWidth?' full':''}`}>
-          <div class={`content-item items ${order}`}>
-            <div class="content-child full">
+      <div className={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
+        <div className={`content${fullWidth?' full':''}`}>
+          <div className={`content-item items ${order}`}>
+            <div className="content-child full">
               {first}
             </div>
-            <div class={`content-child left ${leftClassName}`}>
+            <div className={`content-child left ${leftClassName}`}>
               {second}
             </div>
             { third && (
-              <div class={`content-child middle ${middleClassName}`}>
+              <div className={`content-child middle ${middleClassName}`}>
                 {third}
               </div>
             )}    
             { fourth && (
-              <div class={`content-child right ${rightClassName}`}>
+              <div className={`content-child right ${rightClassName}`}>
                 {fourth}
               </div> 
             )}   
@@ -201,24 +201,24 @@ const FourColumnLayout = ({ background, fullWidth, paddingBottom, paddingTop, ch
   
   return (
     <main>
-      <div class={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
-        <div class={`content${fullWidth?' full':''}`}>
-          <div class="content-item items">
-            <div class={`content-child left ${leftClassName}`}>
+      <div className={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
+        <div className={`content${fullWidth?' full':''}`}>
+          <div className="content-item items">
+            <div className={`content-child left ${leftClassName}`}>
               {first}
             </div>
             { second && (
-              <div class={`content-child middle ${middleLeftClassName}`}>
+              <div className={`content-child middle ${middleLeftClassName}`}>
                 {second}
               </div>
             )}    
             { third && (
-              <div class={`content-child middle ${middleRightClassName}`}>
+              <div className={`content-child middle ${middleRightClassName}`}>
                 {third}
               </div> 
             )}   
             { fourth && (
-              <div class={`content-child right ${rightClassName}`}>
+              <div className={`content-child right ${rightClassName}`}>
                 {fourth}
               </div> 
             )}   
@@ -251,27 +251,27 @@ const FourColumn2rowLayout = ({ background, fullWidth, paddingBottom, paddingTop
   
   return (
     <main>
-      <div class={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
-        <div class={`content${fullWidth?' full':''}`}>
-          <div class={`content-item items ${order}`}>
-            <div class="content-child full">
+      <div className={ classNames('content-holder', `${background}`, { 'padding-bottom': paddingBottom, 'padding-top': paddingTop }) }>
+        <div className={`content${fullWidth?' full':''}`}>
+          <div className={`content-item items ${order}`}>
+            <div className="content-child full">
               {first}
             </div>
-            <div class={`content-child left ${leftClassName}`}>
+            <div className={`content-child left ${leftClassName}`}>
               {second}
             </div>
             { third && (
-              <div class={`content-child middle ${middleLeftClassName}`}>
+              <div className={`content-child middle ${middleLeftClassName}`}>
                 {third}
               </div>
             )}    
             { fourth && (
-              <div class={`content-child middle ${middleRightClassName}`}>
+              <div className={`content-child middle ${middleRightClassName}`}>
                 {fourth}
               </div> 
             )}   
             { fifth && (
-              <div class={`content-child right ${rightClassName}`}>
+              <div className={`content-child right ${rightClassName}`}>
                 {fifth}
               </div> 
             )}   
