@@ -14,6 +14,7 @@ const FaqList = ({
         { items && items.map(({ itemID, answer, question, url }) => (
           <Faq
             key={itemID}
+            itemID={itemID}
             answer={answer}
             question={question}
             expandable={expandable}

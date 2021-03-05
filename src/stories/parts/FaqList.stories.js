@@ -21,26 +21,32 @@ export const NotExpandable = Template.bind({});
 NotExpandable.args = {
   items: [
     {
+      itemID: 1,
       question: 'Hvor mange er liberalister',
       answer: 'Alle er født liberalister, men de fleste blir hjernevasket til å bli semi-sosialister.',
     },
     {
+      itemID: 2,
       question: 'Hvor mange er liberalister',
       answer: 'Alle er født liberalister, men de fleste blir hjernevasket til å bli semi-sosialister.',
     },
     {
+      itemID: 3,
       question: 'Hvor mange er liberalister',
       answer: 'Alle er født liberalister, men de fleste blir hjernevasket til å bli semi-sosialister.',
     },
     {
+      itemID: 4,
       question: 'Hvor mange er liberalister',
       answer: 'Alle er født liberalister, men de fleste blir hjernevasket til å bli semi-sosialister.',
     },
     {
+      itemID: 5,
       question: 'Hvor mange er liberalister',
       answer: 'Alle er født liberalister, men de fleste blir hjernevasket til å bli semi-sosialister.',
     },
     {
+      itemID: 6,
       question: 'Hvor mange er liberalister',
       answer: 'Alle er født liberalister, men de fleste blir hjernevasket til å bli semi-sosialister.',
     },

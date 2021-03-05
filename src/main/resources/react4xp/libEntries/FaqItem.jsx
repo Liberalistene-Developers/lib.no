@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Faq } from '../shared/Faq';
 
 const FaqItem = ({
+  itemID,
   answer,
   question,
   expandable = false,
@@ -12,6 +13,7 @@ const FaqItem = ({
   <div className="page-content">
     <div className="faq-list">
       <Faq
+        itemID={itemID}
         answer={answer}
         question={question}
         expandable={expandable}
