@@ -1,3 +1,107 @@
+.schedule-list {
+  .schedule {
+    .schedule-title {
+      .schedule-title-date {
+        &::before {
+          content: ' - ';
+        }
+      }
+    }
+    
+    .topic-list {
+      .topic {
+        .topic-title {
+          
+          h4 {
+            margin-block: 10px;
+          }
+
+          .topic-title-start {
+            float: left; 
+            text-align: center;
+            width: 50px;
+          }
+
+          .topic-title-divider {
+            float: left;
+            width: 30px;
+            text-align: center;
+          }
+        
+          .topic-title-duration {            
+            &::before {
+              content: ' ';
+            }
+          }
+        }
+        
+        .topic-speakers {
+          
+          &.start {
+            padding-left: 80px;
+          }
+          
+          ul {
+            &.authors {    
+              list-style-type: none;
+              margin-block-start: 0px;
+              margin-block-end: 0px;
+              margin-inline-start: 0px;
+              margin-inline-end: 0px;
+              margin-bottom: 20px;
+              padding-inline-start: 0px;
+              
+            
+              a {
+                align-items: center;
+                display: flex;
+                flex-direction: row;
+
+                img {
+                  margin-bottom: 0;
+                  margin-right: 5px;
+                  padding-top: 5px;
+                }
+              }
+            }  
+          }
+        }
+        
+        .topic-description {
+          margin-top: -10px;
+          
+          &.start {
+            padding-left: 80px;
+          }
+        }
+        
+        .topic-report {
+          position: relative;
+          
+          margin-top: 10px;
+          font-style: italic;
+          
+          &.start {
+            padding-left: 80px;
+
+            &::after {
+              position: absolute;
+              display: block;
+              content: '-';
+              text-align: center;
+              margin-left: -80px;
+              vertical-align: middle;
+              width: 50px;
+              height: 100%;
+              top: 0px;
+            }
+          }
+        }
+      }
+    }    
+  }
+}
+
 .event {
   & .leaflet-container {
     height: 500px;

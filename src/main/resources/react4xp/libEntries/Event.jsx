@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { ImageBlock } from './ImageBlock';
+import { Schedules } from './Schedule';
 import { Map } from '../shared/Map';
 import { EventPlace } from '../shared/EventPlace';
 import { EventTime } from '../shared/EventTime';
@@ -24,9 +25,11 @@ const Event = ({
   locationLabel,
   contactLabel,
   placeLabel,
+  agendaLabel = '',
   dateLabel,
   timeLabel,
   email,
+  schedules = [],
   map = [],
 }) => (
   <div className="event">
@@ -65,6 +68,15 @@ const Event = ({
               </div>
             </div>
           )}
+          
+          { schedules && schedules.length > 0 ? (
+            <div>
+              { agendaLabel && (
+                <h2 id={agendaLabel}>{agendaLabel}</h2>  
+              )}
+              <Schedules schedules={schedules} />
+            </div>
+          ) : null }
 
         </div>
       { (map && map.length === 2) || (location && location.address) && (

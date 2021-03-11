@@ -78,7 +78,7 @@
       <label i18n="content_types.event.agenda">Agenda</label>
       <items>
         <item-set name="topics">
-          <label i18n="content_types.event.agenda.topic">Topic</label>
+          <label i18n="content_types.event.agenda.topic">Topic (Deprecated - don't use)</label>
           <occurrences minimum="0" maximum="0"/>
           <items>
             <input name="topic" type="TextLine">
@@ -99,9 +99,69 @@
                 <hideToggleIcon>false</hideToggleIcon>
               </config>
             </input>
+            <input name="start" type="Time">
+              <label i18n="content_types.event.agenda.start">Start time</label>
+            </input>
+            <input name="duration" type="Time">
+              <label i18n="content_types.event.agenda.duration">Duration</label>
+            </input>
             <input name="topic_description" type="HtmlArea">
               <label i18n="content_types.description">Description</label>
             </input>
+            <input name="topic_report" type="HtmlArea">
+              <label i18n="content_types.event.agenda.topic.report">Report</label>
+            </input>
+          </items>
+        </item-set>
+        <item-set name="schedule">
+          <label i18n="content_types.event.agenda.topic">Schedule</label>
+          <occurrences minimum="0" maximum="0"/>
+          <items>
+            <input name="name" type="TextLine">
+              <label i18n="content_types.event.place">Name</label>
+            </input>
+            <input name="date" type="Date">
+              <label>Date</label>
+            </input>
+            <input name="description" type="HtmlArea">
+              <label i18n="content_types.description">Description</label>
+            </input>
+            <item-set name="topics">
+              <label i18n="content_types.event.agenda.topic">Topic</label>
+              <occurrences minimum="1" maximum="0"/>
+              <items>
+                <input name="topic" type="TextLine">
+                  <label i18n="content_types.event.agenda.topic.label">Topic</label>
+                </input>
+                <input name="speaker" type="ContentSelector">
+                  <label i18n="content_types.event.speaker.label">Speaker</label>
+                  <occurrences minimum="0" maximum="0"/>
+                  <config>
+                    <allowContentType>Person</allowContentType>
+                    <allowPath>/*/person/*</allowPath>
+                    <allowPath>${site}/*/person/*</allowPath>
+                    <allowPath>${site}/forfatter/*</allowPath>
+                    <allowPath>${site}/ekstern-person/*</allowPath>
+                    <allowPath>./*</allowPath>
+                    <treeMode>false</treeMode>
+                    <showStatus>true</showStatus>
+                    <hideToggleIcon>false</hideToggleIcon>
+                  </config>
+                </input>
+                <input name="start" type="Time">
+                  <label i18n="content_types.event.agenda.start">Start time</label>
+                </input>
+                <input name="duration" type="Time">
+                  <label i18n="content_types.event.agenda.duration">Duration</label>
+                </input>
+                <input name="topic_description" type="HtmlArea">
+                  <label i18n="content_types.description">Description</label>
+                </input>
+                <input name="topic_report" type="HtmlArea">
+                  <label i18n="content_types.event.agenda.topic.report">Report</label>
+                </input>
+              </items>
+            </item-set>
           </items>
         </item-set>
       </items>
