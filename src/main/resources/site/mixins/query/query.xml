@@ -17,7 +17,7 @@
       <default>10</default>
       <config>
         <min>1</min> 
-        <max>30</max> 
+        <max>50</max> 
       </config>
     </input>
     <input name="querysorting" type="ComboBox">

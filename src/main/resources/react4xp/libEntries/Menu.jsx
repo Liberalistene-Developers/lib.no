@@ -3,9 +3,9 @@ import React from 'react';
 import MenuItem from './MenuItem.jsx';
 
 const Menu = ({ items }) => (
-  <div className="menu">
-    { items && items.map(({ title, url}) => (
-      <MenuItem key={title} title={title} url={url} />
+  <div className="sub-menu">
+    { items && items.map(({ itemID, title, url, current }) => (
+      <MenuItem key={itemID} title={title} url={url} selected={current} />
     ))}
   </div>
 );

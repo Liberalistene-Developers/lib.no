@@ -9,7 +9,7 @@ export const getItems = (search, contentType) => {
   
   const items = children.count && children
     .hits
-    .filter(({ type }) => type === contentType)
+    .filter(({ type }) => type ? type === contentType : true)
     .map(({
       _id: key,
     }) => key);
