@@ -23,7 +23,7 @@
     </input>
     <input name="contactLabel" type="TextLine">
       <label i18n="content_types.event.contact.title">Contact Title</label>
-      <default>Mer Informasjon</default>
+      <default i18n="content_types.event.contact.default">Mer Informasjon</default>
     </input>
     <input name="placeLabel" type="TextLine">
       <label i18n="content_types.event.place.title">Place label</label>

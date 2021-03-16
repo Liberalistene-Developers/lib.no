@@ -10,6 +10,7 @@ exports.get = function(request) {
     const {
       config: {
         image: imageKey = '',
+        headerPosition: position,
         title = '',
         titleColor = '',
       } = {},
@@ -18,12 +19,14 @@ exports.get = function(request) {
     log.info(JSON.stringify(content, null, 4));
 
     const props = {
-      image: imageUrl(imageKey, 'block(455,235)'),
+      Tag: 'h1',
+      image: imageUrl(imageKey, 'full'),
       title,
-      titleColor,
+      position,
+      text: titleColor,
     };
 
     log.info(JSON.stringify(props, null, 4));
 
-    return React4xp.render('TitleBlock', props, request, { clientRender: true });
+    return React4xp.render('ImageBlock', props, request, { clientRender: true });
 };
