@@ -2,7 +2,7 @@
 <part>
   <display-name>Header Title/Image Block</display-name>
   <description>
-    Display Header Title/Image Block (H1 - only use once pr page)
+    Intro block (H1 - only use once pr page)
   </description>
   <form>
     <input name="title" type="TextLine">
@@ -21,5 +21,6 @@
       <default>normal</default> 
     </input>
     <mixin name="image" />
+    <mixin name="imageoverlay" />
   </form>
 </part>

@@ -13,6 +13,7 @@ exports.get = function(request) {
         headerPosition: position,
         title = '',
         titleColor = '',
+        imageOverlay = '',
       } = {},
     } = component;
 
@@ -24,6 +25,7 @@ exports.get = function(request) {
       title,
       position,
       text: titleColor,
+      overlay: imageOverlay && `overlay ${imageOverlay}`,
     };
 
     log.info(JSON.stringify(props, null, 4));

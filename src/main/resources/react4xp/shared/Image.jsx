@@ -24,7 +24,7 @@ Image.propTypes = {
   /**
    * Class of image holder.
    */
-  className: PropTypes.oneOf(['extra-small', 'small', 'medium', 'large', 'full']),
+  className: PropTypes.oneOf(['extra-small', 'small', 'medium', 'large', 'full', '']),
   
   /**
    * the image

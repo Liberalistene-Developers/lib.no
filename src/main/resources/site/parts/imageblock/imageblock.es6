@@ -13,6 +13,7 @@ exports.get = function(request) {
         headerPosition: position,
         headerType: Tag,
         image: configImageKey,
+        imageOverlay = '',
         ingress: configIngress,
         title: configTitle,
       } = {},
@@ -31,9 +32,10 @@ exports.get = function(request) {
     const props = {
       Tag,
       image: {
-        ...imageUrl(configImageKey || imageKey, 'block(1296,424)'),
+        ...imageUrl(configImageKey || imageKey, 'full'),
         url: portal.attachmentUrl({ id: configImageKey || imageKey }),
       },
+      overlay: imageOverlay && `overlay ${imageOverlay}`,
       ingress: configIngress || ingress,
       position,
       text,

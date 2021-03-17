@@ -6,6 +6,7 @@
   </description>
   <form>
     <mixin name="image" />
+    <mixin name="imageoverlay" />
     <input name="title" type="TextLine">
       <label i18n="mixin.title.label">Title</label>          
     </input>

@@ -10,14 +10,15 @@ const ImageBlock = ({
   text,
   title,
   ingress,
+  overlay,
 }) => (
   <div className="image-block">
     <Image image={image} className="full" />
 
     { (title || ingress) && (
-      <div className={`content ${text} ${position}`}>
+      <div className={`content ${position} ${overlay}`}>
         { title && (
-          <div className="title">
+          <div className={`title ${text}`}>
             <Tag>{title}</Tag>
           </div>
         )}
