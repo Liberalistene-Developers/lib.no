@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part>
+  <display-name>Button</display-name>
+  <description>
+    Button part
+  </description>
+  <form>
+    <input name="buttonText" type="TextLine" required="true">
+      <label i18n="parts.button.buttontext.title">Button Text</label>      
+    </input>
+    <input name="url" type="ContentSelector">
+      <label i18n="parts.button.url.label">Url</label>
+      <occurrences minimum="1" maximum="1"/>
+      <config>
+        <allowContentType>page</allowContentType>
+        <allowPath>${site}/*</allowPath>
+        <allowPath>./*</allowPath>
+        <treeMode>false</treeMode>
+        <showStatus>true</showStatus>
+        <hideToggleIcon>true</hideToggleIcon>
+      </config>
+    </input>
+    <input name="externUrl" type="TextLine">
+      <label i18n="parts.button.externUrl.title">Extern Url</label>      
+    </input>
+    <input name="target" type="RadioButton">
+      <label i18n="parts.button.target.title">Target</label> 
+      <occurrences minimum="1" maximum="1"/> 
+      <config>
+        <option value="_self" i18n="parts.button.target.self.title">Same Window</option> 
+        <option value="_blank" i18n="parts.button.target.blank.title">New Window</option>
+      </config>
+      <default>_self</default> 
+    </input>
+  </form>
+</part>

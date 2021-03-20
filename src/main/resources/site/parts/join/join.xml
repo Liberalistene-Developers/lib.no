@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part>
+  <display-name>Join</display-name>
+  <description>
+    Join us part
+  </description>
+  <form>
+    <mixin name="image" />
+    <input name="message" type="HtmlArea">
+      <label i18n="parts.join.message.label">Message</label>
+    </input>
+    <input name="buttonText" type="TextLine" required="true">
+      <label i18n="parts.buttontitle.title">Button Text</label>      
+    </input>
+    <input name="url" type="ContentSelector">
+      <label i18n="parts.join.url.label">Url</label>
+      <occurrences minimum="1" maximum="1"/>
+      <config>
+        <allowContentType>page</allowContentType>
+        <allowPath>${site}/*</allowPath>
+        <allowPath>./*</allowPath>
+        <treeMode>false</treeMode>
+        <showStatus>true</showStatus>
+        <hideToggleIcon>true</hideToggleIcon>
+      </config>
+    </input>
+  </form>
+</part>
