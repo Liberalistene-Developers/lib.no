@@ -1,9 +1,4 @@
-.middle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-}
+
 
 .join-container {
   position: relative;
@@ -13,12 +8,19 @@
     margin-top: 60px;
     margin-bottom: 60px;
   }
+  
+  .middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
 
   .join {
     cursor: pointer;
     
     width: 200px;
-    height: 200px;
+    height: 200px;    
           
     .join-front,.join-back {
       width: 100%;
