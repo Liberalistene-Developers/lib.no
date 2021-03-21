@@ -16,19 +16,38 @@ exports.get = function(request) {
     const {
       config: {
         buttonText: title,
-        url: urlKey,
-        externUrl,
-        target: externTarget,
+        urlSelector: {
+          _selected: urlType,
+          intern: {
+            url: urlKey,
+          } = {},
+          extern: {
+            url: externUrl,
+            target: externTarget,
+          } = {},
+        } = {},
       } = {},
     } = component;
     
-    const {
-      _path: urlPath,
-    } = urlKey ? contentLib.get({ key: urlKey }) : {};
+    const createUrl = () => {
+      if (urlType === 'intern') {
+        const {
+          _path: urlPath,
+        } = urlKey ? contentLib.get({ key: urlKey }) : {};
+        
+        return [
+          urlPath ? portal.pageUrl({ path: urlPath, }) : '',
+        ];
+      }
+      
+      return [
+        externUrl,
+        externTarget,
+      ];
+    };
     
-    const url = urlPath ? portal.pageUrl({ path: urlPath, }) : externUrl;
-    const target = urlPath ? undefined : externTarget;
-    
+    const  [url, target] = createUrl();
+        
     const props = {
       title,
       url,
