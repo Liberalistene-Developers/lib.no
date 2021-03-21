@@ -18,6 +18,7 @@ exports.get = function(request) {
         buttonText,
         url: urlKey,
         message,
+        backMessage,
         image: imageKey,
       } = {},
     } = component;
@@ -33,6 +34,7 @@ exports.get = function(request) {
           path: urlPath,
         }),
       message: processHtml(message),
+      backMessage: processHtml(message),
       image: imageUrl(imageKey, 'square(200)'),
       className: 'medium-margin'
     };

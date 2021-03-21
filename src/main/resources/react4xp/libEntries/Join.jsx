@@ -7,6 +7,7 @@ import Image from '../shared/Image';
 
 export const Join = ({
   message,
+  backMessage,
   image = null,
   url,
   buttonText,
@@ -24,6 +25,9 @@ export const Join = ({
       </div>
       <div className="join-back">
         <div className="join-back-content middle">
+          { backMessage && (
+            <div className="join-back-text"  dangerouslySetInnerHTML={{ __html: backMessage }} />
+          )}
           <Button
             className="light"
             title={buttonText} 
