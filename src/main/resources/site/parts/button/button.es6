@@ -22,32 +22,32 @@ exports.get = function(request) {
             url: urlKey,
           } = {},
           extern: {
-            url: externUrl,
+            externUrl,
             target: externTarget,
           } = {},
         } = {},
       } = {},
     } = component;
-    
+
     const createUrl = () => {
       if (urlType === 'intern') {
         const {
           _path: urlPath,
         } = urlKey ? contentLib.get({ key: urlKey }) : {};
-        
+
         return [
           urlPath ? portal.pageUrl({ path: urlPath, }) : '',
         ];
       }
-      
+
       return [
         externUrl,
         externTarget,
       ];
     };
-    
+
     const  [url, target] = createUrl();
-        
+
     const props = {
       title,
       url,
