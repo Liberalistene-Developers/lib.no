@@ -155,8 +155,9 @@ main {
   & > .content-holder {
     &.purple {
       background-color: var(--lib-color-primary-700);
+      color: var(--lib-color-background-100);
 
-      & h1 {
+      & h1, h2, h3 {
         color: var(--lib-color-background-100);
       }
     }
