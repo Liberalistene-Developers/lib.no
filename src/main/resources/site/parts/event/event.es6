@@ -40,26 +40,16 @@ exports.get = function(request) {
         ingress = '',
         tags = '',
         map_geopoint = '',
-        topics = [],
         schedule = [],
         organizerSelector = [],
         speakers = [],
       } = {},
     } = content;
     
-    const topicList = [].concat(topics);
     const scheduleList = [].concat(schedule);
     const organizers = [].concat(organizerSelector);
     const speakersList = [].concat(speakers);
     
-    if (topicList.length > 0) {
-      scheduleList.push({
-        name: '',
-        date: from.substring(0, 10),
-        topics: topicList,
-      });
-    }
-
     log.info(JSON.stringify(content, null, 4));
 
     const props = {
