@@ -203,7 +203,7 @@ main {
         margin-right: auto;
         width: 911px;
 
-        & .page-content, section[data-portal-component-type="text"] > *, div[data-portal-component-type="text"] > section {
+        & .page-content, section[data-portal-component-type="text"] > *, div[data-portal-component-type="text"] > section > * {
           margin-left: auto;
           margin-right: auto;
           width: 600px;

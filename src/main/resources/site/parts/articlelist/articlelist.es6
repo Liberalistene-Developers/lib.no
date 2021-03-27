@@ -42,6 +42,7 @@ exports.get = function(request) {
         } = {},
         shortDescription,
         title,
+        readMore = '',
       } = {},
     } = component;
 
@@ -74,6 +75,7 @@ exports.get = function(request) {
       showImage: displaytype === 'list' && imageSelection === 'show',
       imageSize,
       imageType: imageRound ? 'round' : '',
+      readMore,
       items: items.map((itemID) => {
         const {
           displayName: name,

@@ -17,6 +17,7 @@ export default ({
   showImage,
   imageType,
   imageSize,
+  readMore = '',
 }) => {
   const Item = displaytype === 'list' ? ListItem : GridItem;
 
@@ -47,6 +48,7 @@ export default ({
               imageSize={imageSize}
               imageType={imageType}
               className="article"
+              readMore={readMore}
             />
           ))}
         </div>

@@ -8,14 +8,27 @@ const Image = ({
   className,
   image,
   imageClassName,
+  url,
+  title,
 }) => {
   if (!image) {
     return null;
   }
   
+  const picture = (
+    <img src={image.url} alt={image.alternativeText} className={imageClassName} />
+  );
+  
+  const content = url ? (
+    <a href={url} title={title}>
+      {picture}
+    </a>
+  )
+  : picture;
+  
   return (
     <div className={className}>
-      <img src={image.url} alt={image.alternativeText} className={imageClassName} />
+      {content}
     </div>
   );
 };

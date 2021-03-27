@@ -13,8 +13,9 @@ const ArticleCard = ({
     datePublished,
   } = {},
   fields,
+  readMore,
 }) => (
-  <GridItem className={className} showImage item={item} childrenLast={true}>
+  <GridItem className={className} showImage item={item} childrenLast={true} readMore={readMore}>
     <div className="article-creds">
       { authors && authors.length > 0 && (
         <ul className="authors">

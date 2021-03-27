@@ -50,3 +50,11 @@ h3 {
   font-style: normal;
   font-weight: normal;
 }
+
+.as-span {
+  display: inline;
+  
+  & > p {
+    display: inline;
+  }
+}

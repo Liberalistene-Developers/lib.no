@@ -12,10 +12,11 @@ const GridItem = ({
     url,
   } = {},
   fields,
+  readMore,
 }) => (
   <div className="grid-item">
 
-     <Image image={image} className={imageSize} imageClassName={imageType} />
+     <Image image={image} className={imageSize} imageClassName={imageType} title={name} url={url} />
 
      { name && (
        <div className="grid-item-info">
@@ -24,7 +25,10 @@ const GridItem = ({
          </div>
          { shortDescription && (
            <div className="grid-item-description">
-             <div className="rich-text" dangerouslySetInnerHTML={{ __html: shortDescription }} />
+             <div className="rich-text as-span" dangerouslySetInnerHTML={{ __html: shortDescription }} />
+             { readMore && (
+               <a href={url} title={name} className="read-more">{readMore}</a>
+             )}
            </div>
          )}
        </div>
