@@ -5,10 +5,27 @@
 }
 
 .article {
-  & .article-creds {
+
+
+  .article-title {
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .ingress {
+    font-weight: bold;
+  }
+  
+  & .article-creds {
+    align-items: center;
+    display: flex;
     justify-content: space-between;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
     
     & .article-date {
       height: 100%;
