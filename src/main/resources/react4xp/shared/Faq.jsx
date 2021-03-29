@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import slugify from 'slugify';
 
 const Faq = ({ itemID, question, answer, expandable = false, expanded = true, Tag = 'h2' }) => {
-  const id = slugify(question);
-  const url = document.URL;
-  const [checked, setChecked] = useState((url.indexOf(`#${id}&`) > -1) || url.endsWith(`#${id}`));
+  const id = slugify(question) ;
+  const url = location.hash;
+  const [checked, setChecked] = useState(url ===  `#${id}`);
   
   const link = (
-    <a href={`#${id}&`} onClick={() => setChecked(true)}>
+    <a href={`#${id}`} onClick={() => setChecked(true)}>
       <i className="fas fa-link"></i>
     </a>
   );
