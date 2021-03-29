@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import slugify from 'slugify';
+
 const Faq = ({ itemID, question, answer, expandable = false, expanded = true, Tag = 'h2' }) => {
+  const id = slugify(question);
+  const link = <a href={`#${id}`}><i className="fas fa-link"></i></a>
   const headerItem = Tag === 'h2' ? (
     <h2>
-      {question}
+      {link} {question}
     </h2>
   ) : (
     <h3>
-      {question}
+      {link} {question}
     </h3>
   )
 
   return (
-    <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+    <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" id={id}>
       <input type="checkbox" id={ `checkbox-${itemID}` } />
       <label
         for={ `checkbox-${itemID}` }

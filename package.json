@@ -18,7 +18,7 @@
     "watch:react4xp": "webpack --env.REACT4XP_CONFIG_FILE=build/react4xp_constants.json --config node_modules/react4xp-build-components/webpack.config.js --watch",
     "watch:styles": "webpack --config webpack.client.config.js --color --hide-modules",
     "watch:xp": "babel src/main/resources --out-dir build/resources/main --ignore **/*.jsx --watch",
-    "storybook": "start-storybook --no-dll -s ./public -p 6006",
+    "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook",
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
