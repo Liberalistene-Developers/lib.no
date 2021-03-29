@@ -5,7 +5,7 @@ import slugify from 'slugify';
 const Faq = ({ itemID, question, answer, expandable = false, expanded = true, Tag = 'h2', anchorText }) => {
   const id = slugify(question) ;
   const url = location.hash;
-  const [checked, setChecked] = useState(url ===  `#${id}`);
+  const [checked, setChecked] = useState(url ===  `#${id}`  || undefined);
   
   const link = (
     <a href={`#${id}`} title={anchorText} onClick={() => setChecked(true)}>
@@ -24,9 +24,9 @@ const Faq = ({ itemID, question, answer, expandable = false, expanded = true, Ta
 
   return (
     <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" id={id}>
-      <input type="checkbox" id={ `checkbox-${itemID}` } checked={checked} />
+      <input type="checkbox" id={ `checkbox-${itemID}` } defaultChecked={checked} />
       <label
-        for={ `checkbox-${itemID}` }
+        htmlFor={ `checkbox-${itemID}` }
         >
       <div
         itemProp="name"
