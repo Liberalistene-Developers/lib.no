@@ -14,12 +14,13 @@ exports.get = function(request) {
     } = content;
 
     const {
-      config: {
+      config: {        
         buttonText,
         url: urlKey,
         message,
         backMessage,
         image: imageKey,
+        frontPlacement,
       } = {},
     } = component;
     
@@ -36,7 +37,8 @@ exports.get = function(request) {
       message: processHtml(message),
       backMessage: processHtml(message),
       image: imageUrl(imageKey, 'square(200)'),
-      className: 'medium-margin'
+      className: 'medium-margin',
+      frontPlacement,
     };
 
     log.info(JSON.stringify(props, null, 4));

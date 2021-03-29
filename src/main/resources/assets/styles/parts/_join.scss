@@ -43,6 +43,18 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        
+        &.column {
+          flex-direction: column;
+        }
+        
+        &.row {
+          flex-direction: row;
+        }
+        
+        .join-front-text {
+          padding: 20px;
+        }
       }
     }
 
@@ -54,6 +66,10 @@
         color: #2c3e50;
         text-align: center;
         width: 100%;
+        
+        .join-back-text {
+          color: var(--lib-color-button-color-100);
+        }
       }    
     }
     
