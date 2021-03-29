@@ -4,7 +4,8 @@ import slugify from 'slugify';
 
 const Faq = ({ itemID, question, answer, expandable = false, expanded = true, Tag = 'h2' }) => {
   const id = slugify(question);
-  const [checked, setChecked] = useState(document.URL.indexOf(`#${id}&`) > -1);
+  const url = document.URL;
+  const [checked, setChecked] = useState((url.indexOf(`#${id}&`) > -1) || url.endsWith(`#${id}`));
   
   const link = (
     <a href={`#${id}&`} onClick={() => setChecked(true)}>
