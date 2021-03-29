@@ -43,5 +43,9 @@
         </option>
       </options>
     </option-set>
+    <input name="anchorText" type="TextLine">
+      <label i18n="parts.faqlist.anchorText.title">Anchor text</label>
+      <default i18n="parts.faqlist.anchorText.default">Link til dette elementet</default>
+    </input>
   </form>
 </part>

@@ -9,6 +9,7 @@ const FaqItem = ({
   question,
   expandable = false,
   expanded = true,
+  anchorText,
 }) => (
   <div className="page-content">
     <div className="faq-list">
@@ -18,6 +19,7 @@ const FaqItem = ({
         question={question}
         expandable={expandable}
         expanded={expanded}
+        anchorText={anchorText}
         Tag="h1"
       />
     </div>

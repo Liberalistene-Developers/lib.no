@@ -14,6 +14,7 @@ exports.get = function(request) {
 
     const {
       config: {
+        anchorText,
         expandable,
         expanded,
         itemsSet: {
@@ -52,6 +53,7 @@ exports.get = function(request) {
     }
     
     const props = {
+      anchorText,
       expandable,
       expanded,
       items: items.map((itemID) => {

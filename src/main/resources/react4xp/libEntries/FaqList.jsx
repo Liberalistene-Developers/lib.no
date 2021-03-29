@@ -7,6 +7,7 @@ const FaqList = ({
   items = [],
   expandable = false,
   expanded = true,
+  anchorText,
 }) => {
   return (
     <div className="page-content">
@@ -19,6 +20,7 @@ const FaqList = ({
             question={question}
             expandable={expandable}
             expanded={expanded}
+            anchorText={anchorText}
             url={url}
             Tag="h3"
           />
