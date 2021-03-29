@@ -4,7 +4,13 @@ import slugify from 'slugify';
 
 const Faq = ({ itemID, question, answer, expandable = false, expanded = true, Tag = 'h2' }) => {
   const id = slugify(question);
-  const link = <a href={`#${id}`}><i className="fas fa-link"></i></a>
+  const [checked, setChecked] = useState(document.URL.indexOf(`#${id}&`) > -1);
+  
+  const link = (
+    <a href={`#${id}&`} onClick={() => setChecked(true)}>
+      <i className="fas fa-link"></i>
+    </a>
+  );
   const headerItem = Tag === 'h2' ? (
     <h2>
       {link} {question}
@@ -17,7 +23,7 @@ const Faq = ({ itemID, question, answer, expandable = false, expanded = true, Ta
 
   return (
     <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" id={id}>
-      <input type="checkbox" id={ `checkbox-${itemID}` } />
+      <input type="checkbox" id={ `checkbox-${itemID}` } checked={checked} />
       <label
         for={ `checkbox-${itemID}` }
         >
