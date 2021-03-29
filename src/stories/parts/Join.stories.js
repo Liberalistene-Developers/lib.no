@@ -29,5 +29,22 @@ export const Text = Template.bind({});
 Text.args = {
   image: null,
   message: 'Bli medlem',
-  buttonText: 'Bli medlem',
+  buttonText: 'Bli medlem',  
+};
+
+export const ImageAndTextRow = Template.bind({});
+ImageAndTextRow.args = {
+  image: {
+    url: 'Bli med pil.png'
+  },
+  message: 'Bli medlem',
+  buttonText: 'Bli medlem',  
+  frontPlacement: 'row',
+};
+
+
+export const ImageAndTextColumn = Template.bind({});
+ImageAndTextColumn.args = {
+  ...ImageAndTextRow.args,
+  frontPlacement: 'column',
 };

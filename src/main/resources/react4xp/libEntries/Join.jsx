@@ -18,7 +18,7 @@ export const Join = ({
     <div className={cx('join', 'middle')}>
       <div className="join-front">
         <div className={cx('join-front-content', frontPlacement)}>
-          <Image image={image} />
+          <Image image={image} className="image-holder"/>
           { message && (
             <div className="join-front-text"  dangerouslySetInnerHTML={{ __html: message }} />
           )}

@@ -46,15 +46,24 @@
         
         &.column {
           flex-direction: column;
+          
+          .image-holder {
+             margin-top: -20px;
+          }          
         }
         
         &.row {
           flex-direction: row;
-        }
-        
-        .join-front-text {
-          padding: 20px;
-        }
+          column-gap: 40px;
+          
+          .join-front-text, .image-holder {
+            width: calc(40%);
+          }
+          
+          .image-holder {
+            text-align: end;
+          }
+        }        
       }
     }
 
