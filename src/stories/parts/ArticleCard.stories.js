@@ -15,9 +15,9 @@ const image = {
   url: 'partyleader.jpg',
 };
 
-const Template = (args) => (
-  <SingleLayout>
-    <div className="article grid">
+const Template = ({ full = false, ...args }) => (
+  <SingleLayout fullWidth={full}>
+    <div className="article-list grid-list">
       <ArticleCard {...args} />
     </div>
   </SingleLayout>
@@ -42,4 +42,10 @@ Normal.args = {
     ],
     datePublished: '2020-12-10',
   },
+};
+
+export const Full = Template.bind({});
+Full.args = {
+  ...Normal.args,
+  full: true,
 };
