@@ -106,6 +106,9 @@ main {
         line-height: 100%;
         /* or 30px */
         color: var(--lib-color-primary-700);
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       
       & .rich-text {
