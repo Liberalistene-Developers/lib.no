@@ -30,6 +30,9 @@ const Template = (args) => (
         <p>
           Fusce eget tempor lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse vel metus egestas, egestas arcu vitae, hendrerit ligula. Maecenas a tempus risus, et ullamcorper magna. Aenean tortor ligula, semper a varius at, pretium vitae ligula. Donec quis nulla velit. Morbi eleifend libero magna, ut lobortis turpis tempor eu. Ut vel cursus arcu, a porta ligula. Proin efficitur tempus mi, finibus scelerisque ipsum elementum nec. Ut quis nunc magna. Etiam vel ultrices ex. Aliquam volutpat magna id erat bibendum sodales.
         </p>
+        <p>
+          <a href="#">Our link</a>
+        </p>
       </div>
     </SingleLayout>
   </Page>

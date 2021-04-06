@@ -158,8 +158,12 @@ main {
       background-color: var(--lib-color-primary-700);
       color: var(--lib-color-background-700);
 
-      & a, h1, h2, h3 {
+      & h1, h2, h3 {
         color: var(--lib-color-background-700);
+      }
+      
+      & a {
+        color: var(--lib-color-purple-anchor);
       }
     }
 
