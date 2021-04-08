@@ -1,3 +1,9 @@
+.article-list-holder {
+  .more-button {
+    display: flex;
+    justify-content: center;
+  }
+}
 .article-list {
   &.grid {
     @extend .grid-list

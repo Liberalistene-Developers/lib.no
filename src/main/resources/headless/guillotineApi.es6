@@ -1,9 +1,11 @@
 const guillotineLib = require('/lib/guillotine');
 const graphQlLib = require('/lib/graphql');
+const graphqlPlaygroundLib = require('/lib/graphql-playground');
+const authLib = require('/lib/xp/auth');
 
 const CORS_HEADERS = {
     'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     // 'Access-Control-Allow-Origin': '*'
 };
 
@@ -13,10 +15,48 @@ const SCHEMA = guillotineLib.createSchema();
 
 exports.executeQuery = (query, variables) => graphQlLib.execute(SCHEMA, query, variables);
 
+const createError = (status, message) => ({
+  status,
+  body: {
+    errors: [
+      {
+        errorType: `${status}`,
+        message,
+      },
+    ],
+  },
+})
 
+// GraphQL playground
+exports.get = function (req) {
+  log.info(JSON.stringify(req, null, 4));
+  
+  if (req.webSocket) {
+    return {
+      webSocket: {
+        subProtocols: ['graphql-ws']
+      },
+    };
+  }
+  
+  
 
+  // Simple auth control for the playground
+  if (!authLib.hasRole('system.authenticated')) {
+    return createError(401, 'Unauthorized');
+  }
+  
+  if (!(authLib.hasRole('system.admin') || authLib.hasRole('system.admin.login'))) {
+    return createError(403, 'Forbidden');
+  }
 
-
+  var body = graphqlPlaygroundLib.render();
+  
+  return {
+    contentType: 'text/html; charset=utf-8',
+    body,
+  };
+};
 
 // ----------------------------------------------  FRONTEND EXPOSED METHODS:  ------------------------------------
 
@@ -41,27 +81,26 @@ exports.post = req => {
     var body = JSON.parse(req.body);
 
     const output = {
-        contentType: 'application/json',
-        headers: CORS_HEADERS,
-        body: exports.executeQuery(body.query, body.variables)
+      contentType: 'application/json',
+      headers: CORS_HEADERS,
+      body: exports.executeQuery(body.query, body.variables)
     };
 
     let status = 200;
     if (output.body.errors) {
-        status = 400;
-        log.error(`${output.body.errors.length} guillotine error${output.body.errors.length === 1 ? "" : "s"}: ${JSON.stringify(output.body.errors)}`);
-        log.error(JSON.stringify(output.body.errors, null, 4));
-        log.info("The error happened with these request.body.variables: " + JSON.stringify(body.variables));
-
+      status = 400;
+      log.error(`${output.body.errors.length} guillotine error${output.body.errors.length === 1 ? "" : "s"}: ${JSON.stringify(output.body.errors)}`);
+      log.error(JSON.stringify(output.body.errors, null, 4));
+      log.info("The error happened with these request.body.variables: " + JSON.stringify(body.variables));
     }
 
     return {
-        ...output,
-        status
+      ...output,
+      status,
     }
 };
 
 exports.options = req => ({
-    contentType: 'text/plain;charset=utf-8',
-    headers: CORS_HEADERS
+  contentType: 'text/plain;charset=utf-8',
+  headers: CORS_HEADERS
 });

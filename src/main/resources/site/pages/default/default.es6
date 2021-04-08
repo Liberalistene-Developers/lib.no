@@ -5,7 +5,7 @@ const libs = {
   menu: require('/lib/menu'),
 };
 
-const { imageUrl } = require('../../parts/shared/image');
+const { imageUrl } = require('/lib/shared/image');
 
 // Specify the view file to use
 var view = resolve('default.html');

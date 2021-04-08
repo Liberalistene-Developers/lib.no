@@ -2,8 +2,8 @@ const portal = require('/lib/xp/portal');
 const contentLib = require('/lib/xp/content');
 const React4xp = require('/lib/enonic/react4xp');
 
-const { processHtml } = require('../shared/html');
-const { findItems } = require('../shared/query');
+const { processHtml } = require('/lib/shared/html');
+const { findItems } = require('/lib/shared/query');
 
 exports.get = function(request) {
     const content = portal.getContent();

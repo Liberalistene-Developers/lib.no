@@ -3,7 +3,7 @@ const React4xp = require('/lib/enonic/react4xp');
 
 const utils = require('/lib/util');
 
-const { getSections } = require('../shared/programme');
+const { getSections } = require('/lib/shared/programme');
 // const getSections = () => [];
 
 exports.get = function(request) {

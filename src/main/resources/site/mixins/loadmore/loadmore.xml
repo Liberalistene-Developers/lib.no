@@ -1,0 +1,11 @@
+<mixin>
+  <display-name i18n="mixin.loadmore.displayname">Load more text</display-name>
+  <form>
+    <input type="TextLine" name="loadMore" > 
+      <label i18n="mixin.loadMore.label">Last flere knapp text</label> 
+      <default i18n="mixin.loadMore.default">Last inn flere</default>
+      <occurrences minimum="1" maximum="1"/>  
+      <config/> 
+    </input>
+  </form>
+</mixin>

@@ -1,9 +1,13 @@
 const React4xp = require('/lib/enonic/react4xp');
 const portal = require('/lib/xp/portal');
 const contentLib = require('/lib/xp/content');
+const guillotine = require('/headless/guillotineApi');
 
-const { imageUrl } = require('../shared/image');
-const { findItems } = require('../shared/query');
+const { imageUrl } = require('/lib/shared/image');
+const { findItems } = require('/lib/shared/query');
+
+const { buildQueryArticleList, extractArticleList } = require('/headless/helpers/articleListRequests');
+const { buildParentPathQuery } = require('/headless/helpers/helpers');
 
 exports.get = function(request) {
     const content = portal.getContent();
@@ -28,7 +32,6 @@ exports.get = function(request) {
             } = {},
           } = {},
         } = {},
-        items: oldItemList = [],
         itemsSet: {
           '_selected': selection,
           manual: {
@@ -43,13 +46,21 @@ exports.get = function(request) {
         shortDescription,
         title,
         readMore = '',
+        loadMore = '',
       } = {},
     } = component;
 
-    const items = [].concat(oldItemList);
+    const items = [];
 
     log.info(JSON.stringify(content, null, 2));
     log.info(JSON.stringify(component, null, 2));
+    
+    const headless = selection === 'query';
+    const {            
+      _path: queryPath,
+    } = headless && queryroot ? contentLib.get({ key: queryroot }) : {};
+    
+    const parentPathQuery = headless && queryPath && buildParentPathQuery(queryPath);
     
     switch (selection) {
       case 'manual':
@@ -58,15 +69,40 @@ exports.get = function(request) {
         
       case 'query':
         if (queryroot) {
-          const list = findItems('lib.no:article', queryroot, querysorting, count, 0);
+          const {            
+            _path: queryPath,
+          } = contentLib.get({ key: queryroot });
           
+          const variables = {                                       
+            first: count,
+            offset: 0,
+            sort: '',
+            parentPathQuery,
+          };
+          
+          const query = buildQueryArticleList();
+          
+          const result = guillotine.executeQuery(query, variables);          
+          const list = extractArticleList(result);
+          
+          log.info(JSON.stringify(list, null, 2));
+                    
           if (list.length) {
             items.push(...list);
           }        
         }  
         break;        
     }
+    
+    const {
+      _path: sitePath
+    } = portal.getSite();
 
+    const siteUrl = portal
+      .pageUrl({
+        path: sitePath,
+      });
+      
     const props = {
       title,
       displaytype,
@@ -76,60 +112,12 @@ exports.get = function(request) {
       imageSize,
       imageType: imageRound ? 'round' : '',
       readMore,
-      items: items.map((itemID) => {
-        const {
-          displayName: name,
-          _path: itemPath,
-          data: {
-            date: datePublished,
-            image: imageKey,
-            ingress: articleShortDescription = '',
-            author = [],
-            ...dataRest
-          },
-          ...rest
-        } = contentLib.get({ key: itemID });
-        
-        const authors = [].concat(author)
-          .map((authorID) => {
-            const {
-              displayName: person,
-              _path: personPath,
-              data: {
-                image: personImageKey,
-              },
-              ...authorRest
-            } = contentLib.get({ key: authorID });
-
-            log.info(JSON.stringify(authorRest, null, 4));
-
-            return {
-              authorID,
-              personUrl: portal
-                .pageUrl({
-                  path: personPath,
-                }),
-              person,
-              image: imageUrl(personImageKey, 'square(40)'),
-            };
-          });
-
-        log.info(JSON.stringify(rest, null, 4));
-        log.info(JSON.stringify(dataRest, null, 4));
-
-        return {
-          itemID,
-          url: portal
-            .pageUrl({
-              path: itemPath,
-            }),
-          name,
-          authors,
-          datePublished,
-          shortDescription: articleShortDescription,
-          image: imageUrl(imageKey, displaytype === 'list' ? 'square(256)' : 'block(459,295)', 'rounded(3);'),
-        };
-      }),
+      loadMore,
+      items,
+      apiUrl: headless ? `${siteUrl}/api/headless` : '',
+      parentPathQuery,
+      count,
+      sortExpression: '',
     };
 
     log.info(JSON.stringify(props, null, 4));

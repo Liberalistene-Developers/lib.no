@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Button } from '../../main/resources/react4xp/libEntries/Button';
 import { SingleLayout } from './Layout';
 import { Page } from '../pages';
 
@@ -32,6 +33,9 @@ const Template = (args) => (
         </p>
         <p>
           <a href="#">Our link</a>
+        </p>
+        <p>
+          <Button title="Bli medlem" url="https://google.com" />
         </p>
       </div>
     </SingleLayout>

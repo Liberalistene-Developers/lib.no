@@ -3,7 +3,7 @@ const React4xp = require('/lib/enonic/react4xp');
 
 const utils = require('/lib/util');
 
-const { getParts } = require('../shared/programme');
+const { getParts } = require('/lib/shared/programme');
 
 exports.get = function(request) {
     const content = portal.getContent();

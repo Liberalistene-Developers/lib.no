@@ -6,11 +6,13 @@ export const Button = ({
   target = undefined,
   url,
   className,
+  onClick,
 }) => (
   <a
     href={url}
     target={target}
     className={cx('button', 'paper-raise', className)}
+    onClick={onClick}
   >
     {title}
   </a>

@@ -6,7 +6,7 @@ import { BookCard } from './BookCard';
 /**
  * Primary Image holder for solution.
  */
-const BookList = ({
+export const BookList = ({
   items = [],
   className,
   buyFromText,
@@ -64,8 +64,4 @@ BookList.defaultProps = {
   items: [],
 };
 
-export default BookList;
-
-export {
-  BookList,
-};
+export default (props) => <BookList {...props} />;

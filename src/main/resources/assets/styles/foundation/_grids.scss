@@ -76,7 +76,7 @@ main {
 
 .grid-list {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-content: flex-start;
   flex-wrap: wrap;
   max-width: 1800px;
@@ -114,6 +114,14 @@ main {
       & .rich-text {
         &>p {
           margin: 0;
+        }
+      }
+      
+      & .read-more {
+        &::before {
+          content: ' ';
+          width: 6px;
+          display: inline-block;
         }
       }
     }

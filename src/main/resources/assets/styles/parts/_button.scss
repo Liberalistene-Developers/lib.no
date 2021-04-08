@@ -1,3 +1,32 @@
+
+main {
+  & > .content-holder {
+    &.purple {
+      .button {
+        background-color: var(--lib-color-menu-background);
+        color: var(--lib-color-primary-700);
+        
+        &.paper-raise {
+          &:before {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+          &:hover {
+            border: 1px solid var(--lib-color-menu-background);
+            text-shadow: 0 1px #ffea00;
+            
+            &:before {
+              box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .button {
   appearance: button;
   
@@ -11,7 +40,7 @@
   background-color: var(--lib-color-primary-700);
   border: 1px solid #ccc;
 
-  color: #fff;
+  color: var(--lib-color-menu-background);
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;

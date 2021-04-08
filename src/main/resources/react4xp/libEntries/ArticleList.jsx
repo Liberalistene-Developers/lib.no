@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+import doGuillotineRequest from "../../headless/guillotineRequest";
+import { buildQueryArticleList, extractArticleList } from "../../headless/helpers/articleListRequests";
 
 import Image from '../shared/Image';
 
 import ListItem from '../shared/ArticleListItem';
 import GridItem from '../shared/ArticleCard';
 
-export default ({
+import Button from './Button';
+
+let nextOffset = 0;
+
+export const ArticleList = ({
   description,
   displaytype,
   fields,
@@ -18,8 +25,61 @@ export default ({
   imageType,
   imageSize,
   readMore = '',
+  loadMore = 'Load more',
+  apiUrl = '',
+  count = 10,
+  sortExpression = '',
+  parentPathQuery = '',
 }) => {
+  const [list, setList] = useState(items);
+  const [more, setMore] = useState(apiUrl && items.length === count);
+  const [loading, setLoading] = useState(false);
+  
   const Item = displaytype === 'list' ? ListItem : GridItem;
+  
+  useEffect(() => {
+    nextOffset = list.length;
+  }, [list])
+  
+  const updateArticles = (articles) => {
+    if (articles.length > 0) {
+      nextOffset += articles.length
+      
+      setList([
+        ...list,
+        ...articles,
+      ]);
+      
+      if (articles.length < count) {
+        setMore(false);
+      }
+    } else {
+      setMore(false);
+    }
+    
+    setLoading(false);
+  };
+  
+  const readMoreClick = () => {
+    setLoading(loading);
+    
+    doGuillotineRequest({
+      url: apiUrl,
+
+      query: buildQueryArticleList(),
+
+      variables: {
+        first: count,
+        offset: nextOffset,
+        sort: sortExpression,
+        parentPathQuery,
+      },
+
+      extractDataFunc: extractArticleList,
+
+      handleDataFunc: updateArticles,
+    });
+  };
 
   return (
     <div className="article-list-holder">
@@ -37,9 +97,9 @@ export default ({
         <div dangerouslySetInnerHTML={{ __html: description }} />
       )}
 
-      { items && items.length > 0 && (
+      { list && list.length > 0 && (
         <div className={`article-list ${displaytype}`}>
-          { items.map((item) => (
+          { list.map((item) => (
             <Item
               key={item.itemID}
               item={item}
@@ -53,6 +113,13 @@ export default ({
           ))}
         </div>
       )}
+      { more && (
+        <div className="more-button">
+          <Button title={loadMore} onClick={!loading && readMoreClick} />
+        </div>
+      )}
     </div>
   );
 };
+
+export default (props) => <ArticleList {...props} />;

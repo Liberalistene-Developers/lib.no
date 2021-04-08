@@ -41,35 +41,59 @@ const checkParams = params => {
     if ((params.query || '').trim() === '') {
         throw Error("Missing guillotine query. Supply a valid 'query' string parameter: doGuillotineRequest({query: '...', etc}); ");
     }
+    
+    return params
 };
 
+const defaultHandleResponseErrorFunc = (response) => {
+  if (!(response.status < 300)) {
+      throw Error(`Guillotine API response:\n\n${response.status} - ${response.statusText}.\n\nAPI url: ${response.url}\n\nInspect the request and/or the server log.`);
+  }
+  
+  return response;
+}
 
-const extractParamsOrDefaults = params => {
-    checkParams(params);
+const defaultErrorFunc = (error) => {
+  console.error(error);
+  
+  return Promise.resolve(error);
+}
 
-    return {
-        url: params.url,
-        query: params.query,
-        variables: params.variables || {},
-        handleResponseErrorFunc: params.handleResponseErrorFunc || (
-            response => {
-                if (!(response.status < 300)) {
-                    throw Error(`Guillotine API response:\n\n${response.status} - ${response.statusText}.\n\nAPI url: ${response.url}\n\nInspect the request and/or the server log.`);
-                }
-                return response;
-            }
-        ),
-        extractDataFunc: params.extractDataFunc || ( responseData => responseData ),
-        handleDataFunc: params.handleDataFunc || function(){},
-        catchErrorsFunc: params.catchErrorsFunc || ( error => {console.error(error);} )
-    }
+
+const extractParamsOrDefaults = (params) => {
+  const {
+    url,
+    query,
+    variables = {},
+    handleResponseErrorFunc = defaultHandleResponseErrorFunc,
+    extractDataFunc = (responseData) => responseData,
+    handleDataFunc = () => null,
+    catchErrorsFunc = defaultErrorFunc,
+  } = checkParams(params)
+
+  return {
+    url,
+    query,
+    variables,
+    handleResponseErrorFunc,
+    extractDataFunc,
+    handleDataFunc,
+    catchErrorsFunc,
+  }
 }
 
 // ---------------------------------------------------------
 
 const doGuillotineRequest = (params) => {
-
-    const {url, query, variables, handleResponseErrorFunc, extractDataFunc, handleDataFunc, catchErrorsFunc } = extractParamsOrDefaults(params);
+    const {
+      url,
+      query,
+      variables,
+      handleResponseErrorFunc,
+      extractDataFunc,
+      handleDataFunc,
+      catchErrorsFunc
+    } = extractParamsOrDefaults(params)
 
     fetch(
         url,
@@ -82,11 +106,11 @@ const doGuillotineRequest = (params) => {
             credentials: "same-origin",
         }
     )
-        .then(handleResponseErrorFunc)
-        .then(response => response.json())
-        .then(extractDataFunc)
-        .then(handleDataFunc)
-        .catch(catchErrorsFunc)
+      .then(handleResponseErrorFunc)
+      .then(response => response.json())
+      .then(extractDataFunc)
+      .then(handleDataFunc)
+      .catch(catchErrorsFunc)
 };
 
 export default doGuillotineRequest;
