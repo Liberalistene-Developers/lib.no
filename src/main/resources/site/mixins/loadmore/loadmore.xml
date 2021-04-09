@@ -1,11 +1,22 @@
 <mixin>
-  <display-name i18n="mixin.loadmore.displayname">Load more text</display-name>
+  <display-name i18n="mixin.loadmore.displayname">Load more</display-name>
   <form>
-    <input type="TextLine" name="loadMore" > 
-      <label i18n="mixin.loadMore.label">Last flere knapp text</label> 
-      <default i18n="mixin.loadMore.default">Last inn flere</default>
-      <occurrences minimum="1" maximum="1"/>  
-      <config/> 
-    </input>
+    <field-set>
+      <label i18n="mixin.loadmore.label">Last inn flere knapp</label>
+      <items>
+        <input  name="loadMoreEnabled" type="CheckBox">
+          <label i18n="mixin.loadMore.enabled.label">Vis knapp</label>
+          <config>
+            <alignment>right</alignment>
+          </config>
+        </input>
+        <input type="TextLine" name="loadMore" > 
+          <label i18n="mixin.loadMore.button.label">Text knapp</label> 
+          <default i18n="mixin.loadMore.button.default">Last inn flere</default>
+          <occurrences minimum="0" maximum="1"/>
+          <config/> 
+        </input>
+      </items>
+    </field-set>
   </form>
 </mixin>

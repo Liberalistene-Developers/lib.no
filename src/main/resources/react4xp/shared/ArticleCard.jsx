@@ -14,8 +14,9 @@ export const ArticleCard = ({
   } = {},
   fields,
   readMore,
+  readMoreEnabled,
 }) => (
-  <GridItem className={className} showImage item={item} childrenLast={true} readMore={readMore}>
+  <GridItem className={className} showImage item={item} childrenLast={true} readMore={readMore} readMoreEnabled={readMoreEnabled}>
     <div className="article-creds">
       { authors && authors.length > 0 && (
         <ul className="authors">

@@ -25,6 +25,8 @@ export const ArticleList = ({
   imageType,
   imageSize,
   readMore = '',
+  readMoreEnabled = false,
+  loadMoreEnabled = false,
   loadMore = 'Load more',
   apiUrl = '',
   count = 10,
@@ -32,7 +34,7 @@ export const ArticleList = ({
   parentPathQuery = '',
 }) => {
   const [list, setList] = useState(items);
-  const [more, setMore] = useState(apiUrl && items.length === count);
+  const [more, setMore] = useState(loadMoreEnabled && apiUrl && items.length === count);
   const [loading, setLoading] = useState(false);
   
   const Item = displaytype === 'list' ? ListItem : GridItem;
@@ -101,7 +103,7 @@ export const ArticleList = ({
         <div className={`article-list ${displaytype}`}>
           { list.map((item) => (
             <Item
-              key={item.itemID}
+              key={item.id}
               item={item}
               fields={fields}
               showImage={showImage}
@@ -109,6 +111,7 @@ export const ArticleList = ({
               imageType={imageType}
               className="article"
               readMore={readMore}
+              readMoreEnabled={readMoreEnabled}
             />
           ))}
         </div>

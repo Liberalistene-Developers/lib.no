@@ -49,12 +49,7 @@
       </options>
     </option-set>
     <mixin name="displaytype" />
-    <input type="TextLine" name="readMore" > 
-      <label i18n="parts.articlelist.readMore.label">Les mer link text</label> 
-      <default i18n="parts.articlelist.readMore.default">Les mer...</default>
-      <occurrences minimum="1" maximum="1"/>  
-      <config/> 
-    </input>
+    <mixin name="readmore" />
     <mixin name="loadmore" />
   </form>
 </part>

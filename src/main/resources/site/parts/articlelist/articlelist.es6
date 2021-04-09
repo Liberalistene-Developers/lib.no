@@ -46,7 +46,9 @@ exports.get = function(request) {
         shortDescription,
         title,
         readMore = '',
+        readMoreEnabled = false,
         loadMore = '',
+        loadMoreEnabled = false,
       } = {},
     } = component;
 
@@ -112,7 +114,9 @@ exports.get = function(request) {
       imageSize,
       imageType: imageRound ? 'round' : '',
       readMore,
+      readMoreEnabled,
       loadMore,
+      loadMoreEnabled,
       items,
       apiUrl: headless ? `${siteUrl}/api/headless` : '',
       parentPathQuery,

@@ -13,6 +13,7 @@ export const GridItem = ({
   } = {},
   fields,
   readMore,
+  readMoreEnabled = false,
 }) => (
   <div className="grid-item">
 
@@ -26,7 +27,7 @@ export const GridItem = ({
          { shortDescription && (
            <div className="grid-item-description">
              <div className="rich-text as-span" dangerouslySetInnerHTML={{ __html: shortDescription }} />
-             { readMore && (
+             { readMoreEnabled && readMore && (
                <a href={url} title={name} className="read-more">{readMore}</a>
              )}
            </div>
