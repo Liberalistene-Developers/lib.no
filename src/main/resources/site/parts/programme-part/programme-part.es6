@@ -28,5 +28,5 @@ exports.get = function(request) {
     
     const props = { title, description, conclusionTitle, conclusions, tags };
 
-    return React4xp.render(component, props, request);
+    return React4xp.render('ProgrammePart', props, request, { clientRender: true });
 };

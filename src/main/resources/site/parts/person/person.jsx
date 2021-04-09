@@ -2,7 +2,7 @@ import React from 'react';
 
 import Image from '../../../react4xp/shared/Image.jsx';
 
-export default ({
+export const Person = ({
   title,
   image,
   description,
@@ -23,3 +23,5 @@ export default ({
     )}
   </div>
 );
+
+export default (props) => <Person {...props} />;

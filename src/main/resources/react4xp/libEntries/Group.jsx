@@ -5,7 +5,7 @@ import { ImageBlock } from './ImageBlock';
 import Image from '../shared/Image';
 import PersonListItem from '../shared/PersonListItem';
 
-const Group = ({
+export const Group = ({
   imagesize,
   imagetype,
   headerColor,
@@ -98,8 +98,4 @@ Group.defaultProps = {
   imagesize: 'medium',
 };
 
-export default Group;
-
-export {
-  Group,
-};
+export default (props) => <Group {...props} />;

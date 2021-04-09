@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Faq } from '../shared/Faq';
 
-const FaqItem = ({
+export const FaqItem = ({
   itemID,
   answer,
   question,
@@ -26,8 +26,4 @@ const FaqItem = ({
   </div>
 );
 
-export default FaqItem;
-
-export {
-  FaqItem,
-}
+export default (props) => <FaqItem {...props} />;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TextBlock = ({
+export const TextBlock = ({
   text = '',
   title = '',
   titleColor = '',
@@ -41,8 +41,4 @@ TextBlock.defaultProps = {
   titleCenter: '',
 };
 
-export default TextBlock;
-
-export {
-  TextBlock,
-};
+export default () => <TextBlock {...props} />;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
-const Map = ({
+export const Map = ({
   address,
   position,
 }) => {
@@ -69,8 +69,4 @@ Map.defaultProps = {
   position: [58.2953903, 6.6580986],
 };
 
-export default Map;
-
-export {
-  Map,
-}
+export default (props) => <Map {...props} />;

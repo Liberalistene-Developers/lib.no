@@ -2,7 +2,7 @@ import React from 'react';
 
 import Image from './Image';
 
-const GridItem = ({
+export const GridItem = ({
   imageSize,
   imageType,
   item: {
@@ -36,8 +36,4 @@ const GridItem = ({
   </div>
 );
 
-export default GridItem;
-
-export {
-  GridItem,
-};
+export default (props) => <GridItem {...props} />;

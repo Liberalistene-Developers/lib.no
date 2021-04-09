@@ -41,8 +41,4 @@ Card.defaultProps = {
   title: '',  
 };
 
-export default Card;
-
-export {
-  Card,
-};
+export default (props) => <Card {...props} />;

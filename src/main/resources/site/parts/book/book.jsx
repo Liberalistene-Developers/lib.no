@@ -2,7 +2,7 @@ import React from 'react';
 
 import Image from '../../../react4xp/shared/Image.jsx';
 
-export default ({
+export const Book = ({
   title,
   image,
   authors,
@@ -38,3 +38,5 @@ export default ({
     <div dangerouslySetInnerHTML={{ __html: text || description }} />
   </div>
 );
+
+export default (props) => <Book {...props} />;

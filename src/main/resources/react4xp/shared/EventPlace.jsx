@@ -8,7 +8,7 @@ const calcMapAddress = (address) => address.replace(/\n/g, ',').replace(/ /g, '+
 /**
  * Primary Event Place holder for solution.
  */
-const EventPlace = ({
+export const EventPlace = ({
   location,
   locationLabel,
 }) => {
@@ -40,8 +40,4 @@ EventPlace.defaultProps = {
   locationLabel: 'Sted:',
 };
 
-export default EventPlace;
-
-export {
-  EventPlace,
-};
+export default (props) => <EventPlace {...props} />;

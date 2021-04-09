@@ -40,4 +40,4 @@ export const Join = ({
   </div>
 );
 
-export default Join;
+export default (props) => <Join {...props} />;

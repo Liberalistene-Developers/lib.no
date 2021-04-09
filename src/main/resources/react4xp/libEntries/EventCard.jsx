@@ -10,7 +10,7 @@ import { EventTime } from '../shared/EventTime';
 /**
  * Primary Image holder for solution.
  */
-const EventCard = ({
+export const EventCard = ({
   children,
   date,
   location,
@@ -53,8 +53,4 @@ EventCard.defaultProps = {
   locationType: 'place',
 };
 
-export default EventCard;
-
-export {
-  EventCard,
-};
+export default (props) => <EventCard {...props} />;

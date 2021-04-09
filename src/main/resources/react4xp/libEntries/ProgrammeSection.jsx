@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import slugify from 'slugify';
 
-import Part from '../programme-part/programme-part.jsx';
+import { ProgrammePart } from './ProgrammePart';
 
 const Conclusion = ({ title: conclusion }) => (
   <div className="conclusions">
@@ -18,7 +18,7 @@ const Conclusion = ({ title: conclusion }) => (
 const Title = ({ title, parentTitle }) => {
   const id = parentTitle && slugify(`${parentTitle} ${title}`.trim());
   
-  if (parentTitle) {
+  if (id) {
     return (
       <h2 id={id} title={title}>{title}</h2>
     );
@@ -29,23 +29,20 @@ const Title = ({ title, parentTitle }) => {
   );
 }
 
-const ProgrammeSection = ({ anchor, title, parentTitle = '', description, parts = [], tags }) => (
+export const ProgrammeSection = ({ anchor, title, parentTitle = '', description, parts = [], tags }) => (
   <div className={ parentTitle ? '' : 'page-content'}>
     <div className="programme-section">
       <div className="programme-section-title">
         <Title title={title} parentTitle={parentTitle} />
       </div>
       
-      { description && (
-          <div className="programme-section-description" dangerouslySetInnerHTML={{ __html: description }} />
-      )}
       { parts && parts.length > 0 ? (
         <div className="programme-sections-parts">
           { parts.map(({ key, type, ...props }) => {
             
             if (type === 'lib.no:programme-part') {
               return (
-                <Part key={ key } { ...props } parentTitle={title} anchor={anchor} />
+                <ProgrammePart key={ key } { ...props } parentTitle={title} anchor={anchor} />
               );
             }
             
@@ -76,8 +73,5 @@ ProgrammeSection.defaultProps = {
   parts: [],
 };
 
-export default ProgrammeSection;
+export default (props) => <ProgrammeSection {...props} />;
 
-export {
-  ProgrammeSection,
-};

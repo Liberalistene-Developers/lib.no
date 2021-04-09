@@ -3,7 +3,7 @@ import React from 'react';
 import { GridItem } from './GridItem';
 import { AuthorLink } from './AuthorLink';
 
-const ArticleCard = ({
+export const ArticleCard = ({
   className,
   imageSize,
   imageType,
@@ -33,8 +33,4 @@ const ArticleCard = ({
   </GridItem>
 );
 
-export default ArticleCard;
-
-export {
-  ArticleCard,
-};
+export default (props) => <ArticleCard {...props} />;

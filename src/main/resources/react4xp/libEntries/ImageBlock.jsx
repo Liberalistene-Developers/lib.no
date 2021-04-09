@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Image from '../shared/Image';
 
-const ImageBlock = ({
+export const ImageBlock = ({
   Tag,
   image,
   position,
@@ -50,8 +50,4 @@ ImageBlock.defaultProps = {
   position: 'right',
 };
 
-export default ImageBlock;
-
-export {
-  ImageBlock,
-};
+export default (props) => <ImageBlock {...props} />;

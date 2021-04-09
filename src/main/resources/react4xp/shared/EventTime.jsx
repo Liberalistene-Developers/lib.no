@@ -6,7 +6,7 @@ import { faClock } from '@fortawesome/free-solid-svg-icons'
 /**
  * Primary Event Place holder for solution.
  */
-const EventTime = ({
+export const EventTime = ({
   date,
   dateLabel,
   time,
@@ -36,8 +36,4 @@ EventTime.defaultProps = {
   timeLabel: '',
 };
 
-export default EventTime;
-
-export {
-  EventTime,
-};
+export default (props) => <EventTime {...props} />;

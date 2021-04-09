@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Image from '../shared/Image';
 
-const TitleBlock = ({
+export const TitleBlock = ({
   image = undefined,
   title = '',
   titleCenter = '',
@@ -43,8 +43,4 @@ TitleBlock.defaultProps = {
   titleColor: '',
 };
 
-export default TitleBlock;
-
-export {
-  TitleBlock,
-};
+export default (props) => <TitleBlock {...props} />;

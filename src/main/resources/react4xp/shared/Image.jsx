@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 /**
  * Primary Image holder for solution.
  */
-const Image = ({
+export const Image = ({
   className,
   image,
   imageClassName,
@@ -65,8 +65,4 @@ Image.defaultProps = {
   onClick: undefined,
 };
 
-export default Image;
-
-export {
-  Image,
-};
+export default (props) => <Image {...props} />;

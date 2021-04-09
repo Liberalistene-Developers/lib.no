@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 /**
  * Primary Image holder for solution.
  */
-const BookCard = ({
+export const BookCard = ({
   url,
   image,
   author,
@@ -86,8 +86,4 @@ BookCard.defaultProps = {
   buyFromText: '',  
 };
 
-export default BookCard;
-
-export {
-  BookCard,
-};
+export default (props) => <BookCard {...props} />;

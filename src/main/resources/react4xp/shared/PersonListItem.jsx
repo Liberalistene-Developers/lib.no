@@ -38,4 +38,4 @@ PersonListItem.defaultProps = {
   ...ListItem.defaultProps,
 };
 
-export default PersonListItem;
+export default (props) => <PersonListItem {...props} />;

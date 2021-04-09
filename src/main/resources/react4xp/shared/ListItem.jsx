@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import Image from './Image';
 
-const ListItem = ({
+export const ListItem = ({
   children,
   childrenLast = false,
   className,
@@ -63,8 +63,4 @@ ListItem.defaultProps = {
   item: undefined,
 };
 
-export default ListItem;
-
-export {
-  ListItem,
-};
+export default (props) => <ListItem {...props} />;

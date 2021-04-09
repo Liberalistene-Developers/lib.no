@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Faq } from '../shared/Faq';
 
-const FaqList = ({
+export const FaqList = ({
   items = [],
   expandable = false,
   expanded = true,
@@ -30,8 +30,4 @@ const FaqList = ({
   );
 };
 
-export default FaqList;
-
-export {
-  FaqList,
-};
+export default (props) => <FaqList {...props} />;

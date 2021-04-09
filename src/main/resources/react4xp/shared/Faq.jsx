@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import slugify from 'slugify';
 
-const Faq = ({ itemID, question, answer, expandable = false, expanded = true, Tag = 'h2', anchorText }) => {
+export const Faq = ({ itemID, question, answer, expandable = false, expanded = true, Tag = 'h2', anchorText }) => {
   const id = slugify(question) ;
   const url = location.hash;
   const [checked, setChecked] = useState(url ===  `#${id}`  || undefined);
@@ -60,8 +60,4 @@ Faq.defaultProps = {
   Tag: 'h2',
 };
 
-export default Faq;
-
-export {
-  Faq,
-};
+export default (props) => <Faq {...props} />;

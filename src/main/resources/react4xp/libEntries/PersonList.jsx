@@ -4,7 +4,7 @@ import GridItem from '../shared/GridItem';
 import Image from '../shared/Image';
 import ListItem from '../shared/ListItem';
 
-export default ({
+export const PersonList = ({
   description,
   displaytype,
   fields,
@@ -50,3 +50,6 @@ export default ({
     </div>
   );
 };
+
+
+export default (props) => <PersonList {...props} />;

@@ -8,7 +8,7 @@ import { ListItem } from './ListItem';
 /**
  * Primary Image holder for solution.
  */
-const EventListItem = ({
+export const EventListItem = ({
   children,
   date,
   location,
@@ -57,8 +57,4 @@ EventListItem.defaultProps = {
   locationType: 'place',
 };
 
-export default EventListItem;
-
-export {
-  EventListItem,
-};
+export default (props) => <EventListItem {...props} />;

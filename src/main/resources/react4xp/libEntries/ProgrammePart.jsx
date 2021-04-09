@@ -23,7 +23,7 @@ const Title = ({ anchor, title, parentTitle }) => {
   );
 };
 
-const ProgrammePart = ({ anchor, title, description, conclusionTitle, conclusions, parentTitle, tags }) => {
+export const ProgrammePart = ({ anchor, title, description, conclusionTitle, conclusions, parentTitle, tags }) => {
   
   return (
     <div className={ title ? '' : 'page-content'}>
@@ -72,8 +72,4 @@ ProgrammePart.defaultProps = {
   title: '',  
 };
 
-export default ProgrammePart;
-
-export {
-  ProgrammePart,
-};
+export default (props) => <ProgrammePart {...props} />;

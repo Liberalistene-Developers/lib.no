@@ -93,4 +93,4 @@ export const Schedules = ({ schedules = [] }) => (
 );
 
 
-export default Schedules;
+export default (props) => <Schedules {...props} />;

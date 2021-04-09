@@ -18,4 +18,4 @@ export const Button = ({
   </a>
 );
 
-export default Button;
+export default (props) => <Button {...props} />;

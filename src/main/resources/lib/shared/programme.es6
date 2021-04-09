@@ -6,7 +6,7 @@ const Programme = {
   Conclusion: 'lib.no:programme-conclusion',
 };
 
-const getChildren = (search) => contentLib.getChildren(search);
+const getChildren = (search) => contentLib.getChildren({ count: 999, ...search });
 
 export const getConclusions = (search) => {
   const children = getChildren(search);

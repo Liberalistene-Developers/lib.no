@@ -2,7 +2,7 @@ import React from 'react';
 
 import Image from '../../../react4xp/shared/Image.jsx';
 
-export default ({
+export const Quote = ({
   title,
   image,
   authors,
@@ -41,3 +41,5 @@ export default ({
     )}
   </div>
 );
+
+export default (props) => <Quote {...props} />;

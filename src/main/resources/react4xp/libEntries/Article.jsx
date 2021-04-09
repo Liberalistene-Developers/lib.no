@@ -5,7 +5,7 @@ import { ImageBlock } from './ImageBlock';
 import { Image } from '../shared/Image';
 import { AuthorLink } from '../shared/AuthorLink'
 
-const Article = ({
+export const Article = ({
   headerColor,
   headerPosition,
   title,
@@ -71,8 +71,4 @@ Article.defaultProps = {
   titleInImage: true,
 };
 
-export default Article;
-
-export {
-  Article, 
-}
+export default (props) => <Article {...props} />;

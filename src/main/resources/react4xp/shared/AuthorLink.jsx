@@ -2,7 +2,7 @@ import React from 'react';
 
 import Image from './Image';
 
-const AuthorLink = ({
+export const AuthorLink = ({
   url,
   image,
   author,
@@ -23,8 +23,4 @@ const AuthorLink = ({
   </li>
 );
 
-export default AuthorLink;
-
-export {
-  AuthorLink,
-};
+export default (props) => <AuthorLink {...props} />;

@@ -3,7 +3,7 @@ import React from 'react';
 import { ListItem } from './ListItem';
 import { AuthorLink } from './AuthorLink';
 
-const ArticleListItem = ({
+export const ArticleListItem = ({
   className,
   showImage,
   imageSize,
@@ -33,8 +33,4 @@ const ArticleListItem = ({
   </ListItem>
 );
 
-export default ArticleListItem;
-
-export {
-  ArticleListItem,
-};
+export default (props) => <ArticleListItem {...props} />;

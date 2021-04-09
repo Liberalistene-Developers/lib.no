@@ -7,7 +7,7 @@ import { Map } from '../shared/Map';
 import { EventPlace } from '../shared/EventPlace';
 import { EventTime } from '../shared/EventTime';
 
-const Event = ({
+export const Event = ({
   date,
   time,
   headerColor,
@@ -117,8 +117,4 @@ Event.defaultProps = {
   description: '',
 };
 
-export default Event;
-
-export {
-  Event,
-};
+export default (props) => <Event {...props} />;
