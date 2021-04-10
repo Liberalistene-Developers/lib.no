@@ -328,6 +328,11 @@ main {
 
 /* Mobile */
 @media screen and (max-width: 414px) {
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
   header {
     & .main-menu-wrapper {
       & input[type=checkbox] {
@@ -442,9 +447,8 @@ main {
         width: 100%;
         margin-left: auto;
         margin-right: auto;
-        padding-bottom: 20px;
-        padding-top: 20px;
-
+        padding: 20px;
+        
         &.full {
           width: 100%;
         }

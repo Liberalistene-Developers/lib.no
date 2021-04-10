@@ -26,3 +26,18 @@
     margin-top: 20px;
   }    
 }
+
+/* Mobile */
+@media screen and (max-width: 414px) {
+  .programme-section {
+    .programme-section-description {
+      .Standard {
+        width: calc(100% - 2em);
+      }
+      
+      & > ul {
+        width: calc(100% - 80px);
+      }
+    }
+  }
+}
