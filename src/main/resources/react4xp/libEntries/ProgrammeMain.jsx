@@ -5,12 +5,20 @@ import slugify from 'slugify';
 
 import { ProgrammeSection } from './ProgrammeSection';
 
-export const ProgrammeMain = ({ title, description, sections, tags }) => (
+import { TableOfContent } from '../shared/TableOfContent';
+
+export const ProgrammeMain = ({ title, description, sections, tags, tableOfContent = false }) => (
   <div className="page-content">
     <div className="programme-main">
       <div className="programme-main-title">
         <h1 title={description||title} id={slugify(title)}>{title}</h1>
       </div>
+      
+      { tableOfContent ? (
+        <div className="programme-main-table-of-content">
+          <TableOfContent title={title} sections={sections} />
+        </div>
+      ) : null}
       
       { sections && sections.length > 0 ? (
         <div className="programme-main-sections">
@@ -25,13 +33,13 @@ export const ProgrammeMain = ({ title, description, sections, tags }) => (
 );
 
 ProgrammeMain.propTypes = {
-  description: PropTypes.string,
+  tableOfContent: PropTypes.bool,
   sections: PropTypes.array,
   title: PropTypes.string,
 };
 
 ProgrammeMain.defaultProps = {
-  description: '',
+  tableOfContent: false,
   sections: [],
   title: '',
 };

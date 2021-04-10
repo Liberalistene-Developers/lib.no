@@ -10,6 +10,12 @@ exports.get = function(request) {
     const content = portal.getContent();
     const component = portal.getComponent();
     
+    const {
+      config: {
+        tableOfContent = false,
+      } = {},
+    } = component;
+    
     const {      
       _path: key,
       displayName: title,
@@ -23,7 +29,12 @@ exports.get = function(request) {
       key,
     });
 
-    const props = { title, description, sections, tags };
+    const props = {
+      title,
+      sections,
+      tags,
+      tableOfContent,
+    };
 
     return React4xp.render('ProgrammeMain', props, request, { clientRender: true });
 };

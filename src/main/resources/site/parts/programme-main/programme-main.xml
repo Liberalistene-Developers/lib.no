@@ -4,5 +4,12 @@
   <description>
     Display Programme main
   </description>
-  <form />
+  <form>
+    <input  name="tableOfContent" type="CheckBox">
+      <label i18n="mixin.readmore.enabled.label">Vis innholdsfortegnelse</label>
+      <config>
+        <alignment>right</alignment>
+      </config>
+    </input>
+  </form>
 </part>
