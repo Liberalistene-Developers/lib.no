@@ -3,7 +3,7 @@ main {
     >.content {
       &.full {
         >.content-item {
-          .grid-list {
+          .grid-list, .gridlist {
             .grid-item {
               width: calc(25% - 40px);
             }            
@@ -12,7 +12,7 @@ main {
       }
       
       >.content-item {
-        .grid-list {
+        .grid-list, .gridlist {
           .grid-item {
             width: calc(33% - 30px);
           }
@@ -28,7 +28,7 @@ main {
       >.content {
         &.full {
           >.content-item {
-            .grid-list {
+            .grid-list, .gridlist {
               .grid-item {
                 width: calc(50% - 30px);
               }            
@@ -37,7 +37,7 @@ main {
         }
         
         >.content-item {
-          .grid-list {
+          .grid-list, .gridlist {
             .grid-item {
               width: calc(50% - 30px);
             }
@@ -54,7 +54,7 @@ main {
       >.content {
         &.full {
           >.content-item {
-            .grid-list {
+            .grid-list, .gridlist {
               .grid-item {
                 width: 100%;
               }            
@@ -63,7 +63,7 @@ main {
         }
         
         >.content-item {
-          .grid-list {
+          .grid-list, .gridlist {
             .grid-item {
               width: 100%;
             }
@@ -74,9 +74,8 @@ main {
   }
 }
 
-.grid-list {
+.grid-list, .gridlist {
   display: flex;
-  /* justify-content: center; */
   align-content: flex-start;
   flex-wrap: wrap;
   max-width: 1800px;

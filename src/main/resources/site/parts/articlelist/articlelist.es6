@@ -64,6 +64,21 @@ exports.get = function(request) {
     
     const parentPathQuery = headless && queryPath && buildParentPathQuery(queryPath);
     
+    const createSort = () => {
+      switch (querysorting) {
+        case 'asc':
+          return 'data.date ASC';
+          
+        case 'desc':
+          return 'data.date DESC';
+  
+        default:
+          return '';
+      }
+    };
+    
+    const sortExpression = createSort();
+    
     switch (selection) {
       case 'manual':
         items.push(...[].concat(itemList));
@@ -78,7 +93,7 @@ exports.get = function(request) {
           const variables = {                                       
             first: count,
             offset: 0,
-            sort: '',
+            sort: sortExpression,
             parentPathQuery,
           };
           
@@ -121,7 +136,7 @@ exports.get = function(request) {
       apiUrl: headless ? `${siteUrl}/api/headless` : '',
       parentPathQuery,
       count,
-      sortExpression: '',
+      sortExpression,
     };
 
     log.info(JSON.stringify(props, null, 4));
