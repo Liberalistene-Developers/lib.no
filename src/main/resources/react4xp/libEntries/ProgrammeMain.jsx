@@ -7,11 +7,11 @@ import { ProgrammeSection } from './ProgrammeSection';
 
 import { TableOfContent } from '../shared/TableOfContent';
 
-export const ProgrammeMain = ({ title, description, sections, tags, tableOfContent = false }) => (
+export const ProgrammeMain = ({ title, sections, tags, tableOfContent = false }) => (
   <div className="page-content">
     <div className="programme-main">
       <div className="programme-main-title">
-        <h1 title={description||title} id={slugify(title)}>{title}</h1>
+        <h1 title={title} id={slugify(title)}>{title}</h1>
       </div>
       
       { tableOfContent ? (

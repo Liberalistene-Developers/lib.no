@@ -36,6 +36,10 @@ export const ProgrammeSection = ({ anchor, title, parentTitle = '', description,
         <Title title={title} parentTitle={parentTitle} />
       </div>
       
+      { description && (
+        <div className="programme-section-description" dangerouslySetInnerHTML={{ __html: description }} />
+      )}
+      
       { parts && parts.length > 0 ? (
         <div className="programme-sections-parts">
           { parts.map(({ key, type, ...props }) => {
