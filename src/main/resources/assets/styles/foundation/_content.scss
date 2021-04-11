@@ -154,6 +154,8 @@ footer {
 
 main {
   & > .content-holder {
+    max-width: 100%;
+    
     &.purple {
       background-color: var(--lib-color-primary-700);
       color: var(--lib-color-background-700);
@@ -444,7 +446,7 @@ main {
   main {
     & > .content-holder {
       & > .content {
-        width: 100%;
+        width: calc(100% - 40px);
         margin-left: auto;
         margin-right: auto;
         padding: 20px;
@@ -460,6 +462,10 @@ main {
           margin-left: auto;
           margin-right: auto;
           width: 100%;
+          
+          & section  {
+            width: 100%;
+          }
 
           & .page-content, section[data-portal-component-type="text"] > p {
             margin-left: auto;
