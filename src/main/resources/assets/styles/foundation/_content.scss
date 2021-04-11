@@ -451,10 +451,6 @@ main {
         margin-right: auto;
         padding: 20px;
         
-        &.full {
-          width: 100%;
-        }
-
         & > .content-item {
           display: flex;
           flex-direction: column;
