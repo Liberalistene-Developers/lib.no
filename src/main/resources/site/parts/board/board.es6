@@ -51,6 +51,7 @@ exports.get = function(request) {
           log.info(JSON.stringify(person, null, 4));
 
           return {
+            itemId: personId,
             name: person,
             role,
             shortDescription: boardShortDescription,
