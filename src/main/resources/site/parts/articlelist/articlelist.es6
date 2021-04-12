@@ -49,6 +49,7 @@ exports.get = function(request) {
         readMoreEnabled = false,
         loadMore = '',
         loadMoreEnabled = false,
+        noingress = false,
       } = {},
     } = component;
 
@@ -137,6 +138,7 @@ exports.get = function(request) {
       parentPathQuery,
       count,
       sortExpression,
+      noIngress: !!noingress,
     };
 
     log.info(JSON.stringify(props, null, 4));

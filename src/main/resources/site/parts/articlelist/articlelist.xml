@@ -51,5 +51,12 @@
     <mixin name="displaytype" />
     <mixin name="readmore" />
     <mixin name="loadmore" />
+    <input  name="noingress" type="CheckBox">
+      <label i18n="parts.articlelist.noingress.label">Skjul ingress</label>
+      <config>
+        <alignment>right</alignment>
+      </config>
+    </input>
+
   </form>
 </part>

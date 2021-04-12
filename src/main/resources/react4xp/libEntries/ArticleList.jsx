@@ -32,6 +32,7 @@ export const ArticleList = ({
   count = 10,
   sortExpression = '',
   parentPathQuery = '',
+  noIngress = false,
 }) => {
   const [list, setList] = useState(items);
   const [more, setMore] = useState(loadMoreEnabled && apiUrl && items.length === count);
@@ -112,6 +113,7 @@ export const ArticleList = ({
               className="article"
               readMore={readMore}
               readMoreEnabled={readMoreEnabled}
+              noIngress={noIngress}
             />
           ))}
         </div>

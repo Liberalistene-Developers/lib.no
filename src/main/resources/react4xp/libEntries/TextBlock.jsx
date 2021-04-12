@@ -41,4 +41,4 @@ TextBlock.defaultProps = {
   titleCenter: '',
 };
 
-export default () => <TextBlock {...props} />;
+export default (props) => <TextBlock {...props} />;

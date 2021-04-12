@@ -14,6 +14,7 @@ export const GridItem = ({
   fields,
   readMore,
   readMoreEnabled = false,
+  noIngress = false,
 }) => (
   <div className="grid-item">
 
@@ -24,7 +25,7 @@ export const GridItem = ({
          <div className="grid-item-title">
            <a href={url} title={name}>{name}</a>
          </div>
-         { shortDescription && (
+         { !noIngress && shortDescription && (
            <div className="grid-item-description">
              <div className="rich-text as-span" dangerouslySetInnerHTML={{ __html: shortDescription }} />
              { readMoreEnabled && readMore && (
