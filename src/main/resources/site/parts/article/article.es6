@@ -13,8 +13,8 @@ exports.get = function(request) {
       config: {
         headerColor,
         headerPosition,
-        ingressInImage,
-        titleInImage,
+        ingressInImage = false,
+        titleInImage = false,
       } = {},
     } = component;
 
@@ -40,8 +40,8 @@ exports.get = function(request) {
     const props = {
       headerColor,
       headerPosition,
-      ingressInImage,
-      titleInImage,
+      ingressInImage: !!ingressInImage,
+      titleInImage: !!titleInImage,
       title,
       datePublished,
       image: imageUrl(image, 'full'),
