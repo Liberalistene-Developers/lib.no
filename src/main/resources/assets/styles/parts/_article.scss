@@ -33,33 +33,37 @@
     margin-left: auto;
     margin-right: auto;
     
+    & ul {
+      &.authors {    
+        list-style-type: none;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        margin-bottom: 0px;
+        padding-inline-start: 0px;
+        
+      
+        & a {
+          align-items: center;
+          display: flex;
+          flex-direction: row;
+          column-gap: 10px;
+
+          & img {
+            margin-bottom: -5px;
+            margin-right: 5px;
+            /* padding-top: 5px; */
+          }
+        }
+      }  
+    }
+    
     & .article-date {
       height: 100%;
       align-self: center;
     }
   }
   
-  & ul {
-    &.authors {    
-      list-style-type: none;
-      margin-block-start: 0px;
-      margin-block-end: 0px;
-      margin-inline-start: 0px;
-      margin-inline-end: 0px;
-      margin-bottom: 0px;
-      padding-inline-start: 0px;
-      
-    
-      & a {
-        align-items: center;
-        display: flex;
 
-        & img {
-          margin-bottom: 0;
-          margin-right: 5px;
-          /* padding-top: 5px; */
-        }
-      }
-    }  
-  }
 }
