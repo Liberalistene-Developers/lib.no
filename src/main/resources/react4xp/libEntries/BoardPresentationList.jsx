@@ -9,6 +9,7 @@ export const BoardPresentationList = ({
   imagetype,
   items,
   boardTitle,
+  showemail,
 }) => (
   <div className="board-presentation-list">
     { items && items.length > 0 ? items.map(({
@@ -23,6 +24,7 @@ export const BoardPresentationList = ({
         title={title}
         boardTitle={boardTitle}
         board={board}
+        showemail={showemail}
       />        
     ))
     : null

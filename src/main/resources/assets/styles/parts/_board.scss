@@ -14,10 +14,12 @@
     }
 
     & .list-item.person {
-      width: 45%;
+      width: 50%;
       
       img {
         object-fit: cover;
+        width: 180px;
+        height: 180px;
       }
     }
   }
@@ -53,14 +55,7 @@
       }
 
       & .list-item.person {
-        width: 100%;
-        
-        .medium {
-          & > img.round {
-            width: 80px;
-            height: 80px;
-          }
-        }
+        width: 100%;        
       }
     }
   }

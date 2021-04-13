@@ -22,6 +22,7 @@ exports.get = function(request) {
         boardname: boardTitle = '',
         imagesize = '',
         imagetype = false,
+        showemail = 'no',
         itemsSet: {
           '_selected': selection,
           manual: {
@@ -60,7 +61,8 @@ exports.get = function(request) {
     const props = {
       boardTitle,
       imagesize,
-      imagetype,
+      imagetype: !!imagetype,
+      showemail,
       items: items
         .map(mapGroup),
     };

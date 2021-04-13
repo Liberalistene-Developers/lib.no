@@ -19,7 +19,8 @@ export const mapGroup = ((itemId) => {
     itemId,
     title,
     shortDescription: processHtml(shortDescription),
-    board: members.map(mapBoard),
+    board: members
+      .map(mapBoard),
   };
 });
 
@@ -36,18 +37,17 @@ export const mapBoard = ({
     _path: personPath,
     data: {
       image: imageKey,
-      'short-description': boardShortDescription,
+      email,
+      'short-description': shortDescription,
     },
   } = contentLib.get({ key: personId });
-
-  log.info(JSON.stringify(role, null, 4));
-  log.info(JSON.stringify(person, null, 4));
 
   return {
     itemId: personId,
     name: person,
+    email,
     role,
-    shortDescription: processHtml(boardShortDescription),
+    shortDescription: processHtml(shortDescription),
     url: portal
       .pageUrl({
         path: personPath,

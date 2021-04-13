@@ -1,0 +1,15 @@
+<mixin>
+  <display-name i18n="mixin.showemail.displayname">Show email</display-name>
+  <form>
+    <input name="showemail" type="ComboBox">
+      <label i18n="mixin.showemail.label">Show email</label>
+      <occurrences minimum="1" maximum="1"/>
+      <config>
+        <option value="no" i18n="mixin.background.standard.label">No</option>
+        <option value="first" i18n="mixin.background.white.label">Only leader</option>
+        <option value="all" i18n="mixin.background.white.label">All members</option>
+      </config>
+      <default>no</default> 
+    </input>
+  </form>
+</mixin>

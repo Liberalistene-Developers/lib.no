@@ -29,6 +29,7 @@
       <items>
         <mixin name="imagesize" />
         <mixin name="imagetype" />
+        <mixin name="showemail" />
       </items>
     </field-set>
   </form>

@@ -11,7 +11,9 @@ export default {
 
 const Template = (args) => (
   <SingleLayout>
-    <ListItem {...args} />
+    <div className="list">
+      <ListItem {...args} />
+    </div>
   </SingleLayout>
 );
 

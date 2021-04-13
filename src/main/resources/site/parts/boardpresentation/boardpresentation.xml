@@ -58,5 +58,11 @@
         <mixin name="imagetype" />
       </items>
     </field-set>
+    <field-set>
+      <label>What to show</label>
+      <items>
+        <mixin name="showemail" />
+      </items>
+    </field-set>
   </form>
 </part>

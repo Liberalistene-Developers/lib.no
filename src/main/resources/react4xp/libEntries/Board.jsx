@@ -7,26 +7,29 @@ export const Board = ({
   imagesize,
   imagetype,
   board,
+  showemail
 }) => (
   <div className="board-wrapper">
     { board && board.length > 0 ? (
         <div className="board">
-          <div className="leader">
+          <div className="leader list">
             {board.slice(0, 1).map((item) => (
               <PersonListItem
                 item={item}
                 imageSize={imagesize}
                 imageType={(imagetype && 'round') || ''}
+                showEmail={showemail !== 'no'}
               />
             ))}
           </div>
           { board.length > 1 && (
-            <div className="members">
+            <div className="members list">
             { board.slice(1).map((item) => (
               <PersonListItem
                 item={item}
                 imageSize={imagesize}
                 imageType={(imagetype && 'round') || ''}
+                showEmail={showemail === 'all'}
               />
             ))}
             </div>            

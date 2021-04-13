@@ -12,6 +12,7 @@ export const BoardPresentation = ({
   imagetype,
   board,
   boardTitle,
+  showEmail,
 }) => (
   <div className="board-presentation-wrapper">
     <div className="board-presentation-title">
@@ -20,7 +21,7 @@ export const BoardPresentation = ({
     
     { board && board.length > 0 ? (
       <div className="board-presentation-content">      
-        {board.slice(0, 1).map(({ itemId, image, role, name }) => (
+        {board.slice(0, 1).map(({ itemId, image, role, email, name }) => (
           <div key={itemId} className="leader">
             <Image image={image} className={cx(imagesize, 'leader-image')} imageClassName={(imagetype && 'round') || ''} />
             <div className="leader-name">
@@ -29,6 +30,13 @@ export const BoardPresentation = ({
             <div className="leader-role">
               {role}
             </div>
+            { showEmail !== 'no' && email && (
+              <div className="leader-email">
+                <a href={`mailto:${email}`}>
+                  {email}
+                </a>
+              </div>
+            )}
           </div>
         ))}
         

@@ -11,14 +11,21 @@ export const PersonListItem = ({
   item,
   item: {
     role,
+    email,
   } = {},
   showRole = true,
+  showEmail = false,
   fields,
 }) => (
   <ListItem item={item} imageSize={imageSize} imageType={imageType} fields={fields} className="person">
-    { showRole && role && (
-      <span className="role">{role}</span>
-    )}
+    <>
+      { showRole && role && (
+        <span className="role">{role}</span>
+      )}
+      { showEmail && email && (
+        <a href={`mailto:${email}`}>{email}</a>
+      )}
+    </>
   </ListItem>
 );
 

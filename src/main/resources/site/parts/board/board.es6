@@ -4,6 +4,7 @@ const React4xp = require('/lib/enonic/react4xp');
 
 const { imageUrl } = require('/lib/shared/image');
 const { processHtml } = require('/lib/shared/html');
+const { mapBoard } = require('/lib/shared/board');
 
 exports.get = function(request) {
     const content = portal.getContent();
@@ -12,8 +13,9 @@ exports.get = function(request) {
     const {
       config: {
         board,
-        imagesize,
-        imagetype,
+        imagesize = '',
+        imagetype = false,
+        showemail = 'no',
       } = {},
     } = component;
 
@@ -29,39 +31,10 @@ exports.get = function(request) {
 
     const props = {
       imagesize,
-      imagetype,
+      imagetype: !!imagetype,
       board: members
-        .map(({
-          role: roleId,
-          person: personId,
-        }) => {
-          const {
-            displayName: role
-          } = contentLib.get({ key: roleId });
-          const {
-            displayName: person,
-            _path: personPath,
-            data: {
-              image: imageKey,
-              'short-description': boardShortDescription,
-            },
-          } = contentLib.get({ key: personId });
-
-          log.info(JSON.stringify(role, null, 4));
-          log.info(JSON.stringify(person, null, 4));
-
-          return {
-            itemId: personId,
-            name: person,
-            role,
-            shortDescription: boardShortDescription,
-            url: portal
-              .pageUrl({
-                path: personPath,
-              }),
-            image: imageUrl(imageKey, 'full')
-          };
-        }),
+        .map(mapBoard),
+      showemail,
     };
 
     return React4xp.render('Board', props, request);
