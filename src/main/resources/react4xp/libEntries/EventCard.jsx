@@ -1,11 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faGlobe, faMap } from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { Card } from './Card';
-import { EventPlace } from '../shared/EventPlace';
-import { EventTime } from '../shared/EventTime';
+import { Card } from './Card'
+import { EventPlace } from '../shared/EventPlace'
+import { EventTime } from '../shared/EventTime'
 
 /**
  * Primary Image holder for solution.
@@ -18,7 +16,7 @@ export const EventCard = ({
   locationLabel,
   image,
   title,
-  text,
+  text
 }) => {
   return (
     <Card image={image} title={title} text={text}>
@@ -27,30 +25,33 @@ export const EventCard = ({
         <EventTime date={date} />
       </div>
     </Card>
-  );
-};
+  )
+}
 
 EventCard.propTypes = {
   ...Card.propTypes,
-  
+
   location: PropTypes.shape({
     address: PropTypes.string,
-    name: PropTypes.string,
+    name: PropTypes.string
   }),
-  
+
   locationLabel: PropTypes.string,
-  
-  locationType: PropTypes.oneOf(['place', 'virtual']),
-};
+
+  locationType: PropTypes.oneOf(['place', 'virtual'])
+}
 
 EventCard.defaultProps = {
   ...Card.defaultProps,
   image: null,
   location: {
-    address: '',
+    address: ''
   },
   locationLabel: 'Sted:',
-  locationType: 'place',
-};
+  locationType: 'place'
+}
 
-export default (props) => <EventCard {...props} />;
+const DefaultEventCard = (props) => <EventCard {...props} />
+DefaultEventCard.displayName = 'EventCard'
+
+export default DefaultEventCard

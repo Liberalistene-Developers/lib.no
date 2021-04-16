@@ -1,35 +1,41 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { ArticleCard } from '../../main/resources/react4xp/shared/ArticleCard';
+import { ArticleCard } from '../../main/resources/react4xp/shared/ArticleCard'
 
-import { SingleLayout } from '../layouts';
+import { SingleLayout } from '../layouts'
 
-import '../../main/resources/assets/styles/main.scss';
+import '../../main/resources/assets/styles/main.scss'
 
 export default {
   title: 'Parts/Card/ArticleCard',
-  component: ArticleCard,
-};
+  component: ArticleCard
+}
 
 const image = {
-  url: 'partyleader.jpg',
-};
+  url: 'partyleader.jpg'
+}
 
-const Template = ({ full = false, ...args }) => (
-  <SingleLayout fullWidth={full}>
+const Template = ({ fullWidth = false, ...args }) => (
+  <SingleLayout fullWidth={fullWidth}>
     <div className="article-list grid-list">
       <ArticleCard {...args} />
     </div>
   </SingleLayout>
-);
+)
 
-export const Normal = Template.bind({});
+Template.propTypes = {
+  ...ArticleCard.propTypes,
+  fullWidth: PropTypes.bool
+}
+
+export const Normal = Template.bind({})
 Normal.args = {
   item: {
     image: {
-      url: 'cardimage.png',
+      url: 'cardimage.png'
     },
-    shortDescription: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula, libero vel egestas fringilla, purus tortor faucibus`,
+    shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula, libero vel egestas fringilla, purus tortor faucibus',
     name: 'Lorem ipsum dolor sit amet',
     url: '#',
     authors: [
@@ -37,15 +43,15 @@ Normal.args = {
         authorID: 1,
         personUrl: '#',
         person: 'Ronny Skjæveland',
-        image,
-      },
+        image
+      }
     ],
-    datePublished: '2020-12-10',
-  },
-};
+    datePublished: '2020-12-10'
+  }
+}
 
-export const Full = Template.bind({});
+export const Full = Template.bind({})
 Full.args = {
   ...Normal.args,
-  full: true,
-};
+  fullWidth: true
+}

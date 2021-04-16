@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import slugify from 'slugify';
+import slugify from 'slugify'
 
-import { ProgrammePart } from './ProgrammePart';
+import { ProgrammePart } from './ProgrammePart'
 
 const Conclusion = ({ title: conclusion }) => (
   <div className="conclusions">
@@ -13,20 +13,29 @@ const Conclusion = ({ title: conclusion }) => (
       </li>
     </ul>
   </div>
-);
+)
+
+Conclusion.propTypes = {
+  title: PropTypes.string
+}
 
 const Title = ({ title, parentTitle }) => {
-  const id = parentTitle && slugify(`${parentTitle} ${title}`.trim());
-  
+  const id = parentTitle && slugify(`${parentTitle} ${title}`.trim())
+
   if (id) {
     return (
       <h2 id={id} title={title}>{title}</h2>
-    );
+    )
   }
-  
+
   return (
     <h1 title={title}>{title}</h1>
-  );
+  )
+}
+
+Title.propTypes = {
+  title: PropTypes.string,
+  parentTitle: PropTypes.string
 }
 
 export const ProgrammeSection = ({ anchor, title, parentTitle = '', description, parts = [], tags }) => (
@@ -35,47 +44,53 @@ export const ProgrammeSection = ({ anchor, title, parentTitle = '', description,
       <div className="programme-section-title">
         <Title title={title} parentTitle={parentTitle} />
       </div>
-      
+
       { description && (
         <div className="programme-section-description" dangerouslySetInnerHTML={{ __html: description }} />
       )}
-      
-      { parts && parts.length > 0 ? (
+
+      { parts && parts.length > 0
+        ? (
         <div className="programme-sections-parts">
-          { parts.map(({ key, type, ...props }) => {
-            
+          { parts.map(({ key, type, ...props }) => {
             if (type === 'lib.no:programme-part') {
               return (
                 <ProgrammePart key={ key } { ...props } parentTitle={title} anchor={anchor} />
-              );
+              )
             }
-            
+
             return (
               <Conclusion key={ key } { ...props } />
-            );
+            )
           })}
         </div>
-      ) : null }    
+          )
+        : null }
 
     </div>
   </div>
-);
+)
 
 ProgrammeSection.propTypes = {
   /**
    * Add anchor to title.
    */
-   anchor: PropTypes.bool,
-   description: PropTypes.string,
-   parts: PropTypes.array,
-   title: PropTypes.string,
-};
+  anchor: PropTypes.bool,
+  description: PropTypes.string,
+  parts: PropTypes.array,
+  title: PropTypes.string,
+  parentTitle: PropTypes.string,
+  tags: PropTypes.array
+}
 
 ProgrammeSection.defaultProps = {
   anchor: false,
   description: '',
   parts: [],
-};
+  tags: []
+}
 
-export default (props) => <ProgrammeSection {...props} />;
+const DefaultProgrammeSection = (props) => <ProgrammeSection {...props} />
+DefaultProgrammeSection.displayName = 'ProgrammeSection'
 
+export default DefaultProgrammeSection

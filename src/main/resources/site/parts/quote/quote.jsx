@@ -1,6 +1,7 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import Image from '../../../react4xp/shared/Image.jsx';
+import Image from '../../../react4xp/shared/Image.jsx'
 
 export const Quote = ({
   title,
@@ -8,7 +9,7 @@ export const Quote = ({
   authors,
   quote,
   description,
-  tags,
+  tags
 }) => (
   <div>
     <h1 title={title}>{title}</h1>
@@ -40,6 +41,31 @@ export const Quote = ({
       <div dangerouslySetInnerHTML={{ __html: quote || description }} />
     )}
   </div>
-);
+)
 
-export default (props) => <Quote {...props} />;
+Quote.propTypes = {
+  title: PropTypes.string,
+  image: PropTypes.shape({
+    url: PropTypes.string
+  }),
+  authors: PropTypes.arrayOf({
+    name: PropTypes.string
+  }),
+  quote: PropTypes.string,
+  description: PropTypes.string,
+  tags: PropTypes.array
+}
+
+Quote.defaultProps = {
+  title: '',
+  image: undefined,
+  authors: [],
+  quote: '',
+  description: '',
+  tags: []
+}
+
+const DefaultQuote = (props) => <Quote {...props} />
+DefaultQuote.displayName = 'Quote'
+
+export default DefaultQuote

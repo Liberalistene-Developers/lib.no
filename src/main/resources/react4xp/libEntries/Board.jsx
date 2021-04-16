@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import PersonListItem from '../shared/PersonListItem';
+import PersonListItem from '../shared/PersonListItem'
 
 export const Board = ({
   imagesize,
@@ -10,11 +10,13 @@ export const Board = ({
   showemail
 }) => (
   <div className="board-wrapper">
-    { board && board.length > 0 ? (
+    { board && board.length > 0
+      ? (
         <div className="board">
           <div className="leader list">
             {board.slice(0, 1).map((item) => (
               <PersonListItem
+                key={item.itemId}
                 item={item}
                 imageSize={imagesize}
                 imageType={(imagetype && 'round') || ''}
@@ -26,29 +28,43 @@ export const Board = ({
             <div className="members list">
             { board.slice(1).map((item) => (
               <PersonListItem
+                key={item.itemId}
                 item={item}
                 imageSize={imagesize}
                 imageType={(imagetype && 'round') || ''}
                 showEmail={showemail === 'all'}
               />
             ))}
-            </div>            
+            </div>
           )}
         </div>
-      )
+        )
       : null
     }
   </div>
-);
+)
 
 Board.propTypes = {
-  imagesize: PropTypes.string,
+  board: PropTypes.arrayOf({
+    itemId: PropTypes.string,
+    image: PropTypes.shape({
+      url: PropTypes.string
+    }),
+    role: PropTypes.string,
+    name: PropTypes.string
+  }),
+  imagesize: PropTypes.bool,
   imagetype: PropTypes.string,
-};
+  showemail: PropTypes.string
+}
 
 Board.defaultProps = {
-  imagetype: 'round',
+  imagetype: true,
   imagesize: 'medium',
-};
+  showemail: 'no'
+}
 
-export default (props) => <Board {...props} />;
+const DefaultBoard = (props) => <Board {...props} />
+DefaultBoard.displayName = 'Board'
+
+export default DefaultBoard

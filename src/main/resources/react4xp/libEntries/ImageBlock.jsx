@@ -1,7 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import Image from '../shared/Image';
+import cx from 'classnames'
+
+import Image from '../shared/Image'
 
 export const ImageBlock = ({
   Tag,
@@ -10,13 +12,13 @@ export const ImageBlock = ({
   text,
   title,
   ingress,
-  overlay,
+  overlay
 }) => (
   <div className="image-block">
     <Image image={image} className="full" />
 
     { (title || ingress) && (
-      <div className={`content ${position} ${overlay}`}>
+      <div className={cx('content', position, overlay)}>
         { title && (
           <div className={`title ${text}`}>
             <Tag>{title}</Tag>
@@ -28,18 +30,19 @@ export const ImageBlock = ({
       </div>
     )}
   </div>
-);
+)
 
 ImageBlock.propTypes = {
   Tag: PropTypes.oneOf(['h1', 'h2', 'h2']),
   image: PropTypes.shape({
-    url: PropTypes.string,
+    url: PropTypes.string
   }),
+  overlay: PropTypes.string,
   position: PropTypes.oneOf(['left', 'center', 'right']),
   text: PropTypes.oneOf(['dark', 'light']),
   title: PropTypes.string,
-  ingress: PropTypes.string,
-};
+  ingress: PropTypes.string
+}
 
 ImageBlock.defaultProps = {
   Tag: 'h1',
@@ -47,7 +50,10 @@ ImageBlock.defaultProps = {
   title: '',
   ingress: '',
   text: 'dark',
-  position: 'right',
-};
+  position: 'right'
+}
 
-export default (props) => <ImageBlock {...props} />;
+const DefaultImageBlock = (props) => <ImageBlock {...props} />
+DefaultImageBlock.displayName = 'ImageBlock'
+
+export default DefaultImageBlock

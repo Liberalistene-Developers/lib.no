@@ -1,27 +1,27 @@
-import React from 'react';
+import React from 'react'
 
-import { Article } from '../../main/resources/react4xp/libEntries/Article';
+import { Article } from '../../main/resources/react4xp/libEntries/Article'
 
-import { SingleLayout } from '../layouts';
+import { SingleLayout } from '../layouts'
 
-import '../../main/resources/assets/styles/main.scss';
+import '../../main/resources/assets/styles/main.scss'
 
 export default {
   title: 'Parts/Article',
-  component: Article,
-};
+  component: Article
+}
 
 const image = {
-  url: 'imageblockimage.png',
-};
+  url: 'imageblockimage.png'
+}
 
 const Template = (args) => (
   <SingleLayout>
     <Article {...args} />
   </SingleLayout>
-);
+)
 
-export const Normal = Template.bind({});
+export const Normal = Template.bind({})
 Normal.args = {
   headerColor: 'light',
   headerPosition: 'right',
@@ -60,9 +60,9 @@ Normal.args = {
       personUrl: '/person',
       person: 'Liberalistene',
       image: {
-        url: 'kandidatbilde1.png',
-      },
-    },
+        url: 'kandidatbilde1.png'
+      }
+    }
   ],
-  informationLabel: 'Informasjon',
-};
+  informationLabel: 'Informasjon'
+}

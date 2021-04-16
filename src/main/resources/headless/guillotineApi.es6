@@ -1,19 +1,19 @@
-const guillotineLib = require('/lib/guillotine');
-const graphQlLib = require('/lib/graphql');
-const graphqlPlaygroundLib = require('/lib/graphql-playground');
-const authLib = require('/lib/xp/auth');
+const guillotineLib = require('/lib/guillotine')
+const graphQlLib = require('/lib/graphql')
+const graphqlPlaygroundLib = require('/lib/graphql-playground')
+const authLib = require('/lib/xp/auth')
 
 const CORS_HEADERS = {
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-    // 'Access-Control-Allow-Origin': '*'
-};
+  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS'
+  // 'Access-Control-Allow-Origin': '*'
+}
 
-const SCHEMA = guillotineLib.createSchema();
+const SCHEMA = guillotineLib.createSchema()
 
 // ----------------------------------------------  FOR USE IN CONTROLLERS:    ------------------------------------
 
-exports.executeQuery = (query, variables) => graphQlLib.execute(SCHEMA, query, variables);
+exports.executeQuery = (query, variables) => graphQlLib.execute(SCHEMA, query, variables)
 
 const createError = (status, message) => ({
   status,
@@ -21,45 +21,42 @@ const createError = (status, message) => ({
     errors: [
       {
         errorType: `${status}`,
-        message,
-      },
-    ],
-  },
+        message
+      }
+    ]
+  }
 })
 
 // GraphQL playground
 exports.get = function (req) {
-  log.info(JSON.stringify(req, null, 4));
-  
+  log.info(JSON.stringify(req, null, 4))
+
   if (req.webSocket) {
     return {
       webSocket: {
         subProtocols: ['graphql-ws']
-      },
-    };
+      }
+    }
   }
-  
-  
 
   // Simple auth control for the playground
   if (!authLib.hasRole('system.authenticated')) {
-    return createError(401, 'Unauthorized');
-  }
-  
-  if (!(authLib.hasRole('system.admin') || authLib.hasRole('system.admin.login'))) {
-    return createError(403, 'Forbidden');
+    return createError(401, 'Unauthorized')
   }
 
-  var body = graphqlPlaygroundLib.render();
-  
+  if (!(authLib.hasRole('system.admin') || authLib.hasRole('system.admin.login'))) {
+    return createError(403, 'Forbidden')
+  }
+
+  const body = graphqlPlaygroundLib.render()
+
   return {
     contentType: 'text/html; charset=utf-8',
-    body,
-  };
-};
+    body
+  }
+}
 
 // ----------------------------------------------  FRONTEND EXPOSED METHODS:  ------------------------------------
-
 
 /** Guillotine API endpoint exposed to browsers - if you add a mapping to site.xml
  *  (e.g. <mapping controller="/headless/guillotineApi.js" order="50"><pattern>/api/headless</pattern>)
@@ -78,29 +75,29 @@ exports.get = function (req) {
  * These will be run through the guillotine engine and JSON data will be returned.
  */
 exports.post = req => {
-    var body = JSON.parse(req.body);
+  const body = JSON.parse(req.body)
 
-    const output = {
-      contentType: 'application/json',
-      headers: CORS_HEADERS,
-      body: exports.executeQuery(body.query, body.variables)
-    };
+  const output = {
+    contentType: 'application/json',
+    headers: CORS_HEADERS,
+    body: exports.executeQuery(body.query, body.variables)
+  }
 
-    let status = 200;
-    if (output.body.errors) {
-      status = 400;
-      log.error(`${output.body.errors.length} guillotine error${output.body.errors.length === 1 ? "" : "s"}: ${JSON.stringify(output.body.errors)}`);
-      log.error(JSON.stringify(output.body.errors, null, 4));
-      log.info("The error happened with these request.body.variables: " + JSON.stringify(body.variables));
-    }
+  let status = 200
+  if (output.body.errors) {
+    status = 400
+    log.error(`${output.body.errors.length} guillotine error${output.body.errors.length === 1 ? '' : 's'}: ${JSON.stringify(output.body.errors)}`)
+    log.error(JSON.stringify(output.body.errors, null, 4))
+    log.info('The error happened with these request.body.variables: ' + JSON.stringify(body.variables))
+  }
 
-    return {
-      ...output,
-      status,
-    }
-};
+  return {
+    ...output,
+    status
+  }
+}
 
 exports.options = req => ({
   contentType: 'text/plain;charset=utf-8',
   headers: CORS_HEADERS
-});
+})

@@ -1,11 +1,12 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import Image from './Image';
+import Image from './Image'
 
 export const AuthorLink = ({
   url,
   image,
-  author,
+  author
 }) => (
   <li>
     <div>
@@ -21,6 +22,17 @@ export const AuthorLink = ({
       </a>
     </div>
   </li>
-);
+)
 
-export default (props) => <AuthorLink {...props} />;
+AuthorLink.propTypes = {
+  url: PropTypes.string,
+  image: PropTypes.shape({
+    url: PropTypes.string
+  }),
+  author: PropTypes.string
+}
+
+const DefaultAuthorLink = (props) => <AuthorLink {...props} />
+DefaultAuthorLink.displayName = 'AuthorLink'
+
+export default DefaultAuthorLink

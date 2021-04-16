@@ -1,19 +1,19 @@
-import React from 'react';
+import React from 'react'
 
-import { ArticleListItem } from '../../main/resources/react4xp/shared/ArticleListItem';
+import { ArticleListItem } from '../../main/resources/react4xp/shared/ArticleListItem'
 
-import { SingleLayout } from '../layouts';
+import { SingleLayout } from '../layouts'
 
-import '../../main/resources/assets/styles/main.scss';
+import '../../main/resources/assets/styles/main.scss'
 
 export default {
   title: 'Parts/Lists/ArticleListItem',
-  component: ArticleListItem,
-};
+  component: ArticleListItem
+}
 
 const image = {
-  url: 'partyleader.jpg',
-};
+  url: 'partyleader.jpg'
+}
 
 const Template = (args) => (
   <SingleLayout>
@@ -21,12 +21,12 @@ const Template = (args) => (
       <ArticleListItem {...args} />
     </div>
   </SingleLayout>
-);
+)
 
-export const Normal = Template.bind({});
+export const Normal = Template.bind({})
 Normal.args = {
   item: {
-    shortDescription: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula, libero vel egestas fringilla, purus tortor faucibus`,
+    shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula, libero vel egestas fringilla, purus tortor faucibus',
     name: 'Lorem ipsum dolor sit amet',
     url: '#',
     authors: [
@@ -34,9 +34,9 @@ Normal.args = {
         authorID: 1,
         personUrl: '#',
         person: 'Ronny Skjæveland',
-        image,
-      },
+        image
+      }
     ],
-    datePublished: '2020-12-10',
-  },
-};
+    datePublished: '2020-12-10'
+  }
+}

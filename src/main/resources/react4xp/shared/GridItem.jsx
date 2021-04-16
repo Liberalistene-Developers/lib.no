@@ -1,6 +1,7 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import Image from './Image';
+import Image from './Image'
 
 export const GridItem = ({
   imageSize,
@@ -9,12 +10,11 @@ export const GridItem = ({
     image,
     name,
     shortDescription,
-    url,
+    url
   } = {},
-  fields,
   readMore,
   readMoreEnabled = false,
-  noIngress = false,
+  noIngress = false
 }) => (
   <div className="grid-item">
 
@@ -36,6 +36,38 @@ export const GridItem = ({
        </div>
      )}
   </div>
-);
+)
 
-export default (props) => <GridItem {...props} />;
+GridItem.propTypes = {
+  children: PropTypes.array,
+  childrenLast: PropTypes.bool,
+  className: PropTypes.string,
+  imageSize: PropTypes.oneOf(['small', 'medium', 'large', '']),
+  imageType: PropTypes.oneOf(['round', '']),
+  showImage: PropTypes.bool,
+  item: PropTypes.shape({
+    image: PropTypes.shape({
+      url: PropTypes.string
+    }),
+    name: PropTypes.string,
+    shortDescription: PropTypes.string,
+    url: PropTypes.string
+  }),
+  noIngress: PropTypes.bool,
+  readMore: PropTypes.string,
+  readMoreEnabled: PropTypes.bool
+}
+
+GridItem.defaultProps = {
+  showImage: true,
+  imageSize: 'medium',
+  imageType: undefined,
+  item: undefined,
+  noIngress: false,
+  readMore: '',
+  readMoreEnabled: false
+}
+
+const DefaultGridItem = (props) => <GridItem {...props} />
+DefaultGridItem.displayName = 'GridItem'
+export default DefaultGridItem

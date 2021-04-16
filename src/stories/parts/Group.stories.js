@@ -1,27 +1,27 @@
-import React from 'react';
+import React from 'react'
 
-import { Group } from '../../main/resources/react4xp/libEntries/Group';
+import { Group } from '../../main/resources/react4xp/libEntries/Group'
 
-import { SingleLayout } from '../layouts';
+import { SingleLayout } from '../layouts'
 
-import '../../main/resources/assets/styles/main.scss';
+import '../../main/resources/assets/styles/main.scss'
 
 export default {
   title: 'Parts/Group',
-  component: Group,
-};
+  component: Group
+}
 
 const image = {
-  url: 'imageblockimage.png',
-};
+  url: 'imageblockimage.png'
+}
 
 const Template = (args) => (
   <SingleLayout fullWidth="true">
     <Group {...args} />
   </SingleLayout>
-);
+)
 
-export const Normal = Template.bind({});
+export const Normal = Template.bind({})
 Normal.args = {
   headerColor: 'light',
   headerPosition: 'right',
@@ -32,5 +32,5 @@ Normal.args = {
   location: {
     address: 'Markensgate 39, Kristiansand'
   },
-  informationLabel: 'Informasjon',
-};
+  informationLabel: 'Informasjon'
+}

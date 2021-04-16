@@ -1,102 +1,102 @@
-import React from 'react';
+import React from 'react'
 
-import { TwoColumnLayout } from './Layout';
-import { Page } from '../pages';
+import { TwoColumnLayout } from './Layout'
+import { Page } from '../pages'
 
 export default {
   title: 'Layouts/TwoColumnLayout/30-70',
-  
-  component: TwoColumnLayout,
-};
+
+  component: TwoColumnLayout
+}
 
 const Template = (args) => (
   <Page>
     <TwoColumnLayout {...args}>
       <div style={{ paddingTop: 20, paddingBottom: 20 }}>
         <h1>Lorem ipsum 1</h1>
-        
+
         <p className="rich-text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper lorem a felis posuere, eu convallis lorem tempor. Sed efficitur varius dictum. Quisque tellus sapien, lobortis eget elementum ut, dignissim sed mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam gravida convallis ante, eu porttitor nulla lobortis et. Proin nulla dui, feugiat ut arcu vitae, finibus consequat dolor. Morbi aliquet ex vel eleifend auctor. Integer placerat leo ac laoreet interdum.
         </p>
       </div>
       <div style={{ paddingTop: 20, paddingBottom: 20 }}>
         <h1>Lorem ipsum 2</h1>
-        
+
         <p className="rich-text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper lorem a felis posuere, eu convallis lorem tempor. Sed efficitur varius dictum. Quisque tellus sapien, lobortis eget elementum ut, dignissim sed mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam gravida convallis ante, eu porttitor nulla lobortis et. Proin nulla dui, feugiat ut arcu vitae, finibus consequat dolor. Morbi aliquet ex vel eleifend auctor. Integer placerat leo ac laoreet interdum.
         </p>
       </div>
     </TwoColumnLayout>
   </Page>
-);
+)
 
-export const StandardBackground = Template.bind({});
+export const StandardBackground = Template.bind({})
 StandardBackground.args = {
   background: 'standard',
   fullWidth: false,
   paddingBottom: false,
   paddingTop: false,
   leftClassName: 'one-30',
-  rightClassName: 'two-70',
-};
+  rightClassName: 'two-70'
+}
 
-export const StandardBackgroundFullWidth = Template.bind({});
+export const StandardBackgroundFullWidth = Template.bind({})
 StandardBackgroundFullWidth.args = {
   ...StandardBackground.args,
-  fullWidth: true,
-};
+  fullWidth: true
+}
 
-export const PurpleBackground = Template.bind({});
+export const PurpleBackground = Template.bind({})
 PurpleBackground.args = {
   ...StandardBackground.args,
-  background: 'purple',
-};
+  background: 'purple'
+}
 
-export const PurpleBackgroundFullWidth = Template.bind({});
+export const PurpleBackgroundFullWidth = Template.bind({})
 PurpleBackgroundFullWidth.args = {
   ...PurpleBackground.args,
-  fullWidth: true,
-};
+  fullWidth: true
+}
 
-export const PurpleBackgroundPaddingTop = Template.bind({});
+export const PurpleBackgroundPaddingTop = Template.bind({})
 PurpleBackgroundPaddingTop.args = {
   ...PurpleBackground.args,
-  paddingTop: true,
-};
+  paddingTop: true
+}
 
-export const PurpleBackgroundPaddingBottom = Template.bind({});
+export const PurpleBackgroundPaddingBottom = Template.bind({})
 PurpleBackgroundPaddingBottom.args = {
   ...PurpleBackground.args,
-  paddingBottom: true,
-};
+  paddingBottom: true
+}
 
-export const PurpleBackgroundPaddingTopAndBottom = Template.bind({});
+export const PurpleBackgroundPaddingTopAndBottom = Template.bind({})
 PurpleBackgroundPaddingTopAndBottom.args = {
   ...PurpleBackground.args,
   paddingBottom: true,
-  paddingTop: true,
-};
+  paddingTop: true
+}
 
-export const WhiteBackground = Template.bind({});
+export const WhiteBackground = Template.bind({})
 WhiteBackground.args = {
   ...StandardBackground.args,
-  background: 'white',
-};
+  background: 'white'
+}
 
-export const WhiteBackgroundFullWidth = Template.bind({});
+export const WhiteBackgroundFullWidth = Template.bind({})
 WhiteBackgroundFullWidth.args = {
   ...WhiteBackground.args,
-  fullWidth: true,
-};
+  fullWidth: true
+}
 
-export const YellowBackground = Template.bind({});
+export const YellowBackground = Template.bind({})
 YellowBackground.args = {
   ...StandardBackground.args,
-  background: 'yellow',
-};
+  background: 'yellow'
+}
 
-export const YellowBackgroundFullWidth = Template.bind({});
+export const YellowBackgroundFullWidth = Template.bind({})
 YellowBackgroundFullWidth.args = {
   ...YellowBackground.args,
-  fullWidth: true,
-};
+  fullWidth: true
+}

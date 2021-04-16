@@ -1,23 +1,29 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { BoardPresentation } from '../../main/resources/react4xp/libEntries/BoardPresentation';
+import { BoardPresentation } from '../../main/resources/react4xp/libEntries/BoardPresentation'
 
-import { SingleLayout } from '../layouts';
+import { SingleLayout } from '../layouts'
 
-import '../../main/resources/assets/styles/main.scss';
+import '../../main/resources/assets/styles/main.scss'
 
 export default {
   title: 'Parts/BoardPresentation',
-  component: BoardPresentation,
-};
+  component: BoardPresentation
+}
 
 const Template = ({ fullWidth, ...args }) => (
   <SingleLayout fullWidth={fullWidth}>
     <BoardPresentation {...args} />
   </SingleLayout>
-);
+)
 
-export const SentralStyret = Template.bind({});
+Template.propTypes = {
+  ...BoardPresentation.propTypes,
+  fullWidth: PropTypes.bool
+}
+
+export const SentralStyret = Template.bind({})
 SentralStyret.args = {
   title: 'Liberalistene Sentralstyre',
   boardTitle: 'Styre',
@@ -28,8 +34,8 @@ SentralStyret.args = {
       role: 'Partileder',
       shortDescription: 'Ronny Skjæveland er partileder i Liberalistene',
       image: {
-        url: 'partyleader.jpg',
-      },
+        url: 'partyleader.jpg'
+      }
     },
     {
       itemId: 2,
@@ -37,8 +43,8 @@ SentralStyret.args = {
       role: 'Politisk Nestleder',
       shortDescription: 'Roald Ribe er politisk nestleder i Liberalistene.',
       image: {
-        url: 'politicalnestleader.jpg',
-      },
+        url: 'politicalnestleader.jpg'
+      }
     },
     {
       itemId: 3,
@@ -46,8 +52,8 @@ SentralStyret.args = {
       role: 'Organisatorisk Nestleder',
       shortDescription: 'Aleksander Aas er organisatorisk nestleder i Liberalistene.',
       image: {
-        url: 'orgnestleader.jpg',
-      },
+        url: 'orgnestleader.jpg'
+      }
     },
     {
       itemId: 4,
@@ -55,8 +61,8 @@ SentralStyret.args = {
       role: 'Sekretær',
       shortDescription: 'Jan-Øyvind Lorgen er sekretær i Liberalistene.',
       image: {
-        url: 'secretary.jpg',
-      },
+        url: 'secretary.jpg'
+      }
     },
     {
       itemId: 5,
@@ -64,8 +70,8 @@ SentralStyret.args = {
       role: 'Styremedlem',
       shortDescription: 'Amund Farberg er styremedlem i Liberalistene.',
       image: {
-        url: 'boardmember1.jpg',
-      },
+        url: 'boardmember1.jpg'
+      }
     },
     {
       itemId: 6,
@@ -73,8 +79,8 @@ SentralStyret.args = {
       role: 'Styremedlem',
       shortDescription: 'Nicolay Normann Grundt er styremedlem i Liberalistene.',
       image: {
-        url: 'boardmember2.jpg',
-      },
+        url: 'boardmember2.jpg'
+      }
     },
     {
       itemId: 7,
@@ -82,11 +88,11 @@ SentralStyret.args = {
       role: 'Styremedlem',
       shortDescription: 'Daisy Sælem Hafstad er styremedlem i Liberalistene.',
       image: {
-        url: 'boardmember3.jpg',
-      },
-    },
+        url: 'boardmember3.jpg'
+      }
+    }
   ],
   imagesize: 'medium',
   imagetype: 'round',
-  fullWidth: false,
-};
+  fullWidth: false
+}

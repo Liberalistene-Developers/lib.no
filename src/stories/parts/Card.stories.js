@@ -1,19 +1,19 @@
-import React from 'react';
+import React from 'react'
 
-import { Card } from '../../main/resources/react4xp/libEntries/Card';
+import { Card } from '../../main/resources/react4xp/libEntries/Card'
 
-import { SingleLayout } from '../layouts';
+import { SingleLayout } from '../layouts'
 
-import '../../main/resources/assets/styles/main.scss';
+import '../../main/resources/assets/styles/main.scss'
 
 export default {
   title: 'Parts/Cards/Card',
-  component: Card,
-};
+  component: Card
+}
 
 const image = {
-  url: 'cardimage.png',
-};
+  url: 'cardimage.png'
+}
 
 const Template = (args) => (
   <SingleLayout>
@@ -21,12 +21,12 @@ const Template = (args) => (
       <Card {...args} />
     </div>
   </SingleLayout>
-);
+)
 
-export const Normal = Template.bind({});
+export const Normal = Template.bind({})
 Normal.args = {
   image,
   text: `Rik Tekst:
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula, libero vel egestas fringilla, purus tortor faucibus`,
-  title: 'H3 Title',
-};
+  title: 'H3 Title'
+}

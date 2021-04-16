@@ -1,26 +1,26 @@
-const portal = require('/lib/xp/portal');
-const React4xp = require('/lib/enonic/react4xp');
+const portal = require('/lib/xp/portal')
+const React4xp = require('/lib/enonic/react4xp')
 
-const { imageUrl } = require('/lib/shared/image');
+const { imageUrl } = require('/lib/shared/image')
 
-exports.get = function(request) {
-    const component = portal.getComponent();
+exports.get = function (request) {
+  const component = portal.getComponent()
 
-    const {
-      config: {
-        image: imageKey = '',
-        effect: effectKey = '',
-        title = '',
-      } = {},
-    } = component;
+  const {
+    config: {
+      image: imageKey = '',
+      effect: effectKey = '',
+      title = ''
+    } = {}
+  } = component
 
-    const props = {
-      image: imageUrl(imageKey, 'full'),
-      title,
-      effect: imageUrl(effectKey, 'full'),
-    };
+  const props = {
+    image: imageUrl(imageKey, 'full'),
+    title,
+    effect: imageUrl(effectKey, 'full')
+  }
 
-    log.info(JSON.stringify(props, null, 4));
+  log.info(JSON.stringify(props, null, 4))
 
-    return React4xp.render('FancyHeader', props, request);
-};
+  return React4xp.render('FancyHeader', props, request)
+}

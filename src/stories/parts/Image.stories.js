@@ -1,62 +1,62 @@
-import React from 'react';
+import React from 'react'
 
-import { Image } from '../../main/resources/react4xp/shared/Image';
+import { Image } from '../../main/resources/react4xp/shared/Image'
 
-import { SingleLayout } from '../layouts';
+import { SingleLayout } from '../layouts'
 
 export default {
   title: 'Parts/Image',
-  component: Image,
-};
+  component: Image
+}
 
 const Template = (args) => (
   <SingleLayout>
     <Image {...args} />
   </SingleLayout>
-);
+)
 
 const image = {
-  url: 'kandidatbilde1.jpg',
-};
+  url: 'kandidatbilde1.jpg'
+}
 
-export const Small = Template.bind({});
+export const Small = Template.bind({})
 Small.args = {
   className: 'small',
   image,
-  imageClassName: '',
-};
+  imageClassName: ''
+}
 
-export const Medium = Template.bind({});
+export const Medium = Template.bind({})
 Medium.args = {
   className: 'medium',
   image,
-  imageClassName: '',
-};
+  imageClassName: ''
+}
 
-export const Large = Template.bind({});
+export const Large = Template.bind({})
 Large.args = {
   className: 'large',
   image,
-  imageClassName: '',
-};
+  imageClassName: ''
+}
 
-export const RoundSmall = Template.bind({});
+export const RoundSmall = Template.bind({})
 RoundSmall.args = {
   className: 'small',
   image,
-  imageClassName: 'round',
-};
+  imageClassName: 'round'
+}
 
-export const RoundMedium = Template.bind({});
+export const RoundMedium = Template.bind({})
 RoundMedium.args = {
   className: 'medium',
   image,
-  imageClassName: 'round',
-};
+  imageClassName: 'round'
+}
 
-export const RoundLarge = Template.bind({});
+export const RoundLarge = Template.bind({})
 RoundLarge.args = {
   className: 'large',
   image,
-  imageClassName: 'round',
-};
+  imageClassName: 'round'
+}

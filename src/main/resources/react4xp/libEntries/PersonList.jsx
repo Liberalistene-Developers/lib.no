@@ -1,22 +1,22 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import GridItem from '../shared/GridItem';
-import Image from '../shared/Image';
-import ListItem from '../shared/ListItem';
+import GridItem from '../shared/GridItem'
+import Image from '../shared/Image'
+import ListItem from '../shared/ListItem'
 
 export const PersonList = ({
   description,
   displaytype,
-  fields,
   image,
   shortDescription,
   imagesize,
   imagetype,
   items,
   tags,
-  title,
+  title
 }) => {
-  const Item = displaytype === 'list' ? ListItem : GridItem;
+  const Item = displaytype === 'list' ? ListItem : GridItem
 
   return (
     <div className="person-list-holder">
@@ -40,7 +40,6 @@ export const PersonList = ({
             <Item
               key={item.itemID}
               item={item}
-              fields={fields}
               imageSize={imagesize}
               imageType={(imagetype && 'round') || ''}
             />
@@ -48,8 +47,40 @@ export const PersonList = ({
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
+PersonList.propTypes = {
+  description: PropTypes.string,
+  displaytype: PropTypes.string,
+  className: PropTypes.string,
+  imagesize: PropTypes.oneOf(['small', 'medium', 'large']),
+  imagetype: PropTypes.bool,
+  image: PropTypes.shape({
+    url: PropTypes.string
+  }),
+  items: PropTypes.arrayOf({
+    image: PropTypes.shape({
+      url: PropTypes.string
+    }),
+    name: PropTypes.string,
+    shortDescription: PropTypes.string,
+    url: PropTypes.string
+  }),
+  shortDescription: PropTypes.string,
+  showImage: PropTypes.bool,
+  tags: PropTypes.array,
+  title: PropTypes.string
+}
 
-export default (props) => <PersonList {...props} />;
+PersonList.defaultProps = {
+  showImage: true,
+  imageSize: 'medium',
+  imageType: undefined,
+  item: undefined
+}
+
+const DefaultPersonList = (props) => <PersonList {...props} />
+DefaultPersonList.displayName = 'PersonList'
+
+export default DefaultPersonList

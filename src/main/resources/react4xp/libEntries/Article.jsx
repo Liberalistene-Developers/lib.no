@@ -1,8 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { ImageBlock } from './ImageBlock';
-import { Image } from '../shared/Image';
+import { ImageBlock } from './ImageBlock'
 import { AuthorLink } from '../shared/AuthorLink'
 
 export const Article = ({
@@ -16,7 +15,7 @@ export const Article = ({
   ingressInImage,
   text,
   tags,
-  datePublished,
+  datePublished
 }) => (
   <div className="article">
     <ImageBlock
@@ -25,13 +24,13 @@ export const Article = ({
       ingress={ingressInImage && ingress}
       text={headerColor}
       position={headerPosition} />
-    
+
     <div className="article-title">
       { !titleInImage && title && (
         <h1>{title}</h1>
       )}
     </div>
-      
+
     <div className="article-creds">
       { authors && authors.length > 0 && (
         <ul className="authors">
@@ -45,30 +44,50 @@ export const Article = ({
       </div>
     </div>
 
-    <div className="page-content">      
+    <div className="page-content">
       { !ingressInImage && ingress && (
         <div className="ingress rich-text" dangerouslySetInnerHTML={{ __html: ingress }} />
       )}
-      
+
       { text && (
         <div dangerouslySetInnerHTML={{ __html: text }} />
       )}
     </div>
   </div>
-);
+)
 
 Article.propTypes = {
+  authors: PropTypes.arrayOf({
+    authorID: PropTypes.string,
+    person: PropTypes.string,
+    personUrl: PropTypes.string,
+    image: PropTypes.shape({
+      url: PropTypes.string
+    })
+  }),
+  datePublished: PropTypes.string,
   description: PropTypes.string,
+  headerColor: PropTypes.string,
+  headerPosition: PropTypes.string,
+  image: PropTypes.shape({
+    url: PropTypes.string
+  }),
+  ingress: PropTypes.string,
   ingressInImage: PropTypes.bool,
+  tags: PropTypes.array,
+  text: PropTypes.string,
   title: PropTypes.string,
-  titleInImage: PropTypes.bool,
-};
+  titleInImage: PropTypes.bool
+}
 
 Article.defaultProps = {
   description: '',
   ingressInImage: true,
-  title : '',
-  titleInImage: true,
-};
+  title: '',
+  titleInImage: true
+}
 
-export default (props) => <Article {...props} />;
+const DefaultArticle = (props) => <Article {...props} />
+DefaultArticle.displayName = 'Article'
+
+export default DefaultArticle

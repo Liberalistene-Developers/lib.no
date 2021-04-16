@@ -1,61 +1,53 @@
-const React4xp = require('/lib/enonic/react4xp');
-const portal = require('/lib/xp/portal');
-const contentLib = require('/lib/xp/content');
+const React4xp = require('/lib/enonic/react4xp')
+const portal = require('/lib/xp/portal')
+const contentLib = require('/lib/xp/content')
 
-const { imageUrl } = require('/lib/shared/image');
-const { processHtml } = require('/lib/shared/html');
+exports.get = function (request) {
+  const component = portal.getComponent()
 
-exports.get = function(request) {
-    const content = portal.getContent();
-    const component = portal.getComponent();
-
-    const {
-      _path: key,
-    } = content;
-
-    const {
-      config: {
-        buttonText: title,
-        urlSelector: {
-          _selected: urlType,
-          intern: {
-            url: urlKey,
-          } = {},
-          extern: {
-            externUrl,
-            target: externTarget,
-          } = {},
+  const {
+    config: {
+      buttonText: title,
+      urlSelector: {
+        _selected: urlType,
+        intern: {
+          url: urlKey
         } = {},
-      } = {},
-    } = component;
+        extern: {
+          externUrl,
+          target: externTarget
+        } = {}
+      } = {}
+    } = {}
+  } = component
 
-    const createUrl = () => {
-      if (urlType === 'intern') {
-        const {
-          _path: urlPath,
-        } = urlKey ? contentLib.get({ key: urlKey }) : {};
-
-        return [
-          urlPath ? portal.pageUrl({ path: urlPath, }) : '',
-        ];
-      }
+  const createUrl = () => {
+    if (urlType === 'intern') {
+      const {
+        _path: urlPath
+      } = urlKey ? contentLib.get({ key: urlKey }) : {}
 
       return [
-        externUrl,
-        externTarget,
-      ];
-    };
+        urlPath ? portal.pageUrl({ path: urlPath }) : ''
+      ]
+    }
 
-    const  [url, target] = createUrl();
+    return [
+      externUrl,
+      externTarget
+    ]
+  }
 
-    const props = {
-      title,
-      url,
-      target,
-      className: 'medium-margin'
-    };
+  const [url, target] = createUrl()
 
-    log.info(JSON.stringify(props, null, 4));
+  const props = {
+    title,
+    url,
+    target,
+    className: 'medium-margin'
+  }
 
-    return React4xp.render('Button', props, request, { clientRender: true });
-};
+  log.info(JSON.stringify(props, null, 4))
+
+  return React4xp.render('Button', props, request, { clientRender: true })
+}

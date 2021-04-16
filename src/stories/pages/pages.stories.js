@@ -1,18 +1,18 @@
-import React from 'react';
+import React from 'react'
 
-import { Page } from './Page';
+import { Page } from './Page'
 
-import '../../main/resources/assets/styles/main.scss';
+import '../../main/resources/assets/styles/main.scss'
 
 export default {
   title: 'Pages/Default',
-  component: Page,
-};
+  component: Page
+}
 
 const Template = (args) => (
   <Page {...args} />
-);
+)
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
-};
+}

@@ -1,9 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import Image from './Image';
-
-import ListItem from './ListItem';
+import ListItem from './ListItem'
 
 export const PersonListItem = ({
   imageSize,
@@ -11,11 +9,11 @@ export const PersonListItem = ({
   item,
   item: {
     role,
-    email,
+    email
   } = {},
   showRole = true,
   showEmail = false,
-  fields,
+  fields
 }) => (
   <ListItem item={item} imageSize={imageSize} imageType={imageType} fields={fields} className="person">
     <>
@@ -27,23 +25,26 @@ export const PersonListItem = ({
       )}
     </>
   </ListItem>
-);
+)
 
 PersonListItem.propTypes = {
   ...ListItem.propTypes,
   item: PropTypes.shape({
     image: PropTypes.shape({
-      url: PropTypes.string,
+      url: PropTypes.string
     }),
     role: PropTypes.string,
     name: PropTypes.string,
     shortDescription: PropTypes.string,
-    url: PropTypes.string,
-  }),
-};
+    url: PropTypes.string
+  })
+}
 
 PersonListItem.defaultProps = {
-  ...ListItem.defaultProps,
-};
+  ...ListItem.defaultProps
+}
 
-export default (props) => <PersonListItem {...props} />;
+const DefaultPersonListItem = (props) => <PersonListItem {...props} />
+DefaultPersonListItem.displayName = 'PersonListItem'
+
+export default DefaultPersonListItem

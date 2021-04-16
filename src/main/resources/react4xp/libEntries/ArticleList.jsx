@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
-import doGuillotineRequest from "../../headless/guillotineRequest";
-import { buildQueryArticleList, extractArticleList } from "../../headless/helpers/articleListRequests";
+import doGuillotineRequest from '../../headless/guillotineRequest'
+import { buildQueryArticleList, extractArticleList } from '../../headless/helpers/articleListRequests'
 
-import Image from '../shared/Image';
+import Image from '../shared/Image'
 
-import ListItem from '../shared/ArticleListItem';
-import GridItem from '../shared/ArticleCard';
+import ListItem from '../shared/ArticleListItem'
+import GridItem from '../shared/ArticleCard'
 
-import Button from './Button';
+import Button from './Button'
 
-let nextOffset = 0;
+let nextOffset = 0
 
 export const ArticleList = ({
   description,
   displaytype,
-  fields,
   image,
   shortDescription,
   items,
@@ -32,40 +32,40 @@ export const ArticleList = ({
   count = 10,
   sortExpression = '',
   parentPathQuery = '',
-  noIngress = false,
+  noIngress = false
 }) => {
-  const [list, setList] = useState(items);
-  const [more, setMore] = useState(loadMoreEnabled && apiUrl && items.length === count);
-  const [loading, setLoading] = useState(false);
-  
-  const Item = displaytype === 'list' ? ListItem : GridItem;
-  
+  const [list, setList] = useState(items)
+  const [more, setMore] = useState(loadMoreEnabled && apiUrl && items.length === count)
+  const [loading, setLoading] = useState(false)
+
+  const Item = displaytype === 'list' ? ListItem : GridItem
+
   useEffect(() => {
-    nextOffset = list.length;
+    nextOffset = list.length
   }, [list])
-  
+
   const updateArticles = (articles) => {
     if (articles.length > 0) {
       nextOffset += articles.length
-      
+
       setList([
         ...list,
-        ...articles,
-      ]);
-      
+        ...articles
+      ])
+
       if (articles.length < count) {
-        setMore(false);
+        setMore(false)
       }
     } else {
-      setMore(false);
+      setMore(false)
     }
-    
-    setLoading(false);
-  };
-  
+
+    setLoading(false)
+  }
+
   const readMoreClick = () => {
-    setLoading(loading);
-    
+    setLoading(loading)
+
     doGuillotineRequest({
       url: apiUrl,
 
@@ -75,14 +75,14 @@ export const ArticleList = ({
         first: count,
         offset: nextOffset,
         sort: sortExpression,
-        parentPathQuery,
+        parentPathQuery
       },
 
       extractDataFunc: extractArticleList,
 
-      handleDataFunc: updateArticles,
-    });
-  };
+      handleDataFunc: updateArticles
+    })
+  }
 
   return (
     <div className="article-list-holder">
@@ -106,7 +106,6 @@ export const ArticleList = ({
             <Item
               key={item.id}
               item={item}
-              fields={fields}
               showImage={showImage}
               imageSize={imageSize}
               imageType={imageType}
@@ -124,7 +123,40 @@ export const ArticleList = ({
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default (props) => <ArticleList {...props} />;
+ArticleList.propTypes = {
+  apiUrl: PropTypes.string,
+  count: PropTypes.number,
+  description: PropTypes.string,
+  displaytype: PropTypes.string,
+  image: PropTypes.shape({
+    url: PropTypes.string
+  }),
+  imageSize: PropTypes.string,
+  imageType: PropTypes.string,
+  items: PropTypes.arrayOf({
+    id: PropTypes.string
+  }),
+  loadMore: PropTypes.string,
+  loadMoreEnabled: PropTypes.bool,
+  noIngress: PropTypes.bool,
+  parentPathQuery: PropTypes.string,
+  readMore: PropTypes.string,
+  readMoreEnabled: PropTypes.bool,
+  shortDescription: PropTypes.string,
+  showImage: PropTypes.bool,
+  sortExpression: PropTypes.string,
+  title: PropTypes.string,
+  tags: PropTypes.array
+}
+
+ArticleList.defaultProps = {
+  tags: []
+}
+
+const DefaultArticleList = (props) => <ArticleList {...props} />
+DefaultArticleList.displayName = 'ArticleList'
+
+export default DefaultArticleList

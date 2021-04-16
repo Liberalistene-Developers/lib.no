@@ -1,4 +1,4 @@
 /**
  * to build the styles.
  */
-import '../styles/main.scss';
+import '../styles/main.scss'

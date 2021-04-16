@@ -1,27 +1,33 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { Event } from '../../main/resources/react4xp/libEntries/Event';
+import { Event } from '../../main/resources/react4xp/libEntries/Event'
 
-import { SingleLayout } from '../layouts';
+import { SingleLayout } from '../layouts'
 
-import '../../main/resources/assets/styles/main.scss';
+import '../../main/resources/assets/styles/main.scss'
 
 export default {
   title: 'Parts/Event',
-  component: Event,
-};
+  component: Event
+}
 
 const image = {
-  url: 'imageblockimage.png',
-};
+  url: 'imageblockimage.png'
+}
 
 const Template = ({ fullWidth = true, ...args }) => (
   <SingleLayout fullWidth={fullWidth}>
     <Event {...args} />
   </SingleLayout>
-);
+)
 
-export const Normal = Template.bind({});
+Template.propTypes = {
+  ...Event.propTypes,
+  fullWidth: PropTypes.bool
+}
+
+export const Normal = Template.bind({})
 Normal.args = {
   headerColor: 'light',
   headerPosition: 'right',
@@ -42,15 +48,15 @@ Normal.args = {
   informationLabel: 'Informasjon',
   locationLabel: 'Lokasjon',
   moreInformationLabel: 'Er det noe du lurer på?',
-  contactLabel: 'Kontakt oss på',
-};
+  contactLabel: 'Kontakt oss på'
+}
 
-export const Virtual = Template.bind({});
+export const Virtual = Template.bind({})
 Virtual.args = {
   ...Normal.args,
   location: {
     url: 'https://www.facebook.com/events/759331661457410/',
-    name: 'Facebook',
+    name: 'Facebook'
   },
-  locationType: 'virtual',
+  locationType: 'virtual'
 }

@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-import { Map } from '../../main/resources/react4xp/shared/Map';
+import { Map } from '../../main/resources/react4xp/shared/Map'
 
-import { SingleLayout } from '../layouts';
+import { SingleLayout } from '../layouts'
 
 export default {
   title: 'Parts/Map',
 
-  component: Map,
-};
+  component: Map
+}
 
 const Template = (args) => (
   <SingleLayout>
@@ -18,17 +18,16 @@ const Template = (args) => (
       </div>
     </div>
   </SingleLayout>
-);
+)
 
-
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   position: undefined,
-  address: null,
-};
+  address: null
+}
 
-export const WithAddressOnly = Template.bind({});
+export const WithAddressOnly = Template.bind({})
 WithAddressOnly.args = {
   position: [],
-  address: 'Allegaten 6\n4400 Flekkefjord',
-};
+  address: 'Allegaten 6\n4400 Flekkefjord'
+}

@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 export const TextBlock = ({
   text = '',
   title = '',
-  titleColor = '',
+  titleColor = ''
 }) => (
   <>
     { (title || text) && (
@@ -12,33 +12,36 @@ export const TextBlock = ({
         { title && (
           <div className={ `text-block-title ${titleColor}`}>
             <h2>{ title }</h2>
-          </div>          
+          </div>
         )}
         { text && (
           <div className="text-block-text">
             <div className="page-content rich-text" dangerouslySetInnerHTML={{ __html: text }} />
-          </div>      
+          </div>
         )}
-      </div>      
+      </div>
     )}
   </>
-);
+)
 
 TextBlock.propTypes = {
   /** Plain or html formated text */
   text: PropTypes.string,
-  
+
   /** H2 title */
   title: PropTypes.string,
-  
+
   /** class to set color on title */
-  titleColor: PropTypes.string,
-};
+  titleColor: PropTypes.string
+}
 
 TextBlock.defaultProps = {
   text: '',
   title: '',
-  titleCenter: '',
-};
+  titleCenter: ''
+}
 
-export default (props) => <TextBlock {...props} />;
+const DefaultTextBlock = (props) => <TextBlock {...props} />
+DefaultTextBlock.displayName = 'TextBlock'
+
+export default DefaultTextBlock

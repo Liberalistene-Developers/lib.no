@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { ImageBlock } from './ImageBlock';
-import { Schedules } from './Schedule';
-import { Map } from '../shared/Map';
-import { EventPlace } from '../shared/EventPlace';
-import { EventTime } from '../shared/EventTime';
+import { ImageBlock } from './ImageBlock'
+import { Schedules } from './Schedule'
+import { Map } from '../shared/Map'
+import { EventPlace } from '../shared/EventPlace'
+import { EventTime } from '../shared/EventTime'
 
 export const Event = ({
   date,
@@ -30,7 +30,7 @@ export const Event = ({
   timeLabel,
   email,
   schedules = [],
-  map = [],
+  map = []
 }) => (
   <div className="event">
     <ImageBlock
@@ -68,18 +68,20 @@ export const Event = ({
               </div>
             </div>
           )}
-          
-          { schedules && schedules.length > 0 ? (
+
+          { schedules && schedules.length > 0
+            ? (
             <div>
               { agendaLabel && (
-                <h2 id={agendaLabel}>{agendaLabel}</h2>  
+                <h2 id={agendaLabel}>{agendaLabel}</h2>
               )}
               <Schedules schedules={schedules} />
             </div>
-          ) : null }
+              )
+            : null }
 
         </div>
-      { (map && map.length === 2) || (location && location.address) && (
+      { ((map && map.length === 2) || (location && location.address)) && (
         <div className="location">
           { locationLabel && (
             <h2 id={locationLabel}>{locationLabel}</h2>
@@ -92,7 +94,7 @@ export const Event = ({
       )}
     </div>
   </div>
-);
+)
 
 Event.propTypes = {
   /**
@@ -105,16 +107,39 @@ Event.propTypes = {
   headerPosition: PropTypes.oneOf(['left', 'center', 'right']),
   title: PropTypes.string,
   image: PropTypes.shape({
-    url: PropTypes.string,
+    url: PropTypes.string
   }),
   ingress: PropTypes.string,
   description: PropTypes.string,
-};
+  date: PropTypes.string,
+  time: PropTypes.string,
+  headerColor: PropTypes.string,
+  titleInImage: PropTypes.bool,
+  ingressInImage: PropTypes.bool,
+  informationLabel: PropTypes.string,
+  moreInformationLabel: PropTypes.string,
+  locationLabel: PropTypes.string,
+  contactLabel: PropTypes.string,
+  placeLabel: PropTypes.string,
+  agendaLabel: PropTypes.string,
+  dateLabel: PropTypes.string,
+  timeLabel: PropTypes.string,
+  email: PropTypes.string,
+  schedules: PropTypes.array,
+  location: PropTypes.shape({
+    address: PropTypes.string
+  }),
+  tags: PropTypes.array,
+  map: PropTypes.array
+}
 
 Event.defaultProps = {
   title: '',
   ingress: '',
-  description: '',
-};
+  description: ''
+}
 
-export default (props) => <Event {...props} />;
+const DefaultEvent = (props) => <Event {...props} />
+DefaultEvent.displayName = 'Event'
+
+export default DefaultEvent

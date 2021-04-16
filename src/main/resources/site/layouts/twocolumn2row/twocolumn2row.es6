@@ -1,12 +1,12 @@
-const portal = require('/lib/xp/portal');
-const thymeleaf = require('/lib/thymeleaf');
+const portal = require('/lib/xp/portal')
+const thymeleaf = require('/lib/thymeleaf')
 
-// Resolve the view  
-const view = resolve('twocolumn2row.html');
+// Resolve the view
+const view = resolve('twocolumn2row.html')
 
-exports.get = function(req) {
+exports.get = function (req) {
   // Find the current component.
-  const component = portal.getComponent();
+  const component = portal.getComponent()
 
   const {
     config: {
@@ -16,16 +16,16 @@ exports.get = function(req) {
       paddingbottom: paddingBottom,
       paddingtop: paddingTop,
       columnsLayout = '',
-      reverseroworder = false,
+      reverseroworder = false
     },
     regions: {
       top: topRegion,
       left: leftRegion,
-      right: rightRegion,
-    },
-  } = component;
-  
-  const [leftClassName, rightClassName] = columnsLayout.split(',');
+      right: rightRegion
+    }
+  } = component
+
+  const [leftClassName, rightClassName] = columnsLayout.split(',')
 
   // Define the model
   const model = {
@@ -39,15 +39,15 @@ exports.get = function(req) {
     rightClassName,
     rightRegion,
     topRegion,
-    orderClass: reverseroworder ? 'reverse' : '',
-  };
+    orderClass: reverseroworder ? 'reverse' : ''
+  }
 
   // Render a thymeleaf template
-  const body = thymeleaf.render(view, model);
+  const body = thymeleaf.render(view, model)
 
   // Return the result
   return {
     body: body,
     contentType: 'text/html'
-  };
-};
+  }
+}

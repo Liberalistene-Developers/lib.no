@@ -1,43 +1,42 @@
-import React from 'react';
+import React from 'react'
 
-import TitleBlock from '../../main/resources/react4xp/libEntries/TitleBlock';
+import TitleBlock from '../../main/resources/react4xp/libEntries/TitleBlock'
 
-import { SingleLayout } from '../layouts';
+import { SingleLayout } from '../layouts'
 
 export default {
   title: 'Parts/TitleBlock',
 
-  component: TitleBlock,  
-};
+  component: TitleBlock
+}
 
 const image = {
-  url: 'header.png',
-};
+  url: 'header.png'
+}
 
 const Template = (args) => (
   <SingleLayout fullWidth background="purple">
     <TitleBlock {...args} />
   </SingleLayout>
-);
+)
 
-export const SingleTitle = Template.bind({});
+export const SingleTitle = Template.bind({})
 SingleTitle.args = {
   title: 'My Title',
   titleCenter: '',
   titleColor: '',
   image: undefined,
-  imageClass: '',
-};
+  imageClass: ''
+}
 
-export const SingleCenterTitle = Template.bind({});
+export const SingleCenterTitle = Template.bind({})
 SingleCenterTitle.args = {
   ...SingleTitle.args,
-  titleCenter: 'center',
-};
+  titleCenter: 'center'
+}
 
-export const TitleImage = Template.bind({});
+export const TitleImage = Template.bind({})
 TitleImage.args = {
   ...SingleTitle.args,
-  image,
-};
-
+  image
+}

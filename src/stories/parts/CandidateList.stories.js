@@ -1,22 +1,21 @@
-import React from 'react';
+import React from 'react'
 
-import { CandidateList } from '../../main/resources/react4xp/libEntries/CandidateList';
-import { SingleLayout } from '../layouts';
+import { CandidateList } from '../../main/resources/react4xp/libEntries/CandidateList'
+import { SingleLayout } from '../layouts'
 
 export default {
   title: 'Parts/Lists/CandidateList',
 
-  component: CandidateList,
-};
+  component: CandidateList
+}
 
 const Template = (args) => (
   <SingleLayout>
     <CandidateList {...args} />
   </SingleLayout>
-);
+)
 
-
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   imagesize: 'medium',
   imagetype: true,
@@ -25,11 +24,11 @@ Default.args = {
     {
       itemId: 1,
       image: {
-        url: 'kandidatbilde1.jpg',
+        url: 'kandidatbilde1.jpg'
       },
       name: 'Kenneth Tolås',
       role: '1. kandidat',
-      shortDescription: 'Kenneth Tolås er leder for Liberalistene Agder.',
+      shortDescription: 'Kenneth Tolås er leder for Liberalistene Agder.'
     },
     {
       itemId: 2,
@@ -37,8 +36,8 @@ Default.args = {
       role: '2. kandidat',
       shortDescription: 'Ronny Skjæveland er partileder i Liberalistene',
       image: {
-        url: 'partyleader.jpg',
-      },
-    },
-  ],
-};
+        url: 'partyleader.jpg'
+      }
+    }
+  ]
+}

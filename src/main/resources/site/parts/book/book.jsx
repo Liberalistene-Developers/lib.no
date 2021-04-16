@@ -1,6 +1,7 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import Image from '../../../react4xp/shared/Image.jsx';
+import Image from '../../../react4xp/shared/Image.jsx'
 
 export const Book = ({
   title,
@@ -9,7 +10,7 @@ export const Book = ({
   ingress,
   text,
   description,
-  tags,
+  tags
 }) => (
   <div>
     <h1 title={title}>{title}</h1>
@@ -37,6 +38,24 @@ export const Book = ({
     <div dangerouslySetInnerHTML={{ __html: ingress }} />
     <div dangerouslySetInnerHTML={{ __html: text || description }} />
   </div>
-);
+)
 
-export default (props) => <Book {...props} />;
+Book.propTypes = {
+  title: PropTypes.string,
+  image: PropTypes.shape({
+    url: PropTypes.string
+  }),
+  authors: PropTypes.arrayOf({
+    name: PropTypes.string
+  }),
+  ingress: PropTypes.string,
+  text: PropTypes.string,
+  description: PropTypes.string,
+  shortDescription: PropTypes.string,
+  tags: PropTypes.array
+}
+
+const DefaultBook = (props) => <Book {...props} />
+DefaultBook.displayName = 'Book'
+
+export default DefaultBook

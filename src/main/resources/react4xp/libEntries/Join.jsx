@@ -1,9 +1,11 @@
-import React from 'react';
-import cx from 'classnames';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import Button from './Button';
+import cx from 'classnames'
 
-import Image from '../shared/Image';
+import Button from './Button'
+
+import Image from '../shared/Image'
 
 export const Join = ({
   message,
@@ -20,24 +22,39 @@ export const Join = ({
         <div className={cx('join-front-content', frontPlacement)}>
           <Image image={image} className="image-holder"/>
           { message && (
-            <div className="join-front-text"  dangerouslySetInnerHTML={{ __html: message }} />
+            <div className="join-front-text" dangerouslySetInnerHTML={{ __html: message }} />
           )}
         </div>
       </div>
       <div className="join-back">
         <div className="join-back-content middle">
           { backMessage && (
-            <div className="join-back-text"  dangerouslySetInnerHTML={{ __html: backMessage }} />
+            <div className="join-back-text" dangerouslySetInnerHTML={{ __html: backMessage }} />
           )}
           <Button
             className="light"
-            title={buttonText} 
+            title={buttonText}
             url={url}
           />
         </div>
       </div>
     </div>
   </div>
-);
+)
 
-export default (props) => <Join {...props} />;
+Join.propTypes = {
+  message: PropTypes.string,
+  backMessage: PropTypes.string,
+  image: PropTypes.shape({
+    url: PropTypes.string
+  }),
+  url: PropTypes.string,
+  buttonText: PropTypes.string,
+  className: PropTypes.string,
+  frontPlacement: PropTypes.string
+}
+
+const DefaultJoin = (props) => <Join {...props} />
+DefaultJoin.displayName = 'Join'
+
+export default DefaultJoin

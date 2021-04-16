@@ -1,16 +1,17 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { Image } from '../shared/Image';
+import { Image } from '../shared/Image'
 
 export const FancyHeader = ({
   title = '',
-  effect, 
-  image,
+  effect,
+  image
 }) => (
-  <div class="orgHeader-grid-container">
-    <div class="ogHeader-grid-item">
-      <div class="headertitleWrapper">
-        <div class="headertitle">
+  <div className="orgHeader-grid-container">
+    <div className="ogHeader-grid-item">
+      <div className="headertitleWrapper">
+        <div className="headertitle">
           <h1>{title}</h1>
         </div>
         <Image image={effect} />
@@ -18,6 +19,25 @@ export const FancyHeader = ({
     </div>
     <Image image={image} className="orgHeader-grid-item" />
   </div>
-);
+)
 
-export default (props) => <FancyHeader {...props} />;
+FancyHeader.propTypes = {
+  effect: PropTypes.shape({
+    url: PropTypes.string
+  }),
+  image: PropTypes.shape({
+    url: PropTypes.string
+  }),
+  title: PropTypes.string
+}
+
+FancyHeader.defaultProps = {
+  effect: null,
+  image: null,
+  title: ''
+}
+
+const DefaultFancyHeader = (props) => <FancyHeader {...props} />
+DefaultFancyHeader.displayName = 'FancyHeader'
+
+export default DefaultFancyHeader

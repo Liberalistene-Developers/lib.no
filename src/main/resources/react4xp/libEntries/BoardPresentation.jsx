@@ -1,10 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import cx from 'classnames';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import Image from '../shared/Image';
-import PersonListItem from '../shared/PersonListItem';
+import cx from 'classnames'
 
+import Image from '../shared/Image'
 
 export const BoardPresentation = ({
   title,
@@ -12,15 +11,16 @@ export const BoardPresentation = ({
   imagetype,
   board,
   boardTitle,
-  showEmail,
+  showEmail
 }) => (
   <div className="board-presentation-wrapper">
     <div className="board-presentation-title">
       <h2 title={title}>{title}</h2>
     </div>
-    
-    { board && board.length > 0 ? (
-      <div className="board-presentation-content">      
+
+    { board && board.length > 0
+      ? (
+      <div className="board-presentation-content">
         {board.slice(0, 1).map(({ itemId, image, role, email, name }) => (
           <div key={itemId} className="leader">
             <Image image={image} className={cx(imagesize, 'leader-image')} imageClassName={(imagetype && 'round') || ''} />
@@ -39,7 +39,7 @@ export const BoardPresentation = ({
             )}
           </div>
         ))}
-        
+
         <div className="members">
           <div className="members-title">
             {boardTitle}
@@ -49,22 +49,38 @@ export const BoardPresentation = ({
               <span className="role">{role}</span><span className="name">{name}</span>
             </div>
           ))}
-        </div>            
+        </div>
       </div>
-    )
-    : null
+        )
+      : null
     }
   </div>
-);
+)
 
 BoardPresentation.propTypes = {
-  imagesize: PropTypes.string,
+  board: PropTypes.arrayOf({
+    itemId: PropTypes.string,
+    image: PropTypes.shape({
+      url: PropTypes.string
+    }),
+    role: PropTypes.string,
+    name: PropTypes.string
+  }),
+  boardTitle: PropTypes.string,
+  imagesize: PropTypes.bool,
   imagetype: PropTypes.string,
-};
+  showEmail: PropTypes.bool,
+  title: PropTypes.string
+}
 
 BoardPresentation.defaultProps = {
-  imagetype: 'round',
+  board: [],
+  imagetype: true,
   imagesize: 'medium',
-};
+  showEmail: false
+}
 
-export default (props) => <BoardPresentation {...props} />;
+const DefaultBoardPresentation = (props) => <BoardPresentation {...props} />
+DefaultBoardPresentation.displayName = 'BoardPresentation'
+
+export default DefaultBoardPresentation

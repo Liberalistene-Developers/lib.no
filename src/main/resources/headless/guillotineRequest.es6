@@ -12,53 +12,50 @@
  *      @param catchErrorsFunc (override function, optional): Handles any errors that were thrown after the fetch.
  */
 
-
-
 const PARAM_TYPES = {
-    url: 'string',
-    query: 'string',
-    variables: 'object',
-    handleResponseErrorFunc: 'function',
-    extractDataFunc: 'function',
-    handleDataFunc: 'function',
-    catchErrorsFunc: 'function',
+  url: 'string',
+  query: 'string',
+  variables: 'object',
+  handleResponseErrorFunc: 'function',
+  extractDataFunc: 'function',
+  handleDataFunc: 'function',
+  catchErrorsFunc: 'function'
 }
 
 const checkParams = params => {
-    if (!params || typeof params !== 'object') {
-        throw Error('Missing or invalid params argument. Supply a valid object: doGuillotineRequest(params);');
-    }
+  if (!params || typeof params !== 'object') {
+    throw Error('Missing or invalid params argument. Supply a valid object: doGuillotineRequest(params);')
+  }
 
-    Object.keys(params).forEach( key => {
-        if (params[key] && typeof params[key] !== PARAM_TYPES[key]) {
-            throw Error(`Invalid parameter type. Supply a valid '${key}' ${PARAM_TYPES[key]} parameter: doGuillotineRequest({${key}: <${PARAM_TYPES[key]}>, etc});`);
-        }
-    })
+  Object.keys(params).forEach(key => {
+    if (params[key] && (typeof params[key] !== PARAM_TYPES[key])) { // eslint-disable-line valid-typeof
+      throw Error(`Invalid parameter type. Supply a valid '${key}' ${PARAM_TYPES[key]} parameter: doGuillotineRequest({${key}: <${PARAM_TYPES[key]}>, etc});`)
+    }
+  })
 
-    if ((params.url || '').trim() === '') {
-        throw Error("Missing URL to the guillotine API. Supply a valid 'url' string parameter: doGuillotineRequest({url: '...', etc}); ");
-    }
-    if ((params.query || '').trim() === '') {
-        throw Error("Missing guillotine query. Supply a valid 'query' string parameter: doGuillotineRequest({query: '...', etc}); ");
-    }
-    
-    return params
-};
+  if ((params.url || '').trim() === '') {
+    throw Error("Missing URL to the guillotine API. Supply a valid 'url' string parameter: doGuillotineRequest({url: '...', etc}); ")
+  }
+  if ((params.query || '').trim() === '') {
+    throw Error("Missing guillotine query. Supply a valid 'query' string parameter: doGuillotineRequest({query: '...', etc}); ")
+  }
+
+  return params
+}
 
 const defaultHandleResponseErrorFunc = (response) => {
   if (!(response.status < 300)) {
-      throw Error(`Guillotine API response:\n\n${response.status} - ${response.statusText}.\n\nAPI url: ${response.url}\n\nInspect the request and/or the server log.`);
+    throw Error(`Guillotine API response:\n\n${response.status} - ${response.statusText}.\n\nAPI url: ${response.url}\n\nInspect the request and/or the server log.`)
   }
-  
-  return response;
+
+  return response
 }
 
 const defaultErrorFunc = (error) => {
-  console.error(error);
-  
-  return Promise.resolve(error);
-}
+  console.error(error)
 
+  return Promise.resolve(error)
+}
 
 const extractParamsOrDefaults = (params) => {
   const {
@@ -68,7 +65,7 @@ const extractParamsOrDefaults = (params) => {
     handleResponseErrorFunc = defaultHandleResponseErrorFunc,
     extractDataFunc = (responseData) => responseData,
     handleDataFunc = () => null,
-    catchErrorsFunc = defaultErrorFunc,
+    catchErrorsFunc = defaultErrorFunc
   } = checkParams(params)
 
   return {
@@ -78,39 +75,40 @@ const extractParamsOrDefaults = (params) => {
     handleResponseErrorFunc,
     extractDataFunc,
     handleDataFunc,
-    catchErrorsFunc,
+    catchErrorsFunc
   }
 }
 
 // ---------------------------------------------------------
 
 const doGuillotineRequest = (params) => {
-    const {
-      url,
-      query,
-      variables,
-      handleResponseErrorFunc,
-      extractDataFunc,
-      handleDataFunc,
-      catchErrorsFunc
-    } = extractParamsOrDefaults(params)
+  const {
+    url,
+    query,
+    variables,
+    handleResponseErrorFunc,
+    extractDataFunc,
+    handleDataFunc,
+    catchErrorsFunc
+  } = extractParamsOrDefaults(params)
 
-    fetch(
-        url,
-        {
-            method: "POST",
-            body: JSON.stringify({
-                query,
-                variables}
-            ),
-            credentials: "same-origin",
-        }
-    )
-      .then(handleResponseErrorFunc)
-      .then(response => response.json())
-      .then(extractDataFunc)
-      .then(handleDataFunc)
-      .catch(catchErrorsFunc)
-};
+  fetch(
+    url,
+    {
+      method: 'POST',
+      body: JSON.stringify({
+        query,
+        variables
+      }
+      ),
+      credentials: 'same-origin'
+    }
+  )
+    .then(handleResponseErrorFunc)
+    .then(response => response.json())
+    .then(extractDataFunc)
+    .then(handleDataFunc)
+    .catch(catchErrorsFunc)
+}
 
-export default doGuillotineRequest;
+export default doGuillotineRequest

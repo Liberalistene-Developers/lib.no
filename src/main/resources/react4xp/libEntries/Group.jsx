@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { ImageBlock } from './ImageBlock';
-import Image from '../shared/Image';
-import PersonListItem from '../shared/PersonListItem';
+import { ImageBlock } from './ImageBlock'
+
+import PersonListItem from '../shared/PersonListItem'
 
 export const Group = ({
   imagesize,
@@ -18,7 +18,7 @@ export const Group = ({
   shortDescription,
   description,
   board,
-  tags,
+  tags
 }) => (
   <div className="group">
     { image && (
@@ -29,12 +29,12 @@ export const Group = ({
         position={headerPosition}
       />
     )}
-  
+
     <div className="group-content">
       { (!titleInImage || !image) && title && (
         <h1>{title}</h1>
       )}
-      
+
       { (!ingressInImage || !image) && shortDescription && (
         <div className="rich-text" dangerouslySetInnerHTML={{ __html: shortDescription }} />
       )}
@@ -44,7 +44,7 @@ export const Group = ({
           { informationLabel && (
             <h2>{informationLabel}</h2>
           )}
-          
+
           <div
             className="group-description"
             dangerouslySetInnerHTML={{ __html: description }}
@@ -52,11 +52,13 @@ export const Group = ({
         </div>
       )}
 
-      { board && board.length > 0 ? (
+      { board && board.length > 0
+        ? (
           <div className="board">
             <div className="leader">
               {board.slice(0, 1).map((item) => (
                 <PersonListItem
+                  key={item.itemId}
                   item={item}
                   imageSize={imagesize}
                   imageType={(imagetype && 'round') || ''}
@@ -67,35 +69,50 @@ export const Group = ({
               <div className="members">
               { board.slice(1).map((item) => (
                 <PersonListItem
+                  key={item.itemId}
                   item={item}
                   imageSize={imagesize}
                   imageType={(imagetype && 'round') || ''}
                 />
               ))}
-              </div>            
+              </div>
             )}
           </div>
-        )
+          )
         : null
       }
     </div>
   </div>
-);
+)
 
 Group.propTypes = {
   description: PropTypes.string,
   ingressInImage: PropTypes.bool,
   title: PropTypes.string,
   titleInImage: PropTypes.bool,
-};
+  imagesize: PropTypes.string,
+  imagetype: PropTypes.bool,
+  headerColor: PropTypes.string,
+  headerPosition: PropTypes.string,
+  image: PropTypes.shape({
+    url: PropTypes.string
+  }),
+  informationLabel: PropTypes.string,
+  shortDescription: PropTypes.string,
+  board: PropTypes.array,
+  tags: PropTypes.array
+}
 
 Group.defaultProps = {
   description: '',
   ingressInImage: true,
-  title : '',
+  title: '',
   titleInImage: true,
   imagetype: 'round',
-  imagesize: 'medium',
-};
+  imagesize: 'medium'
+}
 
-export default (props) => <Group {...props} />;
+const DefaultGroup = (props) => <Group {...props} />
+DefaultGroup.displayName = 'Group'
+
+export default DefaultGroup

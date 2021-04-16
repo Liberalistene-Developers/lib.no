@@ -1,15 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-import { Join } from '../../main/resources/react4xp/libEntries/Join';
+import { Join } from '../../main/resources/react4xp/libEntries/Join'
 
-import { SingleLayout } from '../layouts';
+import { SingleLayout } from '../layouts'
 
-import '../../main/resources/assets/styles/main.scss';
+import '../../main/resources/assets/styles/main.scss'
 
 export default {
   title: 'Parts/Join',
-  component: Join,
-};
+  component: Join
+}
 
 const Template = (args) => (
   <>
@@ -23,28 +23,27 @@ const Template = (args) => (
       <div>En liten tekst</div>
     </SingleLayout>
   </>
-);
+)
 
-export const Text = Template.bind({});
+export const Text = Template.bind({})
 Text.args = {
   image: null,
   message: 'Bli medlem',
-  buttonText: 'Bli medlem',  
-};
+  buttonText: 'Bli medlem'
+}
 
-export const ImageAndTextRow = Template.bind({});
+export const ImageAndTextRow = Template.bind({})
 ImageAndTextRow.args = {
   image: {
     url: 'Bli med pil.png'
   },
   message: 'Bli medlem',
-  buttonText: 'Bli medlem',  
-  frontPlacement: 'row',
-};
+  buttonText: 'Bli medlem',
+  frontPlacement: 'row'
+}
 
-
-export const ImageAndTextColumn = Template.bind({});
+export const ImageAndTextColumn = Template.bind({})
 ImageAndTextColumn.args = {
   ...ImageAndTextRow.args,
-  frontPlacement: 'column',
-};
+  frontPlacement: 'column'
+}

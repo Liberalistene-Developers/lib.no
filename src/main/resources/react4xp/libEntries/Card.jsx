@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 /**
  * Primary Image holder for solution.
@@ -8,7 +8,7 @@ const Card = ({
   children,
   image,
   title,
-  text,
+  text
 }) => {
   return (
     <div className="card-holder">
@@ -25,20 +25,26 @@ const Card = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 Card.propTypes = {
+  title: PropTypes.string,
+  text: PropTypes.string,
   image: PropTypes.shape({
     url: PropTypes.string,
-    alternativeText: PropTypes.string,
+    alternativeText: PropTypes.string
   }),
-};
+  children: PropTypes.arrayOf(React.Element)
+}
 
 Card.defaultProps = {
   image: null,
   text: '',
-  title: '',  
-};
+  title: ''
+}
 
-export default (props) => <Card {...props} />;
+const DefaultCard = (props) => <Card {...props} />
+DefaultCard.displayName = 'Card'
+
+export default DefaultCard

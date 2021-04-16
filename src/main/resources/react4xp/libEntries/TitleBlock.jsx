@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import Image from '../shared/Image';
+import Image from '../shared/Image'
 
 export const TitleBlock = ({
   image = undefined,
   title = '',
   titleCenter = '',
   titleColor = '',
-  imageClass = '',
+  imageClass = ''
 }) => (
   <>
     <div className="title-block">
@@ -18,29 +18,32 @@ export const TitleBlock = ({
       { image && (
         <div className="title-block-image">
           <Image image={image} className={imageClass} />
-        </div>      
+        </div>
       )}
     </div>
   </>
-);
+)
 
 TitleBlock.propTypes = {
   image: PropTypes.shape({
-    url: PropTypes.string,
+    url: PropTypes.string
   }),
   imageClass: PropTypes.string,
   /** H1 title */
   title: PropTypes.string,
   titleCenter: PropTypes.string,
-  titleColor: PropTypes.string,
-};
+  titleColor: PropTypes.string
+}
 
 TitleBlock.defaultProps = {
   image: undefined,
   imageClass: '',
   title: '',
   titleCenter: '',
-  titleColor: '',
-};
+  titleColor: ''
+}
 
-export default (props) => <TitleBlock {...props} />;
+const DefaultTitleBlock = (props) => <TitleBlock {...props} />
+DefaultTitleBlock.displayName = 'TitleBlock'
+
+export default DefaultTitleBlock

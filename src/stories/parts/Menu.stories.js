@@ -1,38 +1,40 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { Menu } from '../../main/resources/react4xp/libEntries/Menu.jsx';
+import { Menu } from '../../main/resources/react4xp/libEntries/Menu.jsx'
 
-import { SingleLayout } from '../layouts';
+import { SingleLayout } from '../layouts'
 
 export default {
   title: 'Parts/Menu/Menu',
 
-  component: Menu,
-};
+  component: Menu
+}
 
-const Template = (args) => (
-  <div className="content">
-    <div className="content-item">
-      <Menu {...args} />
-    </div>
-  </div>
-);
+const Template = ({ fullWidth = false, ...args }) => (
+  <SingleLayout fullWidth={fullWidth}>
+    <Menu {...args} />
+  </SingleLayout>
+)
 
+Template.propTypes = {
+  fullWidth: PropTypes.bool
+}
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   items: [
     {
-      title: 'Menu',
+      title: 'Menu'
     },
     {
-      title: 'Menu',
+      title: 'Menu'
     },
     {
-      title: 'Menu',
+      title: 'Menu'
     },
     {
-      title: 'Menu',
-    },
-  ],
-};
+      title: 'Menu'
+    }
+  ]
+}

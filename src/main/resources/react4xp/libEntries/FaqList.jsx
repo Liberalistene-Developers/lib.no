@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { Faq } from '../shared/Faq';
+import { Faq } from '../shared/Faq'
 
 export const FaqList = ({
   items = [],
   expandable = false,
   expanded = true,
-  anchorText,
+  anchorText
 }) => {
   return (
     <div className="page-content">
@@ -27,7 +27,26 @@ export const FaqList = ({
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default (props) => <FaqList {...props} />;
+FaqList.propTypes = {
+  items: PropTypes.arrayOf({
+    itemID: PropTypes.string,
+    answer: PropTypes.string,
+    question: PropTypes.string
+  }),
+  anchorText: PropTypes.string,
+  expandable: PropTypes.bool,
+  expanded: PropTypes.bool
+}
+
+FaqList.defaultProps = {
+  expandable: false,
+  expanded: true
+}
+
+const DefaultFaqList = (props) => <FaqList {...props} />
+DefaultFaqList.displayName = 'FaqList'
+
+export default DefaultFaqList

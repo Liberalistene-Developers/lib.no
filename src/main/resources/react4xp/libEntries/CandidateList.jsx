@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import cx from 'classnames';
+import React from 'react'
+import PropTypes from 'prop-types'
+import cx from 'classnames'
 
-import { PersonListItem } from '../shared/PersonListItem';
+import { PersonListItem } from '../shared/PersonListItem'
 
 /**
  * Primary Image holder for solution.
@@ -12,7 +12,7 @@ export const CandidateList = ({
   imagetype = true,
   items = [],
   showRole,
-  className,
+  className
 }) => {
   return (
     <div className={cx('candidate-list', 'list', className)}>
@@ -26,8 +26,8 @@ export const CandidateList = ({
       />
     ))}
     </div>
-  );
-};
+  )
+}
 
 CandidateList.propTypes = {
   imagesize: PropTypes.string,
@@ -37,17 +37,24 @@ CandidateList.propTypes = {
     name: PropTypes.string,
     image: PropTypes.shape({
       url: PropTypes.string,
-      alternativeText: PropTypes.string,
+      alternativeText: PropTypes.string
     }),
     role: PropTypes.string,
-    shortDescription: PropTypes.string,
-  })),  
-};
+    shortDescription: PropTypes.string
+  })),
+  showRole: PropTypes.bool
+}
 
 CandidateList.defaultProps = {
-  showRole: true,  
   className: '',
-  items: [],
-};
+  items: PropTypes.arrayOf({
+    itemId: PropTypes.string,
+    name: PropTypes.string
+  }),
+  showRole: true
+}
 
-export default (props) => <CandidateList {...props} />;
+const DefaultCandidateList = (props) => <CandidateList {...props} />
+DefaultCandidateList.displayName = 'CandidateList'
+
+export default DefaultCandidateList
