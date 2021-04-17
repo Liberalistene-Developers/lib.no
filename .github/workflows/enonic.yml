@@ -9,10 +9,10 @@ jobs:
     strategy:
       matrix:
         node-version: [15.x]
-    
+
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Use Node ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -25,10 +25,13 @@ jobs:
 
       - name: Install project dependences
         run: npm install
-      
+
+      - name: Lint code and css
+        run: npm run lint
+
       - name: Build jar file
         run: npm run rebuild
-      
+
       - name: Build, Test and Deploy app
         uses: docker://enonic/enonic-ci:7.6-node
         env:

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 /**
  * Primary Image holder for solution.
  */
-const Card = ({
+export const Card = ({
   children,
   image,
   title,

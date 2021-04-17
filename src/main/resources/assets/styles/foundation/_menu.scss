@@ -1,0 +1,193 @@
+header, footer {
+  background-color: var(--lib-color-background-700);
+  display: flex;
+  min-height: 60px;
+
+  .main-menu {
+    display: flex;
+    list-style: none;
+
+    li {
+      a {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding-right: 20px;
+        padding-left: 20px;
+        color: var(--lib-color-primary-100);
+
+        &:hover {
+          color: var(--lib-color-primary-700);
+        }
+      }
+    }
+
+  }
+}
+
+header {
+  align-items: center;
+  justify-content: space-between;
+
+  & img {
+    margin-right: 20px;
+  }
+
+  & .main-menu-wrapper {
+    & > input[type=checkbox] {
+      display: none;
+
+      & ~ label {
+        display: none;
+      }
+    }
+  }
+}
+
+footer {
+  bottom: 0px;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+
+  & > .footer-menu {
+    display: flex;
+    border: 1px solid #F4F4F4;
+    margin-left: -1px;
+    margin-right: -1px;
+    min-height: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & > .contact {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & > * {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 33%;
+      }
+  }
+}
+
+@media screen and (max-width: 414px) {
+  header, footer {
+    & .main-menu {
+      display: none;
+    }
+  }
+
+  header {
+    & .main-menu-wrapper {
+      & .overlay {
+        height: 100vh;
+        width: 100vw;
+        background-color: var(--lib-color-menu-background);
+        z-index: 2;
+        visibility: hidden;
+        position: fixed;
+        left: 0px;
+        top: 0px;
+
+        &.active {
+          visibility: visible;
+        }
+
+        & .main-menu {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          text-align: center;
+          height: 100vh;
+          padding-left: 0;
+          list-style-type: none;
+          li {
+            padding: 1em;
+            a {
+              text-decoration: none;
+              font-size: 1.5em;
+            }
+          }
+        }
+      }
+
+      & input[type=checkbox] {
+        & ~ label {
+          position: relative;
+          right: 10px;
+          top: 0px;
+          // padding-right: 26px;
+          z-index: 5;
+          cursor: pointer;
+          user-select: none;
+          display: initial;
+
+          span {
+            cursor: pointer;
+            height: 4px;
+            width: 35px;
+            border-radius: 2px;
+            background-color: var(--lib-color-primary-700);
+            position: relative;
+            display: block;
+            transition: all .2s ease-in-out;
+            &:before {
+              top: -10px;
+              visibility: visible;
+            }
+            &:after {
+              top: 10px;
+            }
+            &:before, &:after {
+                height: 4px;
+                width: 35px;
+                border-radius: 2px;
+                background-color: var(--lib-color-primary-700);
+                position: absolute;
+                content: "";
+                transition: all .2s ease-in-out;
+            }
+          }
+
+          &:hover span, &:hover span:before, &:hover span:after {
+            background-color: var(--lib-color-primary-100);
+          }
+        }
+
+        &:checked  {
+          & ~ label {
+            span {
+              &:before {
+                transform: rotate(45deg) translate(7px, 7px);
+                opacity: 1;
+              }
+              &:after {
+                transform: rotate(-45deg) translate(7px, -7px);
+              }
+            }
+
+            span, &:hover span {
+              background: transparent;
+            }
+          }
+        }
+
+        &:checked ~ .overlay {
+          visibility: visible;
+        }
+      }
+    }
+  }
+}

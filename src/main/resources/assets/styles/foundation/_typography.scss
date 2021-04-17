@@ -1,7 +1,9 @@
+$primary_font_family: 'Lato', sans-serif;
+
 body {
   background-color: var(--lib-color-background-700);
   color: var(--lib-color-primary-100);
-  font-family: Lato;
+  font-family: $primary_font_family;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -12,7 +14,7 @@ body {
 
 h1 {
   color: var(--lib-color-primary-700);
-  font-family: Lato;
+  font-family: $primary_font_family;
   font-size: 50px;
   font-style: normal;
   font-weight: bold;
@@ -22,7 +24,7 @@ h1 {
 
 h2 {
   color: var(--lib-color-primary-500);
-  font-family: Lato;
+  font-family: $primary_font_family;
   font-size: 45px;
   font-style: normal;
   font-weight: bold;
@@ -32,7 +34,7 @@ h2 {
 
 h3 {
   color: var(--lib-color-primary-500);
-  font-family: Lato;
+  font-family: $primary_font_family;
   font-size: 38px;
   font-style: normal;
   font-weight: bold;
@@ -44,7 +46,7 @@ h3 {
 
 .rich-text {
   color: var(--lib-color-primary-300);
-  font-family: Lato;
+  font-family: $primary_font_family;
   line-height: 22px;
   font-size: 18px;
   font-style: normal;
@@ -53,7 +55,7 @@ h3 {
 
 .as-span {
   display: inline;
-  
+
   & > p {
     display: inline;
   }
@@ -66,7 +68,7 @@ h3 {
     font-size: 45px;
     line-height: 54px;
   }
-  
+
   h2 {
     font-weight: 800;
     font-size: 38px;

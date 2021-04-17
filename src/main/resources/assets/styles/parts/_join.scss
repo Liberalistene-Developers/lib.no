@@ -3,12 +3,12 @@
 .join-container {
   position: relative;
   height: 300px;
-  
+
   & .medium-margin {
     margin-top: 60px;
     margin-bottom: 60px;
   }
-  
+
   .middle {
     position: absolute;
     top: 50%;
@@ -18,10 +18,10 @@
 
   .join {
     cursor: pointer;
-    
+
     width: 600px;
-    height: 300px;    
-          
+    height: 300px;
+
     .join-front,.join-back {
       width: 100%;
       height: 100%;
@@ -35,7 +35,7 @@
     .join-front {
       transform: perspective(600px) rotateX(0deg);
       color: hsl(0, 0%, 100%);
-      
+
       .join-front-content {
         background-color: rgb(74, 16, 74);
         height: 100%;
@@ -43,61 +43,77 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        
+
+        .image-holder {
+          img {
+            height: calc(100% - 50px);
+          }
+        }
+
         &.column {
           flex-direction: column;
-          
+          row-gap: 20px;
+          justify-content: center;
+
+          .join-front-text {
+            display: flex;
+            height: 100%;
+            align-items: center;
+          }
+
           .image-holder {
-             margin-top: -20px;
-          }          
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            height: 70%;
+
+             ~ .join-front-text {
+               align-items: flex-start;
+               height: 33%;
+               margin-top: -20px;
+             }
+          }
         }
-        
+
         &.row {
           flex-direction: row;
           column-gap: 40px;
-          
-          .join-front-text, .image-holder {
-            width: calc(40%);
+          justify-content: center;
+
+          .image-holder, .join-front-text {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            justify-content: center;
+            max-width: 50%;
           }
-          
-          .image-holder {
-            text-align: end;
-          }
-        }        
+        }
       }
     }
 
     .join-back {
       background-color: rgb(74, 16, 74);
       transform: perspective(600px) rotateX(-180deg);
-      
+
       .join-back-content {
         color: #2c3e50;
         text-align: center;
         width: 100%;
-        
+
         .join-back-text {
           color: var(--lib-color-button-color-100);
         }
-      }    
+      }
     }
-    
+
     &:hover {
       > .join-front{
         transform: perspective(600px) rotateX(180deg);
-      }  
-      
+      }
+
       > .join-back{
         transform: perspective(600px) rotateX(0deg);
       }
     }
   }
 }
-
-
-
-
-
-
-
-

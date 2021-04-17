@@ -1,7 +1,7 @@
 .bookcard-list {
   margin-left: auto;
   margin-right: auto;
-  
+
   &.grid {
     display: flex;
     max-width: 1296px;
@@ -18,20 +18,20 @@
   flex-direction: row;
   column-gap: 20px;
   height: 239px;
-  
+
   & .bookcard-image {
     & img {
       width: 157px;
-      height: 239px;      
+      height: 239px;
     }
   }
-  
+
   & .bookcard-content {
     display: flex;
     flex-direction: column;
     width: 201px;
     row-gap: 6px;
-    
+
     & .bookcard-title {
       color: var(--lib-color-primary-700);
       font-weight: bold;
@@ -39,7 +39,7 @@
       line-height: 29px;
       flex: 0.3 0 0%;
     }
-    
+
     & .bookcard-author {
       flex: 0;
       color: #5D5664;
@@ -48,12 +48,12 @@
       font-weight: bold;
       line-height: 22px;
     }
-    
+
     & .rich-text {
       width: 100%;
-      
+
       flex: 0.7 0 0%;
-      font-family: Lato;
+      font-family: $primary_font_family;
       font-style: normal;
       font-weight: bold;
       font-size: 14px;
@@ -63,10 +63,10 @@
 
       color: #696F88;
     }
-    
+
     & .bookcard-buy {
       flex: 0;
-      
+
       & a {
         font-style: normal;
         font-weight: bold;
@@ -76,7 +76,7 @@
 
         text-decoration-line: underline;
 
-        color: var(--lib-color-primary-700);;
+        color: var(--lib-color-primary-700);
 
       }
     }
