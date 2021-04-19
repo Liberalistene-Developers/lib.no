@@ -29,13 +29,13 @@ export const Text = Template.bind({})
 Text.args = {
   image: null,
   message: 'Bli medlem',
-  buttonText: 'Bli medlem',
+  buttonText: 'Bli medlem'
 }
 
 export const TextColumn = Template.bind({})
 TextColumn.args = {
   ...Text.args,
-  frontPlacement: 'column',
+  frontPlacement: 'column'
 }
 
 export const ImageAndTextRow = Template.bind({})
@@ -45,13 +45,13 @@ ImageAndTextRow.args = {
   },
   message: 'Bli medlem',
   buttonText: 'Bli medlem',
-  frontPlacement: 'row',
+  frontPlacement: 'row'
 }
 
 export const ImageAndTextColumn = Template.bind({})
 ImageAndTextColumn.args = {
   ...ImageAndTextRow.args,
-  frontPlacement: 'column',
+  frontPlacement: 'column'
 }
 
 export const TwitterImageAndTextRow = Template.bind({})
@@ -61,11 +61,11 @@ TwitterImageAndTextRow.args = {
   },
   message: 'Bli medlem',
   buttonText: 'Bli medlem',
-  frontPlacement: 'row',
+  frontPlacement: 'row'
 }
 
 export const TwitterImageAndTextColumn = Template.bind({})
 TwitterImageAndTextColumn.args = {
   ...TwitterImageAndTextRow.args,
-  frontPlacement: 'column',
+  frontPlacement: 'column'
 }
