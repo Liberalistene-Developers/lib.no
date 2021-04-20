@@ -1,4 +1,5 @@
 .enonic
+nashorn_code_cache
 
 ### OSX ###
 .DS_Store
