@@ -6,14 +6,14 @@
   </description>
   <form>
     <input name="buttonText" type="TextLine" required="true">
-      <label i18n="parts.button.buttontext.title">Button Text</label>      
+      <label i18n="parts.button.buttontext.title">Button Text</label>
     </input>
     <option-set name="urlSelector">
       <label i18n="checkOptionSet.label">Items</label>
-      <expanded>true</expanded> 
-      <occurrences minimum="1" maximum="1"/> 
+      <expanded>true</expanded>
+      <occurrences minimum="1" maximum="1"/>
       <help-text>You can select up to 1 options</help-text>
-      <options minimum="1" maximum="1">    
+      <options minimum="1" maximum="1">
         <option name="intern">
           <label>Intern page</label>
           <help-text>Choise a internal page of this site</help-text>
@@ -22,7 +22,7 @@
               <label i18n="parts.button.url.label">Url</label>
               <occurrences minimum="1" maximum="1"/>
               <config>
-                <allowContentType>page</allowContentType>
+                <allowContentType>*</allowContentType>
                 <allowPath>${site}/*</allowPath>
                 <allowPath>./*</allowPath>
                 <treeMode>false</treeMode>
@@ -43,13 +43,13 @@
               </config>
             </input>
             <input name="target" type="RadioButton">
-              <label i18n="parts.button.target.title">Target</label> 
-              <occurrences minimum="1" maximum="1"/> 
+              <label i18n="parts.button.target.title">Target</label>
+              <occurrences minimum="1" maximum="1"/>
               <config>
-                <option value="_self" i18n="parts.button.target.self.title">Same Window</option> 
+                <option value="_self" i18n="parts.button.target.self.title">Same Window</option>
                 <option value="_blank" i18n="parts.button.target.blank.title">New Window</option>
               </config>
-              <default>_self</default> 
+              <default>_self</default>
             </input>
           </items>
         </option>

@@ -1,62 +1,69 @@
-.button {
-  appearance: button;
+.button-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 
-  border-radius: 3px;
-  position: relative;
-  display: inline-block;
-  min-width: 124px;
-  margin: 20px auto;
-  padding: 18px;
+  .button {
+    appearance: button;
 
-  background-color: var(--lib-color-primary-700);
-  border: 1px solid #ccc;
+    border-radius: 3px;
+    position: relative;
+    display: inline-block;
+    min-width: 124px;
+    margin: 20px auto;
+    padding: 18px;
 
-  color: var(--lib-color-menu-background);
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
+    background-color: var(--lib-color-primary-700);
+    border: 1px solid #ccc;
 
-  transform-style: flat;
-  transition: all 250ms ease-out;
+    color: var(--lib-color-menu-background);
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
 
-  &:before,
-  &:after {
-      content: '';
-      position: absolute;
-      z-index: -2;
-    	transition: all 250ms ease-out;
-  }
+    transform-style: flat;
+    transition: all 250ms ease-out;
 
-  &.light {
-    color: var(--lib-color-primary-700);
-    background-color: #fff;
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        z-index: -2;
+      	transition: all 250ms ease-out;
+    }
 
-    &.paper-raise {
-      &:hover {
-        border: 1px solid #fff;
-        text-shadow: 0 1px var(--lib-color-primary-700);
+    &.light {
+      color: var(--lib-color-primary-700);
+      background-color: #fff;
 
-        &:before {
-          box-shadow: 0 15px 10px -10px rgba(255, 255, 255, 0.5);
+      &.paper-raise {
+        &:hover {
+          border: 1px solid #fff;
+          text-shadow: 0 1px var(--lib-color-primary-700);
+
+          &:before {
+            box-shadow: 0 15px 10px -10px rgba(255, 255, 255, 0.5);
+          }
+
         }
-
       }
     }
-  }
 
-  &.paper-raise {
-    &:before {
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    &:hover {
-      border: 1px solid var(--lib-color-primary-700);
-      text-shadow: 0 1px lightgrey;
-
+    &.paper-raise {
       &:before {
-  			box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      &:hover {
+        border: 1px solid var(--lib-color-primary-700);
+        text-shadow: 0 1px lightgrey;
+
+        &:before {
+    			box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5);
+        }
       }
     }
   }

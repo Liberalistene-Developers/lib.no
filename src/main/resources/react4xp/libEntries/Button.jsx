@@ -10,14 +10,16 @@ export const Button = ({
   className,
   onClick
 }) => (
-  <a
-    href={url}
-    target={target}
-    className={cx('button', 'paper-raise', className)}
-    onClick={onClick}
-  >
-    {title}
-  </a>
+  <div className="button-wrapper">
+    <a
+      href={url}
+      target={target}
+      className={cx('button', 'paper-raise', className)}
+      onClick={onClick}
+    >
+      {title}
+    </a>
+  </div>
 )
 
 Button.propTypes = {
