@@ -114,6 +114,16 @@ main {
           max-width: 100%;
         }
 
+        section[data-portal-component-type="text"] {
+          > figure {
+            width: 100%;
+
+            img {
+              max-width: 100%;
+            }
+          }
+        }
+
         &.items {
           flex-direction: row;
           flex-wrap: wrap;
