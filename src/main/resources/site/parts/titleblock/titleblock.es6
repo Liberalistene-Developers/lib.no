@@ -11,20 +11,30 @@ exports.get = function (request) {
     config: {
       image: imageKey = '',
       headerPosition: position,
-      title = '',
-      titleColor = '',
-      imageOverlay = ''
+      imageOverlay = '',
+      ingress,
+      ingressColor,
+      titleSet: {
+        _selected: selection,
+        simple: title,
+        fancy: {
+          titles = []
+        }
+      }
     } = {}
   } = component
 
   log.info(JSON.stringify(content, null, 4))
 
+  const titleList = selection === 'simple' ? [title] : [].concat(titles)
+
   const props = {
     Tag: 'h1',
     image: imageUrl(imageKey, 'full'),
-    title,
+    title: titleList,
     position,
-    text: titleColor,
+    ingress,
+    ingressColor,
     overlay: imageOverlay && `overlay ${imageOverlay}`
   }
 

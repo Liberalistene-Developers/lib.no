@@ -27,9 +27,8 @@ export const H1RightLight = Template.bind({})
 H1RightLight.storyName = 'H1 Right Light'
 H1RightLight.args = {
   ...NoHeader.args,
-  title: 'H1 Header',
-  Tag: 'h1',
-  text: 'light'
+  title: [{ title: 'H1 Header', titleColor: 'light' }],
+  Tag: 'h1'
 }
 
 export const H1LeftLight = Template.bind({})
@@ -50,9 +49,8 @@ export const H2RightLight = Template.bind({})
 H2RightLight.storyName = 'H2 Right Light'
 H2RightLight.args = {
   ...NoHeader.args,
-  title: 'H2 Header',
-  Tag: 'h2',
-  text: 'light'
+  title: [{ title: 'H2 Header', titleColor: 'light' }],
+  Tag: 'h2'
 }
 
 export const H2LeftLight = Template.bind({})
@@ -73,9 +71,8 @@ export const H3RightLight = Template.bind({})
 H3RightLight.storyName = 'H3 Right Light'
 H3RightLight.args = {
   ...NoHeader.args,
-  title: 'H3 Header',
-  Tag: 'h3',
-  text: 'light'
+  title: [{ title: 'H3', titleColor: 'light' }, { title: 'Header', titleColor: 'yellow' }],
+  Tag: 'h3'
 }
 
 export const H3LeftLight = Template.bind({})

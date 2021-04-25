@@ -34,9 +34,9 @@ export const Event = ({
 }) => (
   <div className="event">
     <ImageBlock
-      title={titleInImage && title}
+      title={titleInImage && [{ title, titleColor: headerColor }]}
       image={image}
-      ingress={ingressInImage && ingress} text={headerColor}
+      ingress={ingressInImage && ingress}
       position={headerPosition}
     />
 

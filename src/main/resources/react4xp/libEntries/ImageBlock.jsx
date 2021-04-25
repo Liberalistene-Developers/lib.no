@@ -5,27 +5,35 @@ import cx from 'classnames'
 
 import Image from '../shared/Image'
 
+console.info(cx);
+
 export const ImageBlock = ({
   Tag,
   image,
-  position,
-  text,
-  title,
-  ingress,
-  overlay
+  position = '',
+  title = [],
+  overlay = '',
+  ingress = '',
+  ingressColor = 'standard',
 }) => (
   <div className="image-block">
     <Image image={image} className="full" />
 
     { (title || ingress) && (
       <div className={cx('content', position, overlay)}>
-        { title && (
-          <div className={`title ${text}`}>
-            <Tag>{title}</Tag>
+        { title && title.length > 0 && (
+          <div className="title">
+            <Tag>
+              {title.map(({ title: titleText, titleColor }) => (
+                <span className={titleColor}>
+                  {titleText}
+                </span>
+              ))}
+            </Tag>
           </div>
         )}
         { ingress && (
-          <div className="ingress" dangerouslySetInnerHTML={{ __html: ingress }} />
+          <div className={cx('ingress', ingressColor)} dangerouslySetInnerHTML={{ __html: ingress }} />
         )}
       </div>
     )}

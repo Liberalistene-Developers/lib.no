@@ -20,6 +20,16 @@
     height: 100%;
     display: flex;
 
+    &.center {
+      justify-content: center;
+      align-items: center;
+
+      &.title {
+        left: 50%; // ^1
+        transform:translateX(-50%); // ^2,3
+      }
+    }
+
     h1 {
       font-size: 100px;
       font-weight: 800;
@@ -33,7 +43,7 @@
     }
 
     &.light {
-      & h1, h2, h3, .ingress {
+      .ingress {
         color: #fff;
       }
     }
@@ -43,10 +53,26 @@
       top: 50%;
       transform:translateY(-50%); // ^2,3
 
-      &.purple {
-        h1 {
-          color: var(--lib-color-primary-700);
+      span:not(:first-child) {
+        &::before {
+          content: ' ',
         }
+      }
+
+      .purple {
+        color: var(--lib-color-primary-700);
+      }
+
+      .white {
+        color: var(--lib-color-primary-700);
+      }
+
+      .yellow {
+        color: #FFEA00;
+      }
+
+      .light {
+        color: #fff;
       }
     }
 
@@ -57,15 +83,8 @@
     }
 
     &.right {
-      &.title {
+      .title {
         right: 10%;
-      }
-    }
-
-    &.center {
-      &.title {
-        left: 50%; // ^1
-        transform:translateX(-50%); // ^2,3
       }
     }
 

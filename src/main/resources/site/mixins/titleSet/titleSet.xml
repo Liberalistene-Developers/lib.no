@@ -1,0 +1,33 @@
+<mixin>
+  <display-name i18n="mixin.titleSet.displayname">Title set</display-name>
+  <form>
+    <option-set name="titleSet">
+      <label i18n="checkOptionSet.label">Title</label>
+      <expanded>true</expanded>
+      <occurrences minimum="1" maximum="1"/>
+      <help-text>You can select up to 1 options</help-text>
+      <options minimum="1" maximum="1">
+        <option name="simple">
+          <label>Simple title</label>
+          <help-text>Input title</help-text>
+          <items>
+            <mixin name="title" />
+          </items>
+        </option>
+        <option name="fancy">
+          <label>Fancy title</label>
+          <help-text>Add a color full title.</help-text>
+          <items>
+            <item-set name="titles">
+              <label i18n="parts.titleblock.titleSet.titles">Titles</label>
+              <occurrences minimum="1" maximum="0"/>
+              <items>
+                <mixin name="title" />
+              </items>
+            </item-set>
+          </items>
+        </option>
+      </options>
+    </option-set>
+  </form>
+</mixin>

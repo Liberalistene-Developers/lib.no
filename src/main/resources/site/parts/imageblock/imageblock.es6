@@ -9,37 +9,37 @@ exports.get = function (request) {
 
   const {
     config: {
-      headerColor: text,
+      titleSet: {
+        _selected: selection,
+        simple: title,
+        fancy: {
+          titles = []
+        }
+      },
       headerPosition: position,
       headerType: Tag,
-      image: configImageKey,
+      image: imageKey,
       imageOverlay = '',
-      ingress: configIngress,
-      title: configTitle
+      ingress,
+      ingressColor
     } = {}
   } = component
 
-  const {
-    data: {
-      image: imageKey = '',
-      ingress = '',
-      title = ''
-    } = {}
-  } = content
+  const titleList = selection === 'simple' ? [title] : [].concat(titles)
 
   log.info(JSON.stringify(content, null, 4))
 
   const props = {
     Tag,
     image: {
-      ...imageUrl(configImageKey || imageKey, 'full'),
-      url: portal.attachmentUrl({ id: configImageKey || imageKey })
+      ...imageUrl(imageKey, 'full'),
+      url: portal.attachmentUrl({ id: imageKey })
     },
     overlay: imageOverlay && `overlay ${imageOverlay}`,
-    ingress: configIngress || ingress,
+    ingress,
+    ingressColor,
     position,
-    text,
-    title: configTitle || title
+    title: titleList
   }
 
   log.info(JSON.stringify(props, null, 4))

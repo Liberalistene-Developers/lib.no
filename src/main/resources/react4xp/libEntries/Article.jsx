@@ -19,11 +19,11 @@ export const Article = ({
 }) => (
   <div className="article">
     <ImageBlock
-      title={titleInImage && title}
+      title={titleInImage && [{ title, titleColor: headerColor }]}
       image={image}
       ingress={ingressInImage && ingress}
-      text={headerColor}
-      position={headerPosition} />
+      position={headerPosition}
+    />
 
     <div className="article-title">
       { !titleInImage && title && (
