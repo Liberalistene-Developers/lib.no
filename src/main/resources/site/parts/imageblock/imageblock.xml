@@ -12,6 +12,10 @@
     <mixin name="headerposition" />
     <input name="ingress" type="HtmlArea">
       <label i18n="content_types.ingress">Ingress</label>
+      <config>
+        <exclude>*</exclude>
+        <include>Format | Bold Italic Underline TextColor | JustifyBlock JustifyLeft JustifyCenter JustifyRight | BulletedList NumberedList Outdent Indent | SpecialChar Anchor Image Macro Link Unlink | Table</include>
+      </config>
     </input>
     <input name="ingressColor" type="ComboBox">
       <label i18n="parts.ingresscolor.label">Ingress color</label>
