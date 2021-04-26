@@ -1,0 +1,16 @@
+<mixin>
+  <display-name i18n="mixin.hideingress.displayname">Ingress</display-name>
+  <form>
+    <field-set>
+      <label i18n="mixin.hideingress.label">Ingress</label>
+      <items>
+        <input  name="hideIngress" type="CheckBox">
+          <label i18n="mixin.hideingress.enabled.label">Skjul ingress</label>
+          <config>
+            <alignment>right</alignment>
+          </config>
+        </input>
+      </items>
+    </field-set>
+  </form>
+</mixin>

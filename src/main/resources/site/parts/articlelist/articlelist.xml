@@ -6,19 +6,19 @@
   </description>
   <form>
     <mixin name="image" />
-    <input type="TextLine" name="title" > 
-      <label i18n="parts.title.label">Title</label> 
+    <input type="TextLine" name="title" >
+      <label i18n="parts.title.label">Title</label>
       <default i18n="parts.title.default">Title</default>
-      <help-text i18n="parts.title.help-text">Input your title.</help-text>  
-      <occurrences minimum="0" maximum="1"/>  
-      <config/> 
+      <help-text i18n="parts.title.help-text">Input your title.</help-text>
+      <occurrences minimum="0" maximum="1"/>
+      <config/>
     </input>
     <option-set name="itemsSet">
       <label i18n="checkOptionSet.label">Items</label>
-      <expanded>true</expanded> 
-      <occurrences minimum="1" maximum="1"/> 
+      <expanded>true</expanded>
+      <occurrences minimum="1" maximum="1"/>
       <help-text>You can select up to 1 options</help-text>
-      <options minimum="1" maximum="1">    
+      <options minimum="1" maximum="1">
         <option name="manual">
           <label>Manual selection</label>
           <help-text>Select items to show</help-text>
@@ -48,14 +48,9 @@
         </option>
       </options>
     </option-set>
+    <mixin name="hideingress" />
     <mixin name="displaytype" />
     <mixin name="readmore" />
     <mixin name="loadmore" />
-    <input  name="noingress" type="CheckBox">
-      <label i18n="parts.articlelist.noingress.label">Skjul ingress</label>
-      <config>
-        <alignment>right</alignment>
-      </config>
-    </input>
   </form>
 </part>

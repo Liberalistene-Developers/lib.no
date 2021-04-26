@@ -9,13 +9,15 @@ exports.get = function (request) {
 
   const {
     config: {
+      title: oldTitle,
+      headerColor,
       titleSet: {
-        _selected: selection,
-        simple: title,
+        _selected: selection = 'simple',
+        simple: title = { title: oldTitle, titleColor: headerColor },
         fancy: {
           titles = []
-        }
-      },
+        } = {}
+      } = {},
       headerPosition: position,
       headerType: Tag,
       image: imageKey,

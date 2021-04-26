@@ -14,13 +14,15 @@ exports.get = function (request) {
       imageOverlay = '',
       ingress,
       ingressColor,
+      title: oldTitle,
+      headerColor,
       titleSet: {
-        _selected: selection,
-        simple: title,
+        _selected: selection = 'simple',
+        simple: title = { title: oldTitle, titleColor: headerColor },
         fancy: {
           titles = []
-        }
-      }
+        } = {}
+      } = {}
     } = {}
   } = component
 

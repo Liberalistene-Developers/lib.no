@@ -35,13 +35,13 @@ exports.get = function (request) {
           count = 10
         } = {}
       } = {},
+      hideIngress = false,
       shortDescription,
       title,
       readMore = '',
       readMoreEnabled = false,
       loadMore = '',
-      loadMoreEnabled = false,
-      noingress = false
+      loadMoreEnabled = false
     } = {}
   } = component
 
@@ -125,7 +125,7 @@ exports.get = function (request) {
     parentPathQuery,
     count,
     sortExpression,
-    noIngress: !!noingress
+    noIngress: !!hideIngress
   }
 
   log.info(JSON.stringify(props, null, 4))
