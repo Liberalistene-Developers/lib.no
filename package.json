@@ -8,7 +8,7 @@
     "install:prod": "npm install",
     "stylelint": "stylelint src/**/*.scss",
     "prelint": "npm run stylelint",
-    "lint": "eslint src/",
+    "lint": "eslint src/**/*.{jsx,es6,js}",
     "clean": "./gradlew clean --refresh-dependencies  --info",
     "build": "./gradlew build --info",
     "deploy": "./gradlew deploy --info",
