@@ -55,6 +55,14 @@ main {
   > .content-holder {
     max-width: 100%;
 
+    &.light-purple {
+      background-color: var(--lib-color-background-300);
+    }
+
+    &.light-grey {
+      background-color: var(--lib-color-background-500);
+    }
+
     &.purple {
       background-color: var(--lib-color-primary-700);
       color: var(--lib-color-background-700);

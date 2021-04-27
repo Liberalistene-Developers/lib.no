@@ -56,6 +56,18 @@ StandardBackgroundFullWidth.args = {
   fullWidth: true
 }
 
+export const LightPurpleBackground = Template.bind({})
+LightPurpleBackground.args = {
+  ...StandardBackground.args,
+  background: 'light-purple'
+}
+
+export const LightGreyBackground = Template.bind({})
+LightGreyBackground.args = {
+  ...StandardBackground.args,
+  background: 'light-grey'
+}
+
 export const PurpleBackground = Template.bind({})
 PurpleBackground.args = {
   ...StandardBackground.args,

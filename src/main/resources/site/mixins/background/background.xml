@@ -8,8 +8,10 @@
         <option value="normal" i18n="mixin.background.standard.label">Standard</option>
         <option value="light" i18n="mixin.background.white.label">White</option>
         <option value="purple" i18n="mixin.background.purple.label">Purple</option>
+        <option value="light-grey" i18n="mixin.background.lightgrey.label">Light Grey</option>
+        <option value="light-purple" i18n="mixin.background.lightpurple.label">Light Purple</option>
       </config>
-      <default>normal</default> 
+      <default>normal</default>
     </input>
   </form>
 </mixin>
