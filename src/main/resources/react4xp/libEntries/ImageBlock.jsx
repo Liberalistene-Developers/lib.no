@@ -21,19 +21,23 @@ export const ImageBlock = ({
 
     { (title || ingress) && (
       <div className={cx('content', position, overlay)}>
-        { title && title.length > 0 && (
-          <div className="title">
-            <Tag>
-              {title.map(({ title: titleText, titleColor }) => (
-                <span className={titleColor}>
-                  {titleText}
-                </span>
-              ))}
-            </Tag>
+        { ((title && title.length > 0) || ingress) && (
+          <div className="image-block-text">
+            { title && title.length > 0 && (
+              <div className="title">
+                <Tag>
+                  {title.map(({ title: titleText, titleColor }) => (
+                    <span className={titleColor}>
+                      {titleText}
+                    </span>
+                  ))}
+                </Tag>
+              </div>
+            )}
+            { ingress && (
+              <div className={cx('ingress', ingressColor)} dangerouslySetInnerHTML={{ __html: ingress }} />
+            )}
           </div>
-        )}
-        { ingress && (
-          <div className={cx('ingress', ingressColor)} dangerouslySetInnerHTML={{ __html: ingress }} />
         )}
       </div>
     )}

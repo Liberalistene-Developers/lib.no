@@ -30,6 +30,12 @@ H1RightLight.args = {
   title: [{ title: 'H1 Header', titleColor: 'light' }],
   Tag: 'h1'
 }
+export const H1RightIngressLight = Template.bind({})
+H1RightIngressLight.storyName = 'H1 Right Light with Ingress'
+H1RightIngressLight.args = {
+  ...H1RightLight.args,
+  ingress: '<p>My ingress is nice</p>'
+}
 
 export const H1LeftLight = Template.bind({})
 H1LeftLight.storyName = 'H1 Left Light'

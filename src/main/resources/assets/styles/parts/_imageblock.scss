@@ -1,5 +1,5 @@
 .purple {
-  .title {
+  .title, .ingress {
     span, .normal {
       color: var(--lib-color-button-color-100);
     }
@@ -7,7 +7,7 @@
 }
 
 .yellow, .light {
-  .title {
+  .title, .ingress {
     span, .normal {
       color: var(--lib-color-primary-700)
     }
@@ -41,7 +41,7 @@
       justify-content: center;
       align-items: center;
 
-      &.title {
+      &.image-block-text {
         left: 50%; // ^1
         transform:translateX(-50%); // ^2,3
       }
@@ -65,42 +65,69 @@
       }
     }
 
-    .title {
+    .image-block-text {
       position: absolute;
       top: 50%;
       transform:translateY(-50%); // ^2,3
 
-      span:not(:first-child) {
-        &::before {
-          content: ' ',
+      .ingress {
+        color: var(--lib-color-button-color-100);
+
+        p {
+          margin-top: 0px;
+          margin-bottom: 0px;
+        }
+
+        .purple {
+          color: var(--lib-color-primary-700);
+        }
+
+        .white {
+          color: var(--lib-color-primary-700);
+        }
+
+        .yellow {
+          color: var(--lib-color-purple-anchor);
+        }
+
+        .light {
+          color: var(--lib-color-button-color-100);
         }
       }
 
-      .purple {
-        color: var(--lib-color-primary-700);
-      }
+      .title {
+        span:not(:first-child) {
+          &::before {
+            content: ' ',
+          }
+        }
 
-      .white {
-        color: var(--lib-color-primary-700);
-      }
+        .purple {
+          color: var(--lib-color-primary-700);
+        }
 
-      .yellow {
-        color: var(--lib-color-purple-anchor);
-      }
+        .white {
+          color: var(--lib-color-primary-700);
+        }
 
-      .light {
-        color: var(--lib-color-button-color-100);
+        .yellow {
+          color: var(--lib-color-purple-anchor);
+        }
+
+        .light {
+          color: var(--lib-color-button-color-100);
+        }
       }
     }
 
     &.left {
-      .title {
+      .image-block-text {
         left: 10%;
       }
     }
 
     &.right {
-      .title {
+      .image-block-text {
         right: 10%;
       }
     }
