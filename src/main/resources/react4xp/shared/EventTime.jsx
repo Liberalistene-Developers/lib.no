@@ -32,7 +32,4 @@ EventTime.defaultProps = {
   timeLabel: ''
 }
 
-const DefaultEventTime = (props) => <EventTime {...props} />
-DefaultEventTime.displayName = 'EventTime'
-
-export default DefaultEventTime
+export default (props) => <EventTime {...props} /> // eslint-disable-line react/display-name

@@ -93,7 +93,4 @@ BookCard.defaultProps = {
   url: ''
 }
 
-const DefaultBookCard = (props) => <BookCard {...props} />
-DefaultBookCard.displayName = 'BookCard'
-
-export default DefaultBookCard
+export default (props) => <BookCard {...props} /> // eslint-disable-line react/display-name

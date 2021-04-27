@@ -35,7 +35,4 @@ Person.propTypes = {
   tags: PropTypes.array
 }
 
-const DefaultPerson = (props) => <Person {...props} />
-DefaultPerson.displayName = 'Person'
-
-export default DefaultPerson
+export default (props) => <Person {...props} /> // eslint-disable-line react/display-name

@@ -44,7 +44,4 @@ Card.defaultProps = {
   title: ''
 }
 
-const DefaultCard = (props) => <Card {...props} />
-DefaultCard.displayName = 'Card'
-
-export default DefaultCard
+export default (props) => <Card {...props} /> // eslint-disable-line react/display-name

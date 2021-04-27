@@ -50,7 +50,4 @@ ProgrammeMain.defaultProps = {
   tags: []
 }
 
-const DefaultProgrammeMain = (props) => <ProgrammeMain { ...props } />
-DefaultProgrammeMain.displayName = 'ProgrammeMain'
-
-export default DefaultProgrammeMain
+export default (props) => <ProgrammeMain { ...props } /> // eslint-disable-line react/display-name

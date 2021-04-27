@@ -66,7 +66,4 @@ ArticleCard.defaultProps = {
   showAuthors: true
 }
 
-const DefaultArticleCard = (props) => <ArticleCard {...props} />
-DefaultArticleCard.displayName = 'ArticleCard'
-
-export default DefaultArticleCard
+export default (props) => <ArticleCard {...props} />// eslint-disable-line react/display-name

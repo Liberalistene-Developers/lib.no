@@ -65,7 +65,4 @@ Quote.defaultProps = {
   tags: []
 }
 
-const DefaultQuote = (props) => <Quote {...props} />
-DefaultQuote.displayName = 'Quote'
-
-export default DefaultQuote
+export default (props) => <Quote {...props} /> // eslint-disable-line react/display-name

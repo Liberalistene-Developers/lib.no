@@ -32,7 +32,4 @@ AuthorLink.propTypes = {
   author: PropTypes.string
 }
 
-const DefaultAuthorLink = (props) => <AuthorLink {...props} />
-DefaultAuthorLink.displayName = 'AuthorLink'
-
-export default DefaultAuthorLink
+export default (props) => <AuthorLink {...props} /> // eslint-disable-line react/display-name

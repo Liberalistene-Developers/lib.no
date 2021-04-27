@@ -130,7 +130,4 @@ Schedules.propTypes = {
   schedules: PropTypes.array
 }
 
-const DefaultSchedules = (props) => <Schedules {...props} />
-DefaultSchedules.displayName = 'Schedules'
-
-export default DefaultSchedules
+export default (props) => <Schedules {...props} /> // eslint-disable-line react/display-name

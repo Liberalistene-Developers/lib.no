@@ -139,7 +139,4 @@ Event.defaultProps = {
   description: ''
 }
 
-const DefaultEvent = (props) => <Event {...props} />
-DefaultEvent.displayName = 'Event'
-
-export default DefaultEvent
+export default (props) => <Event {...props} /> // eslint-disable-line react/display-name

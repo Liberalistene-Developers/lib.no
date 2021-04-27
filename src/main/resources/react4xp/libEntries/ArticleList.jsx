@@ -156,7 +156,4 @@ ArticleList.defaultProps = {
   tags: []
 }
 
-const DefaultArticleList = (props) => <ArticleList {...props} />
-DefaultArticleList.displayName = 'ArticleList'
-
-export default DefaultArticleList
+export default (props) => <ArticleList {...props} /> // eslint-disable-line react/display-name

@@ -62,7 +62,4 @@ TableOfContent.defaultProps = {
   title: ''
 }
 
-const DefaultTableOfContent = (props) => <TableOfContent { ...props } />
-DefaultTableOfContent.displayName = 'TableOfContent'
-
-export default DefaultTableOfContent
+export default (props) => <TableOfContent { ...props } /> // eslint-disable-line react/display-name

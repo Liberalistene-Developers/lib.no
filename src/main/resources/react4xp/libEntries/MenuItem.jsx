@@ -23,7 +23,4 @@ MenuItem.defaultProps = {
   url: undefined
 }
 
-const DefaultMenuItem = (props) => <MenuItem {...props} />
-DefaultMenuItem.displayName = 'MenuItem'
-
-export default DefaultMenuItem
+export default (props) => <MenuItem {...props} /> // eslint-disable-line react/display-name

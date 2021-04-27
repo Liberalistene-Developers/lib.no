@@ -43,7 +43,4 @@ TitleBlock.defaultProps = {
   titleColor: ''
 }
 
-const DefaultTitleBlock = (props) => <TitleBlock {...props} />
-DefaultTitleBlock.displayName = 'TitleBlock'
-
-export default DefaultTitleBlock
+export default (props) => <TitleBlock {...props} /> // eslint-disable-line react/display-name

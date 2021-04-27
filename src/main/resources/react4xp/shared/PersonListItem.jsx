@@ -44,7 +44,4 @@ PersonListItem.defaultProps = {
   ...ListItem.defaultProps
 }
 
-const DefaultPersonListItem = (props) => <PersonListItem {...props} />
-DefaultPersonListItem.displayName = 'PersonListItem'
-
-export default DefaultPersonListItem
+export default (props) => <PersonListItem {...props} /> // eslint-disable-line react/display-name

@@ -37,7 +37,4 @@ FancyHeader.defaultProps = {
   title: ''
 }
 
-const DefaultFancyHeader = (props) => <FancyHeader {...props} />
-DefaultFancyHeader.displayName = 'FancyHeader'
-
-export default DefaultFancyHeader
+export default (props) => <FancyHeader {...props} /> // eslint-disable-line react/display-name

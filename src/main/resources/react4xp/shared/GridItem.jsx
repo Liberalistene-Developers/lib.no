@@ -68,6 +68,4 @@ GridItem.defaultProps = {
   readMoreEnabled: false
 }
 
-const DefaultGridItem = (props) => <GridItem {...props} />
-DefaultGridItem.displayName = 'GridItem'
-export default DefaultGridItem
+export default (props) => <GridItem {...props} /> // eslint-disable-line react/display-name

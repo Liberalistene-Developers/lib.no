@@ -40,7 +40,4 @@ FaqItem.defaultProps = {
   expanded: true
 }
 
-const DefaultFaqItem = (props) => <FaqItem {...props} />
-DefaultFaqItem.displayName = 'FaqItem'
-
-export default DefaultFaqItem
+export default (props) => <FaqItem {...props} /> // eslint-disable-line react/display-name

@@ -46,7 +46,4 @@ FaqList.defaultProps = {
   expanded: true
 }
 
-const DefaultFaqList = (props) => <FaqList {...props} />
-DefaultFaqList.displayName = 'FaqList'
-
-export default DefaultFaqList
+export default (props) => <FaqList {...props} /> // eslint-disable-line react/display-name

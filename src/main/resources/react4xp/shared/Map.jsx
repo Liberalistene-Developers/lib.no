@@ -69,7 +69,4 @@ Map.defaultProps = {
   position: [58.2953903, 6.6580986]
 }
 
-const DefaultMap = (props) => <Map {...props} />
-DefaultMap.displayName = 'Map'
-
-export default DefaultMap
+export default (props) => <Map {...props} /> // eslint-disable-line react/display-name

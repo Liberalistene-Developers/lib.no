@@ -20,7 +20,4 @@ Menu.propTypes = {
   })
 }
 
-const DefaultMenu = (props) => <Menu {...props} />
-DefaultMenu.displayName = 'Menu'
-
-export default DefaultMenu
+export default (props) => <Menu {...props} /> // eslint-disable-line react/display-name

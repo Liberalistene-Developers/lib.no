@@ -65,7 +65,4 @@ Faq.defaultProps = {
   Tag: 'h2'
 }
 
-const DefaultFaq = (props) => <Faq {...props} />
-DefaultFaq.displayName = 'Faq'
-
-export default DefaultFaq
+export default (props) => <Faq {...props} /> // eslint-disable-line react/display-name

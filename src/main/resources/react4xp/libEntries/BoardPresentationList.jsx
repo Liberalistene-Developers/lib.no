@@ -48,7 +48,4 @@ BoardPresentationList.defaultProps = {
   showemail: false
 }
 
-const DefaultBoardPresentationList = (props) => <BoardPresentationList {...props} />
-DefaultBoardPresentationList.displayName = 'BoardPresentationList'
-
-export default DefaultBoardPresentationList
+export default (props) => <BoardPresentationList {...props} /> // eslint-disable-line react/display-name

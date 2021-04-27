@@ -87,7 +87,4 @@ Article.defaultProps = {
   titleInImage: true
 }
 
-const DefaultArticle = (props) => <Article {...props} />
-DefaultArticle.displayName = 'Article'
-
-export default DefaultArticle
+export default (props) => <Article {...props} /> // eslint-disable-line react/display-name

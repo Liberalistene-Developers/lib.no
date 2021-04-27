@@ -5,8 +5,6 @@ import cx from 'classnames'
 
 import Image from '../shared/Image'
 
-console.info(cx);
-
 export const ImageBlock = ({
   Tag,
   image,
@@ -14,7 +12,7 @@ export const ImageBlock = ({
   title = [],
   overlay = '',
   ingress = '',
-  ingressColor = 'standard',
+  ingressColor = 'standard'
 }) => (
   <div className="image-block">
     <Image image={image} className="full" />
@@ -27,7 +25,7 @@ export const ImageBlock = ({
               <div className="title">
                 <Tag>
                   {title.map(({ title: titleText, titleColor }) => (
-                    <span className={titleColor}>
+                    <span key={titleText} className={titleColor}>
                       {titleText}
                     </span>
                   ))}
@@ -53,7 +51,8 @@ ImageBlock.propTypes = {
   position: PropTypes.oneOf(['left', 'center', 'right']),
   text: PropTypes.oneOf(['dark', 'light']),
   title: PropTypes.string,
-  ingress: PropTypes.string
+  ingress: PropTypes.string,
+  ingressColor: PropTypes.string
 }
 
 ImageBlock.defaultProps = {
@@ -62,10 +61,8 @@ ImageBlock.defaultProps = {
   title: '',
   ingress: '',
   text: 'dark',
-  position: 'right'
+  position: 'right',
+  ingressColor: 'standard'
 }
 
-const DefaultImageBlock = (props) => <ImageBlock {...props} />
-DefaultImageBlock.displayName = 'ImageBlock'
-
-export default DefaultImageBlock
+export default (props) => <ImageBlock {...props} /> // eslint-disable-line react/display-name

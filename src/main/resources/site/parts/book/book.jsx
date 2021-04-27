@@ -55,7 +55,4 @@ Book.propTypes = {
   tags: PropTypes.array
 }
 
-const DefaultBook = (props) => <Book {...props} />
-DefaultBook.displayName = 'Book'
-
-export default DefaultBook
+export default (props) => <Book {...props} /> // eslint-disable-line react/display-name

@@ -51,7 +51,4 @@ EventCard.defaultProps = {
   locationType: 'place'
 }
 
-const DefaultEventCard = (props) => <EventCard {...props} />
-DefaultEventCard.displayName = 'EventCard'
-
-export default DefaultEventCard
+export default (props) => <EventCard {...props} /> // eslint-disable-line react/display-name

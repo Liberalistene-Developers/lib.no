@@ -64,7 +64,4 @@ ListItem.defaultProps = {
   item: undefined
 }
 
-const DefaultListItem = (props) => <ListItem {...props} />
-DefaultListItem.displayName = 'ListItem'
-
-export default DefaultListItem
+export default (props) => <ListItem {...props} /> // eslint-disable-line react/display-name

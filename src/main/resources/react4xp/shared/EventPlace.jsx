@@ -38,7 +38,4 @@ EventPlace.defaultProps = {
   locationLabel: 'Sted:'
 }
 
-const DefaultEventPlace = (props) => <EventPlace {...props} />
-DefaultEventPlace.displayName = 'EventPlace'
-
-export default DefaultEventPlace
+export default (props) => <EventPlace {...props} /> // eslint-disable-line react/display-name

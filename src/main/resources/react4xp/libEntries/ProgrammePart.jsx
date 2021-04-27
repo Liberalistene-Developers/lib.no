@@ -81,7 +81,4 @@ ProgrammePart.defaultProps = {
   title: ''
 }
 
-const DefaultProgrammePart = (props) => <ProgrammePart {...props} />
-DefaultProgrammePart.displayName = 'ProgrammePart'
-
-export default DefaultProgrammePart
+export default (props) => <ProgrammePart {...props} /> // eslint-disable-line react/display-name

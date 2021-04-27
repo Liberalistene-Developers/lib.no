@@ -21,7 +21,4 @@ OrganizationalPosition.propTypes = {
   tags: PropTypes.array
 }
 
-const DefaultOrganizationalPosition = (props) => <OrganizationalPosition {...props} />
-DefaultOrganizationalPosition.displayName = 'OrganizationalPosition'
-
-export default DefaultOrganizationalPosition
+export default (props) => <OrganizationalPosition {...props} /> // eslint-disable-line react/display-name

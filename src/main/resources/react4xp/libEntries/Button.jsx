@@ -34,7 +34,4 @@ Button.defaultProps = {
   target: undefined
 }
 
-const DefaultButton = (props) => <Button {...props} />
-DefaultButton.displayName = 'Button'
-
-export default DefaultButton
+export default (props) => <Button {...props} /> // eslint-disable-line react/display-name

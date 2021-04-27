@@ -90,7 +90,4 @@ ProgrammeSection.defaultProps = {
   tags: []
 }
 
-const DefaultProgrammeSection = (props) => <ProgrammeSection {...props} />
-DefaultProgrammeSection.displayName = 'ProgrammeSection'
-
-export default DefaultProgrammeSection
+export default (props) => <ProgrammeSection {...props} /> // eslint-disable-line react/display-name

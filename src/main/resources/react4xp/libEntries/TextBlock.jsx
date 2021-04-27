@@ -41,7 +41,4 @@ TextBlock.defaultProps = {
   titleCenter: ''
 }
 
-const DefaultTextBlock = (props) => <TextBlock {...props} />
-DefaultTextBlock.displayName = 'TextBlock'
-
-export default DefaultTextBlock
+export default (props) => <TextBlock {...props} /> // eslint-disable-line react/display-name

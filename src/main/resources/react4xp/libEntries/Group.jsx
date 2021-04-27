@@ -112,7 +112,4 @@ Group.defaultProps = {
   imagesize: 'medium'
 }
 
-const DefaultGroup = (props) => <Group {...props} />
-DefaultGroup.displayName = 'Group'
-
-export default DefaultGroup
+export default (props) => <Group {...props} /> // eslint-disable-line react/display-name

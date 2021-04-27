@@ -57,7 +57,4 @@ EventListItem.defaultProps = {
   locationType: 'place'
 }
 
-const DefaultEventListItem = (props) => <EventListItem {...props} />
-DefaultEventListItem.displayName = 'EventListItem'
-
-export default DefaultEventListItem
+export default (props) => <EventListItem {...props} /> // eslint-disable-line react/display-name

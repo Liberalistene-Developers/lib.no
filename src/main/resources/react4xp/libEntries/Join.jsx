@@ -54,7 +54,4 @@ Join.propTypes = {
   frontPlacement: PropTypes.string
 }
 
-const DefaultJoin = (props) => <Join {...props} />
-DefaultJoin.displayName = 'Join'
-
-export default DefaultJoin
+export default (props) => <Join {...props} /> // eslint-disable-line react/display-name

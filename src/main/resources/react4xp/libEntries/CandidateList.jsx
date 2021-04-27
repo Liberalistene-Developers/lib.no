@@ -54,7 +54,4 @@ CandidateList.defaultProps = {
   showRole: true
 }
 
-const DefaultCandidateList = (props) => <CandidateList {...props} />
-DefaultCandidateList.displayName = 'CandidateList'
-
-export default DefaultCandidateList
+export default (props) => <CandidateList {...props} /> // eslint-disable-line react/display-name

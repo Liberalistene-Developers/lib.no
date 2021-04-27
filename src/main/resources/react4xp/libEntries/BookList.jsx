@@ -7,37 +7,47 @@ import { BookCard } from './BookCard'
  * Primary Image holder for solution.
  */
 export const BookList = ({
+  title,
   items = [],
   className,
   buyFromText
 }) => {
   return (
-    <div className={`bookcard-list ${className}`}>
-    { items && items.map(({
-      itemID,
-      url,
-      image,
-      author,
-      title,
-      text,
-      buy
-    }) => (
-      <BookCard
-        key={itemID}
-        image={image}
-        author={author}
-        title={title}
-        text={text}
-        url={url}
-        buy={buy}
-        buyFromText={buyFromText}
-      />
-    ))}
+    <div className="bookcard-list-wrapper">
+      { title && (
+        <div className="bookcard-list-title">
+          <h2>{title}</h2>
+        </div>
+      )}
+
+      <div className={`bookcard-list ${className}`}>
+        { items && items.map(({
+          itemID,
+          url,
+          image,
+          author,
+          title,
+          text,
+          buy
+        }) => (
+          <BookCard
+            key={itemID}
+            image={image}
+            author={author}
+            title={title}
+            text={text}
+            url={url}
+            buy={buy}
+            buyFromText={buyFromText}
+          />
+        ))}
+      </div>
     </div>
   )
 }
 
 BookList.propTypes = {
+  title: PropTypes.string,
   buyFromText: PropTypes.string,
   className: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape({
@@ -59,12 +69,10 @@ BookList.propTypes = {
 }
 
 BookList.defaultProps = {
+  title: '',
   buyFromText: '',
   className: '',
   items: []
 }
 
-const DefaultBookList = (props) => <BookList {...props} />
-DefaultBookList.displayName = 'BookList'
-
-export default DefaultBookList
+export default (props) => <BookList {...props} /> // eslint-disable-line react/display-name

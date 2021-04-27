@@ -71,7 +71,4 @@ Image.defaultProps = {
   url: ''
 }
 
-const DefaultImage = (props) => <Image {...props} />
-DefaultImage.displayName = 'Image'
-
-export default DefaultImage
+export default (props) => <Image {...props} /> // eslint-disable-line react/display-name

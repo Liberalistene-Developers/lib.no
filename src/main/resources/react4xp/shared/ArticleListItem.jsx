@@ -61,7 +61,4 @@ ArticleListItem.defaultProps = {
   showAuthors: false
 }
 
-const DefaultArticleListItem = (props) => <ArticleListItem {...props} />
-DefaultArticleListItem.displayName = 'ArticleListItem'
-
-export default DefaultArticleListItem
+export default (props) => <ArticleListItem {...props} /> // eslint-disable-line react/display-name
