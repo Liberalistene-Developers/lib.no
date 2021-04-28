@@ -58,6 +58,8 @@ main {
       >.content-item {
         .grid-list, .gridlist {
           .grid-item {
+            flex-grow: 1;
+            max-width: calc(50% - 30px);
             width: calc(33% - 30px);
           }
         }
@@ -67,6 +69,8 @@ main {
         >.content-item {
           .grid-list, .gridlist {
             .grid-item {
+              flex-grow: 1;
+              max-width: calc(50% - 30px);
               width: calc(25% - 40px);
             }
           }
