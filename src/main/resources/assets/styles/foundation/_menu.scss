@@ -125,11 +125,11 @@ footer {
 
       & input[type=checkbox] {
         & ~ label {
-          position: relative;
+          position: absolute;
           right: 10px;
-          top: 0px;
+          top: 25px;
           // padding-right: 26px;
-          z-index: 5;
+          z-index: 25;
           cursor: pointer;
           user-select: none;
           display: initial;
@@ -168,6 +168,8 @@ footer {
 
         &:checked  {
           & ~ label {
+            top: 30px;
+
             span {
               &:before {
                 transform: rotate(45deg) translate(7px, 7px);
