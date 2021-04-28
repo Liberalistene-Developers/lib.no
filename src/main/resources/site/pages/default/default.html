@@ -22,14 +22,15 @@
 					<div class="main-menu-wrapper">
 						<input type="checkbox" id="overlay-input" />
 						<label for="overlay-input"><span></span></label>
-			  
-						<ul class="main-menu" aria-label="${menu.ariaLabel}">
-							<th:block data-th-each="menuItem : ${menu.menuItems}">
-								<li>
-									<a data-th-href="${menuItem.url}" th:title="${menuItem.title}" th:text="${menuItem.title}">Item</a>
-								</li>
-							</th:block>
-						</ul>
+			      <div class="overlay">
+  						<ul class="main-menu" aria-label="${menu.ariaLabel}">
+  							<th:block data-th-each="menuItem : ${menu.menuItems}">
+  								<li>
+  									<a data-th-href="${menuItem.url}" th:title="${menuItem.title}" th:text="${menuItem.title}">Item</a>
+  								</li>
+  							</th:block>
+  						</ul>
+            </div>
 					</div>
 				</th:block>
 			</header>
@@ -59,7 +60,7 @@
 								</li>
 							</th:block>
 						</ul>
-					</th:block>				
+					</th:block>
 				</div>
 				<div class="contact">
 	        <div class="place" th:text="${place}">Oslo</div>
