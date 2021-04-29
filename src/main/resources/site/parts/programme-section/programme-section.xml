@@ -4,5 +4,7 @@
   <description>
     Display Programme section
   </description>
-  <form />
+  <form>
+    <mixin name="conclusiontitle" />
+  </form>
 </part>

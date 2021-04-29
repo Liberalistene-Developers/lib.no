@@ -5,12 +5,6 @@
     Display Programme part
   </description>
   <form>
-    <input type="TextLine" name="conclusionTitle" > 
-      <label i18n="conclusionTitle.label">Konklusjonstittel</label> 
-      <default>Liberalistene vil:</default>
-      <help-text i18n="conclusionTitle.help-text">Input your conclusion title.</help-text>  
-      <occurrences minimum="0" maximum="1"/>  
-      <config/> 
-    </input>
+    <mixin name="conclusiontitle" />
   </form>
 </part>

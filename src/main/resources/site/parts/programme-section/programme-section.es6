@@ -5,6 +5,7 @@ const { getParts } = require('/lib/shared/programme')
 
 exports.get = function (request) {
   const content = portal.getContent()
+  const component = portal.getComponent()
 
   const {
     _path: key,
@@ -15,11 +16,17 @@ exports.get = function (request) {
     } = {}
   } = content
 
+  const {
+    config: {
+      conclusionTitle = 'Liberalistene vil:'
+    } = {}
+  } = component
+
   const parts = getParts({
     key
   })
 
-  const props = { title, description, parts, tags }
+  const props = { title, description, conclusionTitle, parts, tags }
 
   return React4xp.render('ProgrammeSection', props, request, { clientRender: true })
 }

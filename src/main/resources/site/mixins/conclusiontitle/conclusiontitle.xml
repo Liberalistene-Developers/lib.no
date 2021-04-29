@@ -1,0 +1,12 @@
+<mixin>
+  <display-name i18n="mixin.conclusiontitle.displayname">Conclusion Title</display-name>
+  <form>
+    <input type="TextLine" name="conclusionTitle" >
+      <label i18n="mixin.conclusiontitle.label">Konklusjonstittel</label>
+      <default>Liberalistene vil:</default>
+      <help-text i18n="mixin.conclusiontitle.help-text">Input your conclusion title.</help-text>
+      <occurrences minimum="0" maximum="1"/>
+      <config/>
+    </input>
+  </form>
+</mixin>
