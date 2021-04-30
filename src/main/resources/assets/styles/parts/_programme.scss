@@ -4,12 +4,16 @@
 
 .programme-section {
   margin-top: 40px;
-  
+
   & .programme-section-description {
     margin-top: 20px;
   }
-  
+
   & .programme-sections-parts {
+    .conclusions-header {
+      margin-block-end: 1em;
+    }
+
     &>.conclusions {
       &>ul {
         margin-bottom: 0px;
@@ -21,10 +25,10 @@
 
 .programme-part {
   margin-top: 40px;
-  
+
   & .programme-part-description {
     margin-top: 20px;
-  }    
+  }
 }
 
 /* Mobile */
@@ -34,7 +38,7 @@
       .Standard {
         width: calc(100% - 2em);
       }
-      
+
       & > ul {
         width: calc(100% - 80px);
       }

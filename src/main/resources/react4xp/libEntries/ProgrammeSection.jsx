@@ -69,7 +69,7 @@ export const ProgrammeSection = ({ anchor, title, conclusionTitle = '', parentTi
               return (
                 <>
                   { conclusionTitle && (
-                    <div className="conclusions">
+                    <div className="conclusions-header">
                       <div className="title">{ conclusionTitle }</div>
                     </div>
                   )}

@@ -119,7 +119,6 @@ export const getSections = (search) => {
           } = {}
         } = {}] = (components && components.filter(({ descriptor }) => descriptor === Programme.Section)) || {}
 
-
         // log.info(JSON.stringify(parts, null, 4));
 
         return {
