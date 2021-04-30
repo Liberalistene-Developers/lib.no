@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Card } from '../../main/resources/react4xp/libEntries/Card'
+import { Card } from '../../main/resources/react4xp/shared/Card'
 
 import { SingleLayout } from '../layouts'
 

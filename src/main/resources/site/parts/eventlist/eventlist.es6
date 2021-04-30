@@ -3,10 +3,10 @@ const portal = require('/lib/xp/portal')
 const contentLib = require('/lib/xp/content')
 const guillotine = require('/headless/guillotineApi')
 
-const { buildQueryArticleList, extractArticleList } = require('/headless/helpers/articleListRequests')
+const { buildQueryEventList, extractEventList } = require('/headless/helpers/eventListRequests')
 const { buildParentPathQuery } = require('/headless/helpers/helpers')
 
-const { mapArticle } = require('/lib/shared/articles')
+const { mapEvent } = require('/lib/shared/events')
 
 exports.get = function (request) {
   const component = portal.getComponent()
@@ -75,7 +75,7 @@ exports.get = function (request) {
 
   switch (selection) {
     case 'manual':
-      items.push(...[].concat(itemList.map(mapArticle)))
+      items.push(...[].concat(itemList.map(mapEvent)))
       break
 
     case 'query':
@@ -87,10 +87,10 @@ exports.get = function (request) {
           parentPathQuery
         }
 
-        const query = buildQueryArticleList()
+        const query = buildQueryEventList()
 
         const result = guillotine.executeQuery(query, variables)
-        const list = extractArticleList(result)
+        const list = extractEventList(result)
 
         log.info(JSON.stringify(list, null, 2))
 
@@ -132,5 +132,5 @@ exports.get = function (request) {
 
   log.info(JSON.stringify(props, null, 4))
 
-  return React4xp.render('ArticleList', props, request, { clientRender: true })
+  return React4xp.render('EventList', props, request, { clientRender: true })
 }

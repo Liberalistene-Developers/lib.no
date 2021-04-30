@@ -1,6 +1,6 @@
 import { extractList } from './helpers'
 
-export const buildQueryArticleList = () => `
+export const buildQueryEventList = () => `
 query(
     $first: Int,
     $offset: Int,
@@ -9,19 +9,21 @@ query(
 ) {
   guillotine {
     query(
-        contentTypes: ["lib.no:article"],
+        contentTypes: ["lib.no:event"],
         query: $parentPathQuery,
         first: $first,
         offset: $offset,
         sort: $sort
     ) {
-      ... on lib_no_Article {
+      ... on lib_no_Event {
         id: _id
         url: pageUrl
         name: displayName
 
         data {
-          datePublished: date
+          from
+          to
+          place
           shortDescription: ingress
           image {
             ... on media_Image {
@@ -43,22 +45,28 @@ const map = (imageMap) => ({
   name,
   url,
   data: {
-    datePublished,
+    from,
+    to,
+    place,
     shortDescription,
     image
   } = {}
 }) => ({
   id,
-  name,
+  title: name,
   url,
-  datePublished,
-  shortDescription,
+  date: from,
+  to,
+  location: {
+    address: place
+  },
+  text: shortDescription,
   image: image && imageMap(image)
 })
 
-export const extractArticleList = extractList(map)
+export const extractEventList = extractList(map)
 
 export default {
-  buildQueryArticleList,
-  extractArticleList
+  buildQueryEventList,
+  extractEventList
 }

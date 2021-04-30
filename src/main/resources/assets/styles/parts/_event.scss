@@ -1,3 +1,17 @@
+.events-list-holder {
+  width: 100%;
+
+  .events-list {
+    &.list {
+      width: 100%;
+
+      .list-item {
+        width: 100%;
+      }
+    }
+  }
+}
+
 .schedule-list {
   .schedule {
     .schedule-title {
@@ -7,17 +21,17 @@
         }
       }
     }
-    
+
     .topic-list {
       .topic {
         .topic-title {
-          
+
           h4 {
             margin-block: 10px;
           }
 
           .topic-title-start {
-            float: left; 
+            float: left;
             text-align: center;
             width: 50px;
           }
@@ -27,22 +41,22 @@
             width: 30px;
             text-align: center;
           }
-        
-          .topic-title-duration {            
+
+          .topic-title-duration {
             &::before {
               content: ' ';
             }
           }
         }
-        
+
         .topic-speakers {
-          
+
           &.start {
             padding-left: 80px;
           }
-          
+
           ul {
-            &.authors {    
+            &.authors {
               list-style-type: none;
               margin-block-start: 0px;
               margin-block-end: 0px;
@@ -50,8 +64,8 @@
               margin-inline-end: 0px;
               margin-bottom: 20px;
               padding-inline-start: 0px;
-              
-            
+
+
               a {
                 align-items: center;
                 display: flex;
@@ -63,24 +77,24 @@
                   padding-top: 5px;
                 }
               }
-            }  
+            }
           }
         }
-        
+
         .topic-description {
           margin-top: -10px;
-          
+
           &.start {
             padding-left: 80px;
           }
         }
-        
+
         .topic-report {
           position: relative;
-          
+
           margin-top: 10px;
           font-style: italic;
-          
+
           &.start {
             padding-left: 80px;
 
@@ -98,7 +112,7 @@
           }
         }
       }
-    }    
+    }
   }
 }
 
@@ -107,44 +121,44 @@
     height: 500px;
     width: 100%;
   }
-  
+
   & .event-content {
-    display: flex;    
+    display: flex;
     justify-content: space-between;
     padding-top: 40px;
     width: 100%;
-    
+
     & h2 {
       font-size: 38px;
       line-height: 46px;
-      
+
       margin-bottom: 20px;
     }
-    
+
     & .details {
       width: 66%;
-      
+
       & .info, .more-info {
-        margin-bottom: 40px;      
+        margin-bottom: 40px;
         & .text {
           max-width: 964px;
         }
       }
     }
-    
+
     & .location {
       width: 33%;
-      
+
       & .map-container, .event-place {
         margin-bottom: 40px;
       }
-      
+
       & .event-place, .event-time {
-        color: var(--lib-color-subtext-100);        
+        color: var(--lib-color-subtext-100);
         font-size: 25px;
         font-weight: 600;
         line-height: 30px;
-      }      
+      }
     }
   }
 }
