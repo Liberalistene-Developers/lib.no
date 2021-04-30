@@ -102,9 +102,23 @@ export const getSections = (search) => {
         data: {
           description: sectionDescription,
           tags = []
+        } = {},
+        page: {
+          regions: {
+            main: {
+              components = []
+            } = {}
+          } = {}
         } = {}
       }) => {
         const parts = getParts({ key })
+
+        const [{
+          config: {
+            conclusionTitle = 'Liberalistene vil:'
+          } = {}
+        } = {}] = (components && components.filter(({ descriptor }) => descriptor === Programme.Section)) || {}
+
 
         // log.info(JSON.stringify(parts, null, 4));
 
@@ -112,6 +126,7 @@ export const getSections = (search) => {
           key: sectionKey,
           title: sectionTitle,
           description: sectionDescription,
+          conclusionTitle,
           parts,
           tags
         }
