@@ -55,7 +55,7 @@ export const getParts = (search) => {
       }) => {
         const [{
           config: {
-            conclusionTitle = ''
+            conclusionTitle = 'Liberalistene vil:'
           } = {}
         } = {}] = (components && components.filter(({ descriptor }) => descriptor === Programme.Part)) || {}
 
