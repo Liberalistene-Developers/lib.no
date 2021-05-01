@@ -85,7 +85,7 @@ export const EventList = ({
   }
 
   return (
-    <div className="events-list-holder">
+    <div className="events-list-wrapper">
       { title && (
         <h2 title={title}>{title}</h2>
       )}
@@ -102,7 +102,7 @@ export const EventList = ({
 
       { list && list.length > 0 && (
         <div className={`events-list ${displaytype}`}>
-          { list.map(({ id, title, image, text, location, date, to }) => (
+          { list.map(({ id, url, title, image, text, location, date, to }) => (
             <Item
               key={id}
               title={title}
@@ -111,6 +111,7 @@ export const EventList = ({
               location={location}
               date={date}
               to={to}
+              url={url}
               showImage={showImage}
               imageSize={imageSize}
               imageType={imageType}

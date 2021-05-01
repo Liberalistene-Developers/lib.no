@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faGlobe, faMap } from '@fortawesome/free-solid-svg-icons'
 
 import { ListItem } from './ListItem'
+import { EventInfo } from './EventInfo'
 
 /**
  * Primary Image holder for solution.
@@ -15,22 +14,22 @@ export const EventListItem = ({
   locationType,
   locationLabel,
   title,
-  text
+  text,
+  url
 }) => {
   const item = {
     name: title,
-    shortDescription: text
+    shortDescription: text,
+    url
   }
+
   return (
     <ListItem item={item}>
-      <div className="event-info">
-        <div className="event-place">
-          <FontAwesomeIcon icon={locationType === 'place' ? faMap : faGlobe} />  {locationLabel} <a href={locationType === 'place' ? `https://maps.google.com?q=${location.address}` : location.address}>{location.name || location.address}</a>
-        </div>
-        <div className="event-time">
-          <FontAwesomeIcon icon={faClock} /> <time dateTime={date}>{date}</time>
-        </div>
-      </div>
+      <EventInfo
+        location={location}
+        locationLabel={locationLabel}
+        date={date}
+      />
     </ListItem>
   )
 }

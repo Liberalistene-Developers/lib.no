@@ -9,6 +9,13 @@
     margin-bottom: 10px;
     width: 100%;
 
+    .event-place {
+      max-width: 60%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
     & a {
       color: var(--lib-color-subtext-100);
     }

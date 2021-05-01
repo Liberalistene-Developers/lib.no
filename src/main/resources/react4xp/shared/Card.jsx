@@ -8,7 +8,8 @@ export const Card = ({
   children,
   image,
   title,
-  text
+  text,
+  url = ''
 }) => {
   return (
     <div className="card-holder">
@@ -19,7 +20,9 @@ export const Card = ({
         </div>
       )}
       <div className="card-content">
-        <h3 className="card-title">{title}</h3>
+        <h3 className="card-title">
+          <a href={url} title={title}>{title}</a>
+        </h3>
         <div className="rich-text">
           {text}
         </div>
@@ -35,13 +38,15 @@ Card.propTypes = {
     url: PropTypes.string,
     alternativeText: PropTypes.string
   }),
-  children: PropTypes.arrayOf(React.Element)
+  children: PropTypes.arrayOf(React.Element),
+  url: PropTypes.string
 }
 
 Card.defaultProps = {
   image: null,
   text: '',
-  title: ''
+  title: '',
+  url: ''
 }
 
 export default (props) => <Card {...props} /> // eslint-disable-line react/display-name

@@ -1,9 +1,10 @@
-.events-list-holder {
+.events-list-wrapper {
   width: 100%;
 
   .events-list {
     &.list {
       width: 100%;
+      max-width: 600px;
 
       .list-item {
         width: 100%;

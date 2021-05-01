@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Card } from './Card'
-import { EventPlace } from '../shared/EventPlace'
-import { EventTime } from '../shared/EventTime'
+import { EventInfo } from '../shared/EventInfo'
 
 /**
  * Primary Image holder for solution.
@@ -20,10 +19,11 @@ export const EventCard = ({
 }) => {
   return (
     <Card image={image} title={title} text={text}>
-      <div className="event-info">
-        <EventPlace location={location} locationLabel={locationLabel} />
-        <EventTime date={date} />
-      </div>
+      <EventInfo
+        location={location}
+        locationLabel={locationLabel}
+        date={date}
+      />
     </Card>
   )
 }

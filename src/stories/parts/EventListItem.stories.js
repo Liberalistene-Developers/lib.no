@@ -17,7 +17,11 @@ const image = {
 
 const Template = (args) => (
   <SingleLayout>
-    <EventListItem {...args} />
+    <div className="events-list-wrapper">
+      <div className="events-list list">
+        <EventListItem {...args} />
+      </div>
+    </div>
   </SingleLayout>
 )
 
@@ -28,9 +32,10 @@ Normal.args = {
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula, libero vel egestas fringilla, purus tortor faucibus`,
   title: 'EventName',
   location: {
-    address: 'Markensgate 39, Kristiansand'
+    address: 'Markensgate 39, Kristiansand, et veldig veldig veldig langt sted'
   },
-  date: '12:00'
+  date: '12:00',
+  url: 'https://example.com'
 }
 
 export const Virtual = Template.bind({})
@@ -40,5 +45,6 @@ Virtual.args = {
     address: 'https://www.facebook.com/events/759331661457410/',
     name: 'Facebook'
   },
-  locationType: 'virtual'
+  locationType: 'virtual',
+  url: 'https://example.com'
 }

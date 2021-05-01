@@ -9,6 +9,7 @@
   row-gap: 40px;
   column-gap: 20px;
   justify-content: center;
+  flex-direction: row;
 
   & .grid-item {
     display: flex;

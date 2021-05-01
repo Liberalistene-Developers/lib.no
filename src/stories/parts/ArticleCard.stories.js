@@ -8,7 +8,7 @@ import { SingleLayout } from '../layouts'
 import '../../main/resources/assets/styles/main.scss'
 
 export default {
-  title: 'Parts/Card/ArticleCard',
+  title: 'Parts/Cards/ArticleCard',
   component: ArticleCard
 }
 

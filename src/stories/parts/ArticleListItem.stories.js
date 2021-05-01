@@ -17,7 +17,7 @@ const image = {
 
 const Template = (args) => (
   <SingleLayout>
-    <div className="article list">
+    <div className="article-list list">
       <ArticleListItem {...args} />
     </div>
   </SingleLayout>

@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import cx from 'classnames'
+
 import { ListItem } from './ListItem'
 import { AuthorLink } from './AuthorLink'
 
@@ -16,7 +18,7 @@ export const ArticleListItem = ({
   } = {},
   showAuthors = false
 }) => (
-  <ListItem className={className} imageSize={imageSize} imageType={imageType} showImage={showImage} item={item} childrenLast={true}>
+  <ListItem className={cx('article', className)} imageSize={imageSize} imageType={imageType} showImage={showImage} item={item} childrenLast={true}>
     <div className="article-creds">
       { showAuthors && authors && authors.length > 0 && (
         <ul className="authors">
