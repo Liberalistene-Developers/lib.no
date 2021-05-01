@@ -1,5 +1,11 @@
 .events-list-wrapper {
   width: 100%;
+  margin-bottom: 40px;
+
+  .events-list-title {
+    margin: 40px auto;
+    text-align: center;
+  }
 
   .events-list {
     &.list {

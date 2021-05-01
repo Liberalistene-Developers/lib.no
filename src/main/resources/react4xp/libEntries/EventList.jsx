@@ -87,7 +87,9 @@ export const EventList = ({
   return (
     <div className="events-list-wrapper">
       { title && (
-        <h2 title={title}>{title}</h2>
+        <div className="events-list-title">
+          <h2 title={title}>{title}</h2>
+        </div>
       )}
 
       <Image image={image} />
