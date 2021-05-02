@@ -16,6 +16,9 @@ exports.get = function (request) {
       description,
       displaytype: {
         _selected: displaytype,
+        gridlist: {
+          titleCenter = false
+        },
         list: {
           image: {
             _selected: imageSelection = 'hide',
@@ -115,6 +118,7 @@ exports.get = function (request) {
     displaytype,
     description,
     shortDescription,
+    titleCenter: displaytype === 'gridlist' && titleCenter,
     showImage: displaytype === 'list' && imageSelection === 'show',
     imageSize,
     imageType: imageRound ? 'round' : '',

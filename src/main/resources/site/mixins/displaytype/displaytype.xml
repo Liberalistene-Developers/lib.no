@@ -3,14 +3,16 @@
   <form>
     <option-set name="displaytype">
       <label i18n="mixin.displaytype.label">Display as</label>
-      <expanded>true</expanded> 
-      <occurrences minimum="1" maximum="1"/> 
+      <expanded>true</expanded>
+      <occurrences minimum="1" maximum="1"/>
       <help-text>You can select up to 1 options</help-text>
-      <options minimum="1" maximum="1">    
+      <options minimum="1" maximum="1">
         <option name="gridlist">
           <label i18n="mixin.displaytype.grid.label">Grid</label>
           <help-text>Show as grid</help-text>
-          <items />
+          <items>
+            <mixin name="titlecenter" />
+          </items>
         </option>
         <option name="list">
           <label i18n="mixin.displaytype.list.label">List</label>
@@ -18,8 +20,8 @@
           <items>
             <option-set name="image">
               <label i18n="mixin.displaytype.image.label">Image</label>
-              <expanded>true</expanded> 
-              <occurrences minimum="1" maximum="1"/> 
+              <expanded>true</expanded>
+              <occurrences minimum="1" maximum="1"/>
               <help-text>Select if you want image or not.</help-text>
               <options minimum="1" maximum="1">
                 <option name="hide">
@@ -32,7 +34,7 @@
                   <help-text>Display image</help-text>
                   <items>
                     <mixin name="imagesize" />
-                    <mixin name="imagetype" />                      
+                    <mixin name="imagetype" />
                   </items>
                 </option>
               </options>

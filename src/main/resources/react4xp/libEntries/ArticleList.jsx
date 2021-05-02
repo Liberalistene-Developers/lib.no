@@ -24,6 +24,7 @@ export const ArticleList = ({
   showImage,
   imageType,
   imageSize,
+  titleCenter = false,
   readMore = '',
   readMoreEnabled = false,
   loadMoreEnabled = false,
@@ -87,7 +88,9 @@ export const ArticleList = ({
   return (
     <div className="article-list-holder">
       { title && (
-        <h2 title={title}>{title}</h2>
+        <div className="article-list-title">
+          <h2 title={title}>{title}</h2>
+        </div>
       )}
 
       <Image image={image} />
@@ -106,6 +109,7 @@ export const ArticleList = ({
             <Item
               key={item.id}
               item={item}
+              titleCenter={titleCenter}
               showImage={showImage}
               imageSize={imageSize}
               imageType={imageType}
@@ -148,12 +152,14 @@ ArticleList.propTypes = {
   shortDescription: PropTypes.string,
   showImage: PropTypes.bool,
   sortExpression: PropTypes.string,
+  tags: PropTypes.array,
   title: PropTypes.string,
-  tags: PropTypes.array
+  titleCenter: PropTypes.bool
 }
 
 ArticleList.defaultProps = {
-  tags: []
+  tags: [],
+  titleCenter: false
 }
 
 export default (props) => <ArticleList {...props} /> // eslint-disable-line react/display-name

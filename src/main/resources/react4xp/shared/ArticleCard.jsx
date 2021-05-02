@@ -13,12 +13,13 @@ export const ArticleCard = ({
     authors = [],
     datePublished
   } = {},
+  noIngress = false,
   readMore,
   readMoreEnabled,
-  noIngress = false,
-  showAuthors = true
+  showAuthors = true,
+  titleCenter = false
 }) => (
-  <GridItem className={className} showImage item={item} noIngress={noIngress} childrenLast={true} readMore={readMore} readMoreEnabled={readMoreEnabled}>
+  <GridItem className={className} titleCenter={titleCenter} showImage item={item} noIngress={noIngress} childrenLast={true} readMore={readMore} readMoreEnabled={readMoreEnabled}>
     <div className="article-creds">
       { showAuthors && authors && authors.length > 0 && (
         <ul className="authors">
@@ -52,18 +53,20 @@ ArticleCard.propTypes = {
     shortDescription: PropTypes.string,
     url: PropTypes.string
   }),
+  noIngress: PropTypes.bool,
   showAuthors: PropTypes.bool,
   readMore: PropTypes.string,
   readMoreEnabled: PropTypes.bool,
-  noIngress: PropTypes.bool
+  titleCenter: PropTypes.bool
 }
 
 ArticleCard.defaultProps = {
-  showImage: true,
   imageSize: 'medium',
   imageType: undefined,
   item: undefined,
-  showAuthors: true
+  showAuthors: true,
+  showImage: true,
+  titleCenter: false
 }
 
 export default (props) => <ArticleCard {...props} />// eslint-disable-line react/display-name

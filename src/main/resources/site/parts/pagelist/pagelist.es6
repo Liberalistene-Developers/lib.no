@@ -14,6 +14,9 @@ exports.get = function (request) {
       hideIngress = false,
       displaytype: {
         _selected: displaytype,
+        gridlist: {
+          titleCenter = false
+        },
         list: {
           image: {
             _selected: imageSelection = 'hide',
@@ -37,6 +40,7 @@ exports.get = function (request) {
     displaytype,
     showImage: displaytype === 'list' && imageSelection === 'show',
     imageSize,
+    titleCenter: displaytype === 'gridlist' && titleCenter,
     imageType: imageRound ? 'round' : '',
     items: itemsList
       .map(({ item: itemKey, image: imageKey, ingress }) => {

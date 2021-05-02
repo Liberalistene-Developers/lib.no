@@ -1,4 +1,12 @@
 .article-list-holder {
+  width: 100%;
+  margin-bottom: 40px;
+
+  .article-list-title {
+    margin: 40px auto;
+    text-align: center;
+  }
+
   .more-button {
     display: flex;
     justify-content: center;
@@ -16,8 +24,6 @@
 }
 
 .article {
-
-
   .article-title {
     display: flex;
     align-items: center;

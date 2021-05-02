@@ -1,0 +1,16 @@
+<mixin>
+  <display-name i18n="mixin.titlecenter.displayname">Ingress</display-name>
+  <form>
+    <field-set>
+      <label i18n="mixin.titlecenter.label">Ingress</label>
+      <items>
+        <input  name="titleCenter" type="CheckBox">
+          <label i18n="mixin.titlecenter.enabled.label">Midtstill tittel element</label>
+          <config>
+            <alignment>right</alignment>
+          </config>
+        </input>
+      </items>
+    </field-set>
+  </form>
+</mixin>

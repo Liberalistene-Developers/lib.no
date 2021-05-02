@@ -1,9 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import cx from 'classnames'
+
 import Image from './Image'
 
 export const GridItem = ({
+  titleCenter = false,
   imageSize,
   imageType,
   item: {
@@ -22,7 +25,7 @@ export const GridItem = ({
 
      { name && (
        <div className="grid-item-info">
-         <div className="grid-item-title">
+         <div className={cx('grid-item-title', { center: titleCenter })}>
            <a href={url} title={name}>{name}</a>
          </div>
          { !noIngress && shortDescription && (
@@ -55,7 +58,8 @@ GridItem.propTypes = {
   }),
   noIngress: PropTypes.bool,
   readMore: PropTypes.string,
-  readMoreEnabled: PropTypes.bool
+  readMoreEnabled: PropTypes.bool,
+  titleCenter: PropTypes.bool
 }
 
 GridItem.defaultProps = {
@@ -65,7 +69,8 @@ GridItem.defaultProps = {
   item: undefined,
   noIngress: false,
   readMore: '',
-  readMoreEnabled: false
+  readMoreEnabled: false,
+  titleCenter: false
 }
 
 export default (props) => <GridItem {...props} /> // eslint-disable-line react/display-name
