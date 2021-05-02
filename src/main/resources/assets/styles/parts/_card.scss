@@ -39,3 +39,35 @@
     padding: 15px;
   }
 }
+
+@media screen and (max-width: 834px) {
+  .full {
+    .events-list {
+      &.gridlist {
+        &>* {
+          width: calc(50% - 40px);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .events-list {
+    &.gridlist {
+      &>* {
+        width: 100%;
+      }
+    }
+  }
+
+  .full {
+    .events-list {
+      &.gridlist {
+        &>* {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
