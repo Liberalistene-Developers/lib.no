@@ -10,6 +10,7 @@ export const Card = ({
   title,
   text,
   url = ''
+  noIngress = false,
 }) => {
   return (
     <div className="card-holder">
@@ -23,27 +24,29 @@ export const Card = ({
         <h3 className="card-title">
           <a href={url} title={title}>{title}</a>
         </h3>
-        <div className="rich-text">
-          {text}
-        </div>
+        { !noIngress && (
+          <div className="rich-text" dangerouslySetInnerHTML={{ __html: text}} />
+        )}
       </div>
     </div>
   )
 }
 
 Card.propTypes = {
-  title: PropTypes.string,
-  text: PropTypes.string,
+  children: PropTypes.arrayOf(React.Element),
   image: PropTypes.shape({
     url: PropTypes.string,
     alternativeText: PropTypes.string
   }),
-  children: PropTypes.arrayOf(React.Element),
+  noIngress: PropTypes.bool,
+  text: PropTypes.string,
+  title: PropTypes.string,
   url: PropTypes.string
 }
 
 Card.defaultProps = {
   image: null,
+  noIngress: false,
   text: '',
   title: '',
   url: ''
