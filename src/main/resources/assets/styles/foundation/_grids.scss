@@ -18,11 +18,11 @@
 
     &.presentation {
       display: flex;
-      flex-direction: row;
+      flex-direction: row-reverse;
       column-gap: 20px;
 
       &.right {
-        flex-direction: row-reverse;
+        flex-direction: row;
       }
     }
 

@@ -14,6 +14,7 @@ import Button from './Button'
 let nextOffset = 0
 
 export const ArticleList = ({
+  featured,
   description,
   displaytype,
   image,
@@ -105,10 +106,12 @@ export const ArticleList = ({
 
       { list && list.length > 0 && (
         <div className={`article-list ${displaytype}`}>
-          { list.map((item) => (
+          { list.map((item, index) => (
             <Item
               key={item.id}
               item={item}
+              presentation={(featured && featured[`${index + 1}`]) || false}
+              direction={(featured && featured[`${index + 1}`]) || ''}
               titleCenter={titleCenter}
               showImage={showImage}
               imageSize={imageSize}
@@ -135,6 +138,7 @@ ArticleList.propTypes = {
   count: PropTypes.number,
   description: PropTypes.string,
   displaytype: PropTypes.string,
+  featured: PropTypes.object,
   image: PropTypes.shape({
     url: PropTypes.string
   }),
@@ -158,6 +162,7 @@ ArticleList.propTypes = {
 }
 
 ArticleList.defaultProps = {
+  featured: {},
   tags: [],
   titleCenter: false
 }

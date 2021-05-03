@@ -29,6 +29,7 @@ exports.get = function (request) {
           } = {}
         } = {}
       } = {},
+      featured = [],
       itemsSet: {
         _selected: selection,
         manual: {
@@ -113,10 +114,19 @@ exports.get = function (request) {
       path: sitePath
     })
 
+  const _featured = []
+    .concat(featured)
+    .reduce((acc, { item, style }) => ({ ...acc, [item]: style }), {})
+
+  log.info(JSON.stringify(_featured, null, 2))
+
   const props = {
     title,
     displaytype,
     description,
+    featured: []
+      .concat(featured)
+      .reduce((acc, { item, style }) => ({ ...acc, [item]: style }), {}),
     shortDescription,
     titleCenter: displaytype === 'gridlist' && titleCenter,
     showImage: displaytype === 'list' && imageSelection === 'show',
