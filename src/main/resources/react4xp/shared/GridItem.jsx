@@ -6,7 +6,8 @@ import cx from 'classnames'
 import Image from './Image'
 
 export const GridItem = ({
-  titleCenter = false,
+  children,
+  direction = '',
   imageSize,
   imageType,
   item: {
@@ -15,12 +16,13 @@ export const GridItem = ({
     shortDescription,
     url
   } = {},
+  noIngress = false,
+  presentation = false,
   readMore,
   readMoreEnabled = false,
-  noIngress = false
+  titleCenter = false
 }) => (
-  <div className="grid-item">
-
+  <div className={cx('grid-item', direction, { presentation })}>
      <Image image={image} className={imageSize} imageClassName={imageType} title={name} url={url} />
 
      { name && (
@@ -36,6 +38,7 @@ export const GridItem = ({
              )}
            </div>
          )}
+         { presentation && children}
        </div>
      )}
   </div>
@@ -45,6 +48,7 @@ GridItem.propTypes = {
   children: PropTypes.array,
   childrenLast: PropTypes.bool,
   className: PropTypes.string,
+  direction: PropTypes.oneOf(['right', 'left', '', undefined]),
   imageSize: PropTypes.oneOf(['small', 'medium', 'large', '']),
   imageType: PropTypes.oneOf(['round', '']),
   showImage: PropTypes.bool,
@@ -57,19 +61,22 @@ GridItem.propTypes = {
     url: PropTypes.string
   }),
   noIngress: PropTypes.bool,
+  presentation: PropTypes.bool,
   readMore: PropTypes.string,
   readMoreEnabled: PropTypes.bool,
   titleCenter: PropTypes.bool
 }
 
 GridItem.defaultProps = {
-  showImage: true,
+  direction: '',
   imageSize: 'medium',
   imageType: undefined,
   item: undefined,
   noIngress: false,
+  presentation: false,
   readMore: '',
   readMoreEnabled: false,
+  showImage: true,
   titleCenter: false
 }
 

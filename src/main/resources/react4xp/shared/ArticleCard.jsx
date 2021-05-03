@@ -6,6 +6,7 @@ import { AuthorLink } from './AuthorLink'
 
 export const ArticleCard = ({
   className,
+  direction = 'left',
   imageSize,
   imageType,
   item,
@@ -14,12 +15,13 @@ export const ArticleCard = ({
     datePublished
   } = {},
   noIngress = false,
+  presentation = false,
   readMore,
   readMoreEnabled,
   showAuthors = true,
   titleCenter = false
 }) => (
-  <GridItem className={className} titleCenter={titleCenter} showImage item={item} noIngress={noIngress} childrenLast={true} readMore={readMore} readMoreEnabled={readMoreEnabled}>
+  <GridItem className={className} presentation={presentation} direction={direction} titleCenter={titleCenter} showImage item={item} noIngress={noIngress} childrenLast={true} readMore={readMore} readMoreEnabled={readMoreEnabled}>
     <div className="article-creds">
       { showAuthors && authors && authors.length > 0 && (
         <ul className="authors">
@@ -41,6 +43,7 @@ ArticleCard.propTypes = {
   children: PropTypes.array,
   childrenLast: PropTypes.bool,
   className: PropTypes.string,
+  direction: PropTypes.oneOf(['left', 'right', '', undefined]),
   imageSize: PropTypes.oneOf(['small', 'medium', 'large']),
   imageType: PropTypes.oneOf(['round', '']),
   showImage: PropTypes.bool,
@@ -54,9 +57,10 @@ ArticleCard.propTypes = {
     url: PropTypes.string
   }),
   noIngress: PropTypes.bool,
-  showAuthors: PropTypes.bool,
+  presentation: PropTypes.bool,
   readMore: PropTypes.string,
   readMoreEnabled: PropTypes.bool,
+  showAuthors: PropTypes.bool,
   titleCenter: PropTypes.bool
 }
 
@@ -64,6 +68,8 @@ ArticleCard.defaultProps = {
   imageSize: 'medium',
   imageType: undefined,
   item: undefined,
+  presentation: false,
+  direction: '',
   showAuthors: true,
   showImage: true,
   titleCenter: false

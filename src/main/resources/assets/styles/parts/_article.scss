@@ -35,45 +35,51 @@
   .ingress {
     font-weight: bold;
   }
+}
 
-  & .article-creds {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    max-width: 600px;
+.article-creds {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
 
-    & ul {
-      &.authors {
-        list-style-type: none;
-        margin-block-start: 0px;
-        margin-block-end: 0px;
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
-        margin-bottom: 0px;
-        padding-inline-start: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+
+  & ul {
+    &.authors {
+      list-style-type: none;
+      margin-block-start: 0px;
+      margin-block-end: 0px;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      margin-bottom: 0px;
+      padding-inline-start: 0px;
 
 
-        & a {
-          align-items: center;
-          display: flex;
-          flex-direction: row;
-          column-gap: 10px;
+      & a {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        column-gap: 10px;
+        justify-content: center;
 
-          & img {
-            margin-bottom: -5px;
-            margin-right: 5px;
-            /* padding-top: 5px; */
-          }
+        & img {
+          margin-bottom: -5px;
+          margin-right: 5px;
+          width: 30px;
+          /* padding-top: 5px; */
         }
       }
     }
-
-    & .article-date {
-      height: 100%;
-      align-self: center;
-      margin-left: auto;
-    }
   }
 
-
+  & .article-date {
+    height: 100%;
+    align-self: center;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
 }

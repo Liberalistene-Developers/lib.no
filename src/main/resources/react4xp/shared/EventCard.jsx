@@ -10,15 +10,16 @@ import { EventInfo } from '../shared/EventInfo'
 export const EventCard = ({
   children,
   date,
+  image,
   location,
   locationType,
   locationLabel,
-  image,
+  noIngress,
   title,
   text
 }) => {
   return (
-    <Card image={image} title={title} text={text}>
+    <Card image={image} title={title} text={text} noIngress={noIngress}>
       <EventInfo
         location={location}
         locationLabel={locationLabel}

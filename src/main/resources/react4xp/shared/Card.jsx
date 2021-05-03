@@ -7,10 +7,10 @@ import PropTypes from 'prop-types'
 export const Card = ({
   children,
   image,
+  noIngress = false,
   title,
   text,
   url = ''
-  noIngress = false,
 }) => {
   return (
     <div className="card-holder">
@@ -25,7 +25,7 @@ export const Card = ({
           <a href={url} title={title}>{title}</a>
         </h3>
         { !noIngress && (
-          <div className="rich-text" dangerouslySetInnerHTML={{ __html: text}} />
+          <div className="rich-text" dangerouslySetInnerHTML={{ __html: text }} />
         )}
       </div>
     </div>

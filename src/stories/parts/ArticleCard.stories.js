@@ -18,8 +18,10 @@ const image = {
 
 const Template = ({ fullWidth = false, ...args }) => (
   <SingleLayout fullWidth={fullWidth}>
-    <div className="article-list grid-list">
-      <ArticleCard {...args} />
+    <div className="article-list-holder">
+      <div className="article-list gridlist">
+        <ArticleCard {...args} />
+      </div>
     </div>
   </SingleLayout>
 )
@@ -54,4 +56,17 @@ export const Full = Template.bind({})
 Full.args = {
   ...Normal.args,
   fullWidth: true
+}
+
+export const WideLeft = Template.bind({})
+WideLeft.args = {
+  ...Normal.args,
+  presentation: true,
+  direction: 'left'
+}
+
+export const WideRight = Template.bind({})
+WideRight.args = {
+  ...WideLeft.args,
+  direction: 'right'
 }
