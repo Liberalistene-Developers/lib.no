@@ -14,7 +14,6 @@
   }
 }
 
-
 .image-block {
   display: flex;
   position: relative;
@@ -66,7 +65,7 @@
     }
 
     .image-block-text {
-      width: 50%;
+      max-width: 50%;
       position: absolute;
       top: 50%;
       transform:translateY(-50%); // ^2,3

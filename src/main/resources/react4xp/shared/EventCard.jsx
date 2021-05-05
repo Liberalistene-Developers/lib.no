@@ -16,10 +16,11 @@ export const EventCard = ({
   locationLabel,
   noIngress,
   title,
-  text
+  text,
+  url
 }) => {
   return (
-    <Card image={image} title={title} text={text} noIngress={noIngress}>
+    <Card image={image} title={title} text={text} noIngress={noIngress} url={url}>
       <EventInfo
         location={location}
         locationLabel={locationLabel}
@@ -39,7 +40,9 @@ EventCard.propTypes = {
 
   locationLabel: PropTypes.string,
 
-  locationType: PropTypes.oneOf(['place', 'virtual'])
+  locationType: PropTypes.oneOf(['place', 'virtual']),
+
+  url: PropTypes.string
 }
 
 EventCard.defaultProps = {
@@ -49,7 +52,8 @@ EventCard.defaultProps = {
     address: ''
   },
   locationLabel: 'Sted:',
-  locationType: 'place'
+  locationType: 'place',
+  url: ''
 }
 
 export default (props) => <EventCard {...props} /> // eslint-disable-line react/display-name

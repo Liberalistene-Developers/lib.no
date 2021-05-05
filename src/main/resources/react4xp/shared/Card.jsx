@@ -16,7 +16,9 @@ export const Card = ({
     <div className="card-holder">
       { image && (
         <div>
-          <img src={image.url} alt={image.alternativeText} className="card-image" />
+          <a href={url} title={title}>
+            <img src={image.url} alt={image.alternativeText} className="card-image" />
+          </a>
           {children}
         </div>
       )}
