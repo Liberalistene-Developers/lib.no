@@ -18,7 +18,7 @@ exports.get = function (request) {
         _selected: displaytype,
         gridlist: {
           titleCenter = false
-        },
+        } = {},
         list: {
           image: {
             _selected: imageSelection = 'hide',
