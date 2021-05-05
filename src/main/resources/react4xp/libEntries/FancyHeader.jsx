@@ -14,10 +14,14 @@ export const FancyHeader = ({
         <div className="headertitle">
           <h1>{title}</h1>
         </div>
-        <Image image={effect} />
+        { effect && (
+          <Image image={effect} />
+        )}
       </div>
     </div>
-    <Image image={image} className="orgHeader-grid-item" />
+    { image && (
+      <Image image={image} className="orgHeader-grid-item" />
+    )}
   </div>
 )
 

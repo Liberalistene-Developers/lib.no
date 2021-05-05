@@ -50,7 +50,11 @@ ImageBlock.propTypes = {
   overlay: PropTypes.string,
   position: PropTypes.oneOf(['left', 'center', 'right']),
   text: PropTypes.oneOf(['dark', 'light']),
-  title: PropTypes.string,
+  title: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    titleColor: PropTypes.string,
+    titleNoSpace: PropTypes.bool
+  })),
   ingress: PropTypes.string,
   ingressColor: PropTypes.string
 }
@@ -58,7 +62,7 @@ ImageBlock.propTypes = {
 ImageBlock.defaultProps = {
   Tag: 'h1',
   image: undefined,
-  title: '',
+  title: [],
   ingress: '',
   text: 'dark',
   position: 'right',

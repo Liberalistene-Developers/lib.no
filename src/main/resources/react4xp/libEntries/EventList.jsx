@@ -1,17 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
-import doGuillotineRequest from '../../headless/guillotineRequest'
 import { buildQueryEventList, extractEventList } from '../../headless/helpers/eventListRequests'
 
-import Image from '../shared/Image'
-
-import ListItem from '../shared/EventListItem'
-import GridItem from '../shared/EventCard'
-
-import Button from './Button'
-
-let nextOffset = 0
+import { EventListView } from './EventListView'
+import { DynamicLoader } from '../shared/DynamicLoader'
 
 export const EventList = ({
   description,
@@ -34,103 +27,61 @@ export const EventList = ({
   parentPathQuery = '',
   noIngress = false
 }) => {
-  const [list, setList] = useState(items)
-  const [more, setMore] = useState(loadMoreEnabled && apiUrl && items.length === count)
-  const [loading, setLoading] = useState(false)
-
-  const Item = displaytype === 'list' ? ListItem : GridItem
-
-  useEffect(() => {
-    nextOffset = list.length
-  }, [list])
-
-  const updateEvents = (events) => {
-    if (events.length > 0) {
-      nextOffset += events.length
-
-      setList([
-        ...list,
-        ...events
-      ])
-
-      if (events.length < count) {
-        setMore(false)
-      }
-    } else {
-      setMore(false)
-    }
-
-    setLoading(false)
-  }
-
-  const readMoreClick = () => {
-    setLoading(loading)
-
-    doGuillotineRequest({
-      url: apiUrl,
-
-      query: buildQueryEventList(),
-
-      variables: {
-        first: count,
-        offset: nextOffset,
-        sort: sortExpression,
-        parentPathQuery
-      },
-
-      extractDataFunc: extractEventList,
-
-      handleDataFunc: updateEvents
-    })
+  if (window === undefined) {
+    return (
+      <EventListView
+        description={description}
+        displaytype={displaytype}
+        image={image}
+        shortDescription={shortDescription}
+        items={items}
+        tags={tags}
+        title={title}
+        showImage={showImage}
+        imageSize={imageSize}
+        imageType={imageType}
+        readMore={readMore}
+        readMoreEnabled={readMoreEnabled}
+        noIngress={noIngress}
+      />
+    )
   }
 
   return (
-    <div className="events-list-wrapper">
-      { title && (
-        <div className="events-list-title">
-          <h2 title={title}>{title}</h2>
-        </div>
+    <DynamicLoader
+      apiUrl={apiUrl}
+      buildQueryList={buildQueryEventList}
+      count={count}
+      extractList={extractEventList}
+      items={items}
+      loadMoreEnabled={loadMoreEnabled}
+      loadMore={loadMore}
+      parentPathQuery={parentPathQuery}
+      sortExpression={sortExpression}
+    >
+      { ({
+        items: list,
+        children: readMoreButton
+      }) => (
+        <EventListView
+          description={description}
+          displaytype={displaytype}
+          image={image}
+          shortDescription={shortDescription}
+          items={list}
+          tags={tags}
+          title={title}
+          showImage={showImage}
+          imageSize={imageSize}
+          imageType={imageType}
+          readMore={readMore}
+          readMoreEnabled={readMoreEnabled}
+          noIngress={noIngress}
+        >
+          {readMoreButton}
+        </EventListView>
       )}
-
-      <Image image={image} />
-
-      { shortDescription && (
-        <div dangerouslySetInnerHTML={{ __html: shortDescription }} />
-      )}
-
-      { description && (
-        <div dangerouslySetInnerHTML={{ __html: description }} />
-      )}
-
-      { list && list.length > 0 && (
-        <div className={`events-list ${displaytype}`}>
-          { list.map(({ id, url, title, image, text, location, date, to }) => (
-            <Item
-              key={id}
-              title={title}
-              image={image}
-              text={text}
-              location={location}
-              date={date}
-              to={to}
-              url={url}
-              showImage={showImage}
-              imageSize={imageSize}
-              imageType={imageType}
-              className="event"
-              readMore={readMore}
-              readMoreEnabled={readMoreEnabled}
-              noIngress={noIngress}
-            />
-          ))}
-        </div>
-      )}
-      { more && (
-        <div className="more-button">
-          <Button title={loadMore} onClick={!loading && readMoreClick} />
-        </div>
-      )}
-    </div>
+    </DynamicLoader>
   )
 }
 

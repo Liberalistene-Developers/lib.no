@@ -139,12 +139,12 @@ exports.get = function (request) {
     items,
     apiUrl: headless ? `${siteUrl.length > 8 ? siteUrl : ''}/api/headless` : '',
     parentPathQuery,
-    count,
+    count: selection === 'query' ? count : items.length,
     sortExpression,
     noIngress: !!hideIngress
   }
 
   log.info(JSON.stringify(props, null, 4))
 
-  return React4xp.render('ArticleList', props, request, { clientRender: true })
+  return React4xp.render(request.edit === 'edit' ? 'ArticleListView' : 'ArticleList', props, request, { clientRender: request.edit !== 'edit' })
 }
