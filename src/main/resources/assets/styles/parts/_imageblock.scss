@@ -135,7 +135,7 @@
     &.overlay {
       &.purple {
         &.center {
-          background: linear-gradient(to right,rgba(74,16,57,0), rgba(74,16,74,.87) 60%, rgba(74,16,57,0))
+          background: linear-gradient(to right, rgba(74, 15, 57, 0) 10%, rgba(74, 16, 74, 0.87) 25%, rgba(74, 16, 74, 0.87) 70%, rgba(74, 16, 57, 0) 100%)
         }
 
         &.left {
@@ -154,6 +154,39 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 834px) {
+  .image-block {
+    & > .content {
+      h1 {
+        font-size: 80px;
+        font-weight: 800;
+        line-height: 120%;
+      }
+
+      .image-block-text {
+        max-width: 60%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 814px) {
+  .image-block {
+    & > .content {
+      h1 {
+        font-size: 50px;
+        font-weight: 800;
+        line-height: 120%;
+        text-overflow: ellipsis;
+      }
+
+      .image-block-text {
+        max-width: 100%;
       }
     }
   }
