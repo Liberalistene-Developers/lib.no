@@ -15,7 +15,7 @@ export const Card = ({
   return (
     <div className="card-holder">
       { image && (
-        <div>
+        <div className="card-image-holder">
           <a href={url} title={title}>
             <img src={image.url} alt={image.alternativeText} className="card-image" />
           </a>
@@ -26,7 +26,7 @@ export const Card = ({
         <h3 className="card-title">
           <a href={url} title={title}>{title}</a>
         </h3>
-        { !noIngress && (
+        { !noIngress && text && (
           <div className="rich-text" dangerouslySetInnerHTML={{ __html: text }} />
         )}
       </div>

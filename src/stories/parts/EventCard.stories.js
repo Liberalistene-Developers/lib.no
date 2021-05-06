@@ -17,8 +17,15 @@ const image = {
 
 const Template = (args) => (
   <SingleLayout>
-    <div style={ { width: 496 }}>
-      <EventCard {...args} />
+    <div data-portal-component-type="part" id="_20383168">
+      <div className="events-list-wrapper">
+        <div className="events-list gridlist">
+          <EventCard {...args} />
+          <EventCard {...args} />
+          <EventCard {...args} />
+          <EventCard {...args} />
+        </div>
+      </div>
     </div>
   </SingleLayout>
 )

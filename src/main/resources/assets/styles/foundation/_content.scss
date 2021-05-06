@@ -108,6 +108,7 @@ main {
         margin-left: auto;
         margin-right: auto;
         width: 911px;
+        max-width: 100%;
 
         .xp-page-editor-item-view {
           &.empty {
@@ -120,6 +121,10 @@ main {
           margin-right: auto;
           width: 600px;
           max-width: 100%;
+        }
+
+        div[data-portal-component-type="part"] {
+          width: 100%;
         }
 
         section[data-portal-component-type="text"] {

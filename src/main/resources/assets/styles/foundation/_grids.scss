@@ -72,7 +72,7 @@ main {
     >.content {
       >.content-item {
         .grid-list, .gridlist {
-          .grid-item {
+          .grid-item, .card-holder {
             flex-grow: 1;
             max-width: calc(50% - 30px);
             width: calc(33% - 30px);
@@ -103,7 +103,7 @@ main {
       &.full {
         >.content-item {
           .grid-list, .gridlist {
-            .grid-item {
+            .grid-item, .card-holder {
               flex-grow: 1;
               max-width: calc(50% - 30px);
               width: calc(25% - 40px);
@@ -126,7 +126,7 @@ main {
       >.content {
         >.content-item {
           .grid-list, .gridlist {
-            .grid-item {
+            .grid-item, .card-holder {
               width: calc(50% - 30px);
             }
           }
@@ -135,7 +135,7 @@ main {
         &.full {
           >.content-item {
             .grid-list, .gridlist {
-              .grid-item {
+              .grid-item, .card-holder {
                 width: calc(50% - 30px);
               }
             }
@@ -152,17 +152,23 @@ main {
       >.content {
         >.content-item {
           .grid-list, .gridlist {
-            .grid-item {
+            flex-direction: column;
+
+            .grid-item, .card-holder {
               width: 100%;
+              max-width: 100%;
             }
           }
         }
 
         &.full {
           >.content-item {
+            flex-direction: column;
+
             .grid-list, .gridlist {
-              .grid-item {
+              .grid-item, .card-holder {
                 width: 100%;
+                max-width: 100%;
               }
             }
           }
