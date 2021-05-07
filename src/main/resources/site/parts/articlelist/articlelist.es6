@@ -137,7 +137,7 @@ exports.get = function (request) {
     loadMore,
     loadMoreEnabled,
     items,
-    apiUrl: headless ? `${siteUrl}/api/headless` : '',
+    apiUrl: headless ? `${siteUrl.length > 8 ? siteUrl : ''}/api/headless` : '',
     parentPathQuery,
     count,
     sortExpression,
