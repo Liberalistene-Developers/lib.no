@@ -16,7 +16,7 @@ img {
     width: 100px;
 
     &.round {
-      max-height: 100px
+      height: 100px
     }
   }
 }
@@ -24,9 +24,9 @@ img {
 .medium {
   &>img {
     width: 220px;
-    
+
     &.round {
-      max-height: 220px
+      height: 220px
     }
   }
 }
@@ -36,7 +36,7 @@ img {
     width: 356px;
 
     &.round {
-      max-height: 356px
+      height: 356px
     }
   }
 }
