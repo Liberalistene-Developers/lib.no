@@ -29,6 +29,9 @@ jobs:
       - name: Lint code and css
         run: npm run lint
 
+      - name: Make production build
+        run: rm react4xp.properties && mv react4xp.production react4xp.properties
+
       - name: Build jar file
         run: npm run rebuild
 

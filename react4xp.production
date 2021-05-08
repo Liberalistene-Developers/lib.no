@@ -7,8 +7,6 @@
 #   - 'development' runs nsiInstall task instead of npmInstall. NsiInstall retains existing symlinks under node_modules.
 # Default build mode is 'production', but can be overridden with CLI arg: -Pdev or -Pdevelopment -Pdev when running gradle.
 # Or uncomment the following line to lock development build mode:
-buildEnv = development
-verbose = true
 
 
 # ENTRIES AND CHUNKING:
