@@ -53,7 +53,7 @@
     "react-dom": "^17.0.2",
     "react-leaflet": "^3.1.0",
     "react4xp": "^1.4.0",
-    "slugify": "^1.5.1",
+    "slugify": "^1.5.2",
     "url-parse": "^1.5.1"
   },
   "devDependencies": {
@@ -75,10 +75,10 @@
     "babel-loader": "^8.2.2",
     "browserslist": "^4.16.6",
     "browserslist-config-enonic": "^1.0.6",
-    "core-js": "^3.11.2",
+    "core-js": "^3.12.1",
     "css-loader": "^4.3.0",
     "cssnano": "^4.1.11",
-    "eslint": "^7.25.0",
+    "eslint": "^7.26.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
