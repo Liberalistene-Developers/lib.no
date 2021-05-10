@@ -50,6 +50,10 @@ export const Page = ({ children }) => (
     </main>
     <footer>
       <div className="footer-menu">
+        <div className="social-icons">
+          <i className="fab fa-twitter"></i>
+          <i className="fab fa-facebook"></i>
+        </div>
         <ul className="main-menu">
           <li>
             <a href="/admin/site/inline/default/draft/liberalistene-hovedside/politikk" title="Politikk">Politikk</a>

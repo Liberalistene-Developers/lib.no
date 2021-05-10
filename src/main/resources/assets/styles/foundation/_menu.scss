@@ -88,6 +88,23 @@ footer {
     }
   }
 
+  footer {
+    > .footer-menu,  > .contact {
+      flex-direction: column;
+
+      > * {
+        width: 100%;
+      }
+    }
+
+    > .footer-menu {
+      > .social-icons {
+        justify-content: center;
+        padding-left: 0px;
+      }
+    }
+  }
+
   header {
     & .main-menu-wrapper {
       & .overlay {
