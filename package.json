@@ -52,7 +52,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-leaflet": "^3.1.0",
-    "react4xp": "^1.4.0",
+    "react4xp": "^1.5.4",
     "slugify": "^1.5.2",
     "url-parse": "^1.5.1"
   },
