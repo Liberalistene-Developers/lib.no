@@ -149,6 +149,11 @@ main {
           }
 
           & .content-child {
+            &.items {
+              display: flex;
+              flex-direction: row;
+            }
+
             &.left {
               margin-right: -20px;
               &>* {
@@ -313,9 +318,14 @@ html body {
 
             &.reverse {
               flex-wrap: wrap-reverse;
+              flex-direction: column-reverse;
             }
 
             & .content-child {
+              &.items {
+                flex-direction: column;
+              }
+
               &.left {
                 margin-right:   0px;
                 &>* {

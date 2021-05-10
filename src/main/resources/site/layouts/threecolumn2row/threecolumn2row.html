@@ -7,21 +7,23 @@
         </div>
       </div>
 
-      <div data-portal-region="left" class="content-child left" th:classappend="${leftClassName}">
-        <div data-th-each="component : ${leftRegion.components}" data-th-remove="tag">
-          <div data-portal-component="${component.path}" data-th-remove="tag" />
+      <div class="content-child full items">
+        <div data-portal-region="left" class="content-child left" th:classappend="${leftClassName}">
+          <div data-th-each="component : ${leftRegion.components}" data-th-remove="tag">
+            <div data-portal-component="${component.path}" data-th-remove="tag" />
+          </div>
         </div>
-      </div>
-      
-      <div data-portal-region="middle" class="content-child middle" th:classappend="${middleClassName}">
-        <div data-th-each="component : ${middleRegion.components}" data-th-remove="tag">
-          <div data-portal-component="${component.path}" data-th-remove="tag" />
+
+        <div data-portal-region="middle" class="content-child middle" th:classappend="${middleClassName}">
+          <div data-th-each="component : ${middleRegion.components}" data-th-remove="tag">
+            <div data-portal-component="${component.path}" data-th-remove="tag" />
+          </div>
         </div>
-      </div>
-      
-      <div data-portal-region="right" class="content-child right" th:classappend="${rightClassName}">
-        <div data-th-each="component : ${rightRegion.components}" data-th-remove="tag">
-          <div data-portal-component="${component.path}" data-th-remove="tag" />
+
+        <div data-portal-region="right" class="content-child right" th:classappend="${rightClassName}">
+          <div data-th-each="component : ${rightRegion.components}" data-th-remove="tag">
+            <div data-portal-component="${component.path}" data-th-remove="tag" />
+          </div>
         </div>
       </div>
     </div>

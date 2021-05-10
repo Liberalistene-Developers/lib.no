@@ -103,11 +103,13 @@ const TwoColumn2rowLayout = ({ background, fullWidth, paddingBottom, paddingTop,
             <div className="content-child full">
               {first}
             </div>
-            <div className={`content-child left ${leftClassName}`}>
-              {second}
-            </div>
-            <div className={`content-child right ${rightClassName}`}>
-              {third}
+            <div className="content-child full items">
+              <div className={`content-child left ${leftClassName}`}>
+                {second}
+              </div>
+              <div className={`content-child right ${rightClassName}`}>
+                {third}
+              </div>
             </div>
           </div>
         </div>
@@ -173,19 +175,22 @@ const ThreeColumn2rowLayout = ({ background, fullWidth, paddingBottom, paddingTo
             <div className="content-child full">
               {first}
             </div>
-            <div className={`content-child left ${leftClassName}`}>
-              {second}
+
+            <div className="content-child full items">
+              <div className={`content-child left ${leftClassName}`}>
+                {second}
+              </div>
+              { third && (
+                <div className={`content-child middle ${middleClassName}`}>
+                  {third}
+                </div>
+              )}
+              { fourth && (
+                <div className={`content-child right ${rightClassName}`}>
+                  {fourth}
+                </div>
+              )}
             </div>
-            { third && (
-              <div className={`content-child middle ${middleClassName}`}>
-                {third}
-              </div>
-            )}
-            { fourth && (
-              <div className={`content-child right ${rightClassName}`}>
-                {fourth}
-              </div>
-            )}
           </div>
         </div>
       </div>
@@ -263,24 +268,27 @@ const FourColumn2rowLayout = ({ background, fullWidth, paddingBottom, paddingTop
             <div className="content-child full">
               {first}
             </div>
-            <div className={`content-child left ${leftClassName}`}>
-              {second}
+
+            <div className="content-child full items">
+              <div className={`content-child left ${leftClassName}`}>
+                {second}
+              </div>
+              { third && (
+                <div className={`content-child middle ${middleLeftClassName}`}>
+                  {third}
+                </div>
+              )}
+              { fourth && (
+                <div className={`content-child middle ${middleRightClassName}`}>
+                  {fourth}
+                </div>
+              )}
+              { fifth && (
+                <div className={`content-child right ${rightClassName}`}>
+                  {fifth}
+                </div>
+              )}
             </div>
-            { third && (
-              <div className={`content-child middle ${middleLeftClassName}`}>
-                {third}
-              </div>
-            )}
-            { fourth && (
-              <div className={`content-child middle ${middleRightClassName}`}>
-                {fourth}
-              </div>
-            )}
-            { fifth && (
-              <div className={`content-child right ${rightClassName}`}>
-                {fifth}
-              </div>
-            )}
           </div>
         </div>
       </div>
