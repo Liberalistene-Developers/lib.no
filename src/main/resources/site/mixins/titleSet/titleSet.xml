@@ -2,7 +2,7 @@
   <display-name i18n="mixin.titleSet.displayname">Title set</display-name>
   <form>
     <option-set name="titleSet">
-      <label i18n="checkOptionSet.label">Title</label>
+      <label i18n="mixin.titleSet.title.label">Title</label>
       <expanded>true</expanded>
       <occurrences minimum="1" maximum="1"/>
       <help-text>You can select up to 1 options</help-text>
@@ -23,6 +23,12 @@
               <occurrences minimum="1" maximum="0"/>
               <items>
                 <mixin name="title" />
+                <input  name="titleNoSpace" type="CheckBox">
+                  <label i18n="mixin.titleSet.title.label">No space in front word</label>
+                  <config>
+                    <alignment>right</alignment>
+                  </config>
+                </input>
               </items>
             </item-set>
           </items>

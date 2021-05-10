@@ -24,8 +24,8 @@ export const ImageBlock = ({
             { title && title.length > 0 && (
               <div className="title">
                 <Tag>
-                  {title.map(({ title: titleText, titleColor }) => (
-                    <span key={titleText} className={titleColor}>
+                  {title.map(({ title: titleText, titleColor, titleNoSpace }) => (
+                    <span key={titleText} className={cx(titleColor, { nospace: titleNoSpace })}>
                       {titleText}
                     </span>
                   ))}

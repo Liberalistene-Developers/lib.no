@@ -96,7 +96,7 @@
       }
 
       .title {
-        span:not(:first-child) {
+        span:not(:first-child):not(.nospace) {
           &::before {
             content: ' ',
           }
