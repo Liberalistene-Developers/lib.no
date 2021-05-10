@@ -274,6 +274,10 @@ html body {
     overflow-x: hidden;
   }
 
+  .main-wrapper {
+    padding: 0 0 240px;
+  }
+
   main {
     & > .content-holder {
       & > .content {
