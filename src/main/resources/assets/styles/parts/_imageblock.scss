@@ -98,7 +98,7 @@
       .title {
         span:not(:first-child):not(.nospace) {
           &::before {
-            content: ' ',
+            content: ' ';
           }
         }
 
@@ -192,7 +192,7 @@
           span {
             &.nospace {
               &::before {
-                content: ' ',
+                content: '-';
               }
             }
           }
