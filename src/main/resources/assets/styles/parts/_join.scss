@@ -3,6 +3,7 @@
 .join-container {
   position: relative;
   height: 300px;
+  width: 100%;
 
   & .medium-margin {
     margin-top: 60px;
@@ -20,6 +21,7 @@
     cursor: pointer;
 
     width: 600px;
+    max-width: 100%;
     height: 300px;
 
     .join-front,.join-back {
@@ -114,6 +116,16 @@
       > .join-back{
         transform: perspective(600px) rotateX(0deg);
       }
+    }
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .join-container {
+    width: 100%;
+
+    .join {
+      width: 100%;
     }
   }
 }
