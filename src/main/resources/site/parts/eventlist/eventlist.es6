@@ -72,6 +72,7 @@ exports.get = function (request) {
   }
 
   const sortExpression = createSort()
+  const useLoader = selection !== 'manual'
 
   switch (selection) {
     case 'manual':
@@ -127,7 +128,8 @@ exports.get = function (request) {
     parentPathQuery,
     count: selection === 'query' ? count : items.length,
     sortExpression,
-    noIngress: !!hideIngress
+    noIngress: !!hideIngress,
+    useLoader
   }
 
   log.info(JSON.stringify(request))
@@ -136,5 +138,5 @@ exports.get = function (request) {
   log.info('**************************************************************************************')
   log.info('**************************************************************************************')
 
-  return React4xp.render('EventList', props, request, { clientRender: true })
+  return React4xp.render(request.mode === 'edit' ? 'EventListView' : 'EventList', props, request, { clientRender: request.mode !== 'edit' })
 }

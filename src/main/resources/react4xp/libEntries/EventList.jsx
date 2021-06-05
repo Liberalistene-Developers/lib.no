@@ -25,9 +25,10 @@ export const EventList = ({
   count = 10,
   sortExpression = '',
   parentPathQuery = '',
-  noIngress = false
+  noIngress = false,
+  useLoader = false
 }) => {
-  if (window === undefined) {
+  if (window === undefined || !useLoader) {
     return (
       <EventListView
         description={description}
@@ -108,11 +109,13 @@ EventList.propTypes = {
   showImage: PropTypes.bool,
   sortExpression: PropTypes.string,
   title: PropTypes.string,
-  tags: PropTypes.array
+  tags: PropTypes.array,
+  useLoader: PropTypes.bool
 }
 
 EventList.defaultProps = {
-  tags: []
+  tags: [],
+  useLoader: false
 }
 
 export default (props) => <EventList {...props} /> // eslint-disable-line react/display-name

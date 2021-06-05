@@ -146,5 +146,5 @@ exports.get = function (request) {
 
   log.info(JSON.stringify(props, null, 4))
 
-  return React4xp.render(request.edit === 'edit' ? 'ArticleListView' : 'ArticleList', props, request, { clientRender: request.edit !== 'edit' })
+  return React4xp.render(request.mode === 'edit' ? 'ArticleListView' : 'ArticleList', props, request, { clientRender: request.mode !== 'edit' })
 }

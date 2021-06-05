@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faGlobe, faMap } from '@fortawesome/free-solid-svg-icons'
+
+import { FAIcon } from './FAIconEdit';
 
 /**
  * Primary Image holder for solution.
@@ -14,7 +14,8 @@ export const EventInfo = ({
 }) => (
   <div className="event-info">
     <div className="event-place">
-      <FontAwesomeIcon icon={locationType === 'place' ? faMap : faGlobe} />  {locationLabel} <a
+      <FAIcon iconType={locationType === 'place' ? 'fa-map' : 'fa-globe'} />
+        &nbsp;{locationLabel} <a
         href={locationType === 'place' ? `https://maps.google.com?q=${location.address}` : location.address}
         title={location.address}
       >
@@ -22,7 +23,7 @@ export const EventInfo = ({
       </a>
     </div>
     <div className="event-time" title={date}>
-      <FontAwesomeIcon icon={faClock} /> <time dateTime={date}>{date}</time>
+      <FAIcon iconType={'fa-clock'} /> <time dateTime={date}>{date}</time>
     </div>
   </div>
 )
