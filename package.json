@@ -52,7 +52,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-leaflet": "^3.2.0",
-    "react4xp": "^1.5.7",
+    "react4xp": "^1.7.0",
     "slugify": "^1.5.3",
     "url-parse": "^1.5.1"
   },
@@ -92,7 +92,7 @@
     "postcss-loader": "^3.0.0",
     "postcss-normalize": "^9.0.0",
     "ramda": "^0.27.1",
-    "sass-loader": "^10.1.1",
+    "sass-loader": "^10.2.0",
     "standard-version": "^9.3.0",
     "style-loader": "^2.0.0",
     "stylelint": "^13.13.1",
