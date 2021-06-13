@@ -85,7 +85,8 @@ exports.get = function (request) {
         budget,
         cut,
         percent,
-        cuts: cuts
+        cuts: []
+          .concat(cuts)
           .map(({ description: itemDescription, ...rest }) => ({
             ...rest,
             description: processHtml(itemDescription)
