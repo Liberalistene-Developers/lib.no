@@ -1,0 +1,96 @@
+.budget-cut-holder {
+  width: 100%;
+
+  .budget-cut-title {
+    h1 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .budget-cut-content {
+    margin-top: 40px;
+
+    .budget-cut-sumary {
+      dl {
+        dt {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .budget-cut-table {
+      display: grid;
+      max-width: 100%;
+      grid-template-columns: auto 80px 80px;
+      grid-template-areas:
+        "header header header"
+        "main main main"
+        "footer footer footer";
+
+      .budget-cut-percent, .budget-cut-cuts {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+      }
+
+      .header {
+        border-bottom: 1px solid grey;
+      }
+
+      .footer {
+        border-top: 2px solid grey;
+        border-bottom: 5px double grey;
+      }
+    }
+
+    .numbers-description {
+      text-align: right;
+    }
+  }
+
+  .budget-cut-item {
+    .budget-cut-title {
+      i {
+        float: right;
+        line-height: inherit;
+      }
+    }
+
+    >input[type="checkbox"] {
+      display: none;
+
+      &:checked {
+        & ~ .budget-cut-title {
+          label {
+            .open {
+              display: none;
+            }
+
+            .closed {
+              display: inherit;
+            }
+          }
+        }
+      }
+
+      &:not(:checked) {
+        & ~ .budget-cut-content {
+          display: none;
+        }
+
+        & ~ .budget-cut-title {
+          label {
+            .open {
+              display: inherit;
+            }
+
+            .closed {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

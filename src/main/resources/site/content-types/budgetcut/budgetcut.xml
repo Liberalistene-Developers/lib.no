@@ -1,0 +1,49 @@
+<content-type>
+  <display-name i18n="content_types.bugdetcut.displayname">Budget cut</display-name>
+  <display-name-label i18n="common_types.book.displayname.label">Budget cut</display-name-label>
+  <description i18n="content_types.book.description">Create a new budget cut</description>
+  <super-type>base:structured</super-type>
+  <is-abstract>false</is-abstract>
+  <is-final>true</is-final>
+  <is-built-in>false</is-built-in>
+  <allow-child-content>true</allow-child-content>
+  <form>
+    <input name="decription" type="HtmlArea">
+      <label i18n="content_types.description">Description</label>
+    </input>
+    <input name="budget" type="Double">
+      <label i18n="content_types.budgetcut.budget.label">Budget</label>
+    </input>
+    <input name="cut" type="Double">
+      <label i18n="content_types.budgetcut.cut.label">Reduction</label>
+    </input>
+    <input name="percent" type="Double">
+      <label i18n="content_types.budgetcut.percent.label">Percent</label>
+    </input>
+    <item-set name="cuts">
+      <label i18n="content_types.budgetcut.cuts.label">Cuts</label>
+      <occurrences minimum="0" maximum="0"/>
+      <items>
+        <input name="name" type="TextLine">
+          <label i18n="content_types.budgetcut.cuts.name.label">Name</label>
+        </input>
+        <input name="budget" type="Double">
+          <label i18n="content_types.budgetcut.cuts.budget.label">Budget</label>
+        </input>
+        <input name="cut" type="Double">
+          <label i18n="content_types.budgetcut.cuts.cut.label">Reduction</label>
+        </input>
+        <input name="percent" type="Double">
+          <label i18n="content_types.budgetcut.cuts.percent.label">Percent</label>
+        </input>
+        <input name="description" type="HtmlArea">
+          <label i18n="content_types.description">Description</label>
+        </input>
+      </items>
+    </item-set>
+    <input name="sumary" type="HtmlArea">
+      <label i18n="content_types.sumary">Sumary</label>
+    </input>
+    <mixin name="tags" />
+  </form>
+</content-type>

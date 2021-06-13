@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <part>
   <display-name i18n="parts.booklist.name">Book list</display-name>
-  <description i18n="parts.articlelist.description">
+  <description i18n="parts.booklist.description">
     Display Book list
   </description>
   <form>
     <mixin name="image" />
-    <input type="TextLine" name="title" > 
-      <label i18n="parts.title.label">Title</label> 
+    <input type="TextLine" name="title" >
+      <label i18n="parts.title.label">Title</label>
       <default i18n="parts.title.default">Title</default>
-      <help-text i18n="parts.title.help-text">Input your title.</help-text>  
-      <occurrences minimum="0" maximum="1"/>  
-      <config/> 
+      <help-text i18n="parts.title.help-text">Input your title.</help-text>
+      <occurrences minimum="0" maximum="1"/>
+      <config/>
     </input>
     <option-set name="itemsSet">
       <label i18n="checkOptionSet.label">Items</label>
-      <expanded>true</expanded> 
-      <occurrences minimum="1" maximum="1"/> 
+      <expanded>true</expanded>
+      <occurrences minimum="1" maximum="1"/>
       <help-text>You can select up to 1 options</help-text>
-      <options minimum="1" maximum="1">    
+      <options minimum="1" maximum="1">
         <option name="manual">
           <label>Manual selection</label>
           <help-text>Select items to show</help-text>
@@ -50,12 +50,12 @@
       </options>
     </option-set>
     <mixin name="displaytype" />
-    <input type="TextLine" name="buyFromText" > 
-      <label i18n="parts.buyFromText.label">Buy from text</label> 
+    <input type="TextLine" name="buyFromText" >
+      <label i18n="parts.buyFromText.label">Buy from text</label>
       <default i18n="parts.buyFromText.default">Buy from</default>
-      <help-text i18n="parts.title.help-text">Text infront from the store.</help-text>  
-      <occurrences minimum="1" maximum="1"/>  
-      <config/> 
+      <help-text i18n="parts.title.help-text">Text infront from the store.</help-text>
+      <occurrences minimum="1" maximum="1"/>
+      <config/>
     </input>
   </form>
 </part>

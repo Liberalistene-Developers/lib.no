@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part>
+  <display-name i18n="parts.budgetcutlist.name">Budget cut list</display-name>
+  <description i18n="parts.budgetcutlist.description">
+    Display Budget cut list
+  </description>
+  <form>
+    <input type="TextLine" name="title" >
+      <label i18n="parts.title.label">Title</label>
+      <default i18n="parts.title.default"></default>
+      <help-text i18n="parts.title.help-text">Input your title.</help-text>
+      <occurrences minimum="0" maximum="1"/>
+      <config/>
+    </input>
+    <option-set name="itemsSet">
+      <label i18n="checkOptionSet.label">Items</label>
+      <expanded>true</expanded>
+      <occurrences minimum="1" maximum="1"/>
+      <help-text>You can select up to 1 options</help-text>
+      <options minimum="1" maximum="1">
+        <option name="manual">
+          <label>Manual selection</label>
+          <help-text>Select items to show</help-text>
+          <default>true</default>
+          <items>
+            <input name="items" type="ContentSelector">
+              <label i18n="parts.booklist.books.label">Book(s)</label>
+              <occurrences minimum="1" maximum="0"/>
+              <config>
+                <allowContentType>budgetcut</allowContentType>
+                <allowPath>${site}/*</allowPath>
+                <allowPath>./*</allowPath>
+                <treeMode>false</treeMode>
+                <showStatus>true</showStatus>
+                <hideToggleIcon>true</hideToggleIcon>
+              </config>
+            </input>
+          </items>
+        </option>
+        <option name="query">
+          <label>Query selection</label>
+          <help-text>Select which query to use for items</help-text>
+          <items>
+            <mixin name="query" />
+          </items>
+        </option>
+      </options>
+    </option-set>
+    <mixin name="displaytype" />
+    <input type="TextLine" name="labelBudget" >
+      <label i18n="parts.labelBudget.label">Label budget</label>
+      <default i18n="parts.labelBudget.default">Budget</default>
+      <help-text i18n="parts.labelBudget.help-text">Add the label for budget.</help-text>
+      <occurrences minimum="1" maximum="1"/>
+      <config/>
+    </input>
+    <input type="TextLine" name="labelCut" >
+      <label i18n="parts.labelCut.label">Label cut</label>
+      <default i18n="parts.labelCut.default">Cut</default>
+      <help-text i18n="parts.labelCut.help-text">Add the label for cut.</help-text>
+      <occurrences minimum="1" maximum="1"/>
+      <config/>
+    </input>
+    <input type="TextLine" name="labelNumberText" >
+      <label i18n="parts.labelNumberText.label">Label number as</label>
+      <default i18n="parts.labelNumberText.default">Numbers in whole millions</default>
+      <help-text i18n="parts.labelNumberText.help-text">Add the label for number descripttion.</help-text>
+      <occurrences minimum="1" maximum="1"/>
+      <config/>
+    </input>
+    <input type="TextLine" name="labelPercent" >
+      <label i18n="parts.labelPercent.label">Label percent</label>
+      <default i18n="parts.labelPercent.default">Percent</default>
+      <help-text i18n="parts.labelPercent.help-text">Add the label for percent.</help-text>
+      <occurrences minimum="1" maximum="1"/>
+      <config/>
+    </input>
+    <input type="TextLine" name="labelSumary" >
+      <label i18n="parts.labelSumary.label">Label sumary</label>
+      <default i18n="parts.labelSumary.default"></default>
+      <help-text i18n="parts.labelSumary.help-text">Add the label for sumary.</help-text>
+      <occurrences minimum="1" maximum="1"/>
+      <config/>
+    </input>
+    <input type="TextLine" name="labelSumCut" >
+      <label i18n="parts.labelSumCut.label">Label sum cut</label>
+      <default i18n="parts.labelSumCut.default">Total cut</default>
+      <help-text i18n="parts.labelSumCut.help-text">Add the label for sum cut.</help-text>
+      <occurrences minimum="1" maximum="1"/>
+      <config/>
+    </input>
+    <input type="TextLine" name="labelTitle" >
+      <label i18n="parts.labelTitle.label">Label title</label>
+      <default i18n="parts.labelTitle.default">Department</default>
+      <help-text i18n="parts.labelTitle.help-text">Add the label for department.</help-text>
+      <occurrences minimum="1" maximum="1"/>
+      <config/>
+    </input>
+  </form>
+</part>
