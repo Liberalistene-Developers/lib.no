@@ -1,5 +1,26 @@
+.budget-cut-list-holder {
+  width: 100%;
+
+  .budget-cut-list-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+
+  .ingress {
+    font-weight: bold;
+  }
+
+  .budget-cut-list {
+    width: 100%;
+  }
+}
+
 .budget-cut-holder {
   width: 100%;
+  margin-bottom: 20px;
 
   .budget-cut-title {
     h1 {

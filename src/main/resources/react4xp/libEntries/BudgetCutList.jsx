@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { BudgetCutItem } from './BudgetCutExpandable'
 
 export const BudgetCutList = ({
+  ingress,
   title,
   items = [],
   labelSumCut,
@@ -17,6 +18,12 @@ export const BudgetCutList = ({
     { title && (
       <div className="budget-cut-list-title">
         <h2 title={title}>{title}</h2>
+      </div>
+    )}
+
+    { ingress && (
+      <div className="page-content">
+        <div className="ingress rich-text" dangerouslySetInnerHTML={{ __html: ingress }} />
       </div>
     )}
 
@@ -56,6 +63,7 @@ export const BudgetCutList = ({
 )
 
 BudgetCutList.propTypes = {
+  ingress: PropTypes.string,
   items: PropTypes
     .arrayOf(PropTypes
       .shape({

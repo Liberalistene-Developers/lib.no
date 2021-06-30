@@ -10,6 +10,7 @@ exports.get = function (request) {
 
   const {
     config: {
+      ingress = '',
       items: oldItemList = [],
       itemsSet: {
         _selected: selection,
@@ -55,6 +56,7 @@ exports.get = function (request) {
 
   const props = {
     title,
+    ingress,
     labelBudget,
     labelCut,
     labelNumberText,

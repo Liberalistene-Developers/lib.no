@@ -12,6 +12,9 @@
       <occurrences minimum="0" maximum="1"/>
       <config/>
     </input>
+    <input name="ingress" type="HtmlArea">
+      <label i18n="content_types.ingress.label">Ingress</label>
+    </input>
     <option-set name="itemsSet">
       <label i18n="checkOptionSet.label">Items</label>
       <expanded>true</expanded>
