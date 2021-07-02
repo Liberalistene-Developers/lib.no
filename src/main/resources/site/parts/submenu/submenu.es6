@@ -5,6 +5,12 @@ const contentLib = require('/lib/xp/content')
 const { findItems } = require('/lib/shared/query')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
+
   const content = portal.getContent()
   const component = portal.getComponent()
 
@@ -26,7 +32,7 @@ exports.get = function (request) {
         } = {}
       } = {}
     } = {}
-  } = component
+  } = component || {}
 
   const items = []
 
@@ -51,12 +57,14 @@ exports.get = function (request) {
       const {
         displayName: name,
         _path: itemPath,
-        data: dataRest,
+        data: dataRest = {},
         ...rest
-      } = contentLib.get({ key: itemID })
+      } = contentLib.get({ key: itemID }) || {}
 
-      log.info(JSON.stringify(rest, null, 4))
-      log.info(JSON.stringify(dataRest, null, 4))
+      if (debug) {
+        log.info(JSON.stringify(rest, null, 4))
+        log.info(JSON.stringify(dataRest, null, 4))
+      }
 
       return {
         itemID,
@@ -70,7 +78,9 @@ exports.get = function (request) {
     })
   }
 
-  log.info(JSON.stringify(props, null, 4))
+  if (debug) {
+    log.info(JSON.stringify(props, null, 4))
+  }
 
   return React4xp.render('Menu', props, request, { clientRender: true })
 }

@@ -6,6 +6,12 @@ const { imageUrl } = require('/lib/shared/image')
 const { processHtml } = require('/lib/shared/html')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
+
   const component = portal.getComponent()
 
   const {
@@ -17,11 +23,11 @@ exports.get = function (request) {
       image: imageKey,
       frontPlacement
     } = {}
-  } = component
+  } = component || {}
 
   const {
     _path: urlPath
-  } = contentLib.get({ key: urlKey })
+  } = contentLib.get({ key: urlKey }) || {}
 
   const props = {
     buttonText,
@@ -36,7 +42,9 @@ exports.get = function (request) {
     frontPlacement
   }
 
-  log.info(JSON.stringify(props, null, 4))
+  if (debug) {
+    log.info(JSON.stringify(props, null, 4))
+  }
 
   return React4xp.render('Join', props, request, { clientRender: true })
 }

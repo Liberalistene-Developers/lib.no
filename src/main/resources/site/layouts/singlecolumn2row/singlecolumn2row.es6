@@ -21,7 +21,7 @@ exports.get = function (req) {
       top: topRegion,
       bottom: bottomRegion
     }
-  } = component
+  } = component || {}
 
   // Define the model
   const model = {

@@ -15,7 +15,7 @@ export const mapEvent = (itemId) => {
       ingress: text = '',
       image: imageKey
     } = {}
-  } = contentLib.get({ key: itemId })
+  } = contentLib.get({ key: itemId }) || {}
 
   return {
     itemId,

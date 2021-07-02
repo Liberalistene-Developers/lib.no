@@ -19,7 +19,7 @@ exports.get = function (req) {
     regions: {
       content: contentRegion
     }
-  } = component
+  } = component || {}
 
   // Define the model
   const model = {

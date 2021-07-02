@@ -5,6 +5,11 @@ const React4xp = require('/lib/enonic/react4xp')
 const { mapBoard } = require('/lib/shared/board')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
   const content = portal.getContent()
   const component = portal.getComponent()
 
@@ -15,15 +20,17 @@ exports.get = function (request) {
       imagetype = false,
       showemail = 'no'
     } = {}
-  } = component
+  } = component || {} || {}
 
   const {
     data: {
       member = []
     } = {}
-  } = board ? contentLib.get({ key: board }) : {}
+  } = board ? contentLib.get({ key: board }) || {} : {}
 
-  log.info(JSON.stringify(content, null, 4))
+  if (debug) {
+    log.info(JSON.stringify(content, null, 4))
+  }
 
   const members = [].concat(member)
 

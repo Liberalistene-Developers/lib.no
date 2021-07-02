@@ -11,7 +11,7 @@ export const mapGroup = (itemId) => {
       'short-description': shortDescription = '',
       member = []
     } = {}
-  } = contentLib.get({ key: itemId })
+  } = contentLib.get({ key: itemId }) || {}
 
   const members = [].concat(member)
 
@@ -32,8 +32,8 @@ export const mapPerson = (key) => {
       image: imageKey,
       email,
       'short-description': shortDescription
-    }
-  } = contentLib.get({ key })
+    } = {}
+  } = contentLib.get({ key }) || {}
 
   return {
     itemId: key,
@@ -54,7 +54,7 @@ export const mapBoard = ({
 }) => {
   const {
     displayName: role
-  } = contentLib.get({ key: roleId })
+  } = contentLib.get({ key: roleId }) || {}
 
   return {
     ...mapPerson(personId),

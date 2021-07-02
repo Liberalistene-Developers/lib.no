@@ -24,7 +24,7 @@ exports.get = function (req) {
       middleright: middleRightRegion,
       right: rightRegion
     }
-  } = component
+  } = component || {}
 
   const [leftClassName, middleLeftClassName, middleRightClassName, rightClassName] = columnsLayout.split(',')
 

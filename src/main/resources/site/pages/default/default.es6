@@ -12,13 +12,21 @@ const view = resolve('default.html')
 
 // Handle the GET request
 exports.get = function (req) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = req
+
   // Get the content that is using the page
   const content = portal.getContent()
   const config = portal.getSiteConfig()
 
   const menuItems = libs.menu.getMenuTree(1)
 
-  log.info(JSON.stringify(menuItems, null, 2))
+  if (debug) {
+    log.info(JSON.stringify(menuItems, null, 2))
+  }
 
   const {
     page: {
@@ -36,18 +44,25 @@ exports.get = function (req) {
     social = []
   } = config
 
-  const some = [].concat(social).map(({ address }) => {
-    log.info(address)
-    const url = address.match(/^(?:https?:\/\/)?(?:[^@/\n]+@)?(?:www\.)?([^:/\n]+)/)
-    const host = url[1].split('.')
+  const some = []
+    .concat(social)
+    .map(({ address }) => {
+      if (debug) {
+        log.info(address)
+      }
 
-    return {
-      href: address,
-      className: `fa-${host[host.length - 2]}`
-    }
-  })
+      const url = address.match(/^(?:https?:\/\/)?(?:[^@/\n]+@)?(?:www\.)?([^:/\n]+)/)
+      const host = url[1].split('.')
 
-  log.info(JSON.stringify(content, null, 4))
+      return {
+        href: address,
+        className: `fa-${host[host.length - 2]}`
+      }
+    })
+
+  if (debug) {
+    log.info(JSON.stringify(content, null, 4))
+  }
 
   // Prepare the model that will be passed to the view
   const model = {

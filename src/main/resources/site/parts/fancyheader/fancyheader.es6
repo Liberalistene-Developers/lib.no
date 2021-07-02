@@ -4,6 +4,12 @@ const React4xp = require('/lib/enonic/react4xp')
 const { imageUrl } = require('/lib/shared/image')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
+
   const component = portal.getComponent()
 
   const {
@@ -12,7 +18,7 @@ exports.get = function (request) {
       effect: effectKey = '',
       title = ''
     } = {}
-  } = component
+  } = component || {}
 
   const props = {
     image: imageUrl(imageKey, 'full'),
@@ -20,7 +26,9 @@ exports.get = function (request) {
     effect: imageUrl(effectKey, 'full')
   }
 
-  log.info(JSON.stringify(props, null, 4))
+  if (debug) {
+    log.info(JSON.stringify(props, null, 4))
+  }
 
   return React4xp.render('FancyHeader', props, request)
 }

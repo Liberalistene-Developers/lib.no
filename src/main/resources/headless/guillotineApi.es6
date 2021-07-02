@@ -29,7 +29,15 @@ const createError = (status, message) => ({
 
 // GraphQL playground
 exports.get = function (req) {
-  log.info(JSON.stringify(req, null, 4))
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = req
+
+  if (debug) {
+    log.info(JSON.stringify(req, null, 4))
+  }
 
   if (req.webSocket) {
     return {
@@ -75,6 +83,12 @@ exports.get = function (req) {
  * These will be run through the guillotine engine and JSON data will be returned.
  */
 exports.post = req => {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = req
+
   const body = JSON.parse(req.body)
 
   const output = {
@@ -88,7 +102,10 @@ exports.post = req => {
     status = 400
     log.error(`${output.body.errors.length} guillotine error${output.body.errors.length === 1 ? '' : 's'}: ${JSON.stringify(output.body.errors)}`)
     log.error(JSON.stringify(output.body.errors, null, 4))
-    log.info('The error happened with these request.body.variables: ' + JSON.stringify(body.variables))
+
+    if (debug) {
+      log.info('The error happened with these request.body.variables: ' + JSON.stringify(body.variables))
+    }
   }
 
   return {

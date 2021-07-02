@@ -5,6 +5,12 @@ const contentLib = require('/lib/xp/content')
 const { imageUrl } = require('/lib/shared/image')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
+
   const component = portal.getComponent()
 
   const {
@@ -17,11 +23,13 @@ exports.get = function (request) {
       shortDescription,
       title
     } = {}
-  } = component
+  } = component || {}
 
   const items = [].concat(persons)
 
-  log.info(JSON.stringify(component, null, 4))
+  if (debug) {
+    log.info(JSON.stringify(component, null, 4))
+  }
 
   const props = {
     title,
@@ -38,12 +46,14 @@ exports.get = function (request) {
           image: imageKey,
           'short-description': personShortDescription = '',
           ...dataRest
-        },
+        } = {},
         ...rest
-      } = contentLib.get({ key: itemID })
+      } = contentLib.get({ key: itemID }) || {}
 
-      log.info(JSON.stringify(rest, null, 4))
-      log.info(JSON.stringify(dataRest, null, 4))
+      if (debug) {
+        log.info(JSON.stringify(rest, null, 4))
+        log.info(JSON.stringify(dataRest, null, 4))
+      }
 
       return {
         itemID,
@@ -58,7 +68,9 @@ exports.get = function (request) {
     })
   }
 
-  log.info(JSON.stringify(props, null, 4))
+  if (debug) {
+    log.info(JSON.stringify(props, null, 4))
+  }
 
   return React4xp.render('PersonList', props, request)
 }

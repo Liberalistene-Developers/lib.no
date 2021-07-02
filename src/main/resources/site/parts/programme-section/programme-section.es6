@@ -20,7 +20,7 @@ exports.get = function (request) {
     config: {
       conclusionTitle = 'Liberalistene vil:'
     } = {}
-  } = component
+  } = component || {}
 
   const parts = getParts({
     key

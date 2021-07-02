@@ -7,6 +7,12 @@ const { processHtml } = require('/lib/shared/html')
 const { mapPerson } = require('/lib/shared/board')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
+
   const content = portal.getContent()
   const component = portal.getComponent()
 
@@ -25,7 +31,7 @@ exports.get = function (request) {
       dateLabel = '',
       timeLabel = ''
     } = {}
-  } = component
+  } = component || {}
 
   const {
     displayName: title,
@@ -47,7 +53,9 @@ exports.get = function (request) {
   const organizers = [].concat(organizerSelector)
   const speakersList = [].concat(speakers)
 
-  log.info(JSON.stringify(content, null, 4))
+  if (debug) {
+    log.info(JSON.stringify(content, null, 4))
+  }
 
   const props = {
     from,
@@ -127,9 +135,11 @@ exports.get = function (request) {
                       image: imageKey
                     },
                     ...rest
-                  } = contentLib.get({ key: speakerID })
+                  } = contentLib.get({ key: speakerID }) || {}
 
-                  log.info(JSON.stringify(rest, null, 4))
+                  if (debug) {
+                    log.info(JSON.stringify(rest, null, 4))
+                  }
 
                   return {
                     personID: speakerID,

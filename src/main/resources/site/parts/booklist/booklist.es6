@@ -6,6 +6,12 @@ const { imageUrl } = require('/lib/shared/image')
 const { findItems } = require('/lib/shared/query')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
+
   const component = portal.getComponent()
 
   const {
@@ -28,11 +34,13 @@ exports.get = function (request) {
       buyFromText,
       title
     } = {}
-  } = component
+  } = component || {}
 
   const items = [].concat(oldItemList)
 
-  log.info(JSON.stringify(component, null, 2))
+  if (debug) {
+    log.info(JSON.stringify(component, null, 2))
+  }
 
   switch (selection) {
     case 'manual':
@@ -69,9 +77,9 @@ exports.get = function (request) {
           author: authorList,
           buy: buyFrom,
           ...dataRest
-        },
+        } = {},
         ...rest
-      } = contentLib.get({ key: itemID })
+      } = contentLib.get({ key: itemID }) || {}
 
       const buy = [].concat(buyFrom)
       const authors = [].concat(authorList).slice(0, 1)
@@ -80,7 +88,7 @@ exports.get = function (request) {
           const {
             displayName: authorName,
             _path: authorPath
-          } = contentLib.get({ key: authorId })
+          } = contentLib.get({ key: authorId }) || {}
 
           authorCache[authorId] = {
             name: authorName,
@@ -91,8 +99,10 @@ exports.get = function (request) {
         return authorCache[authorId]
       })
 
-      log.info(JSON.stringify(rest, null, 4))
-      log.info(JSON.stringify(dataRest, null, 4))
+      if (debug) {
+        log.info(JSON.stringify(rest, null, 4))
+        log.info(JSON.stringify(dataRest, null, 4))
+      }
 
       return {
         itemID,
@@ -110,7 +120,9 @@ exports.get = function (request) {
     })
   }
 
-  log.info(JSON.stringify(props, null, 4))
+  if (debug) {
+    log.info(JSON.stringify(props, null, 4))
+  }
 
   return React4xp.render('BookList', props, request)
 }

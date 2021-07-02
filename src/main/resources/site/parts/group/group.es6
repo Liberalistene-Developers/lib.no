@@ -6,6 +6,12 @@ const { imageUrl } = require('/lib/shared/image')
 const { processHtml } = require('/lib/shared/html')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
+
   const content = portal.getContent()
   const component = portal.getComponent()
 
@@ -18,7 +24,7 @@ exports.get = function (request) {
       imagesize,
       imagetype
     } = {}
-  } = component
+  } = component || {}
 
   const {
     displayName: title,
@@ -30,9 +36,11 @@ exports.get = function (request) {
       member = [],
       address = ''
     } = {}
-  } = content
+  } = content || {}
 
-  log.info(JSON.stringify(content, null, 4))
+  if (debug) {
+    log.info(JSON.stringify(content, null, 4))
+  }
 
   const members = [].concat(member)
 
@@ -56,24 +64,26 @@ exports.get = function (request) {
     }) => {
       const {
         displayName: role
-      } = contentLib.get({ key: roleId })
+      } = contentLib.get({ key: roleId }) || {}
       const {
         displayName: person,
         _path: personPath,
         data: {
           image: imageKey,
           'short-description': boardShortDescription
-        }
-      } = contentLib.get({ key: personId })
+        } = {}
+      } = contentLib.get({ key: personId }) || {}
 
-      log.info(JSON.stringify(role, null, 4))
-      log.info(JSON.stringify(person, null, 4))
+      if (debug) {
+        log.info(JSON.stringify(role, null, 4))
+        log.info(JSON.stringify(person, null, 4))
+      }
 
       return {
         name: person,
         role,
         shortDescription: boardShortDescription,
-        url: portal
+        url: personPath && portal
           .pageUrl({
             path: personPath
           }),

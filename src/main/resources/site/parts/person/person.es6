@@ -5,6 +5,12 @@ const { imageUrl } = require('/lib/shared/image')
 const { processHtml } = require('/lib/shared/html')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
+
   const content = portal.getContent()
   const component = portal.getComponent()
 
@@ -16,9 +22,11 @@ exports.get = function (request) {
       'short-description': shortDescription = '',
       tags = ''
     } = {}
-  } = content
+  } = content || {}
 
-  log.info(JSON.stringify(content, null, 4))
+  if (debug) {
+    log.info(JSON.stringify(content, null, 4))
+  }
 
   const props = {
     title,

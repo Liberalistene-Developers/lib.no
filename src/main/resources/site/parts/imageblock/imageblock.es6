@@ -4,6 +4,12 @@ const React4xp = require('/lib/enonic/react4xp')
 const { imageUrl } = require('/lib/shared/image')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
+
   const content = portal.getContent()
   const component = portal.getComponent()
 
@@ -25,11 +31,13 @@ exports.get = function (request) {
       ingress,
       ingressColor
     } = {}
-  } = component
+  } = component || {}
 
   const titleList = selection === 'simple' ? [title] : [].concat(titles)
 
-  log.info(JSON.stringify(content, null, 4))
+  if (debug) {
+    log.info(JSON.stringify(content, null, 4))
+  }
 
   const props = {
     Tag,
@@ -44,7 +52,9 @@ exports.get = function (request) {
     title: titleList
   }
 
-  log.info(JSON.stringify(props, null, 4))
+  if (debug) {
+    log.info(JSON.stringify(props, null, 4))
+  }
 
   return React4xp.render('ImageBlock', props, request)
 }

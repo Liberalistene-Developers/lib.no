@@ -20,7 +20,7 @@ exports.get = function (request) {
     config: {
       conclusionTitle = ''
     } = {}
-  } = component
+  } = component || {}
 
   const conclusions = getConclusions({
     key

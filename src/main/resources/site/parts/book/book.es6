@@ -6,6 +6,12 @@ const { imageUrl } = require('/lib/shared/image')
 const { processHtml } = require('/lib/shared/html')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
+
   const content = portal.getContent()
   const component = portal.getComponent()
 
@@ -37,11 +43,13 @@ exports.get = function (request) {
         _path: personPath,
         data: {
           image: imageKey
-        },
+        } = {},
         ...rest
-      } = contentLib.get({ key: authorID })
+      } = contentLib.get({ key: authorID }) || {}
 
-      log.info(JSON.stringify(rest, null, 4))
+      if (debug) {
+        log.info(JSON.stringify(rest, null, 4))
+      }
 
       return {
         authorID,

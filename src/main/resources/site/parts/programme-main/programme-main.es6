@@ -12,7 +12,7 @@ exports.get = function (request) {
     config: {
       tableOfContent = false
     } = {}
-  } = component
+  } = component || {}
 
   const {
     _path: key,

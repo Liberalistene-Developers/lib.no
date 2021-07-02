@@ -13,12 +13,12 @@ export const mapArticle = (itemId) => {
       ingress: shortDescription = '',
       image: imageKey
     } = {}
-  } = contentLib.get({ key: itemId })
+  } = contentLib.get({ key: itemId }) || {}
 
   return {
     itemId,
     name,
-    url: portal
+    url: itemPath && portal
       .pageUrl({
         path: itemPath
       }),

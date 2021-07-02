@@ -9,6 +9,12 @@ const { buildParentPathQuery } = require('/headless/helpers/helpers')
 const { mapArticle } = require('/lib/shared/articles')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
+
   const component = portal.getComponent()
 
   const {
@@ -49,16 +55,18 @@ exports.get = function (request) {
       loadMore = '',
       loadMoreEnabled = false
     } = {}
-  } = component
+  } = component || {}
 
   const items = []
 
-  log.info(JSON.stringify(component, null, 2))
+  if (debug) {
+    log.info(JSON.stringify(component, null, 2))
+  }
 
   const headless = selection === 'query'
   const {
     _path: queryPath
-  } = headless && queryroot ? contentLib.get({ key: queryroot }) : {}
+  } = headless && queryroot ? contentLib.get({ key: queryroot }) || {} : {}
 
   const parentPathQuery = headless && queryPath && buildParentPathQuery(queryPath)
 
@@ -96,7 +104,9 @@ exports.get = function (request) {
         const result = guillotine.executeQuery(query, variables)
         const list = extractArticleList(result)
 
-        log.info(JSON.stringify(list, null, 2))
+        if (debug) {
+          log.info(JSON.stringify(list, null, 2))
+        }
 
         if (list.length) {
           items.push(...list)
@@ -118,7 +128,9 @@ exports.get = function (request) {
     .concat(featured)
     .reduce((acc, { item, style }) => ({ ...acc, [item]: style }), {})
 
-  log.info(JSON.stringify(_featured, null, 2))
+  if (debug) {
+    log.info(JSON.stringify(_featured, null, 2))
+  }
 
   const props = {
     title,
@@ -144,7 +156,9 @@ exports.get = function (request) {
     noIngress: !!hideIngress
   }
 
-  log.info(JSON.stringify(props, null, 4))
+  if (debug) {
+    log.info(JSON.stringify(props, null, 4))
+  }
 
   return React4xp.render(request.mode === 'edit' ? 'ArticleListView' : 'ArticleList', props, request, { clientRender: request.mode !== 'edit' })
 }

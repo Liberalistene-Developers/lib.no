@@ -3,6 +3,12 @@ const portal = require('/lib/xp/portal')
 const contentLib = require('/lib/xp/content')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
+
   const component = portal.getComponent()
 
   const {
@@ -19,7 +25,7 @@ exports.get = function (request) {
         } = {}
       } = {}
     } = {}
-  } = component
+  } = component || {}
 
   const createUrl = () => {
     if (urlType === 'intern') {
@@ -47,7 +53,9 @@ exports.get = function (request) {
     className: 'medium-margin'
   }
 
-  log.info(JSON.stringify(props, null, 4))
+  if (debug) {
+    log.info(JSON.stringify(props, null, 4))
+  }
 
   return React4xp.render('Button', props, request, { clientRender: true })
 }

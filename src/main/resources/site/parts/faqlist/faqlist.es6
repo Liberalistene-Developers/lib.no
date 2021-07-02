@@ -6,6 +6,12 @@ const { processHtml } = require('/lib/shared/html')
 const { findItems } = require('/lib/shared/query')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
+
   const content = portal.getContent()
   const component = portal.getComponent()
 
@@ -26,12 +32,14 @@ exports.get = function (request) {
         } = {}
       } = {}
     } = {}
-  } = component
+  } = component || {}
 
   const items = []
 
-  log.debug(JSON.stringify(content, null, 2))
-  log.debug(JSON.stringify(component, null, 2))
+  if (debug) {
+    log.debug(JSON.stringify(content, null, 2))
+    log.debug(JSON.stringify(component, null, 2))
+  }
 
   switch (selection) {
     case 'manual':
@@ -42,7 +50,7 @@ exports.get = function (request) {
       if (queryroot) {
         const list = findItems('lib.no:faq', queryroot, querysorting, count, 0)
 
-        if (list.length) {
+        if (list && list.length) {
           items.push(...list)
         }
       }
@@ -62,10 +70,12 @@ exports.get = function (request) {
           ...dataRest
         },
         ...rest
-      } = contentLib.get({ key: itemID })
+      } = contentLib.get({ key: itemID }) || {}
 
-      log.info(JSON.stringify(rest, null, 4))
-      log.info(JSON.stringify(dataRest, null, 4))
+      if (debug) {
+        log.info(JSON.stringify(rest, null, 4))
+        log.info(JSON.stringify(dataRest, null, 4))
+      }
 
       return {
         itemID,

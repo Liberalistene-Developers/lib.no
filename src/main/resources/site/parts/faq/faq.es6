@@ -19,7 +19,7 @@ exports.get = function (request) {
       expandable,
       expanded
     } = {}
-  } = component
+  } = component || {}
 
   const props = {
     expandable,

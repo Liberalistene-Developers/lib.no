@@ -6,6 +6,12 @@ const { imageUrl } = require('/lib/shared/image')
 const { processHtml } = require('/lib/shared/html')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
+
   const component = portal.getComponent()
 
   const {
@@ -15,7 +21,7 @@ exports.get = function (request) {
       imagesize = '',
       imagetype = false
     } = {}
-  } = component
+  } = component || {}
 
   const candidates = [].concat(candidate)
 
@@ -34,9 +40,11 @@ exports.get = function (request) {
         data: {
           image: imageKey
         }
-      } = contentLib.get({ key: personId })
+      } = contentLib.get({ key: personId }) || {}
 
-      log.info(JSON.stringify(person, null, 4))
+      if (debug) {
+        log.info(JSON.stringify(person, null, 4))
+      }
 
       return {
         itemId: personId,

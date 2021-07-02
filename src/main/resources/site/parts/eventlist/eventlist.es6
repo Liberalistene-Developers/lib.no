@@ -9,6 +9,12 @@ const { buildParentPathQuery } = require('/headless/helpers/helpers')
 const { mapEvent } = require('/lib/shared/events')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
+
   const component = portal.getComponent()
 
   const {
@@ -45,16 +51,18 @@ exports.get = function (request) {
       loadMore = '',
       loadMoreEnabled = false
     } = {}
-  } = component
+  } = component || {}
 
   const items = []
 
-  log.info(JSON.stringify(component, null, 2))
+  if (debug) {
+    log.info(JSON.stringify(component, null, 2))
+  }
 
   const headless = selection === 'query'
   const {
     _path: queryPath
-  } = headless && queryroot ? contentLib.get({ key: queryroot }) : {}
+  } = headless && queryroot ? contentLib.get({ key: queryroot }) || {} : {}
 
   const parentPathQuery = headless && queryPath && buildParentPathQuery(queryPath)
 
@@ -93,7 +101,9 @@ exports.get = function (request) {
         const result = guillotine.executeQuery(query, variables)
         const list = extractEventList(result)
 
-        log.info(JSON.stringify(list, null, 2))
+        if (debug) {
+          log.info(JSON.stringify(list, null, 2))
+        }
 
         if (list.length) {
           items.push(...list)
@@ -104,7 +114,7 @@ exports.get = function (request) {
 
   const {
     _path: sitePath
-  } = portal.getSite()
+  } = portal.getSite() || {}
 
   const siteUrl = portal
     .pageUrl({
@@ -132,11 +142,13 @@ exports.get = function (request) {
     useLoader
   }
 
-  log.info(JSON.stringify(request))
-  log.info(JSON.stringify(props, null, 4))
-  log.info('**************************************************************************************')
-  log.info('**************************************************************************************')
-  log.info('**************************************************************************************')
+  if (debug) {
+    log.info(JSON.stringify(request))
+    log.info(JSON.stringify(props, null, 4))
+    log.info('**************************************************************************************')
+    log.info('**************************************************************************************')
+    log.info('**************************************************************************************')
+  }
 
   return React4xp.render(request.mode === 'edit' ? 'EventListView' : 'EventList', props, request, { clientRender: request.mode !== 'edit' })
 }

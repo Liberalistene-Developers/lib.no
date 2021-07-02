@@ -6,6 +6,12 @@ const { findItems } = require('/lib/shared/query')
 const { processHtml } = require('/lib/shared/html')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
+
   const component = portal.getComponent()
 
   const {
@@ -32,11 +38,13 @@ exports.get = function (request) {
       labelTitle = '',
       title
     } = {}
-  } = component
+  } = component || {}
 
   const items = [].concat(oldItemList)
 
-  log.info(JSON.stringify(component, null, 2))
+  if (debug) {
+    log.info(JSON.stringify(component, null, 2))
+  }
 
   switch (selection) {
     case 'manual':
@@ -76,8 +84,8 @@ exports.get = function (request) {
           percent,
           cuts = [],
           sumary
-        }
-      } = contentLib.get({ key: itemID })
+        } = {}
+      } = contentLib.get({ key: itemID }) || {}
 
       return {
         itemID,
@@ -98,7 +106,9 @@ exports.get = function (request) {
     })
   }
 
-  log.info(JSON.stringify(props, null, 4))
+  if (debug) {
+    log.info(JSON.stringify(props, null, 4))
+  }
 
   return React4xp.render('BudgetCutList', props, request)
 }

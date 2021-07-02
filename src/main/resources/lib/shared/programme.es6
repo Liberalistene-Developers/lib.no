@@ -26,7 +26,7 @@ export const getConclusions = (search) => {
   return []
 }
 
-export const getParts = (search) => {
+export const getParts = (search, debug = false) => {
   const children = getChildren(search)
 
   // log.info(JSON.stringify(children, null, 4));
@@ -61,7 +61,9 @@ export const getParts = (search) => {
 
         const conclusions = getConclusions({ key })
 
-        log.info(JSON.stringify(rest, null, 4))
+        if (debug) {
+          log.info(JSON.stringify(rest, null, 4))
+        }
 
         if (type === Programme.Part) {
           return {

@@ -6,6 +6,12 @@ const { imageUrl } = require('/lib/shared/image')
 const { processHtml } = require('/lib/shared/html')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
+
   const component = portal.getComponent()
 
   const {
@@ -29,11 +35,13 @@ exports.get = function (request) {
       } = {},
       title
     } = {}
-  } = component
+  } = component || {}
 
   const itemsList = [].concat(items)
 
-  log.info(JSON.stringify(component, null, 2))
+  if (debug) {
+    log.info(JSON.stringify(component, null, 2))
+  }
 
   const props = {
     title,
@@ -52,7 +60,7 @@ exports.get = function (request) {
             ingress: itemIngress,
             'short-description': shortDescription
           }
-        } = contentLib.get({ key: itemKey })
+        } = contentLib.get({ key: itemKey }) || {}
 
         return {
           id: itemKey,
@@ -68,7 +76,9 @@ exports.get = function (request) {
     noIngress: !!hideIngress
   }
 
-  log.info(JSON.stringify(props, null, 4))
+  if (debug) {
+    log.info(JSON.stringify(props, null, 4))
+  }
 
   return React4xp.render('ArticleList', props, request, { clientRender: true })
 }

@@ -7,7 +7,7 @@ export const processHtml = (value) => {
 
       return html
     } catch (ex) {
-      log.info(ex.message)
+      log.error(ex.message)
 
       return ''
     }

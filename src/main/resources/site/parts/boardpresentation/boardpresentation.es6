@@ -5,6 +5,12 @@ const { mapGroup } = require('/lib/shared/board')
 const { findItems } = require('/lib/shared/query')
 
 exports.get = function (request) {
+  const {
+    params: {
+      debug = false
+    } = {}
+  } = request
+
   const component = portal.getComponent()
 
   const {
@@ -25,11 +31,13 @@ exports.get = function (request) {
         } = {}
       } = {}
     } = {}
-  } = component
+  } = component || {} || {}
 
   const items = []
 
-  log.info(JSON.stringify(component, null, 2))
+  if (debug) {
+    log.info(JSON.stringify(component, null, 2))
+  }
 
   switch (selection) {
     case 'manual':
@@ -56,7 +64,9 @@ exports.get = function (request) {
       .map(mapGroup)
   }
 
-  log.info(JSON.stringify(props, null, 4))
+  if (debug) {
+    log.info(JSON.stringify(props, null, 4))
+  }
 
   return React4xp.render('BoardPresentationList', props, request)
 }

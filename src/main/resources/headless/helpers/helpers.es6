@@ -12,7 +12,7 @@ export const extractList = (map) => (responseData) => {
     } = {}
   } = responseData || {}
 
-  const imageMap = ({ url, data: { alternativeText } }) => ({
+  const imageMap = ({ url, data: { alternativeText } = {} }) => ({
     url,
     alternativeText
   })
