@@ -6,6 +6,7 @@ header, footer {
   .main-menu {
     display: flex;
     list-style: none;
+    padding-inline-start: 0;
 
     li {
       a {
