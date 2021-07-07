@@ -32,9 +32,9 @@ exports.get = function (req) {
     page: {
       regions: {
         main: mainRegion
-      }
-    }
-  } = content
+      } = {}
+    } = {}
+  } = content || {}
 
   const {
     email,
@@ -42,7 +42,7 @@ exports.get = function (req) {
     phone,
     place,
     social = []
-  } = config
+  } = config || {}
 
   const some = []
     .concat(social)

@@ -59,7 +59,7 @@ exports.get = function (request) {
             image: itemImageKey,
             ingress: itemIngress,
             'short-description': shortDescription
-          }
+          } = {}
         } = contentLib.get({ key: itemKey }) || {}
 
         return {

@@ -35,7 +35,7 @@ exports.get = function (request) {
       tags = '',
       author = []
     } = {}
-  } = content
+  } = content || {}
 
   const authors = [].concat(author)
 

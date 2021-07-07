@@ -11,8 +11,8 @@ exports.get = function (request) {
     data: {
       answer,
       tags
-    }
-  } = content
+    } = {}
+  } = content || {}
 
   const {
     config: {

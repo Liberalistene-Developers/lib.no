@@ -16,7 +16,7 @@ exports.get = function (request) {
 
   const {
     _path: key
-  } = content
+  } = content || {}
 
   const {
     config: {

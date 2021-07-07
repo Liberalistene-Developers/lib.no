@@ -15,7 +15,8 @@ exports.get = function (request) {
       description = '',
       tags = ''
     } = {}
-  } = content
+  } = content || {}
+
   const {
     config: {
       conclusionTitle = ''

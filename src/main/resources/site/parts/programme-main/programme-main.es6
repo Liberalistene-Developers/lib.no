@@ -20,7 +20,7 @@ exports.get = function (request) {
     data: {
       tags = ''
     } = {}
-  } = content
+  } = content || {}
 
   const sections = getSections({
     key

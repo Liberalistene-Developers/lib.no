@@ -47,7 +47,7 @@ exports.get = function (request) {
       organizerSelector = [],
       speakers = []
     } = {}
-  } = content
+  } = content || {}
 
   const scheduleList = [].concat(schedule)
   const organizers = [].concat(organizerSelector)
