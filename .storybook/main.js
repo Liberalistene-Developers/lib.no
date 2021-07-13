@@ -12,7 +12,7 @@ module.exports = {
       use: ['style-loader', 'css-loader', 'sass-loader'],
       include: path.resolve(__dirname, '../'),
     });
-    
+
     // Return the altered config
     return config;
   },
@@ -22,6 +22,7 @@ module.exports = {
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
+    "@storybook/addon-postcss",
     "@storybook/addon-links",
     "@storybook/addon-essentials"
   ]
