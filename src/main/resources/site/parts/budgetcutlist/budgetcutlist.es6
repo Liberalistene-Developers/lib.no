@@ -78,7 +78,8 @@ exports.get = function (request) {
         displayName: name,
         _path: itemPath,
         data: {
-          description,
+          decription = '',
+          description = '',
           budget,
           cut,
           percent,
@@ -91,7 +92,7 @@ exports.get = function (request) {
         itemID,
         itemPath,
         title: name,
-        description: processHtml(description),
+        description: processHtml(description || decription),
         budget,
         cut,
         percent,
