@@ -25,7 +25,7 @@ export const BudgetCutItem = ({
     <div className="budget-cut-item">
       <input type="checkbox" id={ `checkbox-${titleAsID(title)}` } defaultChecked={checked} />
       <div className="budget-cut-title">
-        <h3 title={title}>
+        <h3 title={title} role="button">
           <label htmlFor={`checkbox-${titleAsID(title)}`}>
             {title}
 

@@ -7,10 +7,6 @@
     align-items: center;
     margin-bottom: 40px;
     margin-top: 40px;
-
-    h3 {
-      cursor: pointer;
-    }
   }
 
   .ingress {
@@ -30,6 +26,10 @@
     h1 {
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    h3, label {
+      cursor: pointer;
     }
   }
 
