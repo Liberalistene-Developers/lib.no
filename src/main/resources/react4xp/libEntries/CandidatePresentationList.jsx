@@ -22,12 +22,14 @@ CandidatePresentationList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     itemID: PropTypes.string
   })),
-  preText: PropTypes.string
+  preText: PropTypes.string,
+  highlighted: PropTypes.bool
 }
 
 CandidatePresentationList.defaultProps = {
   items: [],
-  preText: ''
+  preText: '',
+  highlighted: true
 }
 
 export default (props) => <CandidatePresentationList {...props} /> // eslint-disable-line react/display-name
