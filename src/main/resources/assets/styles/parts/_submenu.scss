@@ -5,7 +5,63 @@
   align-content: center;
 }
 
-@media screen and (max-width: 414px) {
+@media
+  only screen
+    and (max-width: 414px),
+  // Galaxy
+  only screen
+    and (min-device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait),
+  only screen
+    and (min-device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 3)
+    and (orientation: portrait),
+  only screen
+    and (min-device-width: 360px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait),
+  only screen
+    and (min-device-width: 360px)
+    and (-webkit-min-device-pixel-ratio: 3)
+    and (orientation: portrait),
+  only screen
+    and (min-device-width: 360px)
+    and (-webkit-min-device-pixel-ratio: 4)
+    and (orientation: portrait),
+  // iPhone
+  only screen
+    and (min-device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait),
+  only screen
+    and (min-device-width: 375px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait),
+  only screen
+    and (min-device-width: 375px)
+    and (-webkit-min-device-pixel-ratio: 3)
+    and (orientation: portrait),
+  only screen
+    and (device-width: 390px)
+    and (device-height: 844px)
+    and (-webkit-device-pixel-ratio: 3)
+    and (orientation: portrait),
+  only screen
+    and (device-width: 414px)
+    and (device-height: 896px)
+    and (-webkit-device-pixel-ratio: 2)
+    and (orientation: portrait),
+  only screen
+    and (device-width: 414px)
+    and (device-height: 896px)
+    and (-webkit-device-pixel-ratio: 3)
+    and (orientation: portrait),
+  only screen
+    and (device-width: 428px)
+    and (device-height: 926px)
+    and (-webkit-device-pixel-ratio: 3)
+    and (orientation: portrait) {
   .sub-menu {
     flex-direction: column;
   }

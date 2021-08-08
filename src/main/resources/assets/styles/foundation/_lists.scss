@@ -5,39 +5,95 @@
   align-items: center;
   justify-content: center;
   row-gap: 40px;
-  
+
   .list-item {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     column-gap: 20px;
-    
+
     & img {
       margin: 10px;
     }
-    
+
     & .small {
       &>img {
         width: 100px;
       }
     }
-    
+
     & .medium {
       &>img {
         width: 220px;
       }
     }
-    
+
     & .large {
       &>img {
         width: 300px;
       }
     }
-  }  
+  }
 }
 
-@media screen and (max-width: 414px) {
+@media
+  only screen
+    and (max-width: 414px),
+  // Galaxy
+  only screen
+    and (min-device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait),
+  only screen
+    and (min-device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 3)
+    and (orientation: portrait),
+  only screen
+    and (min-device-width: 360px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait),
+  only screen
+    and (min-device-width: 360px)
+    and (-webkit-min-device-pixel-ratio: 3)
+    and (orientation: portrait),
+  only screen
+    and (min-device-width: 360px)
+    and (-webkit-min-device-pixel-ratio: 4)
+    and (orientation: portrait),
+  // iPhone
+  only screen
+    and (min-device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait),
+  only screen
+    and (min-device-width: 375px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait),
+  only screen
+    and (min-device-width: 375px)
+    and (-webkit-min-device-pixel-ratio: 3)
+    and (orientation: portrait),
+  only screen
+    and (device-width: 390px)
+    and (device-height: 844px)
+    and (-webkit-device-pixel-ratio: 3)
+    and (orientation: portrait),
+  only screen
+    and (device-width: 414px)
+    and (device-height: 896px)
+    and (-webkit-device-pixel-ratio: 2)
+    and (orientation: portrait),
+  only screen
+    and (device-width: 414px)
+    and (device-height: 896px)
+    and (-webkit-device-pixel-ratio: 3)
+    and (orientation: portrait),
+  only screen
+    and (device-width: 428px)
+    and (device-height: 926px)
+    and (-webkit-device-pixel-ratio: 3)
+    and (orientation: portrait) {
   .list {
-    .list-item { 
+    .list-item {
       flex-direction: column;
       row-gap: 10px;
       align-items: center;
