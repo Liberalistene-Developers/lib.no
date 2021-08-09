@@ -40,16 +40,15 @@
     </option-set>
     <field-set>
       <label>Highlighted first kandidat</label>
-      <input  name="highlighted" type="CheckBox">
-        <label i18n="parts.candidatepresentation.highlighted.label">First candidat in list highlighted</label>
-        <default>checked</default>
-        <config>
-          <alignment>right</alignment>
-        </config>
-      </input>
-      <input name="preText" type="TextLine">
-        <label i18n="parts.candidatepresentation.pretext.label">Presentation Text</label>
-      </input>
+      <items>
+        <input  name="highlighted" type="CheckBox">
+          <label i18n="parts.candidatepresentation.highlighted.label">First candidat in list highlighted</label>
+          <default>checked</default>
+          <config>
+            <alignment>right</alignment>
+          </config>
+        </input>
+      </items>
     </field-set>
   </form>
 </part>
