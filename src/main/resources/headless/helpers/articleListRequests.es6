@@ -29,6 +29,12 @@ query(
                 alternativeText: caption
               }
               url: imageUrl(type: absolute, filter: "rounded(3)", scale: "block(459,295)")
+            },
+            ... on media_Vector {
+              data {
+                alternativeText: caption
+              }
+              url: mediaUrl
             }
           }
         }
