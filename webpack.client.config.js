@@ -81,7 +81,7 @@ function addBabelSupport(cfg) {
       plugins: [],
       presets: [
         [
-          '@babel/preset-env', 
+          '@babel/preset-env',
           {
             // false means polyfill not required runtime
             useBuiltIns: false
@@ -103,7 +103,7 @@ function addBabelSupport(cfg) {
 // ----------------------------------------------------------------------------
 
 const createDefaultCssLoaders = () => ([
-  {loader: MiniCssExtractPlugin.loader, options: {publicPath: '../', hmr: isDev}},
+  {loader: MiniCssExtractPlugin.loader, options: {publicPath: '../'}},
   {loader: 'css-loader', options: {sourceMap: !isProd, importLoaders: 1}},
   {loader: 'postcss-loader', options: {sourceMap: !isProd}},
 ]);
@@ -147,7 +147,7 @@ function addSassSupport(cfg) {
           sassOptions: {
             includePaths: [
                 require('path').resolve(__dirname, 'node_modules')
-            ],            
+            ],
           },
         },
       },

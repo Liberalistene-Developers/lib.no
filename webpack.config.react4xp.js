@@ -19,7 +19,7 @@ const isProd = env.prod;
 const isDev = env.dev;
 
 const createDefaultCssLoaders = () => ([
-  {loader: MiniCssExtractPlugin.loader, options: {publicPath: '../', hmr: isDev}},
+  {loader: MiniCssExtractPlugin.loader, options: {publicPath: '../'}},
   {loader: 'css-loader', options: {sourceMap: !isProd, importLoaders: 1}},
   {loader: 'postcss-loader', options: {sourceMap: !isProd}},
 ]);
