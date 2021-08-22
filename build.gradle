@@ -2,7 +2,7 @@ plugins {
     id "com.enonic.defaults" version "2.0.1"
     id "com.enonic.xp.app" version "3.0.0"
     // id "com.moowork.node" version "1.3.1"
-    id "com.github.node-gradle.node" version "2.2.0"
+    id "com.github.node-gradle.node" version "3.1.0"
     id "maven-publish"
 }
 
@@ -15,7 +15,7 @@ app {
 }
 
 // This variable is used in the include lib-react4xp below, and also used in the optional tasks in readme.gradle
-rootProject.ext.LIB_REACT4XP_VERSION = "1.7.1"
+rootProject.ext.LIB_REACT4XP_VERSION = "2.0.0"
 
 dependencies {
     compile "com.enonic.xp:core-api:${xpVersion}"
@@ -63,7 +63,7 @@ task cleanNode( type: org.gradle.api.tasks.Delete ) {
 
 task clientWebpack( type: NodeTask, dependsOn: npmInstall ) {
     environment = [ 'NODE_ENV': nodeEnvironment() ]
-    args = [ '--config', 'webpack.client.config.js', '--color', '--hide-modules' ]
+    args = [ '--config', 'webpack.client.config.js', '--color' ]
     description = 'Build UI resources (js, css, etc).'
     inputs.dir 'src/main'
     outputs.dir "${buildDir}/resources/main"
@@ -79,9 +79,13 @@ jar.dependsOn += 'clientWebpack'
 def react4xpGradlePath = 'node_modules/react4xp/react4xp.gradle'
 def react4xpGradleFile = new File(react4xpGradlePath)
 if (!react4xpGradleFile.exists()) {
-    println "\nNot found: $react4xpGradlePath"
-    def command = "npm install"
-    println "Running shell command: $command"
+    String npm = 'npm'
+    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+        npm = 'npm.cmd'
+    }
+    def command = npm + " install"
+    println "\nNot found: $react4xpGradlePath - running shell command:"
+    println command
     def proc = command.execute()
     proc.in.eachLine { line -> println line }
     proc.out.close()
