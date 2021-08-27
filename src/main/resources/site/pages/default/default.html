@@ -27,7 +27,7 @@
   							<th:block data-th-each="menuItem : ${menu.menuItems}">
   								<li>
   									<a data-th-href="${menuItem.url}" th:title="${menuItem.title}" th:text="${menuItem.title}">Item</a>
-  								</li>
+  								</li>th
   							</th:block>
   						</ul>
             </div>
@@ -65,7 +65,7 @@
 				<div class="contact">
 	        <div class="place" th:text="${place}">Oslo</div>
 	        <div class="phone" th:text="${phone}">88 55 00 00</div>
-	        <div class="email" th:text="${email}">contact@liberalistene.org</div>
+	        <div class="email"><a th:href="|mailto:${email}" th:text="${email}">contact@liberalistene.org</a></div>
 	    	</div>
 			</footer>
 		</div>

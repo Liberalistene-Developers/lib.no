@@ -27,7 +27,7 @@ export const Person = ({
 
     { email && (
       <div className="contact-information">
-        <a className="email" href={`mailto://${email}`}>{emailPrefix ? [emailPrefix, title].join(' ') : title}</a>
+        <a className="email" href={`mailto:${email}`}>{emailPrefix ? [emailPrefix, title].join(' ') : title}</a>
       </div>
     )}
   </div>
