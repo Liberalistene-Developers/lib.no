@@ -8,24 +8,34 @@ export const Person = ({
   image,
   description,
   shortDescription,
+  email,
+  emailPrefix,
   tags
 }) => (
-  <div>
+  <div className="person-wrapper">
     <h1 title={title}>{title}</h1>
 
     <Image image={image} />
 
     { shortDescription && (
-      <div dangerouslySetInnerHTML={{ __html: shortDescription }} />
+      <div className="ingress rich-text" dangerouslySetInnerHTML={{ __html: shortDescription }} />
     )}
 
     { description && (
-      <div dangerouslySetInnerHTML={{ __html: description }} />
+      <div className="description" dangerouslySetInnerHTML={{ __html: description }} />
+    )}
+
+    { email && (
+      <div className="contact-information">
+        <a className="email" href={`mailto://${email}`}>{emailPrefix ? [emailPrefix, title].join(' ') : title}</a>
+      </div>
     )}
   </div>
 )
 
 Person.propTypes = {
+  email: PropTypes.string,
+  emailPrefix: PropTypes.string,
   title: PropTypes.string,
   image: PropTypes.shape({
     url: PropTypes.string

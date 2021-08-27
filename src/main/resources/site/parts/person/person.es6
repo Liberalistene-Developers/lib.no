@@ -15,14 +15,23 @@ exports.get = function (request) {
   const component = portal.getComponent()
 
   const {
+    config: {
+      emailPrefix
+    } = {}
+  } = component || {} || {}
+
+  const {
     displayName: title,
     data: {
       image,
       description = '',
       'short-description': shortDescription = '',
-      tags = ''
+      email,
+      tags: tag = ''
     } = {}
   } = content || {}
+
+  const tags = tag ? [].concat(tag) : []
 
   if (debug) {
     log.info(JSON.stringify(content, null, 4))
@@ -33,6 +42,8 @@ exports.get = function (request) {
     image: imageUrl(image, 'block(192,256)'),
     description: processHtml(description),
     shortDescription,
+    email,
+    emailPrefix,
     tags
   }
 
