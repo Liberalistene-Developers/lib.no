@@ -33,7 +33,8 @@ exports.get = function (req) {
       regions: {
         main: mainRegion
       } = {}
-    } = {}
+    } = {},
+    language
   } = content || {}
 
   const {
@@ -66,6 +67,7 @@ exports.get = function (req) {
 
   // Prepare the model that will be passed to the view
   const model = {
+    language,
     content,
     email,
     image: imageKey && imageUrl(imageKey, 'block(168,40)'),

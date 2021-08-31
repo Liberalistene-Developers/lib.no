@@ -21,7 +21,7 @@ export const PersonListItem = ({
         <span className="role">{role}</span>
       )}
       { showEmail && email && (
-        <a href={`mailto:${email}`}>{email}</a>
+        <a href={`mailto:${email}`} rel="noreferrer">{email}</a>
       )}
     </>
   </ListItem>

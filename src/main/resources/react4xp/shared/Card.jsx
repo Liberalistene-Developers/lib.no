@@ -17,7 +17,7 @@ export const Card = ({
       { image && (
         <div className="card-image-holder">
           <a href={url} title={title}>
-            <img src={image.url} alt={image.alternativeText} className="card-image" />
+            <img src={image.url} alt={image.alternativeText || (image.url && image.url.split('?')[0].split('/').pop())} className="card-image" />
           </a>
           {children}
         </div>

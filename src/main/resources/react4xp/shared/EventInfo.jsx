@@ -18,6 +18,7 @@ export const EventInfo = ({
         &nbsp;{locationLabel} <a
         href={locationType === 'place' ? `https://maps.google.com?q=${location.address}` : location.address}
         title={location.address}
+        rel="noreferrer"
       >
         {location.name || location.address}
       </a>

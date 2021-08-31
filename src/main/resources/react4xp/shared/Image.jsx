@@ -16,7 +16,7 @@ export const Image = ({
   }
 
   const picture = (
-    <img src={image.url} alt={image.alternativeText} className={imageClassName} />
+    <img src={image.url} alt={image.alternativeText || (image.url && image.url.split('?')[0].split('/').pop())} className={imageClassName} />
   )
 
   const content = url

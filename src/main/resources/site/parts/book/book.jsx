@@ -24,7 +24,7 @@ export const Book = ({
             <div>
               <a href={personUrl}>
                 { image && (
-                  <img src={image} />
+                  <img src={image} alt={person} />
                 )}
                 <span>
                   {person}

@@ -64,7 +64,7 @@ export const Event = ({
                 <h2 id={moreInformationLabel}>{moreInformationLabel}</h2>
               )}
               <div className="email rich-text">
-                {contactLabel} <a href={`mailto:${email}?subject=${title}`}>{email}</a>
+                {contactLabel} <a href={`mailto:${email}?subject=${title}`} rel="noreferrer">{email}</a>
               </div>
             </div>
           )}

@@ -14,7 +14,7 @@ export const EventPlace = ({
 
   return (
     <div className="event-place">
-      <FontAwesomeIcon icon={locationType === 'place' ? faMap : faGlobe} />  {locationLabel} <a href={locationType === 'place' ? `https://maps.google.com?q=${location.address}` : location.url}>{location.name || location.address.replace(/\n/g, ', ') || location.url }</a>
+      <FontAwesomeIcon icon={locationType === 'place' ? faMap : faGlobe} />  {locationLabel} <a href={locationType === 'place' ? `https://maps.google.com?q=${location.address}` : location.url} rel="noreferrer">{location.name || location.address.replace(/\n/g, ', ') || location.url }</a>
     </div>
   )
 }

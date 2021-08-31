@@ -32,7 +32,7 @@ export const BoardPresentation = ({
             </div>
             { showEmail !== 'no' && email && (
               <div className="leader-email">
-                <a href={`mailto:${email}`}>
+                <a href={`mailto:${email}`} rel="noreferrer">
                   {email}
                 </a>
               </div>

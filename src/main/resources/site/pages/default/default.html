@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-th-attr="lang=${language}">
 	<head>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -16,7 +16,7 @@
 		<div class="main-wrapper">
 			<header>
 				<th:block data-th-if="${image}">
-					<a href="/" title="Hjem"><img th:src="${image.url}" /></a>
+					<a href="/" title="Hjem"><img alt="Liberalistene Logo" th:src="${image.url}" th:alt="${title}" /></a>
 				</th:block>
 				<th:block data-th-if="${menu}">
 					<div class="main-menu-wrapper">
@@ -48,7 +48,7 @@
 					<th:block data-th-if="${some}">
 						<div class="social-icons">
 							<th:block data-th-each="urls : ${some}">
-								<a data-th-href="${urls.href}"><i class="fab" th:classappend="${urls.className}"></i></a>
+								<a data-th-href="${urls.href}" rel="noreferrer"><i class="fab" th:classappend="${urls.className}"></i></a>
 							</th:block>
 						</div>
 					</th:block>

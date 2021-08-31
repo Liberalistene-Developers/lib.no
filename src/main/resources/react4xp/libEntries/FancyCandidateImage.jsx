@@ -13,11 +13,11 @@ export const FancyCandidateImage = ({
       <figure className="fancy-candidate-image-figure">
         <a>
           { artImage && (
-            <img className="fancy-candidate-image-art" src={artImage.url} />
+            <img className="fancy-candidate-image-art" src={artImage.url} alt={artImage.alternativeText || (artImage.url && artImage.url.split('?')[0].split('/').pop())} />
           )}
 
           { image && (
-            <img className="fancy-candidate-image-image" src={image.url} />
+            <img className="fancy-candidate-image-image" src={image.url} alt={image.alternativeText || (image.url && image.url.split('?')[0].split('/').pop())} />
           )}
         </a>
       </figure>
