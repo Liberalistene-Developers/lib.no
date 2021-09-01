@@ -16,7 +16,10 @@
 		<div class="main-wrapper">
 			<header>
 				<th:block data-th-if="${image}">
-					<a href="/" title="Hjem"><img alt="Liberalistene Logo" th:src="${image.url}" th:alt="${title}" /></a>
+					<a href="/" title="Hjem">
+            <img th:if="${#strings.isEmpty(title)}" alt="Liberalistene Logo" th:src="${image.url}" />
+            <img th:unless="${#strings.isEmpty(title)}" alt="${title}" th:src="${image.url}" />
+          </a>
 				</th:block>
 				<th:block data-th-if="${menu}">
 					<div class="main-menu-wrapper">

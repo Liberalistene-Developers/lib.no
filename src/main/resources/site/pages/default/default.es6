@@ -67,7 +67,7 @@ exports.get = function (req) {
 
   // Prepare the model that will be passed to the view
   const model = {
-    language,
+    language: language.split('_')[0],
     content,
     email,
     image: imageKey && imageUrl(imageKey, 'block(168,40)'),

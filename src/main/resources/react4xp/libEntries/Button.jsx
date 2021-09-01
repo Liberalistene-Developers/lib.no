@@ -16,6 +16,7 @@ export const Button = ({
       target={target}
       className={cx('button', 'paper-raise', className)}
       onClick={onClick}
+      rel="noreferrer"
     >
       {title}
     </a>
