@@ -16,7 +16,7 @@ export const Image = ({
   }
 
   const picture = (
-    <img src={image.url} alt={image.alternativeText || (image.url && image.url.split('?')[0].split('/').pop())} className={imageClassName} />
+    <img src={image.url} alt={image.alternativeText || image.displayName || title || (image.url && image.url.split('?')[0].split('/').pop())} className={imageClassName} />
   )
 
   const content = url
@@ -45,6 +45,7 @@ Image.propTypes = {
    */
   image: PropTypes.shape({
     url: PropTypes.string,
+    displayName: PropTypes.string,
     alternativeText: PropTypes.string
   }),
 

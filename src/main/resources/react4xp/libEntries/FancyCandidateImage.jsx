@@ -13,11 +13,11 @@ export const FancyCandidateImage = ({
       <figure className="fancy-candidate-image-figure">
         <a>
           { artImage && (
-            <img className="fancy-candidate-image-art" src={artImage.url} alt={artImage.alternativeText || (artImage.url && artImage.url.split('?')[0].split('/').pop())} />
+            <img className="fancy-candidate-image-art" src={artImage.url} alt={artImage.alternativeText || artImage.displayName || (artImage.url && artImage.url.split('?')[0].split('/').pop())} />
           )}
 
           { image && (
-            <img className="fancy-candidate-image-image" src={image.url} alt={image.alternativeText || (image.url && image.url.split('?')[0].split('/').pop())} />
+            <img className="fancy-candidate-image-image" src={image.url} alt={image.alternativeText || image.displayName || (image.url && image.url.split('?')[0].split('/').pop())} />
           )}
         </a>
       </figure>
@@ -40,10 +40,12 @@ export const FancyCandidateImage = ({
 FancyCandidateImage.propTypes = {
   artImage: PropTypes.shape({
     url: PropTypes.string,
+    displayName: PropTypes.string,
     alternativeText: PropTypes.string
   }),
   image: PropTypes.shape({
     url: PropTypes.string,
+    displayName: PropTypes.string,
     alternativeText: PropTypes.string
   }),
   title: PropTypes.string,

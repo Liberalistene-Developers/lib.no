@@ -27,12 +27,14 @@ query(
           shortDescription: ingress
           image {
             ... on media_Image {
+              displayName
               data {
                 alternativeText: caption
               }
               url: imageUrl(type: absolute, filter: "rounded(3)", scale: "block(459,295)")
             },
             ... on media_Vector {
+              displayName
               data {
                 alternativeText: caption
               }

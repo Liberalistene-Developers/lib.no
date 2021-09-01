@@ -13,7 +13,7 @@ export const BookCard = ({
   buy,
   buyFromText
 }) => {
-  const imageItem = image && (<img src={image.url} alt={image.alternativeText || (image.url && image.url.split('?')[0].split('/').pop())} className="bookcard-image" />)
+  const imageItem = image && (<img src={image.url} alt={image.alternativeText || image.displayName || title || (image.url && image.url.split('?')[0].split('/').pop())} className="bookcard-image" />)
   const imageContainer = image && url
     ? (
     <a href={url}>
@@ -68,6 +68,7 @@ BookCard.propTypes = {
   }),
   image: PropTypes.shape({
     url: PropTypes.string,
+    displayName: PropTypes.string,
     alternativeText: PropTypes.string
   }),
 
