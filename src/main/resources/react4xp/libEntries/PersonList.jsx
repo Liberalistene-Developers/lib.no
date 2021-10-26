@@ -59,14 +59,14 @@ PersonList.propTypes = {
   image: PropTypes.shape({
     url: PropTypes.string
   }),
-  items: PropTypes.arrayOf({
+  items: PropTypes.arrayOf(PropTypes.shape({
     image: PropTypes.shape({
       url: PropTypes.string
     }),
     name: PropTypes.string,
     shortDescription: PropTypes.string,
     url: PropTypes.string
-  }),
+  })),
   shortDescription: PropTypes.string,
   showImage: PropTypes.bool,
   tags: PropTypes.array,

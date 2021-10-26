@@ -38,34 +38,35 @@ exports.get = function (request) {
     shortDescription,
     imagesize,
     imagetype,
-    items: items.map((itemID) => {
-      const {
-        displayName: name,
-        _path: itemPath,
-        data: {
-          image: imageKey,
-          'short-description': personShortDescription = '',
-          ...dataRest
-        } = {},
-        ...rest
-      } = contentLib.get({ key: itemID }) || {}
+    items: items
+      .map((itemID) => {
+        const {
+          displayName: name,
+          _path: itemPath,
+          data: {
+            image: imageKey,
+            'short-description': personShortDescription = '',
+            ...dataRest
+          } = {},
+          ...rest
+        } = contentLib.get({ key: itemID }) || {}
 
-      if (debug) {
-        log.info(JSON.stringify(rest, null, 4))
-        log.info(JSON.stringify(dataRest, null, 4))
-      }
+        if (debug) {
+          log.info(JSON.stringify(rest, null, 4))
+          log.info(JSON.stringify(dataRest, null, 4))
+        }
 
-      return {
-        itemID,
-        url: portal
-          .pageUrl({
-            path: itemPath
-          }),
-        name,
-        shortDescription: personShortDescription,
-        image: imageUrl(imageKey, 'square(256)')
-      }
-    })
+        return {
+          itemID,
+          url: portal
+            .pageUrl({
+              path: itemPath
+            }),
+          name,
+          shortDescription: personShortDescription,
+          image: imageUrl(imageKey, 'square(256)')
+        }
+      })
   }
 
   if (debug) {
