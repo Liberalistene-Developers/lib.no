@@ -11,6 +11,7 @@ export const ListItem = ({
   imageSize,
   imageType,
   showImage = true,
+  showDescriptions = true,
   item: {
     image,
     name,
@@ -29,7 +30,7 @@ export const ListItem = ({
           <a href={url} title={name}>{name}</a>
         </div>
         {childrenLast === false && children}
-        {shortDescription && (
+        {showDescriptions && shortDescription && (
           <div className="list-item-description">
             <div className="rich-text" dangerouslySetInnerHTML={{ __html: shortDescription }} />
           </div>
@@ -41,12 +42,13 @@ export const ListItem = ({
 )
 
 ListItem.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.oneOf([PropTypes.array, PropTypes.object]),
   childrenLast: PropTypes.bool,
   className: PropTypes.string,
   imageSize: PropTypes.oneOf(['small', 'medium', 'large']),
   imageType: PropTypes.oneOf(['round', '']),
   showImage: PropTypes.bool,
+  showDescriptions: PropTypes.bool,
   item: PropTypes.shape({
     image: PropTypes.shape({
       url: PropTypes.string
@@ -59,6 +61,7 @@ ListItem.propTypes = {
 
 ListItem.defaultProps = {
   showImage: true,
+  showDescriptions: true,
   imageSize: 'medium',
   imageType: undefined,
   item: undefined

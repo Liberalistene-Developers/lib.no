@@ -57,14 +57,16 @@ export const Article = ({
 )
 
 Article.propTypes = {
-  authors: PropTypes.arrayOf({
-    authorID: PropTypes.string,
-    person: PropTypes.string,
-    personUrl: PropTypes.string,
-    image: PropTypes.shape({
-      url: PropTypes.string
-    })
-  }),
+  authors: PropTypes
+    .arrayOf(PropTypes
+      .shape({
+        authorID: PropTypes.string,
+        person: PropTypes.string,
+        personUrl: PropTypes.string,
+        image: PropTypes.shape({
+          url: PropTypes.string
+        })
+      })),
   datePublished: PropTypes.string,
   description: PropTypes.string,
   headerColor: PropTypes.string,

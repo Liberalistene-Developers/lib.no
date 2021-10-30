@@ -79,9 +79,11 @@ ArticleListView.propTypes = {
   }),
   imageSize: PropTypes.string,
   imageType: PropTypes.string,
-  items: PropTypes.arrayOf({
-    id: PropTypes.string
-  }),
+  items: PropTypes
+    .arrayOf(PropTypes
+      .shape({
+        id: PropTypes.string
+      })),
   noIngress: PropTypes.bool,
   readMore: PropTypes.string,
   readMoreEnabled: PropTypes.bool,

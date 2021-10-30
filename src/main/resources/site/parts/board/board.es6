@@ -18,7 +18,8 @@ exports.get = function (request) {
       board,
       imagesize = '',
       imagetype = false,
-      showemail = 'no'
+      showemail = 'no',
+      showDescriptions = false
     } = {}
   } = component || {} || {}
 
@@ -39,7 +40,8 @@ exports.get = function (request) {
     imagetype: !!imagetype,
     board: members
       .map(mapBoard),
-    showemail
+    showemail,
+    showDescriptions
   }
 
   return React4xp.render('Board', props, request)

@@ -47,10 +47,7 @@ CandidateList.propTypes = {
 
 CandidateList.defaultProps = {
   className: '',
-  items: PropTypes.arrayOf({
-    itemId: PropTypes.string,
-    name: PropTypes.string
-  }),
+  items: [],
   showRole: true
 }
 

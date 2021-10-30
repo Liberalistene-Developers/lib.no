@@ -48,9 +48,11 @@ Quote.propTypes = {
   image: PropTypes.shape({
     url: PropTypes.string
   }),
-  authors: PropTypes.arrayOf({
-    name: PropTypes.string
-  }),
+  authors: PropTypes
+    .arrayOf(PropTypes
+      .shape({
+        name: PropTypes.string
+      })),
   quote: PropTypes.string,
   description: PropTypes.string,
   tags: PropTypes.array

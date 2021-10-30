@@ -7,7 +7,8 @@ export const Board = ({
   imagesize,
   imagetype,
   board,
-  showemail
+  showemail,
+  showDescriptions
 }) => (
   <div className="board-wrapper">
     { board && board.length > 0
@@ -21,6 +22,7 @@ export const Board = ({
                 imageSize={imagesize}
                 imageType={(imagetype && 'round') || ''}
                 showEmail={showemail !== 'no'}
+                showDescriptions={showDescriptions}
               />
             ))}
           </div>
@@ -33,6 +35,7 @@ export const Board = ({
                 imageSize={imagesize}
                 imageType={(imagetype && 'round') || ''}
                 showEmail={showemail === 'all'}
+                showDescriptions={showDescriptions}
               />
             ))}
             </div>
@@ -45,23 +48,27 @@ export const Board = ({
 )
 
 Board.propTypes = {
-  board: PropTypes.arrayOf({
-    itemId: PropTypes.string,
-    image: PropTypes.shape({
-      url: PropTypes.string
-    }),
-    role: PropTypes.string,
-    name: PropTypes.string
-  }),
-  imagesize: PropTypes.bool,
+  board: PropTypes
+    .arrayOf(PropTypes
+      .shape({
+        itemId: PropTypes.string,
+        image: PropTypes.shape({
+          url: PropTypes.string
+        }),
+        role: PropTypes.string,
+        name: PropTypes.string
+      })),
+  imagesize: PropTypes.string,
   imagetype: PropTypes.string,
-  showemail: PropTypes.string
+  showemail: PropTypes.string,
+  showDescriptions: PropTypes.bool
 }
 
 Board.defaultProps = {
-  imagetype: true,
+  imagetype: 'round',
   imagesize: 'medium',
-  showemail: 'no'
+  showemail: 'no',
+  showDescriptions: false
 }
 
 export default (props) => <Board {...props} /> // eslint-disable-line react/display-name

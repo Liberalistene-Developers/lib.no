@@ -1,0 +1,11 @@
+<mixin>
+  <display-name i18n="mixin.showdescription.displayname">Show descriptions</display-name>
+  <form>
+    <input  name="showDescriptions" type="CheckBox">
+      <label i18n="mixin.showdescription.label">Show descriptions</label>
+      <config>
+        <alignment>right</alignment>
+      </config>
+    </input>
+  </form>
+</mixin>

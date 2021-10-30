@@ -12,12 +12,14 @@ export const Menu = ({ items }) => (
 )
 
 Menu.propTypes = {
-  items: PropTypes.arrayOf({
-    itemID: PropTypes.string,
-    title: PropTypes.string,
-    url: PropTypes.string,
-    current: PropTypes.string
-  })
+  items: PropTypes
+    .arrayOf(PropTypes
+      .shape({
+        itemID: PropTypes.string,
+        title: PropTypes.string,
+        url: PropTypes.string,
+        current: PropTypes.string
+      }))
 }
 
 export default (props) => <Menu {...props} /> // eslint-disable-line react/display-name

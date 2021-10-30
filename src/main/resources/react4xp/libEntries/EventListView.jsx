@@ -79,9 +79,11 @@ EventListView.propTypes = {
   }),
   imageSize: PropTypes.string,
   imageType: PropTypes.string,
-  items: PropTypes.arrayOf({
-    id: PropTypes.string
-  }),
+  items: PropTypes
+    .arrayOf(PropTypes
+      .shape({
+        id: PropTypes.string
+      })),
   noIngress: PropTypes.bool,
   parentPathQuery: PropTypes.string,
   readMore: PropTypes.string,
@@ -93,6 +95,7 @@ EventListView.propTypes = {
 }
 
 EventListView.defaultProps = {
+  items: [],
   tags: []
 }
 

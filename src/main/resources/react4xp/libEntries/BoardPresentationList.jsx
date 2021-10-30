@@ -37,9 +37,11 @@ BoardPresentationList.propTypes = {
   boardTitle: PropTypes.string,
   imagesize: PropTypes.bool,
   imagetype: PropTypes.string,
-  items: PropTypes.arrayOf({
-    itemId: PropTypes.string
-  }),
+  items: PropTypes
+    .arrayOf(PropTypes
+      .shape({
+        itemId: PropTypes.string
+      })),
   showemail: PropTypes.bool
 }
 

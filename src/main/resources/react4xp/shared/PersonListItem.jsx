@@ -13,9 +13,10 @@ export const PersonListItem = ({
   } = {},
   showRole = true,
   showEmail = false,
+  showDescriptions = false,
   fields
 }) => (
-  <ListItem item={item} imageSize={imageSize} imageType={imageType} fields={fields} className="person">
+  <ListItem item={item} imageSize={imageSize} imageType={imageType} fields={fields} showDescriptions={showDescriptions} className="person">
     <>
       { showRole && role && (
         <span className="role">{role}</span>

@@ -31,11 +31,13 @@ export const FaqList = ({
 }
 
 FaqList.propTypes = {
-  items: PropTypes.arrayOf({
-    itemID: PropTypes.string,
-    answer: PropTypes.string,
-    question: PropTypes.string
-  }),
+  items: PropTypes
+    .arrayOf(PropTypes
+      .shape({
+        itemID: PropTypes.string,
+        answer: PropTypes.string,
+        question: PropTypes.string
+      })),
   anchorText: PropTypes.string,
   expandable: PropTypes.bool,
   expanded: PropTypes.bool

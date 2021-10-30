@@ -44,7 +44,7 @@ export const BoardPresentation = ({
           <div className="members-title">
             {boardTitle}
           </div>
-          { board.map(({ itemId, image, role, name }) => (
+          { board.map(({ itemId, role, name }) => (
             <div key={itemId} className="member-item">
               <span className="role">{role}</span><span className="name">{name}</span>
             </div>
@@ -58,16 +58,18 @@ export const BoardPresentation = ({
 )
 
 BoardPresentation.propTypes = {
-  board: PropTypes.arrayOf({
-    itemId: PropTypes.string,
-    image: PropTypes.shape({
-      url: PropTypes.string
-    }),
-    role: PropTypes.string,
-    name: PropTypes.string
-  }),
+  board: PropTypes
+    .arrayOf(PropTypes
+      .shape({
+        itemId: PropTypes.string,
+        image: PropTypes.shape({
+          url: PropTypes.string
+        }),
+        role: PropTypes.string,
+        name: PropTypes.string
+      })),
   boardTitle: PropTypes.string,
-  imagesize: PropTypes.bool,
+  imagesize: PropTypes.string,
   imagetype: PropTypes.string,
   showEmail: PropTypes.bool,
   title: PropTypes.string
@@ -75,7 +77,7 @@ BoardPresentation.propTypes = {
 
 BoardPresentation.defaultProps = {
   board: [],
-  imagetype: true,
+  imagetype: '',
   imagesize: 'medium',
   showEmail: false
 }

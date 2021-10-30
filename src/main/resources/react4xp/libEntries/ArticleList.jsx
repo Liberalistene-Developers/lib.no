@@ -102,9 +102,11 @@ ArticleList.propTypes = {
   }),
   imageSize: PropTypes.string,
   imageType: PropTypes.string,
-  items: PropTypes.arrayOf({
-    id: PropTypes.string
-  }),
+  items: PropTypes
+    .arrayOf(PropTypes
+      .shape({
+        id: PropTypes.string
+      })),
   loadMore: PropTypes.string,
   loadMoreEnabled: PropTypes.bool,
   noIngress: PropTypes.bool,

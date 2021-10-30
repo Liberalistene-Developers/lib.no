@@ -45,9 +45,11 @@ Book.propTypes = {
   image: PropTypes.shape({
     url: PropTypes.string
   }),
-  authors: PropTypes.arrayOf({
-    name: PropTypes.string
-  }),
+  authors: PropTypes
+    .arrayOf(PropTypes
+      .shape({
+        name: PropTypes.string
+      })),
   ingress: PropTypes.string,
   text: PropTypes.string,
   description: PropTypes.string,

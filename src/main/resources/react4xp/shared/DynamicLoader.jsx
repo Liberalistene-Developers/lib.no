@@ -86,9 +86,11 @@ DynamicLoader.propTypes = {
   count: PropTypes.number,
   children: PropTypes.func,
   extractList: PropTypes.func,
-  items: PropTypes.arrayOf({
-    id: PropTypes.string
-  }),
+  items: PropTypes
+    .arrayOf(PropTypes
+      .shape({
+        id: PropTypes.string
+      })),
   loadMore: PropTypes.string,
   loadMoreEnabled: PropTypes.bool,
   parentPathQuery: PropTypes.string,
@@ -96,7 +98,10 @@ DynamicLoader.propTypes = {
 }
 
 DynamicLoader.defaultProps = {
-  apiUrl: ''
+  apiUrl: '',
+  items: [],
+  loadMore: '',
+  loadMoreEnabled: false
 }
 
 export default (props) => <DynamicLoader {...props} /> // eslint-disable-line react/display-name
