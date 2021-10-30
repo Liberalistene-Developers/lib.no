@@ -14,9 +14,10 @@ export const BookCard = ({
   buyFromText
 }) => {
   const imageItem = image && (<img src={image.url} alt={image.alternativeText || image.displayName || title || (image.url && image.url.split('?')[0].split('/').pop())} className="bookcard-image" />)
-  const imageContainer = image && url
+  const buyAtStoreText = (buy && (buy.store || buy.topic)) ? `${buyFromText} ${buy.store || buy.topic}` : buyFromText
+  const imageContainer = image && ((buy && buy.url) || url)
     ? (
-    <a href={url}>
+    <a href={(buy && buy.url) || url} title={buyAtStoreText}>
       {imageItem}
     </a>
       )
@@ -53,7 +54,7 @@ export const BookCard = ({
 
         { buy && (
           <div className="bookcard-buy">
-            <a href={buy.url} rel="noreferrer">{buyFromText} {buy.store || buy.topic}</a>
+            <a href={buy.url} rel="noreferrer">{buyAtStoreText}</a>
           </div>
         )}
       </div>
