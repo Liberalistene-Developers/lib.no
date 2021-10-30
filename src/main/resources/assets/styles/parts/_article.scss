@@ -15,7 +15,7 @@
 
 .article-list {
   &.grid {
-    @extend .grid-list
+    @extend .grid-list; /* stylelint-disable-line scss/at-extend-no-missing-placeholder */
   }
 
   &.list {
