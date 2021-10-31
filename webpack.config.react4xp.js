@@ -50,11 +50,28 @@ function addSassSupport(cfg) {
   )(cfg);
 }
 
+// ----------------------------------------------------------------------------
+// Resource loaders
+// ----------------------------------------------------------------------------
+
+// FONTS IN CSS
+function addFontSupport(cfg) {
+  const rule = {
+    test: /\.(eot|woff|woff2|ttf|svg)$/,
+    type: 'asset/resource'
+  };
+
+  return R.pipe(
+    addRule(rule)
+  )(cfg);
+}
+
 module.exports = function(env, config) {
     // Makes symlinks under node_modules work, e.g. 'npm link' and possibly PNPM etc:
     config.resolve.symlinks = true;
 
     return R.pipe(
       addSassSupport,
+      addFontSupport
     )(config);
 };

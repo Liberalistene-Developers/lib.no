@@ -102,6 +102,7 @@ function addBabelSupport(cfg) {
 // ----------------------------------------------------------------------------
 
 const createDefaultCssLoaders = () => ([
+
   {loader: MiniCssExtractPlugin.loader, options: {publicPath: '../'}},
   {loader: 'css-loader', options: {sourceMap: !isProd, importLoaders: 1}},
   {loader: 'postcss-loader', options: {sourceMap: !isProd}},
@@ -170,7 +171,7 @@ function addSassSupport(cfg) {
 function addFontSupport(cfg) {
   const rule = {
     test: /\.(eot|woff|woff2|ttf|svg)$/,
-    use: 'file-loader?name=fonts/[name].[ext]'
+    type: 'asset/resource'
   };
 
   return R.pipe(
