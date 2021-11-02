@@ -29,7 +29,7 @@
   						<ul class="main-menu" aria-label="${menu.ariaLabel}">
   							<th:block data-th-each="menuItem : ${menu.menuItems}">
   								<li>
-  									<a data-th-href="${menuItem.url}" th:title="${menuItem.title}" th:text="${menuItem.title}">Item</a>
+  									<a data-th-href="${menuItem.url}" th:title="${menuItem.title}" th:text="${menuItem.title}" th:target="${menuItem.newWindow?'_blank':'_self'}">Item</a>
   								</li>
   							</th:block>
   						</ul>
@@ -59,7 +59,7 @@
 						<ul class="main-menu" aria-label="${menu.ariaLabel}">
 							<th:block data-th-each="menuItem : ${menu.menuItems}">
 								<li>
-									<a data-th-href="${menuItem.url}" th:title="${menuItem.title}" th:text="${menuItem.title}">Item</a>
+									<a data-th-href="${menuItem.url}" th:title="${menuItem.title}" th:text="${menuItem.title}" th:target="${menuItem.newWindow?'_blank':'_self'}">Item</a>
 								</li>
 							</th:block>
 						</ul>
