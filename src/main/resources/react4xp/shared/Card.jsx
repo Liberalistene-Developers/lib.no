@@ -35,7 +35,10 @@ export const Card = ({
 }
 
 Card.propTypes = {
-  children: PropTypes.arrayOf(React.Element),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
   image: PropTypes.shape({
     url: PropTypes.string,
     displayName: PropTypes.string,

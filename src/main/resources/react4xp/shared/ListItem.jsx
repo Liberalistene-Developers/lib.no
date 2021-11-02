@@ -42,7 +42,10 @@ export const ListItem = ({
 )
 
 ListItem.propTypes = {
-  children: PropTypes.oneOf([PropTypes.array, PropTypes.object]),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
   childrenLast: PropTypes.bool,
   className: PropTypes.string,
   imageSize: PropTypes.oneOf(['small', 'medium', 'large']),

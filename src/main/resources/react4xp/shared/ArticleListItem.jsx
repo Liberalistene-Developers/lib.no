@@ -37,7 +37,10 @@ export const ArticleListItem = ({
 )
 
 ArticleListItem.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
   childrenLast: PropTypes.bool,
   className: PropTypes.string,
   imageSize: PropTypes.oneOf(['small', 'medium', 'large']),

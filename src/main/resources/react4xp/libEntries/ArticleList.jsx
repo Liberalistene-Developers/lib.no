@@ -65,7 +65,7 @@ export const ArticleList = ({
     >
       { ({
         items: list,
-        children: readMoreButton
+        children: items
       }) => (
         <ArticleListView
           featured={featured}
@@ -84,7 +84,7 @@ export const ArticleList = ({
           readMoreEnabled={readMoreEnabled}
           noIngress={noIngress}
         >
-          {readMoreButton}
+          {items}
         </ArticleListView>
       )}
     </DynamicLoader>

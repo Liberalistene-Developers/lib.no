@@ -71,7 +71,10 @@ export const EventListView = ({
 }
 
 EventListView.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
   description: PropTypes.string,
   displaytype: PropTypes.string,
   image: PropTypes.shape({

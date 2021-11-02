@@ -45,7 +45,10 @@ export const GridItem = ({
 )
 
 GridItem.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
   childrenLast: PropTypes.bool,
   className: PropTypes.string,
   direction: PropTypes.oneOf(['right', 'left', '', undefined]),

@@ -70,7 +70,10 @@ export const ArticleListView = ({
 }
 
 ArticleListView.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
   description: PropTypes.string,
   displaytype: PropTypes.string,
   featured: PropTypes.object,

@@ -98,7 +98,10 @@ export const Page = ({ children }) => (
 )
 
 Page.propTypes = {
-  children: PropTypes.Array
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ])
 }
 
 export default Page

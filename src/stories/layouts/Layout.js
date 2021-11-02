@@ -120,7 +120,10 @@ const TwoColumn2rowLayout = ({ background, fullWidth, paddingBottom, paddingTop,
 
 TwoColumn2rowLayout.propTypes = {
   ...SingleLayout.propTypes,
-  children: PropTypes.Array,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
   leftClassName: PropTypes.string,
   rightClassName: PropTypes.string,
   order: PropTypes.string
