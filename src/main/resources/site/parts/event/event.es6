@@ -42,7 +42,7 @@ exports.get = function (request) {
       image: imageKey = '',
       ingress = '',
       tags = '',
-      map_geopoint = '',
+      map_geopoint: mapGEOPoint = '',
       schedule = [],
       organizerSelector = [],
       speakers = []
@@ -83,7 +83,7 @@ exports.get = function (request) {
       .map(mapPerson),
     organizers: organizers
       .map(mapPerson),
-    map: map_geopoint.split(',').map(parseFloat),
+    map: mapGEOPoint.split(',').map(parseFloat),
     schedules: scheduleList
       .map(({
         name: scheduleTitle,

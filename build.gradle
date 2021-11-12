@@ -50,7 +50,7 @@ repositories {
 
 node {
     download = true
-    version = '15.11.0'
+    version = '16.13.0'
 }
 
 task npmInstallForce( type: NpmTask ) {
