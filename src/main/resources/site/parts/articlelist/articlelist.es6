@@ -126,7 +126,7 @@ exports.get = function (request) {
 
   const _featured = []
     .concat(featured)
-    .reduce((acc, { item, style }) => ({ ...acc, [item]: style }), {})
+    .reduce((acc, { item, style, showDate = true }) => ({ ...acc, [item]: { style, showDate } }), {})
 
   if (debug) {
     log.info(JSON.stringify(_featured, null, 2))
@@ -136,9 +136,7 @@ exports.get = function (request) {
     title,
     displaytype,
     description,
-    featured: []
-      .concat(featured)
-      .reduce((acc, { item, style }) => ({ ...acc, [item]: style }), {}),
+    featured: _featured,
     shortDescription,
     titleCenter: displaytype === 'gridlist' && titleCenter,
     showImage: displaytype === 'list' && imageSelection === 'show',

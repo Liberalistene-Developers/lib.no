@@ -71,6 +71,13 @@
               </config>
               <default>right</default>
             </input>
+            <input  name="showDate" type="CheckBox">
+              <label i18n="mixin.showdescription.label">Show date</label>
+              <default>checked</default>
+              <config>
+                <alignment>right</alignment>
+              </config>
+            </input>
           </items>
         </item-set>
       </items>

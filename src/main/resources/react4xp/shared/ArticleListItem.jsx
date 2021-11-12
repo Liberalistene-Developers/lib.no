@@ -16,7 +16,8 @@ export const ArticleListItem = ({
     authors = [],
     datePublished
   } = {},
-  showAuthors = false
+  showAuthors = false,
+  showDate = true
 }) => (
   <ListItem className={cx('article', className)} imageSize={imageSize} imageType={imageType} showImage={showImage} item={item} childrenLast={true}>
     <div className="article-creds">
@@ -27,7 +28,7 @@ export const ArticleListItem = ({
           ))}
         </ul>
       )}
-      { datePublished && (
+      { datePublished && showDate && (
         <div className="article-date">
           {datePublished}
         </div>
@@ -55,7 +56,8 @@ ArticleListItem.propTypes = {
     shortDescription: PropTypes.string,
     url: PropTypes.string
   }),
-  showAuthors: PropTypes.bool
+  showAuthors: PropTypes.bool,
+  showDate: PropTypes.bool
 }
 
 ArticleListItem.defaultProps = {
@@ -63,7 +65,8 @@ ArticleListItem.defaultProps = {
   imageSize: 'medium',
   imageType: undefined,
   item: undefined,
-  showAuthors: false
+  showAuthors: false,
+  showDate: true
 }
 
 export default (props) => <ArticleListItem {...props} /> // eslint-disable-line react/display-name

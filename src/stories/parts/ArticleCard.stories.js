@@ -65,8 +65,20 @@ WideLeft.args = {
   direction: 'left'
 }
 
+export const WideLeftNoDate = Template.bind({})
+WideLeftNoDate.args = {
+  ...WideLeft.args,
+  showDate: false
+}
+
 export const WideRight = Template.bind({})
 WideRight.args = {
   ...WideLeft.args,
   direction: 'right'
+}
+
+export const WideRightNoDate = Template.bind({})
+WideRightNoDate.args = {
+  ...WideRight.args,
+  showDate: false
 }
