@@ -18,7 +18,10 @@ Menu.propTypes = {
         itemID: PropTypes.string,
         title: PropTypes.string,
         url: PropTypes.string,
-        current: PropTypes.string
+        current: PropTypes.oneOfType([
+          PropTypes.bool,
+          PropTypes.string
+        ])
       }))
 }
 

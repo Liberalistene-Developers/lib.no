@@ -19,7 +19,7 @@ export const Article = ({
 }) => (
   <div className="article">
     <ImageBlock
-      title={titleInImage && [{ title, titleColor: headerColor }]}
+      title={(titleInImage && [{ title, titleColor: headerColor }]) || []}
       image={image}
       ingress={ingressInImage && ingress}
       position={headerPosition}
@@ -76,7 +76,11 @@ Article.propTypes = {
   }),
   ingress: PropTypes.string,
   ingressInImage: PropTypes.bool,
-  tags: PropTypes.array,
+  tags: PropTypes
+    .oneOfType([
+      PropTypes.arrayOf(PropTypes.string),
+      PropTypes.string
+    ]),
   text: PropTypes.string,
   title: PropTypes.string,
   titleInImage: PropTypes.bool

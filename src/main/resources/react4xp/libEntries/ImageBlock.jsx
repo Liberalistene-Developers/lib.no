@@ -55,7 +55,11 @@ ImageBlock.propTypes = {
     titleColor: PropTypes.string,
     titleNoSpace: PropTypes.bool
   })),
-  ingress: PropTypes.string,
+  ingress: PropTypes
+    .oneOfType([
+      PropTypes.string,
+      PropTypes.bool
+    ]),
   ingressColor: PropTypes.string
 }
 
