@@ -26,7 +26,7 @@ exports.get = function (req) {
     }
   } = component || {}
 
-  const [leftClassName, middleLeftClassName, middleRightClassName, rightClassName] = columnsLayout.split(',')
+  const [leftClassName, middleLeftClassName, middleRightClassName, rightClassName] = (columnsLayout && columnsLayout.split(',')) || []
 
   const model = {
     background,

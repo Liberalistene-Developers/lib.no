@@ -53,7 +53,7 @@ exports.get = function (req) {
       }
 
       const url = address.match(/^(?:https?:\/\/)?(?:[^@/\n]+@)?(?:www\.)?([^:/\n]+)/)
-      const host = url[1].split('.')
+      const host = url.length > 1 && url[1].split('.')
 
       return {
         href: address,
@@ -67,7 +67,7 @@ exports.get = function (req) {
 
   // Prepare the model that will be passed to the view
   const model = {
-    language: language.split('_')[0],
+    language: (language && language.split('_')[0]) || 'no',
     content,
     email,
     image: imageKey && imageUrl(imageKey, 'block(168,40)'),

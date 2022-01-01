@@ -23,7 +23,7 @@ exports.get = function (req) {
     }
   } = component || {}
 
-  const [leftClassName, rightClassName] = columnsLayout.split(',')
+  const [leftClassName, rightClassName] = (columnsLayout && columnsLayout.split(',')) || []
 
   // Define the model
   const model = {
