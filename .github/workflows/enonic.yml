@@ -36,7 +36,7 @@ jobs:
         run: npm run rebuild
 
       - name: Build, Test and Deploy app
-        uses: docker://enonic/enonic-ci:7.6-node
+        uses: docker://enonic/enonic-ci:7.7-node
         env:
           ENONIC_CLI_REMOTE_URL: ${{ secrets.ENONIC_CLI_REMOTE_URL }}
           ENONIC_CLI_REMOTE_USER: ${{ secrets.ENONIC_CLI_REMOTE_USER }}
