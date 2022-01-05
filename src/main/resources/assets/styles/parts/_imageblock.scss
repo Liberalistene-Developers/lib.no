@@ -121,12 +121,18 @@
     }
 
     &.left {
+      margin-right: 20px;
+      width: calc(100% - 40px);
+
       .image-block-text {
         left: 10%;
       }
     }
 
     &.right {
+      margin-left: 20px;
+      width: calc(100% - 40px);
+
       .image-block-text {
         right: 10%;
       }
