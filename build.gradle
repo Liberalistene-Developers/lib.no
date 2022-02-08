@@ -24,6 +24,8 @@ dependencies {
     include "com.enonic.xp:lib-content:${xpVersion}"
     include "com.enonic.xp:lib-portal:${xpVersion}"
     include "com.enonic.xp:lib-auth:${xpVersion}"
+    include "com.enonic.xp:lib-task:${xpVersion}"
+    include "com.enonic.xp:lib-scheduler:${xpVersion}"
     //include "com.enonic.xp:lib-context:${xpVersion}"
     include "com.enonic.xp:lib-i18n:${xpVersion}"
     //include "com.enonic.xp:lib-io:${xpVersion}"
