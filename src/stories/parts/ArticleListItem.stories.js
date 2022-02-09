@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { ArticleListItem } from '../../main/resources/react4xp/shared/ArticleListItem'
 

@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { Image } from '../../main/resources/react4xp/shared/Image'
 

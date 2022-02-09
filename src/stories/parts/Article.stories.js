@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { Article } from '../../main/resources/react4xp/libEntries/Article'
 

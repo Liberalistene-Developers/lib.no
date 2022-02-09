@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { ProgrammeMain } from '../../main/resources/react4xp/libEntries/ProgrammeMain'
 

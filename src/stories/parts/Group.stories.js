@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { Group } from '../../main/resources/react4xp/libEntries/Group'
 

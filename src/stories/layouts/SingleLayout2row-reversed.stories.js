@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { SingleColumn2row } from './Layout'
 import { Page } from '../pages'

@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { BudgetCutItem } from '../../main/resources/react4xp/libEntries/BudgetCutExpandable'
 

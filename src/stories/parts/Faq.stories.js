@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { FaqItem as Faq } from '../../main/resources/react4xp/libEntries/FaqItem'
 

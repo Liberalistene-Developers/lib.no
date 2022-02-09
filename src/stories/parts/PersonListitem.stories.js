@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { PersonListItem } from '../../main/resources/react4xp/shared/PersonListItem'
 import { SingleLayout } from '../layouts'

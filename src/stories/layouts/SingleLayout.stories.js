@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { Button } from '../../main/resources/react4xp/libEntries/Button'
 import { SingleLayout } from './Layout'

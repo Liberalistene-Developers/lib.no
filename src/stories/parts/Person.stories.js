@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { Person } from '../../main/resources/site/parts/person/person.jsx'
 import { SingleLayout } from '../layouts'

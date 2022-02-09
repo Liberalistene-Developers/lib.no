@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { EventCard } from '../../main/resources/react4xp/shared/EventCard'
 

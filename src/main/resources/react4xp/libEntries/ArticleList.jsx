@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 
 import { buildQueryArticleList, extractArticleList } from '../../headless/helpers/articleListRequests'

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import PropTypes from 'prop-types'
 
 import { BoardPresentation } from '../../main/resources/react4xp/libEntries/BoardPresentation'

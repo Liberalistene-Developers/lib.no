@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { SingleLayout } from './layouts'
 
 const Typography = () => (

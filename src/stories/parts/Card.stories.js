@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { Card } from '../../main/resources/react4xp/shared/Card'
 

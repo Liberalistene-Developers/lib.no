@@ -1,4 +1,4 @@
-import React from 'react'
+
 import PropTypes from 'prop-types'
 
 import { Menu } from '../../main/resources/react4xp/libEntries/Menu.jsx'

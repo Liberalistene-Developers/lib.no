@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Topic } from '../../main/resources/react4xp/libEntries/Schedule'
 
 import { SingleLayout } from '../layouts'

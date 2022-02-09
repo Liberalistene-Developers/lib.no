@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { BudgetCutList } from '../../main/resources/react4xp/libEntries/BudgetCutList'
 

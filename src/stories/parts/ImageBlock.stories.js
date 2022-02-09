@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { ImageBlock } from '../../main/resources/react4xp/libEntries/ImageBlock'
 

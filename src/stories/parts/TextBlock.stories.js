@@ -1,4 +1,3 @@
-import React from 'react'
 
 import TextBlock from '../../main/resources/react4xp/libEntries/TextBlock'
 

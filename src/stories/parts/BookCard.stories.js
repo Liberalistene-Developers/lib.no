@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { BookCard } from '../../main/resources/react4xp/libEntries/BookCard'
 

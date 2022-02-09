@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { BudgetCutPage } from '../../main/resources/react4xp/libEntries/BudgetCutPage'
 

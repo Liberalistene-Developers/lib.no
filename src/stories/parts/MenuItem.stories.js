@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { MenuItem } from '../../main/resources/react4xp/libEntries/MenuItem.jsx'
 import { SingleLayout } from '../layouts'

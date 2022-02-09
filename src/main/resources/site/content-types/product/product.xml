@@ -1,0 +1,39 @@
+<content-type>
+  <display-name i18n="content_types.product.displayname">Product/Membership</display-name>
+  <display-name-label i18n="content_types.product.displayname.label">Product/Membership</display-name-label>
+  <description i18n="content_types.product.description">Create a new Product/Membership</description>
+  <super-type>base:structured</super-type>
+  <is-abstract>false</is-abstract>
+  <is-final>true</is-final>
+  <is-built-in>false</is-built-in>
+  <allow-child-content>true</allow-child-content>
+  <form>
+    <mixin name="image" />
+    <input name="ingress" type="TextArea">
+      <label i18n="content_types.description.short.label">Short description/Ingress</label>
+    </input>
+    <input name="description" type="HtmlArea">
+      <label i18n="content_types.description">Description</label>
+      <help-text i18n="content_types.description.helptext">Enter full description here</help-text>
+    </input>
+    <input name="price" type="Double">
+      <label i18n="content_types.product.price.label">Price</label>
+      <help-text i18n="content_types.product.price.helptext">Enter price here</help-text>
+    </input>
+    <input name="reference" type="TextLine">
+      <label i18n="content_types.product.price.reference.label">Reference (External system)</label>
+    </input>
+    <input name="replaces" type="ContentSelector">
+      <label i18n="content_types.group.product.replace.label">Replaces</label>
+      <occurrences minimum="0" maximum="1"/>
+      <config>
+        <allowContentType>lib.no:product</allowContentType>
+        <allowPath>./*</allowPath>
+        <treeMode>false</treeMode>
+        <showStatus>true</showStatus>
+        <hideToggleIcon>true</hideToggleIcon>
+      </config>
+    </input>
+    <mixin name="tags" />
+  </form>
+</content-type>

@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { BookList } from '../../main/resources/react4xp/libEntries/BookList'
 

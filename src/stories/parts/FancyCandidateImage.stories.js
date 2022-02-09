@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { FancyCandidateImage } from '../../main/resources/react4xp/libEntries/FancyCandidateImage'
 

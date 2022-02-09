@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { Join } from '../../main/resources/react4xp/libEntries/Join'
 

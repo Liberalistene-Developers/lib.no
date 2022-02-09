@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { CandidatePresentationList } from '../../main/resources/react4xp/libEntries/CandidatePresentationList'
 

@@ -1,6 +1,4 @@
 
-import React from 'react'
-
 import { ThreeColumnLayout } from './Layout'
 import { Page } from '../pages'
 

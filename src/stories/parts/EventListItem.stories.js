@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { EventListItem } from '../../main/resources/react4xp/shared/EventListItem'
 

@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { FaqList } from '../../main/resources/react4xp/libEntries/FaqList'
 

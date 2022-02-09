@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { CandidatePresentationItem } from '../../main/resources/react4xp/shared/CandidatePresentationItem'
 

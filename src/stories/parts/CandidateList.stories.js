@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { CandidateList } from '../../main/resources/react4xp/libEntries/CandidateList'
 import { SingleLayout } from '../layouts'
