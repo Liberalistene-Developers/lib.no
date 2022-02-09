@@ -5,7 +5,8 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    'standard'
+    'standard',
+    'plugin:react/jsx-runtime',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -18,6 +19,11 @@ module.exports = {
     'react'
   ],
   rules: {
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
   overrides: [
     {
