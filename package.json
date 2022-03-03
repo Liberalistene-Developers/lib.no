@@ -55,7 +55,7 @@
     "react-leaflet": "^3.2.2",
     "react4xp": "2.0.0",
     "slugify": "^1.6.5",
-    "url-parse": "^1.5.4"
+    "url-parse": "^1.5.9"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.7",
