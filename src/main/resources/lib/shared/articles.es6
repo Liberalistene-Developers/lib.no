@@ -24,6 +24,6 @@ export const mapArticle = (itemId) => {
       }),
     datePublished,
     shortDescription: processHtml(shortDescription),
-    image: imageUrl(imageKey, 'block(459,295)', 'rounded(3);')
+    image: imageUrl(imageKey, 'block(459,295)')
   }
 }

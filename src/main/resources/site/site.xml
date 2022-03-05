@@ -5,6 +5,10 @@
     <mapping controller="/headless/guillotineApi.js" order="50">
       <pattern>/api/headless</pattern>
     </mapping>
+
+    <mapping controller="/vipps/vipps.js" order="50">
+      <pattern>/vipps/.*</pattern>
+    </mapping>
     <mapping controller="/lib/urlredirect.js">
       <match>type:'lib.no:url'</match>
     </mapping>
@@ -23,6 +27,7 @@
       <label i18n="site.email.label">E-mail</label>
       <occurrences minimum="1" maximum="1"/>
     </input>
+    <mixin name="vipps" />
     <item-set name="social">
       <label i18n="content_types.social.label">Social</label>
       <occurrences minimum="0" maximum="0"/>

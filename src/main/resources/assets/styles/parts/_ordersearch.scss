@@ -1,0 +1,115 @@
+.order-search-wrapper {
+  width: 100%;
+
+  .order-search-form {
+    background-color: var(--lib-color-secondary-100);
+  }
+
+  .rows {
+    display: flex;
+    width: 100%;
+    column-gap: 20px;
+
+    .section {
+      flex: 1;
+    }
+
+    .lib-input-group {
+      width: calc(100% - 20px);
+    }
+
+    .container-order {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1.5em;
+
+      .react-dropdown-select {
+        border: none;
+        background-color: var(--lib-color-bg-high-contrast);
+        border-bottom: 0.125rem solid var(--lib-color-ink-medium-contrast);
+        font-size: 16px;
+        height: 57px;
+
+        .react-dropdown-select-option-label {
+          font-family: Roboto, Arial, Helvetica, sans-serif;
+        }
+
+        input {
+          font-family: Roboto, Arial, Helvetica, sans-serif;
+          width: 100%;
+
+          &::placeholder {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .order-search-section {
+    fieldset {
+      border: none;
+      display: flex;
+      flex-direction: column;
+      row-gap: 1.5em;
+    }
+  }
+
+  .order-search-result {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5em;
+    margin-top: 20px;
+
+    & > .order-search-result-item {
+      cursor: pointer;
+
+      &.latest {
+        background-color: aliceblue;
+      }
+    }
+
+    &>* {
+      display: flex;
+      flex-direction: row;
+      column-gap: 1.5em;
+
+      &>.small {
+        flex-grow: 0.5;
+      }
+
+      &>* {
+        flex: 1;
+        width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &>*:last-child {
+        width: 200px;
+        align-self: flex-start;
+      }
+
+      span {
+        white-space: nowrap;
+      }
+
+      &.bold {
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .container-buttons {
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 40px;
+
+    .order-search-message {
+      margin-top: 20px;
+    }
+  }
+}

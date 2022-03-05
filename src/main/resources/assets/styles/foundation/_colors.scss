@@ -13,6 +13,15 @@
 	--lib-color-background-500: #f8f6f8;
 	--lib-color-background-700: #fff;
 
+  --lib-color-golden-100: #cfb53b;
+  --lib-color-golden-300: #cfb53b;
+  --lib-color-golden-500: #cfb53b;
+  --lib-color-golden-700: #cfb53b;
+
+  --lib-color-goldenframe-300: #cca100;
+  --lib-color-goldenframe-500: #ad8900;
+  --lib-color-goldenframe-700: #997900;
+
 	--lib-color-header-100: #ede8ed;
 
 	--lib-color-button-color-100: #fff;
@@ -22,6 +31,16 @@
 	--lib-color-menu-background: #fff;
 
 	--lib-color-purple-anchor: #ffea00;
+
+  --lib-color-ink-lowest-contrast: rgba(47, 60, 85, 0.18);
+	--lib-color-ink-low-contrast: rgba(60, 60, 67, 0.3);
+	--lib-color-ink-medium-contrast: rgba(19, 19, 21, 0.6);
+	--lib-color-interaction: #4a104a;
+	--lib-color-interaction-minus-two: rgba(73, 133, 224, 0.12);
+	--lib-color-danger: #b50706;
+	--lib-color-bg-low-contrast: #eff1f2;
+	--lib-color-ink-high-contrast: #121212;
+	--lib-color-bg-high-contrast: #ffffff;
 }
 
 a {

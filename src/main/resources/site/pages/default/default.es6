@@ -24,6 +24,10 @@ exports.get = function (req) {
 
   const menuItems = libs.menu.getMenuTree(1)
 
+  const url = portal.serviceUrl({ service: 'vipps' })
+
+  log.info(url)
+
   if (debug) {
     log.info(JSON.stringify(menuItems, null, 2))
   }

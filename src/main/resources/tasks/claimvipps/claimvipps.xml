@@ -1,0 +1,15 @@
+<task>
+  <description>Background job for claiming vipps payments</description>
+   <form>
+    <input type="TextLine" name="key">
+      <label>Folder to fetch config from</label>
+      <default>/liberalistene-hovedside</default>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+    <input type="TextLine" name="application">
+      <label>Application</label>
+      <default>lib.no</default>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+  </form>
+</task>

@@ -1,0 +1,84 @@
+<content-type>
+  <display-name i18n="content_types.order.displayname">Order</display-name>
+  <display-name-label i18n="content_types.order.displayname.label">Order</display-name-label>
+  <description i18n="content_types.order.description">Create a new Order</description>
+  <super-type>base:structured</super-type>
+  <is-abstract>false</is-abstract>
+  <is-final>true</is-final>
+  <is-built-in>false</is-built-in>
+  <allow-child-content>true</allow-child-content>
+  <form>
+    <input name="amount" type="Double">
+      <label i18n="content_types.product.price.label">Price</label>
+      <help-text i18n="content_types.product.price.helptext">Enter price here</help-text>
+    </input>
+    <input name="reference" type="TextLine">
+      <label i18n="content_types.order.price.reference.label">Reference (External system)</label>
+    </input>
+
+    <input name="paymethod" type="TextLine">
+      <label i18n="content_types.order.paymethod.label">Selected payment method</label>
+    </input>
+
+    <input name="email" type="TextLine">
+      <label i18n="content_types.order.email.label">Email</label>
+    </input>
+
+    <input name="phone" type="TextLine">
+      <label i18n="content_types.order.phone.label">Phone</label>
+    </input>
+
+    <input name="membername" type="TextLine">
+      <label i18n="content_types.order.membername.label">Name</label>
+    </input>
+
+    <input name="address" type="TextLine">
+      <label i18n="content_types.order.address.label">Address</label>
+    </input>
+
+    <input name="zip" type="TextLine">
+      <label i18n="content_types.order.zip.label">Zip</label>
+    </input>
+
+    <input name="city" type="TextLine">
+      <label i18n="content_types.order.city.label">City</label>
+    </input>
+
+    <input name="invoicetext" type="TextLine">
+      <label i18n="content_types.order.invoicetext.label">Text on payment/invoice</label>
+      <occurrences minimum="0" maximum="0"/>
+    </input>
+
+    <input name="order_lines" type="ContentSelector">
+      <label i18n="content_types.group.order.order_lines.label">Order lines</label>
+      <occurrences minimum="0" maximum="0"/>
+      <config>
+        <allowContentType>lib.no:product</allowContentType>
+        <allowPath>${site}/*</allowPath>
+        <treeMode>false</treeMode>
+        <showStatus>true</showStatus>
+        <hideToggleIcon>true</hideToggleIcon>
+      </config>
+    </input>
+    <input name="status" type="ComboBox">
+      <label>Order Status</label>
+      <occurrences minimum="1" maximum="1"/>
+      <config>
+        <option value="new">New</option>
+        <option value="rejected">User did not respond</option>
+        <option value="cancelled">Cancelled  by user</option>
+        <option value="failed">No funds, Invalid Card, or similar</option>
+        <option value="nosale">No funds, Invalid Card, or similar</option>
+        <option value="requested">Requested</option>
+        <option value="reserved">Reserved</option>
+        <option value="sale">Sale accepted</option>
+        <option value="claimed">Claimed</option>
+        <option value="refunded">Refunded</option>
+        <option value="member">Member</option>
+        <option value="invoice">Invoice</option>
+      </config>
+      <default>new</default> (2)
+    </input>
+    <mixin name="tags" />
+  </form>
+</content-type>

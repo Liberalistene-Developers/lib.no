@@ -1,0 +1,95 @@
+.order-info-admin {
+  width: 100%;
+
+  .order-info-admin-section {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 100%;
+
+    .fas {
+      &.green {
+        color: green;
+      }
+
+      &.red {
+        color: red;
+      }
+    }
+
+    dt {
+      font-weight: bold;
+    }
+
+    dd {
+      color: var(--lib-color-primary-700)
+    }
+
+    .greybg {
+      background-color: var(--lib-color-background-500);
+      padding: 20px;
+      padding-top: 1px;
+      margin-top: 20px;
+    }
+
+    .orderinfo {
+      & > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        line-height: 30px;
+      }
+
+      .overline {
+        border-top: solid 1px grey;
+        border-bottom: double 1px black;
+      }
+    }
+
+    .status-info-wrapper {
+      .status-info {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+
+        & > div {
+          display: flex;
+          flex-direction: row;
+          line-height: 30px;
+
+          &> div {
+            flex: 1;
+          }
+
+          &> div:last-child {
+            flex: 0.5;
+          }
+
+        }
+
+        .underline {
+          border-bottom: solid 1px grey;
+        }
+      }
+    }
+
+    .bold {
+      span {
+        font-weight: bold;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 0px;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      &>* {
+        width: auto;
+        padding: 10px;
+      }
+    }
+  }
+}

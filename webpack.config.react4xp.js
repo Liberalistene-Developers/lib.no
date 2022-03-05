@@ -7,11 +7,9 @@ const path = require('path');
 const R = require('ramda');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const {
- setEntry,
  addRule,
  addPlugin,
  appendExtensions,
- prependExtensions
 } = require('./util/compose');
 const env = require('./util/env');
 

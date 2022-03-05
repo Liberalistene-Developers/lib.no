@@ -43,7 +43,7 @@ const checkParams = params => {
   return params
 }
 
-const defaultHandleResponseErrorFunc = (response) => {
+export const defaultHandleResponseErrorFunc = (response) => {
   if (!(response.status < 300)) {
     throw Error(`Guillotine API response:\n\n${response.status} - ${response.statusText}.\n\nAPI url: ${response.url}\n\nInspect the request and/or the server log.`)
   }
@@ -51,7 +51,7 @@ const defaultHandleResponseErrorFunc = (response) => {
   return response
 }
 
-const defaultErrorFunc = (error) => {
+export const defaultErrorFunc = (error) => {
   console.error(error)
 
   return Promise.resolve(error)

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part>
+  <display-name>Order Search</display-name>
+  <description>
+    Order Search
+  </description>
+  <form>
+    <input name="ordersPath" type="ContentSelector">
+      <label i18n="site.ordersPath.label">Path to Orders</label>
+      <occurrences minimum="0" maximum="1"/>
+      <config>
+        <allowContentType>base:folder</allowContentType>
+        <allowPath>../*</allowPath>
+        <treeMode>false</treeMode>
+        <showStatus>true</showStatus>
+        <hideToggleIcon>true</hideToggleIcon>
+      </config>
+    </input>
+    <input name="count" type="Long">
+      <label i18n="mixin.query.count.label">Number of items to show</label>
+      <default>10</default>
+      <config>
+        <min>1</min>
+        <max>50</max>
+      </config>
+    </input>
+  </form>
+</part>

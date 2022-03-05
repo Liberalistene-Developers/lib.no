@@ -7,6 +7,7 @@ import Image from './Image'
 
 export const GridItem = ({
   children,
+  className = '',
   direction = '',
   imageSize,
   imageType,
@@ -23,7 +24,7 @@ export const GridItem = ({
   titleCenter = false
 }) => (
   <div className={cx('grid-item', direction, { presentation })}>
-     <Image image={image} className={imageSize} imageClassName={imageType} title={name} url={url} />
+     <Image image={image} className={cx(`${className}-image`, imageSize)} imageClassName={imageType} title={name} url={url} />
 
      { name && (
        <div className="grid-item-info">

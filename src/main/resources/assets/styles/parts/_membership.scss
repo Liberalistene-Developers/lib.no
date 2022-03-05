@@ -1,0 +1,316 @@
+.membership-list-holder {
+  .membership-form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+
+    .membership-payment {
+      width: 100%;
+      margin-top: 15px;
+
+      & > .membership-payment-container {
+        display: flex;
+        column-gap: 20px;
+        margin-top: 20px;
+        justify-content: center;
+        background-color: var(--lib-color-background-500);
+        width: 100%;
+        padding: 20px;
+
+        .membership-payment-item {
+          height: 40px;
+
+          & > label {
+            display: flex;
+            border-radius: 5px;
+            width: 140px;
+            height: 40px;
+          }
+
+          & > .membership-payment-choice {
+            display: none;
+            appearance: none;
+
+            &:not(:disabled) ~ .membership-payment-button {
+              cursor: pointer;
+            }
+
+            &:checked ~ .membership-payment-button {
+              color: var(--lib-color-background-300);
+              box-shadow: 2px 2px 14px var(--lib-color-primary-700);
+            }
+          }
+
+          .membership-payment-invoice {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            background-color: var(--lib-color-primary-700);
+            color: var(--lib-color-background-500);
+          }
+        }
+      }
+    }
+
+    .membership-list {
+      .membership-list-container {
+        display: flex;
+        flex-flow: row wrap;
+        row-gap: 10px;
+        width: 100%;
+        padding: 20px;
+
+        & > .membership-item {
+          flex: 1;
+          padding: 0.5rem;
+          margin-bottom: 15px;
+
+          & > label {
+            height: 100%;
+            display: flex;
+            background: var(---lib-color-background-700);
+            border: 2px solid var(--lib-color-primary-700);
+            border-radius: 20px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            //margin: 1rem;
+            text-align: center;
+            box-shadow: 0px 3px 10px -2px var(--lib-color-primary-700);
+            position: relative;
+            flex-direction: column;
+            justify-content: center;
+
+            & > * {
+              flex: 1;
+            }
+
+            & > h3 {
+              padding-top: 15px;
+            }
+          }
+
+          &>input[type=radio] {
+            display: none;
+
+            &:not(:disabled) ~ label {
+              cursor: pointer;
+            }
+
+            &:disabled ~ label {
+              color: var(--lib-color-primary-700);
+              border-color: var(--lib-color-primary-700);
+              box-shadow: none;
+              cursor: not-allowed;
+            }
+
+            &:checked + label {
+              background: var(--lib-color-primary-700);
+              color: var(--lib-color-primary-700);
+              box-shadow: 0px 0px 20px var(--lib-color-primary-700);
+
+              &> p {
+                color: var(--lib-color-secondary-100);
+              }
+
+              &::after {
+                color: var(--lib-color-primary-700);
+                font-family: FontAwesome, Arial, Helvetica, sans-serif;
+                border: 2px solid var(--lib-color-primary-700);
+                content: "\f00c";
+                font-size: 24px;
+                position: absolute;
+                top: -25px;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 50px;
+                width: 50px;
+                line-height: 50px;
+                text-align: center;
+                border-radius: 50%;
+                background: white;
+                box-shadow: 0px 2px 5px -2px var(--lib-color-primary-700);
+              }
+            }
+          }
+
+          &.gold {
+            &>input[type=radio] {
+              &:checked + label {
+                background: var(--lib-color-goldenframe-500);
+                color: var(--lib-color-primary-700);
+                border: 2px solid var(--lib-color-goldenframe-700);
+                box-shadow: 0px 0px 20px var(--lib-color-goldenframe-300);
+
+                h3 {
+                  color: var(--lib-color-golden-700);
+                }
+
+                &> p {
+                  color: var(--lib-color-golden-700);
+                }
+
+                &::after {
+                  color: var(--lib-color-golden-700);
+                  background: var(--lib-color-goldenframe-500);
+                  border: 2px solid var(--lib-color-goldenframe-700);
+                  box-shadow: 0px 2px 5px -2px var(--lib-color-goldenframe-300);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    section {
+      margin-bottom: 15px;
+    }
+
+    .membership-invoiceinfo {
+      .membership-invoiceinfo-container {
+        display: flex;
+        column-gap: 20px;
+        margin-top: 20px;
+        justify-content: space-between;
+        background-color: var(--lib-color-background-500);
+        width: 100%;
+        padding: 20px;
+
+        color: var(--lib-color-primary-700);
+      }
+    }
+
+    .membership-memberinfo {
+      .membership-memberinfo-container {
+        display: flex;
+        column-gap: 20px;
+        flex-direction: column;
+        margin-top: 20px;
+        justify-content: center;
+        background-color: var(--lib-color-background-500);
+        width: 100%;
+        padding: 20px;
+      }
+    }
+
+    .membership-buttonrow {
+      .membership-message {
+        padding-bottom: 15px;
+
+        &.membership-error {
+          color: var(--lib-color-danger)
+        }
+
+        &.membership-success {
+          color: var(--lib-color-interaction);
+        }
+
+        &.membership-sending {
+          color: var(--lib-color-primary-700);
+        }
+      }
+
+
+      .vippsButton {
+        background: none;
+        border: none;
+        padding: 0;
+        height: 44px;
+        cursor: pointer;
+
+        &:focus {
+          outline: 2px dashed #17171d;
+          border-radius: 3px;
+        }
+
+        &:hover {
+          svg: {
+            transform: scale(1.1);
+          }
+        }
+
+        &:disabled {
+          cursor: wait;
+          filter: grayscale(1);
+        }
+
+        &::-moz-focus-inner {
+          border: 0;
+        }
+
+        svg {
+          outline: none;
+          transition: transform 0.3s linear;
+        }
+      }
+    }
+  }
+}
+
+
+@media
+  only screen
+    and (max-width: 414px),
+  // Galaxy
+  only screen
+    and (min-device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait),
+  only screen
+    and (min-device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 3)
+    and (orientation: portrait),
+  only screen
+    and (min-device-width: 360px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait),
+  only screen
+    and (min-device-width: 360px)
+    and (-webkit-min-device-pixel-ratio: 3)
+    and (orientation: portrait),
+  only screen
+    and (min-device-width: 360px)
+    and (-webkit-min-device-pixel-ratio: 4)
+    and (orientation: portrait),
+  // iPhone
+  only screen
+    and (min-device-width: 320px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait),
+  only screen
+    and (min-device-width: 375px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait),
+  only screen
+    and (min-device-width: 375px)
+    and (-webkit-min-device-pixel-ratio: 3)
+    and (orientation: portrait),
+  only screen
+    and (device-width: 390px)
+    and (device-height: 844px)
+    and (-webkit-device-pixel-ratio: 3)
+    and (orientation: portrait),
+  only screen
+    and (device-width: 414px)
+    and (device-height: 896px)
+    and (-webkit-device-pixel-ratio: 2)
+    and (orientation: portrait),
+  only screen
+    and (device-width: 414px)
+    and (device-height: 896px)
+    and (-webkit-device-pixel-ratio: 3)
+    and (orientation: portrait),
+  only screen
+    and (device-width: 428px)
+    and (device-height: 926px)
+    and (-webkit-device-pixel-ratio: 3)
+    and (orientation: portrait) {
+  .membership-list-holder {
+    .membership-list {
+      &.membership-list {
+        flex-direction: column;
+      }
+    }
+  }
+}

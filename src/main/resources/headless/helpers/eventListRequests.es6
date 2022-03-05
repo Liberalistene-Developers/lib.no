@@ -31,7 +31,7 @@ query(
               data {
                 alternativeText: caption
               }
-              url: imageUrl(type: absolute, filter: "rounded(3)", scale: "block(459,295)")
+              url: imageUrl(type: absolute, filter: "", scale: "block(459,295)")
             },
             ... on media_Vector {
               displayName

@@ -1,3 +1,23 @@
+.libButton {
+  cursor: pointer;
+  background-color: var(--lib-color-primary-700);
+  color: var(--lib-color-background-500);
+  height: 44px;
+  min-width: 210px;
+  border-radius: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: Lato, Arial, Helvetica, sans-serif;
+
+  &:disabled {
+    cursor: wait;
+    background-color: var(--lib-color-primary-100);
+    color: var(--lib-color-subtext-100);
+  }
+}
+
 .button-wrapper {
   display: flex;
   width: 100%;
@@ -5,6 +25,7 @@
   justify-content: center;
 
   .button {
+    cursor: pointer;
     border-radius: 3px;
     position: relative;
     display: inline-block;
@@ -22,6 +43,11 @@
 
     transform-style: flat;
     transition: all 250ms ease-out;
+
+    &.disabled {
+      cursor: not-allowed;
+      filter: grayscale(0.5);
+    }
 
     &:before,
     &:after {
