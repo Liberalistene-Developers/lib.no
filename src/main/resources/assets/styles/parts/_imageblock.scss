@@ -241,6 +241,8 @@
     and (-webkit-device-pixel-ratio: 3)
     and (orientation: portrait) {
   .image-block {
+    height: 66vw;
+
     & > .content {
       h1 {
         font-size: 50px;
