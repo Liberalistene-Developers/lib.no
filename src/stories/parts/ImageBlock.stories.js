@@ -81,11 +81,25 @@ H3RightLight.args = {
   Tag: 'h3'
 }
 
+export const H3RightLightOverlay = Template.bind({})
+H3RightLightOverlay.storyName = 'H3 Right Light Overlay'
+H3RightLightOverlay.args = {
+  ...H3RightLight.args,
+  overlay: 'overlay purple'
+}
+
 export const H3LeftLight = Template.bind({})
 H3LeftLight.storyName = 'H3 Left Light'
 H3LeftLight.args = {
   ...H3RightLight.args,
   position: 'left'
+}
+
+export const H3LeftLightOverlay = Template.bind({})
+H3LeftLightOverlay.storyName = 'H3 Left Light Overlay'
+H3LeftLightOverlay.args = {
+  ...H3LeftLight.args,
+  overlay: 'overlay purple'
 }
 
 export const H3CenterLight = Template.bind({})
