@@ -40,7 +40,7 @@ exports.get = function (req) {
 
   // Return the result
   return {
-    body: body,
+    body,
     contentType: 'text/html'
   }
 }
