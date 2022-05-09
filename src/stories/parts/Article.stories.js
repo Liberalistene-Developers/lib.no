@@ -3,6 +3,7 @@ import React from 'react'
 import { Article } from '../../main/resources/react4xp/libEntries/Article'
 
 import { SingleLayout } from '../layouts'
+import { Page } from '../pages'
 
 import '../../main/resources/assets/styles/main.scss'
 
@@ -19,6 +20,14 @@ const Template = (args) => (
   <SingleLayout>
     <Article {...args} />
   </SingleLayout>
+)
+
+const PageTemplate = (args) => (
+  <Page>
+    <SingleLayout>
+      <Article {...args} />
+    </SingleLayout>
+  </Page>
 )
 
 export const Normal = Template.bind({})
@@ -65,4 +74,9 @@ Normal.args = {
     }
   ],
   informationLabel: 'Informasjon'
+}
+
+export const FullPageNormal = PageTemplate.bind({})
+FullPageNormal.args = {
+  ...Normal.args
 }

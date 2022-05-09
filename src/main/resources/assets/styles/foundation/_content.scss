@@ -279,6 +279,9 @@ html body {
     and (max-width: 414px),
   // Galaxy
   only screen
+    and (min-device-width: 360px)
+    and (orientation: landscape),
+  only screen
     and (min-device-width: 320px)
     and (-webkit-min-device-pixel-ratio: 2)
     and (orientation: portrait),
@@ -330,7 +333,9 @@ html body {
     and (device-width: 428px)
     and (device-height: 926px)
     and (-webkit-device-pixel-ratio: 3)
-    and (orientation: portrait) {
+    and (orientation: portrait),
+  only screen
+    and (device-width: 760px) {
   body {
     max-width: 100%;
     overflow-x: hidden;

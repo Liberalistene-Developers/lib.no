@@ -18,6 +18,9 @@
     and (max-width: 414px),
   // Galaxy
   only screen
+    and (min-device-width: 360px)
+    and (orientation: landscape),
+  only screen
     and (min-device-width: 320px)
     and (-webkit-min-device-pixel-ratio: 2)
     and (orientation: portrait),

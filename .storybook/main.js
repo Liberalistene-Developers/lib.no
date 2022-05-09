@@ -28,6 +28,7 @@ module.exports = {
   'addons': [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
+    '@storybook/addon-viewport',
     {
       name: '@storybook/addon-postcss',
       options: {
