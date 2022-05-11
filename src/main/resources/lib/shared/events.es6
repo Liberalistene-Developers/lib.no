@@ -22,14 +22,13 @@ export const mapEvent = (itemId) => {
     title,
     date,
     to,
-    url: portal
-      .pageUrl({
-        path: itemPath
-      }),
+    url: portal.pageUrl({
+      path: itemPath
+    }),
     location: {
       address
     },
     text: processHtml(text),
-    image: imageUrl(imageKey, 'block(459,295)', 'rounded(3);')
+    image: imageUrl(imageKey, 'block(459,295)', '')
   }
 }

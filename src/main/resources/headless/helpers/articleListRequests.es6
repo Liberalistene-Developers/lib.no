@@ -29,7 +29,7 @@ query(
               data {
                 alternativeText: caption
               }
-              url: imageUrl(type: absolute, filter: "rounded(3)", scale: "block(459,295)")
+              url: imageUrl(type: absolute, scale: "block(459,295)")
             },
             ... on media_Vector {
               displayName
@@ -46,23 +46,21 @@ query(
 }
 `
 
-const map = (imageMap) => ({
-  id,
-  name,
-  url,
-  data: {
-    datePublished,
-    shortDescription,
-    image
-  } = {}
-}) => ({
-  id,
-  name,
-  url,
-  datePublished,
-  shortDescription,
-  image: image && imageMap(image)
-})
+const map =
+  (imageMap) =>
+    ({
+      id,
+      name,
+      url,
+      data: { datePublished, shortDescription, image } = {}
+    }) => ({
+      id,
+      name,
+      url,
+      datePublished,
+      shortDescription,
+      image: image && imageMap(image)
+    })
 
 export const extractArticleList = extractList(map)
 

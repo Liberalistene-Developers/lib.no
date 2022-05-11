@@ -18,12 +18,13 @@ export const mapArticle = (itemId) => {
   return {
     itemId,
     name,
-    url: itemPath && portal
-      .pageUrl({
+    url:
+      itemPath &&
+      portal.pageUrl({
         path: itemPath
       }),
     datePublished,
     shortDescription: processHtml(shortDescription),
-    image: imageUrl(imageKey, 'block(459,295)', 'rounded(3);')
+    image: imageUrl(imageKey, 'block(459,295)', '')
   }
 }
