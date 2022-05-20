@@ -323,4 +323,18 @@
       }
     }
   }
+
+  .fancy-candidate-image-wrapper {
+    .fancy-candidate-image-figure {
+      .fancy-candidate-image-image {
+        width: calc(100% + 30px);
+        margin-left: -20px;
+        margin-right: -20px;
+      }
+    }
+
+    .fancy-candidate-image-title {
+      max-width: 100%;
+    }
+  }
 }

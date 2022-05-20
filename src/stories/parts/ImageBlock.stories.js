@@ -51,6 +51,27 @@ H1CenterLight.args = {
   position: 'center'
 }
 
+export const H1CenterLightMobileHalf = Template.bind({})
+H1CenterLightMobileHalf.storyName = 'H1 Center Light Mobile 1/2'
+H1CenterLightMobileHalf.args = {
+  ...H1CenterLight.args,
+  titleClassName: 'half'
+}
+
+export const H1CenterLightMobileTreeQuarter = Template.bind({})
+H1CenterLightMobileTreeQuarter.storyName = 'H1 Center Light Mobile 3/4'
+H1CenterLightMobileTreeQuarter.args = {
+  ...H1CenterLight.args,
+  titleClassName: 'treequarter'
+}
+
+export const H1CenterLightMobileQuarter = Template.bind({})
+H1CenterLightMobileQuarter.storyName = 'H1 Center Light Mobile 1/4'
+H1CenterLightMobileQuarter.args = {
+  ...H1CenterLight.args,
+  titleClassName: 'quarter'
+}
+
 export const H2RightLight = Template.bind({})
 H2RightLight.storyName = 'H2 Right Light'
 H2RightLight.args = {
@@ -77,7 +98,10 @@ export const H3RightLight = Template.bind({})
 H3RightLight.storyName = 'H3 Right Light'
 H3RightLight.args = {
   ...NoHeader.args,
-  title: [{ title: 'H3', titleColor: 'light' }, { title: 'Header', titleColor: 'yellow' }],
+  title: [
+    { title: 'H3', titleColor: 'light' },
+    { title: 'Header', titleColor: 'yellow' }
+  ],
   Tag: 'h3'
 }
 

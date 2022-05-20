@@ -4,11 +4,7 @@ const React4xp = require('/lib/enonic/react4xp')
 const { imageUrl } = require('/lib/shared/image')
 
 exports.get = function (request) {
-  const {
-    params: {
-      debug = false
-    } = {}
-  } = request
+  const { params: { debug = false } = {} } = request
 
   const content = portal.getContent()
   const component = portal.getComponent()
@@ -20,16 +16,15 @@ exports.get = function (request) {
       titleSet: {
         _selected: selection = 'simple',
         simple: title = { title: oldTitle, titleColor: headerColor },
-        fancy: {
-          titles = []
-        } = {}
+        fancy: { titles = [] } = {}
       } = {},
       headerPosition: position,
       headerType: Tag,
       image: imageKey,
       imageOverlay = '',
       ingress,
-      ingressColor
+      ingressColor,
+      mobileSize: titleClassName = 'full'
     } = {}
   } = component || {}
 
@@ -49,7 +44,8 @@ exports.get = function (request) {
     ingress,
     ingressColor,
     position,
-    title: titleList
+    title: titleList,
+    titleClassName
   }
 
   if (debug) {

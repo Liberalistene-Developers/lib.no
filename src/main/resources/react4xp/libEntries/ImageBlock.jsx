@@ -10,6 +10,7 @@ export const ImageBlock = ({
   image,
   position = '',
   title = [],
+  titleClassName = '',
   overlay = '',
   ingress = '',
   ingressColor = 'standard'
@@ -23,7 +24,7 @@ export const ImageBlock = ({
           <div className="image-block-text">
             { title && title.length > 0 && (
               <div className="title">
-                <Tag>
+                <Tag className={titleClassName}>
                   {title.map(({ title: titleText, titleColor, titleNoSpace }, index) => (
                     <span key={titleText || `titlespan-${index}`} className={cx(titleColor, { nospace: titleNoSpace })}>
                       {titleText}
@@ -55,6 +56,7 @@ ImageBlock.propTypes = {
     titleColor: PropTypes.string,
     titleNoSpace: PropTypes.bool
   })),
+  titleClassName: PropTypes.oneOf(['', 'half', 'quart', 'treequart']),
   ingress: PropTypes
     .oneOfType([
       PropTypes.string,
@@ -65,6 +67,7 @@ ImageBlock.propTypes = {
 
 ImageBlock.defaultProps = {
   Tag: 'h1',
+  titleClassName: '',
   image: undefined,
   title: [],
   ingress: '',

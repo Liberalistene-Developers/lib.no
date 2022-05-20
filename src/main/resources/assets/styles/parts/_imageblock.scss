@@ -249,7 +249,7 @@
     and (-webkit-device-pixel-ratio: 3)
     and (orientation: portrait) {
   .image-block {
-    height: 66vw;
+    height: max-content;
 
     .full {
       & > img {
@@ -267,6 +267,18 @@
         font-weight: 800;
         line-height: 120%;
         text-overflow: ellipsis;
+
+        &.half {
+          font-size: 25px;
+        }
+
+        &.quarter {
+          font-size: 12.5px;
+        }
+
+        &.treequarter {
+          font-size: 37.5px;
+        }
       }
 
       .image-block-text {
