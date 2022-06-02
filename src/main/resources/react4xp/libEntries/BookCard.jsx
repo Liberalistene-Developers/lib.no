@@ -26,7 +26,7 @@ export const BookCard = ({
   const titleItem = <h3 className="bookcard-title">{title}</h3>
   const titleContainer = url
     ? (
-    <a href={url}>
+    <a href={(buy && buy.url) || url}>
       {titleItem}
     </a>
       )
