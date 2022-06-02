@@ -27,5 +27,6 @@
       </config>
       <default>normal</default>
     </input>
+    <mixin name="mobileSize" />
   </form>
 </part>
