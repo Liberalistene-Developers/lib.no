@@ -23,7 +23,7 @@ export const Group = ({
   <div className="group">
     { image && (
       <ImageBlock
-        title={titleInImage && title}
+        title={titleInImage && [{ title, titleColor: headerColor }]}
         image={image}
         ingress={ingressInImage && shortDescription} text={headerColor}
         position={headerPosition}
