@@ -4,10 +4,13 @@ import PropTypes from 'prop-types'
 import { BoardPresentation } from './BoardPresentation'
 
 export const BoardPresentationList = ({
+  boardTitle,
   imagesize,
   imagetype,
   items,
-  boardTitle,
+  memberHighlighted,
+  noHighlighting,
+  reverseOrder,
   showemail
 }) => (
   <div className="board-presentation-list">
@@ -19,11 +22,14 @@ export const BoardPresentationList = ({
       }) => (
       <BoardPresentation
         key={itemId}
+        noHighlighting={noHighlighting}
         imagesize={imagesize}
         imagetype={imagetype}
+        memberHighlighted={memberHighlighted}
         title={title}
         boardTitle={boardTitle}
         board={board}
+        reverseOrder={reverseOrder}
         showemail={showemail}
       />
       ))
@@ -42,11 +48,17 @@ BoardPresentationList.propTypes = {
       .shape({
         itemId: PropTypes.string
       })),
+  memberHighlighted: PropTypes.oneOf(['no', 'yes', 'noimage']),
+  noHighlighting: PropTypes.bool,
+  reverseOrder: PropTypes.bool,
   showemail: PropTypes.oneOf(['no', 'first', 'all'])
 }
 
 BoardPresentationList.defaultProps = {
   items: [],
+  noHighlighting: false,
+  memberHighlighted: 'yes',
+  reverseOrder: false,
   showemail: false
 }
 

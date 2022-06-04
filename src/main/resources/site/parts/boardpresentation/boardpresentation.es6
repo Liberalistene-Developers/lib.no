@@ -5,11 +5,7 @@ const { mapGroup } = require('/lib/shared/board')
 const { findItems } = require('/lib/shared/query')
 
 exports.get = function (request) {
-  const {
-    params: {
-      debug = false
-    } = {}
-  } = request
+  const { params: { debug = false } = {} } = request
 
   const component = portal.getComponent()
 
@@ -19,16 +15,26 @@ exports.get = function (request) {
       imagesize = '',
       imagetype = false,
       showemail = 'no',
+      presentation: {
+        _selected: presentation,
+        hightlighted: {
+          reverseOrder = false,
+          memberHighlighted = 'yes',
+          description = ''
+        }
+      } = {
+        _selected: 'hightlighted',
+        hightlighted: {
+          description: '',
+          hightlighting: true,
+          memberHighlighted: 'yes',
+          reverseOrder: false
+        }
+      },
       itemsSet: {
         _selected: selection,
-        manual: {
-          items: itemList = []
-        } = {},
-        query: {
-          queryroot,
-          querysorting = 'normal',
-          count = 10
-        } = {}
+        manual: { items: itemList = [] } = {},
+        query: { queryroot, querysorting = 'normal', count = 10 } = {}
       } = {}
     } = {}
   } = component || {} || {}
@@ -46,7 +52,13 @@ exports.get = function (request) {
 
     case 'query':
       if (queryroot) {
-        const list = findItems('lib.no:group', queryroot, querysorting, count, 0)
+        const list = findItems(
+          'lib.no:group',
+          queryroot,
+          querysorting,
+          count,
+          0
+        )
 
         if (list.length) {
           items.push(...list)
@@ -57,11 +69,14 @@ exports.get = function (request) {
 
   const props = {
     boardTitle,
+    description,
     imagesize,
     imagetype: !!imagetype,
-    showemail,
-    items: items
-      .map(mapGroup)
+    items: items.map(mapGroup),
+    memberHighlighted,
+    noHighlighting: presentation === 'list',
+    reverseOrder,
+    showemail
   }
 
   if (debug) {

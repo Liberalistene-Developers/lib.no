@@ -5,12 +5,51 @@
     Display group list
   </description>
   <form>
-    <option-set name="itemsSet">
-      <label i18n="checkOptionSet.label">Items</label>
-      <expanded>true</expanded> 
-      <occurrences minimum="1" maximum="1"/> 
+    <option-set name="presentation">
+      <label i18n="parts.boardpresentation.displaytype.label">Display type</label>
+      <expanded>true</expanded>
+      <occurrences minimum="1" maximum="1"/>
       <help-text>You can select up to 1 options</help-text>
-      <options minimum="1" maximum="1">    
+      <options minimum="1" maximum="1">
+        <option name="hightlighted">
+          <label>Fremhevet/Beskrivelse</label>
+          <help-text>Select option for hightlighted/description</help-text>
+          <items>
+            <input name="reverseOrder" type="CheckBox">
+              <label i18n="parts.boardpresentation.reverseOrder.label">Høyre justert</label>
+              <config>
+                <alignment>right</alignment>
+              </config>
+            </input>
+            <input name="description" type="HtmlArea">
+              <label i18n="parts.boardpresentation.description.label">Beskrivelse</label>
+            </input>
+            <input name="memberHighlighted" type="ComboBox">
+              <label i18n="parts.boardpresentation.memberHighlighted.label">Fremhev første medlem</label>
+              <occurrences minimum="1" maximum="1"/>
+              <config>
+                <option value="no" i18n="mixin.background.standard.label">No</option>
+                <option value="yes" i18n="mixin.background.white.label">Yes (With image)</option>
+                <option value="noimage" i18n="mixin.background.white.label">Yes (No image)</option>
+              </config>
+              <default>no</default>
+            </input>
+          </items>
+        </option>
+        <option name="list">
+          <label>Enkel liste</label>
+          <help-text>Select items to show</help-text>
+          <items>
+          </items>
+        </option>
+      </options>
+    </option-set>
+    <option-set name="itemsSet">
+      <label i18n="parts.boardpresentation.memberlist.label">Members</label>
+      <expanded>true</expanded>
+      <occurrences minimum="1" maximum="1"/>
+      <help-text>You can select up to 1 options</help-text>
+      <options minimum="1" maximum="1">
         <option name="manual">
           <label>Manual selection</label>
           <help-text>Select items to show</help-text>
@@ -43,11 +82,11 @@
     <field-set>
       <label>Board name</label>
       <items>
-        <input type="TextLine" name="boardname" > 
-          <label i18n="parts.boardpresentation.boardname.label">Board name</label> 
+        <input type="TextLine" name="boardname" >
+          <label i18n="parts.boardpresentation.boardname.label">Board name</label>
           <default i18n="parts.boardpresentation.boardname.default">Styre</default>
-          <occurrences minimum="1" maximum="1"/>  
-          <config/> 
+          <occurrences minimum="1" maximum="1"/>
+          <config/>
         </input>
       </items>
     </field-set>

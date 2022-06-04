@@ -21,6 +21,7 @@ const Template = ({ fullWidth, ...args }) => (
 Template.propTypes = {
   ...BoardPresentation.propTypes,
   fullWidth: PropTypes.bool,
+  hightlighting: PropTypes.bool,
   showEmail: PropTypes.oneOf(['no', 'first', 'all'])
 }
 
@@ -112,8 +113,36 @@ SentralStyretEmailFirst.args = {
   showEmail: 'first'
 }
 
+export const SentralStyretEmailFirstNoImage = Template.bind({})
+SentralStyretEmailFirstNoImage.args = {
+  ...SentralStyretEmailFirst.args,
+  showEmail: 'first',
+  memberHighlighted: 'no-image'
+}
+
+export const SentralStyretEmailNoFirstMember = Template.bind({})
+SentralStyretEmailNoFirstMember.args = {
+  ...SentralStyretEmailFirst.args,
+  showEmail: 'first',
+  description:
+    "<strong>Hello World</strong><p>A long text to trigger word wrap and see if it doesn't break.</p>",
+  memberHighlighted: 'no'
+}
+
 export const SentralStyretEmailAll = Template.bind({})
 SentralStyretEmailAll.args = {
   ...SentralStyret.args,
   showEmail: 'all'
+}
+
+export const SentralStyretNotHighlighted = Template.bind({})
+SentralStyretNotHighlighted.args = {
+  ...SentralStyret.args,
+  noHighlighting: true
+}
+
+export const SentralStyretHighLightingRight = Template.bind({})
+SentralStyretHighLightingRight.args = {
+  ...SentralStyret.args,
+  reverseOrder: true
 }
