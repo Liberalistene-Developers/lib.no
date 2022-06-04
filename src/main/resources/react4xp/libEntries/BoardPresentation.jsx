@@ -44,9 +44,16 @@ export const BoardPresentation = ({
           <div className="members-title">
             {boardTitle}
           </div>
-          { board.map(({ itemId, role, name }) => (
+          { board.map(({ itemId, role, name, email }) => (
             <div key={itemId} className="member-item">
               <span className="role">{role}</span><span className="name">{name}</span>
+              { showEmail === 'all' && email && (
+                <div className="member-item-email">
+                  <a href={`mailto:${email}`} rel="noreferrer">
+                    {email}
+                  </a>
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -71,7 +78,7 @@ BoardPresentation.propTypes = {
   boardTitle: PropTypes.string,
   imagesize: PropTypes.string,
   imagetype: PropTypes.string,
-  showEmail: PropTypes.bool,
+  showEmail: PropTypes.oneOf(['no', 'first', 'all']),
   title: PropTypes.string
 }
 

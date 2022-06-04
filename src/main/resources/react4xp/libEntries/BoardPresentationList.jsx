@@ -42,7 +42,7 @@ BoardPresentationList.propTypes = {
       .shape({
         itemId: PropTypes.string
       })),
-  showemail: PropTypes.bool
+  showemail: PropTypes.oneOf(['no', 'first', 'all'])
 }
 
 BoardPresentationList.defaultProps = {

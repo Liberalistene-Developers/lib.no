@@ -20,17 +20,20 @@ const Template = ({ fullWidth, ...args }) => (
 
 Template.propTypes = {
   ...BoardPresentation.propTypes,
-  fullWidth: PropTypes.bool
+  fullWidth: PropTypes.bool,
+  showEmail: PropTypes.oneOf(['no', 'first', 'all'])
 }
 
 export const SentralStyret = Template.bind({})
 SentralStyret.args = {
   title: 'Liberalistene Sentralstyre',
   boardTitle: 'Styre',
+  showEmail: 'no',
   board: [
     {
       itemId: 1,
       name: 'Ronny Skjæveland',
+      email: 'ronny@liberalistene.no',
       role: 'Partileder',
       shortDescription: 'Ronny Skjæveland er partileder i Liberalistene',
       image: {
@@ -40,6 +43,7 @@ SentralStyret.args = {
     {
       itemId: 2,
       name: 'Roald Ribe',
+      email: 'roald@liberalistene.no',
       role: 'Politisk Nestleder',
       shortDescription: 'Roald Ribe er politisk nestleder i Liberalistene.',
       image: {
@@ -49,8 +53,10 @@ SentralStyret.args = {
     {
       itemId: 3,
       name: 'Aleksander Aas',
+      email: 'ass@liberalistene.no',
       role: 'Organisatorisk Nestleder',
-      shortDescription: 'Aleksander Aas er organisatorisk nestleder i Liberalistene.',
+      shortDescription:
+        'Aleksander Aas er organisatorisk nestleder i Liberalistene.',
       image: {
         url: 'orgnestleader.jpg'
       }
@@ -58,6 +64,7 @@ SentralStyret.args = {
     {
       itemId: 4,
       name: 'Jan-Øyvind Lorgen',
+      email: 'lorgen@liberalistene.no',
       role: 'Sekretær',
       shortDescription: 'Jan-Øyvind Lorgen er sekretær i Liberalistene.',
       image: {
@@ -67,6 +74,7 @@ SentralStyret.args = {
     {
       itemId: 5,
       name: 'Amund Farberg',
+      email: 'amund.farberg@liberalistene.no',
       role: 'Styremedlem',
       shortDescription: 'Amund Farberg er styremedlem i Liberalistene.',
       image: {
@@ -77,7 +85,8 @@ SentralStyret.args = {
       itemId: 6,
       name: 'Nicolay Normann Grundt',
       role: 'Styremedlem',
-      shortDescription: 'Nicolay Normann Grundt er styremedlem i Liberalistene.',
+      shortDescription:
+        'Nicolay Normann Grundt er styremedlem i Liberalistene.',
       image: {
         url: 'boardmember2.jpg'
       }
@@ -95,4 +104,16 @@ SentralStyret.args = {
   imagesize: 'medium',
   imagetype: 'round',
   fullWidth: false
+}
+
+export const SentralStyretEmailFirst = Template.bind({})
+SentralStyretEmailFirst.args = {
+  ...SentralStyret.args,
+  showEmail: 'first'
+}
+
+export const SentralStyretEmailAll = Template.bind({})
+SentralStyretEmailAll.args = {
+  ...SentralStyret.args,
+  showEmail: 'all'
 }
