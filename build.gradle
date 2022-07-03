@@ -1,4 +1,5 @@
-import org.apache.tools.ant.taskdefs.condition.Os;
+import groovy.json.JsonSlurper
+import org.apache.tools.ant.taskdefs.condition.Os
 
 plugins {
     id "com.enonic.defaults" version "2.0.1"
@@ -8,12 +9,18 @@ plugins {
     id "maven-publish"
 }
 
+def jsonFile = file('./package.json')
+
+def jsonSlurper = new JsonSlurper()
+def packageJson = jsonSlurper.parse(jsonFile)
+
 app {
     name = "${appName}"
     displayName = "${appDisplayName}"
     vendorName = "${vendorName}"
     vendorUrl = "${vendorUrl}"
     systemVersion = "${xpVersion}"
+    version = "${packageJson.version}"
 }
 
 // This variable is used in the include lib-react4xp below, and also used in the optional tasks in readme.gradle
