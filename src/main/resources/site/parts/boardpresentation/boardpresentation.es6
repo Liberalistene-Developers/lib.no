@@ -14,7 +14,7 @@ exports.get = function (request) {
       boardname: boardTitle = '',
       imagesize = '',
       imagetype = false,
-      showemail = 'no',
+      showemail: showEmail = 'no',
       presentation: {
         _selected: presentation,
         hightlighted: {
@@ -76,7 +76,7 @@ exports.get = function (request) {
     memberHighlighted,
     noHighlighting: presentation === 'list',
     reverseOrder,
-    showemail
+    showEmail
   }
 
   if (debug) {
