@@ -29,6 +29,8 @@
 
     .highlighted {
       display: flex;
+      justify-content: center;
+      margin: auto;
 
       & > .ingress {
         margin: auto;
@@ -53,6 +55,7 @@
 
     .members {
       display: flex;
+      padding-left: 10px;
 
       .members-inner {
         display: flex;
