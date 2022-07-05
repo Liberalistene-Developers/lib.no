@@ -111,7 +111,7 @@ BoardPresentation.defaultProps = {
   memberHighlighted: 'yes',
   noHighlighting: false,
   reverseOrder: false,
-  showEmail: false
+  showEmail: 'no'
 }
 
 export default (props) => <BoardPresentation {...props} /> // eslint-disable-line react/display-name

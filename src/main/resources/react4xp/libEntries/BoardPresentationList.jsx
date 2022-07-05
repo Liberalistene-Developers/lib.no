@@ -11,7 +11,7 @@ export const BoardPresentationList = ({
   memberHighlighted,
   noHighlighting,
   reverseOrder,
-  showemail
+  showEmail
 }) => (
   <div className="board-presentation-list">
     { items && items.length > 0
@@ -30,7 +30,7 @@ export const BoardPresentationList = ({
         boardTitle={boardTitle}
         board={board}
         reverseOrder={reverseOrder}
-        showemail={showemail}
+        showEmail={showEmail}
       />
       ))
       : null
@@ -51,7 +51,7 @@ BoardPresentationList.propTypes = {
   memberHighlighted: PropTypes.oneOf(['no', 'yes', 'noimage']),
   noHighlighting: PropTypes.bool,
   reverseOrder: PropTypes.bool,
-  showemail: PropTypes.oneOf(['no', 'first', 'all'])
+  showEmail: PropTypes.oneOf(['no', 'first', 'all'])
 }
 
 BoardPresentationList.defaultProps = {
@@ -59,7 +59,7 @@ BoardPresentationList.defaultProps = {
   noHighlighting: false,
   memberHighlighted: 'yes',
   reverseOrder: false,
-  showemail: false
+  showEmail: 'no'
 }
 
 export default (props) => <BoardPresentationList {...props} /> // eslint-disable-line react/display-name
