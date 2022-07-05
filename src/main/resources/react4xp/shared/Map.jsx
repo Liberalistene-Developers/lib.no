@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 export const Map = ({
@@ -7,8 +8,11 @@ export const Map = ({
   position
 }) => {
   const [pos, setPos] = useState(position)
+  const [isSsr, setIsSsr] = useState(true)
 
   useEffect(() => {
+    setIsSsr(false)
+
     if (position.length < 2 && address) {
       console.info(address)
 
@@ -35,7 +39,9 @@ export const Map = ({
     }
   }, [position, address])
 
-  if (!pos || pos.length < 2) {
+  console.info(isSsr)
+
+  if (isSsr || !pos || pos.length < 2) {
     return null
   }
 

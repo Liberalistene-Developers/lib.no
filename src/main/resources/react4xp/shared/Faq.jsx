@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import slugify from 'slugify'
+import slugify from 'react-slugify'
 
 export const Faq = ({ itemID, question, answer, expandable = false, expanded = true, Tag = 'h2', anchorText }) => {
   const id = slugify(question)

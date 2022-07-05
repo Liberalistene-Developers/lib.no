@@ -8,23 +8,19 @@ exports.get = function (request) {
   const content = portal.getContent()
   const component = portal.getComponent()
 
-  const {
-    config: {
-      tableOfContent = false
-    } = {}
-  } = component || {}
+  const { config: { tableOfContent = false } = {} } = component || {}
 
   const {
     _path: key,
     displayName: title,
-    data: {
-      tags = ''
-    } = {}
+    data: { tags = '' } = {}
   } = content || {}
 
   const sections = getSections({
     key
   })
+
+  log.info(JSON.stringify(content, null, 4))
 
   const props = {
     title,
@@ -33,5 +29,5 @@ exports.get = function (request) {
     tableOfContent
   }
 
-  return React4xp.render('ProgrammeMain', props, request, { clientRender: true })
+  return React4xp.render('ProgrammeMain', props, request)
 }

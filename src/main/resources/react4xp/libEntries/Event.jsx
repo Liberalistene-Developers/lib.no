@@ -3,12 +3,14 @@ import PropTypes from 'prop-types'
 
 import { ImageBlock } from './ImageBlock'
 import { Schedules } from './Schedule'
-import { Map } from '../shared/Map'
 import { EventPlace } from '../shared/EventPlace'
 import { EventTime } from '../shared/EventTime'
 
+import { MapLoader } from '../shared/MapLoader'
+
 export const Event = ({
   date,
+  editMode,
   time,
   headerColor,
   headerPosition,
@@ -87,9 +89,16 @@ export const Event = ({
             <h2 id={locationLabel}>{locationLabel}</h2>
           )}
 
-          <Map position={map} address={location && location.address} />
-          <EventPlace location={location} locationLabel={placeLabel} />
-          <EventTime date={date} dateLabel={dateLabel} time={time} timeLabel={timeLabel} />
+          <MapLoader position={map} address={location && location.address} editMode={editMode} />
+
+          { location && (
+            <EventPlace location={location} locationLabel={placeLabel} />
+          )}
+
+          { (date || time) && (
+            <EventTime date={date} dateLabel={dateLabel} time={time} timeLabel={timeLabel} />
+          )}
+
         </div>
       )}
     </div>
@@ -97,6 +106,7 @@ export const Event = ({
 )
 
 Event.propTypes = {
+  editMode: PropTypes.bool,
   /**
    * Display header as light or dark.
    */
@@ -134,6 +144,7 @@ Event.propTypes = {
 }
 
 Event.defaultProps = {
+  editMode: false,
   title: '',
   ingress: '',
   description: ''

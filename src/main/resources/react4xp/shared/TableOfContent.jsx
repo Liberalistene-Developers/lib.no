@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import slugify from 'slugify'
+const slugify = (value) => value && value.replace(/ /g, '-')
 
 const createLink = (title) => `#${slugify(title)}`
 

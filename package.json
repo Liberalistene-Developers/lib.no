@@ -1,6 +1,6 @@
 {
   "name": "lib.no",
-  "version": "1.0.1",
+  "version": "1.10.2",
   "description": "Liberalistene homepage",
   "scripts": {
     "nvm": "nvm use",
@@ -11,8 +11,8 @@
     "prelint": "npm run stylelint",
     "lint": "eslint src/**/*.{jsx,es6,js}",
     "clean": "./gradlew clean --refresh-dependencies  --info",
-    "build": "./gradlew build --info",
-    "deploy": "./gradlew deploy --info",
+    "build": "./gradlew build --info -Pdev",
+    "deploy": "./gradlew deploy --info -Pdev",
     "rebuild": "npm run clean && npm run build",
     "redeploy": "npm run rebuild && npm run deploy",
     "dev": "npm run redeploy && npm run watch:all",
@@ -50,11 +50,10 @@
     "leaflet": "^1.8.0",
     "node-fetch": "^3.2.6",
     "prop-types": "^15.8.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-leaflet": "^4.0.1",
-    "react4xp": "2.0.0",
-    "slugify": "^1.6.5",
+    "react-slugify": "^2.1.0",
     "url-parse": "^1.5.10"
   },
   "devDependencies": {
@@ -68,6 +67,7 @@
     "@babel/preset-react": "^7.18.6",
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
+    "@enonic/react4xp": "^3.0.20",
     "@storybook/addon-actions": "6.5.9",
     "@storybook/addon-essentials": "6.5.9",
     "@storybook/addon-links": "6.5.9",

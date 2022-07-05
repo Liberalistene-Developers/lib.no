@@ -10,17 +10,11 @@ exports.get = function (request) {
   const {
     _path: key,
     displayName: title,
-    data: {
-      description = '',
-      tags = ''
-    } = {}
+    data: { description = '', tags = '' } = {}
   } = content || {}
 
-  const {
-    config: {
-      conclusionTitle = 'Liberalistene vil:'
-    } = {}
-  } = component || {}
+  const { config: { conclusionTitle = 'Liberalistene vil:' } = {} } =
+    component || {}
 
   const parts = getParts({
     key
@@ -28,5 +22,9 @@ exports.get = function (request) {
 
   const props = { title, description, conclusionTitle, parts, tags }
 
-  return React4xp.render('ProgrammeSection', props, request, { clientRender: true })
+  log.info(JSON.stringify(content, null, 4))
+
+  return React4xp.render('ProgrammeSection', props, request, {
+    clientRender: true
+  })
 }

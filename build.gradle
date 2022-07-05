@@ -24,7 +24,7 @@ app {
 }
 
 // This variable is used in the include lib-react4xp below, and also used in the optional tasks in readme.gradle
-rootProject.ext.LIB_REACT4XP_VERSION = "2.0.2"
+rootProject.ext.LIB_REACT4XP_VERSION = "3.2.0"
 
 dependencies {
     compile "com.enonic.xp:core-api:${xpVersion}"
@@ -86,7 +86,7 @@ jar.dependsOn += 'clientWebpack'
 // The react4xp NPM package also carries additional .gradle files that are required by this gradle setup (further below).
 // If they don't exist, run 'npm install' as a shell command (can't be done as a regular gradle task,
 // since they are needed in the gradle config phase).
-def react4xpGradlePath = 'node_modules/react4xp/react4xp.gradle'
+def react4xpGradlePath = 'node_modules/@enonic/react4xp/react4xp.gradle'
 def react4xpGradleFile = new File(react4xpGradlePath)
 if (!react4xpGradleFile.exists()) {
     def command = 'sh -c'
@@ -106,7 +106,7 @@ if (!react4xpGradleFile.exists()) {
 }
 
 // Necessary react4xp build setup.
-// node_modules/react4xp/react4xp.gradle (react4xpGradlePath) etc. are used by the gradle tasks, so 'npm install' should have been run automatically by now (above).
+// node_modules/@enonic/react4xp/react4xp.gradle (react4xpGradlePath) etc. are used by the gradle tasks, so 'npm install' should have been run automatically by now (above).
 apply from: react4xpGradlePath
 
 
@@ -116,11 +116,11 @@ apply from: react4xpGradlePath
 //      - faster gradle up-to-date check during build (only checks content of package.json and package-lock.json,
 //          and a marker file for whether node_module exists as a regular or NSI-linked version. Runs NSI if it's linked.
 //          Does not check the entire node_modules subtree).
-apply from: 'node_modules/react4xp/npmInstall.gradle'
+apply from: 'node_modules/@enonic/react4xp/npmInstall.gradle'
 
 // Optional dev convenience:
 // Adds the 'updateReadme' gradle task which generates readme files at root from docs/README.src.md
-apply from: 'node_modules/react4xp/updaters.gradle'
+apply from: 'node_modules/@enonic/react4xp/updaters.gradle'
 
 
 

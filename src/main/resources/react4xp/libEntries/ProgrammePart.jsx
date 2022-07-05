@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import slugify from 'slugify'
+import slugify from 'react-slugify'
 
 const Title = ({ anchor, title, parentTitle }) => {
   const id = parentTitle && slugify(`${parentTitle} ${title}`.trim())

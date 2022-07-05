@@ -12,7 +12,14 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['react'],
-  rules: {},
+  rules: {
+    'react/react-in-jsx-scope': 'off'
+  },
+
+  globals: {
+    log: 'readonly'
+  },
+
   overrides: [
     {
       files: ['**/*.es6'],
