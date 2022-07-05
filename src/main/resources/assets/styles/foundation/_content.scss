@@ -384,6 +384,13 @@ html body {
             width: 100%;
           }
 
+          & .page-content  {
+            & figure {
+              margin-inline-start: 0;
+              margin-inline-end: 0;
+            }
+          }
+
           &.items {
             column-gap: 40px;
             flex-direction: column;
