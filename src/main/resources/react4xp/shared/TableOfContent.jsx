@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const slugify = (value) => value && value.replace(/ /g, '-')
+import slugify from 'react-slugify'
 
-const createLink = (title) => `#${slugify(title)}`
+const createLink = (title) => `#${slugify(title)}`.trim()
 
 const ContentLink = ({ title, parentTitle, className }) => (
-  <a href={createLink(`${parentTitle} ${title}`.trim())} title={title}>{title}</a>
+  <a href={createLink(`${parentTitle} ${title}`)} title={title}>{title}</a>
 )
 
 ContentLink.propTypes = {
