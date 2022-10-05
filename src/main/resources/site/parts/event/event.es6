@@ -164,5 +164,5 @@ exports.get = function (request) {
 
   log.info(JSON.stringify(props, null, 4))
 
-  return React4xp.render('Event', props, request, { clientRender: true })
+  return React4xp.render('Event', props, request)
 }
