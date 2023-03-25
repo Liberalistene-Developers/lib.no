@@ -6,37 +6,73 @@ img {
 }
 
 .extra-small {
-  &>img {
+  &.image {
     width: 25px;
+
+    &.round {
+      height: 25px;
+    }
+  }
+
+  &>img {
+    width: 100%;
+
+    &.round {
+      height: 100%;
+    }
   }
 }
 
 .small {
-  &>img {
+  &.image {
     width: 100px;
 
     &.round {
       height: 100px
     }
   }
+
+  &>img {
+    width: 100%;
+
+    &.round {
+      height: 100%;
+    }
+  }
 }
 
 .medium {
-  &>img {
+  &.image {
     width: 220px;
 
     &.round {
       height: 220px
     }
   }
+
+  &>img {
+    width: 100%;
+
+    &.round {
+      height: 100%
+    }
+  }
 }
 
 .large {
-  &>img {
+  &.image {
     width: 356px;
 
     &.round {
-      height: 356px
+      height: 356px;
+    }
+  }
+
+  &>img {
+    width: 100%;
+
+    &.round {
+      height: 100%;
     }
   }
 }

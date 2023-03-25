@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import cx from 'classnames'
+
 /**
  * Primary Image holder for solution.
  */
@@ -28,7 +30,7 @@ export const Image = ({
     : picture
 
   return (
-    <div className={className}>
+    <div className={cx(className, 'image', imageClassName)}>
       {content}
     </div>
   )
