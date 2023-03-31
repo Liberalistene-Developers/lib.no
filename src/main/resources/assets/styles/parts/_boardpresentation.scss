@@ -83,6 +83,10 @@
             content: ': '
           }
         }
+
+        .name {
+          width: 60%;
+        }
       }
     }
 
@@ -177,6 +181,22 @@
 
       & > * {
         width: 100%;
+      }
+
+      .members {
+        .members-inner {
+          .member-item {
+            font-size: 4.5vw;
+          }
+
+          .role {
+            width: 45%;
+          }
+
+          .name {
+            width: 55%;
+          }
+        }
       }
     }
   }
