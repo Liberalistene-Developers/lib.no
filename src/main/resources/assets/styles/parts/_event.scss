@@ -16,6 +16,39 @@
         width: 100%;
       }
     }
+
+    &.gridlist {
+      &>* {
+        width: calc(50% - 40px);
+      }
+      @include for_small_devices {
+        &>* {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.full {
+  .events-list {
+    &.gridlist {
+      &>* {
+        width: calc(33% - 40px);
+      }
+
+      @media screen and (max-width: 834px) {
+        &>* {
+          width: calc(50% - 40px);
+        }
+      }
+
+      @include for_small_devices {
+        &>* {
+          width: 100%;
+        }
+      }
+    }
   }
 }
 
@@ -111,7 +144,6 @@
               content: '-';
               text-align: center;
               margin-left: -80px;
-              vertical-align: middle;
               width: 50px;
               height: 100%;
               top: 0px;
