@@ -21,7 +21,7 @@ exports.get = function (request) {
           reverseOrder = false,
           memberHighlighted = 'yes',
           description = ''
-        }
+        } = {}
       } = {
         _selected: 'hightlighted',
         hightlighted: {
