@@ -4,6 +4,8 @@ import { ImageBlock } from '../../main/resources/react4xp/libEntries/ImageBlock'
 
 import { SingleLayout } from '../layouts'
 
+import ImageBlockImage from '../../../public/imageblockimage.png'
+
 export default {
   title: 'Parts/ImageBlock',
 
@@ -19,7 +21,7 @@ const Template = (args) => (
 export const NoHeader = Template.bind({})
 NoHeader.args = {
   image: {
-    url: 'imageblockimage.png'
+    url: ImageBlockImage
   }
 }
 

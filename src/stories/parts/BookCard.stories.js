@@ -4,6 +4,8 @@ import { BookCard } from '../../main/resources/react4xp/libEntries/BookCard'
 
 import { SingleLayout } from '../layouts'
 
+import BookImage from '../../../public/book1.png'
+
 import '../../main/resources/assets/styles/main.scss'
 
 export default {
@@ -12,7 +14,7 @@ export default {
 }
 
 const image = {
-  url: 'book1.png'
+  url: BookImage
 }
 
 const Template = (args) => (

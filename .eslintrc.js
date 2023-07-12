@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: ['plugin:react/recommended', 'standard'],
+  extends: ['plugin:react/recommended', 'standard', 'plugin:storybook/recommended'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -15,24 +15,20 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off'
   },
-
   globals: {
     log: 'readonly'
   },
-
-  overrides: [
-    {
-      files: ['**/*.es6'],
-      env: {
-        es6: true
-      },
-      globals: {
-        log: 'readonly',
-        resolve: 'readonly'
-      },
-      rules: {
-        'import/no-absolute-path': 0
-      }
+  overrides: [{
+    files: ['**/*.es6'],
+    env: {
+      es6: true
+    },
+    globals: {
+      log: 'readonly',
+      resolve: 'readonly'
+    },
+    rules: {
+      'import/no-absolute-path': 0
     }
-  ]
-}
+  }]
+};

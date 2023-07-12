@@ -7,13 +7,16 @@ import { Page } from '../pages'
 
 import '../../main/resources/assets/styles/main.scss'
 
+import ImageBlockImage from '../../../public/imageblockimage.png'
+import CandidateImage from '../../../public/kandidatbilde1.png'
+
 export default {
   title: 'Parts/Article',
   component: Article
 }
 
 const image = {
-  url: 'imageblockimage.png'
+  url: ImageBlockImage
 }
 
 const Template = (args) => (
@@ -56,7 +59,8 @@ Normal.args = {
     <p><a href="https://www.flickr.com/photos/liberalistene/">https://www.flickr.com/photos/liberalistene/</a></p>
 `,
   image,
-  ingress: 'Nå får Norge et nytt og friskt parti som kjemper for konsekvent liberalisme.',
+  ingress:
+    'Nå får Norge et nytt og friskt parti som kjemper for konsekvent liberalisme.',
   ingressInImage: false,
   title: 'Norge får ny, liberal røst: Liberalistene',
   titleInImage: false,
@@ -69,7 +73,7 @@ Normal.args = {
       personUrl: '/person',
       person: 'Liberalistene',
       image: {
-        url: 'kandidatbilde1.png'
+        url: CandidateImage
       }
     }
   ],

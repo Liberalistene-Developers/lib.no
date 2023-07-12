@@ -5,6 +5,9 @@ import { ArticleCard } from '../../main/resources/react4xp/shared/ArticleCard'
 
 import { SingleLayout } from '../layouts'
 
+import CardImage from '../../../public/cardimage.png'
+import PartyLeaderImage from '../../../public/partyleader.jpg'
+
 import '../../main/resources/assets/styles/main.scss'
 
 export default {
@@ -13,7 +16,7 @@ export default {
 }
 
 const image = {
-  url: 'partyleader.jpg'
+  url: PartyLeaderImage
 }
 
 const Template = ({ fullWidth = false, ...args }) => (
@@ -35,9 +38,10 @@ export const Normal = Template.bind({})
 Normal.args = {
   item: {
     image: {
-      url: 'cardimage.png'
+      url: CardImage
     },
-    shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula, libero vel egestas fringilla, purus tortor faucibus',
+    shortDescription:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula, libero vel egestas fringilla, purus tortor faucibus',
     name: 'Lorem ipsum dolor sit amet',
     url: '#',
     authors: [

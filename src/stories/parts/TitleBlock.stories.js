@@ -4,6 +4,8 @@ import TitleBlock from '../../main/resources/react4xp/libEntries/TitleBlock'
 
 import { SingleLayout } from '../layouts'
 
+import HeaderImage from '../../../public/header.png'
+
 export default {
   title: 'Parts/TitleBlock',
 
@@ -11,7 +13,7 @@ export default {
 }
 
 const image = {
-  url: 'header.png'
+  url: HeaderImage
 }
 
 const Template = (args) => (

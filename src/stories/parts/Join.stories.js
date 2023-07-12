@@ -4,6 +4,8 @@ import { Join } from '../../main/resources/react4xp/libEntries/Join'
 
 import { SingleLayout } from '../layouts'
 
+import JoinUsImage from '../../../public/Bli med pil.png'
+
 import '../../main/resources/assets/styles/main.scss'
 
 export default {
@@ -41,7 +43,7 @@ TextColumn.args = {
 export const ImageAndTextRow = Template.bind({})
 ImageAndTextRow.args = {
   image: {
-    url: 'Bli med pil.png'
+    url: JoinUsImage
   },
   message: 'Bli medlem',
   buttonText: 'Bli medlem',

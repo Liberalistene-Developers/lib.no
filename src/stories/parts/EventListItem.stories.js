@@ -4,6 +4,8 @@ import { EventListItem } from '../../main/resources/react4xp/shared/EventListIte
 
 import { SingleLayout } from '../layouts'
 
+import CardImage from '../../../public/cardimage.png'
+
 import '../../main/resources/assets/styles/main.scss'
 
 export default {
@@ -12,7 +14,7 @@ export default {
 }
 
 const image = {
-  url: 'cardimage.png'
+  url: CardImage
 }
 
 const Template = (args) => (

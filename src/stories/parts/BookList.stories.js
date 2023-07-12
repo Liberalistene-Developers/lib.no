@@ -4,6 +4,8 @@ import { BookList } from '../../main/resources/react4xp/libEntries/BookList'
 
 import { SingleLayout } from '../layouts'
 
+import BookImage from '../../../public/book1.png'
+
 import '../../main/resources/assets/styles/main.scss'
 
 export default {
@@ -12,7 +14,7 @@ export default {
 }
 
 const image = {
-  url: 'book1.png'
+  url: BookImage
 }
 
 const book = {
@@ -47,10 +49,5 @@ Empty.args = {
 export const Items = Template.bind({})
 Items.args = {
   ...Empty.args,
-  items: [
-    book,
-    book,
-    book,
-    book
-  ]
+  items: [book, book, book, book]
 }
