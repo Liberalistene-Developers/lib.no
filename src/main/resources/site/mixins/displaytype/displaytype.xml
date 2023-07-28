@@ -12,6 +12,8 @@
           <help-text>Show as grid</help-text>
           <items>
             <mixin name="titlecenter" />
+            <mixin name="imagesize" />
+            <mixin name="imagetype" />
           </items>
         </option>
         <option name="list">

@@ -21,7 +21,11 @@ exports.get = function (request) {
       description,
       displaytype: {
         _selected: displaytype,
-        gridlist: { titleCenter = false } = {},
+        gridlist: {
+          titleCenter = false,
+          imagesize = 'full',
+          imagetype: imageround = false
+        } = {},
         list: {
           image: {
             _selected: imageSelection = 'hide',
@@ -132,8 +136,10 @@ exports.get = function (request) {
     shortDescription,
     titleCenter: displaytype === 'gridlist' && titleCenter,
     showImage: displaytype === 'list' && imageSelection === 'show',
-    imageSize,
-    imageType: imageRound ? 'round' : '',
+    imageSize: displaytype === 'gridlist' ? imagesize : imageSize,
+    imageType: (displaytype === 'gridlist' ? imageround : imageRound)
+      ? 'round'
+      : '',
     readMore,
     readMoreEnabled,
     loadMore,

@@ -16,7 +16,11 @@ exports.get = function (request) {
       hideIngress = false,
       displaytype: {
         _selected: displaytype,
-        gridlist: { titleCenter = false },
+        gridlist: {
+          titleCenter = false,
+          imagesize = 'full',
+          imagetype: imageround = false
+        },
         list: {
           image: {
             _selected: imageSelection = 'hide',
@@ -41,9 +45,11 @@ exports.get = function (request) {
     title,
     displaytype,
     showImage: displaytype === 'list' && imageSelection === 'show',
-    imageSize,
+    imageSize: displaytype === 'gridlist' ? imagesize : imageSize,
     titleCenter: displaytype === 'gridlist' && titleCenter,
-    imageType: imageRound ? 'round' : '',
+    imageType: (displaytype === 'gridlist' ? imageround : imageRound)
+      ? 'round'
+      : '',
     items: itemsList.map(({ item: itemKey, image: imageKey, ingress }) => {
       const {
         displayName: itemName,
