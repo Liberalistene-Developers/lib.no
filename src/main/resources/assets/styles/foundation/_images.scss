@@ -79,3 +79,21 @@ img {
     }
   }
 }
+
+.full {
+  &.image {
+    width: 100%;
+
+    &.round {
+      height: 356px;
+    }
+  }
+
+  &>img {
+    width: 100%;
+
+    &.round {
+      height: 100%;
+    }
+  }
+}

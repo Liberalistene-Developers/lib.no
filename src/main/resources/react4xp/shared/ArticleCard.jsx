@@ -22,7 +22,19 @@ export const ArticleCard = ({
   showDate = true,
   titleCenter = false
 }) => (
-  <GridItem className={className} presentation={presentation} direction={direction} titleCenter={titleCenter} showImage item={item} noIngress={noIngress} childrenLast={true} readMore={readMore} readMoreEnabled={readMoreEnabled}>
+  <GridItem
+    className={className}
+    imageSize={imageSize}
+    imageType={imageType}
+    presentation={presentation}
+    direction={direction}
+    titleCenter={titleCenter}
+    showImage
+    item={item}
+    noIngress={noIngress}
+    childrenLast={true}
+    readMore={readMore}
+    readMoreEnabled={readMoreEnabled}>
     <div className="article-creds">
       { showAuthors && authors && authors.length > 0 && (
         <ul className="authors">
@@ -45,7 +57,7 @@ ArticleCard.propTypes = {
   childrenLast: PropTypes.bool,
   className: PropTypes.string,
   direction: PropTypes.oneOf(['left', 'right', '', undefined]),
-  imageSize: PropTypes.oneOf(['small', 'medium', 'large']),
+  imageSize: PropTypes.oneOf(['small', 'medium', 'large', 'full']),
   imageType: PropTypes.oneOf(['round', '']),
   item: PropTypes.shape({
     image: PropTypes.shape({
@@ -67,7 +79,7 @@ ArticleCard.propTypes = {
 }
 
 ArticleCard.defaultProps = {
-  imageSize: 'medium',
+  imageSize: 'full',
   imageType: undefined,
   item: undefined,
   presentation: false,
