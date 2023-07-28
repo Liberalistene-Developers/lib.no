@@ -6,11 +6,7 @@ const { imageUrl } = require('/lib/shared/image')
 const { processHtml } = require('/lib/shared/html')
 
 exports.get = function (request) {
-  const {
-    params: {
-      debug = false
-    } = {}
-  } = request
+  const { params: { debug = false } = {} } = request
 
   const component = portal.getComponent()
 
@@ -20,14 +16,12 @@ exports.get = function (request) {
       hideIngress = false,
       displaytype: {
         _selected: displaytype,
-        gridlist: {
-          titleCenter = false
-        },
+        gridlist: { titleCenter = false },
         list: {
           image: {
             _selected: imageSelection = 'hide',
             show: {
-              imagesize: imageSize = 'small',
+              imagesize: imageSize = 'medium',
               imagetype: imageRound = false
             } = {}
           } = {}
@@ -50,29 +44,29 @@ exports.get = function (request) {
     imageSize,
     titleCenter: displaytype === 'gridlist' && titleCenter,
     imageType: imageRound ? 'round' : '',
-    items: itemsList
-      .map(({ item: itemKey, image: imageKey, ingress }) => {
-        const {
-          displayName: itemName,
-          _path: itemPath,
-          data: {
-            image: itemImageKey,
-            ingress: itemIngress,
-            'short-description': shortDescription
-          } = {}
-        } = contentLib.get({ key: itemKey }) || {}
+    items: itemsList.map(({ item: itemKey, image: imageKey, ingress }) => {
+      const {
+        displayName: itemName,
+        _path: itemPath,
+        data: {
+          image: itemImageKey,
+          ingress: itemIngress,
+          'short-description': shortDescription
+        } = {}
+      } = contentLib.get({ key: itemKey }) || {}
 
-        return {
-          id: itemKey,
-          name: itemName,
-          url: portal
-            .pageUrl({
-              path: itemPath
-            }),
-          shortDescription: processHtml(ingress || itemIngress || shortDescription),
-          image: (imageKey || itemImageKey) && imageUrl(imageKey || itemImageKey)
-        }
-      }),
+      return {
+        id: itemKey,
+        name: itemName,
+        url: portal.pageUrl({
+          path: itemPath
+        }),
+        shortDescription: processHtml(
+          ingress || itemIngress || shortDescription
+        ),
+        image: (imageKey || itemImageKey) && imageUrl(imageKey || itemImageKey)
+      }
+    }),
     noIngress: !!hideIngress
   }
 
