@@ -21,7 +21,7 @@ exports.get = function (request) {
           image: {
             _selected: imageSelection = 'hide',
             show: {
-              imagesize: imageSize = 'medium',
+              imagesize: imageSize = 'full',
               imagetype: imageRound = false
             } = {}
           } = {}

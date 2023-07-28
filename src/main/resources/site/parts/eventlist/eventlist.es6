@@ -3,17 +3,16 @@ const portal = require('/lib/xp/portal')
 const contentLib = require('/lib/xp/content')
 const guillotine = require('/headless/guillotineApi')
 
-const { buildQueryEventList, extractEventList } = require('/headless/helpers/eventListRequests')
+const {
+  buildQueryEventList,
+  extractEventList
+} = require('/headless/helpers/eventListRequests')
 const { buildParentPathQuery } = require('/headless/helpers/helpers')
 
 const { mapEvent } = require('/lib/shared/events')
 
 exports.get = function (request) {
-  const {
-    params: {
-      debug = false
-    } = {}
-  } = request
+  const { params: { debug = false } = {} } = request
 
   const component = portal.getComponent()
 
@@ -26,7 +25,7 @@ exports.get = function (request) {
           image: {
             _selected: imageSelection = 'hide',
             show: {
-              imagesize: imageSize = 'small',
+              imagesize: imageSize = 'full',
               imagetype: imageRound = false
             } = {}
           } = {}
@@ -34,14 +33,8 @@ exports.get = function (request) {
       } = {},
       itemsSet: {
         _selected: selection,
-        manual: {
-          items: itemList = []
-        } = {},
-        query: {
-          queryroot,
-          querysorting = 'normal',
-          count = 10
-        } = {}
+        manual: { items: itemList = [] } = {},
+        query: { queryroot, querysorting = 'normal', count = 10 } = {}
       } = {},
       hideIngress = false,
       shortDescription,
@@ -60,11 +53,11 @@ exports.get = function (request) {
   }
 
   const headless = selection === 'query'
-  const {
-    _path: queryPath
-  } = headless && queryroot ? contentLib.get({ key: queryroot }) || {} : {}
+  const { _path: queryPath } =
+    headless && queryroot ? contentLib.get({ key: queryroot }) || {} : {}
 
-  const parentPathQuery = headless && queryPath && buildParentPathQuery(queryPath)
+  const parentPathQuery =
+    headless && queryPath && buildParentPathQuery(queryPath)
 
   const createSort = () => {
     switch (querysorting) {
@@ -112,14 +105,11 @@ exports.get = function (request) {
       break
   }
 
-  const {
-    _path: sitePath
-  } = portal.getSite() || {}
+  const { _path: sitePath } = portal.getSite() || {}
 
-  const siteUrl = portal
-    .pageUrl({
-      path: sitePath
-    })
+  const siteUrl = portal.pageUrl({
+    path: sitePath
+  })
 
   const props = {
     title,
@@ -145,10 +135,21 @@ exports.get = function (request) {
   if (debug) {
     log.info(JSON.stringify(request))
     log.info(JSON.stringify(props, null, 4))
-    log.info('**************************************************************************************')
-    log.info('**************************************************************************************')
-    log.info('**************************************************************************************')
+    log.info(
+      '**************************************************************************************'
+    )
+    log.info(
+      '**************************************************************************************'
+    )
+    log.info(
+      '**************************************************************************************'
+    )
   }
 
-  return React4xp.render(request.mode === 'edit' ? 'EventListView' : 'EventList', props, request, { clientRender: request.mode !== 'edit' })
+  return React4xp.render(
+    request.mode === 'edit' ? 'EventListView' : 'EventList',
+    props,
+    request,
+    { clientRender: request.mode !== 'edit' }
+  )
 }
