@@ -34,6 +34,14 @@
   }
 }
 
+.content-holder {
+  display: none;
+}
+
+.content-holder:has([data-portal-component-type="part"] > div) {
+  display: block;
+}
+
 main {
   > .content-holder {
     max-width: 100%;

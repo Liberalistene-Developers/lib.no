@@ -1,0 +1,12 @@
+<mixin>
+  <display-name i18n="mixin.centerheading.displayname">Center Heading</display-name>
+  <form>
+    <input  name="centerheading" type="CheckBox">
+      <label i18n="mixin.centerheading.label">Center Heading</label>
+      <default>checked</default>
+      <config>
+        <alignment>right</alignment>
+      </config>
+    </input>
+  </form>
+</mixin>
