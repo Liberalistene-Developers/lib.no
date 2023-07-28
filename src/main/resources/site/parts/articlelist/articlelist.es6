@@ -3,17 +3,16 @@ const portal = require('/lib/xp/portal')
 const contentLib = require('/lib/xp/content')
 const guillotine = require('/headless/guillotineApi')
 
-const { buildQueryArticleList, extractArticleList } = require('/headless/helpers/articleListRequests')
+const {
+  buildQueryArticleList,
+  extractArticleList
+} = require('/headless/helpers/articleListRequests')
 const { buildParentPathQuery } = require('/headless/helpers/helpers')
 
 const { mapArticle } = require('/lib/shared/articles')
 
 exports.get = function (request) {
-  const {
-    params: {
-      debug = false
-    } = {}
-  } = request
+  const { params: { debug = false } = {} } = request
 
   const component = portal.getComponent()
 
@@ -22,14 +21,12 @@ exports.get = function (request) {
       description,
       displaytype: {
         _selected: displaytype,
-        gridlist: {
-          titleCenter = false
-        } = {},
+        gridlist: { titleCenter = false } = {},
         list: {
           image: {
             _selected: imageSelection = 'hide',
             show: {
-              imagesize: imageSize = 'small',
+              imagesize: imageSize = 'medium',
               imagetype: imageRound = false
             } = {}
           } = {}
@@ -38,14 +35,8 @@ exports.get = function (request) {
       featured = [],
       itemsSet: {
         _selected: selection,
-        manual: {
-          items: itemList = []
-        } = {},
-        query: {
-          queryroot,
-          querysorting = 'normal',
-          count = 10
-        } = {}
+        manual: { items: itemList = [] } = {},
+        query: { queryroot, querysorting = 'normal', count = 10 } = {}
       } = {},
       hideIngress = false,
       shortDescription,
@@ -64,11 +55,11 @@ exports.get = function (request) {
   }
 
   const headless = selection === 'query'
-  const {
-    _path: queryPath
-  } = headless && queryroot ? contentLib.get({ key: queryroot }) || {} : {}
+  const { _path: queryPath } =
+    headless && queryroot ? contentLib.get({ key: queryroot }) || {} : {}
 
-  const parentPathQuery = headless && queryPath && buildParentPathQuery(queryPath)
+  const parentPathQuery =
+    headless && queryPath && buildParentPathQuery(queryPath)
 
   const createSort = () => {
     switch (querysorting) {
@@ -115,18 +106,19 @@ exports.get = function (request) {
       break
   }
 
-  const {
-    _path: sitePath
-  } = portal.getSite()
+  const { _path: sitePath } = portal.getSite()
 
-  const siteUrl = portal
-    .pageUrl({
-      path: sitePath
-    })
+  const siteUrl = portal.pageUrl({
+    path: sitePath
+  })
 
-  const _featured = []
-    .concat(featured)
-    .reduce((acc, { item, style, showDate = true }) => ({ ...acc, [item]: { style, showDate } }), {})
+  const _featured = [].concat(featured).reduce(
+    (acc, { item, style, showDate = true }) => ({
+      ...acc,
+      [item]: { style, showDate }
+    }),
+    {}
+  )
 
   if (debug) {
     log.info(JSON.stringify(_featured, null, 2))
@@ -158,5 +150,10 @@ exports.get = function (request) {
     log.info(JSON.stringify(props, null, 4))
   }
 
-  return React4xp.render(request.mode === 'edit' ? 'ArticleListView' : 'ArticleList', props, request, { clientRender: request.mode !== 'edit' })
+  return React4xp.render(
+    request.mode === 'edit' ? 'ArticleListView' : 'ArticleList',
+    props,
+    request,
+    { clientRender: request.mode !== 'edit' }
+  )
 }
