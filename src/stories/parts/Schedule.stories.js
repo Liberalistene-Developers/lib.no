@@ -18,14 +18,15 @@ const Template = (args) => (
   </SingleLayout>
 )
 
-const createTopics = (items = []) => items.map((item) => ({
-  title: '',
-  start: '',
-  duration: '',
-  description: '',
-  report: '',
-  ...item
-}))
+const createTopics = (items = []) =>
+  items.map((item) => ({
+    title: '',
+    start: '',
+    duration: '',
+    description: '',
+    report: '',
+    ...item
+  }))
 
 export const Empty = Template.bind({})
 Empty.args = {
@@ -36,8 +37,8 @@ Empty.args = {
   }
 }
 
-export const noNameDefault = Template.bind({})
-noNameDefault.args = {
+export const NoNameDefault = Template.bind({})
+NoNameDefault.args = {
   schedule: {
     name: '',
     date: '',
@@ -45,8 +46,8 @@ noNameDefault.args = {
   }
 }
 
-export const noNameWithStart = Template.bind({})
-noNameWithStart.args = {
+export const NoNameWithStart = Template.bind({})
+NoNameWithStart.args = {
   schedule: {
     name: '',
     date: '',
@@ -54,17 +55,19 @@ noNameWithStart.args = {
   }
 }
 
-export const noNameWithDuration = Template.bind({})
-noNameWithDuration.args = {
+export const NoNameWithDuration = Template.bind({})
+NoNameWithDuration.args = {
   schedule: {
     name: '',
     date: '',
-    topics: createTopics([{ title: 'Registration', start: '09:00', duration: '30 min' }])
+    topics: createTopics([
+      { title: 'Registration', start: '09:00', duration: '30 min' }
+    ])
   }
 }
 
-export const noNameWithStartAndDescription = Template.bind({})
-noNameWithStartAndDescription.args = {
+export const NoNameWithStartAndDescription = Template.bind({})
+NoNameWithStartAndDescription.args = {
   schedule: {
     name: '',
     date: '',
@@ -78,8 +81,8 @@ noNameWithStartAndDescription.args = {
   }
 }
 
-export const noNameWithDescription = Template.bind({})
-noNameWithDescription.args = {
+export const NoNameWithDescription = Template.bind({})
+NoNameWithDescription.args = {
   schedule: {
     name: '',
     date: '',
@@ -92,8 +95,8 @@ noNameWithDescription.args = {
   }
 }
 
-export const noNameWithDescriptionAndReport = Template.bind({})
-noNameWithDescriptionAndReport.args = {
+export const NoNameWithDescriptionAndReport = Template.bind({})
+NoNameWithDescriptionAndReport.args = {
   schedule: {
     name: '',
     date: '',
@@ -101,14 +104,15 @@ noNameWithDescriptionAndReport.args = {
       {
         title: 'Registration',
         description: 'Registrering vil være åpen frem til klokken 11:00.',
-        report: '<p>Antall som registrerte seg før 11:00 var <strong>160</strong> delegater.<br /><strong>10</strong> delegater registrerte seg etter kl 11:00.'
+        report:
+          '<p>Antall som registrerte seg før 11:00 var <strong>160</strong> delegater.<br /><strong>10</strong> delegater registrerte seg etter kl 11:00.'
       }
     ])
   }
 }
 
-export const nameWithDescriptionAndReport = Template.bind({})
-nameWithDescriptionAndReport.args = {
+export const NameWithDescriptionAndReport = Template.bind({})
+NameWithDescriptionAndReport.args = {
   schedule: {
     name: 'Sunday',
     date: '',
@@ -116,14 +120,15 @@ nameWithDescriptionAndReport.args = {
       {
         title: 'Registration',
         description: 'Registrering vil være åpen frem til klokken 11:00.',
-        report: '<p>Antall som registrerte seg før 11:00 var <strong>160</strong> delegater.<br /><strong>10</strong> delegater registrerte seg etter kl 11:00.'
+        report:
+          '<p>Antall som registrerte seg før 11:00 var <strong>160</strong> delegater.<br /><strong>10</strong> delegater registrerte seg etter kl 11:00.'
       }
     ])
   }
 }
 
-export const nameAndDateWithDescriptionAndReport = Template.bind({})
-nameAndDateWithDescriptionAndReport.args = {
+export const NameAndDateWithDescriptionAndReport = Template.bind({})
+NameAndDateWithDescriptionAndReport.args = {
   schedule: {
     name: 'Lørdag',
     date: '28. april 2021',
@@ -131,14 +136,15 @@ nameAndDateWithDescriptionAndReport.args = {
       {
         title: 'Registration',
         description: 'Registrering vil være åpen frem til klokken 11:00.',
-        report: '<p>Antall som registrerte seg før 11:00 var <strong>160</strong> delegater.<br /><strong>10</strong> delegater registrerte seg etter kl 11:00.'
+        report:
+          '<p>Antall som registrerte seg før 11:00 var <strong>160</strong> delegater.<br /><strong>10</strong> delegater registrerte seg etter kl 11:00.'
       }
     ])
   }
 }
 
-export const nameAndDateWithDescriptionAndSpeaker = Template.bind({})
-nameAndDateWithDescriptionAndSpeaker.args = {
+export const NameAndDateWithDescriptionAndSpeaker = Template.bind({})
+NameAndDateWithDescriptionAndSpeaker.args = {
   schedule: {
     name: 'Lørdag',
     date: '28. april 2021',
@@ -164,8 +170,8 @@ nameAndDateWithDescriptionAndSpeaker.args = {
   }
 }
 
-export const nameAndDateWithDescriptionAndReportAndSpeaker = Template.bind({})
-nameAndDateWithDescriptionAndReportAndSpeaker.args = {
+export const NameAndDateWithDescriptionAndReportAndSpeaker = Template.bind({})
+NameAndDateWithDescriptionAndReportAndSpeaker.args = {
   schedule: {
     name: 'Lørdag',
     date: '28. april 2021',
@@ -173,12 +179,14 @@ nameAndDateWithDescriptionAndReportAndSpeaker.args = {
       {
         title: 'Registration',
         description: 'Registrering vil være åpen frem til klokken 11:00.',
-        report: '<p>Antall som registrerte seg før 11:00 var <strong>160</strong> delegater.<br /><strong>10</strong> delegater registrerte seg etter kl 11:00.'
+        report:
+          '<p>Antall som registrerte seg før 11:00 var <strong>160</strong> delegater.<br /><strong>10</strong> delegater registrerte seg etter kl 11:00.'
       },
       {
         title: 'Lederens tale',
         description: 'Lederen ønsker velkommen til årsmøte.',
-        report: '<p>Lederen ønsket velkommen til øredøvende jubel. Han fortalte om den store økningen i medlemsmassen.</p>',
+        report:
+          '<p>Lederen ønsket velkommen til øredøvende jubel. Han fortalte om den store økningen i medlemsmassen.</p>',
         speakers: [
           {
             person: 'Ronny Skjæveland',
@@ -193,8 +201,9 @@ nameAndDateWithDescriptionAndReportAndSpeaker.args = {
   }
 }
 
-export const nameAndDateWithDateWithDescriptionAndReportAndSpeaker = Template.bind({})
-nameAndDateWithDateWithDescriptionAndReportAndSpeaker.args = {
+export const NameAndDateWithDateWithDescriptionAndReportAndSpeaker =
+  Template.bind({})
+NameAndDateWithDateWithDescriptionAndReportAndSpeaker.args = {
   schedule: {
     name: 'Lørdag',
     date: '28. april 2021',
@@ -203,13 +212,15 @@ nameAndDateWithDateWithDescriptionAndReportAndSpeaker.args = {
         start: '09:00',
         title: 'Registration',
         description: 'Registrering vil være åpen frem til klokken 11:00.',
-        report: '<p>Antall som registrerte seg før 11:00 var <strong>160</strong> delegater.<br /><strong>10</strong> delegater registrerte seg etter kl 11:00.'
+        report:
+          '<p>Antall som registrerte seg før 11:00 var <strong>160</strong> delegater.<br /><strong>10</strong> delegater registrerte seg etter kl 11:00.'
       },
       {
         start: '09:30',
         title: 'Lederens tale',
         description: 'Lederen ønsker velkommen til årsmøte.',
-        report: '<p>Lederen ønsket velkommen til øredøvende jubel. Han fortalte om den store økningen i medlemsmassen.</p>',
+        report:
+          '<p>Lederen ønsket velkommen til øredøvende jubel. Han fortalte om den store økningen i medlemsmassen.</p>',
         speakers: [
           {
             person: 'Ronny Skjæveland',

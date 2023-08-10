@@ -44,7 +44,7 @@ exports.get = function (request) {
     position,
     title: [
       { title: 'Liberalistene', titleColor },
-      { title: title, titleColor: localColor }
+      { title, titleColor: localColor }
     ],
     titleClassName
   }
