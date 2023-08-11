@@ -7,7 +7,7 @@
   <form>
     <input name="title" type="TextLine">
       <label i18n="site.heading.label">Heading</label>
-      <default>Our candidates</default>
+      <default>Our local branches</default>
       <occurrences minimum="1" maximum="1"/>
     </input>
     <mixin name="centerheading" />

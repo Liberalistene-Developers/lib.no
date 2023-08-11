@@ -17,7 +17,8 @@ exports.get = function (request) {
       ingressColor = 'light',
       localColor = 'yellow',
       mobileSize: titleClassName = 'full',
-      titleColor = 'light'
+      titleColor = 'light',
+      title: titleTop = 'Liberalistene'
     } = {}
   } = component || {}
 
@@ -43,7 +44,7 @@ exports.get = function (request) {
     ingressColor,
     position,
     title: [
-      { title: 'Liberalistene', titleColor },
+      { title: titleTop, titleColor },
       { title, titleColor: localColor }
     ],
     titleClassName

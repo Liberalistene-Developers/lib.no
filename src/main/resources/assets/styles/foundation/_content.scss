@@ -256,6 +256,14 @@ body {
   }
 }
 
+#storybook-root {
+  &> main {
+    &> .content-holder {
+      display: block;
+    }
+  }
+}
+
 html body {
   margin: 0;
   height: 100vh;
