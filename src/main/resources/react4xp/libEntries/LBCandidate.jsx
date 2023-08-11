@@ -24,12 +24,12 @@ export const LBCandidate = ({
         <div>{((email || phone) && (<hr />)) || ' '}</div>
         <div className="email">{(email && (<>
             <div><FontAwesomeIcon icon={faEnvelope} /></div>
-            <div><a href={`mailto:${email}`} title={email}></a>{email}</div>
+            <div><a href={`mailto:${email}`} title={email}>{email}</a></div>
           </>)) || null}&nbsp;</div>
         <div className="phone">{(phone && (
           <>
             <div><FontAwesomeIcon icon={faPhone} /></div>
-            <div><a href={`tel:${phone}`} title={phone}></a>{phone}</div>
+            <div><a href={`tel:${phone}`} title={phone}>{phone}</a></div>
           </>
         )) || null}&nbsp;</div>
 
