@@ -39,7 +39,7 @@ main {
     max-width: 100%;
     display: none;
 
-    &:has([data-portal-component-type="part"] > div) {
+    &:has([data-portal-component-type="part"] > div, [data-portal-component-type=text]>*) {
       display: block;
     }
 
