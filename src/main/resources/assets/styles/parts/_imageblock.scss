@@ -207,8 +207,12 @@
         font-size: 38px;
         font-weight: 800;
         line-height: 120%;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+
+        &> span {
+          display: block;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
 
         &.half {
           font-size: 25px;
