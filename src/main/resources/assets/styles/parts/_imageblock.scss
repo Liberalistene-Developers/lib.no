@@ -72,6 +72,7 @@
 
       .ingress {
         color: var(--lib-color-button-color-100);
+        margin-top: 10px;
 
         p {
           margin-top: 0px;
@@ -196,11 +197,18 @@
         height: 50vw;
       }
 
+      .ingress {
+        font-size: 30px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
       h1 {
-        font-size: 50px;
+        font-size: 38px;
         font-weight: 800;
         line-height: 120%;
         text-overflow: ellipsis;
+        white-space: nowrap;
 
         &.half {
           font-size: 25px;

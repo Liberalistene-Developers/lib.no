@@ -81,3 +81,8 @@ h3 {
     line-height: 38px;
   }
 }
+
+// fix for issues
+.xp-admin-common-names-view .xp-admin-common-sub-name {
+  white-space: nowrap !important;
+}
