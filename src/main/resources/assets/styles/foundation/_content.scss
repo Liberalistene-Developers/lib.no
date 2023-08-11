@@ -35,6 +35,12 @@
 }
 
 main {
+  > [data-portal-component-type="layout"] {
+    &.content-holder {
+      display: block;
+    }
+  }
+
   > .content-holder {
     max-width: 100%;
     display: none;
