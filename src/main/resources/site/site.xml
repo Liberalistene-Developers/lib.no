@@ -2,6 +2,9 @@
 <site>
   <x-data name="menu-item" />
   <mappings>
+   <mapping controller="/site/pages/default/default.js">
+      <match>type:'portal:fragment'</match>
+    </mapping>
     <mapping controller="/headless/guillotineApi.js" order="50">
       <pattern>/api/headless</pattern>
     </mapping>

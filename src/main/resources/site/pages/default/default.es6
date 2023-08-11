@@ -12,11 +12,8 @@ const view = resolve('default.html')
 
 // Handle the GET request
 exports.get = function (req) {
-  const {
-    params: {
-      debug = false
-    } = {}
-  } = req
+  const site = portal.getSite()
+  const { params: { debug = false } = {} } = req
 
   // Get the content that is using the page
   const content = portal.getContent()
@@ -29,37 +26,30 @@ exports.get = function (req) {
   }
 
   const {
-    page: {
-      regions: {
-        main: mainRegion
-      } = {}
-    } = {},
-    language
+    page: { regions: { main: mainRegion } = {} } = {},
+    language,
+    type: contentType
   } = content || {}
 
-  const {
-    email,
-    image: imageKey,
-    phone,
-    place,
-    social = []
-  } = config || {}
+  const isFragment = contentType === 'portal:fragment'
 
-  const some = []
-    .concat(social)
-    .map(({ address }) => {
-      if (debug) {
-        log.info(address)
-      }
+  const { email, image: imageKey, phone, place, social = [] } = config || {}
 
-      const url = address.match(/^(?:https?:\/\/)?(?:[^@/\n]+@)?(?:www\.)?([^:/\n]+)/)
-      const host = url.length > 1 && url[1].split('.')
+  const some = [].concat(social).map(({ address }) => {
+    if (debug) {
+      log.info(address)
+    }
 
-      return {
-        href: address,
-        className: `fa-${host[host.length - 2]}`
-      }
-    })
+    const url = address.match(
+      /^(?:https?:\/\/)?(?:[^@/\n]+@)?(?:www\.)?([^:/\n]+)/
+    )
+    const host = url.length > 1 && url[1].split('.')
+
+    return {
+      href: address,
+      className: `fa-${host[host.length - 2]}`
+    }
+  })
 
   if (debug) {
     log.info(JSON.stringify(content, null, 4))
@@ -67,15 +57,16 @@ exports.get = function (req) {
 
   // Prepare the model that will be passed to the view
   const model = {
+    title: site.displayName,
     language: (language && language.split('_')[0]) || 'no',
     content,
     email,
     image: imageKey && imageUrl(imageKey, 'block(168,40)'),
-    mainRegion,
+    mainRegion: isFragment ? null : mainRegion,
+    isFragment,
     phone,
     place,
     menu: menuItems,
-    // title,
     some
   }
 
