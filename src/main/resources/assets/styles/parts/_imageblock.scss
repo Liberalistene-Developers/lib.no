@@ -1,15 +1,20 @@
 .purple {
-  .title, .ingress {
-    span, .normal {
+  .title,
+  .ingress {
+    span,
+    .normal {
       color: var(--lib-color-button-color-100);
     }
   }
 }
 
-.yellow, .light {
-  .title, .ingress {
-    span, .normal {
-      color: var(--lib-color-primary-700)
+.yellow,
+.light {
+  .title,
+  .ingress {
+    span,
+    .normal {
+      color: var(--lib-color-primary-700);
     }
   }
 }
@@ -42,7 +47,7 @@
 
       &.image-block-text {
         left: 50%; // ^1
-        transform:translateX(-50%); // ^2,3
+        transform: translateX(-50%); // ^2,3
       }
     }
 
@@ -50,6 +55,15 @@
       font-size: 100px;
       font-weight: 800;
       line-height: 120px;
+
+      .block {
+        display: block;
+        font-size: 80px;
+        font-style: italic;
+        margin-top: -10px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     }
 
     & .ingress {
@@ -68,7 +82,7 @@
       max-width: 50%;
       position: absolute;
       top: 50%;
-      transform:translateY(-50%); // ^2,3
+      transform: translateY(-50%); // ^2,3
 
       .ingress {
         color: var(--lib-color-button-color-100);
@@ -142,16 +156,30 @@
     &.overlay {
       &.purple {
         &.center {
-          background: linear-gradient(to right, rgba(74, 15, 57, 0) 10%, rgba(74, 16, 74, 0.87) 25%, rgba(74, 16, 74, 0.87) 70%, rgba(74, 16, 57, 0) 100%)
+          background: linear-gradient(
+            to right,
+            rgba(74, 15, 57, 0) 10%,
+            rgba(74, 16, 74, 0.87) 25%,
+            rgba(74, 16, 74, 0.87) 70%,
+            rgba(74, 16, 57, 0) 100%
+          );
         }
 
         &.left {
-          background: linear-gradient(90deg, rgba(74, 16, 74, 0.87) 20.89%, rgba(74, 16, 57, 0) 100%);
+          background: linear-gradient(
+            90deg,
+            rgba(74, 16, 74, 0.87) 20.89%,
+            rgba(74, 16, 57, 0) 100%
+          );
           margin-right: 40px;
         }
 
         &.right {
-          background: linear-gradient(270deg, rgba(74, 16, 74, 0.87) 20.89%, rgba(74, 16, 57, 0) 100%);
+          background: linear-gradient(
+            270deg,
+            rgba(74, 16, 74, 0.87) 20.89%,
+            rgba(74, 16, 57, 0) 100%
+          );
           margin-left: 40px;
         }
 
@@ -173,10 +201,18 @@
         font-size: 80px;
         font-weight: 800;
         line-height: 120%;
+
+        .block {
+          font-size: 64px;
+        }
       }
 
       .image-block-text {
         max-width: 60%;
+
+        .block {
+          max-width: 90%;
+        }
       }
     }
   }
@@ -198,9 +234,10 @@
       }
 
       .ingress {
-        font-size: 30px;
+        font-size: 22px;
         text-overflow: ellipsis;
         white-space: nowrap;
+        overflow: hidden;
       }
 
       h1 {
@@ -208,10 +245,9 @@
         font-weight: 800;
         line-height: 120%;
 
-        &> span {
-          display: block;
-          white-space: nowrap;
-          text-overflow: ellipsis;
+        .block {
+          font-size: 32px;
+          margin-top: 0;
         }
 
         &.half {
