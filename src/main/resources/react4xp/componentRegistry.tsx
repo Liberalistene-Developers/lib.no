@@ -9,6 +9,8 @@ import {TwoColumn2Row} from './components/layouts/twocolumn2row/TwoColumn2Row';
 import {ThreeColumn2Row} from './components/layouts/threecolumn2row/ThreeColumn2Row';
 import {FourColumn2Row} from './components/layouts/fourcolumn2row/FourColumn2Row';
 import {UnderConstruction} from './components/layouts/under-construction/UnderConstruction';
+import {DefaultPage} from './components/pages/default/DefaultPage';
+import {UnderConstructionPage} from './components/pages/under-construction/UnderConstructionPage';
 
 export const componentRegistry = new ComponentRegistry();
 
@@ -22,3 +24,5 @@ componentRegistry.addLayout('lib.no:twocolumn2row', {View: TwoColumn2Row});
 componentRegistry.addLayout('lib.no:threecolumn2row', {View: ThreeColumn2Row});
 componentRegistry.addLayout('lib.no:fourcolumn2row', {View: FourColumn2Row});
 componentRegistry.addLayout('lib.no:under-construction', {View: UnderConstruction});
+componentRegistry.addPage('lib.no:default', {View: DefaultPage});
+componentRegistry.addPage('lib.no:under-construction', {View: UnderConstructionPage});

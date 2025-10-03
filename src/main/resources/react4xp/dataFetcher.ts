@@ -9,6 +9,8 @@ import {twoColumn2RowProcessor} from './components/layouts/twocolumn2row/TwoColu
 import {threeColumn2RowProcessor} from './components/layouts/threecolumn2row/ThreeColumn2RowProcessor';
 import {fourColumn2RowProcessor} from './components/layouts/fourcolumn2row/FourColumn2RowProcessor';
 import {underConstructionProcessor} from './components/layouts/under-construction/UnderConstructionProcessor';
+import {defaultPageProcessor} from './components/pages/default/DefaultPageProcessor';
+import {underConstructionPageProcessor} from './components/pages/under-construction/UnderConstructionPageProcessor';
 
 export const dataFetcher = new DataFetcher();
 
@@ -22,3 +24,5 @@ dataFetcher.addLayout('lib.no:twocolumn2row', {processor: twoColumn2RowProcessor
 dataFetcher.addLayout('lib.no:threecolumn2row', {processor: threeColumn2RowProcessor});
 dataFetcher.addLayout('lib.no:fourcolumn2row', {processor: fourColumn2RowProcessor});
 dataFetcher.addLayout('lib.no:under-construction', {processor: underConstructionProcessor});
+dataFetcher.addPage('lib.no:default', {processor: defaultPageProcessor});
+dataFetcher.addPage('lib.no:under-construction', {processor: underConstructionPageProcessor});
