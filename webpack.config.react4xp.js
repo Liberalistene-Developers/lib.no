@@ -1,77 +1,72 @@
-/**
- * Use this file to adjust the webpack config.
- *
- * Uncomment the overrideComponentWebpack property in react4xp.properties, and add this file there.
- */
-const path = require('path');
-const R = require('ramda');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const {
- setEntry,
- addRule,
- addPlugin,
- appendExtensions,
- prependExtensions
-} = require('./util/compose');
-const env = require('./util/env');
-
-const isProd = env.prod;
-const isDev = env.dev;
-
-const createDefaultCssLoaders = () => ([
-  {loader: MiniCssExtractPlugin.loader, options: {publicPath: '../'}},
-  {loader: 'css-loader', options: {sourceMap: !isProd, importLoaders: 1}},
-  {loader: 'postcss-loader', options: {sourceMap: !isProd}},
-]);
-
-const createCssPlugin = () => (
-  new MiniCssExtractPlugin({
-    filename: './styles/bundle.css',
-    chunkFilename: '[id].css',
-  })
-);
-
-// SASS & SCSS
-function addSassSupport(cfg) {
-  const rule = {
-    test: /\.(sass|scss)$/,
-    use: [
-      ...createDefaultCssLoaders(),
-      {loader: 'sass-loader', options: {sourceMap: !isProd}},
-    ]
-  };
-
-  const plugin = createCssPlugin();
-
-  return R.pipe(
-    addRule(rule),
-    addPlugin(plugin),
-    appendExtensions(['.sass', '.scss', '.css'])
-  )(cfg);
-}
-
-// ----------------------------------------------------------------------------
-// Resource loaders
-// ----------------------------------------------------------------------------
-
-// FONTS IN CSS
-function addFontSupport(cfg) {
-  const rule = {
-    test: /\.(eot|woff|woff2|ttf|svg)$/,
-    type: 'asset/resource'
-  };
-
-  return R.pipe(
-    addRule(rule)
-  )(cfg);
-}
+//──────────────────────────────────────────────────────────────────────────────
+// Use this file to adjust the webpack config.
+//──────────────────────────────────────────────────────────────────────────────
+// A template version of this, with upated properties and explanations,
+//  can always be found in the react4xp NPM package:
+//   node_modules/react4xp/examples/webpack.config.react4xp.js after installing,
+//  or:
+//   https://github.com/enonic/enonic-react4xp/blob/master/examples/webpack.config.react4xp.js
+//──────────────────────────────────────────────────────────────────────────────
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const rspack = require('@rspack/core');
 
 module.exports = function(env, config) {
-    // Makes symlinks under node_modules work, e.g. 'npm link' and possibly PNPM etc:
-    config.resolve.symlinks = true;
 
-    return R.pipe(
-      addSassSupport,
-      addFontSupport
-    )(config);
+	// Comment in and customize the lines below to improve incremental builds in
+	// development mode. (see https://webpack.js.org/configuration/cache/)
+	//
+	// if (process.env.NODE_ENV === 'development') {
+	// 	config.cache = {
+	// 		type: 'filesystem'
+	// 	}
+	// }
+
+	// This makes 'npm link' symlinks in node_modules work:
+	config.resolve.symlinks = true;
+
+	config.module.rules = [
+		...(config.module.rules || []),
+		{
+			test: /\.((sa|sc|c))ss$/i,
+			use: [
+				// MiniCssExtractPlugin.loader,
+				rspack.CssExtractRspackPlugin.loader,
+				{
+					loader: 'css-loader',
+					options: {
+						importLoaders: 1,
+						modules: {auto: true},
+						esModule: false
+					}
+				},
+				{
+					loader: 'sass-loader',
+					options: {
+						sassOptions: {
+							outputStyle: 'compressed'
+						}
+					}
+				}
+			]
+		},
+		{
+			test: /\.(woff|woff2|eot|ttf|otf)$/i,
+			type: 'asset/resource', // ends up as auxiliaryAssets in stats.components.json
+		},
+	]
+
+	// Set up how the compiled assets are exported:
+	config.plugins = [
+		...(config.plugins || []),
+		// new MiniCssExtractPlugin({
+		// 	filename: '[name].[contenthash:9].css',
+		// 	chunkFilename: '[id].[contenthash:9].css'
+		// }),
+		new rspack.CssExtractRspackPlugin({
+			chunkFilename: '[id].[contenthash:9].css',
+			filename: '[name].[contenthash:9].css',
+		})
+	]
+
+	return config;
 };

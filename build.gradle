@@ -1,18 +1,18 @@
-import groovy.json.JsonSlurper
-import org.apache.tools.ant.taskdefs.condition.Os
-
 plugins {
-    id "com.enonic.defaults" version "2.0.1"
-    id "com.enonic.xp.app" version "3.0.0"
-    // id "com.moowork.node" version "1.3.1"
-    id "com.github.node-gradle.node" version "3.1.0"
-    id "maven-publish"
+    id 'com.enonic.xp.app' version '3.6.1'
+    id "com.github.node-gradle.node" version "7.1.0"
 }
 
-def jsonFile = file('./package.json')
+repositories {
+    mavenLocal()
+    mavenCentral()
+    xp.enonicRepo('dev')
+}
 
-def jsonSlurper = new JsonSlurper()
-def packageJson = jsonSlurper.parse(jsonFile)
+node {
+    download = true
+    version = '22.15.1'
+}
 
 app {
     name = "${appName}"
@@ -20,158 +20,154 @@ app {
     vendorName = "${vendorName}"
     vendorUrl = "${vendorUrl}"
     systemVersion = "${xpVersion}"
-    version = "${packageJson.version}"
 }
-
-// This variable is used in the include lib-react4xp below, and also used in the optional tasks in readme.gradle
-rootProject.ext.LIB_REACT4XP_VERSION = "3.4.2"
 
 dependencies {
-    compile "com.enonic.xp:core-api:${xpVersion}"
-    compile "com.enonic.xp:portal-api:${xpVersion}"
-    include "com.enonic.xp:lib-admin:${xpVersion}"
+    implementation "com.enonic.xp:core-api:${xpVersion}"
+    implementation "com.enonic.xp:portal-api:${xpVersion}"
     include "com.enonic.xp:lib-content:${xpVersion}"
+    include "com.enonic.xp:lib-context:${xpVersion}"
     include "com.enonic.xp:lib-portal:${xpVersion}"
-    include "com.enonic.xp:lib-auth:${xpVersion}"
-    //include "com.enonic.xp:lib-context:${xpVersion}"
-    include "com.enonic.xp:lib-i18n:${xpVersion}"
+    //include "com.enonic.xp:lib-auth:${xpVersion}"
+    //include "com.enonic.xp:lib-i18n:${xpVersion}"
     //include "com.enonic.xp:lib-io:${xpVersion}"
     //include "com.enonic.xp:lib-mail:${xpVersion}"
+    include "com.enonic.xp:lib-schema:${xpVersion}"
     //include "com.enonic.xp:lib-repo:${xpVersion}"
     //include "com.enonic.xp:lib-websocket:${xpVersion}"
-    include "com.enonic.lib:lib-thymeleaf:2.0.1"
-    include "com.enonic.lib:lib-guillotine:4.2.0"
-    include "com.enonic.lib:lib-mustache:2.0.0"
-    include "com.enonic.lib:lib-util:3.0.0"
-    include "com.enonic.lib:lib-menu:4.0.1"
-    include "com.enonic.lib:lib-urlredirect:3.0.0"
-    include "com.enonic.lib:lib-graphql-playground:0.0.1"
 
-    include "com.enonic.lib:lib-react4xp:${rootProject.ext.LIB_REACT4XP_VERSION}"
+    // The version numbers must be here (or dependabot will fail)
+    include 'com.enonic.lib:lib-asset:1.0.1'
+    include 'com.enonic.lib:lib-thymeleaf:2.1.1'
+    include 'com.enonic.lib:lib-guillotine:6.2.1'
+    include 'com.enonic.lib:lib-react4xp:6.0.1'
 }
 
-repositories {
-    mavenLocal()
-    jcenter()
-    xp.enonicRepo()
-}
-
-
-node {
-    download = true
-    version = '16.13.0'
-}
-
-task npmInstallForce( type: NpmTask ) {
-    description = 'Update all project node dependencies'
-    args = ['install', '--force', '--legacy-peer-deps']
-}
-
-task cleanNode( type: org.gradle.api.tasks.Delete ) {
-    delete 'node_modules'
-}
-
-task clientWebpack( type: NodeTask, dependsOn: npmInstall ) {
-    environment = [ 'NODE_ENV': nodeEnvironment() ]
-    args = [ '--config', 'webpack.client.config.js', '--color' ]
-    description = 'Build UI resources (js, css, etc).'
-    inputs.dir 'src/main'
-    outputs.dir "${buildDir}/resources/main"
-    script = file( 'node_modules/webpack-cli/bin/cli.js' )
-}
-jar.dependsOn += 'clientWebpack'
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-// The react4xp NPM package also carries additional .gradle files that are required by this gradle setup (further below).
-// If they don't exist, run 'npm install' as a shell command (can't be done as a regular gradle task,
-// since they are needed in the gradle config phase).
-def react4xpGradlePath = 'node_modules/@enonic/react4xp/react4xp.gradle'
-def react4xpGradleFile = new File(react4xpGradlePath)
-if (!react4xpGradleFile.exists()) {
-    def command = 'sh -c'
-
-    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-        command = 'cmd /c'
+sourceSets {
+  main {
+    resources {
+      ['.gitkeep','*.es6','*.jsx','*.scss','*.tsx'].each { ext ->
+        exclude "**/$ext"
+      }
     }
-
-    command += " npm install"
-
-    println "\nNot found: $react4xpGradlePath - running shell command:"
-    println command
-    def proc = command.execute()
-    proc.in.eachLine { line -> println line }
-    proc.out.close()
-    proc.waitFor()
+  }
 }
 
-// Necessary react4xp build setup.
-// node_modules/@enonic/react4xp/react4xp.gradle (react4xpGradlePath) etc. are used by the gradle tasks, so 'npm install' should have been run automatically by now (above).
-apply from: react4xpGradlePath
+processResources {
+  // Files that are simply copied by gradle: png svg xml
+  exclude '**/.gitkeep'
+  exclude '**/*.jsx' // handled by @enonic/react4xp gradle files
+  exclude '**/*.sass' // handled by @enonic/react4xp gradle files
+  exclude '**/*.scss' // handled by @enonic/react4xp gradle files
+  exclude '**/*.tsx' // handled by @enonic/react4xp gradle files
+  exclude '**/*.ts' // handled by tsup
+}
 
-
-// Optional dev convenience:
-// Adjusts the regular 'npmInstall' gradle task with two improvements:
-//      - NSI allows npm-linked local development (https://www.npmjs.com/package/npm-safe-install)
-//      - faster gradle up-to-date check during build (only checks content of package.json and package-lock.json,
-//          and a marker file for whether node_module exists as a regular or NSI-linked version. Runs NSI if it's linked.
-//          Does not check the entire node_modules subtree).
-apply from: 'node_modules/@enonic/react4xp/npmInstall.gradle'
-
-// Optional dev convenience:
-// Adds the 'updateReadme' gradle task which generates readme files at root from docs/README.src.md
-apply from: 'node_modules/@enonic/react4xp/updaters.gradle'
-
-
-
-
-
+tasks.withType(Copy).configureEach {
+    includeEmptyDirs = false
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// This task takes care of es6 under src/main/resources/site. You can replace it with build steps of your own if you want.
-// IMPORTANT: IF YOU DON'T USE THIS TASK TO COMPILE THE REGULAR XP JS (/ES6/TS etc),
-// MAKE SURE THAT YOUR OWN TASK/SCRIPT/LOGIC IGNORES .JSX FILES THAT ARE LOCATED UNDER src/main/resources/site !
-// It's safer to let React4xp's tasks (in react4xp.gradle) handle those.
-task compileXP(type: NodeTask) {
+// This task takes care of XP non-react (and therefore non-react4xp) ts files
+// under src/main/resources. This is independent of react4xp, so you can replace
+// this with your own build steps if you want.
+// IMPORTANT:
+// This task only handles .ts files under src/main/resources.
+// If you use your own logic to compile non-react XP files
+// (i.e. replace this task or add more to it),
+// you should usually make it ignore .tsx and .jsx files,
+// to ensure that those are handled only by the react4xp build
+// (node_modules/@enonic/react4xp/react4xp.gradle, aka. react4xpGradlePath)
+// and not compiled twice.
+tasks.register('buildXpResources', NpmTask) {
+    dependsOn( npmInstall )
+    args = ['run', 'build:xp:resources']
     group 'enonic xp'
-    description 'Babel-compile Enonic XP ES6 source files (important: ignoring JSX components since they are left to react4xp)'
+    description 'tsup transpile Enonic XP TypeScript source files (important: ignoring TSX/JSX components since they are left to react4xp)'
+    outputs.dir 'build/resources/main'
+    // This is just so gradle is able to do incremental builds:
+    inputs.files fileTree(dir: 'src/main/resources', exclude: [
+      '**/.gitkeep',
+      '**/*.cjs',
+      '**/*.es',
+      '**/*.jsx',
+      '**/*.html',
+      '**/*.png',
+      '**/*.sass',
+      '**/*.scss',
+      '**/*.svg',
+      '**/*.d.ts',
+      '**/*.tsx',
+      '**/*.xml'
+    ])
+}
 
-    script = file('node_modules/@babel/cli/bin/babel.js')
-    args = ["src/main/resources", "--out-dir", "build/resources/main", "--ignore", "**/*.jsx"]      // <-- Ignoring JSX in the XP structure is important!
-
+tasks.register('react4xp', NpmTask) {
+    def envMode = project.hasProperty( 'env' ) ? ( project.property( 'env' ) == 'prod' ? 'production' : 'development' ) : 'production'
+    args = [
+        'run', 'build:react4xp'
+    ]
+    dependsOn( npmInstall )
+    description 'Compile react4xp resources'
+    environment = [
+        'R4X_APP_NAME': "${appName}",
+        'R4X_BUILD_LOG_LEVEL': gradle.startParameter.logLevel.toString(),
+        'R4X_DIR_PATH_ABSOLUTE_PROJECT': project.projectDir.toString(),
+        'NODE_ENV': envMode
+    ]
+    group 'react4xp'
+    inputs.dir 'node_modules/@enonic/react4xp'
     inputs.dir 'src/main/resources'
-    outputs.dir("build/resources/main")
-}
-compileXP.dependsOn += npmInstall
-jar.dependsOn += 'compileXP'
-
-
-processResources {
-    include '**/*'
-    exclude '**/.gitkeep'
-    exclude '**/tsconfig.*.json'
-    exclude '**/*.es'
-    exclude '**/*.es6'
-    exclude '**/*.ts'
-    exclude 'assets/js/**/*.js'
-    include 'assets/js/bundle.js'
-    exclude 'assets/styles/**/*.less'
-    exclude 'assets/styles/**/*.sass'
-    exclude 'assets/styles/**/*.scss'
-    includeEmptyDirs false
+    outputs.dir 'build/resources/main'
+    println "Environment set to: $envMode"
 }
 
-jar {
-    exclude 'assets/styles/**/*.less'
-    exclude 'assets/styles/**/*.sass'
-    exclude 'assets/styles/**/*.scss'
-    exclude 'assets/styles/**/*.js'
-    exclude 'assets/js/**/*.es6'
+tasks.register('buildAssets', NpmTask) {
+    dependsOn( npmInstall )
+    args = ['run', 'build:assets']
+    group 'enonic xp'
+    description 'tsup transpile client-side assets'
+    outputs.dir 'build/resources/main/assets'
+    // This is just so gradle is able to do incremental builds:
+    inputs.files fileTree(dir: 'src/main/resources/assets')
 }
 
-def nodeEnvironment() {
-    def environments = [ prod : 'production', dev: 'development' ]
-    def nodeEnv = environments[hasProperty( 'env' ) ? env : 'prod']
-    return nodeEnv != null ? nodeEnv : 'production'
+tasks.register('dev', Exec) {
+    if (System.getProperty('os.name').toLowerCase().contains('windows')) {
+        commandLine 'gradlew.bat', 'deploy', '-Penv=dev', '-t'
+    } else {
+        commandLine './gradlew', 'deploy', '-Penv=dev', '-t'
+    }
 }
+
+tasks.register('npmCheck', NpmTask) {
+    dependsOn npmInstall
+    args = [
+        'run',
+        'check'
+    ]
+    environment = [
+        'FORCE_COLOR': 'true',
+    ]
+}
+
+check.dependsOn npmCheck
+
+tasks.register('npmTest', NpmTask) {
+    args = [
+        'run',
+        'test'
+    ]
+    dependsOn npmInstall
+    environment = [
+        'FORCE_COLOR': 'true',
+    ]
+    inputs.dir 'src/jest'
+    outputs.dir 'coverage'
+    outputs.upToDateWhen { false }
+}
+
+test.dependsOn npmTest
+
+jar.dependsOn ( buildXpResources, react4xp, buildAssets )
