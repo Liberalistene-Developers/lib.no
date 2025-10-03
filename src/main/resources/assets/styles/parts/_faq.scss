@@ -1,0 +1,87 @@
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+div[itemprop="acceptedAnswer"] {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  max-height: 0px;
+  transition: max-height 0.25s ease-in-out;
+
+  & div {
+    padding: 15px;
+  }
+}
+
+div[itemprop="mainEntity"] {
+  background-color: var(--lib-color-menu-background);
+  border: 1px solid rgba(74, 16, 74, 0.1);
+  border-radius: 3px;
+  border-top-right-radius: 3px;
+  box-shadow: 0px 2px 10px rgba(74, 16, 74, 0.14);
+  overflow: hidden;
+
+  & label {
+    & [itemprop="name"] {
+      min-height: 50px;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      background-color: var(--lib-color-header-100);
+      padding-left: 15px;
+      padding-right: 15px;
+
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      & h2, & h3 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 20px;
+        margin-block: 0px;
+        margin-right: 5px;
+        column-gap: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        color: var(--lib-color-primary-100);
+      }
+
+      & .arrowPurple {
+        transform: matrix(1, 0, 0, -1, 0, 0);
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 22px solid var(--lib-color-primary-700);
+        border-radius: 5px;
+        transition: transform 0.5s linear;
+      }
+    }
+  }
+
+  &>input[type="checkbox"] {
+    display: none;
+
+    &:checked {
+      & ~ label .arrowPurple {
+        transform: rotate(360deg);
+        transition: transform 0.5s linear;
+      }
+
+      & ~ div[itemprop="acceptedAnswer"] {
+        max-height: 500px;
+        transition: max-height 0.25s ease-in;
+      }
+    }
+  }
+}

@@ -49,6 +49,6 @@ export const titleBlockProcessor: ComponentProcessor<'lib.no:titleblock'> = ({co
     ingress: config?.ingress,
     ingressColor: config?.ingressColor,
     overlay: config?.imageOverlay ? `overlay ${config.imageOverlay}` : undefined,
-    titleClassName: config?.mobileSize || 'full'
+    imageClass: config?.mobileSize || 'full'
   };
 };

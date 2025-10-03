@@ -1,0 +1,67 @@
+import * as React from 'react';
+import cx from 'classnames';
+import { ListItem } from './ListItem';
+import { AuthorLink } from './AuthorLink';
+
+interface ImageData {
+  url?: string;
+}
+
+interface AuthorData {
+  authorID?: string;
+  person?: string;
+  personUrl?: string;
+  image?: ImageData;
+}
+
+interface ItemData {
+  image?: ImageData;
+  authors?: AuthorData[];
+  name?: string;
+  shortDescription?: string;
+  url?: string;
+  datePublished?: string;
+}
+
+interface ArticleListItemProps {
+  children?: React.ReactNode;
+  childrenLast?: boolean;
+  className?: string;
+  showImage?: boolean;
+  imageSize?: 'small' | 'medium' | 'large';
+  imageType?: 'round' | '';
+  item?: ItemData;
+  showAuthors?: boolean;
+  showDate?: boolean;
+}
+
+export const ArticleListItem: React.FC<ArticleListItemProps> = ({
+  className,
+  showImage = true,
+  imageSize = 'medium',
+  imageType,
+  item = {},
+  showAuthors = false,
+  showDate = true
+}) => {
+  const { authors = [], datePublished } = item;
+
+  return (
+    <ListItem className={cx('article', className)} imageSize={imageSize} imageType={imageType} showImage={showImage} item={item} childrenLast={true}>
+      <div className="article-creds">
+        {showAuthors && authors && authors.length > 0 && (
+          <ul className="authors">
+            {authors.slice(0, 1).map(({ authorID, person, personUrl, image }) => (
+              <AuthorLink key={authorID} author={person} url={personUrl} image={image} />
+            ))}
+          </ul>
+        )}
+        {datePublished && showDate && (
+          <div className="article-date">
+            {datePublished}
+          </div>
+        )}
+      </div>
+    </ListItem>
+  );
+};

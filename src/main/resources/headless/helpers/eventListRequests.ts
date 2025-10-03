@@ -1,0 +1,108 @@
+import {extractList} from './helpers';
+
+interface ImageData {
+  url?: string;
+  alternativeText?: string;
+}
+
+interface EventData {
+  id?: string;
+  title?: string;
+  url?: string;
+  date?: string;
+  to?: string;
+  location?: {
+    address?: string;
+  };
+  text?: string;
+  image?: ImageData;
+  [key: string]: unknown;
+}
+
+interface GuillotineEventItem {
+  id?: string;
+  name?: string;
+  url?: string;
+  data?: {
+    from?: string;
+    to?: string;
+    place?: string;
+    shortDescription?: string;
+    image?: ImageData;
+  };
+}
+
+export const buildQueryEventList = (): string => `
+query(
+    $first: Int,
+    $offset: Int,
+    $sort: String,
+    $parentPathQuery: String
+) {
+  guillotine {
+    query(
+        contentTypes: ["lib.no:event"],
+        query: $parentPathQuery,
+        first: $first,
+        offset: $offset,
+        sort: $sort
+    ) {
+      ... on lib_no_Event {
+        id: _id
+        url: pageUrl
+        name: displayName
+
+        data {
+          from
+          to
+          place
+          shortDescription: ingress
+          image {
+            ... on media_Image {
+              displayName
+              data {
+                alternativeText: caption
+              }
+              url: imageUrl(type: absolute, scale: "block(459,295)")
+            },
+            ... on media_Vector {
+              displayName
+              data {
+                alternativeText: caption
+              }
+              url: mediaUrl
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
+type ImageMapper = (image: ImageData) => ImageData;
+
+const map = (imageMap: ImageMapper) => ({
+  id,
+  name,
+  url,
+  data: {from, to, place, shortDescription, image} = {}
+}: GuillotineEventItem): EventData => ({
+  id,
+  title: name,
+  url,
+  date: from,
+  to,
+  location: {
+    address: place
+  },
+  text: shortDescription,
+  image: image && imageMap(image)
+});
+
+export const extractEventList = extractList(map);
+
+export default {
+  buildQueryEventList,
+  extractEventList
+};

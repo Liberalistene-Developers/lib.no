@@ -1,3 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* Base body styles */
+  body {
+    @apply bg-background-700 text-primary-100 font-sans;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  /* Typography - Desktop */
+  h1 {
+    @apply text-primary-700 font-sans text-h1 font-heading m-0;
+  }
+
+  h2 {
+    @apply text-primary-500 font-sans text-h2 font-heading m-0;
+  }
+
+  h3 {
+    @apply text-primary-500 font-sans text-h3 font-heading m-0;
+  }
+
+  /* Typography - Mobile */
+  @media (max-width: 414px) {
+    h1 {
+      @apply text-h1-mobile font-heading-mobile;
+    }
+
+    h2 {
+      @apply text-h2-mobile font-heading-mobile;
+    }
+
+    h3 {
+      @apply text-h3-mobile font-heading-mobile;
+    }
+  }
+
+  /* Links */
+  a {
+    @apply text-primary-700 no-underline;
+  }
+}
+
+@layer components {
+  /* Rich text content */
+  .rich-text {
+    @apply text-primary-300 font-sans text-rich-text;
+  }
+
+  /* Inline display utility */
+  .as-span {
+    @apply inline;
+  }
+
+  .as-span > p {
+    @apply inline;
+  }
+}

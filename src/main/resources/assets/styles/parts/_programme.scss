@@ -1,0 +1,43 @@
+.programme-main {
+  margin-top: 40px;
+}
+
+.programme-section {
+  margin-top: 40px;
+
+  & .programme-section-description {
+    margin-top: 20px;
+
+    /* Mobile */
+    @include for_small_devices {
+      .Standard {
+        width: calc(100% - 2em);
+      }
+
+      & > ul {
+        width: calc(100% - 80px);
+      }
+    }
+  }
+
+  & .programme-sections-parts {
+    .conclusions-header {
+      margin-block-end: 1em;
+    }
+
+    &>.conclusions {
+      &>ul {
+        margin-bottom: 0px;
+        margin-top: 0px;
+      }
+    }
+  }
+}
+
+.programme-part {
+  margin-top: 40px;
+
+  & .programme-part-description {
+    margin-top: 20px;
+  }
+}

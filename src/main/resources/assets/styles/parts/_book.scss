@@ -1,0 +1,93 @@
+.bookcard-list-wrapper {
+  .bookcard-list-title {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .bookcard-list {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+
+    &.grid {
+      display: flex;
+      max-width: 1296px;
+      flex-wrap: wrap;
+      row-gap: 40px;
+      column-gap: 40px;
+      align-content: space-between;
+      justify-content: center;
+    }
+  }
+}
+
+.bookcard-holder {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  height: 239px;
+
+  & .bookcard-image {
+    & img {
+      width: 157px;
+      height: 239px;
+    }
+  }
+
+  & .bookcard-content {
+    display: flex;
+    flex-direction: column;
+    width: 201px;
+    row-gap: 6px;
+
+    & .bookcard-title {
+      color: var(--lib-color-primary-700);
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 29px;
+      flex: 0.3 0 0%;
+    }
+
+    & .bookcard-author {
+      flex: 0;
+      color: #5D5664;
+      font-style: normal;
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 22px;
+    }
+
+    & .rich-text {
+      width: 100%;
+
+      flex: 0.7 0 0%;
+      font-family: $primary_font_family;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 17px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+      color: #696F88;
+    }
+
+    & .bookcard-buy {
+      flex: 0;
+
+      & a {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 22px;
+        /* identical to box height */
+
+        text-decoration-line: underline;
+
+        color: var(--lib-color-primary-700);
+
+      }
+    }
+  }
+}
