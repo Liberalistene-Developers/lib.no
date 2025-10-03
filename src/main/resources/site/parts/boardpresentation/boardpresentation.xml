@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part>
+  <display-name i18n="parts.boardpresentation.name">Board presentation list</display-name>
+  <description i18n="parts.boardpresentation.description">
+    Display group list
+  </description>
+  <form>
+    <option-set name="presentation">
+      <label i18n="parts.boardpresentation.displaytype.label">Display type</label>
+      <expanded>true</expanded>
+      <occurrences minimum="1" maximum="1"/>
+      <help-text>You can select up to 1 options</help-text>
+      <options minimum="1" maximum="1">
+        <option name="hightlighted">
+          <label>Fremhevet/Beskrivelse</label>
+          <help-text>Select option for hightlighted/description</help-text>
+          <items>
+            <input name="reverseOrder" type="CheckBox">
+              <label i18n="parts.boardpresentation.reverseOrder.label">Høyre justert</label>
+              <config>
+                <alignment>right</alignment>
+              </config>
+            </input>
+            <input name="description" type="HtmlArea">
+              <label i18n="parts.boardpresentation.description.label">Beskrivelse</label>
+            </input>
+            <input name="memberHighlighted" type="ComboBox">
+              <label i18n="parts.boardpresentation.memberHighlighted.label">Fremhev første medlem</label>
+              <occurrences minimum="1" maximum="1"/>
+              <config>
+                <option value="no" i18n="mixin.background.standard.label">No</option>
+                <option value="yes" i18n="mixin.background.white.label">Yes (With image)</option>
+                <option value="noimage" i18n="mixin.background.white.label">Yes (No image)</option>
+              </config>
+              <default>no</default>
+            </input>
+          </items>
+        </option>
+        <option name="list">
+          <label>Enkel liste</label>
+          <help-text>Select items to show</help-text>
+          <items>
+          </items>
+        </option>
+      </options>
+    </option-set>
+    <option-set name="itemsSet">
+      <label i18n="parts.boardpresentation.memberlist.label">Members</label>
+      <expanded>true</expanded>
+      <occurrences minimum="1" maximum="1"/>
+      <help-text>You can select up to 1 options</help-text>
+      <options minimum="1" maximum="1">
+        <option name="manual">
+          <label>Manual selection</label>
+          <help-text>Select items to show</help-text>
+          <items>
+            <input name="items" type="ContentSelector">
+              <label i18n="parts.boardpresentation.articles.label">Group(s)</label>
+              <occurrences minimum="1" maximum="0"/>
+              <config>
+                <allowContentType>group</allowContentType>
+                <allowPath>/*/organisasjon/*</allowPath>
+                <allowPath>${site}/*/organisasjon/*</allowPath>
+                <allowPath>${site}/*</allowPath>
+                <allowPath>./*</allowPath>
+                <treeMode>false</treeMode>
+                <showStatus>true</showStatus>
+                <hideToggleIcon>true</hideToggleIcon>
+              </config>
+            </input>
+          </items>
+        </option>
+        <option name="query">
+          <label>Query selection</label>
+          <help-text>Select which query to use for items</help-text>
+          <items>
+            <mixin name="query" />
+          </items>
+        </option>
+      </options>
+    </option-set>
+    <field-set>
+      <label>Board name</label>
+      <items>
+        <input type="TextLine" name="boardname" >
+          <label i18n="parts.boardpresentation.boardname.label">Board name</label>
+          <default i18n="parts.boardpresentation.boardname.default">Styre</default>
+          <occurrences minimum="1" maximum="1"/>
+          <config/>
+        </input>
+      </items>
+    </field-set>
+    <field-set>
+      <label>How to show board leader</label>
+      <items>
+        <mixin name="imagesize" />
+        <mixin name="imagetype" />
+      </items>
+    </field-set>
+    <field-set>
+      <label>What to show</label>
+      <items>
+        <mixin name="showemail" />
+      </items>
+    </field-set>
+  </form>
+</part>

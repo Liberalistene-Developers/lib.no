@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part>
+  <display-name i18n="parts.articlelist.name">Article list</display-name>
+  <description i18n="parts.articlelist.description">
+    Display Article list
+  </description>
+  <form>
+    <mixin name="image" />
+    <input type="TextLine" name="title" >
+      <label i18n="parts.title.label">Title</label>
+      <default i18n="parts.title.default">Title</default>
+      <help-text i18n="parts.title.help-text">Input your title.</help-text>
+      <occurrences minimum="0" maximum="1"/>
+      <config/>
+    </input>
+    <option-set name="itemsSet">
+      <label i18n="checkOptionSet.label">Items</label>
+      <expanded>true</expanded>
+      <occurrences minimum="1" maximum="1"/>
+      <help-text>You can select up to 1 options</help-text>
+      <options minimum="1" maximum="1">
+        <option name="manual">
+          <label>Manual selection</label>
+          <help-text>Select items to show</help-text>
+          <items>
+            <input name="items" type="ContentSelector">
+              <label i18n="parts.articlelist.articles.label">Article(s)</label>
+              <occurrences minimum="1" maximum="0"/>
+              <config>
+                <allowContentType>article</allowContentType>
+                <allowPath>/*/artikler/*</allowPath>
+                <allowPath>${site}/*/artikler/*</allowPath>
+                <allowPath>${site}/*</allowPath>
+                <allowPath>./*</allowPath>
+                <treeMode>false</treeMode>
+                <showStatus>true</showStatus>
+                <hideToggleIcon>true</hideToggleIcon>
+              </config>
+            </input>
+          </items>
+        </option>
+        <option name="query">
+          <label>Query selection</label>
+          <help-text>Select which query to use for items</help-text>
+          <items>
+            <mixin name="query" />
+          </items>
+        </option>
+      </options>
+    </option-set>
+    <field-set>
+      <label i18n="parts.articlelist.featured.displayname">Featured</label>
+      <items>
+        <item-set name="featured">
+          <label i18n="parts.articlelist.featured.label">Featured</label>
+          <occurrences minimum="0" maximum="0"/>
+          <items>
+            <input name="item" type="Long">
+              <label i18n="parts.articlelist.featured.item.label">Artikkel nr:</label>
+              <occurrences minimum="1" maximum="1"/>
+              <config>
+                <min>1</min>
+              </config>
+            </input>
+            <input name="style" type="ComboBox">
+              <label i18n="parts.articlelist.featured.item.label">Ingress til:</label>
+              <occurrences minimum="1" maximum="1"/>
+              <config>
+                <option value="right" i18n="mixin.background.standard.label">Right</option>
+                <option value="left" i18n="mixin.background.white.label">Left</option>
+              </config>
+              <default>right</default>
+            </input>
+            <input  name="showDate" type="CheckBox">
+              <label i18n="mixin.showdescription.label">Show date</label>
+              <default>checked</default>
+              <config>
+                <alignment>right</alignment>
+              </config>
+            </input>
+          </items>
+        </item-set>
+      </items>
+    </field-set>
+    <mixin name="hideingress" />
+    <mixin name="displaytype" />
+    <mixin name="readmore" />
+    <mixin name="loadmore" />
+  </form>
+</part>

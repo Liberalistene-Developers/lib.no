@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part>
+  <display-name i18n="parts.candidatepage.displayname">Candidate</display-name>
+  <description i18n="parts.candidatepage.part.description">
+    Candidate Page
+  </description>
+  <form>
+    <field-set>
+      <label i18n="parts.candidatepage.artimage.displayname">Art Image</label>
+      <items>
+        <mixin name="image" />
+      </items>
+    </field-set>
+  </form>
+</part>

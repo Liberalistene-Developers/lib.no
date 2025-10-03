@@ -1,0 +1,35 @@
+import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
+import type {PartComponent} from '@enonic-types/core';
+import {get as getContent} from '/lib/xp/content';
+import {pageUrl} from '/lib/xp/portal';
+
+interface JoinConfig {
+  buttonText?: string;
+  url?: string;
+  message?: string;
+  backMessage?: string;
+  image?: string;
+  frontPlacement?: string;
+}
+
+export const joinProcessor: ComponentProcessor<'lib.no:join'> = ({component}) => {
+  const partComponent = component as unknown as PartComponent;
+  const config = partComponent.config as JoinConfig;
+
+  const urlContent = config?.url ? getContent({key: config.url}) : null;
+
+  return {
+    buttonText: config?.buttonText,
+    url: urlContent ? pageUrl({path: urlContent._path}) : undefined,
+    // TODO: Add back when /lib/shared/html is migrated
+    // message: processHtml(config?.message || ''),
+    // backMessage: processHtml(config?.backMessage || ''),
+    message: config?.message || '', // Temporarily unprocessed
+    backMessage: config?.backMessage || '', // Temporarily unprocessed
+    // TODO: Add back when /lib/shared/image is migrated
+    // image: imageUrl(config?.image, 'square(200)'),
+    image: config?.image, // Temporarily unprocessed
+    className: 'medium-margin',
+    frontPlacement: config?.frontPlacement
+  };
+};

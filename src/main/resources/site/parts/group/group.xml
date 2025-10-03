@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part>
+  <display-name>Group</display-name>
+  <description>
+    Display Group
+  </description>
+  <form>
+    <mixin name="headerposition" />
+    <mixin name="headercolor" />
+    <mixin name="ingressinimage" />
+    <mixin name="titleinimage" />
+    <field-set>
+      <label>How to show board members</label>
+      <items>
+        <mixin name="imagesize" />
+        <mixin name="imagetype" />
+      </items>
+    </field-set>
+  </form>
+</part>
