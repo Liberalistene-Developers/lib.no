@@ -77,10 +77,7 @@ export const ImageBlock: React.FC<ImageBlockProps> = ({
                     titleClassName === 'treequart' && 'mobile:text-[37.5px]',
                     '[&>span:not(:first-child):not(.nospace)]:before:content-[" "]',
                     'mobile:[&>span.nospace]:before:content-["-"]',
-                    '[&_.purple]:text-primary-700',
-                    '[&_.yellow]:text-purple-anchor',
-                    '[&_.light]:text-button-100',
-                    '[&_.white]:text-primary-700'
+                    overlay && isPurpleOverlay ? '[&>span.purple]:!text-white [&>span.light]:!text-white [&_.yellow]:text-purple-anchor [&_.white]:text-primary-700' : '[&_.purple]:text-primary-700 [&_.yellow]:text-purple-anchor [&_.light]:text-button-100 [&_.white]:text-primary-700'
                   )}>
                     {title.map(({title: titleText, titleColor, titleNoSpace}, index) => (
                       <span key={titleText || `titlespan-${index}`} className={cx(titleColor, {nospace: titleNoSpace})}>
@@ -94,14 +91,16 @@ export const ImageBlock: React.FC<ImageBlockProps> = ({
                 <div className={cx(
                   'text-[35px] font-medium leading-[42px] mt-[10px] [&>p]:mt-0 [&>p]:mb-0',
                   'mobile:text-[30px] mobile:text-ellipsis mobile:whitespace-nowrap',
-                  ingressColor === 'purple' && 'text-primary-700 [&_.normal]:text-button-100',
-                  ingressColor === 'yellow' && 'text-purple-anchor [&_.normal]:text-primary-700',
-                  ingressColor === 'light' && 'text-white',
-                  ingressColor === 'standard' && 'text-button-100',
-                  '[&_.purple]:text-primary-700',
-                  '[&_.yellow]:text-purple-anchor',
-                  '[&_.light]:text-button-100',
-                  '[&_.white]:text-primary-700'
+                  overlay && isPurpleOverlay ? 'text-white' : cx(
+                    ingressColor === 'purple' && 'text-primary-700 [&_.normal]:text-button-100',
+                    ingressColor === 'yellow' && 'text-purple-anchor [&_.normal]:text-primary-700',
+                    ingressColor === 'light' && 'text-white',
+                    ingressColor === 'standard' && 'text-button-100',
+                    '[&_.purple]:text-primary-700',
+                    '[&_.yellow]:text-purple-anchor',
+                    '[&_.light]:text-button-100',
+                    '[&_.white]:text-primary-700'
+                  )
                 )} dangerouslySetInnerHTML={{__html: ingress}} />
               )}
             </div>

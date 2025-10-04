@@ -83,10 +83,12 @@ export const BoardPresentation: React.FC<BoardPresentationProps> = ({
                 {boardTitle}
               </div>
               {board.map(({itemId, role, name, email}) => (
-                <div key={itemId} className="flex text-[18px] leading-[22px] text-primary-300 w-full [&_.member-item-email]:mb-5">
-                  <span className="font-medium w-[40%] after:content-[':_']">{role}</span><span className="w-[60%]">{name}</span>
+                <div key={itemId} className="flex flex-col text-[18px] leading-[22px] text-primary-300 w-full">
+                  <div className="flex w-full">
+                    <span className="font-medium w-[40%] after:content-[':_']">{role}</span><span className="w-[60%]">{name}</span>
+                  </div>
                   {showEmail === 'all' && email && (
-                    <div className="member-item-email">
+                    <div className="member-item-email mb-5">
                       <a href={`mailto:${email}`} rel="noreferrer">
                         {email}
                       </a>

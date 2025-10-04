@@ -27,14 +27,14 @@ export const Card: React.FC<CardProps> = ({
   url = ''
 }) => {
   return (
-    <div className="bg-background-700 rounded w-full shadow-[0px_1px_40px_3px_rgba(74,16,74,0.11)]">
+    <div className="bg-white rounded-[3px] w-full shadow-[0px_1px_40px_3px_rgba(74,16,74,0.11)]">
       {image && (
         <div>
           <a href={url} title={title}>
             <img
               src={image.url}
               alt={image.alternativeText || image.displayName || title || (image.url && image.url.split('?')[0].split('/').pop())}
-              className="rounded-t w-full"
+              className="rounded-t-[3px] w-full"
             />
           </a>
           {children}

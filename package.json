@@ -37,7 +37,7 @@
     "test": "jest --no-cache",
     "rewatch": "./gradlew clean deploy && ./gradlew -t deploy",
     "watch": "./gradlew -t deploy",
-    "storybook": "storybook dev -s ../public -p 6006",
+    "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "postinstall": "husky install"
   },
@@ -61,6 +61,7 @@
     "url-parse": "^1.5.10"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.27.1",
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
     "@enonic-types/global": "^7",
@@ -94,14 +95,12 @@
     "@eslint/js": "^9.33.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
-    "@storybook/addon-actions": "7.0.27",
-    "@storybook/addon-essentials": "7.0.27",
-    "@storybook/addon-links": "7.0.27",
-    "@storybook/addon-styling": "^1.3.2",
-    "@storybook/addon-viewport": "^7.0.27",
-    "@storybook/react": "7.0.27",
-    "@storybook/react-webpack5": "^7.0.27",
+    "@storybook/addon-docs": "^9.1.10",
+    "@storybook/addon-links": "9.1.10",
+    "@storybook/addon-styling-webpack": "^2.0.0",
+    "@storybook/react-webpack5": "^9.1.10",
     "@swc/core": "^1",
+    "@tailwindcss/postcss": "^4.1.14",
     "@types/css-modules": "^1",
     "@types/jest": "^30.0.0",
     "@types/react": "^18",
@@ -111,21 +110,25 @@
     "browserslist-config-enonic": "^1.0.8",
     "concurrently": "^9.2.0",
     "css-loader": "^7",
+    "esbuild": "^0.25.10",
     "eslint": "^9.33.0",
-    "glob": "^11",
+    "eslint-plugin-storybook": "9.1.10",
+    "glob": "^8.1.0",
     "husky": "^8.0.3",
     "jest": "^30.2.0",
     "jest-environment-jsdom": "^30.0.5",
     "last-release-git": "^0.0.3",
     "mini-css-extract-plugin": "^2",
     "postcss": "^8.5.6",
+    "postcss-loader": "^8.2.0",
     "rimraf": "^6",
     "sass": "^1",
     "sass-loader": "^16",
     "semantic-release": "^24.2.9",
-    "storybook": "^7.0.27",
+    "storybook": "^9.1.10",
     "tailwindcss": "^4.1.14",
     "ts-jest": "^29.4.1",
+    "ts-loader": "^9.5.4",
     "ts-node": "^10.9.2",
     "tslib": "^2",
     "tsup": "^8",
@@ -134,6 +137,11 @@
     "typescript-plugin-css-modules": "^5",
     "webpack": "^5",
     "webpack-cli": "^5"
+  },
+  "overrides": {
+    "glob-promise": {
+      "glob": "^8.1.0"
+    }
   },
   "browserslist": [
     "extends browserslist-config-enonic"
