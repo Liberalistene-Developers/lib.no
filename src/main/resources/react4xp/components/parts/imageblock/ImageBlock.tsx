@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import {Image} from '../../shared/Image';
+import {Image} from '../../common/Image';
 
 interface TitleItem {
   title?: string;

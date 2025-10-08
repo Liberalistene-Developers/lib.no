@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {ImageBlock} from '../imageblock/ImageBlock';
-import {AuthorLink} from '../../shared/AuthorLink';
+import {AuthorLink} from '../../common/AuthorLink';
 
 interface Author {
   authorID?: string;

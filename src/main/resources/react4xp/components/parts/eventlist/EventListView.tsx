@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import {Image} from '../../shared/Image';
-import {EventListItem} from '../../shared/EventListItem';
-import {EventCard} from '../../shared/EventCard';
+import {Image} from '../../common/Image';
+import {EventListItem} from '../../common/EventListItem';
+import {EventCard} from '../../common/EventCard';
 
 interface EventItem {
   id?: string;

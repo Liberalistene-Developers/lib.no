@@ -56,7 +56,7 @@ const config: StorybookConfig = {
     config.resolve.alias = {
       ...config.resolve.alias,
       '@components': path.resolve(__dirname, '../src/main/resources/react4xp/components'),
-      '@shared': path.resolve(__dirname, '../src/main/resources/react4xp/components/shared'),
+      '@common': path.resolve(__dirname, '../src/main/resources/react4xp/components/common'),
       '@lib': path.resolve(__dirname, '../src/main/resources/lib')
     };
 

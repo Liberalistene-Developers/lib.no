@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import {AuthorLink} from '../../shared/AuthorLink';
+import {AuthorLink} from '../../common/AuthorLink';
 
 interface Speaker {
   personID?: string;

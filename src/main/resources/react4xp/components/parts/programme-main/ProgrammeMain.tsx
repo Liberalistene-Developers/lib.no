@@ -2,7 +2,7 @@ import * as React from 'react';
 import slugify from 'react-slugify';
 
 import {ProgrammeSection} from '../programme-section/ProgrammeSection';
-import {TableOfContent} from '../../shared/TableOfContent';
+import {TableOfContent} from '../../common/TableOfContent';
 
 interface SectionType {
   key?: string;

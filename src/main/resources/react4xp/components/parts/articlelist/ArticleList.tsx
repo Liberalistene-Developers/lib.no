@@ -3,7 +3,7 @@ import * as React from 'react';
 import {buildQueryArticleList, extractArticleList} from '../../../../headless/helpers/articleListRequests';
 
 import {ArticleListView} from './ArticleListView';
-import {DynamicLoader} from '../../shared/DynamicLoader';
+import {DynamicLoader} from '../../common/DynamicLoader';
 
 interface ArticleItem {
   id?: string;

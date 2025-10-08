@@ -2,7 +2,7 @@ import * as React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEnvelope, faPhone} from '@fortawesome/free-solid-svg-icons';
 
-import {Image} from '../../shared/Image';
+import {Image} from '../../common/Image';
 
 interface ImageType {
   url?: string;

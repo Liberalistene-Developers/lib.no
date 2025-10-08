@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import {GridItem} from '../../shared/GridItem';
-import {Image} from '../../shared/Image';
-import {ListItem} from '../../shared/ListItem';
+import {GridItem} from '../../common/GridItem';
+import {Image} from '../../common/Image';
+import {ListItem} from '../../common/ListItem';
 
 interface PersonItem {
   itemID?: string;

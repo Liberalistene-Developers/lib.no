@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import {Image} from '../../shared/Image';
-import {ArticleListItem} from '../../shared/ArticleListItem';
-import {ArticleCard} from '../../shared/ArticleCard';
-import type {ItemData} from '../../shared/GridItem';
+import {Image} from '../../common/Image';
+import {ArticleListItem} from '../../common/ArticleListItem';
+import {ArticleCard} from '../../common/ArticleCard';
+import type {ItemData} from '../../common/GridItem';
 
 interface ArticleItem {
   id?: string;

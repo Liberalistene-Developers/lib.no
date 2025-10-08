@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {CandidatePresentationItem} from '../../shared/CandidatePresentationItem';
+import {CandidatePresentationItem} from '../../common/CandidatePresentationItem';
 
 interface CandidateItem {
   itemID?: string;

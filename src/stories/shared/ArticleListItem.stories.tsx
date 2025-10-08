@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { ArticleListItem } from '../../main/resources/react4xp/components/shared/ArticleListItem';
+import { ArticleListItem } from '../../main/resources/react4xp/components/common/ArticleListItem';
 
 const meta = {
   title: 'Shared/ArticleListItem',

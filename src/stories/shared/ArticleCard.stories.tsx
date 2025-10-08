@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { ArticleCard } from '../../main/resources/react4xp/components/shared/ArticleCard';
+import { ArticleCard } from '../../main/resources/react4xp/components/common/ArticleCard';
 
 const meta = {
   title: 'Shared/ArticleCard',

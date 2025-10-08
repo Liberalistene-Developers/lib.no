@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import {ImageBlock} from '../imageblock/ImageBlock';
 import {Schedules} from '../organizational-position/Schedule';
-import {EventPlace} from '../../shared/EventPlace';
-import {EventTime} from '../../shared/EventTime';
-import {MapLoader} from '../../shared/MapLoader';
+import {EventPlace} from '../../common/EventPlace';
+import {EventTime} from '../../common/EventTime';
+import {MapLoader} from '../../common/MapLoader';
 
 interface ImageType {
   url?: string;

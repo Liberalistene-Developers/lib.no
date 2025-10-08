@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {ImageBlock} from '../imageblock/ImageBlock';
-import {PersonListItem} from '../../shared/PersonListItem';
+import {PersonListItem} from '../../common/PersonListItem';
 
 interface BoardMember {
   itemId?: string;

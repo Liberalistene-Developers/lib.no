@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {Faq} from '../../shared/Faq';
+import {Faq} from '../../common/Faq';
 
 interface FaqItemProps {
   itemID?: string;

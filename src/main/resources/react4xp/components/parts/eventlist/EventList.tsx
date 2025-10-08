@@ -3,7 +3,7 @@ import * as React from 'react';
 import {buildQueryEventList, extractEventList} from '../../../../headless/helpers/eventListRequests';
 
 import {EventListView} from './EventListView';
-import {DynamicLoader} from '../../shared/DynamicLoader';
+import {DynamicLoader} from '../../common/DynamicLoader';
 
 interface EventItem {
   id?: string;

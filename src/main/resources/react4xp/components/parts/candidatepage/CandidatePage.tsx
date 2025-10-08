@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {FancyCandidateImage} from '../candidateblock/FancyCandidateImage';
-import {Image} from '../../shared/Image';
+import {Image} from '../../common/Image';
 
 interface ImageType {
   url?: string;

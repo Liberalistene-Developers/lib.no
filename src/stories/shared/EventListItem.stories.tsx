@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { EventListItem } from '../../main/resources/react4xp/components/shared/EventListItem';
+import { EventListItem } from '../../main/resources/react4xp/components/common/EventListItem';
 
 const meta = {
   title: 'Shared/EventListItem',
