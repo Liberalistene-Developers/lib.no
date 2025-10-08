@@ -52,7 +52,6 @@ export const ArticleList: React.FC<ArticleListProps> = ({
   image,
   shortDescription,
   items = [],
-  tags = [],
   title,
   showImage,
   imageType,
@@ -77,7 +76,6 @@ export const ArticleList: React.FC<ArticleListProps> = ({
         image={image}
         shortDescription={shortDescription}
         items={items}
-        tags={tags}
         title={title}
         showImage={showImage}
         imageSize={imageSize}
@@ -116,7 +114,6 @@ export const ArticleList: React.FC<ArticleListProps> = ({
           image={image}
           shortDescription={shortDescription}
           items={list}
-          tags={tags}
           title={title}
           showImage={showImage}
           imageSize={imageSize}

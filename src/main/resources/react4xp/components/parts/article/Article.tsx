@@ -41,9 +41,7 @@ export const Article: React.FC<ArticleProps> = ({
   ingress,
   ingressInImage = true,
   text,
-  _tags,
-  datePublished,
-  _description = ''
+  datePublished
 }) => (
   <div className="w-full [&_figure]:m-0 [&_figure_img]:max-w-full">
     <ImageBlock

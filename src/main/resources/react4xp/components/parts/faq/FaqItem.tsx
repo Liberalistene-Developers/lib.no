@@ -6,7 +6,6 @@ interface FaqItemProps {
   itemID?: string;
   answer?: string;
   question?: string;
-  expandable?: boolean;
   expanded?: boolean;
   anchorText?: string;
 }
@@ -15,7 +14,6 @@ export const FaqItem: React.FC<FaqItemProps> = ({
   itemID,
   answer,
   question,
-  expandable = false,
   expanded = true,
   anchorText
 }) => (
@@ -25,7 +23,6 @@ export const FaqItem: React.FC<FaqItemProps> = ({
         itemID={itemID}
         answer={answer}
         question={question}
-        expandable={expandable}
         expanded={expanded}
         anchorText={anchorText}
         Tag={'h2' as 'h2' | 'h3'}

@@ -43,13 +43,7 @@ export const EventList: React.FC<EventListProps> = ({
   image,
   shortDescription,
   items = [],
-  tags = [],
   title,
-  showImage,
-  imageType,
-  imageSize,
-  readMore = '',
-  readMoreEnabled = false,
   loadMoreEnabled = false,
   loadMore = 'Load more',
   apiUrl = '',
@@ -67,13 +61,7 @@ export const EventList: React.FC<EventListProps> = ({
         image={image}
         shortDescription={shortDescription}
         items={items}
-        tags={tags}
         title={title}
-        showImage={showImage}
-        imageSize={imageSize}
-        imageType={imageType}
-        readMore={readMore}
-        readMoreEnabled={readMoreEnabled}
         noIngress={noIngress}
       />
     );
@@ -104,13 +92,7 @@ export const EventList: React.FC<EventListProps> = ({
           image={image}
           shortDescription={shortDescription}
           items={list}
-          tags={tags}
           title={title}
-          showImage={showImage}
-          imageSize={imageSize}
-          imageType={imageType}
-          readMore={readMore}
-          readMoreEnabled={readMoreEnabled}
           noIngress={noIngress}
         >
           {readMoreButton}

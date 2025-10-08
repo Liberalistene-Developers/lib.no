@@ -11,14 +11,12 @@ interface FaqListItem {
 
 interface FaqListProps {
   items?: FaqListItem[];
-  expandable?: boolean;
   expanded?: boolean;
   anchorText?: string;
 }
 
 export const FaqList: React.FC<FaqListProps> = ({
   items = [],
-  expandable = false,
   expanded = true,
   anchorText
 }) => {
@@ -31,7 +29,6 @@ export const FaqList: React.FC<FaqListProps> = ({
             itemID={itemID}
             answer={answer}
             question={question}
-            expandable={expandable}
             expanded={expanded}
             anchorText={anchorText}
             Tag="h3"

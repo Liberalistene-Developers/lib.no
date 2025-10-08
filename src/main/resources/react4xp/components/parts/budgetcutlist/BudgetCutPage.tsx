@@ -35,7 +35,6 @@ export const BudgetCutPage: React.FC<BudgetCutPageProps> = ({
   percent,
   sumary = '',
   labelSumCut,
-  labelBudget,
   labelTitle,
   labelPercent,
   labelCut,
@@ -56,7 +55,6 @@ export const BudgetCutPage: React.FC<BudgetCutPageProps> = ({
         percent={percent}
         sumary={sumary}
         labelSumCut={labelSumCut}
-        labelBudget={labelBudget}
         labelTitle={labelTitle}
         labelPercent={labelPercent}
         labelCut={labelCut}

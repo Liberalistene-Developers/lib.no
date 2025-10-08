@@ -39,7 +39,6 @@ export const BudgetCutItem: React.FC<BudgetCutItemProps> = ({
   sumary = '',
   title = '',
   labelSumCut,
-  labelBudget,
   labelTitle,
   labelPercent,
   labelCut,
@@ -68,7 +67,6 @@ export const BudgetCutItem: React.FC<BudgetCutItemProps> = ({
         sumary={sumary}
         title={title}
         labelSumCut={labelSumCut}
-        labelBudget={labelBudget}
         labelTitle={labelTitle}
         labelPercent={labelPercent}
         labelCut={labelCut}
