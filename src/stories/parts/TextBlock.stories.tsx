@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { TextBlock } from '../../main/resources/react4xp/components/parts/textblock/TextBlock';
+import { TextBlock } from '@parts/textblock/TextBlock';
 
 const meta = {
   title: 'Parts/TextBlock',

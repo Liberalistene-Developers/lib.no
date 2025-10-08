@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { CandidatePresentationList } from '../../main/resources/react4xp/components/parts/candidatepresentation/CandidatePresentationList';
+import { CandidatePresentationList } from '@parts/candidatepresentation/CandidatePresentationList';
 
 const meta = {
   title: 'Parts/CandidatePresentationList',

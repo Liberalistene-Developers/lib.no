@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Menu } from '../../main/resources/react4xp/components/parts/submenu/Menu';
+import { Menu } from '@parts/submenu/Menu';
 
 const meta = {
   title: 'Parts/Menu',

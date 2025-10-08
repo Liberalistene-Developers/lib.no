@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { IntroBlock } from '../../main/resources/react4xp/components/parts/introblock/IntroBlock';
+import { IntroBlock } from '@parts/introblock/IntroBlock';
 
 const meta = {
   title: 'Parts/IntroBlock',

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { ProgrammeMain } from '../../main/resources/react4xp/components/parts/programme-main/ProgrammeMain';
+import { ProgrammeMain } from '@parts/programme-main/ProgrammeMain';
 
 const meta = {
   title: 'Parts/ProgrammeMain',

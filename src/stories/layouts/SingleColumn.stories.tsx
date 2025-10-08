@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { SingleColumnWrapper } from './LayoutWrappers';
-import { Button } from '../../main/resources/react4xp/components/parts/button/Button';
-import { TextBlock } from '../../main/resources/react4xp/components/parts/textblock/TextBlock';
+import { Button } from '@parts/button/Button';
+import { TextBlock } from '@parts/textblock/TextBlock';
 
 const meta = {
   title: 'Layouts/SingleColumn',

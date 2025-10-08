@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Image } from '../../main/resources/react4xp/components/common/Image';
+import { Image } from '@common/Image';
 
 const meta = {
   title: 'Shared/Image',

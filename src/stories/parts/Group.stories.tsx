@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Group } from '../../main/resources/react4xp/components/parts/group/Group';
+import { Group } from '@parts/group/Group';
 
 const meta = {
   title: 'Parts/Group',

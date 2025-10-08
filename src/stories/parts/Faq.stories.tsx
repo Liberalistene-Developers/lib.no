@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { FaqItem } from '../../main/resources/react4xp/components/parts/faq/FaqItem';
+import { FaqItem } from '@parts/faq/FaqItem';
 
 const meta = {
   title: 'Parts/Faq',

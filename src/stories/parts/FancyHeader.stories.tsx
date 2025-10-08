@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { FancyHeader } from '../../main/resources/react4xp/components/parts/fancyheader/FancyHeader';
+import { FancyHeader } from '@parts/fancyheader/FancyHeader';
 
 const meta = {
   title: 'Parts/FancyHeader',

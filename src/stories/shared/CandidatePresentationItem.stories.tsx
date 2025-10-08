@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { CandidatePresentationItem } from '../../main/resources/react4xp/components/common/CandidatePresentationItem';
+import { CandidatePresentationItem } from '@common/CandidatePresentationItem';
 
 const meta = {
   title: 'Shared/CandidatePresentationItem',

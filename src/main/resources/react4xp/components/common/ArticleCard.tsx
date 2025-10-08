@@ -13,7 +13,7 @@ interface AuthorData {
   image?: ImageData;
 }
 
-interface ItemData {
+export interface ItemData {
   image?: ImageData;
   authors?: AuthorData[];
   name?: string;
@@ -22,7 +22,7 @@ interface ItemData {
   datePublished?: string;
 }
 
-interface ArticleCardProps {
+export interface ArticleCardProps {
   children?: React.ReactNode;
   childrenLast?: boolean;
   className?: string;

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Schedule } from '../../main/resources/react4xp/components/parts/organizational-position/Schedule';
+import { Schedule } from '@parts/organizational-position/Schedule';
 
 const meta = {
   title: 'Parts/Schedule',

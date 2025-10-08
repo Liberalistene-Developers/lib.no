@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Person } from '../../main/resources/react4xp/components/parts/person/Person';
+import { Person } from '@parts/person/Person';
 
 const meta = {
   title: 'Parts/Person',

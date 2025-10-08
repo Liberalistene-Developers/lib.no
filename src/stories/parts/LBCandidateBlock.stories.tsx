@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { LBCandidateBlock } from '../../main/resources/react4xp/components/parts/candidateblock/LBCandidateBlock';
+import { LBCandidateBlock } from '@parts/candidateblock/LBCandidateBlock';
 
 const meta = {
   title: 'Parts/LBCandidateBlock',

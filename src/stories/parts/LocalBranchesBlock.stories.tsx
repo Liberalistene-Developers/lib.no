@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { LocalBranchesBlock } from '../../main/resources/react4xp/components/parts/localbranches/LocalBranchesBlock';
+import { LocalBranchesBlock } from '@parts/localbranches/LocalBranchesBlock';
 
 const meta = {
   title: 'Parts/LocalBranchesBlock',

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { MissionsBlock } from '../../main/resources/react4xp/components/parts/missionsblock/MissionsBlock';
+import { MissionsBlock } from '@parts/missionsblock/MissionsBlock';
 
 const meta = {
   title: 'Parts/MissionsBlock',

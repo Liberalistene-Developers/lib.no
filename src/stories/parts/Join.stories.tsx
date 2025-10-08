@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Join } from '../../main/resources/react4xp/components/parts/join/Join';
+import { Join } from '@parts/join/Join';
 
 const meta = {
   title: 'Parts/Join',

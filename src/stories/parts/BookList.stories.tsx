@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { BookList } from '../../main/resources/react4xp/components/parts/booklist/BookList';
+import { BookList } from '@parts/booklist/BookList';
 
 const meta = {
   title: 'Parts/BookList',

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { FancyCandidateImage } from '../../main/resources/react4xp/components/parts/candidateblock/FancyCandidateImage';
+import { FancyCandidateImage } from '@parts/candidateblock/FancyCandidateImage';
 
 const meta = {
   title: 'Parts/FancyCandidateImage',

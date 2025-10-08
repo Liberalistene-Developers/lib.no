@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { ArticleCard } from '@common/ArticleCard';
+import { ArticleCard, type ItemData } from '@common/ArticleCard';
 
 const meta = {
   title: 'Shared/ArticleCard',
@@ -19,7 +19,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const sampleItem = {
+const sampleItem: ItemData = {
   image: {
     url: 'https://picsum.photos/400/300'
   },
@@ -29,7 +29,7 @@ const sampleItem = {
   url: '#',
   authors: [
     {
-      authorID: 1,
+      authorID: '1',
       personUrl: '#',
       person: 'Ronny Skjæveland',
       image: {
