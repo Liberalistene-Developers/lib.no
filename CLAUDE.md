@@ -14,7 +14,7 @@ This is the official homepage for Liberalistene (Norwegian political party), bui
 - **Framework:** React4xp (v6.0.2) - integrates React with Enonic XP
 - **Frontend:** React 18, TypeScript, Tailwind CSS v4
 - **Build System:** Gradle + tsup + esbuild
-- **Node Version:** 22.15.1+ (see .nvmrc)
+- **Node Version:** 18.20.5 (see .nvmrc) - Required for React4xp v6.0.2 compatibility
 - **Java Version:** 11
 - **Component Development:** Storybook 9.1
 - **Mapping:** Leaflet/react-leaflet
@@ -61,7 +61,7 @@ lib.no/
 
 ### Prerequisites
 
-1. Install Node.js 22.15.1+ (use nvm: `nvm use`)
+1. Install Node.js 18.20.5 (use nvm: `nvm use`)
 2. Install Java 11
 3. Install [Enonic CLI](https://developer.enonic.com/start)
 
@@ -250,9 +250,14 @@ This project uses environment variables for configuration. Check with the team f
 
 1. **Clean build:** `npm run clean && npm install`
 2. **Clear Gradle cache:** `./gradlew clean --refresh-dependencies`
-3. **Check Node version:** Should be 22.15.1+
+3. **Check Node version:** Should be 18.20.5 (run `nvm use`)
 4. **Type check:** `npm run check:types` to verify TypeScript compilation
 5. **Lint:** `npm run lint` to check for code issues
+
+**Important:** React4xp v6.0.2 requires Node 18.x due to dependency
+compatibility issues with `filemanager-webpack-plugin` and `del`.
+Modern Node versions (20+, 22+) will fail during the build process.
+This will be resolved in future React4xp versions.
 
 ### React4xp v6 Architecture
 
