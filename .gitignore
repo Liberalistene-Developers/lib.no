@@ -94,6 +94,12 @@ crashlytics-build.properties
 # Node modules
 node_modules/
 
+# ESLint cache
+.eslintcache
+
+# Log files
+*.log
+
 # Visual studio code project files
 bin/
 .vscode/
