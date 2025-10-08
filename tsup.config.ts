@@ -1,7 +1,9 @@
 // import { polyfillNode } from 'esbuild-plugin-polyfill-node';
-import {globSync} from 'glob';
+import glob from 'glob';
 // import {print} from 'q-i';
 import {defineConfig, type Options} from 'tsup';
+
+const globSync = glob.sync;
 
 
 interface MyOptions extends Options {

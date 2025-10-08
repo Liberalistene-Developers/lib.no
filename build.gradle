@@ -11,7 +11,7 @@ repositories {
 
 node {
     download = true
-    version = '22.15.1'
+    version = '18.20.5'
 }
 
 app {
