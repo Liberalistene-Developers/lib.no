@@ -29,7 +29,6 @@ interface GroupProps {
   shortDescription?: string;
   description?: string;
   board?: BoardMember[];
-  tags?: unknown[];
 }
 
 export const Group: React.FC<GroupProps> = ({
@@ -44,8 +43,7 @@ export const Group: React.FC<GroupProps> = ({
   informationLabel,
   shortDescription,
   description = '',
-  board,
-  tags
+  board
 }) => (
   <div>
     {image && (

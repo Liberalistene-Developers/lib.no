@@ -14,7 +14,6 @@ interface JoinProps {
   image?: ImageType | null;
   url?: string;
   buttonText?: string;
-  className?: string;
   frontPlacement?: string;
 }
 
@@ -24,7 +23,6 @@ export const Join: React.FC<JoinProps> = ({
   image = null,
   url,
   buttonText,
-  className,
   frontPlacement
 }) => (
   <div className="relative h-[300px] w-full my-[60px]">

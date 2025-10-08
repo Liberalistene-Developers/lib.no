@@ -12,7 +12,6 @@ interface PersonProps {
   shortDescription?: string;
   email?: string;
   emailPrefix?: string;
-  tags?: string[];
 }
 
 export const Person: React.FC<PersonProps> = ({
@@ -21,8 +20,7 @@ export const Person: React.FC<PersonProps> = ({
   description,
   shortDescription,
   email,
-  emailPrefix,
-  tags
+  emailPrefix
 }) => (
   <div className="mt-10">
     <h1 title={title}>{title}</h1>

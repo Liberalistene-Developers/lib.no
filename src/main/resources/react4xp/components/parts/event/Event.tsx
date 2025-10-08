@@ -16,7 +16,6 @@ interface LocationType {
 
 interface EventProps {
   date?: string;
-  editMode?: boolean;
   time?: string;
   headerColor?: string;
   headerPosition?: string;
@@ -27,7 +26,6 @@ interface EventProps {
   image?: ImageType;
   ingress?: string;
   ingressInImage?: boolean;
-  tags?: unknown[];
   informationLabel?: string;
   moreInformationLabel?: string;
   locationLabel?: string;
@@ -43,7 +41,6 @@ interface EventProps {
 
 export const Event: React.FC<EventProps> = ({
   date,
-  editMode = false,
   time,
   headerColor,
   headerPosition,
@@ -54,7 +51,6 @@ export const Event: React.FC<EventProps> = ({
   image,
   ingress = '',
   ingressInImage,
-  tags,
   informationLabel,
   moreInformationLabel,
   locationLabel,

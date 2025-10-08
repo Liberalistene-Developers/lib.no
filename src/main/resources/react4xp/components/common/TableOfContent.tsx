@@ -6,10 +6,9 @@ const createLink = (title: string): string => `#${slugify(title)}`.trim();
 interface ContentLinkProps {
   title?: string;
   parentTitle?: string;
-  className?: string;
 }
 
-const ContentLink: React.FC<ContentLinkProps> = ({ title = '', parentTitle = '', className }) => (
+const ContentLink: React.FC<ContentLinkProps> = ({ title = '', parentTitle = '' }) => (
   <a href={createLink(`${parentTitle} ${title}`)} title={title}>{title}</a>
 );
 
@@ -22,17 +21,13 @@ interface PartItem {
 interface SectionProps {
   title?: string;
   parentTitle?: string;
-  description?: string;
   parts?: PartItem[];
-  tags?: string[];
 }
 
 const Section: React.FC<SectionProps> = ({
   title = '',
   parentTitle = '',
-  description,
-  parts = [],
-  tags
+  parts = []
 }) => {
   const displayParts = parts.filter(({ type }) => type === 'lib.no:programme-part');
 

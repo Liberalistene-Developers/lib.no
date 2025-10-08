@@ -18,7 +18,6 @@ interface QuoteProps {
   authors?: QuoteAuthor[];
   qoute?: string; // Note: misspelled in original code
   description?: string;
-  tags?: string[];
 }
 
 export const Quote: React.FC<QuoteProps> = ({
@@ -26,8 +25,7 @@ export const Quote: React.FC<QuoteProps> = ({
   image,
   authors = [],
   qoute = '',
-  description = '',
-  tags = []
+  description = ''
 }) => (
   <div>
     <h1 title={title}>{title}</h1>

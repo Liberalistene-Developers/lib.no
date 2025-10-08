@@ -8,7 +8,6 @@ interface LocationData {
 }
 
 interface EventListItemProps {
-  children?: React.ReactNode;
   date?: string;
   location?: LocationData;
   locationType?: 'place' | 'virtual';
@@ -22,7 +21,6 @@ interface EventListItemProps {
  * Primary Image holder for solution.
  */
 export const EventListItem: React.FC<EventListItemProps> = ({
-  children,
   date,
   location = { address: '' },
   locationType = 'place',

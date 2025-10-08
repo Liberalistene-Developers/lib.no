@@ -6,7 +6,6 @@ interface MenuItemType {
   itemID?: string;
   title?: string;
   url?: string;
-  current?: boolean | string;
 }
 
 interface MenuProps {
@@ -17,7 +16,7 @@ export const Menu: React.FC<MenuProps> = ({
   items
 }) => (
   <div className="flex justify-center flex-wrap content-center mobile:flex-col">
-    {items && items.map(({itemID, title, url, current}) => (
+    {items && items.map(({itemID, title, url}) => (
       <MenuItem key={itemID} title={title} url={url} />
     ))}
   </div>

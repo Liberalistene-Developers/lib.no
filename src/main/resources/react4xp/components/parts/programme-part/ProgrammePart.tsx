@@ -39,7 +39,6 @@ interface ProgrammePartProps {
   conclusionTitle?: string;
   conclusions?: ConclusionItem[];
   parentTitle?: string;
-  tags?: unknown[];
 }
 
 export const ProgrammePart: React.FC<ProgrammePartProps> = ({
@@ -48,8 +47,7 @@ export const ProgrammePart: React.FC<ProgrammePartProps> = ({
   description = '',
   conclusionTitle,
   conclusions = [],
-  parentTitle = '',
-  tags
+  parentTitle = ''
 }) => {
   return (
     <div className={title ? '' : 'page-content'}>

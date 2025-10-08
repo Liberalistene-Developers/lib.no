@@ -49,7 +49,6 @@ interface ProgrammeSectionProps {
   parentTitle?: string;
   description?: string;
   parts?: PartItem[];
-  tags?: unknown[];
 }
 
 let lastElement = '';
@@ -60,8 +59,7 @@ export const ProgrammeSection: React.FC<ProgrammeSectionProps> = ({
   conclusionTitle = '',
   parentTitle = '',
   description,
-  parts = [],
-  tags
+  parts = []
 }) => (
   <div className={parentTitle ? '' : 'page-content'}>
     <div className="mt-10">

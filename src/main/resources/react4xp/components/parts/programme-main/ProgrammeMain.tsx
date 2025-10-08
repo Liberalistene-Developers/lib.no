@@ -12,14 +12,12 @@ interface SectionType {
 interface ProgrammeMainProps {
   title?: string;
   sections?: SectionType[];
-  tags?: unknown[];
   tableOfContent?: boolean;
 }
 
 export const ProgrammeMain: React.FC<ProgrammeMainProps> = ({
   title = '',
   sections = [],
-  tags = [],
   tableOfContent = false
 }) => (
   <div className="page-content">

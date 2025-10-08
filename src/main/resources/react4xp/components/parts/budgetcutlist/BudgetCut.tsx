@@ -17,7 +17,6 @@ interface BudgetCutProps {
   sumary?: string;
   title?: string;
   labelSumCut?: string;
-  labelBudget?: string;
   labelTitle?: string;
   labelPercent?: string;
   labelCut?: string;
@@ -34,7 +33,6 @@ export const BudgetCut: React.FC<BudgetCutProps> = ({
   sumary = '',
   title = '',
   labelSumCut,
-  labelBudget,
   labelTitle,
   labelPercent,
   labelCut,
@@ -70,7 +68,6 @@ export const BudgetCut: React.FC<BudgetCutProps> = ({
         {(cuts && cuts.length > 0 && cuts
           .map(({
             name,
-            budget: itemBudget,
             cut: itemCut,
             percent: itemPercent
           }) => (

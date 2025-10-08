@@ -8,7 +8,6 @@ interface LocationData {
 }
 
 interface EventCardProps {
-  children?: React.ReactNode;
   date?: string;
   image?: {
     url?: string;
@@ -28,7 +27,6 @@ interface EventCardProps {
  * Primary Image holder for solution.
  */
 export const EventCard: React.FC<EventCardProps> = ({
-  children,
   date,
   image = null,
   location = { address: '' },

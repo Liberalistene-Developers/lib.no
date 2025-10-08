@@ -28,13 +28,7 @@ interface EventListViewProps {
   image?: ImageType;
   shortDescription?: string;
   items?: EventItem[];
-  tags?: unknown[];
   title?: string;
-  showImage?: boolean;
-  imageType?: string;
-  imageSize?: string;
-  readMore?: string;
-  readMoreEnabled?: boolean;
   noIngress?: boolean;
 }
 
@@ -45,17 +39,9 @@ export const EventListView: React.FC<EventListViewProps> = ({
   image,
   shortDescription,
   items = [],
-  tags = [],
   title,
-  showImage,
-  imageType,
-  imageSize,
-  readMore = '',
-  readMoreEnabled = false,
   noIngress = false
 }) => {
-  const Item = displaytype === 'list' ? EventListItem : EventCard;
-
   return (
     <div className="events-list-wrapper">
       {title && (

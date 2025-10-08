@@ -28,7 +28,6 @@ interface ArticleListViewProps {
   image?: ImageType;
   shortDescription?: string;
   items?: ArticleItem[];
-  tags?: unknown[];
   title?: string;
   readMore?: string;
   readMoreEnabled?: boolean;
@@ -47,7 +46,6 @@ export const ArticleListView: React.FC<ArticleListViewProps> = ({
   image,
   shortDescription,
   items,
-  tags = [],
   title,
   readMore = '',
   readMoreEnabled = false,

@@ -28,7 +28,6 @@ interface PersonListProps {
   items?: PersonItem[];
   shortDescription?: string;
   showImage?: boolean;
-  tags?: unknown[];
   title?: string;
 }
 
@@ -40,7 +39,6 @@ export const PersonList: React.FC<PersonListProps> = ({
   image,
   shortDescription,
   items = [],
-  tags,
   title
 }) => {
   const Item = displaytype === 'list' ? ListItem : GridItem;
