@@ -11,12 +11,12 @@ This is the official homepage for Liberalistene (Norwegian political party), bui
 ## Tech Stack
 
 - **CMS:** Enonic XP 7.7+
-- **Framework:** React4xp (v3.1.2) - integrates React with Enonic XP
-- **Frontend:** React 18, SCSS
-- **Build System:** Gradle + Webpack + Babel
-- **Node Version:** 16.x (see .nvmrc)
+- **Framework:** React4xp (v6.0.2) - integrates React with Enonic XP
+- **Frontend:** React 18, TypeScript, Tailwind CSS v4
+- **Build System:** Gradle + tsup + esbuild
+- **Node Version:** 22.15.1+ (see .nvmrc)
 - **Java Version:** 11
-- **Component Development:** Storybook 7.0.27
+- **Component Development:** Storybook 9.1
 - **Mapping:** Leaflet/react-leaflet
 - **Icons:** FontAwesome
 
@@ -61,7 +61,7 @@ lib.no/
 
 ### Prerequisites
 
-1. Install Node.js 16.x (use nvm: `nvm use`)
+1. Install Node.js 22.15.1+ (use nvm: `nvm use`)
 2. Install Java 11
 3. Install [Enonic CLI](https://developer.enonic.com/start)
 
@@ -74,34 +74,37 @@ npm install
 ### Development Commands
 
 ```bash
-# Start development with watch mode
-npm run dev
-
-# Watch for changes (without rebuild)
-npm run watch:all
-
-# Individual watch tasks
-npm run watch:gradle    # Watch Gradle builds
-npm run watch:xp        # Watch XP resources
-npm run watch:styles    # Watch SCSS files
-npm run watch:react4xp  # Watch React components
-
 # Build
-npm run build           # Build with dev flag
-npm run clean           # Clean build artifacts
-npm run rebuild         # Clean and build
+npm run build                 # Build with Gradle
+npm run build:assets          # Build assets with tsup
+npm run build:react4xp        # Build React4xp components
+npm run build:xp:resources    # Build XP resources with tsup
+npm run clean                 # Clean build artifacts
 
 # Deploy
-npm run deploy          # Deploy to Enonic
-npm run redeploy        # Rebuild and deploy
+npm run deploy                # Deploy to Enonic
+npm run watch                 # Watch and deploy on changes
+npm run rewatch               # Clean, deploy, then watch
+
+# Type Checking
+npm run check                 # Run all type checks and linting
+npm run check:types           # Run all TypeScript type checks
+npm run check:types:node      # Check Node types
+npm run check:types:react4xp  # Check React4xp types
+npm run check:types:xp        # Check XP Nashorn types
 
 # Linting
-npm run lint            # Run ESLint and Stylelint
-npm run stylelint       # Run Stylelint only
+npm run lint                  # Run ESLint
+
+# Testing
+npm run test                  # Run Jest tests
 
 # Storybook
-npm run storybook       # Start Storybook on port 6006
-npm run build-storybook # Build static Storybook
+npm run storybook             # Start Storybook on port 6006
+npm run build-storybook       # Build static Storybook
+
+# Browser Sync
+npm run browserSync           # Start browser-sync with live reload
 ```
 
 ### Enonic Deployment
@@ -119,15 +122,19 @@ enonic project deploy
 - Handles Java compilation and resource processing
 - Node environment: production (default) or development (`-Pdev`)
 
-### Webpack
+### tsup + esbuild
 
-- **Client bundle:** `webpack.client.config.js` - builds UI assets
-- **React4xp:** Handles React component bundling via react4xp-build-components
+- **Assets:** `tsup -d build/resources/main/assets` - builds static assets
+- **XP Resources:** `tsup -d build/resources/main` - builds server-side resources
+- **React4xp:** Component bundling via `@enonic/react4xp` package
+- Fast TypeScript compilation and bundling with esbuild
 
-### Babel
+### TypeScript
 
-- Transpiles ES6+ code in `src/main/resources` to `build/resources/main`
-- Ignores `.jsx` files (handled by React4xp)
+- Three separate TypeScript configs:
+  - `tsconfig.node.json` - Node.js tooling
+  - `tsconfig.react4xp.json` - React components
+  - `tsconfig.xp.nashorn.json` - Enonic XP server-side code (Nashorn)
 
 ## Code Conventions
 
@@ -147,9 +154,12 @@ Enforced by Commitlint via Husky pre-commit hooks.
 
 ### Code Style
 
-- **JavaScript/React:** ESLint with Standard config
-- **CSS/SCSS:** Stylelint with SCSS recommended config
-- **Formatting:** Prettier (`.prettierrc.json`)
+- **TypeScript/React:** ESLint v9 with TypeScript ESLint parser
+  - React plugin for JSX rules
+  - React Hooks plugin for hooks rules
+  - JSX a11y plugin for accessibility
+  - Storybook plugin for story files
+- **CSS:** Tailwind CSS v4 with PostCSS
 - **Editor:** EditorConfig (`.editorconfig`)
 
 ## Release Process
@@ -217,15 +227,18 @@ The project uses `semantic-release` for automated versioning and releases.
 - `classnames` - CSS class management
 
 **Enonic:**
-- `@enonic/react4xp` - v3.1.2
+- `@enonic/react4xp` - v6.0.2
+- `@enonic-types/*` - TypeScript types for Enonic XP libs
 - Various Enonic XP libs (portal, content, auth, etc.)
 
 **Build Tools:**
-- `webpack` v5.88.1
-- `babel` v7.21+
-- `node-sass` v8.0.0
-- `eslint` v8.46.0
-- `stylelint` v15.10.2
+- `webpack` v5+ (for Webpack-based builds)
+- `tsup` v8+ (primary build tool)
+- `esbuild` v0.25+ (fast bundling)
+- `typescript` v5+
+- `eslint` v9.33+ with typescript-eslint v8.40+
+- `tailwindcss` v4.1+
+- `postcss` v8.5+
 
 ## Environment Variables
 
@@ -237,12 +250,18 @@ This project uses environment variables for configuration. Check with the team f
 
 1. **Clean build:** `npm run clean && npm install`
 2. **Clear Gradle cache:** `./gradlew clean --refresh-dependencies`
-3. **Check Node version:** Should be 16.x
+3. **Check Node version:** Should be 22.15.1+
+4. **Type check:** `npm run check:types` to verify TypeScript compilation
+5. **Lint:** `npm run lint` to check for code issues
 
-### React4xp Issues
+### React4xp v6 Architecture
 
-- Ensure `react4xp.properties` exists (or use `react4xp.production` for production builds)
-- Check `build/react4xp_constants.json` is generated
+- All components are written in TypeScript (`.tsx`)
+- Components live in `src/main/resources/react4xp/components/`
+- Organized by type: `layouts/`, `pages/`, `parts/`, `common/`
+- Component registry in `componentRegistry.tsx`
+- App entry point in `entries/App.tsx`
+- Controllers in `src/main/resources/site/` call components via React4xp v6 API
 
 ## Additional Resources
 
