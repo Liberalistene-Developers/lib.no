@@ -57,6 +57,9 @@ const config: StorybookConfig = {
       ...config.resolve.alias,
       '@components': path.resolve(__dirname, '../src/main/resources/react4xp/components'),
       '@common': path.resolve(__dirname, '../src/main/resources/react4xp/components/common'),
+      '@parts': path.resolve(__dirname, '../src/main/resources/react4xp/components/parts'),
+      '@layouts': path.resolve(__dirname, '../src/main/resources/react4xp/components/layouts'),
+      '@pages': path.resolve(__dirname, '../src/main/resources/react4xp/components/pages'),
       '@lib': path.resolve(__dirname, '../src/main/resources/lib')
     };
 
