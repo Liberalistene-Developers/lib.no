@@ -73,7 +73,7 @@ export const findItems = (
 ): string[] | undefined => {
   switch (sort) {
     case 'normal': {
-      return runQuery(key, count, type, undefined, 0);
+      return runQuery(key, count, type, undefined, start);
     }
 
     default: {
@@ -82,7 +82,7 @@ export const findItems = (
         count,
         type,
         sort === 'asc' ? 'ASC' : 'DESC',
-        0
+        start
       );
     }
   }

@@ -1,5 +1,8 @@
 // For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
 import storybook from "eslint-plugin-storybook";
+import react from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import jsxA11y from "eslint-plugin-jsx-a11y";
 
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
@@ -12,6 +15,7 @@ export default tseslint.config(// If ignores is used without any other keys in t
   // object applies to all files matched by files.
   ignores: [
     'build/**/*.*',
+    'bin/**/*.*',
     'src/jest/server/setupFile.ts',
     'tsup/*.*',
     'react4xp.config.js',
@@ -37,5 +41,23 @@ export default tseslint.config(// If ignores is used without any other keys in t
         "argsIgnorePattern": "^_"
       }
     ]
+  }
+}, {
+  files: ['**/*.tsx', '**/*.jsx'],
+  plugins: {
+    react,
+    'react-hooks': reactHooks,
+    'jsx-a11y': jsxA11y
+  },
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
+  rules: {
+    ...react.configs.recommended.rules,
+    ...reactHooks.configs.recommended.rules,
+    'react/react-in-jsx-scope': 'off', // Not needed with webpack ProvidePlugin
+    'react/prop-types': 'off' // Using TypeScript for prop validation
   }
 }, storybook.configs["flat/recommended"]);

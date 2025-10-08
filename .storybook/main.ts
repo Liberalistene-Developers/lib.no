@@ -1,6 +1,7 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
 import path from 'path';
 import webpack from 'webpack';
+import postcss from 'postcss';
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
@@ -23,7 +24,7 @@ const config: StorybookConfig = {
               {
                 loader: 'postcss-loader',
                 options: {
-                  implementation: require('postcss')
+                  implementation: postcss
                 }
               }
             ]
@@ -69,7 +70,7 @@ const config: StorybookConfig = {
           loader: require.resolve('ts-loader'),
           options: {
             transpileOnly: true,
-            configFile: path.resolve(__dirname, '../tsconfig.react4xp.json')
+            configFile: path.resolve(__dirname, '../tsconfig.storybook.json')
           }
         }
       ],

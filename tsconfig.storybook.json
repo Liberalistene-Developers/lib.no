@@ -1,0 +1,12 @@
+{
+	"extends": "./tsconfig.react4xp.json",
+	"include": [
+		"./src/**/*.stories.tsx",
+		"./src/stories/**/*.tsx",
+		"./.storybook/**/*.ts"
+	],
+	"compilerOptions": {
+		"jsx": "react-jsx",
+		"allowUmdGlobalAccess": false
+	}
+}

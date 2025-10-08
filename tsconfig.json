@@ -9,6 +9,9 @@
 		},
 		{
 			"path": "tsconfig.xp.nashorn.json"
+		},
+		{
+			"path": "tsconfig.storybook.json"
 		}
 	]
 }

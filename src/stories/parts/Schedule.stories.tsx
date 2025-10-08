@@ -10,7 +10,20 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const createTopics = (items: any[] = []) =>
+interface TopicItem {
+  title?: string;
+  start?: string;
+  duration?: string;
+  description?: string;
+  report?: string;
+  speakers?: Array<{
+    person?: string;
+    personUrl?: string;
+    image?: { url?: string };
+  }>;
+}
+
+const createTopics = (items: TopicItem[] = []) =>
   items.map((item) => ({
     title: '',
     start: '',
