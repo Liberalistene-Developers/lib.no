@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/Liberalistene-Developers/lib.no#readme",
   "engines": {
-    "node": ">= 22.15.1",
-    "npm": ">= 10.9.2"
+    "node": ">= 20.13.1",
+    "npm": ">= 10.5.2"
   },
   "scripts": {
     "nvm": "nvm use",
@@ -124,7 +124,7 @@
     "mini-css-extract-plugin": "^2",
     "postcss": "^8.5.6",
     "postcss-loader": "^8.2.0",
-    "rimraf": "^6.0.1",
+    "rimraf": "^5.0.10",
     "sass": "^1",
     "sass-loader": "^16",
     "semantic-release": "^24.2.9",
@@ -143,7 +143,8 @@
   },
   "overrides": {
     "glob": "^11.0.3",
-    "rimraf": "^6.0.1"
+    "rimraf": "^5.0.10",
+    "del": "^7.1.0"
   },
   "browserslist": [
     "extends browserslist-config-enonic"
