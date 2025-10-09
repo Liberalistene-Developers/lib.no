@@ -1,4 +1,6 @@
+
 import {ComponentRegistry} from '@enonic/react-components';
+
 import {SingleColumn} from './components/layouts/singlecolumn/SingleColumn';
 import {TwoColumn} from './components/layouts/twocolumn/TwoColumn';
 import {ThreeColumn} from './components/layouts/threecolumn/ThreeColumn';
@@ -8,7 +10,8 @@ import {TwoColumn2Row} from './components/layouts/twocolumn2row/TwoColumn2Row';
 import {ThreeColumn2Row} from './components/layouts/threecolumn2row/ThreeColumn2Row';
 import {FourColumn2Row} from './components/layouts/fourcolumn2row/FourColumn2Row';
 import {UnderConstruction} from './components/layouts/under-construction/UnderConstruction';
-import {DefaultPage} from './components/pages/default/DefaultPage';
+import { SitePage } from './components/pages/site/SitePage';
+import {Page} from './components/pages/Page/Page';
 import {UnderConstructionPage} from './components/pages/under-construction/UnderConstructionPage';
 import {Article} from './components/parts/article/Article';
 import {ArticleList} from './components/parts/articlelist/ArticleList';
@@ -49,8 +52,7 @@ export const componentRegistry = new ComponentRegistry();
 
 // portal:site needs a base content type view
 // Page descriptor views (lib.no:default) will be used instead when a page descriptor is set
-componentRegistry.addContentType('portal:site', {View: DefaultPage});
-componentRegistry.addContentType('lib.no:page', {View: DefaultPage});
+componentRegistry.addContentType('portal:site', {View: SitePage});
 componentRegistry.addLayout('lib.no:singlecolumn', {View: SingleColumn});
 componentRegistry.addLayout('lib.no:twocolumn', {View: TwoColumn});
 componentRegistry.addLayout('lib.no:threecolumn', {View: ThreeColumn});
@@ -59,8 +61,8 @@ componentRegistry.addLayout('lib.no:singlecolumn2row', {View: SingleColumn2Row})
 componentRegistry.addLayout('lib.no:twocolumn2row', {View: TwoColumn2Row});
 componentRegistry.addLayout('lib.no:threecolumn2row', {View: ThreeColumn2Row});
 componentRegistry.addLayout('lib.no:fourcolumn2row', {View: FourColumn2Row});
-componentRegistry.addLayout('lib.no:under-construction', {View: UnderConstruction});
-componentRegistry.addPage('lib.no:default', {View: DefaultPage});
+
+componentRegistry.addPage('lib.no:default', {View: Page});
 componentRegistry.addPage('lib.no:under-construction', {View: UnderConstructionPage});
 componentRegistry.addPart('lib.no:article', {View: Article});
 componentRegistry.addPart('lib.no:articlelist', {View: ArticleList});

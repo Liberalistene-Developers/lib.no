@@ -8,6 +8,8 @@ import {componentRegistry} from '../componentRegistry';
 const App: React.FC<AppProps> = ({component, data, common, meta}) => {
     const compMeta: MetaData = meta as MetaData;
     compMeta.componentRegistry = componentRegistry;
+    console.info('App rendered with component:', component, 'data:', data, 'common:', common, 'meta:', compMeta);
+
     return (
         <>
             <BaseComponent component={component} data={data} common={common} meta={compMeta}/>

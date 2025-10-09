@@ -1,4 +1,4 @@
-import {processHtml as portalProcessHtml} from '/lib/xp/portal';
+import { processHtml as portalProcessHtml } from '/lib/xp/portal';
 
 export const processHtml = (value?: string): string => {
   if (value) {

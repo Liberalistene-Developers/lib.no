@@ -10,7 +10,7 @@ const ContentTypePage: React.FC<AppProps> = ({component, data, common, meta}) =>
 
     // For content-type based rendering (portal:site without page descriptor),
     // look up the View component directly from the registry
-    const contentType = component?.contentType || (component as any)?.type;
+    const contentType = component && 'contentType' in component && component?.contentType || (component as {type?: string})?.type;
     const entry = contentType ? componentRegistry.getContentType(contentType) : null;
 
     if (!entry || !entry.View) {

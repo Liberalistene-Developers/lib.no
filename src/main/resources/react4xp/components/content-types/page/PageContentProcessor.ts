@@ -1,8 +1,8 @@
-import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
-import {getSiteConfig} from '/lib/xp/content';
-import {getContent, getSite as getPortalSite} from '/lib/xp/portal';
-import {assetUrl} from '/lib/enonic/asset';
-import {getMenuTree} from '/lib/menuWrapper';
+import type { ComponentProcessor } from '@enonic-types/lib-react4xp/DataFetcher';
+import { assetUrl } from '/lib/enonic/asset';
+import { getMenuTree } from '/lib/menuWrapper';
+import { getSiteConfig } from '/lib/xp/content';
+import { getContent, getSite as getPortalSite } from '/lib/xp/portal';
 
 interface SiteConfig {
   email?: string;
@@ -50,7 +50,7 @@ function processSocialMedia(social: Array<{address: string}>): Array<{href: stri
  * Content type processor for portal:site and lib.no:page
  * Handles rendering of page content type items directly without requiring page descriptor selection
  */
-export const pageContentProcessor: ComponentProcessor<'portal:site' | 'lib.no:page'> = (processorContext) => {
+export const pageContentProcessor: ComponentProcessor<'portal:site'> = (processorContext) => {
   const content = getContent();
 
   log.info('[pageContentProcessor] Processing page for content: ' + content._id);
@@ -63,12 +63,14 @@ export const pageContentProcessor: ComponentProcessor<'portal:site' | 'lib.no:pa
     log.info('[pageContentProcessor] Content has page descriptor: ' + content.page.descriptor);
     log.info('[pageContentProcessor] Delegating to page descriptor processor');
 
+    /*
     if (content.page.descriptor === 'lib.no:default') {
-      const {defaultPageProcessor} = require('/react4xp/components/pages/default/DefaultPageProcessor');
       return defaultPageProcessor(processorContext);
     }
+    */
+
     // Add other page descriptor processors here as needed
-    log.warn('[pageContentProcessor] Unknown page descriptor: ' + content.page.descriptor);
+    log.warning('[pageContentProcessor] Unknown page descriptor: ' + content.page.descriptor);
   }
 
   if (processorContext.component) {

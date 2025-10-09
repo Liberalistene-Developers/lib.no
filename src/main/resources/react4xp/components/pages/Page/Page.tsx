@@ -1,6 +1,4 @@
-import type {ComponentProps, RegionsData, PageData} from '@enonic/react-components';
-import {Region} from '@enonic/react-components';
-import * as React from 'react';
+import {Regions, type RegionData, type ComponentProps, type PageData} from '@enonic/react-components';
 
 interface MenuItem {
   url: string;
@@ -31,14 +29,13 @@ export interface DefaultPageData extends Record<string, unknown> {
   some?: SocialItem[];
   isFragment?: boolean;
   cssUrl?: string;
-  regions?: RegionsData; // For content type processors that manually include regions
+  regions: RegionData
 }
 
-export const DefaultPage = ({meta, data, component}: ComponentProps) => {
+export const Page = ({meta, data, common, component}: ComponentProps<PageData>) => {
   const pageData = data as DefaultPageData;
   const {
-    title = 'Her kommer Liberalistene',
-    language = 'no',
+    title,
     image,
     menu,
     email,
@@ -46,51 +43,17 @@ export const DefaultPage = ({meta, data, component}: ComponentProps) => {
     place,
     some = [],
     isFragment = false,
-    cssUrl
+    regions
   } = pageData;
 
   // Get regions from either:
   // 1. data prop (for content type processors that manually include regions)
   // 2. component prop (for page descriptor processors with automatic region processing)
-  const regions: RegionsData | undefined = pageData.regions ||
-    ('regions' in component ? (component as PageData).regions : undefined);
+
+  console.info('So far so good - DefaultPage rendering');
 
   return (
-    <html lang={language}>
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-          httpEquiv="Content-Security-Policy"
-          content="script-src 'self' https://unpkg.com/* https://* 'unsafe-inline' 'unsafe-eval'"
-        />
-        <title>{title}</title>
-        {cssUrl && <link rel="stylesheet" href={cssUrl} />}
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-          crossOrigin=""
-        />
-        <script
-          src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-          crossOrigin=""
-        />
-      </head>
-      <body data-portal-component-type="page">
-        <div className="main-wrapper">
+    <>
           <header>
             {image && (
               <a href="/" title="Hjem">
@@ -126,20 +89,20 @@ export const DefaultPage = ({meta, data, component}: ComponentProps) => {
 
           {/* Main Region */}
           {/* DEBUG: isFragment={String(isFragment)}, regions={String(!!regions)}, regions.main={String(!!regions?.main)} */}
-          {!isFragment && regions?.main && (
+          {!isFragment && regions?.name === 'main' && (
             <main>
-              <Region
-                data={regions.main.components}
+              <Regions
                 meta={meta}
-                name="main"
+                common={common}
+                component={component}
               />
             </main>
           )}
-          {!isFragment && !regions?.main && (
+          {!isFragment && regions?.name !== 'main' && (
             <main>
               {/* DEBUG: Main region not rendering - regions.main is undefined */}
               <div style={{padding: '20px', background: '#ffcccc', border: '2px solid red'}}>
-                DEBUG: Main region not available. isFragment={String(isFragment)}, hasRegions={String(!!regions)}, hasRegionsMain={String(!!regions?.main)}
+                DEBUG: Main region not available. isFragment={String(isFragment)}, hasRegions={regions !== undefined }, hasRegionsMain={regions?.name === 'main'}
               </div>
             </main>
           )}
@@ -190,8 +153,6 @@ export const DefaultPage = ({meta, data, component}: ComponentProps) => {
               )}
             </div>
           </footer>
-        </div>
-      </body>
-    </html>
+    </>
   );
 };

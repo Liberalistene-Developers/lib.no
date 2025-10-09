@@ -1,5 +1,5 @@
-import {imageUrl as portalImageUrl, attachmentUrl} from '/lib/xp/portal';
-import {get as getContent} from '/lib/xp/content';
+import { get as getContent } from '/lib/xp/content';
+import { attachmentUrl, imageUrl as portalImageUrl } from '/lib/xp/portal';
 
 interface ImageData {
   url?: string;

@@ -43,6 +43,7 @@
     "postinstall": "husky install"
   },
   "dependencies": {
+    "@enonic/cli": "^3.3.1",
     "@enonic/js-utils": "^1",
     "@enonic/react-components": "^6.0.0",
     "@fortawesome/fontawesome-free": "^5.15.4",
