@@ -7,9 +7,15 @@ interface ImageType {
   url?: string;
 }
 
+interface TitlePiece {
+  title?: string;
+  titleColor?: string;
+  titleNoSpace?: boolean;
+}
+
 interface TitleBlockProps {
   image?: ImageType;
-  title?: string;
+  title?: string | TitlePiece[];
   titleCenter?: string;
   titleColor?: string;
   imageClass?: string;
@@ -21,18 +27,28 @@ export const TitleBlock: React.FC<TitleBlockProps> = ({
   titleCenter = '',
   titleColor = '',
   imageClass = ''
-}) => (
-  <>
-    <div className="flex h-[458px] flex-row mobile:flex-col mobile:h-auto mobile:gap-y-5">
-      <div className={cx(
-        'flex flex-col justify-center items-center w-1/3 mobile:w-full',
-        titleCenter && 'mx-auto',
-        titleColor
-      )}>
-        <h1 className="font-extrabold text-[100px] leading-[85px] mobile:font-bold mobile:text-[50px] mobile:leading-[60px]">
-          {title}
-        </h1>
-      </div>
+}) => {
+  // Handle both string and array of title pieces
+  const titleContent = Array.isArray(title)
+    ? title.map((piece, index) => (
+        <span key={index} className={piece.titleColor || titleColor}>
+          {piece.title}
+        </span>
+      ))
+    : title;
+
+  return (
+    <>
+      <div className="flex h-[458px] flex-row mobile:flex-col mobile:h-auto mobile:gap-y-5">
+        <div className={cx(
+          'flex flex-col justify-center items-center w-1/3 mobile:w-full',
+          titleCenter && 'mx-auto',
+          !Array.isArray(title) && titleColor
+        )}>
+          <h1 className="font-extrabold text-[100px] leading-[85px] mobile:font-bold mobile:text-[50px] mobile:leading-[60px]">
+            {titleContent}
+          </h1>
+        </div>
       {image && (
         <div className="flex flex-col justify-center items-center w-1/3 mobile:w-full mobile:pl-5">
           <Image
@@ -44,4 +60,5 @@ export const TitleBlock: React.FC<TitleBlockProps> = ({
       )}
     </div>
   </>
-);
+  );
+};

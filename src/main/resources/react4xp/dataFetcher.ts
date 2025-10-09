@@ -1,5 +1,5 @@
 import {DataFetcher} from '/lib/enonic/react4xp';
-import {helloProcessor} from './components/hello/HelloProcessor';
+import {pageContentProcessor} from './components/content-types/page/PageContentProcessor';
 import {singleColumnProcessor} from './components/layouts/singlecolumn/SingleColumnProcessor';
 import {twoColumnProcessor} from './components/layouts/twocolumn/TwoColumnProcessor';
 import {threeColumnProcessor} from './components/layouts/threecolumn/ThreeColumnProcessor';
@@ -47,10 +47,14 @@ import {quoteProcessor} from './components/parts/quote/QuoteProcessor';
 import {submenuProcessor} from './components/parts/submenu/SubmenuProcessor';
 import {textBlockProcessor} from './components/parts/textblock/TextBlockProcessor';
 import {titleBlockProcessor} from './components/parts/titleblock/TitleBlockProcessor';
+import {testProcessor} from './components/parts/test/TestProcessor';
 
 export const dataFetcher = new DataFetcher();
 
-dataFetcher.addContentType('portal:site', {processor: helloProcessor});
+// portal:site must be registered for Content Studio Live Edit to work
+// When a page descriptor is selected, app.ts will use the page processor instead
+dataFetcher.addContentType('portal:site', {processor: pageContentProcessor});
+dataFetcher.addContentType('lib.no:page', {processor: pageContentProcessor});
 dataFetcher.addLayout('lib.no:singlecolumn', {processor: singleColumnProcessor});
 dataFetcher.addLayout('lib.no:twocolumn', {processor: twoColumnProcessor});
 dataFetcher.addLayout('lib.no:threecolumn', {processor: threeColumnProcessor});
@@ -98,3 +102,4 @@ dataFetcher.addPart('lib.no:quote', {processor: quoteProcessor});
 dataFetcher.addPart('lib.no:submenu', {processor: submenuProcessor});
 dataFetcher.addPart('lib.no:textblock', {processor: textBlockProcessor});
 dataFetcher.addPart('lib.no:titleblock', {processor: titleBlockProcessor});
+dataFetcher.addPart('lib.no:test', {processor: testProcessor});

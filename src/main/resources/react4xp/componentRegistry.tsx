@@ -1,5 +1,4 @@
 import {ComponentRegistry} from '@enonic/react-components';
-import {Hello} from './components/hello/Hello';
 import {SingleColumn} from './components/layouts/singlecolumn/SingleColumn';
 import {TwoColumn} from './components/layouts/twocolumn/TwoColumn';
 import {ThreeColumn} from './components/layouts/threecolumn/ThreeColumn';
@@ -44,10 +43,14 @@ import {Quote} from './components/parts/quote/Quote';
 import {Menu} from './components/parts/submenu/Menu';
 import {TextBlock} from './components/parts/textblock/TextBlock';
 import {TitleBlock} from './components/parts/titleblock/TitleBlock';
+import {TestPart} from './components/parts/test/TestPart';
 
 export const componentRegistry = new ComponentRegistry();
 
-componentRegistry.addContentType('portal:site', {View: Hello});
+// portal:site needs a base content type view
+// Page descriptor views (lib.no:default) will be used instead when a page descriptor is set
+componentRegistry.addContentType('portal:site', {View: DefaultPage});
+componentRegistry.addContentType('lib.no:page', {View: DefaultPage});
 componentRegistry.addLayout('lib.no:singlecolumn', {View: SingleColumn});
 componentRegistry.addLayout('lib.no:twocolumn', {View: TwoColumn});
 componentRegistry.addLayout('lib.no:threecolumn', {View: ThreeColumn});
@@ -95,3 +98,4 @@ componentRegistry.addPart('lib.no:quote', {View: Quote});
 componentRegistry.addPart('lib.no:submenu', {View: Menu});
 componentRegistry.addPart('lib.no:textblock', {View: TextBlock});
 componentRegistry.addPart('lib.no:titleblock', {View: TitleBlock});
+componentRegistry.addPart('lib.no:test', {View: TestPart});

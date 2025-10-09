@@ -23,8 +23,14 @@ interface TitleBlockConfig {
 }
 
 export const titleBlockProcessor: ComponentProcessor<'lib.no:titleblock'> = ({component}) => {
+  log.info('[titleBlockProcessor] Called!');
+  log.info('[titleBlockProcessor] Component exists: ' + !!component);
+
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as TitleBlockConfig;
+
+  log.info('[titleBlockProcessor] Config exists: ' + !!config);
+  log.info('[titleBlockProcessor] Config: ' + JSON.stringify(config, null, 2));
 
   const selection = config?.titleSet?._selected || 'simple';
   const oldTitle = config?.title;

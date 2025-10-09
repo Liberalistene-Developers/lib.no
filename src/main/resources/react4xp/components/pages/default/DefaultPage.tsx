@@ -1,4 +1,4 @@
-import type {ComponentProps, RegionsData} from '@enonic/react-components';
+import type {ComponentProps, RegionsData, PageData} from '@enonic/react-components';
 import {Region} from '@enonic/react-components';
 import * as React from 'react';
 
@@ -30,10 +30,12 @@ export interface DefaultPageData extends Record<string, unknown> {
   place?: string;
   some?: SocialItem[];
   isFragment?: boolean;
-  regions?: RegionsData;
+  cssUrl?: string;
+  regions?: RegionsData; // For content type processors that manually include regions
 }
 
-export const DefaultPage = ({meta, data}: ComponentProps) => {
+export const DefaultPage = ({meta, data, component}: ComponentProps) => {
+  const pageData = data as DefaultPageData;
   const {
     title = 'Her kommer Liberalistene',
     language = 'no',
@@ -44,8 +46,14 @@ export const DefaultPage = ({meta, data}: ComponentProps) => {
     place,
     some = [],
     isFragment = false,
-    regions
-  } = data as DefaultPageData;
+    cssUrl
+  } = pageData;
+
+  // Get regions from either:
+  // 1. data prop (for content type processors that manually include regions)
+  // 2. component prop (for page descriptor processors with automatic region processing)
+  const regions: RegionsData | undefined = pageData.regions ||
+    ('regions' in component ? (component as PageData).regions : undefined);
 
   return (
     <html lang={language}>
@@ -57,10 +65,17 @@ export const DefaultPage = ({meta, data}: ComponentProps) => {
           content="script-src 'self' https://unpkg.com/* https://* 'unsafe-inline' 'unsafe-eval'"
         />
         <title>{title}</title>
+        {cssUrl && <link rel="stylesheet" href={cssUrl} />}
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
           rel="stylesheet"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossOrigin="anonymous"
         />
         <link
           rel="stylesheet"
@@ -110,13 +125,22 @@ export const DefaultPage = ({meta, data}: ComponentProps) => {
           </header>
 
           {/* Main Region */}
-          {!isFragment && (
+          {/* DEBUG: isFragment={String(isFragment)}, regions={String(!!regions)}, regions.main={String(!!regions?.main)} */}
+          {!isFragment && regions?.main && (
             <main>
               <Region
-                data={regions?.main?.components}
+                data={regions.main.components}
                 meta={meta}
                 name="main"
               />
+            </main>
+          )}
+          {!isFragment && !regions?.main && (
+            <main>
+              {/* DEBUG: Main region not rendering - regions.main is undefined */}
+              <div style={{padding: '20px', background: '#ffcccc', border: '2px solid red'}}>
+                DEBUG: Main region not available. isFragment={String(isFragment)}, hasRegions={String(!!regions)}, hasRegionsMain={String(!!regions?.main)}
+              </div>
             </main>
           )}
 

@@ -14,6 +14,9 @@
           "/lib/enonic/react4xp": [
             "./node_modules/@enonic-types/lib-react4xp"
           ],
+          "/lib/menu": [
+            "./node_modules/@item-enonic-types/lib-menu"
+          ],
           "/lib/xp/*": [
             "./node_modules/@enonic-types/lib-*"
           ],
@@ -36,7 +39,8 @@
 		// If typeRoots is specified, only packages under typeRoots will be included.
 		"typeRoots": [
 			"node_modules/@types",
-			"node_modules/@enonic-types"
+			"node_modules/@enonic-types",
+			"node_modules/@item-enonic-types"
 		],
 		//──────────────────────────────────────────────────────────────────────
 		// Language and Environment

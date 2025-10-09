@@ -1,8 +1,9 @@
+import {PageComponent} from "@enonic-types/core";
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import {getSiteConfig} from '/lib/xp/content';
-import {getContent, assetUrl, getSite as getPortalSite} from '/lib/xp/portal';
-// @ts-expect-error - lib-menu types not available
-import {getMenuTree} from '/lib/menu';
+import {getContent, getSite as getPortalSite} from '/lib/xp/portal';
+import {assetUrl} from '/lib/enonic/asset';
+import {getMenuTree} from '/lib/menuWrapper';
 
 interface SiteConfig {
   email?: string;
@@ -46,8 +47,14 @@ function processSocialMedia(social: Array<{address: string}>): Array<{href: stri
   });
 }
 
-export const defaultPageProcessor: ComponentProcessor<'lib.no:default'> = () => {
+export const defaultPageProcessor: ComponentProcessor<'lib.no:default'> = (props) => {
+  const {regions} = props.component as PageComponent;
   const content = getContent();
+
+  log.info('[defaultPageProcessor] Processing page for content: ' + content._id);
+  log.info('[defaultPageProcessor] Content type: ' + content.type);
+  log.info('[defaultPageProcessor] Content page: ' + JSON.stringify(content.page, null, 2));
+
   const site = getPortalSite();
   const config = getSiteConfig<SiteConfig>({
     key: content._id,
@@ -58,8 +65,7 @@ export const defaultPageProcessor: ComponentProcessor<'lib.no:default'> = () => 
 
   const {
     language,
-    type: contentType,
-    page
+    type: contentType
   } = content || {};
 
   const isFragment = contentType === 'portal:fragment';
@@ -82,6 +88,9 @@ export const defaultPageProcessor: ComponentProcessor<'lib.no:default'> = () => 
     menu: menuItems,
     some: processSocialMedia(social),
     isFragment,
-    regions: isFragment ? undefined : page?.regions
+    // NOTE: Do NOT return regions here - they are automatically processed by DataFetcher
+    // and made available through the component prop
+    cssUrl: assetUrl({path: 'styles/tailwind.css'}),
+    regions
   };
 };

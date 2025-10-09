@@ -117,7 +117,7 @@ export default defineConfig((options: MyOptions) => {
 				// These are not available at compiletime, so they must be external
 				'/lib/enonic/react4xp',
 				'/lib/guillotine',
-				'/lib/thymeleaf',
+        '/lib/menu',
 				'/lib/xp/admin',
 				'/lib/xp/app',
 				'/lib/xp/auditlog',

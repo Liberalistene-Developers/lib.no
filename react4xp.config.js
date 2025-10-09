@@ -65,12 +65,12 @@ module.exports = {
 	// entries. NOTE that this doesn't apply to the default entry-folder
 	// src/main/resources/site/ (or the react4xp-templates package), where ONLY
 	// .jsx (and .tsx) files can be entries. This is to avoid mixups with XP
-	// controllers etc, which can be .js or .es6. Default value if not changed
-	// is jsx,js,tsx,ts,es6,es. Also note that tsx/ts files are NOT supported
+	// controllers etc, which can be .js. Default value if not changed
+	// is jsx,js,tsx,ts. Also note that tsx/ts files are NOT supported
 	// out of the box. Rules for typescript compilation must be added in your
 	// own.
 	//
-	// entryExtensions: ['jsx', 'js', 'tsx', 'ts', 'es6', 'es'],
+	// entryExtensions: ['jsx', 'js', 'tsx', 'ts'],
 
 	// entryExtensionWhitelist: [
 	// 	'css',

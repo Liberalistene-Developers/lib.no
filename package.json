@@ -14,9 +14,10 @@
   },
   "homepage": "https://github.com/Liberalistene-Developers/lib.no#readme",
   "engines": {
-    "node": ">=18.0.0 <20.0.0",
-    "npm": ">= 9.0.0"
+    "node": "18.20.5",
+    "npm": ">=10.5.2"
   },
+  "engineStrict": false,
   "scripts": {
     "nvm": "nvm use",
     "commit:msg": "commitlint --edit $1",
@@ -93,6 +94,7 @@
     "@enonic-types/lib-websocket": "^7",
     "@enonic/react4xp": "^6.0.2",
     "@eslint/js": "^9.33.0",
+    "@item-enonic-types/lib-menu": "^4.2.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@storybook/addon-docs": "^9.1.10",
