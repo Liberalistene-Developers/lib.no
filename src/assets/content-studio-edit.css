@@ -1,0 +1,40 @@
+/* Content Studio Edit Mode Styles */
+/* Pure CSS - no Tailwind dependencies */
+
+.xp-region {
+  min-height: 200px !important;
+}
+
+.xp-page-editor-region-placeholder {
+  margin-bottom: 0 !important;
+  min-height: 200px !important;
+}
+
+/* Layout regions */
+.content-item.items {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.content-item.items > .content-child {
+  flex: 1 !important;
+  min-width: 200px !important;
+  min-height: 200px !important;
+}
+
+.content-item:not(.items) {
+  min-height: 200px !important;
+}
+
+.content-child > * {
+  min-height: 200px !important;
+}
+
+.content-item > * {
+  min-height: 200px !important;
+}
+
+[data-portal-region] {
+  min-height: 200px !important;
+}

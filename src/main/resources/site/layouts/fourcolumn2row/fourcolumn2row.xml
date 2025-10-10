@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<layout>
+<layout xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="layouts.3columns.displayname">4 Columns + 1</display-name>
-  <description>Top row (single column) with a row underneath with 4 columns.</description>
   <form>
     <input name="columnsLayout" type="ComboBox">
       <label i18n="mixin.columnlayout.label">Column layout</label>

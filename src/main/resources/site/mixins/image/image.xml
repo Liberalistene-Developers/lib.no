@@ -1,4 +1,4 @@
-<mixin>
+<mixin xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="content_types.image.displayname">Image</display-name>
   <form>
     <input name="image" type="ImageSelector">

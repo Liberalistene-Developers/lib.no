@@ -1,4 +1,4 @@
-<mixin>
+<mixin xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="mixin.titleinimage.displayname">Add title to headder image</display-name>
   <form>
     <input  name="titleInImage" type="CheckBox">

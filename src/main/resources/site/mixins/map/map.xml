@@ -1,4 +1,4 @@
-<mixin>
+<mixin xmlns="urn:enonic:xp:model:1.0">
   <display-name>Map</display-name>
   <form>
     <input name="map_geopoint" type="GeoPoint">

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<part>
+<part xmlns="urn:enonic:xp:model:1.0">
   <display-name>Text Block with title (H2)</display-name>
-  <description>
-    Display Title/Text Block (H2)
-  </description>
   <form>
     <input name="title" type="TextLine">
       <label i18n="mixin.title.label">Title</label>          

@@ -1,4 +1,4 @@
-<mixin>
+<mixin xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="mixin.loadmore.displayname">Load more</display-name>
   <form>
     <field-set>
@@ -12,7 +12,7 @@
         </input>
         <input type="TextLine" name="loadMore" > 
           <label i18n="mixin.loadMore.button.label">Text knapp</label> 
-          <default i18n="mixin.loadMore.button.default">Last inn flere</default>
+          <default>Last inn flere</default>
           <occurrences minimum="0" maximum="1"/>
           <config/> 
         </input>

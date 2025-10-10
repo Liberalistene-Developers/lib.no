@@ -1,4 +1,4 @@
-<mixin>
+<mixin xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="mixin.headerposition.displayname">Header position</display-name>
   <form>
     <input name="headerPosition" type="ComboBox">

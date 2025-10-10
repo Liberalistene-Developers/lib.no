@@ -1,4 +1,4 @@
-<mixin>
+<mixin xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="mixin.showdescription.displayname">Show descriptions</display-name>
   <form>
     <input  name="showDescriptions" type="CheckBox">

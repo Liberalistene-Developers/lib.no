@@ -3,6 +3,11 @@ plugins {
     id "com.github.node-gradle.node" version "7.1.0"
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
 repositories {
     mavenLocal()
     mavenCentral()
@@ -11,7 +16,7 @@ repositories {
 
 node {
     download = true
-    version = '18.20.5'
+    version = '22.15.1'
 }
 
 app {
@@ -61,6 +66,7 @@ processResources {
   exclude '**/*.scss' // handled by @enonic/react4xp gradle files
   exclude '**/*.tsx' // handled by @enonic/react4xp gradle files
   exclude '**/*.ts' // handled by tsup
+  exclude 'assets/styles/*.css' // CSS is compiled by buildAssets task
 }
 
 tasks.withType(Copy).configureEach {
@@ -104,7 +110,7 @@ tasks.register('buildXpResources', NpmTask) {
 }
 
 tasks.register('react4xp', NpmTask) {
-    def envMode = project.hasProperty( 'env' ) ? ( project.property( 'env' ) == 'prod' ? 'production' : 'development' ) : 'production'
+    def envMode = project.hasProperty( 'env' ) ? ( project.property( 'env' ) == 'prod' ? 'production' : 'development' ) : 'development'
     args = [
         'run', 'build:react4xp'
     ]
@@ -170,4 +176,5 @@ tasks.register('npmTest', NpmTask) {
 
 test.dependsOn npmTest
 
+processResources.dependsOn buildAssets
 jar.dependsOn ( buildXpResources, react4xp, buildAssets )

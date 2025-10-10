@@ -1,4 +1,4 @@
-<mixin>
+<mixin xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="mixin.displaytype.displayname">Display selector</display-name>
   <form>
     <option-set name="displaytype">

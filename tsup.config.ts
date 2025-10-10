@@ -1,9 +1,7 @@
 // import { polyfillNode } from 'esbuild-plugin-polyfill-node';
-import glob from 'glob';
+import {globSync} from 'glob';
 // import {print} from 'q-i';
 import {defineConfig, type Options} from 'tsup';
-
-const globSync = glob.sync;
 
 
 interface MyOptions extends Options {
@@ -266,7 +264,7 @@ export default defineConfig((options: MyOptions) => {
 			platform: 'neutral',
 
 			shims: false, // https://tsup.egoist.dev/#inject-cjs-and-esm-shims
-			sourcemap: false,
+			sourcemap: true, // Enable sourcemaps for server-side debugging
 			target: 'es5',
 			tsconfig: 'tsconfig.json'
 		};

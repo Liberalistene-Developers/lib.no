@@ -114,3 +114,6 @@ src/react4xp_constants.json
 
 # Old v3 solution (for migration reference)
 _old/
+
+# Temporary component storage during refactoring
+temp-components-storage/

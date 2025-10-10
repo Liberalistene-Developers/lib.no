@@ -1,11 +1,9 @@
-<content-type>
+<content-type xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="content_types.localbranch.displayname">localbranch</display-name>
   <display-name-label i18n="content_types.article.displayname.label">Local Branch</display-name-label>
-  <description>Create a new Local branch</description>
   <super-type>base:structured</super-type>
   <is-abstract>false</is-abstract>
   <is-final>true</is-final>
-  <is-built-in>false</is-built-in>
   <allow-child-content>true</allow-child-content>
   <form>
     <field-set>
@@ -79,7 +77,7 @@
             </input>
             <input name="position" type="TextLine">
               <label i18n="content_types.localbranch.candidates.candidate.position.label">Candidate position</label>
-              <default i18n="content_types.localbranch.candidates.candidate.position.default">1. candidate Norway</default>
+              <default>1. candidate Norway</default>
             </input>
           </items>
         </item-set>

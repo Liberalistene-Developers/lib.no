@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<part>
+<part xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="content_types.article.displayname">Article</display-name>
   <description i18n="content_types.article.part.description">
     Display Article

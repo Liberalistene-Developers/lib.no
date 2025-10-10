@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<part>
+<part xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="parts.budgetcutlist.name">Budget cut list</display-name>
   <description i18n="parts.budgetcutlist.description">
     Display Budget cut list
@@ -7,7 +7,7 @@
   <form>
     <input type="TextLine" name="title" >
       <label i18n="parts.title.label">Title</label>
-      <default i18n="parts.title.default"></default>
+      <default></default>
       <help-text i18n="parts.title.help-text">Input your title.</help-text>
       <occurrences minimum="0" maximum="1"/>
       <config/>
@@ -52,49 +52,49 @@
     <mixin name="displaytype" />
     <input type="TextLine" name="labelBudget" >
       <label i18n="parts.labelBudget.label">Label budget</label>
-      <default i18n="parts.labelBudget.default">Budget</default>
+      <default>Budget</default>
       <help-text i18n="parts.labelBudget.help-text">Add the label for budget.</help-text>
       <occurrences minimum="1" maximum="1"/>
       <config/>
     </input>
     <input type="TextLine" name="labelCut" >
       <label i18n="parts.labelCut.label">Label cut</label>
-      <default i18n="parts.labelCut.default">Cut</default>
+      <default>Cut</default>
       <help-text i18n="parts.labelCut.help-text">Add the label for cut.</help-text>
       <occurrences minimum="1" maximum="1"/>
       <config/>
     </input>
     <input type="TextLine" name="labelNumberText" >
       <label i18n="parts.labelNumberText.label">Label number as</label>
-      <default i18n="parts.labelNumberText.default">Numbers in whole millions</default>
+      <default>Numbers in whole millions</default>
       <help-text i18n="parts.labelNumberText.help-text">Add the label for number descripttion.</help-text>
       <occurrences minimum="1" maximum="1"/>
       <config/>
     </input>
     <input type="TextLine" name="labelPercent" >
       <label i18n="parts.labelPercent.label">Label percent</label>
-      <default i18n="parts.labelPercent.default">Percent</default>
+      <default>Percent</default>
       <help-text i18n="parts.labelPercent.help-text">Add the label for percent.</help-text>
       <occurrences minimum="1" maximum="1"/>
       <config/>
     </input>
     <input type="TextLine" name="labelSumary" >
       <label i18n="parts.labelSumary.label">Label sumary</label>
-      <default i18n="parts.labelSumary.default"></default>
+      <default></default>
       <help-text i18n="parts.labelSumary.help-text">Add the label for sumary.</help-text>
       <occurrences minimum="1" maximum="1"/>
       <config/>
     </input>
     <input type="TextLine" name="labelSumCut" >
       <label i18n="parts.labelSumCut.label">Label sum cut</label>
-      <default i18n="parts.labelSumCut.default">Total cut</default>
+      <default>Total cut</default>
       <help-text i18n="parts.labelSumCut.help-text">Add the label for sum cut.</help-text>
       <occurrences minimum="1" maximum="1"/>
       <config/>
     </input>
     <input type="TextLine" name="labelTitle" >
       <label i18n="parts.labelTitle.label">Label title</label>
-      <default i18n="parts.labelTitle.default">Department</default>
+      <default>Department</default>
       <help-text i18n="parts.labelTitle.help-text">Add the label for department.</help-text>
       <occurrences minimum="1" maximum="1"/>
       <config/>

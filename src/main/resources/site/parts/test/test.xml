@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<part>
+<part xmlns="urn:enonic:xp:model:1.0">
   <display-name>Test Part</display-name>
-  <description>Simple test part for React4xp v6</description>
   <form>
     <input name="message" type="TextLine">
       <label>Message</label>

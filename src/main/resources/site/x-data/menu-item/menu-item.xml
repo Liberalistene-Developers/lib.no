@@ -3,7 +3,7 @@
 	DESCRIPTION:
 	Based on "example-standard" but also adds a checkbox for "Open in new window" to all content. Handy for external URLs.
 -->
-<x-data>
+<x-data xmlns="urn:enonic:xp:model:1.0">
   <display-name>Menu settings</display-name>
   <form>
     <input type="Checkbox" name="menuItem">

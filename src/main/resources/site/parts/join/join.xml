@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<part>
+<part xmlns="urn:enonic:xp:model:1.0">
   <display-name>Join</display-name>
-  <description>
-    Join us part
-  </description>
   <form>
     <field-set> 
       <label i18n="parts.join.front.label">Front</label>
@@ -29,8 +26,9 @@
         <input name="backMessage" type="HtmlArea">
           <label i18n="parts.join.message.label">Message</label>
         </input>
-        <input name="buttonText" type="TextLine" required="true">
-          <label i18n="parts.buttontitle.title">Button Text</label>      
+        <input name="buttonText" type="TextLine">
+          <label i18n="parts.buttontitle.title">Button Text</label>
+          <occurrences minimum="1" maximum="1"/>
         </input>
         <input name="url" type="ContentSelector">
           <label i18n="parts.join.url.label">Url</label>

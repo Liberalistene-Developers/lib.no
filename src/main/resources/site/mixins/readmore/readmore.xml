@@ -1,4 +1,4 @@
-<mixin>
+<mixin xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="mixin.readmore.displayname">Read more</display-name>
   <form>
     <field-set>
@@ -12,7 +12,7 @@
         </input>
         <input type="TextLine" name="readMore" > 
           <label i18n="mixin.readmore.button.label">Lenke tekst</label> 
-          <default i18n="mixin.readmore.button.default">Les mer...</default>
+          <default>Les mer...</default>
           <occurrences minimum="0" maximum="1"/>  
           <config/> 
         </input>

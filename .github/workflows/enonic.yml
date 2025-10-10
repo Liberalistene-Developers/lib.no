@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -29,11 +29,8 @@ jobs:
       - name: Lint code and css
         run: npm run lint
 
-      - name: Make production build
-        run: rm react4xp.properties && mv react4xp.production react4xp.properties
-
-      - name: Build jar file
-        run: npm run rebuild
+      - name: Build jar file (production mode)
+        run: npm run build:prod
 
       - name: Build, Test and Deploy app
         uses: docker://enonic/enonic-ci:7.7-node

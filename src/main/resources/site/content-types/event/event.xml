@@ -1,11 +1,9 @@
-<content-type>
+<content-type xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="content_types.event.displayname">Event</display-name>
   <display-name-label i18n="content_types.fact.displayname.label">Event</display-name-label>
-  <description i18n="content_types.event.description">Create a new event</description>
   <super-type>base:structured</super-type>
   <is-abstract>false</is-abstract>
   <is-final>true</is-final>
-  <is-built-in>false</is-built-in>
   <allow-child-content>true</allow-child-content>
   <form>
     <mixin name="image" />

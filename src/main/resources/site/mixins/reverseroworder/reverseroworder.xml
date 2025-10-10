@@ -1,4 +1,4 @@
-<mixin>
+<mixin xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="mixin.roworder.displayname">Row order</display-name>
   <form>
     <input name="reverseroworder" type="CheckBox">

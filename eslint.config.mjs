@@ -22,7 +22,8 @@ export default tseslint.config(// If ignores is used without any other keys in t
     'webpack.config.react4xp.js',
     '_old/**/*.*',
     'tailwind.config.js',
-    'postcss.config.js'
+    'postcss.config.js',
+    'temp-components-storage/**/*.*'
   ],
 }, eslint.configs.recommended, ...tseslint.configs.recommended, {
   // An array of glob patterns indicating the files that the configuration

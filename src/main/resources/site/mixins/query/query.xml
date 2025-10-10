@@ -1,4 +1,4 @@
-<mixin>
+<mixin xmlns="urn:enonic:xp:model:1.0">
   <form>
     <input name="queryroot" type="ContentSelector">
       <label i18n="mixin.query.underneath.label">Query underneath content</label>

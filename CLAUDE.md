@@ -12,10 +12,10 @@ This is the official homepage for Liberalistene (Norwegian political party), bui
 
 - **CMS:** Enonic XP 7.7+
 - **Framework:** React4xp (v6.0.2) - integrates React with Enonic XP
-- **Frontend:** React 18, TypeScript, Tailwind CSS v4
+- **Frontend:** React 19, TypeScript, Tailwind CSS v4
 - **Build System:** Gradle + tsup + esbuild
-- **Node Version:** 18.20.5 (see .nvmrc) - Required for React4xp v6.0.2 compatibility
-- **Java Version:** 11
+- **Node Version:** 22.15.1 (see .nvmrc) - Required for React4xp v6.0.2 compatibility
+- **Java Version:** 17
 - **Component Development:** Storybook 9.1
 - **Mapping:** Leaflet/react-leaflet
 - **Icons:** FontAwesome
@@ -61,9 +61,17 @@ lib.no/
 
 ### Prerequisites
 
-1. Install Node.js 18.20.5 (use nvm: `nvm use`)
-2. Install Java 11
+1. Install Node.js 22.15.1 (use nvm: `nvm use`)
+2. Install Java 17
 3. Install [Enonic CLI](https://developer.enonic.com/start)
+
+### Sandbox Setup
+
+For optimal development experience with clean logs, see [Sandbox Setup Guide](docs/sandbox-setup.md) for:
+- Creating and configuring the Enonic sandbox
+- Disabling audit logging (snapshotter)
+- Suppressing Elasticsearch warnings
+- Optimizing logback configuration
 
 ### Installation
 
@@ -75,7 +83,8 @@ npm install
 
 ```bash
 # Build
-npm run build                 # Build with Gradle
+npm run build                 # Build with Gradle (development mode)
+npm run build:prod            # Build with Gradle (production mode - minified)
 npm run build:assets          # Build assets with tsup
 npm run build:react4xp        # Build React4xp components
 npm run build:xp:resources    # Build XP resources with tsup
@@ -120,7 +129,7 @@ enonic project deploy
 - Uses Enonic XP Gradle plugins
 - Builds JAR file at `build/libs/Liberalistene.jar`
 - Handles Java compilation and resource processing
-- Node environment: production (default) or development (`-Pdev`)
+- Node environment: development (default) or production (`-Penv=prod`)
 
 ### tsup + esbuild
 
@@ -128,6 +137,11 @@ enonic project deploy
 - **XP Resources:** `tsup -d build/resources/main` - builds server-side resources
 - **React4xp:** Component bundling via `@enonic/react4xp` package
 - Fast TypeScript compilation and bundling with esbuild
+
+### Build Modes
+
+- **Development mode** (default): Unminified, easier debugging, used by default for local development
+- **Production mode** (`-Penv=prod`): Minified, optimized bundles, used for releases and CI/CD
 
 ### TypeScript
 

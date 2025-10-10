@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<part>
+<part xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="parts.boardpresentation.name">Board presentation list</display-name>
   <description i18n="parts.boardpresentation.description">
     Display group list
@@ -84,7 +84,7 @@
       <items>
         <input type="TextLine" name="boardname" >
           <label i18n="parts.boardpresentation.boardname.label">Board name</label>
-          <default i18n="parts.boardpresentation.boardname.default">Styre</default>
+          <default>Styre</default>
           <occurrences minimum="1" maximum="1"/>
           <config/>
         </input>

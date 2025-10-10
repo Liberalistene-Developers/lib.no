@@ -1,4 +1,4 @@
-<mixin>
+<mixin xmlns="urn:enonic:xp:model:1.0">
   <form>
     <input name="tags" type="Tag">
       <label i18n="content_types.tags.label">Tags</label>
