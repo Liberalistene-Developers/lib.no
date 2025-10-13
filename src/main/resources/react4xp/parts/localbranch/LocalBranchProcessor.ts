@@ -1,6 +1,7 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
-import {getContent as getPortalContent, attachmentUrl} from '/lib/xp/portal';
+import {getContent as getPortalContent} from '/lib/xp/portal';
+import {imageUrl} from '/react4xp/utils/image';
 
 interface LocalBranchConfig {
   headerPosition?: string;
@@ -29,11 +30,7 @@ export const localBranchProcessor: ComponentProcessor<'lib.no:localbranch'> = ({
 
   const data = content.data as LocalBranchData;
 
-  const image = data.image && {
-    // TODO: Add back when /lib/shared/image is migrated
-    // ...imageUrl(data.image, 'full'),
-    url: attachmentUrl({id: data.image})
-  };
+  const image = imageUrl(data.image, 'full');
 
   return {
     Tag: config?.headerType || 'h1',

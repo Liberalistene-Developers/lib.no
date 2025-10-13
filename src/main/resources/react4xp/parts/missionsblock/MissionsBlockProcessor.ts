@@ -1,6 +1,7 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
-import {getContent as getPortalContent, attachmentUrl} from '/lib/xp/portal';
+import {getContent as getPortalContent} from '/lib/xp/portal';
+import {imageUrl} from '/react4xp/utils/image';
 
 interface MissionsBlockConfig {
   title?: string;
@@ -27,15 +28,9 @@ export const missionsBlockProcessor: ComponentProcessor<'lib.no:missionsblock'> 
     title: config?.title,
     headingClassName: config?.centerheading ? 'center' : undefined,
     items: missions.map(({image: imageKey, title, description}) => {
-      const image = imageKey && {
-        // TODO: Add back when /lib/shared/image is migrated
-        // ...imageUrl(imageKey, 'full'),
-        url: attachmentUrl({id: imageKey})
-      };
-
       return {
         description,
-        image,
+        image: imageUrl(imageKey, 'full'),
         title
       };
     })

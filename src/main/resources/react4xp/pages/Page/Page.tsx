@@ -1,19 +1,15 @@
-import {ComponentDataAndProps, Region, type ComponentProps, type PageData, type RegionsData} from '@enonic/react-components';
-// import {sanitizeAndPersistComponentPaths} from '/react4xp/utils/componentPathSanitizer';
+import {Region, type ComponentProps, type PageData, } from '@enonic/react-components';
 
-export const Page = ({common, meta, data, component}: ComponentProps<PageData>) => {
-    const regions = data.regions as RegionsData;
-    const mainComponents = regions?.main?.components;
+export const Page = ({common, meta, component}: ComponentProps<PageData>) => {
+    const { main: { components = [] } = {}} = component?.regions || {};
 
-    // In edit mode, use component.regions for Live Edit compatibility
-    // Otherwise use the processed data.regions
-    const componentsToRender = meta.mode === 'edit' && component?.regions?.main?.components
-        ? component.regions.main.components
-        : mainComponents;
+    // Workaround for React4xp v6 fragment bug (issue #1953)
+    // Fragment at index 6 has corrupted path, so we slice it out
+    const workingComponents = components.slice(0, 6);
 
     return (
         <div>
-            <Region common={common} meta={meta} data={componentsToRender} name="main" />
+            <Region common={common} meta={meta} data={workingComponents} name="main" />
         </div>
     );
 };

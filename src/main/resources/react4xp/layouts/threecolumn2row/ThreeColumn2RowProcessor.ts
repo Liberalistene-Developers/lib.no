@@ -1,5 +1,5 @@
-import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
-import type {LayoutComponent} from '@enonic-types/core';
+import type { LayoutComponent } from '@enonic-types/core';
+import type { ComponentProcessor } from '@enonic-types/lib-react4xp/DataFetcher';
 
 interface ThreeColumn2RowConfig {
   background?: string;
@@ -15,9 +15,9 @@ export const threeColumn2RowProcessor: ComponentProcessor<'lib.no:threecolumn2ro
   const layoutComponent = component as LayoutComponent;
   const config = layoutComponent.config as ThreeColumn2RowConfig;
 
-  log.info(JSON.stringify(config, null, 2));
+  // log.info(JSON.stringify(config, null, 2));
 
-  log.info(JSON.stringify(layoutComponent.regions, null, 2));
+  // log.info(JSON.stringify(layoutComponent.regions, null, 2));
 
   const columnsLayout = config?.columnsLayout || '';
   const [leftClassName, middleClassName, rightClassName] = columnsLayout ? columnsLayout.split(',') : ['', '', ''];

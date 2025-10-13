@@ -2,6 +2,7 @@ import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
 import {getContent as getPortalContent, pageUrl} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
+import {imageUrl} from '/react4xp/utils/image';
 
 interface GroupConfig {
   headerColor?: string;
@@ -40,9 +41,7 @@ export const groupProcessor: ComponentProcessor<'lib.no:group'> = ({component}) 
 
   return {
     title: content.displayName,
-    // TODO: Add back when /lib/shared/image is migrated
-    // image: imageUrl(data.image, 'full'),
-    image: data.image, // Temporarily unprocessed
+    image: imageUrl(data.image, 'full'),
     imagesize: config?.imagesize,
     imagetype: config?.imagetype,
     headerColor: config?.headerColor,
@@ -71,9 +70,7 @@ export const groupProcessor: ComponentProcessor<'lib.no:group'> = ({component}) 
         role: roleContent?.displayName,
         shortDescription: personData['short-description'],
         url: personContent._path ? pageUrl({path: personContent._path}) : undefined,
-        // TODO: Add back when /lib/shared/image is migrated
-        // image: imageUrl(personData.image, 'full')
-        image: personData.image // Temporarily unprocessed
+        image: imageUrl(personData.image, 'full')
       };
     }).filter(Boolean),
     tags: data.tags

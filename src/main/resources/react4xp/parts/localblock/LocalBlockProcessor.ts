@@ -1,5 +1,6 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
+import {imageUrl} from '/react4xp/utils/image';
 
 interface LocalBlockConfig {
   image?: string;
@@ -41,9 +42,7 @@ export const localBlockProcessor: ComponentProcessor<'lib.no:localblock'> = ({co
 
   return {
     Tag: 'h1',
-    // TODO: Add back when /lib/shared/image is migrated
-    // image: imageUrl(config?.image, 'full'),
-    image: config?.image, // Temporarily unprocessed
+    image: imageUrl(config?.image, 'full'),
     title: titleList,
     position: config?.headerPosition,
     ingress: config?.ingress,

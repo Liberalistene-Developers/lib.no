@@ -29,7 +29,7 @@ export const ThreeColumn2Row = ({meta, data = {}}: ComponentProps) => {
     regions
   } = data as ThreeColumn2RowData;
 
-  console.info('ThreeColumn2Row data', JSON.stringify(data, null, 2));
+  // console.info('ThreeColumn2Row data', JSON.stringify(data, null, 2));
 
   const contentHolderClasses = [
     'content-holder',
@@ -53,7 +53,7 @@ export const ThreeColumn2Row = ({meta, data = {}}: ComponentProps) => {
   const middleClasses = ['content-child', 'middle', middleClassName].filter(Boolean).join(' ');
   const rightClasses = ['content-child', 'right', rightClassName].filter(Boolean).join(' ');
 
-  console.info('ThreeColumn2Row classes', JSON.stringify(regions, null, 2));
+  // console.info('ThreeColumn2Row classes', JSON.stringify(regions, null, 2));
 
   return (
     <div className={contentHolderClasses}>

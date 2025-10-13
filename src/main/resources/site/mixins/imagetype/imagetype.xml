@@ -3,9 +3,9 @@
   <form>
     <input  name="imagetype" type="CheckBox">
       <label i18n="mixin.imagetype.label">Round image</label>
-      <default>checked</default> 
+      <default>checked</default>
       <config>
-        <alignment>right</alignment> 
+        <alignment>right</alignment>
       </config>
     </input>
   </form>

@@ -2,6 +2,7 @@ import {render} from '/lib/enonic/react4xp';
 import {getContent} from '/lib/xp/portal';
 import {dataFetcher} from '/react4xp/dataFetcher';
 import {handlePermissions, handleShortcut} from '/react4xp/utils/requestUtils';
+import type {CommonProcessorData} from '/react4xp/common/CommonProcessor/CommonProps';
 import type {Request, Response} from '@enonic-types/core';
 
 export function get(request: Request): Response {
@@ -28,7 +29,8 @@ export function get(request: Request): Response {
 
     // Create HTML template
     const id = `react4xp_${content._id}`;
-    const body = createHtmlTemplate(id, content.displayName);
+    const common = data.common as CommonProcessorData;
+    const body = createHtmlTemplate(id, content.displayName, common?.cssUrl);
 
     // Render page
     return render(
@@ -42,7 +44,7 @@ export function get(request: Request): Response {
     );
 }
 
-function createHtmlTemplate(react4xpId: string, displayName: string) {
+function createHtmlTemplate(react4xpId: string, displayName: string, cssUrl?: string) {
     return `<!DOCTYPE html>
 	<html lang="en">
 		<head>
@@ -50,6 +52,7 @@ function createHtmlTemplate(react4xpId: string, displayName: string) {
 			<title>${displayName}</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta name="description" content="This page is a home movie database developed with React4XP 6.">
+            ${cssUrl ? `<link rel="stylesheet" href="${cssUrl}">` : ''}
 		</head>
 		<body>
 			<div id="${react4xpId}" class="contentContainer"></div>

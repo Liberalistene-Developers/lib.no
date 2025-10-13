@@ -1,7 +1,8 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
-import {getContent as getPortalContent, attachmentUrl} from '/lib/xp/portal';
+import {getContent as getPortalContent} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
+import {imageUrl} from '/react4xp/utils/image';
 
 interface CandidateBlockConfig {
   title?: string;
@@ -40,18 +41,11 @@ export const candidateBlockProcessor: ComponentProcessor<'lib.no:candidateblock'
       }
 
       const personData = personContent.data as PersonData;
-      const imageKey = personData.image;
-
-      // TODO: Add back when /lib/shared/image is migrated
-      const image = imageKey && {
-        // ...imageUrl(imageKey, 'full'),
-        url: attachmentUrl({id: imageKey})
-      };
 
       return {
         name: personContent.displayName,
         email: personData.email,
-        image,
+        image: imageUrl(personData.image, 'full'),
         phone: personData.phone,
         position
       };

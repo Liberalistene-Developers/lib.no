@@ -1,6 +1,7 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import {getContent as getPortalContent, pageUrl} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
+import {imageUrl} from '/react4xp/utils/image';
 
 interface QuoteData {
   description?: string;
@@ -25,9 +26,7 @@ export const quoteProcessor: ComponentProcessor<'lib.no:quote'> = () => {
 
   return {
     title: content.displayName,
-    // TODO: Add back when /lib/shared/image is migrated
-    // image: imageUrl(data.image),
-    image: data.image, // Temporarily unprocessed
+    image: imageUrl(data.image),
     // TODO: Add back when /lib/shared/html is migrated
     // qoute: processHtml(data.qoute || ''),
     // description: processHtml(data.description || ''),
@@ -46,9 +45,7 @@ export const quoteProcessor: ComponentProcessor<'lib.no:quote'> = () => {
         authorID,
         personUrl: pageUrl({path: authorContent._path}),
         person: authorContent.displayName,
-        // TODO: Add back when /lib/shared/image is migrated
-        // image: imageUrl(authorData.image, 'block(96,128)')
-        image: authorData.image // Temporarily unprocessed
+        image: imageUrl(authorData.image, 'block(96,128)')
       };
     }).filter(Boolean)
   };

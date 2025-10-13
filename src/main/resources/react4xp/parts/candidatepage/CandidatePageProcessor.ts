@@ -2,6 +2,7 @@ import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
 import {getContent as getPortalContent} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
+import {imageUrl} from '/react4xp/utils/image';
 
 interface CandidatePageConfig {
   image?: string;
@@ -53,13 +54,9 @@ export const candidatePageProcessor: ComponentProcessor<'lib.no:candidatepage'> 
       description: data.description || personData.description || '', // Temporarily unprocessed
       email: personData.email,
       phone: personData.phone,
-      // TODO: Add back when /lib/shared/image is migrated
-      // image: imageUrl(data.image || personData.image, 'full'),
-      image: data.image || personData.image, // Temporarily unprocessed
+      image: imageUrl(data.image || personData.image, 'full'),
       fancyImage: !!config?.image,
-      // TODO: Add back when /lib/shared/image is migrated
-      // artImage: imageUrl(config?.image, 'full'),
-      artImage: config?.image, // Temporarily unprocessed
+      artImage: imageUrl(config?.image, 'full'),
       position: `${data.position || ''}, ${data.place || ''}`
     };
   }).filter(Boolean);

@@ -2,6 +2,7 @@ import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
 import {get as getContent} from '/lib/xp/content';
 import {pageUrl} from '/lib/xp/portal';
+import {imageUrl} from '/react4xp/utils/image';
 
 interface CandidatePresentationConfig {
   itemsSet?: {
@@ -68,9 +69,7 @@ export const candidatePresentationProcessor: ComponentProcessor<'lib.no:candidat
 
       return {
         name: candidateContent.displayName,
-        // TODO: Add back when /lib/shared/image is migrated
-        // image: imageUrl(candidateData.image || personImageKey, 'full'),
-        image: candidateData.image || personImageKey, // Temporarily unprocessed
+        image: imageUrl(candidateData.image || personImageKey, 'full'),
         place: candidateData.place,
         position: candidateData.position,
         ingress: candidateData.ingress || shortDescription,

@@ -2,6 +2,7 @@ import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
 import {get as getContent} from '/lib/xp/content';
 import {pageUrl} from '/lib/xp/portal';
+import {imageUrl} from '/react4xp/utils/image';
 
 interface BookListConfig {
   description?: string;
@@ -80,9 +81,7 @@ export const bookListProcessor: ComponentProcessor<'lib.no:booklist'> = ({compon
         author,
         title: itemContent.displayName,
         text: itemData.ingress || '',
-        // TODO: Add back when /lib/shared/image is migrated
-        // image: imageUrl(itemData.image, 'block(157,239)'),
-        image: itemData.image, // Temporarily unprocessed
+        image: imageUrl(itemData.image, 'block(157,239)'),
         buy: buy.length ? buy[0] : null,
         buyFromText: config?.buyFromText
       };

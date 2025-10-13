@@ -2,6 +2,7 @@ import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
 import {get as getContent} from '/lib/xp/content';
 import {pageUrl} from '/lib/xp/portal';
+import {imageUrl} from '/react4xp/utils/image';
 
 interface JoinConfig {
   buttonText?: string;
@@ -26,9 +27,7 @@ export const joinProcessor: ComponentProcessor<'lib.no:join'> = ({component}) =>
     // backMessage: processHtml(config?.backMessage || ''),
     message: config?.message || '', // Temporarily unprocessed
     backMessage: config?.backMessage || '', // Temporarily unprocessed
-    // TODO: Add back when /lib/shared/image is migrated
-    // image: imageUrl(config?.image, 'square(200)'),
-    image: config?.image, // Temporarily unprocessed
+    image: imageUrl(config?.image, 'square(200)'),
     className: 'medium-margin',
     frontPlacement: config?.frontPlacement
   };

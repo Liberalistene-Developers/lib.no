@@ -1,6 +1,6 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
-import {attachmentUrl} from '/lib/xp/portal';
+import {imageUrl} from '/react4xp/utils/image';
 
 interface ImageBlockConfig {
   title?: string;
@@ -43,11 +43,7 @@ export const imageBlockProcessor: ComponentProcessor<'lib.no:imageblock'> = ({co
 
   return {
     Tag: config?.headerType || 'h1',
-    image: config?.image && {
-      // TODO: Add back when /lib/shared/image is migrated
-      // ...imageUrl(config.image, 'full'),
-      url: attachmentUrl({id: config.image})
-    },
+    image: imageUrl(config?.image, 'full'),
     overlay: config?.imageOverlay ? `overlay ${config.imageOverlay}` : undefined,
     ingress: config?.ingress,
     ingressColor: config?.ingressColor,

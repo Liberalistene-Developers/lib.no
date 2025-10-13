@@ -2,6 +2,7 @@ import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
 import {get as getContent} from '/lib/xp/content';
 import {pageUrl} from '/lib/xp/portal';
+import {imageUrl} from '/react4xp/utils/image';
 
 interface PageListConfig {
   items?: Array<{item: string; image?: string; ingress?: string}>;
@@ -36,23 +37,30 @@ export const pageListProcessor: ComponentProcessor<'lib.no:pagelist'> = ({compon
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as PageListConfig;
 
+  log.info('[PageListProcessor] Config:');
+  log.info(JSON.stringify(config, null, 2));
+
   const displaytype = config?.displaytype?._selected || 'gridlist';
   const imageSelection = config?.displaytype?.list?.image?._selected || 'hide';
   const itemsList = config?.items ? [].concat(config.items) : [];
+
+  // Apply XML mixin defaults (checked=true for imagetype)
+  const gridlistImagesize = config?.displaytype?.gridlist?.imagesize || 'medium';
+  const gridlistImagetype = config?.displaytype?.gridlist?.imagetype ?? true;
+  const listImagesize = config?.displaytype?.list?.image?.show?.imagesize || 'medium';
+  const listImagetype = config?.displaytype?.list?.image?.show?.imagetype ?? true;
+
+  log.info(`[PageListProcessor] displaytype: ${displaytype}`);
+  log.info(`[PageListProcessor] imagetype from config: ${config?.displaytype?.gridlist?.imagetype}`);
+  log.info(`[PageListProcessor] imagetype after defaults: ${gridlistImagetype}`);
 
   return {
     title: config?.title,
     displaytype,
     showImage: displaytype === 'list' && imageSelection === 'show',
-    imageSize: displaytype === 'gridlist'
-      ? config?.displaytype?.gridlist?.imagesize
-      : config?.displaytype?.list?.image?.show?.imagesize,
+    imageSize: displaytype === 'gridlist' ? gridlistImagesize : listImagesize,
     titleCenter: displaytype === 'gridlist' && config?.displaytype?.gridlist?.titleCenter,
-    imageType: (displaytype === 'gridlist'
-      ? config?.displaytype?.gridlist?.imagetype
-      : config?.displaytype?.list?.image?.show?.imagetype)
-      ? 'round'
-      : '',
+    imageType: (displaytype === 'gridlist' ? gridlistImagetype : listImagetype) ? 'round' : '',
     items: itemsList.map(({item: itemKey, image: imageKey, ingress}) => {
       const itemContent = getContent({key: itemKey});
       if (!itemContent) {
@@ -61,6 +69,8 @@ export const pageListProcessor: ComponentProcessor<'lib.no:pagelist'> = ({compon
 
       const itemData = itemContent.data as PageData;
 
+      const imageId = imageKey || itemData.image;
+
       return {
         id: itemKey,
         name: itemContent.displayName,
@@ -68,8 +78,7 @@ export const pageListProcessor: ComponentProcessor<'lib.no:pagelist'> = ({compon
         // TODO: Add back when /lib/shared/html is migrated
         // shortDescription: processHtml(ingress || itemData.ingress || itemData['short-description'] || ''),
         shortDescription: ingress || itemData.ingress || itemData['short-description'] || '', // Temporarily unprocessed
-        // TODO: Add back when /lib/shared/image is migrated
-        image: (imageKey || itemData.image) // Temporarily unprocessed
+        image: imageId ? imageUrl(imageId) : null  // Use default scale like v3
       };
     }).filter(Boolean),
     noIngress: !!config?.hideIngress

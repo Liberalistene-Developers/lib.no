@@ -2,6 +2,7 @@ import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
 import {getContent as getPortalContent, pageUrl} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
+import {imageUrl} from '/react4xp/utils/image';
 
 interface EventConfig {
   headerColor?: string;
@@ -70,10 +71,7 @@ export const eventProcessor: ComponentProcessor<'lib.no:event'> = ({component}) 
     description: data.description || '', // Temporarily unprocessed
     headerColor: config?.headerColor,
     headerPosition: config?.headerPosition,
-    image: data.image && {
-      // TODO: Add back when /lib/shared/image is migrated
-      // ...imageUrl(data.image, 'full')
-    },
+    image: imageUrl(data.image, 'full'),
     // TODO: Add back when /lib/shared/html is migrated
     // ingress: processHtml(data.ingress || ''),
     ingress: data.ingress || '', // Temporarily unprocessed
@@ -145,9 +143,7 @@ export const eventProcessor: ComponentProcessor<'lib.no:event'> = ({component}) 
               personID: speakerID,
               personUrl: pageUrl({path: speakerContent._path}),
               person: speakerContent.displayName,
-              // TODO: Add back when /lib/shared/image is migrated
-              // image: imageUrl(speakerData.image, 'square(40)')
-              image: speakerData.image // Temporarily unprocessed
+              image: imageUrl(speakerData.image, 'square(40)')
             };
           }).filter(Boolean)
         };

@@ -1,5 +1,6 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
+import {imageUrl} from '/react4xp/utils/image';
 
 interface FancyHeaderConfig {
   image?: string;
@@ -12,12 +13,8 @@ export const fancyHeaderProcessor: ComponentProcessor<'lib.no:fancyheader'> = ({
   const config = partComponent.config as FancyHeaderConfig;
 
   return {
-    // TODO: Add back when /lib/shared/image is migrated
-    // image: imageUrl(config?.image, 'full'),
-    image: config?.image, // Temporarily unprocessed
+    image: imageUrl(config?.image, 'full'),
     title: config?.title || '',
-    // TODO: Add back when /lib/shared/image is migrated
-    // effect: imageUrl(config?.effect, 'full')
-    effect: config?.effect // Temporarily unprocessed
+    effect: imageUrl(config?.effect, 'full')
   };
 };

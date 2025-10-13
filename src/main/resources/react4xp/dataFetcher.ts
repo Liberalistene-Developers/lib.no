@@ -1,5 +1,11 @@
 import { DataFetcher } from '/lib/enonic/react4xp';
 
+// Common
+import { commonProcessor } from '/react4xp/common/CommonProcessor/CommonProcessor';
+
+// Content types
+import { fragmentProcessor } from '/react4xp/content-types/portal-fragment/FragmentProcessor';
+
 // Pages
 import { pageProcessor } from '/react4xp/pages/Page/PageProcessor';
 
@@ -53,6 +59,12 @@ import { titleBlockProcessor } from '/react4xp/parts/titleblock/TitleBlockProces
 // Note: test processor exists but was not in upstream/develop .es6 files
 
 export const dataFetcher = new DataFetcher();
+
+// Common processor - runs for all pages
+dataFetcher.addCommon({processor: commonProcessor});
+
+// Content types
+dataFetcher.addContentType('portal:fragment', {processor: fragmentProcessor});
 
 // Page descriptor
 dataFetcher.addPage('lib.no:default', {processor: pageProcessor});

@@ -3,6 +3,7 @@ import type {PartComponent} from '@enonic-types/core';
 import {getContent as getPortalContent} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
 import {pageUrl} from '/lib/xp/portal';
+import {imageUrl} from '/react4xp/utils/image';
 
 interface ArticleConfig {
   headerColor?: string;
@@ -40,9 +41,7 @@ export const articleProcessor: ComponentProcessor<'lib.no:article'> = ({componen
     titleInImage: !!config?.titleInImage,
     title: content.displayName,
     datePublished: data.date,
-    // TODO: Add back when /lib/shared/image is migrated
-    // image: imageUrl(data.image, 'full'),
-    image: data.image, // Temporarily unprocessed
+    image: imageUrl(data.image, 'full'),
     description: data.description,
     tags: data.tags,
     authors: authors.map((authorID) => {
@@ -57,9 +56,7 @@ export const articleProcessor: ComponentProcessor<'lib.no:article'> = ({componen
         authorID,
         personUrl: pageUrl({path: authorContent._path}),
         person: authorContent.displayName,
-        // TODO: Add back when /lib/shared/image is migrated
-        // image: imageUrl(authorData.image as string, 'square(40)')
-        image: authorData.image // Temporarily unprocessed
+        image: imageUrl(authorData.image as string, 'square(40)')
       };
     }).filter(Boolean),
     // TODO: Add back when /lib/shared/html is migrated

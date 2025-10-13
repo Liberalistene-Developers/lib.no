@@ -2,6 +2,7 @@ import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
 import {get as getContent} from '/lib/xp/content';
 import {pageUrl} from '/lib/xp/portal';
+import {imageUrl} from '/react4xp/utils/image';
 
 interface CandidateListConfig {
   candidate?: Array<{role: string; description: string; person: string}>;
@@ -40,9 +41,7 @@ export const candidateListProcessor: ComponentProcessor<'lib.no:candidatelist'> 
         // shortDescription: processHtml(description),
         shortDescription: description, // Temporarily unprocessed
         url: pageUrl({path: personContent._path}),
-        // TODO: Add back when /lib/shared/image is migrated
-        // image: imageUrl(personData.image, 'full')
-        image: personData.image // Temporarily unprocessed
+        image: imageUrl(personData.image, 'full')
       };
     }).filter(Boolean)
   };

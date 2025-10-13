@@ -8,6 +8,14 @@ This is the official homepage for Liberalistene (Norwegian political party), bui
 **License:** Apache-2.0
 **Current Version:** 1.10.2
 
+## Working with Claude Code
+
+**IMPORTANT RULES:**
+
+1. **Never rewrite components or files without asking first** - Always ask before making changes to existing files
+2. **Never reset files from git** - Don't undo changes that have already been made to the codebase
+3. **Never mention controller files for site folder items** - This is React4xp v6 architecture with processors and component registry, not v3 controllers
+
 ## Tech Stack
 
 - **CMS:** Enonic XP 7.7+
@@ -176,6 +184,12 @@ Enforced by Commitlint via Husky pre-commit hooks.
 - **CSS:** Tailwind CSS v4 with PostCSS
 - **Editor:** EditorConfig (`.editorconfig`)
 
+### TypeScript Best Practices
+
+- **Use proper TypeScript only** - All code must be written in proper TypeScript following recommended patterns
+- **Prefer destructuring** - Use object and array destructuring wherever possible
+- **Prefer template strings** - Use template literals (backticks) instead of string concatenation
+
 ## Release Process
 
 ### Semantic Release (Automated)
@@ -264,14 +278,9 @@ This project uses environment variables for configuration. Check with the team f
 
 1. **Clean build:** `npm run clean && npm install`
 2. **Clear Gradle cache:** `./gradlew clean --refresh-dependencies`
-3. **Check Node version:** Should be 18.20.5 (run `nvm use`)
+3. **Check Node version:** Should be 22.15.1 (run `nvm use`)
 4. **Type check:** `npm run check:types` to verify TypeScript compilation
 5. **Lint:** `npm run lint` to check for code issues
-
-**Important:** React4xp v6.0.2 requires Node 18.x due to dependency
-compatibility issues with `filemanager-webpack-plugin` and `del`.
-Modern Node versions (20+, 22+) will fail during the build process.
-This will be resolved in future React4xp versions.
 
 ### React4xp v6 Architecture
 

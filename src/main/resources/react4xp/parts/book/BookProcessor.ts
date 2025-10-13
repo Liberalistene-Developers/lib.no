@@ -2,6 +2,7 @@ import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import {getContent as getPortalContent} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
 import {pageUrl} from '/lib/xp/portal';
+import {imageUrl} from '/react4xp/utils/image';
 
 interface BookData {
   description?: string;
@@ -23,9 +24,7 @@ export const bookProcessor: ComponentProcessor<'lib.no:book'> = () => {
 
   return {
     title: content.displayName,
-    // TODO: Add back when /lib/shared/image is migrated
-    // image: imageUrl(data.image),
-    image: data.image, // Temporarily unprocessed
+    image: imageUrl(data.image),
     description: data.description,
     tags: data.tags,
     authors: authors.map((authorID) => {
@@ -40,9 +39,7 @@ export const bookProcessor: ComponentProcessor<'lib.no:book'> = () => {
         authorID,
         personUrl: pageUrl({path: authorContent._path}),
         person: authorContent.displayName,
-        // TODO: Add back when /lib/shared/image is migrated
-        // image: imageUrl(authorData.image as string, 'block(96,128)')
-        image: authorData.image // Temporarily unprocessed
+        image: imageUrl(authorData.image as string, 'block(96,128)')
       };
     }).filter(Boolean),
     // TODO: Add back when /lib/shared/html is migrated

@@ -1,6 +1,7 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
 import {getContent as getPortalContent} from '/lib/xp/portal';
+import {imageUrl} from '/react4xp/utils/image';
 
 interface PersonConfig {
   emailPrefix?: string;
@@ -28,9 +29,7 @@ export const personProcessor: ComponentProcessor<'lib.no:person'> = ({component}
 
   return {
     title: content.displayName,
-    // TODO: Add back when /lib/shared/image is migrated
-    // image: imageUrl(data.image, 'block(192,256)'),
-    image: data.image, // Temporarily unprocessed
+    image: imageUrl(data.image, 'block(192,256)'),
     // TODO: Add back when /lib/shared/html is migrated
     // description: processHtml(data.description || ''),
     description: data.description || '', // Temporarily unprocessed
