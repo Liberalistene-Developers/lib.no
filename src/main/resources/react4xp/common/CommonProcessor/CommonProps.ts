@@ -1,5 +1,5 @@
 import { type RequestMode, LiteralUnion } from '@enonic-types/core';
-import { type MenuTree } from '/lib/menu';
+import type { MenuTree } from '/lib/menu';
 import { ImageData } from '/react4xp/utils/image';
 
 export interface Social {

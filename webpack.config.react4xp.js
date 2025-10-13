@@ -27,34 +27,31 @@ module.exports = function(env, config) {
 	// Enable sourcemaps for easier debugging
 	config.devtool = 'source-map';
 
-	// COMMENTED OUT: This was causing "Cannot call a class as a function" errors
-	// The r4xp template doesn't have this externalization
-	// // Add resolve aliases for server-side imports (using direct paths)
-	// const path = require('path');
-	// config.resolve.alias = {
-	// 	...config.resolve.alias,
-	// 	'/lib/menu': path.resolve(__dirname, 'node_modules/@item-enonic-types/lib-menu/index.d.ts'),
-	// 	'@enonic-types/core': path.resolve(__dirname, 'node_modules/@enonic-types/core/index.d.ts'),
-	// };
+	// Add resolve alias for /lib/menu to help rspack find it
+	const path = require('path');
+	config.resolve.alias = {
+		...config.resolve.alias,
+		'/lib/menu': path.resolve(__dirname, 'node_modules/@item-enonic-types/lib-menu/index.d.ts'),
+	};
 
-	// // Externalize server-side imports so they're not bundled in client code
-	// const existingExternals = config.externals || [];
-	// const externalsArray = Array.isArray(existingExternals) ? existingExternals : [existingExternals];
+	// Externalize server-side imports so they're not bundled in client code
+	const existingExternals = config.externals || [];
+	const externalsArray = Array.isArray(existingExternals) ? existingExternals : [existingExternals];
 
-	// config.externals = [
-	// 	...externalsArray,
-	// 	function({request}, callback) {
-	// 		// Externalize all /lib/* imports (server-side Enonic XP libraries)
-	// 		if (/^\/lib\//.test(request)) {
-	// 			return callback(null, 'commonjs ' + request);
-	// 		}
-	// 		// Externalize @enonic-types
-	// 		if (/^@enonic-types\//.test(request)) {
-	// 			return callback(null, 'commonjs ' + request);
-	// 		}
-	// 		callback();
-	// 	}
-	// ];
+	config.externals = [
+		...externalsArray,
+		function({request}, callback) {
+			// Externalize all /lib/* imports (server-side Enonic XP libraries)
+			if (/^\/lib\//.test(request)) {
+				return callback(null, 'commonjs ' + request);
+			}
+			// Externalize @enonic-types
+			if (/^@enonic-types\//.test(request)) {
+				return callback(null, 'commonjs ' + request);
+			}
+			callback();
+		}
+	];
 
 	config.module.rules = [
 		...(config.module.rules || []),

@@ -1,4 +1,4 @@
-import { type MenuTree } from "/lib/menu";
+import type { MenuTree } from '/lib/menu';
 
 import { Menu } from "../Menu/Menu";
 
