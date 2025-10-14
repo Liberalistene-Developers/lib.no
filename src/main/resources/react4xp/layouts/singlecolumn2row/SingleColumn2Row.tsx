@@ -1,6 +1,4 @@
-import type {ComponentProps, RegionsData} from '@enonic/react-components';
-import {Region} from '@enonic/react-components';
-import * as React from 'react';
+import {Region, type ComponentProps, type LayoutData} from '@enonic/react-components';
 
 export interface SingleColumn2RowData extends Record<string, unknown> {
   background?: string;
@@ -9,10 +7,9 @@ export interface SingleColumn2RowData extends Record<string, unknown> {
   paddingBottom?: boolean;
   paddingTop?: boolean;
   orderClass?: string;
-  regions?: RegionsData;
 }
 
-export const SingleColumn2Row = ({meta, data = {}}: ComponentProps) => {
+export const SingleColumn2Row = ({meta, data = {}, component}: ComponentProps<LayoutData>) => {
   const {
     background = '',
     borderBottom = false,
@@ -20,8 +17,8 @@ export const SingleColumn2Row = ({meta, data = {}}: ComponentProps) => {
     paddingBottom = false,
     paddingTop = false,
     orderClass = '',
-    regions
   } = data as SingleColumn2RowData;
+  const {regions} = component;
 
   const contentHolderClasses = [
     'content-holder',

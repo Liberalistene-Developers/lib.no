@@ -9,10 +9,8 @@ interface UnderConstructionPageConfig {
 export const underConstructionPageProcessor: ComponentProcessor<'lib.no:under-construction'> = ({component}) => {
   const pageComponent = component as unknown as PageComponent;
   const config = pageComponent.config as UnderConstructionPageConfig;
-  const content = getContent();
 
   return {
     title: config?.title || 'Her kommer Liberalistene',
-    regions: content.page?.regions
   };
 };

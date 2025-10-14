@@ -9,8 +9,6 @@ const App: React.FC<AppProps> = ({component, data, common, meta}) => {
     const compMeta: MetaData = meta as MetaData;
     compMeta.componentRegistry = componentRegistry;
 
-    // console.info('[App] Rendering BaseComponent with registry and data', JSON.stringify(component, null, 2));
-
     return (
         <>
             <BaseComponent component={component} data={data} common={common} meta={compMeta}/>

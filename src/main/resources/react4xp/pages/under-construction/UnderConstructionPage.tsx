@@ -1,20 +1,15 @@
-import type {ComponentProps, PageData, RegionsData} from '@enonic/react-components';
-import {Region} from '@enonic/react-components';
-import * as React from 'react';
+import {Region, type ComponentProps, type LayoutData} from '@enonic/react-components';
+
 
 export interface UnderConstructionPageData extends Record<string, unknown> {
   title?: string;
-  regions?: RegionsData;
-  pageData?: PageData;
 }
 
-export const UnderConstructionPage = ({meta, data, component}: ComponentProps) => {
-  const pageData = data as UnderConstructionPageData;
-  const regions: RegionsData | undefined = pageData.regions ||
-    ('regions' in component ? (component as PageData).regions : undefined);
+export const UnderConstructionPage = ({meta, component}: ComponentProps<LayoutData>) => {
+  const {regions} = component;
 
   return (
-    <main className="xp-region">
+    <main>
       {regions?.main && (
         <Region
           data={regions.main.components}

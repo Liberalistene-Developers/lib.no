@@ -60,14 +60,16 @@ import { titleBlockProcessor } from '/react4xp/parts/titleblock/TitleBlockProces
 
 export const dataFetcher = new DataFetcher();
 
-// Common processor - runs for all pages
-dataFetcher.addCommon({processor: commonProcessor});
 
 // Content types
-dataFetcher.addContentType('portal:fragment', {processor: fragmentProcessor});
+// dataFetcher.addContentType('portal:fragment', {processor: fragmentProcessor});
 
 // Page descriptor
 dataFetcher.addPage('lib.no:default', {processor: pageProcessor});
+
+// Common processor - runs for all pages
+dataFetcher.addCommon({processor: commonProcessor});
+
 
 // Layouts
 dataFetcher.addLayout('lib.no:fourcolumn', {processor: fourColumnProcessor});

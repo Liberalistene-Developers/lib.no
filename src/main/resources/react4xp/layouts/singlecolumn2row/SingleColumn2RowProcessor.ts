@@ -21,6 +21,5 @@ export const singleColumn2RowProcessor: ComponentProcessor<'lib.no:singlecolumn2
     paddingBottom: config?.paddingbottom,
     paddingTop: config?.paddingtop,
     orderClass: config?.reverseroworder ? 'reverse' : '',
-    regions: layoutComponent.regions
   };
 };
