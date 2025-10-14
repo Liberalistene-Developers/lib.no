@@ -1,4 +1,4 @@
-import {extractList} from './helpers';
+import { extractList } from './helpers';
 
 interface ImageData {
   url?: string;
@@ -15,13 +15,15 @@ interface ArticleData {
   [key: string]: unknown;
 }
 
-interface GuillotineArticleItem {
+interface GuillotineArticleItemRaw {
   id?: string;
   name?: string;
   url?: string;
   data?: {
     datePublished?: string;
-    shortDescription?: string;
+    shortDescription?: {
+      processedHtml?: string;
+    };
     image?: ImageData;
   };
 }
@@ -48,7 +50,9 @@ query(
 
         data {
           datePublished: date
-          shortDescription: ingress
+          shortDescription: ingress {
+            processedHtml
+          }
           image {
             ... on media_Image {
               displayName
@@ -79,12 +83,12 @@ const map = (imageMap: ImageMapper) => ({
   name,
   url,
   data: {datePublished, shortDescription, image} = {}
-}: GuillotineArticleItem): ArticleData => ({
+}: GuillotineArticleItemRaw): ArticleData => ({
   id,
   name,
   url,
   datePublished,
-  shortDescription,
+  shortDescription: shortDescription?.processedHtml ?? '',
   image: image && imageMap(image)
 });
 

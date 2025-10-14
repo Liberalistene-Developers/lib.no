@@ -122,6 +122,10 @@ const doGuillotineRequest = (params: GuillotineRequestParams): void => {
     catchErrorsFunc
   } = extractParamsOrDefaults(params);
 
+  console.log('[Guillotine] Request URL:', url);
+  console.log('[Guillotine] Query:', query);
+  console.log('[Guillotine] Variables:', variables);
+
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore - fetch is available in browser context
   fetch(url, {

@@ -1,7 +1,10 @@
-import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
-import type {PartComponent} from '@enonic-types/core';
-import {getSite, pageUrl} from '/lib/xp/portal';
-import {get as getContent} from '/lib/xp/content';
+import type { PartComponent } from '@enonic-types/core';
+import type { ComponentProcessor } from '@enonic-types/lib-react4xp/DataFetcher';
+import { get as getContent } from '/lib/xp/content';
+import { get as getContext } from '/lib/xp/context';
+import { mapArticle } from '/lib/shared/articles';
+import { findItems } from '/lib/shared/query';
+import { buildParentPathQuery } from '/headless/helpers/helpers';
 
 interface ArticleListConfig {
   description?: string;
@@ -53,16 +56,23 @@ export const articleListProcessor: ComponentProcessor<'lib.no:articlelist'> = ({
 
   const items: unknown[] = [];
 
-  // TODO: Add back when /lib/shared/articles and /headless helpers are migrated
-  // For now, just handle manual selection
   if (selection === 'manual') {
     const itemList = config?.itemsSet?.manual?.items || [];
-    // items.push(...itemList.map(mapArticle));
-    items.push(...itemList); // Temporarily unprocessed
-  }
+    items.push(...itemList.map(mapArticle));
+  } else if (selection === 'query') {
+    // Fetch initial articles server-side for query mode
+    const queryRoot = config?.itemsSet?.query?.queryroot;
+    const queryCount = config?.itemsSet?.query?.count || 12;
+    const querysorting = config?.itemsSet?.query?.querysorting || 'normal';
 
-  const site = getSite();
-  const siteUrl = site ? pageUrl({path: site._path}) : '';
+    if (queryRoot) {
+      const articleIds = findItems('lib.no:article', queryRoot, querysorting, queryCount, 0, 'data.date');
+      if (articleIds) {
+        items.push(...articleIds.map(mapArticle));
+        log.info(`[ArticleList] Fetched ${articleIds.length} initial articles server-side`);
+      }
+    }
+  }
 
   const featured = (config?.featured || []).reduce(
     (acc, {item, style, showDate = true}) => ({
@@ -77,9 +87,7 @@ export const articleListProcessor: ComponentProcessor<'lib.no:articlelist'> = ({
     ? getContent({key: config.itemsSet.query.queryroot})?._path
     : undefined;
 
-  // TODO: Add back when /headless/helpers is migrated
-  // const parentPathQuery = headless && queryPath && buildParentPathQuery(queryPath);
-  const parentPathQuery = queryPath; // Temporarily simplified
+  const parentPathQuery = headless && queryPath ? buildParentPathQuery(queryPath) : undefined;
 
   const createSort = () => {
     const querysorting = config?.itemsSet?.query?.querysorting || 'normal';
@@ -94,6 +102,17 @@ export const articleListProcessor: ComponentProcessor<'lib.no:articlelist'> = ({
   };
 
   const sortExpression = createSort();
+
+  // Get current project and branch from context for Guillotine app v7 endpoint
+  const context = getContext();
+  const repository = context.repository || 'com.enonic.cms.default';
+  const projectName = repository.replace('com.enonic.cms.', '');
+  const branch = context.branch || 'master';
+  const guillotineEndpoint = `/site/${projectName}/${branch}`;
+
+  log.info(`[ArticleList] Context - repository: ${repository}, projectName: ${projectName}, branch: ${branch}`);
+  log.info(`[ArticleList] Guillotine endpoint: ${guillotineEndpoint}`);
+  log.info(`[ArticleList] apiUrl: ${headless ? guillotineEndpoint : '(not headless)'}`);
 
   return {
     title: config?.title,
@@ -116,7 +135,7 @@ export const articleListProcessor: ComponentProcessor<'lib.no:articlelist'> = ({
     loadMore: config?.loadMore,
     loadMoreEnabled: config?.loadMoreEnabled,
     items,
-    apiUrl: headless ? `${siteUrl.length > 8 ? siteUrl : ''}/api/headless` : '',
+    apiUrl: headless ? guillotineEndpoint : '',
     parentPathQuery,
     count: selection === 'query' ? (config?.itemsSet?.query?.count || 10) : items.length,
     sortExpression,

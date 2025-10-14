@@ -10,7 +10,7 @@ interface ArticleData {
 }
 
 interface MappedArticle {
-  itemId: string;
+  id: string;
   name?: string;
   url?: string;
   datePublished?: string;
@@ -21,7 +21,7 @@ interface MappedArticle {
 export const mapArticle = (itemId: string): MappedArticle => {
   const content = getContent({key: itemId});
   if (!content) {
-    return {itemId};
+    return {id: itemId};
   }
 
   const {
@@ -38,7 +38,7 @@ export const mapArticle = (itemId: string): MappedArticle => {
   } = articleData;
 
   return {
-    itemId,
+    id: itemId,
     name,
     url: itemPath ? pageUrl({path: itemPath}) : undefined,
     datePublished,

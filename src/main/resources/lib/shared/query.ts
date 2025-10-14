@@ -69,21 +69,35 @@ export const findItems = (
   key: string,
   sort: string,
   count: number,
-  start: number = 0
+  start: number = 0,
+  sortField?: string
 ): string[] | undefined => {
+  let sortExpression: string | undefined;
+
   switch (sort) {
     case 'normal': {
-      return runQuery(key, count, type, undefined, start);
+      sortExpression = undefined;
+      break;
     }
-
+    case 'asc': {
+      sortExpression = sortField ? `${sortField} ASC` : '_modifiedTime ASC';
+      break;
+    }
+    case 'desc': {
+      sortExpression = sortField ? `${sortField} DESC` : '_modifiedTime DESC';
+      break;
+    }
     default: {
-      return runQuery(
-        key,
-        count,
-        type,
-        sort === 'asc' ? 'ASC' : 'DESC',
-        start
-      );
+      sortExpression = undefined;
     }
   }
+
+  const search: SearchParams = {
+    key,
+    start,
+    count,
+    sort: sortExpression
+  };
+
+  return getItems(search, type);
 };

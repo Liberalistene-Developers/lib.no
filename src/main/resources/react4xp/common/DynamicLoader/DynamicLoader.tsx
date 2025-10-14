@@ -5,8 +5,6 @@ import doGuillotineRequest from '/headless/guillotineRequest';
 
 import {Button} from '../Button/Button';
 
-let nextOffset = 0;
-
 export interface DynamicLoaderItem {
   id?: string;
   [key: string]: unknown;
@@ -40,15 +38,14 @@ export const DynamicLoader: React.FC<DynamicLoaderProps> = ({
   const [list, setList] = useState<DynamicLoaderItem[]>(items);
   const [more, setMore] = useState(loadMoreEnabled && !!apiUrl && items.length === count);
   const [loading, setLoading] = useState(false);
+  const [nextOffset, setNextOffset] = useState(items.length);
 
   useEffect(() => {
-    nextOffset = list.length;
+    setNextOffset(list.length);
   }, [list]);
 
   const updateItems = (data: DynamicLoaderItem[]): void => {
     if (data.length > 0) {
-      nextOffset += data.length;
-
       setList([
         ...list,
         ...data

@@ -10,9 +10,7 @@
       <service>component</service>
     </mapping>
     <!-- Custom mappings from v3 -->
-    <mapping controller="/headless/guillotineApi.js" order="50">
-      <pattern>/api/headless</pattern>
-    </mapping>
+    <!-- Removed /api/headless mapping - migrated to Guillotine app v7 -->
     <mapping controller="/lib/urlredirect.js">
       <match>type:'lib.no:url'</match>
     </mapping>

@@ -19,7 +19,7 @@ interface EventData {
   [key: string]: unknown;
 }
 
-interface GuillotineEventItem {
+interface GuillotineEventItemRaw {
   id?: string;
   name?: string;
   url?: string;
@@ -27,7 +27,9 @@ interface GuillotineEventItem {
     from?: string;
     to?: string;
     place?: string;
-    shortDescription?: string;
+    shortDescription?: {
+      processedHtml?: string;
+    };
     image?: ImageData;
   };
 }
@@ -56,7 +58,9 @@ query(
           from
           to
           place
-          shortDescription: ingress
+          shortDescription: ingress {
+            processedHtml
+          }
           image {
             ... on media_Image {
               displayName
@@ -87,7 +91,7 @@ const map = (imageMap: ImageMapper) => ({
   name,
   url,
   data: {from, to, place, shortDescription, image} = {}
-}: GuillotineEventItem): EventData => ({
+}: GuillotineEventItemRaw): EventData => ({
   id,
   title: name,
   url,
@@ -96,7 +100,7 @@ const map = (imageMap: ImageMapper) => ({
   location: {
     address: place
   },
-  text: shortDescription,
+  text: shortDescription?.processedHtml ?? '',
   image: image && imageMap(image)
 });
 

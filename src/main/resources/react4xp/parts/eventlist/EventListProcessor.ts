@@ -1,7 +1,10 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
-import {getSite, pageUrl} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
+import {get as getContext} from '/lib/xp/context';
+import {mapEvent} from '/lib/shared/events';
+import {findItems} from '/lib/shared/query';
+import {buildParentPathQuery} from '/headless/helpers/helpers';
 
 interface EventListConfig {
   description?: string;
@@ -47,32 +50,38 @@ export const eventListProcessor: ComponentProcessor<'lib.no:eventlist'> = ({comp
 
   const items: unknown[] = [];
 
-  // TODO: Add back when /lib/shared/events and /headless helpers are migrated
   if (selection === 'manual') {
     const itemList = config?.itemsSet?.manual?.items || [];
-    // items.push(...itemList.map(mapEvent));
-    items.push(...itemList); // Temporarily unprocessed
-  }
+    items.push(...itemList.map(mapEvent));
+  } else if (selection === 'query') {
+    // Fetch initial events server-side for query mode
+    const queryRoot = config?.itemsSet?.query?.queryroot;
+    const queryCount = config?.itemsSet?.query?.count || 10;
+    const querysorting = config?.itemsSet?.query?.querysorting || 'normal';
 
-  const site = getSite();
-  const siteUrl = site ? pageUrl({path: site._path}) : '';
+    if (queryRoot) {
+      const eventIds = findItems('lib.no:event', queryRoot, querysorting, queryCount, 0, 'data.from');
+      if (eventIds) {
+        items.push(...eventIds.map(mapEvent));
+        log.info(`[EventList] Fetched ${eventIds.length} initial events server-side`);
+      }
+    }
+  }
 
   const headless = selection === 'query';
   const queryPath = headless && config?.itemsSet?.query?.queryroot
     ? getContent({key: config.itemsSet.query.queryroot})?._path
     : undefined;
 
-  // TODO: Add back when /headless/helpers is migrated
-  // const parentPathQuery = headless && queryPath && buildParentPathQuery(queryPath);
-  const parentPathQuery = queryPath; // Temporarily simplified
+  const parentPathQuery = headless && queryPath ? buildParentPathQuery(queryPath) : undefined;
 
   const createSort = () => {
     const querysorting = config?.itemsSet?.query?.querysorting || 'normal';
     switch (querysorting) {
       case 'asc':
-        return 'data.date ASC';
+        return 'data.from ASC';
       case 'desc':
-        return 'data.date DESC';
+        return 'data.from DESC';
       default:
         return '';
     }
@@ -80,6 +89,13 @@ export const eventListProcessor: ComponentProcessor<'lib.no:eventlist'> = ({comp
 
   const sortExpression = createSort();
   const useLoader = selection !== 'manual';
+
+  // Get current project and branch from context for Guillotine app v7 endpoint
+  const context = getContext();
+  const repository = context.repository || 'com.enonic.cms.default';
+  const projectName = repository.replace('com.enonic.cms.', '');
+  const branch = context.branch || 'master';
+  const guillotineEndpoint = `/site/${projectName}/${branch}`;
 
   return {
     title: config?.title,
@@ -94,7 +110,7 @@ export const eventListProcessor: ComponentProcessor<'lib.no:eventlist'> = ({comp
     loadMore: config?.loadMore,
     loadMoreEnabled: config?.loadMoreEnabled,
     items,
-    apiUrl: headless ? `${siteUrl}/api/headless` : '',
+    apiUrl: headless ? guillotineEndpoint : '',
     parentPathQuery,
     count: selection === 'query' ? (config?.itemsSet?.query?.count || 10) : items.length,
     sortExpression,
