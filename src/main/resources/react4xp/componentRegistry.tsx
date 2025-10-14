@@ -4,6 +4,9 @@ import {ComponentRegistry} from '@enonic/react-components';
 // Pages
 import { Page } from '/react4xp/pages/Page/Page';
 
+// Macros
+import { EmbedMacro } from '/react4xp/macros/embed/EmbedMacro';
+
 // Layouts
 import { FourColumn } from '/react4xp/layouts/fourcolumn/FourColumn';
 import { FourColumn2Row } from '/react4xp/layouts/fourcolumn2row/FourColumn2Row';
@@ -106,3 +109,6 @@ componentRegistry.addPart('lib.no:quote', {View: QuotePart});
 componentRegistry.addPart('lib.no:submenu', {View: SubmenuPart});
 componentRegistry.addPart('lib.no:textblock', {View: TextBlockPart});
 componentRegistry.addPart('lib.no:titleblock', {View: TitleBlockPart});
+
+// Macros
+componentRegistry.addMacro('embed', {View: EmbedMacro});

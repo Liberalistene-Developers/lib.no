@@ -186,6 +186,15 @@
     line-height: var(--font-size-rich-text--line-height);
   }
 
+  /* Embed macro styles */
+  .embed-macro {
+    @apply w-full flex justify-center;
+  }
+
+  .embed-macro iframe {
+    @apply border-0;
+  }
+
   /* Inline display utility */
   .as-span {
     @apply inline;
@@ -253,129 +262,131 @@
     @apply pb-[50px];
   }
 
-  main > .content-holder > .content {
+  main .content-holder .content {
     @apply w-full max-w-[1296px] mx-auto pb-5 pt-5;
   }
 
-  main > .content-holder > .content > .content-item {
+  main .content-holder .content .content-item {
     @apply flex flex-col justify-center items-center mx-auto w-[911px] max-w-full;
   }
 
-  main > .content-holder > .content > .content-item .xp-page-editor-item-view.empty {
+  main .content-holder .content .content-item .xp-page-editor-item-view.empty {
     @apply w-full;
   }
 
-  main > .content-holder > .content > .content-item p > a {
+  main .content-holder .content .content-item p > a {
     @apply underline;
   }
 
-  main > .content-holder > .content > .content-item .page-content,
-  main > .content-holder > .content > .content-item section[data-portal-component-type="text"] > *,
-  main > .content-holder > .content > .content-item div[data-portal-component-type="text"] > section > * {
+  main .content-holder .content .content-item .page-content,
+  main .content-holder .content .content-item section[data-portal-component-type="text"] > *,
+  main .content-holder .content .content-item div[data-portal-component-type="text"] > section > * {
     @apply mx-auto w-[600px] max-w-full;
   }
 
-  main > .content-holder > .content > .content-item div[data-portal-component-type="part"] {
+  main .content-holder .content .content-item div[data-portal-component-type="part"] {
     @apply w-full;
   }
 
-  main > .content-holder > .content > .content-item section[data-portal-component-type="text"] > figure {
+  main .content-holder .content .content-item section[data-portal-component-type="text"] > figure {
     @apply w-full;
   }
 
-  main > .content-holder > .content > .content-item section[data-portal-component-type="text"] > figure img {
+  main .content-holder .content .content-item section[data-portal-component-type="text"] > figure img {
     @apply max-w-full;
   }
 
-  main > .content-holder > .content > .content-item.items {
+  main .content-holder .content .content-item.items {
     @apply flex flex-row flex-wrap justify-between items-start gap-y-10;
   }
 
-  main > .content-holder > .content > .content-item.items.reverse {
+  main .content-holder .content .content-item.items.reverse {
     @apply flex-wrap-reverse;
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.items {
+  main .content-holder .content .content-item.items .content-child.items {
     @apply flex flex-row justify-around;
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.left {
+  main .content-holder .content .content-item.items .content-child.left {
     @apply -mr-5;
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.left > * {
+  main .content-holder .content .content-item.items .content-child.left > * {
     @apply pr-5;
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.middle {
+  main .content-holder .content .content-item.items .content-child.middle {
     @apply -mx-[10px];
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.middle > * {
+  main .content-holder .content .content-item.items .content-child.middle > * {
     @apply px-2;
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.right {
+  main .content-holder .content .content-item.items .content-child.right {
     @apply -ml-5;
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.right > * {
+  main .content-holder .content .content-item.items .content-child.right > * {
     @apply pl-5;
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.full {
-    @apply w-full;
+  .content-item.items .content-child.full {
+    display: block !important;
+    width: 100% !important;
+    flex: none !important;
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.one {
+  main .content-holder .content .content-item.items .content-child.one {
     @apply w-1/2;
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.one-20 {
+  main .content-holder .content .content-item.items .content-child.one-20 {
     @apply w-[20%];
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.one-25 {
+  main .content-holder .content .content-item.items .content-child.one-25 {
     @apply w-1/4;
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.one-30 {
+  main .content-holder .content .content-item.items .content-child.one-30 {
     @apply w-[30%];
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.one-33 {
+  main .content-holder .content .content-item.items .content-child.one-33 {
     @apply w-[33%];
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.one-40 {
+  main .content-holder .content .content-item.items .content-child.one-40 {
     @apply w-[40%];
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.two-60 {
+  main .content-holder .content .content-item.items .content-child.two-60 {
     @apply w-[60%];
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.two-66 {
+  main .content-holder .content .content-item.items .content-child.two-66 {
     @apply w-[66%];
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.two-70 {
+  main .content-holder .content .content-item.items .content-child.two-70 {
     @apply w-[70%];
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.two-75 {
+  main .content-holder .content .content-item.items .content-child.two-75 {
     @apply w-3/4;
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.four {
+  main .content-holder .content .content-item.items .content-child.four {
     @apply w-[80%];
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.seven-10 {
+  main .content-holder .content .content-item.items .content-child.seven-10 {
     @apply w-[70%];
   }
 
-  main > .content-holder > .content > .content-item.items .content-child.three-10 {
+  main .content-holder .content .content-item.items .content-child.three-10 {
     @apply w-[30%];
   }
 
@@ -448,41 +459,41 @@
     @apply w-[6px] inline-block;
   }
 
-  main > .content-holder > .content > .content-item .grid-list .grid-item,
-  main > .content-holder > .content > .content-item .gridlist .grid-item,
-  main > .content-holder > .content > .content-item .grid-list .card-holder,
-  main > .content-holder > .content > .content-item .gridlist .card-holder {
+  main .content-holder .content .content-item .grid-list .grid-item,
+  main .content-holder .content .content-item .gridlist .grid-item,
+  main .content-holder .content .content-item .grid-list .card-holder,
+  main .content-holder .content .content-item .gridlist .card-holder {
     flex-grow: 1;
     max-width: calc(50% - 30px);
     width: calc(33% - 30px);
   }
 
-  main > .content-holder > .content > .content-item .grid-list .grid-item.presentation,
-  main > .content-holder > .content > .content-item .gridlist .grid-item.presentation,
-  main > .content-holder > .content > .content-item .grid-list .card-holder.presentation,
-  main > .content-holder > .content > .content-item .gridlist .card-holder.presentation {
+  main .content-holder .content .content-item .grid-list .grid-item.presentation,
+  main .content-holder .content .content-item .gridlist .grid-item.presentation,
+  main .content-holder .content .content-item .grid-list .card-holder.presentation,
+  main .content-holder .content .content-item .gridlist .card-holder.presentation {
     @apply max-w-full w-full;
   }
 
-  main > .content-holder > .content > .content-item .grid-list .grid-item.presentation > div:first-child,
-  main > .content-holder > .content > .content-item .gridlist .grid-item.presentation > div:first-child,
-  main > .content-holder > .content > .content-item .grid-list .card-holder.presentation > div:first-child,
-  main > .content-holder > .content > .content-item .gridlist .card-holder.presentation > div:first-child {
+  main .content-holder .content .content-item .grid-list .grid-item.presentation > div:first-child,
+  main .content-holder .content .content-item .gridlist .grid-item.presentation > div:first-child,
+  main .content-holder .content .content-item .grid-list .card-holder.presentation > div:first-child,
+  main .content-holder .content .content-item .gridlist .card-holder.presentation > div:first-child {
     width: calc(66% - 20px);
     flex-grow: 1;
   }
 
-  main > .content-holder > .content > .content-item .grid-list .grid-item.presentation .grid-item-info,
-  main > .content-holder > .content > .content-item .gridlist .grid-item.presentation .grid-item-info,
-  main > .content-holder > .content > .content-item .grid-list .card-holder.presentation .grid-item-info,
-  main > .content-holder > .content > .content-item .gridlist .card-holder.presentation .grid-item-info {
+  main .content-holder .content .content-item .grid-list .grid-item.presentation .grid-item-info,
+  main .content-holder .content .content-item .gridlist .grid-item.presentation .grid-item-info,
+  main .content-holder .content .content-item .grid-list .card-holder.presentation .grid-item-info,
+  main .content-holder .content .content-item .gridlist .card-holder.presentation .grid-item-info {
     @apply w-[34%] h-full justify-center;
   }
 
-  main > .content-holder > .content > .content-item .grid-list .grid-item.presentation .grid-item-info > *,
-  main > .content-holder > .content > .content-item .gridlist .grid-item.presentation .grid-item-info > *,
-  main > .content-holder > .content > .content-item .grid-list .card-holder.presentation .grid-item-info > *,
-  main > .content-holder > .content > .content-item .gridlist .card-holder.presentation .grid-item-info > * {
+  main .content-holder .content .content-item .grid-list .grid-item.presentation .grid-item-info > *,
+  main .content-holder .content .content-item .gridlist .grid-item.presentation .grid-item-info > *,
+  main .content-holder .content .content-item .grid-list .card-holder.presentation .grid-item-info > *,
+  main .content-holder .content .content-item .gridlist .card-holder.presentation .grid-item-info > * {
     @apply w-full;
   }
 
@@ -2046,10 +2057,10 @@
 
 /* Tablet breakpoint */
 @media screen and (max-width: 834px) {
-  main > .content-holder > .content > .content-item .grid-list .grid-item,
-  main > .content-holder > .content > .content-item .gridlist .grid-item,
-  main > .content-holder > .content > .content-item .grid-list .card-holder,
-  main > .content-holder > .content > .content-item .gridlist .card-holder {
+  main .content-holder .content .content-item .grid-list .grid-item,
+  main .content-holder .content .content-item .gridlist .grid-item,
+  main .content-holder .content .content-item .grid-list .card-holder,
+  main .content-holder .content .content-item .gridlist .card-holder {
     width: calc(50% - 30px);
   }
 
@@ -2064,15 +2075,15 @@
 /* Mobile breakpoint */
 @media (max-width: 414px) {
   /* Grid mobile */
-  main > .content-holder > .content > .content-item .grid-list,
-  main > .content-holder > .content > .content-item .gridlist {
+  main .content-holder .content .content-item .grid-list,
+  main .content-holder .content .content-item .gridlist {
     @apply flex-col;
   }
 
-  main > .content-holder > .content > .content-item .grid-list .grid-item,
-  main > .content-holder > .content > .content-item .gridlist .grid-item,
-  main > .content-holder > .content > .content-item .grid-list .card-holder,
-  main > .content-holder > .content > .content-item .gridlist .card-holder {
+  main .content-holder .content .content-item .grid-list .grid-item,
+  main .content-holder .content .content-item .gridlist .grid-item,
+  main .content-holder .content .content-item .grid-list .card-holder,
+  main .content-holder .content .content-item .gridlist .card-holder {
     @apply w-full max-w-full;
   }
 

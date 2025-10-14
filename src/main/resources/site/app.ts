@@ -9,6 +9,9 @@ export function get(request: Request): Response {
 
     // Check content access and handle shortcuts
     const content = getContent();
+
+    // log.info('[App - get] content', JSON.stringify(content, null, 2));
+
     if (!content) {
         return handlePermissions(request);
     } else if (content.type == "base:shortcut") {
@@ -33,7 +36,7 @@ export function get(request: Request): Response {
     const body = createHtmlTemplate(id, content.displayName, common?.cssUrl);
 
     // Render page
-    return render(
+    const response = render(
         'App',
         data,
         request,
@@ -42,6 +45,16 @@ export function get(request: Request): Response {
             id,
         }
     );
+
+    // Add CSP headers to allow iframes from Google and other common embed sources
+    if (!response.headers) {
+        response.headers = {};
+    }
+
+    response.headers['Content-Security-Policy'] =
+        "frame-src 'self' https://docs.google.com https://www.youtube.com https://youtube.com https://player.vimeo.com;";
+
+    return response;
 }
 
 function createHtmlTemplate(react4xpId: string, displayName: string, cssUrl?: string) {
