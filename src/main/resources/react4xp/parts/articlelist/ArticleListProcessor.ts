@@ -2,8 +2,8 @@ import type { PartComponent } from '@enonic-types/core';
 import type { ComponentProcessor } from '@enonic-types/lib-react4xp/DataFetcher';
 import { get as getContent } from '/lib/xp/content';
 import { get as getContext } from '/lib/xp/context';
-import { mapArticle } from '/lib/shared/articles';
-import { findItems } from '/lib/shared/query';
+import { mapArticle } from '/react4xp/utils/articles';
+import { findItems } from '/react4xp/utils/query';
 import { buildParentPathQuery } from '/headless/helpers/helpers';
 
 interface ArticleListConfig {
