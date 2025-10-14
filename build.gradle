@@ -135,8 +135,12 @@ tasks.register('buildAssets', NpmTask) {
     group 'enonic xp'
     description 'tsup transpile client-side assets'
     outputs.dir 'build/resources/main/assets'
-    // This is just so gradle is able to do incremental builds:
-    inputs.files fileTree(dir: 'src/main/resources/assets')
+    // Track inputs so gradle can do incremental builds:
+    inputs.files fileTree(dir: 'src/main/resources/assets') // JS/TS assets
+    inputs.files fileTree(dir: 'src/assets', include: ['**/*.css']) // CSS source files
+    inputs.files fileTree(dir: 'src/main/resources/react4xp', include: ['**/*.tsx', '**/*.jsx']) // React components (for Tailwind scanning)
+    inputs.files fileTree(dir: 'src/main/resources/site', include: ['**/*.html', '**/*.xml']) // Site templates (for Tailwind scanning)
+    inputs.file 'postcss.config.js' // PostCSS configuration
 }
 
 tasks.register('dev', Exec) {
