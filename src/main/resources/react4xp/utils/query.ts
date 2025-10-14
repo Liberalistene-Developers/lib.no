@@ -1,4 +1,5 @@
 import {getChildren, GetChildContentParams} from '/lib/xp/content';
+import type {Content} from '@enonic-types/core';
 
 interface SearchParams {
   key: string;
@@ -7,10 +8,7 @@ interface SearchParams {
   sort?: string;
 }
 
-interface ContentItem {
-  _id: string;
-  type?: string;
-}
+type ContentItem = Content;
 
 interface ChildrenResult {
   count: number;
