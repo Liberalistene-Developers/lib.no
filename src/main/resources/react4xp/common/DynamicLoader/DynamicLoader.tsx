@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 
-import doGuillotineRequest from '/headless/guillotineRequest';
+import doGuillotineRequest from '/react4xp/utils/guillotine/request';
 
 import {Button} from '../Button/Button';
 

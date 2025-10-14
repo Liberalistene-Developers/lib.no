@@ -1,3 +1,5 @@
+import { type ImageData, type ImageMapper } from '../image';
+
 export const buildParentPathQuery = (parentPath: string): string =>
   `_parentPath = '/content${parentPath}'`;
 
@@ -5,11 +7,13 @@ export const buildParentPathQuery = (parentPath: string): string =>
 export const forceArray = <T>(maybeArray?: T | T[]): T[] =>
   maybeArray ? [].concat(maybeArray as never) : [];
 
-interface ImageData {
+// Internal types for extractList helper
+interface RawImageData {
   url?: string;
   data?: {
     alternativeText?: string;
   };
+  [key: string]: unknown;
 }
 
 interface GuillotineQueryItem {
@@ -28,12 +32,6 @@ interface GuillotineResponse {
   };
 }
 
-interface MappedImage {
-  url?: string;
-  alternativeText?: string;
-}
-
-type ImageMapper = (image: ImageData) => MappedImage;
 type ItemMapper<T> = (imageMap: ImageMapper) => (item: GuillotineQueryItem) => T;
 
 export const extractList = <T>(map: ItemMapper<T>) => (responseData: GuillotineResponse): T[] => {
@@ -45,10 +43,13 @@ export const extractList = <T>(map: ItemMapper<T>) => (responseData: GuillotineR
     } = {}
   } = responseData || {};
 
-  const imageMap: ImageMapper = ({url, data: {alternativeText} = {}} = {}) => ({
-    url,
-    alternativeText
-  });
+  const imageMap: ImageMapper = (rawImage: ImageData = {}): ImageData => {
+    const typedImage = rawImage as RawImageData;
+    return {
+      url: typedImage.url,
+      alternativeText: typedImage.data?.alternativeText
+    };
+  };
 
   return query
     .filter(item => item && typeof item === 'object' && item.data)

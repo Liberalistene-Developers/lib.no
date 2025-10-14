@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type {ComponentProps} from '@enonic/react-components';
 
-import {buildQueryArticleList, extractArticleList} from '../../../headless/helpers/articleListRequests';
+import {buildQueryArticleList, extractArticleList} from '/react4xp/utils/guillotine/requests';
 
 import {ArticleListView} from './ArticleListView';
 import {DynamicLoader} from '/react4xp/common/DynamicLoader/DynamicLoader';

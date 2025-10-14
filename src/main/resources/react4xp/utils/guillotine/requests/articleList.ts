@@ -1,9 +1,5 @@
-import { extractList } from './helpers';
-
-interface ImageData {
-  url?: string;
-  alternativeText?: string;
-}
+import { extractList } from '../helpers';
+import { type ImageData, type ImageMapper } from '../../image';
 
 interface ArticleData {
   id?: string;
@@ -75,8 +71,6 @@ query(
   }
 }
 `;
-
-type ImageMapper = (image: ImageData) => ImageData;
 
 const map = (imageMap: ImageMapper) => ({
   id,

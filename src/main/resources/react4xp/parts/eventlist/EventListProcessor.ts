@@ -4,7 +4,7 @@ import {get as getContent} from '/lib/xp/content';
 import {get as getContext} from '/lib/xp/context';
 import {mapEvent} from '/react4xp/utils/events';
 import {findItems} from '/react4xp/utils/query';
-import {buildParentPathQuery} from '/headless/helpers/helpers';
+import {buildParentPathQuery} from '/react4xp/utils/guillotine/helpers';
 
 interface EventListConfig {
   description?: string;

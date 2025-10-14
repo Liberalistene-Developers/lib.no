@@ -3,8 +3,11 @@ import { attachmentUrl, imageUrl as portalImageUrl } from '/lib/xp/portal';
 
 export interface ImageData {
   url?: string;
+  alternativeText?: string;
   [key: string]: unknown;
 }
+
+export type ImageMapper = (image: ImageData) => ImageData;
 
 export const imageUrl = (
   id?: string,

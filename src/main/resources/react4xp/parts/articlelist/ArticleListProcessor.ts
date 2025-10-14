@@ -4,7 +4,7 @@ import { get as getContent } from '/lib/xp/content';
 import { get as getContext } from '/lib/xp/context';
 import { mapArticle } from '/react4xp/utils/articles';
 import { findItems } from '/react4xp/utils/query';
-import { buildParentPathQuery } from '/headless/helpers/helpers';
+import { buildParentPathQuery } from '/react4xp/utils/guillotine/helpers';
 
 interface ArticleListConfig {
   description?: string;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {buildQueryEventList, extractEventList} from '/headless/helpers/eventListRequests';
+import {buildQueryEventList, extractEventList} from '/react4xp/utils/guillotine/requests';
 
 import {EventListView} from './EventListView';
 import {DynamicLoader} from '/react4xp/common/DynamicLoader/DynamicLoader';
