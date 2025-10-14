@@ -1,6 +1,7 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
 import {get as getContent} from '/lib/xp/content';
+import {mapBoard} from '/react4xp/utils/board';
 
 interface BoardConfig {
   board?: string;
@@ -25,9 +26,7 @@ export const boardProcessor: ComponentProcessor<'lib.no:board'> = ({component}) 
   return {
     imagesize: config?.imagesize || '',
     imagetype: !!config?.imagetype,
-    // TODO: Add back when /lib/shared/board is migrated
-    // board: members.map(mapBoard),
-    board: members, // Temporarily unprocessed
+    board: members.map(mapBoard),
     showemail: config?.showemail || 'no',
     showDescriptions: config?.showDescriptions
   };

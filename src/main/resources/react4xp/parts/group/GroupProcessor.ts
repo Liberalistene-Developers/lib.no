@@ -3,6 +3,7 @@ import type {PartComponent} from '@enonic-types/core';
 import {getContent as getPortalContent, pageUrl} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
 import {imageUrl} from '/react4xp/utils/image';
+import {processHtml} from '/react4xp/utils/html';
 
 interface GroupConfig {
   headerColor?: string;
@@ -49,9 +50,7 @@ export const groupProcessor: ComponentProcessor<'lib.no:group'> = ({component}) 
     ingressInImage: config?.ingressInImage,
     titleInImage: config?.titleInImage,
     shortDescription: data['short-description'],
-    // TODO: Add back when /lib/shared/html is migrated
-    // description: processHtml(data.description || ''),
-    description: data.description || '', // Temporarily unprocessed
+    description: processHtml(data.description || ''),
     location: {
       address: (data.address || '').replace('\n', ',').replace(/ /g, '+')
     },

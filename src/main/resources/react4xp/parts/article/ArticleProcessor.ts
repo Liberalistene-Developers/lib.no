@@ -4,6 +4,7 @@ import {getContent as getPortalContent} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
 import {pageUrl} from '/lib/xp/portal';
 import {imageUrl} from '/react4xp/utils/image';
+import {processHtml} from '/react4xp/utils/html';
 
 interface ArticleConfig {
   headerColor?: string;
@@ -59,10 +60,7 @@ export const articleProcessor: ComponentProcessor<'lib.no:article'> = ({componen
         image: imageUrl(authorData.image as string, 'square(40)')
       };
     }).filter(Boolean),
-    // TODO: Add back when /lib/shared/html is migrated
-    // ingress: processHtml(data.ingress || ''),
-    // text: processHtml(data.text || '')
-    ingress: data.ingress || '', // Temporarily unprocessed
-    text: data.text || '' // Temporarily unprocessed
+    ingress: processHtml(data.ingress || ''),
+    text: processHtml(data.text || '')
   };
 };

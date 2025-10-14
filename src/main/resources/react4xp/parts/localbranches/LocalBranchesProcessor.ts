@@ -1,6 +1,7 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
 import {getContent as getPortalContent, pageUrl} from '/lib/xp/portal';
+import {findChildren} from '/react4xp/utils/query';
 
 interface LocalBranchesConfig {
   title?: string;
@@ -16,10 +17,8 @@ export const localBranchesProcessor: ComponentProcessor<'lib.no:localbranches'> 
     return {};
   }
 
-  // TODO: Add back when /lib/shared/query is migrated
-  // const key = content._path;
-  // const items = key ? findChildren({key, count: 999}, 'lib.no:localbranch') : [];
-  const items: Array<{_id: string; _path: string; displayName: string}> = []; // Temporarily empty
+  const key = content._path;
+  const items = key ? findChildren({key, count: 999}, 'lib.no:localbranch') : [];
 
   return {
     title: config?.title,

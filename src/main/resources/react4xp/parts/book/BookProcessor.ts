@@ -3,6 +3,7 @@ import {getContent as getPortalContent} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
 import {pageUrl} from '/lib/xp/portal';
 import {imageUrl} from '/react4xp/utils/image';
+import {processHtml} from '/react4xp/utils/html';
 
 interface BookData {
   description?: string;
@@ -42,10 +43,7 @@ export const bookProcessor: ComponentProcessor<'lib.no:book'> = () => {
         image: imageUrl(authorData.image as string, 'block(96,128)')
       };
     }).filter(Boolean),
-    // TODO: Add back when /lib/shared/html is migrated
-    // ingress: processHtml(data.ingress || ''),
-    // text: processHtml(data.text || '')
-    ingress: data.ingress || '', // Temporarily unprocessed
-    text: data.text || '' // Temporarily unprocessed
+    ingress: processHtml(data.ingress || ''),
+    text: processHtml(data.text || '')
   };
 };

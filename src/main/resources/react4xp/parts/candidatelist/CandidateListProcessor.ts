@@ -3,6 +3,7 @@ import type {PartComponent} from '@enonic-types/core';
 import {get as getContent} from '/lib/xp/content';
 import {pageUrl} from '/lib/xp/portal';
 import {imageUrl} from '/react4xp/utils/image';
+import {processHtml} from '/react4xp/utils/html';
 
 interface CandidateListConfig {
   candidate?: Array<{role: string; description: string; person: string}>;
@@ -37,9 +38,7 @@ export const candidateListProcessor: ComponentProcessor<'lib.no:candidatelist'> 
         itemId: personId,
         name: personContent.displayName,
         role,
-        // TODO: Add back when /lib/shared/html is migrated
-        // shortDescription: processHtml(description),
-        shortDescription: description, // Temporarily unprocessed
+        shortDescription: processHtml(description),
         url: pageUrl({path: personContent._path}),
         image: imageUrl(personData.image, 'full')
       };

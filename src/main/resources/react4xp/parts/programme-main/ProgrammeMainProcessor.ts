@@ -1,6 +1,7 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
 import {getContent as getPortalContent} from '/lib/xp/portal';
+import {getSections} from '/react4xp/utils/programme';
 
 interface ProgrammeMainConfig {
   tableOfContent?: boolean;
@@ -21,9 +22,7 @@ export const programmeMainProcessor: ComponentProcessor<'lib.no:programme-main'>
 
   const data = content.data as ProgrammeMainData;
 
-  // TODO: Add back when /lib/shared/programme is migrated
-  // const sections = getSections({key: content._path});
-  const sections: unknown[] = []; // Temporarily empty
+  const sections = getSections({key: content._path});
 
   return {
     title: content.displayName,

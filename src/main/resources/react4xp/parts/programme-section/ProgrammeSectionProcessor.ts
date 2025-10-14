@@ -1,6 +1,7 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
 import {getContent as getPortalContent} from '/lib/xp/portal';
+import {getParts} from '/react4xp/utils/programme';
 
 interface ProgrammeSectionConfig {
   conclusionTitle?: string;
@@ -22,9 +23,7 @@ export const programmeSectionProcessor: ComponentProcessor<'lib.no:programme-sec
 
   const data = content.data as ProgrammeSectionData;
 
-  // TODO: Add back when /lib/shared/programme is migrated
-  // const parts = getParts({key: content._path});
-  const parts: unknown[] = []; // Temporarily empty
+  const parts = getParts({key: content._path});
 
   return {
     title: content.displayName,

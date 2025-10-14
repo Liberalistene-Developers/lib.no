@@ -1,6 +1,7 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
 import {getContent as getPortalContent} from '/lib/xp/portal';
+import {processHtml} from '/react4xp/utils/html';
 
 interface FaqConfig {
   expandable?: boolean;
@@ -27,9 +28,7 @@ export const faqProcessor: ComponentProcessor<'lib.no:faq'> = ({component}) => {
     expandable: config?.expandable,
     expanded: config?.expanded,
     question: content.displayName,
-    // TODO: Add back when /lib/shared/html is migrated
-    // answer: processHtml(data.answer || ''),
-    answer: data.answer || '', // Temporarily unprocessed
+    answer: processHtml(data.answer || ''),
     tags: data.tags
   };
 };

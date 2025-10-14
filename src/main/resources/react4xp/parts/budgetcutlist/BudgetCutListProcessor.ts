@@ -1,6 +1,8 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
 import {get as getContent} from '/lib/xp/content';
+import {processHtml} from '/react4xp/utils/html';
+import {runQuery} from '/react4xp/utils/query';
 
 interface BudgetCutListConfig {
   ingress?: string;
@@ -43,9 +45,21 @@ export const budgetCutListProcessor: ComponentProcessor<'lib.no:budgetcutlist'> 
   const selection = config?.itemsSet?._selected || 'manual';
   const items = [...(config?.items || [])];
 
-  // TODO: Add back when /lib/shared/query is migrated
   if (selection === 'manual') {
     items.push(...(config?.itemsSet?.manual?.items || []));
+  } else if (selection === 'query') {
+    const queryConfig = config?.itemsSet?.query;
+    if (queryConfig?.queryroot) {
+      const queryItems = runQuery(
+        queryConfig.queryroot,
+        queryConfig.count || 10,
+        undefined,
+        queryConfig.querysorting
+      );
+      if (queryItems) {
+        items.push(...queryItems);
+      }
+    }
   }
 
   return {
@@ -71,21 +85,15 @@ export const budgetCutListProcessor: ComponentProcessor<'lib.no:budgetcutlist'> 
         itemID,
         itemPath: itemContent._path,
         title: itemContent.displayName,
-        // TODO: Add back when /lib/shared/html is migrated
-        // description: processHtml(itemData.description || itemData.decription || ''),
-        description: itemData.description || itemData.decription || '', // Temporarily unprocessed
+        description: processHtml(itemData.description || itemData.decription || ''),
         budget: itemData.budget,
         cut: itemData.cut,
         percent: itemData.percent,
         cuts: (itemData.cuts || []).map(({description, ...rest}) => ({
           ...rest,
-          // TODO: Add back when /lib/shared/html is migrated
-          // description: processHtml(description)
-          description // Temporarily unprocessed
+          description: processHtml(description)
         })),
-        // TODO: Add back when /lib/shared/html is migrated
-        // sumary: processHtml(itemData.sumary || '')
-        sumary: itemData.sumary || '' // Temporarily unprocessed
+        sumary: processHtml(itemData.sumary || '')
       };
     }).filter(Boolean)
   };

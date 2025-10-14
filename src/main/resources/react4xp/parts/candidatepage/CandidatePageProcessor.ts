@@ -3,6 +3,7 @@ import type {PartComponent} from '@enonic-types/core';
 import {getContent as getPortalContent} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
 import {imageUrl} from '/react4xp/utils/image';
+import {processHtml} from '/react4xp/utils/html';
 
 interface CandidatePageConfig {
   image?: string;
@@ -47,11 +48,8 @@ export const candidatePageProcessor: ComponentProcessor<'lib.no:candidatepage'> 
 
     return {
       title: content.displayName || personContent.displayName,
-      // TODO: Add back when /lib/shared/html is migrated
-      // ingress: processHtml(data.ingress || personData['short-description'] || ''),
-      // description: processHtml(data.description || personData.description || ''),
-      ingress: data.ingress || personData['short-description'] || '', // Temporarily unprocessed
-      description: data.description || personData.description || '', // Temporarily unprocessed
+      ingress: processHtml(data.ingress || personData['short-description'] || ''),
+      description: processHtml(data.description || personData.description || ''),
       email: personData.email,
       phone: personData.phone,
       image: imageUrl(data.image || personData.image, 'full'),

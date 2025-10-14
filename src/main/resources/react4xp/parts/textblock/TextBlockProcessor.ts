@@ -1,5 +1,6 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
+import {processHtml} from '/react4xp/utils/html';
 
 interface TextBlockConfig {
   title?: string;
@@ -14,8 +15,6 @@ export const textBlockProcessor: ComponentProcessor<'lib.no:textblock'> = ({comp
   return {
     title: config?.title || '',
     titleColor: config?.titleColor || '',
-    // TODO: Add back when /lib/shared/html is migrated
-    // text: processHtml(config?.text || '')
-    text: config?.text || '' // Temporarily unprocessed
+    text: processHtml(config?.text || '')
   };
 };

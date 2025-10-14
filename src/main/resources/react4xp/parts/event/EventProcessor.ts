@@ -3,6 +3,8 @@ import type {PartComponent} from '@enonic-types/core';
 import {getContent as getPortalContent, pageUrl} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
 import {imageUrl} from '/react4xp/utils/image';
+import {processHtml} from '/react4xp/utils/html';
+import {mapPerson} from '/react4xp/utils/board';
 
 interface EventConfig {
   headerColor?: string;
@@ -66,15 +68,11 @@ export const eventProcessor: ComponentProcessor<'lib.no:event'> = ({component}) 
     from: data.from,
     to: data.to,
     title: content.displayName,
-    // TODO: Add back when /lib/shared/html is migrated
-    // description: processHtml(data.description || ''),
-    description: data.description || '', // Temporarily unprocessed
+    description: processHtml(data.description || ''),
     headerColor: config?.headerColor,
     headerPosition: config?.headerPosition,
     image: imageUrl(data.image, 'full'),
-    // TODO: Add back when /lib/shared/html is migrated
-    // ingress: processHtml(data.ingress || ''),
-    ingress: data.ingress || '', // Temporarily unprocessed
+    ingress: processHtml(data.ingress || ''),
     ingressInImage: config?.ingressInImage,
     tags: data.tags,
     titleInImage: config?.titleInImage,
@@ -87,11 +85,8 @@ export const eventProcessor: ComponentProcessor<'lib.no:event'> = ({component}) 
     dateLabel: config?.dateLabel,
     timeLabel: config?.timeLabel,
     editMode: false, // Will be set by React4xp v6
-    // TODO: Add back when /lib/shared/board is migrated
-    // speakers: speakersList.map(mapPerson),
-    // organizers: organizers.map(mapPerson),
-    speakers: speakersList, // Temporarily unprocessed
-    organizers, // Temporarily unprocessed
+    speakers: speakersList.map(mapPerson),
+    organizers: organizers.map(mapPerson),
     map: data.map_geopoint ? data.map_geopoint.split(',').map(parseFloat) : [],
     schedules: scheduleList.map(({name: scheduleTitle, description: scheduleDescription, date, topics: scheduleTopics = []}) => {
       const items = [].concat(scheduleTopics).map(({
@@ -126,11 +121,8 @@ export const eventProcessor: ComponentProcessor<'lib.no:event'> = ({component}) 
           title: topic,
           start: !start || start === '00:00' ? '' : start,
           duration: !duration || duration === '00:00' ? '' : createDuration(),
-          // TODO: Add back when /lib/shared/html is migrated
-          // description: processHtml(topicDescription || ''),
-          // report: processHtml(topicReport || ''),
-          description: topicDescription || '', // Temporarily unprocessed
-          report: topicReport || '', // Temporarily unprocessed
+          description: processHtml(topicDescription || ''),
+          report: processHtml(topicReport || ''),
           speakers: speakers.map((speakerID) => {
             const speakerContent = getContent({key: speakerID});
             if (!speakerContent) {
@@ -151,9 +143,7 @@ export const eventProcessor: ComponentProcessor<'lib.no:event'> = ({component}) 
 
       return {
         name: scheduleTitle,
-        // TODO: Add back when /lib/shared/html is migrated
-        // descriptions: processHtml(scheduleDescription || ''),
-        descriptions: scheduleDescription || '', // Temporarily unprocessed
+        descriptions: processHtml(scheduleDescription || ''),
         date,
         topics: items
       };

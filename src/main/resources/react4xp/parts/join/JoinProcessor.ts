@@ -3,6 +3,7 @@ import type {PartComponent} from '@enonic-types/core';
 import {get as getContent} from '/lib/xp/content';
 import {pageUrl} from '/lib/xp/portal';
 import {imageUrl} from '/react4xp/utils/image';
+import {processHtml} from '/react4xp/utils/html';
 
 interface JoinConfig {
   buttonText?: string;
@@ -22,11 +23,8 @@ export const joinProcessor: ComponentProcessor<'lib.no:join'> = ({component}) =>
   return {
     buttonText: config?.buttonText,
     url: urlContent ? pageUrl({path: urlContent._path}) : undefined,
-    // TODO: Add back when /lib/shared/html is migrated
-    // message: processHtml(config?.message || ''),
-    // backMessage: processHtml(config?.backMessage || ''),
-    message: config?.message || '', // Temporarily unprocessed
-    backMessage: config?.backMessage || '', // Temporarily unprocessed
+    message: processHtml(config?.message || ''),
+    backMessage: processHtml(config?.backMessage || ''),
     image: imageUrl(config?.image, 'square(200)'),
     className: 'medium-margin',
     frontPlacement: config?.frontPlacement

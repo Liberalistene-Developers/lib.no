@@ -2,6 +2,7 @@ import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
 import {getContent as getPortalContent, pageUrl} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
+import {runQuery} from '/react4xp/utils/query';
 
 interface SubmenuConfig {
   itemsSet?: {
@@ -29,9 +30,21 @@ export const submenuProcessor: ComponentProcessor<'lib.no:submenu'> = ({componen
   const selection = config?.itemsSet?._selected || 'manual';
   const items: string[] = [];
 
-  // TODO: Add back when /lib/shared/query is migrated
   if (selection === 'manual') {
     items.push(...(config?.itemsSet?.manual?.items || []));
+  } else if (selection === 'query') {
+    const queryConfig = config?.itemsSet?.query;
+    if (queryConfig?.queryroot) {
+      const queryItems = runQuery(
+        queryConfig.queryroot,
+        queryConfig.count || 10,
+        undefined,
+        queryConfig.querysorting
+      );
+      if (queryItems) {
+        items.push(...queryItems);
+      }
+    }
   }
 
   return {

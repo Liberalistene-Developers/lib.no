@@ -3,6 +3,7 @@ import type {PartComponent} from '@enonic-types/core';
 import {get as getContent} from '/lib/xp/content';
 import {pageUrl} from '/lib/xp/portal';
 import {imageUrl} from '/react4xp/utils/image';
+import {runQuery} from '/react4xp/utils/query';
 
 interface CandidatePresentationConfig {
   itemsSet?: {
@@ -40,9 +41,21 @@ export const candidatePresentationProcessor: ComponentProcessor<'lib.no:candidat
   const selection = config?.itemsSet?._selected || 'manual';
   const items: string[] = [];
 
-  // TODO: Add back when /lib/shared/query is migrated
   if (selection === 'manual') {
     items.push(...(config?.itemsSet?.manual?.items || []));
+  } else if (selection === 'query') {
+    const queryConfig = config?.itemsSet?.query;
+    if (queryConfig?.queryroot) {
+      const queryItems = runQuery(
+        queryConfig.queryroot,
+        queryConfig.count || 10,
+        undefined,
+        queryConfig.querysorting
+      );
+      if (queryItems) {
+        items.push(...queryItems);
+      }
+    }
   }
 
   return {

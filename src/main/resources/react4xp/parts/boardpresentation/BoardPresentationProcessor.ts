@@ -1,5 +1,7 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
+import {runQuery} from '/react4xp/utils/query';
+import {mapGroup} from '/react4xp/utils/board';
 
 interface BoardPresentationConfig {
   boardname?: string;
@@ -36,9 +38,21 @@ export const boardPresentationProcessor: ComponentProcessor<'lib.no:boardpresent
 
   const items: string[] = [];
 
-  // TODO: Add back when /lib/shared/query and /lib/shared/board are migrated
   if (selection === 'manual') {
     items.push(...(config?.itemsSet?.manual?.items || []));
+  } else if (selection === 'query') {
+    const queryConfig = config?.itemsSet?.query;
+    if (queryConfig?.queryroot) {
+      const queryItems = runQuery(
+        queryConfig.queryroot,
+        queryConfig.count || 10,
+        undefined,
+        queryConfig.querysorting
+      );
+      if (queryItems) {
+        items.push(...queryItems);
+      }
+    }
   }
 
   return {
@@ -46,9 +60,7 @@ export const boardPresentationProcessor: ComponentProcessor<'lib.no:boardpresent
     description: config?.presentation?.hightlighted?.description || '',
     imagesize: config?.imagesize || '',
     imagetype: !!config?.imagetype,
-    // TODO: Add back when /lib/shared/board is migrated
-    // items: items.map(mapGroup),
-    items, // Temporarily unprocessed
+    items: items.map(mapGroup),
     memberHighlighted: config?.presentation?.hightlighted?.memberHighlighted,
     noHighlighting: presentation === 'list',
     reverseOrder: config?.presentation?.hightlighted?.reverseOrder,

@@ -3,6 +3,7 @@ import type {PartComponent} from '@enonic-types/core';
 import {get as getContent} from '/lib/xp/content';
 import {pageUrl} from '/lib/xp/portal';
 import {imageUrl} from '/react4xp/utils/image';
+import {processHtml} from '/react4xp/utils/html';
 
 interface PageListConfig {
   items?: Array<{item: string; image?: string; ingress?: string}>;
@@ -75,9 +76,7 @@ export const pageListProcessor: ComponentProcessor<'lib.no:pagelist'> = ({compon
         id: itemKey,
         name: itemContent.displayName,
         url: pageUrl({path: itemContent._path}),
-        // TODO: Add back when /lib/shared/html is migrated
-        // shortDescription: processHtml(ingress || itemData.ingress || itemData['short-description'] || ''),
-        shortDescription: ingress || itemData.ingress || itemData['short-description'] || '', // Temporarily unprocessed
+        shortDescription: processHtml(ingress || itemData.ingress || itemData['short-description'] || ''),
         image: imageId ? imageUrl(imageId) : null  // Use default scale like v3
       };
     }).filter(Boolean),

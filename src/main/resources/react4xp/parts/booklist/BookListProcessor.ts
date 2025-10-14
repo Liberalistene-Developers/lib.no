@@ -3,6 +3,7 @@ import type {PartComponent} from '@enonic-types/core';
 import {get as getContent} from '/lib/xp/content';
 import {pageUrl} from '/lib/xp/portal';
 import {imageUrl} from '/react4xp/utils/image';
+import {runQuery} from '/react4xp/utils/query';
 
 interface BookListConfig {
   description?: string;
@@ -38,9 +39,21 @@ export const bookListProcessor: ComponentProcessor<'lib.no:booklist'> = ({compon
   const selection = config?.itemsSet?._selected || 'manual';
   const items = [...(config?.items || [])];
 
-  // TODO: Add back when /lib/shared/query is migrated
   if (selection === 'manual') {
     items.push(...(config?.itemsSet?.manual?.items || []));
+  } else if (selection === 'query') {
+    const queryConfig = config?.itemsSet?.query;
+    if (queryConfig?.queryroot) {
+      const queryItems = runQuery(
+        queryConfig.queryroot,
+        queryConfig.count || 10,
+        undefined,
+        queryConfig.querysorting
+      );
+      if (queryItems) {
+        items.push(...queryItems);
+      }
+    }
   }
 
   const authorCache: Record<string, {name: string; url: string}> = {};
