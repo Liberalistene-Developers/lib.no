@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <part xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="parts.eventlist.name">Event list</display-name>
-  <description i18n="parts.eventlist.description">
-    Display Event list
-  </description>
+  <description i18n="parts.eventlist.description">Display Event list</description>
   <form>
     <mixin name="image" />
     <input type="TextLine" name="title" >

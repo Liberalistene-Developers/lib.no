@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <part xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="parts.budgetcutlist.name">Budget cut list</display-name>
-  <description i18n="parts.budgetcutlist.description">
-    Display Budget cut list
-  </description>
+  <description i18n="parts.budgetcutlist.description">Display Budget cut list</description>
   <form>
     <input type="TextLine" name="title" >
       <label i18n="parts.title.label">Title</label>

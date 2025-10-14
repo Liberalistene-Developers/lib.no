@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <part xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="parts.candidatelist.name">Candidate list</display-name>
-  <description i18n="parts.candidatelist.description">
-    Display Candidate list
-  </description>
+  <description i18n="parts.candidatelist.description">Display Candidate list</description>
   <form>
     <field-set>
       <label i18n="parts.candidatelist.candidates.label">Candidates</label>

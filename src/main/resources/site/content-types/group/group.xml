@@ -12,9 +12,7 @@
     </input>
     <input name="description" type="HtmlArea">
       <label i18n="content_types.description">Description</label>
-      <default>
-        <p>Enter full description here</p>
-      </default>
+      <default><p>Enter full description here</p></default>
     </input>
     <input name="address" type="TextArea">
       <label i18n="content_types.address">Address</label>

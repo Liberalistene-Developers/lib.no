@@ -20,12 +20,7 @@ export const EmbedMacro = (props: MacroComponentParams) => {
 
     return (
       <div
-        className="embed-macro"
-        style={{
-          width: '100%',
-          margin: '1rem 0',
-          overflow: 'hidden'
-        }}
+        className="embed-macro w-full my-4 overflow-hidden"
         dangerouslySetInnerHTML={{__html: enhancedHtml}}
       />
     );

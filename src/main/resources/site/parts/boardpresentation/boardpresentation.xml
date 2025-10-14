@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <part xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="parts.boardpresentation.name">Board presentation list</display-name>
-  <description i18n="parts.boardpresentation.description">
-    Display group list
-  </description>
+  <description i18n="parts.boardpresentation.description">Display group list</description>
   <form>
     <option-set name="presentation">
       <label i18n="parts.boardpresentation.displaytype.label">Display type</label>

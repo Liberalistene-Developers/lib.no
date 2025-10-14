@@ -687,11 +687,6 @@
     @apply w-[300px];
   }
 
-  /* Enonic XP admin fix */
-  .xp-admin-common-names-view .xp-admin-common-sub-name {
-    white-space: nowrap !important;
-  }
-
   /* Article components */
   .article-list-holder {
     @apply w-full mb-10;

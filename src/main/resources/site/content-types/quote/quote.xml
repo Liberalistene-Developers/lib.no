@@ -26,9 +26,7 @@
     </input>
     <input name="description" type="HtmlArea">
       <label i18n="content_types.comment.label">Comment</label>
-      <default>
-        <p>Enter full description here</p>
-      </default>
+      <default><p>Enter full description here</p></default>
     </input>
     <mixin name="tags" />
   </form>
