@@ -89,8 +89,8 @@ tasks.withType(Copy).configureEach {
 tasks.register('buildXpResources', NpmTask) {
     dependsOn( npmInstall )
     args = ['run', 'build:xp:resources']
-    group 'enonic xp'
-    description 'tsup transpile Enonic XP TypeScript source files (important: ignoring TSX/JSX components since they are left to react4xp)'
+    group = 'enonic xp'
+    description = 'tsup transpile Enonic XP TypeScript source files (important: ignoring TSX/JSX components since they are left to react4xp)'
     outputs.dir 'build/resources/main'
     // This is just so gradle is able to do incremental builds:
     inputs.files fileTree(dir: 'src/main/resources', exclude: [
@@ -115,14 +115,14 @@ tasks.register('react4xp', NpmTask) {
         'run', 'build:react4xp'
     ]
     dependsOn( npmInstall )
-    description 'Compile react4xp resources'
+    description = 'Compile react4xp resources'
     environment = [
         'R4X_APP_NAME': "${appName}",
         'R4X_BUILD_LOG_LEVEL': gradle.startParameter.logLevel.toString(),
         'R4X_DIR_PATH_ABSOLUTE_PROJECT': project.projectDir.toString(),
         'NODE_ENV': envMode
     ]
-    group 'react4xp'
+    group = 'react4xp'
     inputs.dir 'node_modules/@enonic/react4xp'
     inputs.dir 'src/main/resources'
     outputs.dir 'build/resources/main'
@@ -132,8 +132,8 @@ tasks.register('react4xp', NpmTask) {
 tasks.register('buildAssets', NpmTask) {
     dependsOn( npmInstall )
     args = ['run', 'build:assets']
-    group 'enonic xp'
-    description 'tsup transpile client-side assets'
+    group = 'enonic xp'
+    description = 'tsup transpile client-side assets'
     outputs.dir 'build/resources/main/assets'
     // Track inputs so gradle can do incremental builds:
     inputs.files fileTree(dir: 'src/main/resources/assets') // JS/TS assets
@@ -181,4 +181,5 @@ tasks.register('npmTest', NpmTask) {
 test.dependsOn npmTest
 
 processResources.dependsOn buildAssets
-jar.dependsOn ( buildXpResources, react4xp, buildAssets )
+
+jar.dependsOn buildXpResources, react4xp, buildAssets
