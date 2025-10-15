@@ -117,3 +117,7 @@ _old/
 
 # Temporary component storage during refactoring
 temp-components-storage/
+
+# Temporary dumps and config files
+dumps/
+components.json
