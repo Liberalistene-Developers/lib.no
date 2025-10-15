@@ -38,6 +38,8 @@ export const candidatePresentationProcessor: ComponentProcessor<'lib.no:candidat
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as CandidatePresentationConfig;
 
+  log.info(`[CandidatePresentationProcessor] Processing path: ${partComponent.path}`);
+
   const selection = config?.itemsSet?._selected || 'manual';
   const items: string[] = [];
 

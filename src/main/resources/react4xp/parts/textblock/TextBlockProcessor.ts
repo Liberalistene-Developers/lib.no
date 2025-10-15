@@ -12,6 +12,8 @@ export const textBlockProcessor: ComponentProcessor<'lib.no:textblock'> = ({comp
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as TextBlockConfig;
 
+  log.info(`[TextBlockProcessor] Processing path: ${partComponent.path}`);
+
   return {
     title: config?.title || '',
     titleColor: config?.titleColor || '',

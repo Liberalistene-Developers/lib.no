@@ -27,6 +27,8 @@ export const articleProcessor: ComponentProcessor<'lib.no:article'> = ({componen
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as ArticleConfig;
 
+  log.info(`[ArticleProcessor] Processing path: ${partComponent.path}`);
+
   const content = getPortalContent();
   if (!content) {
     return {};

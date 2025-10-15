@@ -4,7 +4,7 @@ import { DataFetcher } from '/lib/enonic/react4xp';
 import { commonProcessor } from '/react4xp/common/CommonProcessor/CommonProcessor';
 
 // Content types
-import { fragmentProcessor } from '/react4xp/content-types/portal-fragment/FragmentProcessor';
+// import { fragmentProcessor } from '/react4xp/content-types/portal-fragment/FragmentProcessor';
 
 // Pages
 import { pageProcessor } from '/react4xp/pages/Page/PageProcessor';

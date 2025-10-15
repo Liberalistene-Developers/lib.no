@@ -38,8 +38,7 @@ export const pageListProcessor: ComponentProcessor<'lib.no:pagelist'> = ({compon
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as PageListConfig;
 
-  log.info('[PageListProcessor] Config:');
-  log.info(JSON.stringify(config, null, 2));
+  log.info(`[PageListProcessor] Processing path: ${partComponent.path}`);
 
   const displaytype = config?.displaytype?._selected || 'gridlist';
   const imageSelection = config?.displaytype?.list?.image?._selected || 'hide';
@@ -50,10 +49,6 @@ export const pageListProcessor: ComponentProcessor<'lib.no:pagelist'> = ({compon
   const gridlistImagetype = config?.displaytype?.gridlist?.imagetype ?? true;
   const listImagesize = config?.displaytype?.list?.image?.show?.imagesize || 'medium';
   const listImagetype = config?.displaytype?.list?.image?.show?.imagetype ?? true;
-
-  log.info(`[PageListProcessor] displaytype: ${displaytype}`);
-  log.info(`[PageListProcessor] imagetype from config: ${config?.displaytype?.gridlist?.imagetype}`);
-  log.info(`[PageListProcessor] imagetype after defaults: ${gridlistImagetype}`);
 
   return {
     title: config?.title,

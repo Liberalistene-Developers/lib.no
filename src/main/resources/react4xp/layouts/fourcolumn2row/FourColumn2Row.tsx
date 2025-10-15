@@ -1,4 +1,4 @@
-import type {ComponentProps, RegionsData} from '@enonic/react-components';
+import type {ComponentProps, LayoutData} from '@enonic/react-components';
 import {Region} from '@enonic/react-components';
 import * as React from 'react';
 
@@ -13,10 +13,9 @@ export interface FourColumn2RowData extends Record<string, unknown> {
   middleRightClassName?: string;
   rightClassName?: string;
   orderClass?: string;
-  regions?: RegionsData;
 }
 
-export const FourColumn2Row = ({meta, data = {}}: ComponentProps) => {
+export const FourColumn2Row = ({component: {regions}, meta, data = {}}: ComponentProps<LayoutData>) => {
   const {
     background = '',
     borderBottom = false,
@@ -28,7 +27,6 @@ export const FourColumn2Row = ({meta, data = {}}: ComponentProps) => {
     middleRightClassName = '',
     rightClassName = '',
     orderClass = '',
-    regions
   } = data as FourColumn2RowData;
 
   const contentHolderClasses = [

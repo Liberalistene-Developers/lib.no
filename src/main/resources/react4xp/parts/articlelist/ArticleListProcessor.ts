@@ -50,6 +50,8 @@ export const articleListProcessor: ComponentProcessor<'lib.no:articlelist'> = ({
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as ArticleListConfig;
 
+  log.info(`[ArticleListProcessor] Processing path: ${partComponent.path}`);
+
   const displaytype = config?.displaytype?._selected || 'gridlist';
   const selection = config?.itemsSet?._selected || 'manual';
   const imageSelection = config?.displaytype?.list?.image?._selected || 'hide';
@@ -69,7 +71,6 @@ export const articleListProcessor: ComponentProcessor<'lib.no:articlelist'> = ({
       const articleIds = findItems('lib.no:article', queryRoot, querysorting, queryCount, 0, 'data.date');
       if (articleIds) {
         items.push(...articleIds.map(mapArticle));
-        log.info(`[ArticleList] Fetched ${articleIds.length} initial articles server-side`);
       }
     }
   }
@@ -109,10 +110,6 @@ export const articleListProcessor: ComponentProcessor<'lib.no:articlelist'> = ({
   const projectName = repository.replace('com.enonic.cms.', '');
   const branch = context.branch || 'master';
   const guillotineEndpoint = `/site/${projectName}/${branch}`;
-
-  log.info(`[ArticleList] Context - repository: ${repository}, projectName: ${projectName}, branch: ${branch}`);
-  log.info(`[ArticleList] Guillotine endpoint: ${guillotineEndpoint}`);
-  log.info(`[ArticleList] apiUrl: ${headless ? guillotineEndpoint : '(not headless)'}`);
 
   return {
     title: config?.title,

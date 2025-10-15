@@ -44,6 +44,8 @@ export const eventListProcessor: ComponentProcessor<'lib.no:eventlist'> = ({comp
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as EventListConfig;
 
+  log.info(`[EventListProcessor] Processing path: ${partComponent.path}`);
+
   const displaytype = config?.displaytype?._selected || 'list';
   const selection = config?.itemsSet?._selected || 'manual';
   const imageSelection = config?.displaytype?.list?.image?._selected || 'hide';
@@ -63,7 +65,6 @@ export const eventListProcessor: ComponentProcessor<'lib.no:eventlist'> = ({comp
       const eventIds = findItems('lib.no:event', queryRoot, querysorting, queryCount, 0, 'data.from');
       if (eventIds) {
         items.push(...eventIds.map(mapEvent));
-        log.info(`[EventList] Fetched ${eventIds.length} initial events server-side`);
       }
     }
   }

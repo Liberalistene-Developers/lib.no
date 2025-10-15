@@ -16,6 +16,8 @@ export const missionsBlockProcessor: ComponentProcessor<'lib.no:missionsblock'> 
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as MissionsBlockConfig;
 
+  log.info(`[MissionsBlockProcessor] Processing path: ${partComponent.path}`);
+
   const content = getPortalContent();
   if (!content) {
     return {};

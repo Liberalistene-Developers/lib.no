@@ -33,6 +33,8 @@ export const boardPresentationProcessor: ComponentProcessor<'lib.no:boardpresent
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as BoardPresentationConfig;
 
+  log.info(`[BoardPresentationProcessor] Processing path: ${partComponent.path}`);
+
   const selection = config?.itemsSet?._selected || 'manual';
   const presentation = config?.presentation?._selected || 'hightlighted';
 

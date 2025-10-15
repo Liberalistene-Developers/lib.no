@@ -13,7 +13,7 @@ export interface ThreeColumnData extends Record<string, unknown> {
   rightClassName?: string;
 }
 
-export const ThreeColumn = ({component, meta, data = {}}: ComponentProps<LayoutData>) => {
+export const ThreeColumn = ({component: {regions} = {} as LayoutData, meta, data = {}}: ComponentProps<LayoutData>) => {
   const {
     background = '',
     borderBottom = false,
@@ -24,8 +24,6 @@ export const ThreeColumn = ({component, meta, data = {}}: ComponentProps<LayoutD
     middleClassName = '',
     rightClassName = '',
   } = data as ThreeColumnData;
-
-  const regions = component.regions;
 
   const contentHolderClasses = [
     'content-holder',

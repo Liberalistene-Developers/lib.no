@@ -1,4 +1,4 @@
-import type {ComponentProps, RegionsData} from '@enonic/react-components';
+import type {ComponentProps, LayoutData} from '@enonic/react-components';
 import {Region} from '@enonic/react-components';
 import * as React from 'react';
 
@@ -12,10 +12,9 @@ export interface ThreeColumn2RowData extends Record<string, unknown> {
   middleClassName?: string;
   rightClassName?: string;
   orderClass?: string;
-  regions?: RegionsData;
 }
 
-export const ThreeColumn2Row = ({meta, data = {}}: ComponentProps) => {
+export const ThreeColumn2Row = ({component: {regions} = {} as LayoutData, meta, data = {}}: ComponentProps<LayoutData>) => {
   const {
     background = '',
     borderBottom = false,
@@ -26,7 +25,6 @@ export const ThreeColumn2Row = ({meta, data = {}}: ComponentProps) => {
     middleClassName = '',
     rightClassName = '',
     orderClass = '',
-    regions
   } = data as ThreeColumn2RowData;
 
   // console.info('ThreeColumn2Row data', JSON.stringify(data, null, 2));

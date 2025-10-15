@@ -65,12 +65,12 @@ function updateNestedPaths(component: ComponentDataAndProps, oldParentPath: stri
  * saves the changes back to Enonic XP.
  *
  * @param components - The original components array (not mutated)
- * @param meta - Component metadata containing contentId for persistence
+ * @param _meta - Component metadata containing contentId for persistence (reserved for future use)
  * @returns A new array with sanitized component paths
  */
 export function sanitizeAndPersistComponentPaths(
     components: ComponentDataAndProps[],
-    meta: ComponentProps<PageData>['meta']
+    _meta: ComponentProps<PageData>['meta']
 ): ComponentDataAndProps[] {
     let hadChanges = false;
 

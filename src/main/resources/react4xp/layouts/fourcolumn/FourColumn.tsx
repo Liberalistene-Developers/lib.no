@@ -14,7 +14,7 @@ export interface FourColumnData extends Record<string, unknown> {
   rightClassName?: string;
 }
 
-export const FourColumn = ({component, meta, data = {}, common}: ComponentProps<LayoutData>) => {
+export const FourColumn = ({component: {regions} = {} as LayoutData, meta, data = {}, common}: ComponentProps<LayoutData>) => {
   const {
     background = '',
     borderBottom = false,
@@ -26,8 +26,6 @@ export const FourColumn = ({component, meta, data = {}, common}: ComponentProps<
     middleRightClassName = '',
     rightClassName = '',
   } = data as FourColumnData;
-
-  const regions = component.regions;
 
   const contentHolderClasses = [
     'content-holder',

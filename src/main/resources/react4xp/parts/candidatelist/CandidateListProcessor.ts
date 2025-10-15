@@ -20,6 +20,8 @@ export const candidateListProcessor: ComponentProcessor<'lib.no:candidatelist'> 
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as CandidateListConfig;
 
+  log.info(`[CandidateListProcessor] Processing path: ${partComponent.path}`);
+
   const candidates = config?.candidate ? [].concat(config.candidate) : [];
 
   return {

@@ -19,6 +19,8 @@ export const boardProcessor: ComponentProcessor<'lib.no:board'> = ({component}) 
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as BoardConfig;
 
+  log.info(`[BoardProcessor] Processing path: ${partComponent.path}`);
+
   const boardContent = config?.board ? getContent({key: config.board}) : null;
   const boardData = boardContent?.data as BoardData;
   const members = boardData?.member ? [].concat(boardData.member) : [];

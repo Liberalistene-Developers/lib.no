@@ -42,6 +42,8 @@ export const budgetCutListProcessor: ComponentProcessor<'lib.no:budgetcutlist'> 
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as BudgetCutListConfig;
 
+  log.info(`[BudgetCutListProcessor] Processing path: ${partComponent.path}`);
+
   const selection = config?.itemsSet?._selected || 'manual';
   const items = [...(config?.items || [])];
 

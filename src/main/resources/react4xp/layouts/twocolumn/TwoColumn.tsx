@@ -12,7 +12,7 @@ export interface TwoColumnData extends Record<string, unknown> {
   rightClassName?: string;
 }
 
-export const TwoColumn = ({component, meta, data = {}}: ComponentProps<LayoutData>) => {
+export const TwoColumn = ({component: {regions} = {} as LayoutData, meta, data = {}}: ComponentProps<LayoutData>) => {
   const {
     background = '',
     borderBottom = false,
@@ -22,8 +22,6 @@ export const TwoColumn = ({component, meta, data = {}}: ComponentProps<LayoutDat
     leftClassName = '',
     rightClassName = '',
   } = data as TwoColumnData;
-
-  const regions = component.regions;
 
   const contentHolderClasses = [
     'content-holder',

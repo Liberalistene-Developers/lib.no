@@ -32,6 +32,8 @@ export const groupProcessor: ComponentProcessor<'lib.no:group'> = ({component}) 
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as GroupConfig;
 
+  log.info(`[GroupProcessor] Processing path: ${partComponent.path}`);
+
   const content = getPortalContent();
   if (!content) {
     return {};

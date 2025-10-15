@@ -7,11 +7,9 @@ export const Page = ({common, meta, component}: ComponentProps<PageData>) => {
     const { main: { components = [] } = {}} = component?.regions || {};
     const commonData = common as CommonProcessorData;
 
-    if (components && components.length > 0) {
-      components.forEach(c => {
-        console.info('[Page] - Component: ', JSON.stringify(c.component, null, 2));
-      });
-    }
+    console.log('[Page Component] Path:', component?.path);
+    console.log('[Page Component] Components count:', components.length);
+    console.log('[Page Component] Full components:', JSON.stringify(components, null, 2));
 
     // Workaround for React4xp v6 fragment bug (issue #1953)
     // Fragment at index 6 has corrupted path, so we slice it out

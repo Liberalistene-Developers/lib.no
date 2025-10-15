@@ -1,13 +1,8 @@
-import type {ComponentProps, RegionsData} from '@enonic/react-components';
+import type {ComponentProps, LayoutData} from '@enonic/react-components';
 import {Region} from '@enonic/react-components';
 import * as React from 'react';
 
-export interface UnderConstructionData extends Record<string, unknown> {
-  regions?: RegionsData;
-}
-
-export const UnderConstruction = ({meta, data}: ComponentProps) => {
-  const {regions} = data as UnderConstructionData;
+export const UnderConstruction = ({component: {regions} = {} as LayoutData, meta}: ComponentProps<LayoutData>) => {
 
   return (
     <div>

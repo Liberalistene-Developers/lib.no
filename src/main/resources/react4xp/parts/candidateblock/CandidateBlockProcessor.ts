@@ -23,6 +23,8 @@ export const candidateBlockProcessor: ComponentProcessor<'lib.no:candidateblock'
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as CandidateBlockConfig;
 
+  log.info(`[CandidateBlockProcessor] Processing path: ${partComponent.path}`);
+
   const content = getPortalContent();
   if (!content) {
     return {};

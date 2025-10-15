@@ -12,6 +12,8 @@ export const fancyHeaderProcessor: ComponentProcessor<'lib.no:fancyheader'> = ({
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as FancyHeaderConfig;
 
+  log.info(`[FancyHeaderProcessor] Processing path: ${partComponent.path}`);
+
   return {
     image: imageUrl(config?.image, 'full'),
     title: config?.title || '',

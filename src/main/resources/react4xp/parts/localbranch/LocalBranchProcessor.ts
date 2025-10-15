@@ -23,6 +23,8 @@ export const localBranchProcessor: ComponentProcessor<'lib.no:localbranch'> = ({
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as LocalBranchConfig;
 
+  log.info(`[LocalBranchProcessor] Processing path: ${partComponent.path}`);
+
   const content = getPortalContent();
   if (!content) {
     return {};

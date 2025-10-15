@@ -9,18 +9,11 @@ interface SingleColumnConfig {
   paddingtop?: boolean;
 }
 
-export const singleColumnProcessor: ComponentProcessor<'lib.no:singlecolumn'> = ({component, content}) => {
-
+export const singleColumnProcessor: ComponentProcessor<'lib.no:singlecolumn'> = ({component}) => {
   const layoutComponent = component as LayoutComponent;
   const config = layoutComponent.config as SingleColumnConfig;
 
-  // log.info('****** LAYOUT 3 ******\n');
-  // log.info(JSON.stringify(content, null, 2));
-
-  // log.info('****** LAYOUT 2 ******\n');
-  // log.info(JSON.stringify(config, null, 2));
-
-  // log.info('****** LAYOUT 1 ******\n', JSON.stringify(component, null, 2));
+  log.info(`[SingleColumnProcessor] Processing path: ${layoutComponent.path}`);
 
   return {
     background: config?.background,
@@ -28,6 +21,5 @@ export const singleColumnProcessor: ComponentProcessor<'lib.no:singlecolumn'> = 
     fullWidth: config?.fullwidth,
     paddingBottom: config?.paddingbottom,
     paddingTop: config?.paddingtop,
-    regions: layoutComponent.regions,
   };
 };

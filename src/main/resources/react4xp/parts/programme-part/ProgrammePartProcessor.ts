@@ -16,6 +16,8 @@ export const programmePartProcessor: ComponentProcessor<'lib.no:programme-part'>
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as ProgrammePartConfig;
 
+  log.info(`[ProgrammePartProcessor] Processing path: ${partComponent.path}`);
+
   const content = getPortalContent();
   if (!content) {
     return {};

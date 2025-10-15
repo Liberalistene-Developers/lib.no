@@ -20,6 +20,8 @@ export const personProcessor: ComponentProcessor<'lib.no:person'> = ({component}
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as PersonConfig;
 
+  log.info(`[PersonProcessor] Processing path: ${partComponent.path}`);
+
   const content = getPortalContent();
   if (!content) {
     return {};

@@ -54,6 +54,8 @@ export const eventProcessor: ComponentProcessor<'lib.no:event'> = ({component}) 
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as EventConfig;
 
+  log.info(`[EventProcessor] Processing path: ${partComponent.path}`);
+
   const content = getPortalContent();
   if (!content) {
     return {};

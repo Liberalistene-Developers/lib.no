@@ -4,7 +4,7 @@ import type {LayoutComponent} from '@enonic-types/core';
 export const underConstructionProcessor: ComponentProcessor<'lib.no:under-construction'> = ({component}) => {
   const layoutComponent = component as unknown as LayoutComponent;
 
-  return {
-    regions: layoutComponent.regions
-  };
+  log.info(`[UnderConstructionProcessor] Processing path: ${layoutComponent.path}`);
+
+  return {};
 };

@@ -23,6 +23,8 @@ export const personListProcessor: ComponentProcessor<'lib.no:personlist'> = ({co
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as PersonListConfig;
 
+  log.info(`[PersonListProcessor] Processing path: ${partComponent.path}`);
+
   const items = config?.persons ? [].concat(config.persons) : [];
 
   return {
