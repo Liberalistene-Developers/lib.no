@@ -36,6 +36,7 @@
   min-height: 200px !important;
 }
 
-[data-portal-region] {
+[data-portal-region]:empty {
   min-height: 200px !important;
+  min-width: 200px !important;
 }
