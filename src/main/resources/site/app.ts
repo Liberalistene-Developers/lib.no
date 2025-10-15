@@ -52,7 +52,7 @@ export function get(request: Request): Response {
     }
 
     response.headers['Content-Security-Policy'] =
-        "frame-src 'self' https://docs.google.com https://www.youtube.com https://youtube.com https://player.vimeo.com;";
+        "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; frame-src 'self' https://docs.google.com https://www.youtube.com https://youtube.com https://player.vimeo.com;";
 
     return response;
 }

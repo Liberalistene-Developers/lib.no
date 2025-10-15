@@ -1,9 +1,9 @@
-import type {Request, Response, Component} from '@enonic-types/core';
-import {getUser} from '/lib/xp/auth';
-import {Content, get as getContentByKey, exists} from '/lib/xp/content';
-import {pageUrl, getContent} from '/lib/xp/portal';
-import {get as getContext, run as runContext} from '/lib/xp/context';
-import {getIn} from '@enonic/js-utils/object/getIn';
+import type { Component, Request, Response } from '@enonic-types/core';
+import { getIn } from '@enonic/js-utils/object/getIn';
+import { getUser } from '/lib/xp/auth';
+import { Content, exists, get as getContentByKey } from '/lib/xp/content';
+import { get as getContext, run as runContext } from '/lib/xp/context';
+import { getContent, pageUrl } from '/lib/xp/portal';
 
 export function handlePermissions(request: Request): Response {
     if (isContentExists(getContentPath(request))) {
@@ -85,7 +85,7 @@ export function getComponent({
                                  content = getContent(),
                                  request,
                              }: {
-                                 content: Content;
+                                 content?: Content;
                                  request: Request;
                              }
 ) {
@@ -93,8 +93,10 @@ export function getComponent({
         path: componentPath,
     } = request;
     const {page} = content;
-    const regions = page['regions'] || {};
+    const regions = page?.['regions'] || {};
     const regionPath = regionPathFromRequestPath(componentPath);
+
+    log.info(`[getComponent] content path: ${content._path}, componentPath: ${componentPath}, regionPath: ${regionPath}`);
     return getIn(regions, regionPath) as Component;
 }
 

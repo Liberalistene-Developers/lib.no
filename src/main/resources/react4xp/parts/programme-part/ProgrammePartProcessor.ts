@@ -1,6 +1,5 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
-import {getContent as getPortalContent} from '/lib/xp/portal';
 import {getConclusions} from '/react4xp/utils/programme';
 
 interface ProgrammePartConfig {
@@ -12,16 +11,11 @@ interface ProgrammePartData {
   tags?: string;
 }
 
-export const programmePartProcessor: ComponentProcessor<'lib.no:programme-part'> = ({component}) => {
+export const programmePartProcessor: ComponentProcessor<'lib.no:programme-part'> = ({component, content}) => {
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as ProgrammePartConfig;
 
   log.info(`[ProgrammePartProcessor] Processing path: ${partComponent.path}`);
-
-  const content = getPortalContent();
-  if (!content) {
-    return {};
-  }
 
   const data = content.data as ProgrammePartData;
 

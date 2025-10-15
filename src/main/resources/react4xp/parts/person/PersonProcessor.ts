@@ -1,6 +1,5 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
-import {getContent as getPortalContent} from '/lib/xp/portal';
 import {imageUrl} from '/react4xp/utils/image';
 import {processHtml} from '/react4xp/utils/html';
 
@@ -16,16 +15,11 @@ interface PersonData {
   tags?: string | string[];
 }
 
-export const personProcessor: ComponentProcessor<'lib.no:person'> = ({component}) => {
+export const personProcessor: ComponentProcessor<'lib.no:person'> = ({component, content}) => {
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as PersonConfig;
 
   log.info(`[PersonProcessor] Processing path: ${partComponent.path}`);
-
-  const content = getPortalContent();
-  if (!content) {
-    return {};
-  }
 
   const data = content.data as PersonData;
   const tags = data.tags ? [].concat(data.tags) : [];

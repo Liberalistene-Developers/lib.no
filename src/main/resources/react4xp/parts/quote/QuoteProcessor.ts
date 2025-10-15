@@ -1,5 +1,5 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
-import {getContent as getPortalContent, pageUrl} from '/lib/xp/portal';
+import {pageUrl} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
 import {imageUrl} from '/react4xp/utils/image';
 import {processHtml} from '/react4xp/utils/html';
@@ -16,12 +16,7 @@ interface PersonData {
   image?: string;
 }
 
-export const quoteProcessor: ComponentProcessor<'lib.no:quote'> = () => {
-  const content = getPortalContent();
-  if (!content) {
-    return {};
-  }
-
+export const quoteProcessor: ComponentProcessor<'lib.no:quote'> = ({content}) => {
   const data = content.data as QuoteData;
   const authors = data.author ? [].concat(data.author) : [];
 

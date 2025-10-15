@@ -1,4 +1,4 @@
-import type { LayoutComponent } from '@enonic-types/core';
+import type { LayoutComponent, LayoutDescriptor } from '@enonic-types/core';
 import type { ComponentProcessor } from '@enonic-types/lib-react4xp/DataFetcher';
 
 interface SingleColumnConfig {
@@ -9,7 +9,7 @@ interface SingleColumnConfig {
   paddingtop?: boolean;
 }
 
-export const singleColumnProcessor: ComponentProcessor<'lib.no:singlecolumn'> = ({component}) => {
+export const singleColumnProcessor: ComponentProcessor<LayoutDescriptor> = ({component}) => {
   const layoutComponent = component as LayoutComponent;
   const config = layoutComponent.config as SingleColumnConfig;
 

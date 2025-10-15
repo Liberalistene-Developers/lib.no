@@ -118,7 +118,7 @@ export const getParts = (
         const conclusions = getConclusions({key});
 
         if (debug) {
-          log.info(JSON.stringify(item, null, 4));
+          log.info(JSON.stringify(item, null, 2));
         }
 
         if (type === Programme.Part) {

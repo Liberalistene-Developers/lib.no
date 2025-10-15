@@ -1,5 +1,4 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
-import {getContent as getPortalContent} from '/lib/xp/portal';
 
 interface OrganizationalPositionData {
   description?: string;
@@ -7,12 +6,7 @@ interface OrganizationalPositionData {
   tags?: string;
 }
 
-export const organizationalPositionProcessor: ComponentProcessor<'lib.no:organizational-position'> = () => {
-  const content = getPortalContent();
-  if (!content) {
-    return {};
-  }
-
+export const organizationalPositionProcessor: ComponentProcessor<'lib.no:organizational-position'> = ({content}) => {
   const data = content.data as OrganizationalPositionData;
 
   return {

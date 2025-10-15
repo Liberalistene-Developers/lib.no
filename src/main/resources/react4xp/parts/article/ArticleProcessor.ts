@@ -1,6 +1,5 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
-import {getContent as getPortalContent} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
 import {pageUrl} from '/lib/xp/portal';
 import {imageUrl} from '/react4xp/utils/image';
@@ -23,16 +22,11 @@ interface ArticleData {
   author?: string | string[];
 }
 
-export const articleProcessor: ComponentProcessor<'lib.no:article'> = ({component}) => {
+export const articleProcessor: ComponentProcessor<'lib.no:article'> = ({component, content}) => {
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as ArticleConfig;
 
   log.info(`[ArticleProcessor] Processing path: ${partComponent.path}`);
-
-  const content = getPortalContent();
-  if (!content) {
-    return {};
-  }
 
   const data = content.data as ArticleData;
   const authors = [].concat(data.author || []);

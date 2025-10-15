@@ -25,28 +25,31 @@ export function get(request: Request) {
         return handlePermissions(request);
     }
 
-    // Fetch component data
-    const component = getComponent({
+    try {
+      const component = getComponent({
         content,
         request,
-    });
+      });
 
-    // Fetch and process content data
-    const data = dataFetcher.process({
-        component,
-        content,
-        request
-    });
+      // Fetch and process content data
+      const data = dataFetcher.process({
+          component,
+          content,
+          request
+      });
 
-    // Render page
-    const id = `react4xp_${content._id}`;
-    return render(
-        'App',
-        data,
-        request,
-        {
-            body: `<div id="${id}"></div>`,
-            id
-        }
-    );
+      // Render page
+      const id = `react4xp_${content._id}`;
+      return render(
+          'App',
+          data,
+          request,
+          {
+              body: `<div id="${id}"></div>`,
+              id
+          }
+      );
+    } catch (e) {
+      log.info('Error in ComponentUrl', e);
+    }
 }

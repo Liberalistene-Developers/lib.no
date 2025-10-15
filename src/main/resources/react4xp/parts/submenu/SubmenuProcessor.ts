@@ -1,6 +1,6 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
-import {getContent as getPortalContent, pageUrl} from '/lib/xp/portal';
+import {pageUrl} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
 import {runQuery} from '/react4xp/utils/query';
 
@@ -18,16 +18,11 @@ interface SubmenuConfig {
   };
 }
 
-export const submenuProcessor: ComponentProcessor<'lib.no:submenu'> = ({component}) => {
+export const submenuProcessor: ComponentProcessor<'lib.no:submenu'> = ({component, content}) => {
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as SubmenuConfig;
 
   log.info(`[SubmenuProcessor] Processing path: ${partComponent.path}`);
-
-  const content = getPortalContent();
-  if (!content) {
-    return {};
-  }
 
   const selection = config?.itemsSet?._selected || 'manual';
   const items: string[] = [];

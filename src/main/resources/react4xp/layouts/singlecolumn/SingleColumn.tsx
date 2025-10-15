@@ -11,9 +11,10 @@ export interface SingleColumnData extends Record<string, unknown> {
 }
 
 export const SingleColumn = ({
-  component: {regions} = {} as LayoutData,
+  component,
+  common,
   meta,
-  data = {},
+  data,
 }: ComponentProps<LayoutData>) => {
   const {
     background = '',
@@ -45,8 +46,9 @@ export const SingleColumn = ({
       <div className={contentClasses}>
         <div className="content-item">
           <Region
-            data={regions?.content?.components}
+            data={component.regions.content.components}
             meta={meta}
+            common={common}
             name="content"
           />
         </div>

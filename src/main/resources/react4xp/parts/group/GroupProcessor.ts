@@ -1,6 +1,6 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
-import {getContent as getPortalContent, pageUrl} from '/lib/xp/portal';
+import {pageUrl} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
 import {imageUrl} from '/react4xp/utils/image';
 import {processHtml} from '/react4xp/utils/html';
@@ -28,16 +28,11 @@ interface PersonData {
   'short-description'?: string;
 }
 
-export const groupProcessor: ComponentProcessor<'lib.no:group'> = ({component}) => {
+export const groupProcessor: ComponentProcessor<'lib.no:group'> = ({component, content}) => {
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as GroupConfig;
 
   log.info(`[GroupProcessor] Processing path: ${partComponent.path}`);
-
-  const content = getPortalContent();
-  if (!content) {
-    return {};
-  }
 
   const data = content.data as GroupData;
   const members = data.member ? [].concat(data.member) : [];

@@ -1,5 +1,4 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
-import {getContent as getPortalContent} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
 import {pageUrl} from '/lib/xp/portal';
 import {imageUrl} from '/react4xp/utils/image';
@@ -14,12 +13,7 @@ interface BookData {
   author?: string | string[];
 }
 
-export const bookProcessor: ComponentProcessor<'lib.no:book'> = () => {
-  const content = getPortalContent();
-  if (!content) {
-    return {};
-  }
-
+export const bookProcessor: ComponentProcessor<'lib.no:book'> = ({content}) => {
   const data = content.data as BookData;
   const authors = data.author ? [].concat(data.author) : [];
 

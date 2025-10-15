@@ -1,6 +1,5 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
-import {getContent as getPortalContent} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
 import {imageUrl} from '/react4xp/utils/image';
 import {processHtml} from '/react4xp/utils/html';
@@ -26,16 +25,11 @@ interface PersonData {
   phone?: string;
 }
 
-export const candidatePageProcessor: ComponentProcessor<'lib.no:candidatepage'> = ({component}) => {
+export const candidatePageProcessor: ComponentProcessor<'lib.no:candidatepage'> = ({component, content}) => {
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as CandidatePageConfig;
 
   log.info(`[CandidatePageProcessor] Processing path: ${partComponent.path}`);
-
-  const content = getPortalContent();
-  if (!content) {
-    return {};
-  }
 
   const data = content.data as CandidatePageData;
   const persons = data.person ? [].concat(data.person) : [];

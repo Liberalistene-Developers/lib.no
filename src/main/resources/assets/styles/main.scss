@@ -8,3 +8,8 @@
 // Legacy SCSS (to be gradually migrated)
 // TODO: Remove these imports as components are converted to Tailwind
 @import 'legacy.scss';
+
+// Minimum height for empty layout regions
+[data-portal-region]:empty {
+  min-height: 200px;
+}

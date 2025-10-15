@@ -1,5 +1,4 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
-import {getContent as getPortalContent} from '/lib/xp/portal';
 import {imageUrl} from '/react4xp/utils/image';
 
 interface IntroBlockData {
@@ -9,12 +8,7 @@ interface IntroBlockData {
   introcaption?: string;
 }
 
-export const introBlockProcessor: ComponentProcessor<'lib.no:introblock'> = () => {
-  const content = getPortalContent();
-  if (!content) {
-    return {};
-  }
-
+export const introBlockProcessor: ComponentProcessor<'lib.no:introblock'> = ({content}) => {
   const data = content.data as IntroBlockData;
 
   return {

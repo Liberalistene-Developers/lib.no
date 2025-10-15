@@ -1,6 +1,5 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
-import {getContent as getPortalContent} from '/lib/xp/portal';
 import {imageUrl} from '/react4xp/utils/image';
 
 interface LocalBranchConfig {
@@ -19,16 +18,11 @@ interface LocalBranchData {
   ingress?: string;
 }
 
-export const localBranchProcessor: ComponentProcessor<'lib.no:localbranch'> = ({component}) => {
+export const localBranchProcessor: ComponentProcessor<'lib.no:localbranch'> = ({component, content}) => {
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as LocalBranchConfig;
 
   log.info(`[LocalBranchProcessor] Processing path: ${partComponent.path}`);
-
-  const content = getPortalContent();
-  if (!content) {
-    return {};
-  }
 
   const data = content.data as LocalBranchData;
 
