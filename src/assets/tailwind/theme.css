@@ -1,0 +1,66 @@
+/* Tailwind Theme Configuration */
+
+/* Custom design tokens and theme variables */
+
+@theme {
+  /* Font families */
+  --font-sans: lato, sans-serif;
+
+  /* Custom colors - Primary (purple shades) */
+  --color-primary-100: #696f88;
+  --color-primary-300: #5d5664;
+  --color-primary-500: #755275;
+  --color-primary-700: #4a104a;
+
+  /* Custom colors - Secondary (gray shades) */
+  --color-secondary-100: #f0f2f5;
+  --color-secondary-500: #657683;
+
+  /* Custom colors - Background */
+  --color-background-100: #e5e5e5;
+  --color-background-300: #efeaef;
+  --color-background-500: #f8f6f8;
+  --color-background-700: #fff;
+
+  /* Custom colors - UI elements */
+  --color-header-100: #ede8ed;
+  --color-subtext-100: #959AAF;
+  --color-button-100: #fff;
+  --color-warning: #c20000;
+  --color-purple-anchor: #ffea00;
+  --color-menu-bg: #fff;
+
+  /* Font sizes - Base */
+  --text-base: 16px;
+  --text-base-line-height: 1.5;
+
+  /* Font sizes - Rich text */
+  --text-rich: 18px;
+  --text-rich-line-height: 1.222;
+
+  /* Font sizes - Headings (desktop) */
+  --text-h1: 50px;
+  --text-h1-line-height: 1.2;
+  --text-h2: 45px;
+  --text-h2-line-height: 1.2;
+  --text-h3: 38px;
+  --text-h3-line-height: 1.211;
+
+  /* Font sizes - Headings (mobile) */
+  --text-h1-mobile: 45px;
+  --text-h1-mobile-line-height: 1.2;
+  --text-h2-mobile: 38px;
+  --text-h2-mobile-line-height: 1.211;
+  --text-h3-mobile: 31px;
+  --text-h3-mobile-line-height: 1.226;
+
+  /* Font weights */
+  --font-weight-heading: 700;
+  --font-weight-heading-mobile: 800;
+
+  /* Breakpoints */
+  --breakpoint-mobile: 414px;
+}
+
+/* Custom variants */
+@custom-variant mobile (max-width: 414px);

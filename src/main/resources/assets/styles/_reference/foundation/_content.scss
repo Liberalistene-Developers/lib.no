@@ -237,9 +237,10 @@ main {
         }
       }
 
-      & > .divider.visible {
-        border: 2px solid rgba(74, 16, 74, 0.18);
-        height: 0px;
+      .divider.visible {
+        border-bottom: 2px solid rgba(74, 16, 74, 0.18);
+        min-height: 2px;
+        margin: 1rem 0;
       }
     }
   }

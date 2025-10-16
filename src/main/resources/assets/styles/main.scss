@@ -1,13 +1,11 @@
 // Main stylesheet for lib.no
-// This combines Tailwind CSS (new) with legacy SCSS (old)
-// Gradually migrate components from legacy.scss to Tailwind utilities
+// All components now use Tailwind CSS utilities
 
 // Import Tailwind with design tokens
 @import 'tailwind.css';
 
-// Legacy SCSS (to be gradually migrated)
-// TODO: Remove these imports as components are converted to Tailwind
-@import 'legacy.scss';
+// Legacy SCSS moved to _reference/ for reference only
+// Use those files to implement missing CSS with Tailwind utilities
 
 // Minimum height for empty layout regions
 [data-portal-region]:empty {

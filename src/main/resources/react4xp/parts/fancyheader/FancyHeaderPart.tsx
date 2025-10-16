@@ -14,7 +14,7 @@ export const FancyHeaderPart: React.FC<FancyHeaderProps> = ({
   effect = null,
   image = null
 }) => (
-  <div className="grid grid-cols-[30%_70%] justify-evenly w-full mobile:grid-cols-1 [&_.orgHeader-grid-item_img]:object-cover [&_.orgHeader-grid-item_img]:w-full [&_.orgHeader-grid-item_img]:h-full">
+  <div className="grid grid-cols-[30%_70%] justify-evenly w-full mobile:grid-cols-1 [&_.org-header-grid-item_img]:object-cover [&_.org-header-grid-item_img]:w-full [&_.org-header-grid-item_img]:h-full">
     <div>
       <div className="relative flow-root top-1/2 -translate-y-1/2 max-[834px]:[&_img]:mt-[5%] max-[834px]:[&_img]:mr-[5%]">
         <div className="relative block float-left bg-primary-700 shadow-[1px_1px_20px_0_rgba(74,16,74,0.47)] max-[834px]:p-[1vw_15px] mobile:float-none mobile:bg-transparent mobile:shadow-none mobile:text-center">

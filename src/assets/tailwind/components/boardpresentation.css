@@ -1,0 +1,88 @@
+/* Board Presentation Component */
+
+/* Board presentation layouts with leader and member displays */
+
+@layer components {
+  .board-presentation-list {
+    @apply flex flex-col gap-y-20;
+  }
+
+  .board-presentation-wrapper {
+    @apply flex flex-col gap-y-10 w-full justify-center items-center;
+  }
+
+  .board-presentation-wrapper .board-presentation-title {
+    @apply text-center;
+  }
+
+  .board-presentation-wrapper .board-presentation-content {
+    @apply w-full flex flex-row justify-center items-center;
+  }
+
+  .board-presentation-wrapper .board-presentation-content > * {
+    @apply w-1/2;
+  }
+
+  .board-presentation-wrapper .board-presentation-content .highlighted {
+    @apply flex justify-center m-auto;
+  }
+
+  .board-presentation-wrapper .board-presentation-content .highlighted > .ingress {
+    @apply m-auto p-10;
+  }
+
+  .board-presentation-wrapper .board-presentation-content .leader {
+    @apply flex justify-center items-center flex-col;
+  }
+
+  .board-presentation-wrapper .board-presentation-content .leader .leader-name {
+    @apply font-bold text-2xl leading-[29px];
+
+    color: var(--lib-color-primary-700);
+  }
+
+  .board-presentation-wrapper .board-presentation-content .members {
+    @apply flex pl-[10px];
+  }
+
+  .board-presentation-wrapper .board-presentation-content .members .members-inner {
+    @apply flex flex-col gap-y-[6px] w-full;
+  }
+
+  .board-presentation-wrapper .board-presentation-content .members .members-inner .member-item {
+    @apply flex text-lg leading-[22px] w-full;
+
+    color: var(--lib-color-primary-300);
+  }
+
+  .board-presentation-wrapper .board-presentation-content .members .members-inner .member-item .member-item-email {
+    @apply mb-5;
+  }
+
+  .board-presentation-wrapper .board-presentation-content .members .members-inner .role {
+    @apply font-medium w-[40%];
+  }
+
+  .board-presentation-wrapper .board-presentation-content .members .members-inner .role::after {
+    content: ': ';
+  }
+
+  .board-presentation-wrapper .board-presentation-content .members .members-inner .name {
+    @apply w-[60%];
+  }
+
+  .board-presentation-wrapper .board-presentation-content.reverse {
+    @apply flex-row-reverse gap-x-[10px];
+  }
+
+  .board-presentation-wrapper .board-presentation-content.reverse .members {
+    flex-basis: content;
+  }
+
+  .board-presentation-wrapper .board-presentation-content .leader-role,
+  .board-presentation-wrapper .board-presentation-content .members-title {
+    @apply font-bold text-[22px] leading-[26px];
+
+    color: var(--lib-color-primary-300);
+  }
+}

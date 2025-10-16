@@ -1,0 +1,25 @@
+/* Card Component */
+
+/* Card container styles with shadow effects */
+
+@layer components {
+  .card-holder {
+    @apply bg-white rounded-[3px] w-full;
+
+    box-shadow: 0 1px 40px 3px rgb(74 16 74 / 11%);
+  }
+
+  .card-holder img {
+    @apply rounded-t-[3px] w-full;
+  }
+
+  .card-holder h3.card-title {
+    @apply text-2xl leading-[29px] mb-[5px] mt-[-20px];
+
+    color: var(--lib-color-primary-700);
+  }
+
+  .card-holder .card-content {
+    @apply p-[15px];
+  }
+}

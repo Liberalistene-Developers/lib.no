@@ -68,7 +68,7 @@ export const ProgrammeSectionPart: React.FC<ProgrammeSectionProps> = ({
       </div>
 
       {description && (
-        <div className="mt-5 mobile:[&_.Standard]:w-[calc(100%-2em)] mobile:[&>ul]:w-[calc(100%-80px)]" dangerouslySetInnerHTML={{__html: description}} />
+        <div className="mt-5 mobile:[&_.standard]:w-[calc(100%-2em)] mobile:[&>ul]:w-[calc(100%-80px)]" dangerouslySetInnerHTML={{__html: description}} />
       )}
 
       {parts && parts.length > 0

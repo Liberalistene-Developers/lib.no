@@ -1,0 +1,43 @@
+/* Fancy Header Component */
+
+/* Organization header with grid layout and styled title boxes */
+
+@layer components {
+  .org-header-grid-container {
+    @apply grid justify-evenly w-full;
+
+    grid-template-columns: 30% 70%;
+  }
+
+  .org-header-grid-container .org-header-grid-item img {
+    @apply object-cover w-full h-full;
+  }
+
+  .org-header-grid-container .org-header-grid-item .header-title-wrapper {
+    @apply relative top-1/2;
+
+    display: flow-root;
+    transform: translateY(-50%);
+  }
+
+  .org-header-grid-container .org-header-grid-item .header-title-wrapper .headertitle {
+    @apply relative block float-left;
+
+    background-color: var(--lib-color-primary-700);
+    box-shadow: 1px 1px 20px 0 rgb(74 16 74 / 47%);
+    text-shadow: none;
+  }
+
+  .org-header-grid-container .org-header-grid-item .header-title-wrapper .headertitle h1 {
+    @apply mt-0 mb-0 px-[70px] py-[15px] bg-transparent font-black;
+
+    float: none;
+    color: var(--lib-color-button-color-100);
+    line-height: 1.2;
+    font-size: 5vw;
+  }
+
+  .org-header-grid-container .org-header-grid-item .header-title-wrapper img {
+    @apply relative w-[30%] float-right mt-5 mr-5;
+  }
+}

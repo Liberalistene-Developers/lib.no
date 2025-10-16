@@ -1,0 +1,95 @@
+/* Join Component */
+
+/* Flip card style join component with front and back sides */
+
+@layer components {
+  .join-container {
+    @apply relative h-[300px] w-full;
+  }
+
+  .join-container .medium-margin {
+    @apply mt-[60px] mb-[60px];
+  }
+
+  .join-container .middle {
+    @apply absolute top-1/2 left-1/2;
+
+    transform: translate(-50%, -50%);
+  }
+
+  .join-container .join {
+    @apply cursor-pointer w-[600px] max-w-full h-[300px];
+  }
+
+  .join-container .join .join-front,
+  .join-container .join .join-back {
+    @apply w-full h-full overflow-hidden absolute rounded-[3px];
+
+    backface-visibility: hidden;
+    transition: transform .6s linear;
+  }
+
+  .join-container .join .join-front {
+    @apply text-white;
+
+    transform: perspective(600px) rotateX(0deg);
+  }
+
+  .join-container .join .join-front .join-front-content {
+    @apply h-full w-full flex justify-center items-center;
+
+    background-color: rgb(74 16 74);
+  }
+
+  .join-container .join .join-front .join-front-content .image-holder img {
+    height: calc(100% - 50px);
+  }
+
+  .join-container .join .join-front .join-front-content.row {
+    @apply flex-row gap-x-10 justify-center;
+  }
+
+  .join-container .join .join-front .join-front-content.row .image-holder,
+  .join-container .join .join-front .join-front-content.row .join-front-text {
+    @apply flex items-center h-full justify-center max-w-[50%];
+  }
+
+  .join-container .join .join-front .join-front-content.column {
+    @apply flex-col gap-y-5 justify-center;
+  }
+
+  .join-container .join .join-front .join-front-content.column .join-front-text {
+    @apply flex h-full items-center;
+  }
+
+  .join-container .join .join-front .join-front-content.column .image-holder {
+    @apply flex items-center mt-5 h-[70%];
+  }
+
+  .join-container .join .join-front .join-front-content.column .image-holder ~ .join-front-text {
+    @apply items-start h-[33%] mt-[-20px];
+  }
+
+  .join-container .join .join-back {
+    background-color: rgb(74 16 74);
+    transform: perspective(600px) rotateX(-180deg);
+  }
+
+  .join-container .join .join-back .join-back-content {
+    @apply text-center w-full;
+
+    color: #2c3e50;
+  }
+
+  .join-container .join .join-back .join-back-content .join-back-text {
+    color: var(--lib-color-button-color-100);
+  }
+
+  .join-container .join:hover > .join-front {
+    transform: perspective(600px) rotateX(180deg);
+  }
+
+  .join-container .join:hover > .join-back {
+    transform: perspective(600px) rotateX(0deg);
+  }
+}

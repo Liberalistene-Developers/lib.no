@@ -58,7 +58,7 @@ export const Faq: React.FC<FaqProps> = ({
           className="min-h-[50px] rounded-t-[3px] bg-header-100 px-[15px] flex flex-row justify-between items-center [&>h2]:flex [&>h2]:flex-row [&>h2]:items-center [&>h2]:font-medium [&>h2]:text-[17px] [&>h2]:leading-5 [&>h2]:my-0 [&>h2]:mr-[5px] [&>h2]:gap-x-[15px] [&>h2]:py-[10px] [&>h2]:text-primary-100 [&>h3]:flex [&>h3]:flex-row [&>h3]:items-center [&>h3]:font-medium [&>h3]:text-[17px] [&>h3]:leading-5 [&>h3]:my-0 [&>h3]:mr-[5px] [&>h3]:gap-x-[15px] [&>h3]:py-[10px] [&>h3]:text-primary-100"
         >
           {headerItem}
-          <div className="arrowPurple w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[22px] border-b-primary-700 rounded-[5px]" />
+          <div className="arrow-purple w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[22px] border-b-primary-700 rounded-[5px]" />
         </div>
       </label>
       <div

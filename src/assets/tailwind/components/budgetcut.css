@@ -1,0 +1,100 @@
+/* Budget Cut Component */
+
+/* Budget cut lists with collapsible items and budget tables */
+
+@layer components {
+  .budget-cut-list-holder {
+    @apply w-full;
+  }
+
+  .budget-cut-list-holder .budget-cut-list-title {
+    @apply flex justify-center items-center mb-10 mt-10;
+  }
+
+  .budget-cut-list-holder .ingress {
+    @apply font-bold;
+  }
+
+  .budget-cut-list-holder .budget-cut-list {
+    @apply w-full;
+  }
+
+  .budget-cut-holder {
+    @apply w-full mb-10;
+  }
+
+  .budget-cut-holder .budget-cut-title h1 {
+    @apply overflow-hidden text-ellipsis;
+  }
+
+  .budget-cut-holder .budget-cut-title h3,
+  .budget-cut-holder .budget-cut-title label {
+    @apply cursor-pointer;
+  }
+
+  .budget-cut-holder .budget-cut-content {
+    @apply mt-10;
+  }
+
+  .budget-cut-holder .budget-cut-content .budget-cut-sumary dl dt {
+    @apply font-bold;
+  }
+
+  .budget-cut-holder .budget-cut-content .budget-cut-table {
+    @apply grid max-w-full;
+
+    grid-template-columns: auto 80px 80px;
+    grid-template-areas:
+      "header header header"
+      "main main main"
+      "footer footer footer";
+  }
+
+  .budget-cut-holder .budget-cut-content .budget-cut-table .budget-cut-percent,
+  .budget-cut-holder .budget-cut-content .budget-cut-table .budget-cut-cuts {
+    @apply flex items-end justify-end;
+  }
+
+  .budget-cut-holder .budget-cut-content .budget-cut-table .header {
+    @apply border-b border-gray-500;
+  }
+
+  .budget-cut-holder .budget-cut-content .budget-cut-table .footer {
+    border-top: 2px solid grey;
+    border-bottom: 5px double grey;
+  }
+
+  .budget-cut-holder .budget-cut-content .numbers-description {
+    @apply text-right;
+  }
+
+  .budget-cut-holder .budget-cut-item .budget-cut-title i {
+    @apply float-right;
+
+    line-height: inherit;
+  }
+
+  .budget-cut-holder .budget-cut-item > input[type="checkbox"] {
+    @apply hidden;
+  }
+
+  .budget-cut-holder .budget-cut-item > input[type="checkbox"]:checked ~ .budget-cut-title label .open {
+    @apply hidden;
+  }
+
+  .budget-cut-holder .budget-cut-item > input[type="checkbox"]:checked ~ .budget-cut-title label .closed {
+    display: inherit;
+  }
+
+  .budget-cut-holder .budget-cut-item > input[type="checkbox"]:not(:checked) ~ .budget-cut-content {
+    @apply hidden;
+  }
+
+  .budget-cut-holder .budget-cut-item > input[type="checkbox"]:not(:checked) ~ .budget-cut-title label .open {
+    display: inherit;
+  }
+
+  .budget-cut-holder .budget-cut-item > input[type="checkbox"]:not(:checked) ~ .budget-cut-title label .closed {
+    @apply hidden;
+  }
+}

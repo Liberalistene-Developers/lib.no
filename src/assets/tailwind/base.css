@@ -1,0 +1,93 @@
+/* Base Styles */
+
+/* Global resets, body styles, and foundational elements */
+
+@layer base {
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  body > div {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  :root {
+    /* Legacy CSS custom properties for backward compatibility */
+    --lib-color-secondary-100: #f0f2f5;
+    --lib-color-secondary-500: #657683;
+    --lib-color-primary-100: #696f88;
+    --lib-color-primary-300: #5d5664;
+    --lib-color-primary-500: #755275;
+    --lib-color-primary-700: #4a104a;
+    --lib-color-subtext-100: #959AAF;
+    --lib-color-background-100: #e5e5e5;
+    --lib-color-background-300: #efeaef;
+    --lib-color-background-500: #f8f6f8;
+    --lib-color-background-700: #fff;
+    --lib-color-header-100: #ede8ed;
+    --lib-color-button-color-100: #fff;
+    --lib-color-warning: #c20000;
+    --lib-color-menu-background: #fff;
+    --lib-color-purple-anchor: #ffea00;
+  }
+
+  .main-wrapper {
+    @apply relative min-h-full max-w-[1800px] mx-auto pb-[120px] px-0 pt-0;
+  }
+
+  .social-icons {
+    @apply absolute left-0 flex items-center gap-[10px] pl-5 text-[23px] leading-[23px];
+
+    & i {
+      @apply text-center min-w-6 min-h-6;
+    }
+
+    & .fa-facebook::before {
+      content: "\f39e";
+    }
+
+    & a {
+      background-color: var(--lib-color-menu-background);
+
+      @apply text-[#63678A] no-underline;
+    }
+  }
+
+  /* Base body styles */
+  body {
+    background-color: var(--lib-color-background-700);
+    color: var(--lib-color-primary-100);
+
+    @apply font-sans;
+
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  /* Links */
+  a {
+    @apply text-primary-700 no-underline;
+  }
+
+  /* Embed macro styles */
+  .embed-macro {
+    @apply w-full flex justify-center;
+  }
+
+  .embed-macro iframe {
+    @apply border-0;
+  }
+
+  /* Inline display utility */
+  .as-span {
+    @apply inline;
+  }
+
+  .as-span > p {
+    @apply inline;
+  }
+}

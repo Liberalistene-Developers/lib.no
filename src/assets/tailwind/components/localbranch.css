@@ -1,0 +1,82 @@
+/* Local Branch Component */
+
+/* Local branch displays and candidate information */
+
+@layer components {
+  .localbranches {
+    @apply flex flex-col gap-y-[30px];
+  }
+
+  .localbranches > .heading.center {
+    @apply text-center;
+  }
+
+  .localbranches > .items {
+    @apply flex flex-row flex-wrap gap-x-[10px] gap-y-[5px] ml-[10px] items-center;
+  }
+
+  .localbranches > .items > * {
+    @apply items-center;
+
+    flex-basis: calc(25% - 7.5px);
+  }
+
+  .localbranches > .items > * > a {
+    @apply underline;
+  }
+
+  .localbranch-candidate {
+    @apply bg-white flex flex-row gap-x-[10px] max-w-[50%];
+  }
+
+  .localbranch-candidate h3 {
+    @apply text-[28px] leading-[34px];
+  }
+
+  .localbranch-candidate > .image-holder {
+    @apply w-1/4 mt-[10px];
+  }
+
+  .localbranch-candidate > .image-holder .image {
+    @apply p-[10px];
+  }
+
+  .localbranch-candidate > .image-holder .image > img {
+    @apply w-full;
+  }
+
+  .localbranch-candidate > .information {
+    @apply flex flex-col mt-[10px] mb-[10px] gap-y-[10px] mr-[10px];
+
+    flex: 1 1 100%;
+  }
+
+  .localbranch-candidate > .information hr {
+    @apply mt-[-2px] h-[0.8px] bg-[gainsboro] border-none;
+  }
+
+  .localbranch-candidate > .information > .position {
+    @apply italic;
+  }
+
+  .localbranch-candidate > .information > .phone,
+  .localbranch-candidate > .information > .email {
+    @apply flex flex-row gap-x-[10px];
+  }
+
+  .localbranch-candidates {
+    @apply flex flex-col gap-y-5;
+  }
+
+  .localbranch-candidates .heading > .center {
+    @apply text-center;
+  }
+
+  .localbranch-candidates > .items {
+    @apply flex flex-row flex-wrap gap-y-[15px] gap-x-[15px];
+  }
+
+  .localbranch-candidates > .items > * {
+    flex: 1 1 calc(50% - 10px);
+  }
+}

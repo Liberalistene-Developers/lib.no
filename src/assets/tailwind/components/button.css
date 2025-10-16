@@ -1,0 +1,74 @@
+/* Button Component */
+
+/* Button styles with paper-raise effects and color variants */
+
+@layer components {
+  .button-wrapper {
+    @apply flex w-full items-center justify-center;
+  }
+
+  .button-wrapper .button {
+    @apply rounded-[3px] relative inline-block min-w-[124px] my-5 mx-auto px-[18px] py-[18px] border border-[#ccc] text-center no-underline uppercase;
+
+    background-color: var(--lib-color-primary-700);
+    color: var(--lib-color-menu-background);
+    transform-style: flat;
+    transition: all 250ms ease-out;
+  }
+
+  .button-wrapper .button::before,
+  .button-wrapper .button::after {
+    content: '';
+
+    @apply absolute z-[-2];
+
+    transition: all 250ms ease-out;
+  }
+
+  .button-wrapper .button.light {
+    @apply bg-white;
+
+    color: var(--lib-color-primary-700);
+  }
+
+  .button-wrapper .button.light.paper-raise:hover {
+    @apply border-white;
+
+    text-shadow: 0 1px var(--lib-color-primary-700);
+  }
+
+  .button-wrapper .button.light.paper-raise:hover::before {
+    box-shadow: 0 15px 10px -10px rgb(255 255 255 / 50%);
+  }
+
+  .button-wrapper .button.paper-raise::before {
+    @apply top-0 left-0 w-full h-full;
+  }
+
+  .button-wrapper .button.paper-raise:hover {
+    border: 1px solid var(--lib-color-primary-700);
+    text-shadow: 0 1px lightgrey;
+  }
+
+  .button-wrapper .button.paper-raise:hover::before {
+    box-shadow: 0 15px 10px -10px rgb(31 31 31 / 50%);
+  }
+
+  main > .content-holder.purple .button {
+    background-color: var(--lib-color-menu-background);
+    color: var(--lib-color-primary-700);
+  }
+
+  main > .content-holder.purple .button.paper-raise::before {
+    @apply top-0 left-0 w-full h-full;
+  }
+
+  main > .content-holder.purple .button.paper-raise:hover {
+    border: 1px solid var(--lib-color-menu-background);
+    text-shadow: 0 1px #ffea00;
+  }
+
+  main > .content-holder.purple .button.paper-raise:hover::before {
+    box-shadow: 0 15px 10px -10px rgb(31 31 31 / 50%);
+  }
+}

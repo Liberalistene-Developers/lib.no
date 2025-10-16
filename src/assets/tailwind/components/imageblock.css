@@ -1,0 +1,156 @@
+/* Image Block Component */
+
+/* Image blocks with overlays and text positioning options */
+
+@layer components {
+  .purple .title span,
+  .purple .title .normal,
+  .purple .ingress span,
+  .purple .ingress .normal {
+    color: var(--lib-color-button-color-100);
+  }
+
+  .yellow .title span,
+  .yellow .title .normal,
+  .yellow .ingress span,
+  .yellow .ingress .normal,
+  .light .title span,
+  .light .title .normal,
+  .light .ingress span,
+  .light .ingress .normal {
+    color: var(--lib-color-primary-700);
+  }
+
+  .image-block {
+    @apply flex relative h-[458px];
+  }
+
+  .image-block .full {
+    @apply w-full;
+  }
+
+  .image-block .full > img {
+    @apply w-full object-cover h-full;
+  }
+
+  .image-block > .content {
+    @apply absolute z-10 w-full h-full flex;
+  }
+
+  .image-block > .content.center {
+    @apply justify-center items-center;
+  }
+
+  .image-block > .content.center.image-block-text {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .image-block > .content h1 {
+    @apply text-[100px] font-extrabold leading-[120px];
+  }
+
+  .image-block > .content .ingress {
+    @apply text-[35px] font-medium leading-[42px];
+  }
+
+  .image-block > .content.light .ingress {
+    @apply text-white;
+  }
+
+  .image-block > .content .image-block-text {
+    @apply max-w-[50%] absolute top-1/2;
+
+    transform: translateY(-50%);
+  }
+
+  .image-block > .content .image-block-text .ingress {
+    @apply mt-[10px];
+
+    color: var(--lib-color-button-color-100);
+  }
+
+  .image-block > .content .image-block-text .ingress p {
+    @apply mt-0 mb-0;
+  }
+
+  .image-block > .content .image-block-text .ingress.purple,
+  .image-block > .content .image-block-text .ingress.white {
+    color: var(--lib-color-primary-700);
+  }
+
+  .image-block > .content .image-block-text .ingress.yellow {
+    color: var(--lib-color-purple-anchor);
+  }
+
+  .image-block > .content .image-block-text .ingress .light {
+    color: var(--lib-color-button-color-100);
+  }
+
+  .image-block > .content .image-block-text .title span:not(:first-child, .nospace)::before {
+    content: ' ';
+  }
+
+  .image-block > .content .image-block-text .title .purple,
+  .image-block > .content .image-block-text .title .white {
+    color: var(--lib-color-primary-700);
+  }
+
+  .image-block > .content .image-block-text .title .yellow {
+    color: var(--lib-color-purple-anchor);
+  }
+
+  .image-block > .content .image-block-text .title .light {
+    color: var(--lib-color-button-color-100);
+  }
+
+  .image-block > .content.left {
+    @apply mr-5;
+
+    width: calc(100% - 40px);
+  }
+
+  .image-block > .content.left .image-block-text {
+    left: 10%;
+  }
+
+  .image-block > .content.right {
+    @apply ml-5;
+
+    width: calc(100% - 40px);
+  }
+
+  .image-block > .content.right .image-block-text {
+    right: 10%;
+  }
+
+  .image-block > .content.overlay.purple.center {
+    background: linear-gradient(to right, rgb(74 15 57 / 0%) 10%, rgb(74 16 74 / 87%) 25%, rgb(74 16 74 / 87%) 70%, rgb(74 16 57 / 0%) 100%);
+  }
+
+  .image-block > .content.overlay.purple.left {
+    @apply mr-10;
+
+    background: linear-gradient(90deg, rgb(74 16 74 / 87%) 20.89%, rgb(74 16 57 / 0%) 100%);
+  }
+
+  .image-block > .content.overlay.purple.right {
+    @apply ml-10;
+
+    background: linear-gradient(270deg, rgb(74 16 74 / 87%) 20.89%, rgb(74 16 57 / 0%) 100%);
+  }
+
+  .image-block > .content.overlay.purple .title.normal h1 {
+    @apply text-white;
+
+    text-shadow: 2px 2px var(--lib-color-primary-100);
+  }
+
+  .image-block > .content.overlay.purple .title h1 {
+    @apply text-white;
+  }
+
+  .image-block > .content.overlay.purple .ingress {
+    @apply text-white;
+  }
+}

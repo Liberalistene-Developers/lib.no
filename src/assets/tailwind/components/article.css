@@ -1,0 +1,65 @@
+/* Article Component */
+
+/* Article list and article display styles */
+
+@layer components {
+  .article-list-holder {
+    @apply w-full mb-10;
+  }
+
+  .article-list-holder .article-list-title {
+    @apply my-10 text-center;
+  }
+
+  .article-list-holder .more-button {
+    @apply flex justify-center;
+  }
+
+  .article-list.list {
+    max-width: 600px;
+  }
+
+  .article {
+    @apply w-full;
+  }
+
+  .article .article-title {
+    @apply flex items-center justify-center mt-10 mb-10;
+  }
+
+  .article .ingress {
+    @apply font-bold;
+  }
+
+  .article figure {
+    margin-inline: 0;
+  }
+
+  .article figure img {
+    @apply max-w-full;
+  }
+
+  .article-creds {
+    @apply flex items-center justify-between max-w-[600px] mx-auto mb-5;
+  }
+
+  .article-creds ul.authors {
+    @apply list-none m-0 p-0;
+
+    margin-block: 0;
+    margin-inline: 0;
+    padding-inline-start: 0;
+  }
+
+  .article-creds ul.authors a {
+    @apply flex flex-row items-center justify-center gap-x-[10px];
+  }
+
+  .article-creds ul.authors a img {
+    @apply w-[30px] mr-[5px] mb-[-5px];
+  }
+
+  .article-creds .article-date {
+    @apply h-full self-center ml-auto flex items-center;
+  }
+}
