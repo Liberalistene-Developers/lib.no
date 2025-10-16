@@ -51,8 +51,6 @@ interface ProgrammeSectionProps {
   parts?: PartItem[];
 }
 
-let lastElement = '';
-
 export const ProgrammeSectionPart: React.FC<ProgrammeSectionProps> = ({
   anchor = false,
   title = '',
@@ -60,8 +58,11 @@ export const ProgrammeSectionPart: React.FC<ProgrammeSectionProps> = ({
   parentTitle = '',
   description,
   parts = []
-}) => (
-  <div className={parentTitle ? '' : 'page-content'}>
+}) => {
+  let lastElement = '';
+
+  return (
+    <div className={parentTitle ? '' : 'page-content'}>
     <div className="mt-10">
       <div>
         <Title title={title} parentTitle={parentTitle} />
@@ -107,4 +108,5 @@ export const ProgrammeSectionPart: React.FC<ProgrammeSectionProps> = ({
         : null}
     </div>
   </div>
-);
+  );
+};

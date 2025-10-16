@@ -21,7 +21,7 @@ This is the official homepage for Liberalistene (Norwegian political party), bui
 
 - **CMS:** Enonic XP 7.7+
 - **Framework:** React4xp (v6.0.2) - integrates React with Enonic XP
-- **Frontend:** React 19, TypeScript, Tailwind CSS v4
+- **Frontend:** React 18, TypeScript, Tailwind CSS v4
 - **Build System:** Gradle + tsup + esbuild
 - **Node Version:** 22.15.1 (see .nvmrc) - Required for React4xp v6.0.2 compatibility
 - **Java Version:** 17
@@ -247,6 +247,133 @@ The project uses `semantic-release` for automated versioning and releases.
 
 3. **Dependabot** (`.github/workflows/dependabot.yml`)
    - Automated dependency updates
+
+## GitHub Issue Tracking
+
+The project uses a comprehensive GitHub issue tracking system for managing improvements, bugs, and technical debt.
+
+### Roadmap Issue
+
+**Issue #31** - 🗺️ Codebase Modernization Roadmap
+https://github.com/Liberalistene-Developers/lib.no/issues/31
+
+This is the master issue that tracks all modernization efforts, organized into 4 phases over 8-10 weeks.
+
+### Issue Categories
+
+#### 🏗️ Architecture Refactoring (Issues #16-20)
+Epic for converting all Part files to proper React4xp v6 architecture:
+- **#16** - Epic: Refactor Parts to Follow React4xp v6 Architecture
+- **#17** - Phase 1: Fix Part Dependencies (CRITICAL)
+- **#18** - Phase 2: Refactor High Priority Parts
+- **#19** - Phase 3: Refactor Medium Priority Parts
+- **#20** - Phase 4-5: Remaining Parts and Verification
+
+#### 🔴 Critical Priority (Issues #21-22)
+- **#21** - Add Test Infrastructure and Coverage
+- **#22** - Security: Standardize SafeHtml Usage and Add CSP
+
+#### 🟡 High Priority (Issues #23-25)
+- **#23** - Improve Type Safety: Remove any/unknown
+- **#24** - Add Error Boundaries and Error Handling
+- **#25** - Remove Console Logs and Implement Proper Logging
+
+#### 🟢 Medium Priority (Issues #26-28)
+- **#26** - Improve Documentation
+- **#27** - Clean Up Build Configuration
+- **#28** - Clean Up Dependencies and Fix Security Issues
+
+#### ⚪ Low Priority (Issues #29-30)
+- **#29** - Code Style: Standardize Imports
+- **#30** - Performance Optimizations: Code Splitting
+
+### GitHub Labels
+
+The project uses a structured labeling system:
+
+#### Current Work Tracker
+- **`🔧 current-work`** (Orange) - Currently being worked on
+  - Only one issue should have this label at a time
+  - Makes it easy to find what's in progress
+
+#### Priority Labels
+- **`priority: critical`** (Dark Red) - Must fix immediately
+- **`priority: high`** (Orange-Red) - Should fix soon
+- **`priority: medium`** (Yellow) - Should fix eventually
+- **`priority: low`** (Green) - Nice to have
+
+#### Type Labels
+- **`type: architecture`** (Purple) - Architecture and design issues
+- **`type: security`** (Red) - Security-related issues
+- **`type: testing`** (Light Blue) - Testing and test coverage
+- **`type: performance`** (Teal) - Performance optimization
+
+### Using the Current Work Label
+
+**When starting work on an issue:**
+```bash
+gh issue edit 17 --add-label "🔧 current-work"
+```
+
+**When finishing work:**
+```bash
+gh issue edit 17 --remove-label "🔧 current-work"
+```
+
+**Find what's currently being worked on:**
+```bash
+gh issue list --label "🔧 current-work"
+```
+
+Or browse: https://github.com/Liberalistene-Developers/lib.no/labels/🔧%20current-work
+
+### Quick Commands
+
+**View all issues:**
+```bash
+gh issue list
+```
+
+**View critical issues:**
+```bash
+gh issue list --label "priority: critical"
+```
+
+**View architecture issues:**
+```bash
+gh issue list --label "type: architecture"
+```
+
+**View a specific issue:**
+```bash
+gh issue view 17
+```
+
+### Working with Issues Across Sessions
+
+At the start of each session:
+
+1. **Check current work:**
+   ```bash
+   gh issue list --label "🔧 current-work"
+   ```
+
+2. **If nothing is marked, check the roadmap:**
+   ```bash
+   gh issue view 31
+   ```
+
+3. **Start working on an issue:**
+   ```bash
+   gh issue edit 17 --add-label "🔧 current-work"
+   ```
+
+4. **Read the issue details:**
+   ```bash
+   gh issue view 17
+   ```
+
+This system ensures continuity across sessions and makes it easy to pick up where you left off.
 
 ## Dependencies
 
