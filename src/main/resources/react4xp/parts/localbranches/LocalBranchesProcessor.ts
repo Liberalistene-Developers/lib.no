@@ -12,7 +12,6 @@ export const localBranchesProcessor: ComponentProcessor<'lib.no:localbranches'> 
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as LocalBranchesConfig;
 
-  log.info(`[LocalBranchesProcessor] Processing path: ${partComponent.path}`);
 
   const key = content._path;
   const items = key ? findChildren({key, count: 999}, 'lib.no:localbranch') : [];

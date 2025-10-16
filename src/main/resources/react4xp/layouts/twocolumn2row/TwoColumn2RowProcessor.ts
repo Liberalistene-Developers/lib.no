@@ -15,7 +15,6 @@ export const twoColumn2RowProcessor: ComponentProcessor<'lib.no:twocolumn2row'> 
   const layoutComponent = component as unknown as LayoutComponent;
   const config = layoutComponent.config as TwoColumn2RowConfig;
 
-  log.info(`[TwoColumn2RowProcessor] Processing path: ${layoutComponent.path}`);
 
   const columnsLayout = config?.columnsLayout || '';
   const [leftClassName, rightClassName] = columnsLayout ? columnsLayout.split(',') : ['', ''];

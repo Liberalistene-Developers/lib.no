@@ -28,7 +28,6 @@ export const imageBlockProcessor: ComponentProcessor<'lib.no:imageblock'> = ({co
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as ImageBlockConfig;
 
-  log.info(`[ImageBlockProcessor] Processing path: ${partComponent.path}`);
 
   const selection = config?.titleSet?._selected || 'simple';
   const oldTitle = config?.title;

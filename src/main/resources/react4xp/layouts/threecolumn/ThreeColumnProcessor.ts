@@ -14,7 +14,6 @@ export const threeColumnProcessor: ComponentProcessor<'lib.no:threecolumn'> = ({
   const layoutComponent = component as unknown as LayoutComponent;
   const config = layoutComponent.config as ThreeColumnConfig;
 
-  log.info(`[ThreeColumnProcessor] Processing path: ${layoutComponent.path}`);
 
   const columnsLayout = config?.columnsLayout || '';
   const [leftClassName, middleClassName, rightClassName] = columnsLayout ? columnsLayout.split(',') : ['', '', ''];

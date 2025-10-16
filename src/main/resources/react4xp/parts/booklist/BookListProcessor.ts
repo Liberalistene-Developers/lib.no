@@ -36,7 +36,6 @@ export const bookListProcessor: ComponentProcessor<'lib.no:booklist'> = ({compon
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as BookListConfig;
 
-  log.info(`[BookListProcessor] Processing path: ${partComponent.path}`);
 
   const selection = config?.itemsSet?._selected || 'manual';
   const items = [...(config?.items || [])];

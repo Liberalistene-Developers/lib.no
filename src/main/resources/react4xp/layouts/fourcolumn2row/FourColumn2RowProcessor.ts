@@ -15,7 +15,6 @@ export const fourColumn2RowProcessor: ComponentProcessor<'lib.no:fourcolumn2row'
   const layoutComponent = component as unknown as LayoutComponent;
   const config = layoutComponent.config as FourColumn2RowConfig;
 
-  log.info(`[FourColumn2RowProcessor] Processing path: ${layoutComponent.path}`);
 
   const columnsLayout = config?.columnsLayout || '';
   const [leftClassName, middleLeftClassName, middleRightClassName, rightClassName] = columnsLayout ? columnsLayout.split(',') : ['', '', '', ''];

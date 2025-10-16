@@ -38,7 +38,6 @@ export const pageListProcessor: ComponentProcessor<'lib.no:pagelist'> = ({compon
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as PageListConfig;
 
-  log.info(`[PageListProcessor] Processing path: ${partComponent.path}`);
 
   const displaytype = config?.displaytype?._selected || 'gridlist';
   const imageSelection = config?.displaytype?.list?.image?._selected || 'hide';

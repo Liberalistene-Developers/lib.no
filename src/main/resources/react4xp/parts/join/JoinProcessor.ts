@@ -18,7 +18,6 @@ export const joinProcessor: ComponentProcessor<'lib.no:join'> = ({component}) =>
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as JoinConfig;
 
-  log.info(`[JoinProcessor] Processing path: ${partComponent.path}`);
 
   const urlContent = config?.url ? getContent({key: config.url}) : null;
 

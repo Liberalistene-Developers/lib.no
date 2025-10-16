@@ -29,7 +29,6 @@ export const candidatePageProcessor: ComponentProcessor<'lib.no:candidatepage'> 
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as CandidatePageConfig;
 
-  log.info(`[CandidatePageProcessor] Processing path: ${partComponent.path}`);
 
   const data = content.data as CandidatePageData;
   const persons = data.person ? [].concat(data.person) : [];

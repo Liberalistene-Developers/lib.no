@@ -26,7 +26,6 @@ export const articleProcessor: ComponentProcessor<'lib.no:article'> = ({componen
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as ArticleConfig;
 
-  log.info(`[ArticleProcessor] Processing path: ${partComponent.path}`);
 
   const data = content.data as ArticleData;
   const authors = [].concat(data.author || []);

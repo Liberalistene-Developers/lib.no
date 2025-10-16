@@ -22,7 +22,6 @@ export const submenuProcessor: ComponentProcessor<'lib.no:submenu'> = ({componen
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as SubmenuConfig;
 
-  log.info(`[SubmenuProcessor] Processing path: ${partComponent.path}`);
 
   const selection = config?.itemsSet?._selected || 'manual';
   const items: string[] = [];

@@ -43,7 +43,6 @@ export const eventListProcessor: ComponentProcessor<'lib.no:eventlist'> = ({comp
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as EventListConfig;
 
-  log.info(`[EventListProcessor] Processing path: ${partComponent.path}`);
 
   const displaytype = config?.displaytype?._selected || 'list';
   const selection = config?.itemsSet?._selected || 'manual';

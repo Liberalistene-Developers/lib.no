@@ -27,7 +27,6 @@ export const localBlockProcessor: ComponentProcessor<'lib.no:localblock'> = ({co
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as LocalBlockConfig;
 
-  log.info(`[LocalBlockProcessor] Processing path: ${partComponent.path}`);
 
   const selection = config?.titleSet?._selected || 'simple';
   const oldTitle = config?.title;

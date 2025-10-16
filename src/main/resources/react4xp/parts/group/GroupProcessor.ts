@@ -32,7 +32,6 @@ export const groupProcessor: ComponentProcessor<'lib.no:group'> = ({component, c
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as GroupConfig;
 
-  log.info(`[GroupProcessor] Processing path: ${partComponent.path}`);
 
   const data = content.data as GroupData;
   const members = data.member ? [].concat(data.member) : [];

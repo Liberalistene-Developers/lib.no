@@ -49,7 +49,6 @@ export const articleListProcessor: ComponentProcessor<'lib.no:articlelist'> = ({
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as ArticleListConfig;
 
-  log.info(`[ArticleListProcessor] Processing path: ${partComponent.path}`);
 
   const displaytype = config?.displaytype?._selected || 'gridlist';
   const selection = config?.itemsSet?._selected || 'manual';

@@ -16,7 +16,6 @@ export const faqProcessor: ComponentProcessor<'lib.no:faq'> = ({component, conte
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as FaqConfig;
 
-  log.info(`[FaqProcessor] Processing path: ${partComponent.path}`);
 
   const data = content.data as FaqData;
 

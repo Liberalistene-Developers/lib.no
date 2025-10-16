@@ -35,7 +35,6 @@ export const buttonProcessor: ComponentProcessor<'lib.no:button'> = ({component}
     const partComponent = component  as PartComponent;
     const data = partComponent.config as ButtonConfig
 
-    log.info(`[ButtonProcessor] Processing path: ${partComponent.path}`);
 
     const createUrl = (config: ButtonConfig): [string | undefined, string | undefined] => {
       try {

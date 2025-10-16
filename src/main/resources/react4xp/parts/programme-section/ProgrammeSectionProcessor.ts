@@ -15,7 +15,6 @@ export const programmeSectionProcessor: ComponentProcessor<'lib.no:programme-sec
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as ProgrammeSectionConfig;
 
-  log.info(`[ProgrammeSectionProcessor] Processing path: ${partComponent.path}`);
 
   const data = content.data as ProgrammeSectionData;
 

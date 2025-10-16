@@ -27,7 +27,6 @@ export const titleBlockProcessor: ComponentProcessor<'lib.no:titleblock'> = ({co
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as TitleBlockConfig;
 
-  log.info(`[TitleBlockProcessor] Processing path: ${partComponent.path}`);
 
   const selection = config?.titleSet?._selected || 'simple';
   const oldTitle = config?.title;

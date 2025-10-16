@@ -14,7 +14,6 @@ export const programmeMainProcessor: ComponentProcessor<'lib.no:programme-main'>
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as ProgrammeMainConfig;
 
-  log.info(`[ProgrammeMainProcessor] Processing path: ${partComponent.path}`);
 
   const data = content.data as ProgrammeMainData;
 

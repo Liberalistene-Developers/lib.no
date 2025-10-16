@@ -54,7 +54,6 @@ export const eventProcessor: ComponentProcessor<'lib.no:event'> = ({component, c
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as EventConfig;
 
-  log.info(`[EventProcessor] Processing path: ${partComponent.path}`);
 
   const data = content.data as EventData;
   const scheduleList = data.schedule ? [].concat(data.schedule) : [];

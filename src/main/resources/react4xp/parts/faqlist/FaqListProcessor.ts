@@ -30,7 +30,6 @@ export const faqListProcessor: ComponentProcessor<'lib.no:faqlist'> = ({componen
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as FaqListConfig;
 
-  log.info(`[FaqListProcessor] Processing path: ${partComponent.path}`);
 
   const selection = config?.itemsSet?._selected || 'manual';
   const items: string[] = [];
