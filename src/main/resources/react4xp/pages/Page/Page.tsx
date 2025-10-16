@@ -10,16 +10,12 @@ export const Page = ({common, meta, component}: ComponentProps<PageData>) => {
     console.log('[Page Component] Path:', component?.path);
     console.log('[Page Component] Components count:', components.length);
 
-    // Workaround for React4xp v6 fragment bug (issue #1953)
-    // Fragment at index 6 has corrupted path, so we slice it out
-    const workingComponents = components.slice(0, 6);
-
     return (
         <div className="main-wrapper">
             <Header {...commonData} />
 
             <main>
-                <Region common={common} meta={meta} data={workingComponents} name="main" />
+                <Region common={common} meta={meta} data={components} name="main" />
             </main>
 
             <Footer
