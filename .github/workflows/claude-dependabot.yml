@@ -1,0 +1,34 @@
+name: Claude Dependabot Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  claude-dependabot-review:
+    runs-on: ubuntu-latest
+    # Only run on Dependabot PRs
+    if: github.actor == 'dependabot[bot]'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Claude Review Dependabot PR
+        uses: grll/claude-code-action@beta
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          claude_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            Review this Dependabot dependency update PR:
+
+            1. Check the changelog and release notes for breaking changes
+            2. Identify any security fixes included
+            3. Assess compatibility with our project (Node 22.15.1, Java 17, React 18, TypeScript 5)
+            4. Look for any deprecations or migration steps needed
+            5. Recommend whether to approve, hold for testing, or reject
+
+            Provide a concise summary with:
+            - Risk level (Low/Medium/High)
+            - Key changes
+            - Action recommendation

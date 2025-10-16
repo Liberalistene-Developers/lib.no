@@ -5,6 +5,10 @@ on:
     branches:
       - master
 
+# Only run on upstream repository, not forks
+env:
+  IS_UPSTREAM: ${{ github.repository == 'Liberalistene-Developers/lib.no' }}
+
 permissions:
   contents: read
   issues: write
@@ -14,9 +18,10 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    if: github.repository == 'Liberalistene-Developers/lib.no'
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [22.15.1]
     permissions:
       contents: write
       issues: write
@@ -24,6 +29,9 @@ jobs:
 
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      ENONIC_CLI_REMOTE_URL: ${{ secrets.ENONIC_CLI_REMOTE_URL }}
+      ENONIC_CLI_REMOTE_USER: ${{ secrets.ENONIC_CLI_REMOTE_USER }}
+      ENONIC_CLI_REMOTE_PASS: ${{ secrets.ENONIC_CLI_REMOTE_PASS }}
 
     steps:
       - name: Checkout
@@ -39,17 +47,17 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
-          java-version: 11
+          java-version: 17
           distribution: 'temurin'
 
       - name: Install dependencies
         run: npm install
 
+      - name: Install Enonic CLI globally
+        run: npm install -g @enonic/cli
+
       - name: Lint code and css
         run: npm run lint
-
-      - name: Build jar file (production mode)
-        run: npm run build:prod
 
       - name: Release
         run: npx semantic-release
