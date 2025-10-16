@@ -1,9 +1,7 @@
-import * as React from 'react';
-import {Image} from '/react4xp/common/Image/Image';
+import { FC } from 'react';
 
-interface QuoteImage {
-  url: string;
-}
+import { Image } from '/react4xp/common/Image/Image';
+import type { ImageData } from '/react4xp/common/types';
 
 interface QuoteAuthor {
   authorID: string;
@@ -14,13 +12,13 @@ interface QuoteAuthor {
 
 interface QuoteProps {
   title?: string;
-  image?: QuoteImage;
+  image?: ImageData;
   authors?: QuoteAuthor[];
   qoute?: string; // Note: misspelled in original code
   description?: string;
 }
 
-export const QuotePart: React.FC<QuoteProps> = ({
+export const QuotePart: FC<QuoteProps> = ({
   title = '',
   image,
   authors = [],

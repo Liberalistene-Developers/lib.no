@@ -1,17 +1,11 @@
-import * as React from 'react';
+import { FC } from 'react';
+
 import { ListItem } from '../ListItem/ListItem';
+import type { ItemData as BaseItemData } from '../types';
 
-interface ImageData {
-  url?: string;
-}
-
-interface ItemData {
-  image?: ImageData;
+interface ItemData extends BaseItemData {
   role?: string;
   email?: string;
-  name?: string;
-  shortDescription?: string;
-  url?: string;
 }
 
 interface PersonListItemProps {
@@ -24,7 +18,7 @@ interface PersonListItemProps {
   fields?: Record<string, unknown>;
 }
 
-export const PersonListItem: React.FC<PersonListItemProps> = ({
+export const PersonListItem: FC<PersonListItemProps> = ({
   imageSize,
   imageType,
   item = {},

@@ -1,7 +1,6 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
 import {get as getContent} from '/lib/xp/content';
-import {get as getContext} from '/lib/xp/context';
 import {mapEvent} from '/react4xp/utils/events';
 import {findItems} from '/react4xp/utils/query';
 import {buildParentPathQuery} from '/react4xp/utils/guillotine/helpers';
@@ -40,7 +39,7 @@ interface EventListConfig {
   loadMoreEnabled?: boolean;
 }
 
-export const eventListProcessor: ComponentProcessor<'lib.no:eventlist'> = ({component}) => {
+export const eventListProcessor: ComponentProcessor<'lib.no:eventlist'> = ({component, request}) => {
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as EventListConfig;
 
@@ -91,12 +90,9 @@ export const eventListProcessor: ComponentProcessor<'lib.no:eventlist'> = ({comp
   const sortExpression = createSort();
   const useLoader = selection !== 'manual';
 
-  // Get current project and branch from context for Guillotine app v7 endpoint
-  const context = getContext();
-  const repository = context.repository || 'com.enonic.cms.default';
-  const projectName = repository.replace('com.enonic.cms.', '');
-  const branch = context.branch || 'master';
-  const guillotineEndpoint = `/site/${projectName}/${branch}`;
+  // Get Guillotine v7 endpoint with branch from request
+  const branch = request.branch || 'master';
+  const guillotineEndpoint = headless ? `/api/${branch}` : '';
 
   return {
     title: config?.title,

@@ -1,8 +1,9 @@
-import * as React from 'react';
 import cx from 'classnames';
 import type {ComponentProps} from '@enonic/react-components';
 
-import {Image, type ImageType} from '/react4xp/common/Image/Image';
+import {Image} from '/react4xp/common/Image/Image';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+import type {ImageData} from '/react4xp/common/types';
 
 
 interface TitlePiece {
@@ -13,7 +14,7 @@ interface TitlePiece {
 
 interface TitleBlockData {
   Tag?: 'h1' | 'h2' | 'h3';
-  image?: ImageType;
+  image?: ImageData;
   position?: 'left' | 'center' | 'right';
   title?: TitlePiece[];
   titleClassName?: '' | 'half' | 'quart' | 'treequart';
@@ -54,10 +55,7 @@ export const TitleBlockPart = ({data}: ComponentProps) => {
                 </div>
               )}
               {ingress && typeof ingress === 'string' && (
-                <div
-                  className={cx('ingress', ingressColor)}
-                  dangerouslySetInnerHTML={{__html: ingress}}
-                />
+                <SafeHtml html={ingress} className={cx('ingress', ingressColor)} />
               )}
             </div>
           )}

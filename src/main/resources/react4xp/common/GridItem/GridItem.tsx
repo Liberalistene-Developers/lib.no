@@ -1,20 +1,12 @@
-import * as React from 'react';
+import { FC, ReactNode } from 'react';
 import cx from 'classnames';
+
 import { Image } from '../Image/Image';
-
-interface ImageData {
-  url?: string;
-}
-
-export interface GridItemData {
-  image?: ImageData;
-  name?: string;
-  shortDescription?: string;
-  url?: string;
-}
+import { SafeHtml } from '../SafeHtml/SafeHtml';
+import type { GridItemData } from '../types';
 
 interface GridItemProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   childrenLast?: boolean;
   className?: string;
   direction?: 'right' | 'left' | '' | undefined;
@@ -29,7 +21,7 @@ interface GridItemProps {
   titleCenter?: boolean;
 }
 
-export const GridItem: React.FC<GridItemProps> = ({
+export const GridItem: FC<GridItemProps> = ({
   children,
   direction = '',
   imageSize = 'medium',
@@ -54,7 +46,7 @@ export const GridItem: React.FC<GridItemProps> = ({
           </div>
           {!noIngress && shortDescription && (
             <div className="grid-item-description">
-              <div className="rich-text as-span" dangerouslySetInnerHTML={{ __html: shortDescription }} />
+              <SafeHtml html={shortDescription} className="as-span" />
               {readMoreEnabled && readMore && (
                 <a href={url} title={name} className="read-more">{readMore}</a>
               )}

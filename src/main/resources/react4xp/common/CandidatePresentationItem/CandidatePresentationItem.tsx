@@ -1,10 +1,8 @@
-import * as React from 'react';
+import { FC } from 'react';
 import cx from 'classnames';
-import { Image } from '../Image/Image';
 
-interface ImageData {
-  url?: string;
-}
+import { Image } from '../Image/Image';
+import type { ImageData } from '../types';
 
 interface CandidatePresentationItemProps {
   className?: string;
@@ -18,7 +16,7 @@ interface CandidatePresentationItemProps {
   url?: string;
 }
 
-export const CandidatePresentationItem: React.FC<CandidatePresentationItemProps> = ({
+export const CandidatePresentationItem: FC<CandidatePresentationItemProps> = ({
   className,
   image,
   name = '',

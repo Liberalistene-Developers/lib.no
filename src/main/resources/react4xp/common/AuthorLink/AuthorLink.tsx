@@ -1,9 +1,7 @@
-import * as React from 'react';
-import { Image } from '../Image/Image';
+import { FC } from 'react';
 
-interface ImageData {
-  url?: string;
-}
+import { Image } from '../Image/Image';
+import type { ImageData } from '../types';
 
 interface AuthorLinkProps {
   url?: string;
@@ -11,7 +9,7 @@ interface AuthorLinkProps {
   author?: string;
 }
 
-export const AuthorLink: React.FC<AuthorLinkProps> = ({
+export const AuthorLink: FC<AuthorLinkProps> = ({
   url,
   image,
   author

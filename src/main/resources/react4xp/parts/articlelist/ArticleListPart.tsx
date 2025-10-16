@@ -6,7 +6,7 @@ import {buildQueryArticleList, extractArticleList} from '/react4xp/utils/guillot
 import {ArticleListView} from './ArticleListView';
 import {DynamicLoader} from '/react4xp/common/DynamicLoader/DynamicLoader';
 
-import type {ImageType} from '/react4xp/common/Image/Image';
+import type {ImageData} from '/react4xp/common/types';
 
 interface ArticleItem {
   id?: string;
@@ -24,7 +24,7 @@ interface ArticleListData {
   featured?: FeaturedConfig;
   description?: string;
   displaytype?: string;
-  image?: ImageType;
+  image?: ImageData;
   shortDescription?: string;
   items?: ArticleItem[];
   tags?: unknown[];

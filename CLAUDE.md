@@ -78,9 +78,12 @@ lib.no/
 
 For optimal development experience with clean logs, see [Sandbox Setup Guide](docs/sandbox-setup.md) for:
 - Creating and configuring the Enonic sandbox
+- **Virtual host (vhost) configuration** - Required for localhost access and Guillotine API routing
 - Disabling audit logging (snapshotter)
 - Suppressing Elasticsearch warnings
 - Optimizing logback configuration
+
+**Important:** The vhost configuration is **required** for the site to work correctly on localhost. Without it, dynamic article and event lists will fail to load.
 
 ### Installation
 

@@ -1,29 +1,14 @@
-import * as React from 'react';
+import { FC, ReactNode } from 'react';
+
 import { GridItem } from '../GridItem/GridItem';
 import { AuthorLink } from '../AuthorLink/AuthorLink';
+import type { ItemData } from '../types';
 
-interface ImageData {
-  url?: string;
-}
-
-interface AuthorData {
-  authorID?: string;
-  person?: string;
-  personUrl?: string;
-  image?: ImageData;
-}
-
-export interface ItemData {
-  image?: ImageData;
-  authors?: AuthorData[];
-  name?: string;
-  shortDescription?: string;
-  url?: string;
-  datePublished?: string;
-}
+// Re-export ItemData for backward compatibility
+export type { ItemData } from '../types';
 
 export interface ArticleCardProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   childrenLast?: boolean;
   className?: string;
   direction?: 'left' | 'right' | '' | undefined;
@@ -40,7 +25,7 @@ export interface ArticleCardProps {
   titleCenter?: boolean;
 }
 
-export const ArticleCard: React.FC<ArticleCardProps> = ({
+export const ArticleCard: FC<ArticleCardProps> = ({
   className,
   direction = '',
   imageSize = 'full',

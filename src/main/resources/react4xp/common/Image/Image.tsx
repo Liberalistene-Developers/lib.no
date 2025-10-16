@@ -1,15 +1,11 @@
-import * as React from 'react';
+import { FC } from 'react';
 import cx from 'classnames';
 
-export interface ImageType {
-  url?: string;
-}
+import type { ImageData } from '../types';
+import { getImageAlt } from '/react4xp/utils/image.client';
 
-
-export interface ImageData extends ImageType {
-  displayName?: string;
-  alternativeText?: string;
-}
+// Re-export types for backward compatibility
+export type { ImageData, ImageType } from '../types';
 
 interface ImageProps {
   className?: string;
@@ -17,13 +13,12 @@ interface ImageProps {
   imageClassName?: string;
   url?: string;
   title?: string;
-  onClick?: () => void;
 }
 
 /**
  * Primary Image holder for solution.
  */
-export const Image: React.FC<ImageProps> = ({
+export const Image: FC<ImageProps> = ({
   className = '',
   image = null,
   imageClassName = '',
@@ -37,7 +32,7 @@ export const Image: React.FC<ImageProps> = ({
   const picture = (
     <img
       src={image.url}
-      alt={image.alternativeText || image.displayName || title || (image.url && image.url.split('?')[0].split('/').pop())}
+      alt={getImageAlt(image, title)}
       className={imageClassName}
     />
   );

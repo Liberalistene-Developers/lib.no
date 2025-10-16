@@ -9,46 +9,22 @@
     margin-bottom: 0 !important;
   }
 
-  /* Content Studio adds xp-region class to all regions */
-  .xp-region {
+  /* Only apply min-height to empty regions when in edit mode context */
+  .xp-page-editor-region-placeholder + [data-portal-region]:empty,
+  .xp-page-editor-item-view [data-portal-region]:empty {
     min-height: 200px !important;
   }
 
-  /* Layout regions - ensure regions are visible and droppable in edit mode */
-
-  /* Order by specificity: lowest to highest */
-
-  .content-item.items {
+  /* Layout regions - ensure empty regions are visible and droppable only in edit mode */
+  .xp-page-editor-item-view .content-item.items {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
   }
 
-  /* Higher specificity - section and div with data attributes */
-  section[data-portal-component-type="layout"] .content-child,
-  div[data-portal-component-type="layout"] .content-child {
-    min-height: 200px !important;
-  }
-
-  .content-item.items > .content-child {
+  .xp-page-editor-item-view .content-item.items > .content-child:empty {
     flex: 1 !important;
     min-width: 200px !important;
-    min-height: 200px !important;
-  }
-
-  .content-item:not(.items) {
-    min-height: 200px !important;
-  }
-
-  /* Target any child of content-item */
-  .content-item > * {
-    min-height: 200px !important;
-  }
-
-  /* Target the Region component's rendered output - be aggressive */
-  .content-child > *,
-  [data-portal-region],
-  [data-portal-component-type="layout"] .content-child > * {
     min-height: 200px !important;
   }
 }

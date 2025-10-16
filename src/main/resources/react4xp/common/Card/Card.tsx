@@ -1,13 +1,11 @@
-import * as React from 'react';
+import { FC, ReactNode } from 'react';
 
-interface ImageData {
-  url?: string;
-  displayName?: string;
-  alternativeText?: string;
-}
+import type { ImageData } from '../types';
+import { getImageAlt } from '/react4xp/utils/image.client';
+import { SafeHtml } from '../SafeHtml/SafeHtml';
 
 interface CardProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   image?: ImageData | null;
   noIngress?: boolean;
   title?: string;
@@ -16,9 +14,9 @@ interface CardProps {
 }
 
 /**
- * Primary Image holder for solution.
+ * Card component for displaying content with optional image
  */
-export const Card: React.FC<CardProps> = ({
+export const Card: FC<CardProps> = ({
   children,
   image = null,
   noIngress = false,
@@ -33,7 +31,7 @@ export const Card: React.FC<CardProps> = ({
           <a href={url} title={title}>
             <img
               src={image.url}
-              alt={image.alternativeText || image.displayName || title || (image.url && image.url.split('?')[0].split('/').pop())}
+              alt={getImageAlt(image, title)}
               className="rounded-t-[3px] w-full"
             />
           </a>
@@ -45,7 +43,7 @@ export const Card: React.FC<CardProps> = ({
           <a href={url} title={title}>{title}</a>
         </h3>
         {!noIngress && text && (
-          <div className="rich-text" dangerouslySetInnerHTML={{ __html: text }} />
+          <SafeHtml html={text} />
         )}
       </div>
     </div>

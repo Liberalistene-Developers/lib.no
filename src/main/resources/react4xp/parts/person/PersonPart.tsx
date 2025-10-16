@@ -1,20 +1,19 @@
-import * as React from 'react';
-import {Image} from '/react4xp/common/Image/Image';
+import { FC } from 'react';
 
-interface PersonImage {
-  url: string;
-}
+import { Image } from '/react4xp/common/Image/Image';
+import { SafeHtml } from '/react4xp/common/SafeHtml/SafeHtml';
+import type { ImageData } from '/react4xp/common/types';
 
 interface PersonProps {
   title?: string;
-  image?: PersonImage;
+  image?: ImageData;
   description?: string;
   shortDescription?: string;
   email?: string;
   emailPrefix?: string;
 }
 
-export const PersonPart: React.FC<PersonProps> = ({
+export const PersonPart: FC<PersonProps> = ({
   title,
   image,
   description,
@@ -28,11 +27,11 @@ export const PersonPart: React.FC<PersonProps> = ({
     <Image image={image} />
 
     {shortDescription && (
-      <div className="ingress rich-text" dangerouslySetInnerHTML={{__html: shortDescription}} />
+      <SafeHtml html={shortDescription} className="ingress" />
     )}
 
     {description && (
-      <div className="description" dangerouslySetInnerHTML={{__html: description}} />
+      <SafeHtml html={description} className="description" as="div" />
     )}
 
     {email && (

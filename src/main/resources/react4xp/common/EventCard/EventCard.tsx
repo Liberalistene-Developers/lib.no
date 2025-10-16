@@ -1,19 +1,12 @@
-import * as React from 'react';
+import { FC } from 'react';
+
 import { Card } from '../Card/Card';
 import { EventInfo } from '../EventInfo/EventInfo';
-
-interface LocationData {
-  address?: string;
-  name?: string;
-}
+import type { ImageData, LocationData } from '../types';
 
 interface EventCardProps {
   date?: string;
-  image?: {
-    url?: string;
-    displayName?: string;
-    alternativeText?: string;
-  } | null;
+  image?: ImageData | null;
   location?: LocationData;
   locationType?: 'place' | 'virtual';
   locationLabel?: string;
@@ -24,9 +17,9 @@ interface EventCardProps {
 }
 
 /**
- * Primary Image holder for solution.
+ * Event card component for displaying event information
  */
-export const EventCard: React.FC<EventCardProps> = ({
+export const EventCard: FC<EventCardProps> = ({
   date,
   image = null,
   location = { address: '' },

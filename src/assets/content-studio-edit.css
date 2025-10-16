@@ -2,41 +2,28 @@
 
 /* Pure CSS - no Tailwind dependencies */
 
-.xp-region {
-  min-height: 200px !important;
-}
-
+/* Only apply when Content Studio edit mode classes are present */
 .xp-page-editor-region-placeholder {
   margin-bottom: 0 !important;
   min-height: 200px !important;
 }
 
-/* Layout regions */
-.content-item.items {
+/* Only apply to regions that have the edit mode placeholder class nearby */
+.xp-page-editor-region-placeholder + [data-portal-region]:empty,
+.xp-page-editor-item-view [data-portal-region]:empty {
+  min-height: 200px !important;
+  min-width: 200px !important;
+}
+
+/* Layout regions - only in edit mode contexts */
+.xp-page-editor-item-view .content-item.items {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
 
-.content-item.items > .content-child {
+.xp-page-editor-item-view .content-item.items > .content-child:empty {
   flex: 1 !important;
   min-width: 200px !important;
   min-height: 200px !important;
-}
-
-.content-item:not(.items) {
-  min-height: 200px !important;
-}
-
-.content-child > * {
-  min-height: 200px !important;
-}
-
-.content-item > * {
-  min-height: 200px !important;
-}
-
-[data-portal-region]:empty {
-  min-height: 200px !important;
-  min-width: 200px !important;
 }

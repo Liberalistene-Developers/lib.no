@@ -12,6 +12,76 @@ enonic sandbox create libno -v 7.15.4
 enonic sandbox set-default libno
 ```
 
+## Virtual Host Configuration
+
+Configure virtual hosts (vhost) to enable convenient localhost access and proper API routing.
+
+### Required Mappings
+
+Create or update the vhost configuration file:
+
+**File:** `~/.enonic/sandboxes/libno/home/config/com.enonic.xp.web.vhost.cfg`
+
+```properties
+enabled = true
+
+# Guillotine API access - must be before site mapping
+mapping.api.host = localhost
+mapping.api.source = /api
+mapping.api.target = /site/default
+mapping.api.idProvider.system = default
+
+# Admin access
+mapping.admin.host = localhost
+mapping.admin.source = /admin
+mapping.admin.target = /admin
+mapping.admin.idProvider.system = default
+
+# Liberalistene site - localhost access (catch-all must be last)
+mapping.site.host = localhost
+mapping.site.source = /
+mapping.site.target = /site/default/master/liberalistene-hovedside
+mapping.site.idProvider.system = default
+```
+
+### Why These Mappings?
+
+1. **`mapping.api`** - Routes `/api` to Guillotine GraphQL endpoint at project level
+   - Required for dynamic article and event list loading
+   - Must be defined before the site catch-all mapping
+   - Used by ArticleListProcessor and EventListProcessor
+   - Code gets branch from execution context and constructs endpoint as `/api/${branch}`
+
+2. **`mapping.admin`** - Preserves Content Studio access at `/admin`
+   - Without this, the site catch-all would capture admin requests
+
+3. **`mapping.site`** - Main site accessible at root `/`
+   - Convenience mapping: `http://localhost:8080/` instead of long URL
+   - Must be last (most generic match)
+
+### URL Access After Configuration
+
+With vhost enabled, you can access:
+
+- **Main site:** `http://localhost:8080/`
+- **Guillotine API (master):** `http://localhost:8080/api/master` (POST requests)
+- **Guillotine API (draft):** `http://localhost:8080/api/draft` (POST requests)
+- **Content Studio:** `http://localhost:8080/admin`
+
+Without vhost, you would need:
+- **Main site:** `http://localhost:8080/site/default/master/liberalistene-hovedside`
+- **Guillotine API:** `http://localhost:8080/site/default/master` or `http://localhost:8080/site/default/draft`
+
+### Apply Vhost Changes
+
+Restart the sandbox for vhost configuration to take effect:
+
+```bash
+enonic sandbox stop libno && enonic sandbox start libno
+```
+
+**Note:** Unlike logback.xml, vhost configuration does not auto-reload. A sandbox restart is required.
+
 ## Log Optimization
 
 After creating the sandbox, optimize the logging configuration to reduce noise and make logs easier to read during development.

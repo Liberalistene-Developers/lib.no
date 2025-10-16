@@ -1,7 +1,9 @@
-import * as React from 'react';
+import { FC } from 'react';
 import cx from 'classnames';
 
-import {Image, type ImageType} from '../Image/Image';
+import { Image } from '../Image/Image';
+import { SafeHtml } from '../SafeHtml/SafeHtml';
+import type { ImageData } from '../types';
 
 interface TitleItem {
   title?: string;
@@ -11,7 +13,7 @@ interface TitleItem {
 
 export interface ImageBlockProps {
   Tag?: 'h1' | 'h2' | 'h3';
-  image?: ImageType;
+  image?: ImageData;
   position?: 'left' | 'center' | 'right';
   title?: TitleItem[];
   titleClassName?: '' | 'half' | 'quart' | 'treequart';
@@ -21,7 +23,7 @@ export interface ImageBlockProps {
   text?: 'dark' | 'light';
 }
 
-export const ImageBlock: React.FC<ImageBlockProps> = ({
+export const ImageBlock: FC<ImageBlockProps> = ({
   Tag = 'h1',
   image,
   position = 'right',
@@ -51,10 +53,7 @@ export const ImageBlock: React.FC<ImageBlockProps> = ({
                 </div>
               )}
               {ingress && typeof ingress === 'string' && (
-                <div
-                  className={cx('ingress', ingressColor)}
-                  dangerouslySetInnerHTML={{__html: ingress}}
-                />
+                <SafeHtml html={ingress} className={cx('ingress', ingressColor)} />
               )}
             </div>
           )}

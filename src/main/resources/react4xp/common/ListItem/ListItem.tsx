@@ -1,20 +1,12 @@
-import * as React from 'react';
+import { FC, ReactNode } from 'react';
 import cx from 'classnames';
+
 import { Image } from '../Image/Image';
-
-interface ImageData {
-  url?: string;
-}
-
-interface ItemData {
-  image?: ImageData;
-  name?: string;
-  shortDescription?: string;
-  url?: string;
-}
+import { SafeHtml } from '../SafeHtml/SafeHtml';
+import type { ItemData } from '../types';
 
 interface ListItemProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   childrenLast?: boolean;
   className?: string;
   imageSize?: 'small' | 'medium' | 'large';
@@ -25,7 +17,7 @@ interface ListItemProps {
   fields?: Record<string, unknown>;
 }
 
-export const ListItem: React.FC<ListItemProps> = ({
+export const ListItem: FC<ListItemProps> = ({
   children,
   childrenLast = false,
   className,
@@ -50,9 +42,7 @@ export const ListItem: React.FC<ListItemProps> = ({
           </div>
           {childrenLast === false && children}
           {showDescriptions && shortDescription && (
-            <div>
-              <div className="rich-text" dangerouslySetInnerHTML={{ __html: shortDescription }} />
-            </div>
+            <SafeHtml html={shortDescription} />
           )}
           {childrenLast && children}
         </div>

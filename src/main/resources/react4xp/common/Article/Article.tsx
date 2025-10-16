@@ -1,9 +1,9 @@
-import * as React from 'react';
+import { FC } from 'react';
 
 import {ImageBlock} from '../ImageBlock/ImageBlock';
 import {AuthorLink} from '../AuthorLink/AuthorLink';
-
-import type {ImageType} from '../Image/Image';
+import {SafeHtml} from '../SafeHtml/SafeHtml';
+import type {ImageData} from '../types';
 
 interface Author {
   authorID?: string;
@@ -19,7 +19,7 @@ interface ArticleProps {
   headerPosition?: string;
   title?: string;
   titleInImage?: boolean;
-  image?: ImageType;
+  image?: ImageData;
   authors?: Author[];
   ingress?: string;
   ingressInImage?: boolean;
@@ -29,7 +29,7 @@ interface ArticleProps {
   description?: string;
 }
 
-export const Article: React.FC<ArticleProps> = ({
+export const Article: FC<ArticleProps> = ({
   headerColor,
   headerPosition,
   title = '',
@@ -70,11 +70,11 @@ export const Article: React.FC<ArticleProps> = ({
 
     <div className="page-content">
       {!ingressInImage && ingress && (
-        <div className="font-bold rich-text" dangerouslySetInnerHTML={{__html: ingress}} />
+        <SafeHtml html={ingress} className="font-bold" />
       )}
 
       {text && (
-        <div dangerouslySetInnerHTML={{__html: text}} />
+        <SafeHtml html={text} />
       )}
     </div>
   </div>

@@ -1,8 +1,9 @@
-import * as React from 'react';
+import { FC, ReactNode } from 'react';
 
-import {Image, ImageType} from '/react4xp/common/Image/Image';
-import {ArticleListItem} from '/react4xp/common/ArticleListItem/ArticleListItem';
-import {ArticleCard, type ItemData} from '/react4xp/common/ArticleCard/ArticleCard';
+import { Image } from '/react4xp/common/Image/Image';
+import { ArticleListItem } from '/react4xp/common/ArticleListItem/ArticleListItem';
+import { ArticleCard } from '/react4xp/common/ArticleCard/ArticleCard';
+import type { ImageData, ItemData } from '/react4xp/common/types';
 
 interface ArticleItem {
   id?: string;
@@ -16,11 +17,11 @@ interface FeaturedConfig {
 }
 
 interface ArticleListViewProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   featured?: FeaturedConfig;
   description?: string;
   displaytype?: string;
-  image?: ImageType;
+  image?: ImageData;
   shortDescription?: string;
   items?: ArticleItem[];
   title?: string;
@@ -33,7 +34,7 @@ interface ArticleListViewProps {
   noIngress?: boolean;
 }
 
-export const ArticleListView: React.FC<ArticleListViewProps> = ({
+export const ArticleListView: FC<ArticleListViewProps> = ({
   children,
   featured = {},
   description,

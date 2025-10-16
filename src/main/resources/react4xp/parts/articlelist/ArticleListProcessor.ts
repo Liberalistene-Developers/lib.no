@@ -1,7 +1,6 @@
 import type { PartComponent } from '@enonic-types/core';
 import type { ComponentProcessor } from '@enonic-types/lib-react4xp/DataFetcher';
 import { get as getContent } from '/lib/xp/content';
-import { get as getContext } from '/lib/xp/context';
 import { mapArticle } from '/react4xp/utils/articles';
 import { findItems } from '/react4xp/utils/query';
 import { buildParentPathQuery } from '/react4xp/utils/guillotine/helpers';
@@ -46,7 +45,7 @@ interface ArticleListConfig {
   loadMoreEnabled?: boolean;
 }
 
-export const articleListProcessor: ComponentProcessor<'lib.no:articlelist'> = ({component}) => {
+export const articleListProcessor: ComponentProcessor<'lib.no:articlelist'> = ({component, request}) => {
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as ArticleListConfig;
 
@@ -104,12 +103,9 @@ export const articleListProcessor: ComponentProcessor<'lib.no:articlelist'> = ({
 
   const sortExpression = createSort();
 
-  // Get current project and branch from context for Guillotine app v7 endpoint
-  const context = getContext();
-  const repository = context.repository || 'com.enonic.cms.default';
-  const projectName = repository.replace('com.enonic.cms.', '');
-  const branch = context.branch || 'master';
-  const guillotineEndpoint = `/site/${projectName}/${branch}`;
+  // Get Guillotine v7 endpoint with branch from request
+  const branch = request.branch || 'master';
+  const guillotineEndpoint = headless ? `/api/${branch}` : '';
 
   return {
     title: config?.title,

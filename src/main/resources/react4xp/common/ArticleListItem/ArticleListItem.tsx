@@ -1,30 +1,12 @@
-import * as React from 'react';
+import { FC, ReactNode } from 'react';
 import cx from 'classnames';
+
 import { ListItem } from '../ListItem/ListItem';
 import { AuthorLink } from '../AuthorLink/AuthorLink';
-
-interface ImageData {
-  url?: string;
-}
-
-interface AuthorData {
-  authorID?: string;
-  person?: string;
-  personUrl?: string;
-  image?: ImageData;
-}
-
-interface ItemData {
-  image?: ImageData;
-  authors?: AuthorData[];
-  name?: string;
-  shortDescription?: string;
-  url?: string;
-  datePublished?: string;
-}
+import type { ItemData } from '../types';
 
 interface ArticleListItemProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   childrenLast?: boolean;
   className?: string;
   showImage?: boolean;
@@ -35,7 +17,7 @@ interface ArticleListItemProps {
   showDate?: boolean;
 }
 
-export const ArticleListItem: React.FC<ArticleListItemProps> = ({
+export const ArticleListItem: FC<ArticleListItemProps> = ({
   className,
   showImage = true,
   imageSize = 'medium',
