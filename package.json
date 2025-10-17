@@ -37,7 +37,7 @@
     "clean": "rimraf build",
     "deploy": "enonic project deploy",
     "deps": "./gradlew --refresh-dependencies",
-    "lint": "eslint --cache",
+    "lint": "eslint --cache .",
     "lint:css": "stylelint \"src/**/*.{css,scss}\"",
     "lint:css:fix": "stylelint \"src/**/*.{css,scss}\" --fix",
     "test": "jest --no-cache",
@@ -168,15 +168,6 @@
   "browserslist": [
     "extends browserslist-config-enonic"
   ],
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ],
-    "plugins": [
-      "@babel/plugin-proposal-object-rest-spread",
-      "@babel/plugin-transform-arrow-functions"
-    ]
-  },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"

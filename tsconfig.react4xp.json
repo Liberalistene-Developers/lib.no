@@ -48,6 +48,8 @@
 			]
 			// This works during type checking
 		},
+		// Allow TypeScript standard library (browser APIs like DOM, fetch, etc.)
+		// React components run in browser environment and need these APIs
 		"noLib": false,
 		// "rootDir": ".",
 

@@ -45,6 +45,9 @@
 		//──────────────────────────────────────────────────────────────────────
 		// Language and Environment
 		//──────────────────────────────────────────────────────────────────────
+		// Disable TypeScript standard library (browser APIs not available)
+		// XP Nashorn code runs on server in restricted Java environment
+		// Only Enonic XP APIs and Java interop are available
 		"noLib": true,
 
 		//──────────────────────────────────────────────────────────────────────
