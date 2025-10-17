@@ -1,0 +1,51 @@
+import {type FC} from 'react';
+import slugify from 'react-slugify';
+
+import {ProgrammeSection} from '../ProgrammeSection/ProgrammeSection';
+import {TableOfContent} from '../TableOfContent/TableOfContent';
+
+interface SectionType {
+  key?: string;
+  [key: string]: unknown;
+}
+
+export interface ProgrammeMainProps {
+  title?: string;
+  sections?: SectionType[];
+  tableOfContent?: boolean;
+}
+
+export const ProgrammeMain: FC<ProgrammeMainProps> = ({
+  title = '',
+  sections,
+  tableOfContent = false
+}) => {
+  return (
+    <div className="page-content">
+      <div className="mt-10">
+        <div>
+          <h1 title={title} id={slugify(title)}>{title}</h1>
+        </div>
+
+        {tableOfContent
+          ? (
+            <div>
+              <TableOfContent title={title} sections={sections} />
+            </div>
+          )
+          : null}
+
+        {sections && sections.length > 0
+          ? (
+            <div>
+              {sections.map(({key, ...props}) =>
+                <ProgrammeSection key={key} {...props} parentTitle={title} anchor={true} />
+              )}
+            </div>
+          )
+          : null
+        }
+      </div>
+    </div>
+  );
+};

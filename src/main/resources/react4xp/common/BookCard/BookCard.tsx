@@ -1,4 +1,6 @@
-import { type ImageData} from "/react4xp/common/Image/Image";
+import {type FC} from 'react';
+
+import {type ImageData} from '/react4xp/common/Image/Image';
 
 
 interface AuthorType {
@@ -22,7 +24,7 @@ interface BookCardProps {
   url?: string;
 }
 
-export const BookCard: React.FC<BookCardProps> = ({
+export const BookCard: FC<BookCardProps> = ({
   url = '',
   image = null,
   author,

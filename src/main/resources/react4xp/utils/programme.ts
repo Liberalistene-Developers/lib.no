@@ -13,8 +13,11 @@ interface SearchParams {
 
 interface Component {
   descriptor?: string;
+  path?: string;
   config?: {
     conclusionTitle?: string;
+    title?: string;
+    description?: string;
   };
 }
 
@@ -87,6 +90,11 @@ export const getParts = (
 ): ProgrammePart[] => {
   const children = getChildren(search) as {count: number; hits: ContentItem[]};
 
+  log.info(`[getParts] key: ${search.key}, children count: ${children?.count || 0}`);
+  if (children && children.count > 0) {
+    log.info(`[getParts] first child type: ${children.hits[0].type}`);
+  }
+
   if (children && children.count) {
     return children.hits
       .filter(
@@ -115,7 +123,7 @@ export const getParts = (
         const conclusionTitle =
           firstPart?.config?.conclusionTitle || 'Liberalistene vil:';
 
-        const conclusions = getConclusions({key});
+        const conclusions = key ? getConclusions({key}) : [];
 
         if (debug) {
           log.info(JSON.stringify(item, null, 2));
@@ -153,7 +161,7 @@ export const getSections = (search: SearchParams): ProgrammeSection[] => {
       .map((item) => {
         const {
           _id: sectionKey,
-          _path: key,
+          _path,
           displayName: sectionTitle,
           data = {},
           page = {}
@@ -164,7 +172,7 @@ export const getSections = (search: SearchParams): ProgrammeSection[] => {
         const components =
           page.regions?.main?.components || [];
 
-        const parts = getParts({key});
+        const parts = _path ? getParts({key: _path}) : [];
 
         const [firstSection] =
           components.filter(

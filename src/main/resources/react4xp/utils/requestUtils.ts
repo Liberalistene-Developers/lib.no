@@ -69,6 +69,9 @@ export function getContentPath(request): string {
 }
 
 function isContentExists(path: string): boolean {
+    if (!path) {
+        return false;
+    }
     const {repository, branch} = getContext();
     return runContext({
         repository,

@@ -1,23 +1,4 @@
-import * as React from 'react';
+import {Submenu} from '/react4xp/common/Submenu/Submenu';
+import {createPartShim} from '/react4xp/common/PartShim/PartShim';
 
-import {MenuItem} from './MenuItem';
-
-interface MenuItemType {
-  itemID?: string;
-  title?: string;
-  url?: string;
-}
-
-interface MenuProps {
-  items?: MenuItemType[];
-}
-
-export const SubmenuPart: React.FC<MenuProps> = ({
-  items
-}) => (
-  <div className="flex justify-center flex-wrap content-center mobile:flex-col">
-    {items && items.map(({itemID, title, url}) => (
-      <MenuItem key={itemID} title={title} url={url} />
-    ))}
-  </div>
-);
+export const SubmenuPart = createPartShim(Submenu);
