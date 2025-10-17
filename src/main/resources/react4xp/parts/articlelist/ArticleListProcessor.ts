@@ -1,7 +1,7 @@
 import type { PartComponent } from '@enonic-types/core';
 import type { ComponentProcessor } from '@enonic-types/lib-react4xp/DataFetcher';
 import { get as getContent } from '/lib/xp/content';
-import { mapArticle } from '/react4xp/utils/articles';
+import { mapArticle, type MappedArticle } from '/react4xp/utils/articles';
 import { findItems } from '/react4xp/utils/query';
 import { buildParentPathQuery } from '/react4xp/utils/guillotine/helpers';
 
@@ -54,7 +54,7 @@ export const articleListProcessor: ComponentProcessor<'lib.no:articlelist'> = ({
   const selection = config?.itemsSet?._selected || 'manual';
   const imageSelection = config?.displaytype?.list?.image?._selected || 'hide';
 
-  const items: unknown[] = [];
+  const items: MappedArticle[] = [];
 
   if (selection === 'manual') {
     const itemList = config?.itemsSet?.manual?.items || [];

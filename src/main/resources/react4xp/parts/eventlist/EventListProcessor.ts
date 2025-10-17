@@ -1,7 +1,7 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {PartComponent} from '@enonic-types/core';
 import {get as getContent} from '/lib/xp/content';
-import {mapEvent} from '/react4xp/utils/events';
+import {mapEvent, type MappedEvent} from '/react4xp/utils/events';
 import {findItems} from '/react4xp/utils/query';
 import {buildParentPathQuery} from '/react4xp/utils/guillotine/helpers';
 
@@ -48,7 +48,7 @@ export const eventListProcessor: ComponentProcessor<'lib.no:eventlist'> = ({comp
   const selection = config?.itemsSet?._selected || 'manual';
   const imageSelection = config?.displaytype?.list?.image?._selected || 'hide';
 
-  const items: unknown[] = [];
+  const items: MappedEvent[] = [];
 
   if (selection === 'manual') {
     const itemList = config?.itemsSet?.manual?.items || [];

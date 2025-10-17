@@ -9,7 +9,7 @@ interface ArticleData {
   image?: string;
 }
 
-interface MappedArticle {
+export interface MappedArticle {
   id: string;
   name?: string;
   url?: string;

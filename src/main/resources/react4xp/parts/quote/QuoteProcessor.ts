@@ -6,7 +6,7 @@ import {processHtml} from '/react4xp/utils/html';
 
 interface QuoteData {
   description?: string;
-  qoute?: string;
+  qoute?: string; // Legacy field name in content type
   image?: string;
   tags?: string;
   author?: string | string[];
@@ -23,7 +23,7 @@ export const quoteProcessor: ComponentProcessor<'lib.no:quote'> = ({content}) =>
   return {
     title: content.displayName,
     image: imageUrl(data.image),
-    qoute: processHtml(data.qoute || ''),
+    quote: processHtml(data.qoute || ''), // Read from legacy 'qoute' field, output as correctly-spelled 'quote'
     description: processHtml(data.description || ''),
     tags: data.tags,
     authors: authors.map((authorID) => {

@@ -18,7 +18,6 @@ export interface EventListProps {
   image?: ImageData;
   shortDescription?: string;
   items?: EventItem[];
-  tags?: unknown[];
   title?: string;
   showImage?: boolean;
   imageType?: string;

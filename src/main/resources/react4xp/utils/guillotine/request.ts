@@ -126,9 +126,8 @@ const doGuillotineRequest = (params: GuillotineRequestParams): void => {
   console.log('[Guillotine] Query:', query);
   console.log('[Guillotine] Variables:', variables);
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore - fetch is available in browser context
-  fetch(url, {
+  // Fetch is available in browser context where this client-side code runs
+  (globalThis.fetch || fetch)(url, {
     method: 'POST',
     body: JSON.stringify({
       query,

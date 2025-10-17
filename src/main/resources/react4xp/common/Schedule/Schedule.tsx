@@ -104,7 +104,7 @@ export const Topic: React.FC<TopicProps> = ({topic: {title, speakers, start, dur
   </div>
 );
 
-interface ScheduleType {
+export interface ScheduleType {
   itemId?: string;
   name?: string;
   date?: string;

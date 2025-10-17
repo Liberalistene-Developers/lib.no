@@ -1,5 +1,5 @@
 import {ImageBlock} from '/react4xp/common/ImageBlock/ImageBlock';
-import {Schedules} from '/react4xp/common/Schedule/Schedule';
+import {Schedules, type ScheduleType} from '/react4xp/common/Schedule/Schedule';
 import {EventPlace} from '/react4xp/common/EventPlace/EventPlace';
 import {EventTime} from '/react4xp/common/EventTime/EventTime';
 import {MapLoader} from '/react4xp/common/MapLoader/MapLoader';
@@ -32,8 +32,8 @@ export interface EventProps {
   dateLabel?: string;
   timeLabel?: string;
   email?: string;
-  schedules?: unknown[];
-  map?: unknown[];
+  schedules?: ScheduleType[];
+  map?: number[];
 }
 
 export const Event = ({

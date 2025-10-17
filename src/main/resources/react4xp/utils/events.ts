@@ -11,7 +11,7 @@ interface EventData {
   image?: string;
 }
 
-interface MappedEvent {
+export interface MappedEvent {
   itemId: string;
   title?: string;
   date?: string;

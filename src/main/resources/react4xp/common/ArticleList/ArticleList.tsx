@@ -26,7 +26,6 @@ export interface ArticleListProps {
   image?: ImageData;
   shortDescription?: string;
   items?: ArticleItem[];
-  tags?: unknown[];
   title?: string;
   showImage?: boolean;
   imageType?: string;

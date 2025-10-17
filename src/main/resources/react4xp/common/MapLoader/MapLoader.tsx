@@ -47,9 +47,11 @@ export const MapLoader: React.FC<MapLoaderProps> = ({
   React.useEffect(() => {
     if (!leafletLoaded) return;
 
-    // Only load Map on client-side after leaflet is loaded
-    // @ts-expect-error - Dynamic imports are supported at runtime but may not match tsconfig module setting
-    import('../Map/Map').then(module => {
+    // Dynamic import for client-side code splitting. This code only runs in the browser.
+    // tsconfig uses module: "ES2015" for GraalJS compatibility, but dynamic imports work
+    // at runtime in modern browsers. TypeScript requires module >= "ES2020" for type checking.
+    // @ts-expect-error - Dynamic imports supported at runtime but not in ES2015 module setting
+    import('../Map/Map').then((module: {Map: React.ComponentType<{address?: string; position: number[]}>}) => {
       setMapComponent(() => module.Map);
     }).catch(() => {
       // Ignore import errors
