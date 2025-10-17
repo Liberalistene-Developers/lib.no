@@ -59,6 +59,13 @@ export default tseslint.config(// If ignores is used without any other keys in t
     ...react.configs.recommended.rules,
     ...reactHooks.configs.recommended.rules,
     'react/react-in-jsx-scope': 'off', // Not needed with webpack ProvidePlugin
-    'react/prop-types': 'off' // Using TypeScript for prop validation
+    'react/prop-types': 'off', // Using TypeScript for prop validation
+    'react/no-danger': 'error' // Prevent dangerouslySetInnerHTML - use SafeHtml component instead
+  }
+}, {
+  // Allow dangerouslySetInnerHTML only in SafeHtml component
+  files: ['src/main/resources/react4xp/common/SafeHtml/SafeHtml.tsx'],
+  rules: {
+    'react/no-danger': 'off'
   }
 }, storybook.configs["flat/recommended"]);

@@ -133,7 +133,7 @@ describe('SafeHtml', () => {
 
     it('should handle malformed HTML', () => {
       const html = '<p>Unclosed paragraph';
-      const { container } = render(<SafeHtml html={html} />);
+      render(<SafeHtml html={html} />);
 
       expect(screen.getByText('Unclosed paragraph')).toBeInTheDocument();
     });

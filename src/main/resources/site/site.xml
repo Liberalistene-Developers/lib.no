@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
   <x-data name="menu-item" />
+  <processors>
+    <response-processor name="security-headers" order="10" />
+  </processors>
   <mappings>
     <!-- React4xp v6 essential mappings -->
     <mapping controller="/site/app.js" order="10">
