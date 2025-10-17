@@ -58,9 +58,8 @@ module.exports = function(env, config) {
 	config.module.rules = [
 		...(config.module.rules || []),
 		{
-			test: /\.((sa|sc|c))ss$/i,
+			test: /\.css$/i,
 			use: [
-				// MiniCssExtractPlugin.loader,
 				rspack.CssExtractRspackPlugin.loader,
 				{
 					loader: 'css-loader',
@@ -68,14 +67,6 @@ module.exports = function(env, config) {
 						importLoaders: 1,
 						modules: {auto: true},
 						esModule: false
-					}
-				},
-				{
-					loader: 'sass-loader',
-					options: {
-						sassOptions: {
-							outputStyle: 'compressed'
-						}
 					}
 				}
 			]

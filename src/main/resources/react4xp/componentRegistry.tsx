@@ -18,7 +18,7 @@ import { TwoColumn } from '/react4xp/layouts/twocolumn/TwoColumn';
 import { TwoColumn2Row } from '/react4xp/layouts/twocolumn2row/TwoColumn2Row';
 import { UnderConstruction } from '/react4xp/layouts/under-construction/UnderConstruction';
 
-// Parts - Only parts that had .es6 implementations in upstream/develop branch
+// Parts
 // All part components end with "Part" suffix to distinguish from pure React components
 import { ArticlePart } from '/react4xp/parts/article/ArticlePart';
 import { ArticleListPart } from '/react4xp/parts/articlelist/ArticleListPart';
@@ -55,7 +55,6 @@ import { QuotePart } from '/react4xp/parts/quote/QuotePart';
 import { SubmenuPart } from '/react4xp/parts/submenu/SubmenuPart';
 import { TextBlockPart } from '/react4xp/parts/textblock/TextBlockPart';
 import { TitleBlockPart } from '/react4xp/parts/titleblock/TitleBlockPart';
-// Note: test part exists but was not in upstream/develop .es6 files
 
 export const componentRegistry = new ComponentRegistry();
 

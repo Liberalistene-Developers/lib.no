@@ -20,7 +20,7 @@ import { twoColumnProcessor } from '/react4xp/layouts/twocolumn/TwoColumnProcess
 import { twoColumn2RowProcessor } from '/react4xp/layouts/twocolumn2row/TwoColumn2RowProcessor';
 import { underConstructionProcessor } from '/react4xp/layouts/under-construction/UnderConstructionProcessor';
 
-// Parts - Only parts that had .es6 implementations in upstream/develop
+// Parts
 import { articleProcessor } from '/react4xp/parts/article/ArticleProcessor';
 import { articleListProcessor } from '/react4xp/parts/articlelist/ArticleListProcessor';
 import { boardProcessor } from '/react4xp/parts/board/BoardProcessor';
@@ -57,12 +57,12 @@ import { quoteProcessor } from '/react4xp/parts/quote/QuoteProcessor';
 import { submenuProcessor } from '/react4xp/parts/submenu/SubmenuProcessor';
 import { textBlockProcessor } from '/react4xp/parts/textblock/TextBlockProcessor';
 import { titleBlockProcessor } from '/react4xp/parts/titleblock/TitleBlockProcessor';
-// Note: test processor exists but was not in upstream/develop .es6 files
 
 export const dataFetcher = new DataFetcher();
 
 
 // Content types
+// FragmentProcessor not currently used - uncomment if portal:fragment content type is needed
 // dataFetcher.addContentType('portal:fragment', {processor: fragmentProcessor});
 
 // Page descriptor
@@ -83,7 +83,7 @@ dataFetcher.addLayout('lib.no:twocolumn', {processor: twoColumnProcessor});
 dataFetcher.addLayout('lib.no:twocolumn2row', {processor: twoColumn2RowProcessor});
 dataFetcher.addLayout('lib.no:under-construction', {processor: underConstructionProcessor});
 
-// Parts - Only parts that had .es6 implementations in upstream/develop
+// Parts
 dataFetcher.addPart('lib.no:article', {processor: articleProcessor});
 dataFetcher.addPart('lib.no:articlelist', {processor: articleListProcessor});
 dataFetcher.addPart('lib.no:board', {processor: boardProcessor});
