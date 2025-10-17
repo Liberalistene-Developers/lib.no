@@ -46,7 +46,7 @@ export const SingleColumn = ({
       <div className={contentClasses}>
         <div className="content-item">
           <Region
-            data={component.regions.content.components}
+            data={component?.regions?.content?.components ?? []}
             meta={meta}
             common={common}
             name="content"

@@ -19,6 +19,7 @@ export const Map: React.FC<MapProps> = ({
 }) => {
   const [pos, setPos] = useState<[number, number]>(position as [number, number]);
   const [isSsr, setIsSsr] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     setIsSsr(false);
@@ -31,27 +32,48 @@ export const Map: React.FC<MapProps> = ({
 
       fetch(`https://nominatim.openstreetmap.org/search?q=${addr}&format=json&polygon=1&addressdetails=1`)
         .then((result) => {
-          if (result.ok) {
-            return result.json();
+          if (!result.ok) {
+            throw new Error(`Geocoding failed: ${result.status} ${result.statusText}`);
           }
-
-          return result;
+          return result.json();
         })
         .then((result: NominatimResult[] | Response) => {
           logger.debug('Geocoding result', {result});
           if (Array.isArray(result) && result.length) {
             const [{ lat, lon }] = result;
             setPos([parseFloat(lat), parseFloat(lon)]);
+            setHasError(false);
+          } else {
+            logger.warn('No geocoding results found', {address, formattedAddress: addr});
+            // Keep default position if geocoding fails
           }
 
           return result;
+        })
+        .catch((error: Error) => {
+          logger.error('Geocoding request failed', error);
+          setHasError(true);
+          // Keep default position if geocoding fails
         });
     }
   }, [position, address]);
 
   logger.debug('Map SSR state', {isSsr});
 
-  if (isSsr || !pos || pos.length < 2) {
+  // Don't render on server-side
+  if (isSsr) {
+    return null;
+  }
+
+  // Handle missing or invalid position
+  if (!pos || pos.length < 2) {
+    if (hasError) {
+      return (
+        <div className="map-error p-4 bg-yellow-50 border border-yellow-200 rounded">
+          <p className="text-yellow-800">Unable to load map. Please check the address or try again later.</p>
+        </div>
+      );
+    }
     return null;
   }
 
