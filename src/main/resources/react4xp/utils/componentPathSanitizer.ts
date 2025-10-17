@@ -1,4 +1,5 @@
 import type {ComponentDataAndProps, ComponentProps, PageData} from '@enonic/react-components';
+import {logger} from '/react4xp/utils/logger';
 
 /**
  * Recursively updates nested component paths when parent path changes
@@ -113,7 +114,7 @@ export function sanitizeAndPersistComponentPaths(
 
             // Check if path needs to be fixed (either malformed or wrong index)
             if (oldPath !== expectedPath) {
-                console.warn(`[PathSanitizer] Fixing path: "${oldPath}" → "${expectedPath}"`);
+                logger.warn(`[PathSanitizer] Fixing path: "${oldPath}" → "${expectedPath}"`);
                 hadChanges = true;
 
                 // Update the component path
@@ -135,7 +136,7 @@ export function sanitizeAndPersistComponentPaths(
     });
 
     if (hadChanges) {
-        console.warn('[PathSanitizer] Renumbered component paths to be consecutive.');
+        logger.warn('[PathSanitizer] Renumbered component paths to be consecutive.');
     }
 
     return sanitizedComponents;

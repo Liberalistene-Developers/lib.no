@@ -40,7 +40,8 @@ describe('componentPathSanitizer', () => {
       expect((result[1].component as {path: string}).path).toBe('/main/1');
       expect((result[2].component as {path: string}).path).toBe('/main/2');
       expect(console.warn).toHaveBeenCalledWith(
-        expect.stringContaining('Fixing path: "/main/5" → "/main/1"')
+        expect.stringContaining('[WARN] [PathSanitizer] Fixing path: "/main/5" → "/main/1"'),
+        expect.anything()
       );
     });
 

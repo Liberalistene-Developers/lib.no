@@ -1,3 +1,5 @@
+import {logger} from '/react4xp/utils/logger';
+
 /**
  * Guillotine frontend boilerplate, import from/below react4xp entries.
  * Performs a fetch POST call to a guillotine API endpoint.
@@ -84,7 +86,7 @@ const defaultHandleResponseErrorFunc = (response: FetchResponse): FetchResponse 
 };
 
 const defaultErrorFunc = (error: Error): void => {
-  console.error(error);
+  logger.error('Guillotine request failed', error);
 };
 
 const extractParamsOrDefaults = (params: unknown) => {
@@ -122,9 +124,9 @@ const doGuillotineRequest = (params: GuillotineRequestParams): void => {
     catchErrorsFunc
   } = extractParamsOrDefaults(params);
 
-  console.log('[Guillotine] Request URL:', url);
-  console.log('[Guillotine] Query:', query);
-  console.log('[Guillotine] Variables:', variables);
+  logger.debug('[Guillotine] Request URL:', {url});
+  logger.debug('[Guillotine] Query:', {query});
+  logger.debug('[Guillotine] Variables:', {variables});
 
   // Fetch is available in browser context where this client-side code runs
   (globalThis.fetch || fetch)(url, {

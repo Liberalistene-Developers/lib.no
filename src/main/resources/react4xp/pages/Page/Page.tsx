@@ -2,13 +2,14 @@ import {Region, type ComponentProps, type PageData} from '@enonic/react-componen
 import {Header} from '/react4xp/common/Header/Header';
 import {Footer} from '/react4xp/common/Footer/Footer';
 import type {CommonProcessorData} from '/react4xp/common/CommonProcessor/CommonProps';
+import {logger} from '/react4xp/utils/logger';
 
 export const Page = ({common, meta, component}: ComponentProps<PageData>) => {
     const { main: { components = [] } = {}} = component?.regions || {};
     const commonData = common as CommonProcessorData;
 
-    console.log('[Page Component] Path:', component?.path);
-    console.log('[Page Component] Components count:', components.length);
+    logger.debug('[Page Component] Path:', {path: component?.path});
+    logger.debug('[Page Component] Components count:', {count: components.length});
 
     return (
         <div className="main-wrapper">

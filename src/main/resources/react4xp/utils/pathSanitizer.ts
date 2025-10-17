@@ -1,3 +1,5 @@
+import {logger} from '/react4xp/utils/logger';
+
 export interface ComponentData {
     component?: {
         path?: string;
@@ -48,7 +50,7 @@ export function sanitizeComponentPaths(
         const isProperPath = /^\/main\/\d+/.test(path);
 
         if (!isProperPath) {
-            console.warn(`[PathSanitizer] Found malformed path: "${path}", fixing to "/${regionName}/${nextIndex}"`);
+            logger.warn(`[PathSanitizer] Found malformed path: "${path}", fixing to "/${regionName}/${nextIndex}"`);
             hadChanges = true;
 
             const fixedPath = `/${regionName}/${nextIndex}`;

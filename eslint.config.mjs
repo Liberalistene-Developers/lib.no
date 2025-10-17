@@ -41,7 +41,8 @@ export default tseslint.config(// If ignores is used without any other keys in t
       {
         "argsIgnorePattern": "^_"
       }
-    ]
+    ],
+    'no-console': 'error' // Use logger utility instead of console
   }
 }, {
   files: ['**/*.tsx', '**/*.jsx'],
@@ -67,5 +68,17 @@ export default tseslint.config(// If ignores is used without any other keys in t
   files: ['src/main/resources/react4xp/common/SafeHtml/SafeHtml.tsx'],
   rules: {
     'react/no-danger': 'off'
+  }
+}, {
+  // Allow console in logger utility (internal implementation)
+  files: ['src/main/resources/react4xp/utils/logger.ts'],
+  rules: {
+    'no-console': 'off'
+  }
+}, {
+  // Allow console in test files (for mocking and spying)
+  files: ['src/jest/**/*.test.ts', 'src/jest/**/*.test.tsx'],
+  rules: {
+    'no-console': 'off'
   }
 }, storybook.configs["flat/recommended"]);

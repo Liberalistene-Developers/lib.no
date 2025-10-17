@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import {logger} from '/react4xp/utils/logger';
 
 interface MapProps {
   address?: string;
@@ -23,10 +24,10 @@ export const Map: React.FC<MapProps> = ({
     setIsSsr(false);
 
     if (position.length < 2 && address) {
-      console.info(address);
+      logger.debug('Geocoding address', {address});
 
       const addr = address.replace(/\n/g, ',').replace(/ /g, '+');
-      console.info(addr);
+      logger.debug('Formatted address for geocoding', {formattedAddress: addr});
 
       fetch(`https://nominatim.openstreetmap.org/search?q=${addr}&format=json&polygon=1&addressdetails=1`)
         .then((result) => {
@@ -37,7 +38,7 @@ export const Map: React.FC<MapProps> = ({
           return result;
         })
         .then((result: NominatimResult[] | Response) => {
-          console.info(result);
+          logger.debug('Geocoding result', {result});
           if (Array.isArray(result) && result.length) {
             const [{ lat, lon }] = result;
             setPos([parseFloat(lat), parseFloat(lon)]);
@@ -48,7 +49,7 @@ export const Map: React.FC<MapProps> = ({
     }
   }, [position, address]);
 
-  console.info(isSsr);
+  logger.debug('Map SSR state', {isSsr});
 
   if (isSsr || !pos || pos.length < 2) {
     return null;

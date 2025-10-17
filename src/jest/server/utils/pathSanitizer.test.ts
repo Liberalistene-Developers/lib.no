@@ -34,7 +34,8 @@ describe('pathSanitizer', () => {
       expect(result.components[0].component?.path).toBe('/main/0');
       expect(result.hadChanges).toBe(true);
       expect(console.warn).toHaveBeenCalledWith(
-        expect.stringContaining('Found malformed path: "/"')
+        expect.stringContaining('[WARN] [PathSanitizer] Found malformed path: "/"'),
+        expect.anything()
       );
     });
 
