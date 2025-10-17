@@ -41,7 +41,8 @@ import { GroupPart } from '/react4xp/parts/group/GroupPart';
 import { ImageBlockPart } from '/react4xp/parts/imageblock/ImageBlockPart';
 import { IntroBlockPart } from '/react4xp/parts/introblock/IntroBlockPart';
 import { JoinPart } from '/react4xp/parts/join/JoinPart';
-// Note: localblock and localbranch had .es6 files but React components not yet created
+import { LocalBlockPart } from '/react4xp/parts/localblock/LocalBlockPart';
+import { LocalBranchPart } from '/react4xp/parts/localbranch/LocalBranchPart';
 import { LocalBranchesPart } from '/react4xp/parts/localbranches/LocalBranchesPart';
 import { MissionsBlockPart } from '/react4xp/parts/missionsblock/MissionsBlockPart';
 import { OrganizationalPositionPart } from '/react4xp/parts/organizational-position/OrganizationalPositionPart';
@@ -94,8 +95,8 @@ componentRegistry.addPart('lib.no:group', {View: GroupPart});
 componentRegistry.addPart('lib.no:imageblock', {View: ImageBlockPart});
 componentRegistry.addPart('lib.no:introblock', {View: IntroBlockPart});
 componentRegistry.addPart('lib.no:join', {View: JoinPart});
-// Skip localblock - React component not created yet
-// Skip localbranch - React component not created yet
+componentRegistry.addPart('lib.no:localblock', {View: LocalBlockPart});
+componentRegistry.addPart('lib.no:localbranch', {View: LocalBranchPart});
 componentRegistry.addPart('lib.no:localbranches', {View: LocalBranchesPart});
 componentRegistry.addPart('lib.no:missionsblock', {View: MissionsBlockPart});
 componentRegistry.addPart('lib.no:organizational-position', {View: OrganizationalPositionPart});

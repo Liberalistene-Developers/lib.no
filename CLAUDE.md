@@ -415,12 +415,199 @@ This project uses environment variables for configuration. Check with the team f
 
 ### React4xp v6 Architecture
 
-- All components are written in TypeScript (`.tsx`)
-- Components live in `src/main/resources/react4xp/components/`
-- Organized by type: `layouts/`, `pages/`, `parts/`, `common/`
-- Component registry in `componentRegistry.tsx`
-- App entry point in `entries/App.tsx`
-- Controllers in `src/main/resources/site/` call components via React4xp v6 API
+This project follows React4xp v6 architecture with a clean three-layer separation of concerns.
+
+#### Architecture Overview
+
+The architecture separates data fetching, component registration, and rendering into three distinct layers:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  XP Site (src/main/resources/site/)                         │
+│  - Content Types, Parts, Pages, Layouts (XML definitions)   │
+└─────────────────────────────────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────────┐
+│  Layer 1: Processors (Data Fetching)                        │
+│  - Located in: src/main/resources/react4xp/parts/*/         │
+│  - Files: *Processor.ts                                     │
+│  - Purpose: Fetch and transform data from Enonic XP         │
+│  - Registered in: dataFetcher.ts                            │
+└─────────────────────────────────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────────┐
+│  Layer 2: Parts (Component Shims)                           │
+│  - Located in: src/main/resources/react4xp/parts/*/         │
+│  - Files: *Part.tsx (exactly 4 lines each)                  │
+│  - Purpose: Thin wrappers using createPartShim               │
+│  - Registered in: componentRegistry.tsx                      │
+└─────────────────────────────────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────────┐
+│  Layer 3: Components (React Implementation)                 │
+│  - Located in: src/main/resources/react4xp/common/*/        │
+│  - Files: ComponentName.tsx (full React implementation)     │
+│  - Purpose: Reusable, testable React components             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+#### The createPartShim Pattern
+
+All Part files use the `createPartShim` helper, which creates a standardized 4-line wrapper:
+
+```tsx
+// Example: src/main/resources/react4xp/parts/article/ArticlePart.tsx
+import {Article} from '/react4xp/common/Article/Article';
+import {createPartShim} from '/react4xp/common/PartShim/PartShim';
+
+export const ArticlePart = createPartShim(Article);
+```
+
+**Benefits of this pattern:**
+- **Consistency:** Every Part follows the exact same structure
+- **Simplicity:** Only 4 lines per Part, easy to understand and maintain
+- **Separation:** Business logic stays in /common/, Parts are just wrappers
+- **Testability:** Components in /common/ can be tested independently
+- **Reusability:** Components can be shared across multiple Parts
+
+#### Directory Structure
+
+```
+src/main/resources/react4xp/
+├── common/                      # Reusable React components
+│   ├── Article/
+│   │   └── Article.tsx         # Full React implementation
+│   ├── Button/
+│   │   └── Button.tsx
+│   ├── PartShim/
+│   │   └── PartShim.tsx        # createPartShim helper
+│   └── ...
+├── parts/                       # Part shims + processors
+│   ├── article/
+│   │   ├── ArticlePart.tsx     # 4-line shim
+│   │   └── ArticleProcessor.ts # Data fetching
+│   └── ...
+├── layouts/                     # Layout components
+├── pages/                       # Page components
+├── entries/
+│   └── App.tsx                 # React4xp app entry point
+├── componentRegistry.tsx        # Registers all Parts/Layouts/Pages
+└── dataFetcher.ts              # Registers all Processors
+```
+
+#### Creating a New Part
+
+To add a new Part to the project, follow these steps:
+
+**1. Create the Component** (in `/common/`)
+
+```tsx
+// src/main/resources/react4xp/common/MyFeature/MyFeature.tsx
+import type {FC} from 'react';
+
+interface MyFeatureProps {
+  title: string;
+  description: string;
+}
+
+export const MyFeature: FC<MyFeatureProps> = ({title, description}) => {
+  return (
+    <div>
+      <h2>{title}</h2>
+      <p>{description}</p>
+    </div>
+  );
+};
+```
+
+**2. Create the Processor** (in `/parts/myfeature/`)
+
+```tsx
+// src/main/resources/react4xp/parts/myfeature/MyFeatureProcessor.ts
+import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
+import type {PartComponent} from '@enonic-types/core';
+
+interface MyFeatureConfig {
+  title?: string;
+  description?: string;
+}
+
+export const myFeatureProcessor: ComponentProcessor<'lib.no:myfeature'> = ({component}) => {
+  const partComponent = component as unknown as PartComponent;
+  const config = partComponent.config as MyFeatureConfig;
+
+  return {
+    title: config.title || 'Default Title',
+    description: config.description || ''
+  };
+};
+```
+
+**3. Create the Part Shim** (in `/parts/myfeature/`)
+
+```tsx
+// src/main/resources/react4xp/parts/myfeature/MyFeaturePart.tsx
+import {MyFeature} from '/react4xp/common/MyFeature/MyFeature';
+import {createPartShim} from '/react4xp/common/PartShim/PartShim';
+
+export const MyFeaturePart = createPartShim(MyFeature);
+```
+
+**4. Register in componentRegistry.tsx**
+
+```tsx
+import { MyFeaturePart } from '/react4xp/parts/myfeature/MyFeaturePart';
+
+componentRegistry.addPart('lib.no:myfeature', {View: MyFeaturePart});
+```
+
+**5. Register in dataFetcher.ts**
+
+```tsx
+import { myFeatureProcessor } from '/react4xp/parts/myfeature/MyFeatureProcessor';
+
+dataFetcher.addPart('lib.no:myfeature', {processor: myFeatureProcessor});
+```
+
+**6. Create the XP Part Definition**
+
+```xml
+<!-- src/main/resources/site/parts/myfeature/myfeature.xml -->
+<part xmlns="urn:enonic:xp:model:1.0">
+  <display-name>My Feature</display-name>
+  <form>
+    <input name="title" type="TextLine">
+      <label>Title</label>
+    </input>
+    <input name="description" type="TextArea">
+      <label>Description</label>
+    </input>
+  </form>
+</part>
+```
+
+#### Key Principles
+
+1. **No Part-to-Part Dependencies:** Parts should never import from other Parts. Shared code goes in `/common/`.
+
+2. **Every Part is 4 Lines:** All Part files use `createPartShim` and are exactly 4 lines (2 imports, 1 blank line, 1 export).
+
+3. **Processors Handle Data:** All data fetching, transformation, and XP API calls happen in Processor files.
+
+4. **Components are Pure:** Components in `/common/` are pure React components with no Enonic XP dependencies.
+
+5. **Single Responsibility:**
+   - Processors: Data fetching and transformation
+   - Parts: Component registration and wiring
+   - Components: UI rendering and user interaction
+
+#### Current Status
+
+- **Total Parts:** 34
+- **Architecture Compliance:** 100% (all Parts use createPartShim)
+- **Processor Pattern:** Consistently applied across all Parts
+- **Component Registry:** Centralized in `componentRegistry.tsx`
+- **Data Fetcher:** Centralized in `dataFetcher.ts`
 
 ## Additional Resources
 

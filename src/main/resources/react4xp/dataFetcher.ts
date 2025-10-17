@@ -42,7 +42,8 @@ import { groupProcessor } from '/react4xp/parts/group/GroupProcessor';
 import { imageBlockProcessor } from '/react4xp/parts/imageblock/ImageBlockProcessor';
 import { introBlockProcessor } from '/react4xp/parts/introblock/IntroBlockProcessor';
 import { joinProcessor } from '/react4xp/parts/join/JoinProcessor';
-// Note: localblock and localbranch had .es6 files but React components not yet created
+import { localBlockProcessor } from '/react4xp/parts/localblock/LocalBlockProcessor';
+import { localBranchProcessor } from '/react4xp/parts/localbranch/LocalBranchProcessor';
 import { localBranchesProcessor } from '/react4xp/parts/localbranches/LocalBranchesProcessor';
 import { missionsBlockProcessor } from '/react4xp/parts/missionsblock/MissionsBlockProcessor';
 import { organizationalPositionProcessor } from '/react4xp/parts/organizational-position/OrganizationalPositionProcessor';
@@ -104,8 +105,8 @@ dataFetcher.addPart('lib.no:group', {processor: groupProcessor});
 dataFetcher.addPart('lib.no:imageblock', {processor: imageBlockProcessor});
 dataFetcher.addPart('lib.no:introblock', {processor: introBlockProcessor});
 dataFetcher.addPart('lib.no:join', {processor: joinProcessor});
-// Skip localblock - React component not created yet
-// Skip localbranch - React component not created yet
+dataFetcher.addPart('lib.no:localblock', {processor: localBlockProcessor});
+dataFetcher.addPart('lib.no:localbranch', {processor: localBranchProcessor});
 dataFetcher.addPart('lib.no:localbranches', {processor: localBranchesProcessor});
 dataFetcher.addPart('lib.no:missionsblock', {processor: missionsBlockProcessor});
 dataFetcher.addPart('lib.no:organizational-position', {processor: organizationalPositionProcessor});
