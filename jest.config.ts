@@ -36,7 +36,9 @@ const clientSideConfig: Config.InitialProjectOptions = {
   // Additionally, you can substitute captured regex groups using numbered
   // backreferences.
   moduleNameMapper: {
-    '/assets/(.*)': `<rootDir>/${DIR_SRC}/assets/$1`,
+    '^/react4xp/(.*)$': `<rootDir>/${DIR_SRC}/react4xp/$1`,
+    '^/assets/(.*)$': `<rootDir>/${DIR_SRC}/assets/$1`,
+    '^/(.*)$': `<rootDir>/${DIR_SRC}/$1`,
   },
 
   // Run clientside tests with DOM globals such as document and window
@@ -93,7 +95,10 @@ const serverSideConfig: Config.InitialProjectOptions = {
   // Additionally, you can substitute captured regex groups using numbered
   // backreferences.
   moduleNameMapper: {
-    '/lib/myproject/(.*)': `<rootDir>/${DIR_SRC}/lib/myproject/$1`,
+    '^/react4xp/(.*)$': `<rootDir>/${DIR_SRC}/react4xp/$1`,
+    '^/lib/xp/(.*)$': '<rootDir>/node_modules/@enonic-types/lib-$1',
+    '^/lib/enonic/(.*)$': '<rootDir>/node_modules/@enonic-types/lib-$1',
+    '^/(.*)$': `<rootDir>/${DIR_SRC}/$1`,
   },
 
   // A list of paths to modules that run some code to configure or set up the

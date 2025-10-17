@@ -59,5 +59,8 @@ jobs:
       - name: Lint code and css
         run: npm run lint
 
+      - name: Run tests
+        run: npm run test
+
       - name: Release
         run: npx semantic-release

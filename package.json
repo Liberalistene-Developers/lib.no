@@ -41,6 +41,8 @@
     "lint:css": "stylelint \"src/**/*.{css,scss}\"",
     "lint:css:fix": "stylelint \"src/**/*.{css,scss}\" --fix",
     "test": "jest --no-cache",
+    "test:coverage": "jest --no-cache --coverage",
+    "test:watch": "jest --watch",
     "rewatch": "./gradlew clean && enonic project deploy -c",
     "watch": "enonic project deploy -c",
     "storybook": "storybook dev -p 6006",
