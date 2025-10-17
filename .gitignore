@@ -121,3 +121,6 @@ temp-components-storage/
 # Temporary dumps and config files
 dumps/
 components.json
+
+# Test coverage
+coverage/

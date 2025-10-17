@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {Image, type ImageData} from '/react4xp/common/Image/Image';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
 
 interface Author {
   authorID?: string;
@@ -49,7 +50,7 @@ export const Book: React.FC<BookProps> = ({
       </ul>
     )}
 
-    {ingress && <div dangerouslySetInnerHTML={{__html: ingress}} />}
-    {(text || description) && <div dangerouslySetInnerHTML={{__html: text || description}} />}
+    {ingress && <SafeHtml html={ingress} />}
+    {(text || description) && <SafeHtml html={text || description} />}
   </div>
 );

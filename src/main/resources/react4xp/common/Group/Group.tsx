@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import {ImageBlock} from '/react4xp/common/ImageBlock/ImageBlock';
 import {PersonListItem} from '/react4xp/common/PersonListItem/PersonListItem';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
 
 import { type ImageData } from '/react4xp/common/Image/Image';
 
@@ -58,7 +59,7 @@ export const Group: React.FC<GroupProps> = ({
       )}
 
       {(!ingressInImage || !image) && shortDescription && (
-        <div className="rich-text" dangerouslySetInnerHTML={{__html: shortDescription}} />
+        <SafeHtml html={shortDescription} />
       )}
 
       {description && (
@@ -67,10 +68,7 @@ export const Group: React.FC<GroupProps> = ({
             <h2 className="mb-5">{informationLabel}</h2>
           )}
 
-          <div
-            className="flex pt-5"
-            dangerouslySetInnerHTML={{__html: description}}
-          />
+          <SafeHtml html={description} className="flex pt-5" />
         </div>
       )}
 

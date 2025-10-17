@@ -1,6 +1,7 @@
 import {FC} from 'react';
 
 import {Image} from '/react4xp/common/Image/Image';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
 import type {ImageData} from '/react4xp/common/types';
 
 interface QuoteAuthor {
@@ -55,10 +56,10 @@ export const Quote: FC<QuoteProps> = ({
         </ul>
       )}
       {quoteText && (
-        <div dangerouslySetInnerHTML={{__html: quoteText}} />
+        <SafeHtml html={quoteText} />
       )}
       {description && (
-        <div dangerouslySetInnerHTML={{__html: quoteText || description}} />
+        <SafeHtml html={description} />
       )}
     </div>
   );

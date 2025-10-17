@@ -1,5 +1,6 @@
 import type {FC} from 'react';
 import {Image, type ImageData} from '/react4xp/common/Image/Image';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
 import cx from 'classnames';
 
 interface TitleItem {
@@ -79,12 +80,12 @@ export const LocalBlock: FC<LocalBlockProps> = ({
         )}
 
         {ingress && (
-          <div
+          <SafeHtml
+            html={ingress}
             className={cx(
               'text-lg',
               ingressColorClasses[ingressColor as keyof typeof ingressColorClasses] || ingressColorClasses.normal
             )}
-            dangerouslySetInnerHTML={{__html: ingress}}
           />
         )}
       </div>

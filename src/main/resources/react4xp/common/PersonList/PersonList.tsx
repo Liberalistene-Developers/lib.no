@@ -3,6 +3,7 @@ import * as React from 'react';
 import {GridItem} from '/react4xp/common/GridItem/GridItem';
 import {Image, type ImageData} from '/react4xp/common/Image/Image';
 import {ListItem} from '/react4xp/common/ListItem/ListItem';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
 
 interface PersonItem {
   itemID?: string;
@@ -47,11 +48,11 @@ export const PersonList: React.FC<PersonListProps> = ({
       <Image image={image} />
 
       {shortDescription && (
-        <div dangerouslySetInnerHTML={{__html: shortDescription}} />
+        <SafeHtml html={shortDescription} />
       )}
 
       {description && (
-        <div dangerouslySetInnerHTML={{__html: description}} />
+        <SafeHtml html={description} />
       )}
 
       {items && items.length > 0 && (

@@ -1,6 +1,8 @@
 import {type FC} from 'react';
 import slugify from 'react-slugify';
 
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+
 interface ConclusionItem {
   key?: string;
   conclusion?: string;
@@ -57,7 +59,7 @@ export const ProgrammePart: FC<ProgrammePartProps> = ({
         </div>
 
         {description && (
-          <div className="mt-5" dangerouslySetInnerHTML={{__html: description}} />
+          <SafeHtml html={description} className="mt-5" />
         )}
 
         {conclusions && conclusions.length > 0

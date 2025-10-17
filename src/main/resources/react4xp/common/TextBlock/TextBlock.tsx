@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+
 export interface TextBlockProps {
   text?: string;
   title?: string;
@@ -22,7 +24,7 @@ export const TextBlock: React.FC<TextBlockProps> = ({
           )}
           {text && (
             <div>
-              <div className="page-content rich-text" dangerouslySetInnerHTML={{__html: text}} />
+              <SafeHtml html={text} className="page-content" />
             </div>
           )}
         </div>

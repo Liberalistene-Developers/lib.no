@@ -2,6 +2,8 @@ import * as React from 'react';
 import { useState } from 'react';
 import slugify from 'react-slugify';
 
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+
 interface FaqProps {
   itemID?: string;
   question?: string;
@@ -67,7 +69,7 @@ export const Faq: React.FC<FaqProps> = ({
         itemType="https://schema.org/Answer"
         className="rich-text rounded-b-[3px] max-h-0 transition-[max-height] duration-[0.25s] ease-in-out [&>div]:p-[15px]"
       >
-        <div itemProp="text" dangerouslySetInnerHTML={{ __html: answer }} />
+        <SafeHtml html={answer} as="div" />
       </div>
     </div>
   );

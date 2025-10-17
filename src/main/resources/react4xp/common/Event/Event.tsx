@@ -3,6 +3,7 @@ import {Schedules} from '/react4xp/common/Schedule/Schedule';
 import {EventPlace} from '/react4xp/common/EventPlace/EventPlace';
 import {EventTime} from '/react4xp/common/EventTime/EventTime';
 import {MapLoader} from '/react4xp/common/MapLoader/MapLoader';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
 
 import { type ImageData } from '/react4xp/common/Image/Image';
 
@@ -72,7 +73,7 @@ export const Event = ({
     )}
 
     {!ingressInImage && ingress && (
-      <div className="rich-text" dangerouslySetInnerHTML={{__html: ingress}} />
+      <SafeHtml html={ingress} />
     )}
 
     <div className="flex justify-between pt-10 w-full [&_h2]:text-[38px] [&_h2]:leading-[46px] [&_h2]:mb-5">
@@ -82,7 +83,7 @@ export const Event = ({
             {informationLabel && (
               <h2 id={informationLabel}>{informationLabel}</h2>
             )}
-            <div className="max-w-[964px] rich-text" dangerouslySetInnerHTML={{__html: description}} />
+            <SafeHtml html={description} className="max-w-[964px]" />
           </div>
         )}
         {email && (

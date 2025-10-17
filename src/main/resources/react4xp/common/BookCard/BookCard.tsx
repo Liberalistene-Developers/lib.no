@@ -1,6 +1,7 @@
 import {type FC} from 'react';
 
 import {type ImageData} from '/react4xp/common/Image/Image';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
 
 
 interface AuthorType {
@@ -75,7 +76,7 @@ export const BookCard: FC<BookCardProps> = ({
         </div>
 
         {text && (
-          <div className="w-full flex-[0.7_0_0%] font-bold text-[14px] leading-[17px] text-ellipsis overflow-hidden text-primary-100 rich-text" dangerouslySetInnerHTML={{__html: text}} />
+          <SafeHtml html={text} className="w-full flex-[0.7_0_0%] font-bold text-[14px] leading-[17px] text-ellipsis overflow-hidden text-primary-100" />
         )}
 
         {buy && (

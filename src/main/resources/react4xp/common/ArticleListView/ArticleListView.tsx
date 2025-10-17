@@ -1,6 +1,7 @@
 import { FC, ReactNode } from 'react';
 
 import { Image } from '/react4xp/common/Image/Image';
+import { SafeHtml } from '/react4xp/common/SafeHtml/SafeHtml';
 import { ArticleListItem } from '/react4xp/common/ArticleListItem/ArticleListItem';
 import { ArticleCard } from '/react4xp/common/ArticleCard/ArticleCard';
 import type { ImageData, ItemData } from '/react4xp/common/types';
@@ -64,11 +65,11 @@ export const ArticleListView: FC<ArticleListViewProps> = ({
       <Image image={image} />
 
       {shortDescription && (
-        <div dangerouslySetInnerHTML={{__html: shortDescription}} />
+        <SafeHtml html={shortDescription} />
       )}
 
       {description && (
-        <div dangerouslySetInnerHTML={{__html: description}} />
+        <SafeHtml html={description} />
       )}
 
       {items && items.length > 0 && (

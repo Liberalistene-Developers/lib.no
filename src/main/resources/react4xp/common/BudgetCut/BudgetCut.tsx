@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+
 interface CutItem {
   name?: string;
   budget?: number;
@@ -42,7 +44,7 @@ export const BudgetCut: React.FC<BudgetCutProps> = ({
   <>
     <div className="mt-10">
       {description && (
-        <div dangerouslySetInnerHTML={{__html: description}} />
+        <SafeHtml html={description} />
       )}
       <div className="grid max-w-full grid-cols-[auto_80px_80px] [grid-template-areas:'header_header_header'_'main_main_main'_'footer_footer_footer'] [&_.budget-cut-percent]:flex [&_.budget-cut-percent]:items-end [&_.budget-cut-percent]:justify-end [&_.budget-cut-cuts]:flex [&_.budget-cut-cuts]:items-end [&_.budget-cut-cuts]:justify-end [&_.header]:border-b [&_.header]:border-gray-500 [&_.footer]:border-t-2 [&_.footer]:border-b-[5px] [&_.footer]:border-gray-500 [&_.footer]:border-b-double">
         <div className="budget-cut-name header">
@@ -121,7 +123,7 @@ export const BudgetCut: React.FC<BudgetCutProps> = ({
               }) => (
                 <React.Fragment key={name?.replace(/ /g, '-')}>
                   <dt>{name}:</dt>
-                  <dd dangerouslySetInnerHTML={{__html: desc || ''}} />
+                  <SafeHtml html={desc || ''} as="dd" />
                 </React.Fragment>
               ))}
           </dl>
@@ -134,7 +136,7 @@ export const BudgetCut: React.FC<BudgetCutProps> = ({
                 <strong>{labelSumary}</strong>
               </div>
             )}
-            <div dangerouslySetInnerHTML={{__html: sumary}} />
+            <SafeHtml html={sumary} />
           </>
         )}
       </div>

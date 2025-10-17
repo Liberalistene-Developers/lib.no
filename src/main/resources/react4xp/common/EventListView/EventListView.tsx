@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {Image, type ImageData} from '/react4xp/common/Image/Image';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
 import {EventListItem} from '/react4xp/common/EventListItem/EventListItem';
 import {EventCard} from '/react4xp/common/EventCard/EventCard';
 
@@ -49,11 +50,11 @@ export const EventListView: React.FC<EventListViewProps> = ({
       <Image image={image} />
 
       {shortDescription && (
-        <div dangerouslySetInnerHTML={{__html: shortDescription}} />
+        <SafeHtml html={shortDescription} />
       )}
 
       {description && (
-        <div dangerouslySetInnerHTML={{__html: description}} />
+        <SafeHtml html={description} />
       )}
 
       {items && items.length > 0 && (

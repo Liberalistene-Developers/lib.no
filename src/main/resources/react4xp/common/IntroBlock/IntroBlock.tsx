@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {Image, type ImageData} from '/react4xp/common/Image/Image';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
 
 interface IntroBlockProps {
   caption?: string;
@@ -27,7 +28,7 @@ export const IntroBlock: React.FC<IntroBlockProps> = ({
       )}
 
       {description && (
-        <div dangerouslySetInnerHTML={{__html: description}} className="mt-[15px]" />
+        <SafeHtml html={description} className="mt-[15px]" />
       )}
     </div>
   </div>

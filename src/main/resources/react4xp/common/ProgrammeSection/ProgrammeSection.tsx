@@ -2,6 +2,7 @@ import {Fragment, type FC} from 'react';
 import slugify from 'react-slugify';
 
 import {ProgrammePart, type ProgrammePartProps} from '../ProgrammePart/ProgrammePart';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
 
 interface ConclusionProps {
   title?: string;
@@ -68,7 +69,7 @@ export const ProgrammeSection: FC<ProgrammeSectionProps> = ({
       </div>
 
       {description && (
-        <div className="mt-5 mobile:[&_.standard]:w-[calc(100%-2em)] mobile:[&>ul]:w-[calc(100%-80px)]" dangerouslySetInnerHTML={{__html: description}} />
+        <SafeHtml html={description} className="mt-5 mobile:[&_.standard]:w-[calc(100%-2em)] mobile:[&>ul]:w-[calc(100%-80px)]" />
       )}
 
       {parts && parts.length > 0

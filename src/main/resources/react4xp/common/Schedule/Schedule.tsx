@@ -2,6 +2,7 @@ import * as React from 'react';
 import cx from 'classnames';
 
 import {AuthorLink} from '/react4xp/common/AuthorLink/AuthorLink';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
 
 interface Speaker {
   personID?: string;
@@ -93,11 +94,11 @@ export const Topic: React.FC<TopicProps> = ({topic: {title, speakers, start, dur
       )) || null}
       {description && (
         <div className={cx('topic-description', {start: !!start})}>
-          <div dangerouslySetInnerHTML={{__html: description}} />
+          <SafeHtml html={description} />
         </div>
       )}
       {report && (
-        <div className={cx('topic-report', {start: !!start})} dangerouslySetInnerHTML={{__html: report}} />
+        <SafeHtml html={report} className={cx('topic-report', {start: !!start})} />
       )}
     </div>
   </div>
@@ -122,7 +123,7 @@ export const Schedule: React.FC<ScheduleProps> = ({schedule: {name, date, descri
     </div>
     {description && (
       <div className="schedule-description">
-        <div dangerouslySetInnerHTML={{__html: description}} />
+        <SafeHtml html={description} />
       </div>
     )}
     <div className="topic-list">

@@ -1,4 +1,5 @@
 import {BudgetCutItem} from '/react4xp/common/BudgetCut/BudgetCutExpandable';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
 
 interface CutItem {
   name?: string;
@@ -51,7 +52,7 @@ export const BudgetCutList = ({
 
     {ingress && (
       <div className="page-content">
-        <div className="ingress rich-text" dangerouslySetInnerHTML={{__html: ingress}} />
+        <SafeHtml html={ingress} className="ingress" />
       </div>
     )}
 

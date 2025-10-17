@@ -2,6 +2,7 @@ import * as React from 'react';
 import cx from 'classnames';
 
 import {Image} from '/react4xp/common/Image/Image';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
 
 interface BoardMember {
   itemId?: string;
@@ -72,7 +73,7 @@ export const BoardPresentation: React.FC<BoardPresentationProps> = ({
                 </div>
               ))}
               {description && (
-                <div className="ingress rich-text" dangerouslySetInnerHTML={{__html: description}} />
+                <SafeHtml html={description} className="ingress" />
               )}
             </div>
           )}

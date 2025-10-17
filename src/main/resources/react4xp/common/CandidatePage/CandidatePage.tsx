@@ -1,5 +1,6 @@
 import {FancyCandidateImage} from '/react4xp/common/Candidate/FancyCandidateImage';
 import {Image, type ImageData} from '/react4xp/common/Image/Image';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
 
 
 export interface CandidatePageProps {
@@ -42,11 +43,11 @@ export const CandidatePage = ({
     )}
     <div className="page-content">
       {ingress && (
-        <div className="ingress rich-text" dangerouslySetInnerHTML={{__html: ingress}} />
+        <SafeHtml html={ingress} className="ingress" />
       )}
 
       {description && (
-        <div className="candidate-page-description" dangerouslySetInnerHTML={{__html: description}} />
+        <SafeHtml html={description} className="candidate-page-description" />
       )}
     </div>
   </div>

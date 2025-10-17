@@ -2,6 +2,7 @@ import { FC } from 'react';
 import cx from 'classnames';
 
 import { Image } from '../Image/Image';
+import { SafeHtml } from '../SafeHtml/SafeHtml';
 import type { ImageData } from '../types';
 
 interface CandidatePresentationItemProps {
@@ -76,11 +77,11 @@ export const CandidatePresentationItem: FC<CandidatePresentationItemProps> = ({
         )}
 
         {ingress && (
-          <div className="ingress rich-text" dangerouslySetInnerHTML={{ __html: ingress }} />
+          <SafeHtml html={ingress} className="ingress" />
         )}
 
         {description && (
-          <div className="description" dangerouslySetInnerHTML={{ __html: description }} />
+          <SafeHtml html={description} className="description" />
         )}
       </div>
     </div>

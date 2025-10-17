@@ -1,5 +1,6 @@
 import type {MacroComponentParams} from '@enonic/react-components';
 import React from 'react';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
 
 export const EmbedMacro = (props: MacroComponentParams) => {
   const {children} = props;
@@ -10,7 +11,7 @@ export const EmbedMacro = (props: MacroComponentParams) => {
   }
 
   // The embed macro body (children) should contain an iframe
-  // We use dangerouslySetInnerHTML for string content or render JSX elements directly
+  // We use SafeHtml with custom config to allow iframes
   if (typeof children === 'string') {
     // Add loading="eager" to ensure iframe loads with the document
     const enhancedHtml = children.replace(
@@ -19,9 +20,13 @@ export const EmbedMacro = (props: MacroComponentParams) => {
     );
 
     return (
-      <div
+      <SafeHtml
+        html={enhancedHtml}
         className="embed-macro w-full my-4 overflow-hidden"
-        dangerouslySetInnerHTML={{__html: enhancedHtml}}
+        sanitizeConfig={{
+          ALLOWED_TAGS: ['iframe'],
+          ALLOWED_ATTR: ['src', 'width', 'height', 'frameborder', 'allow', 'allowfullscreen', 'loading', 'title', 'style']
+        }}
       />
     );
   }

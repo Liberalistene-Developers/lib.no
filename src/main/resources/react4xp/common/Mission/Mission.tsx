@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {Image, type ImageData} from '/react4xp/common/Image/Image';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
 
 interface MissionProps {
   description?: string;
@@ -19,7 +20,7 @@ export const Mission: React.FC<MissionProps> = ({
         <h3 title={title}><Image image={image} /> {title}</h3>
 
         {description && (
-          <div dangerouslySetInnerHTML={{__html: description}} className="description" />
+          <SafeHtml html={description} className="description" />
         )}
       </div>
     </div>

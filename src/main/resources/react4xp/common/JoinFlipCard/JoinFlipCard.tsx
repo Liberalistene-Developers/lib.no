@@ -3,6 +3,7 @@ import cx from 'classnames';
 
 import {Button} from '/react4xp/common/Button/Button';
 import {Image, type ImageData} from '/react4xp/common/Image/Image';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
 
 
 export interface JoinFlipCardProps {
@@ -46,13 +47,13 @@ export const JoinFlipCard: React.FC<JoinFlipCardProps> = ({
             </div>
           )}
           {message && (
-            <div
+            <SafeHtml
+              html={message}
               className={cx(
                 'flex items-center',
                 frontPlacement === 'row' && 'h-full justify-center max-w-[50%]',
                 frontPlacement === 'column' && image ? 'items-start h-1/3 -mt-5' : 'h-full'
               )}
-              dangerouslySetInnerHTML={{__html: message}}
             />
           )}
         </div>
@@ -60,7 +61,7 @@ export const JoinFlipCard: React.FC<JoinFlipCardProps> = ({
       <div className="bg-primary-700 w-full h-full overflow-hidden [backface-visibility:hidden] absolute transition-transform duration-[600ms] linear rounded-[3px] [transform:perspective(600px)_rotateX(-180deg)] group-hover:[transform:perspective(600px)_rotateX(0deg)]">
         <div className="text-[#2c3e50] text-center w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           {backMessage && (
-            <div className="text-button-100" dangerouslySetInnerHTML={{__html: backMessage}} />
+            <SafeHtml html={backMessage} className="text-button-100" />
           )}
           <Button
             className="light"

@@ -41,6 +41,14 @@ const clientSideConfig: Config.InitialProjectOptions = {
     '^/(.*)$': `<rootDir>/${DIR_SRC}/$1`,
   },
 
+  // A list of paths to modules that run some code to configure or set up the
+  // testing framework before each test file in the suite is executed.
+  // Since setupFilesAfterEnv runs after the test framework has been installed
+  // in the environment, Jest globals are available.
+  setupFilesAfterEnv: [
+    `<rootDir>/${DIR_SRC_JEST_CLIENT}/setupFile.ts`
+  ],
+
   // Run clientside tests with DOM globals such as document and window
   testEnvironment: 'jsdom',
 
