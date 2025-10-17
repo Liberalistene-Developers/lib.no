@@ -2,7 +2,7 @@ import { FC } from 'react';
 import cx from 'classnames';
 
 import type { ImageData } from '../types';
-import { getImageAlt } from '/react4xp/utils/image.client';
+import { getImageAlt } from '@utils/image.client';
 
 // Re-export types for backward compatibility
 export type { ImageData, ImageType } from '../types';

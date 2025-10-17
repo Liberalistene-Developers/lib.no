@@ -1,6 +1,6 @@
-import {BookCard} from '/react4xp/common/BookCard/BookCard';
+import {BookCard} from '@common/BookCard/BookCard';
 
-import type { ImageData } from '/react4xp/common/Image/Image';
+import type { ImageData } from '@common/Image/Image';
 
 
 interface AuthorType {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { IntroBlock } from '@parts/introblock/IntroBlock';
+import { IntroBlock } from '@common/IntroBlock/IntroBlock';
 
 const meta = {
   title: 'Parts/IntroBlock',

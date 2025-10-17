@@ -1,4 +1,4 @@
-import {MenuItem} from '/react4xp/common/MenuItem/MenuItem';
+import {MenuItem} from '@common/MenuItem/MenuItem';
 
 interface MenuItemType {
   itemID?: string;

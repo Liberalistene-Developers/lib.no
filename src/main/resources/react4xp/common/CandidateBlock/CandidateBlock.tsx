@@ -1,6 +1,6 @@
 import cx from 'classnames';
 
-import {LBCandidate} from '/react4xp/common/Candidate/LBCandidate';
+import {LBCandidate} from '@common/Candidate/LBCandidate';
 
 interface CandidateItem {
   title?: string;

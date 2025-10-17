@@ -1,7 +1,7 @@
 import {type FC} from 'react';
 import slugify from 'react-slugify';
 
-import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
 interface ConclusionItem {
   key?: string;

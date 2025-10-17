@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import slugify from 'react-slugify';
 
-import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
 interface FaqProps {
   itemID?: string;

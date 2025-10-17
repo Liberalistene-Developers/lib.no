@@ -1,8 +1,8 @@
 import cx from 'classnames';
 
-import {Image} from '/react4xp/common/Image/Image';
-import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
-import type {ImageData} from '/react4xp/common/types';
+import {Image} from '@common/Image/Image';
+import {SafeHtml} from '@common/SafeHtml/SafeHtml';
+import type {ImageData} from '@common/types';
 
 
 interface TitlePiece {

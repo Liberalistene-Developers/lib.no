@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Event } from '@parts/event/Event';
+import { Event } from '@common/Event/Event';
 
 const meta = {
   title: 'Parts/Event',

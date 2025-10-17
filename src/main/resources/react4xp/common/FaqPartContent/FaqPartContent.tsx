@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {Faq} from '/react4xp/common/Faq/Faq';
+import {Faq} from '@common/Faq/Faq';
 
 interface FaqItemProps {
   itemID?: string;

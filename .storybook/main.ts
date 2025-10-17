@@ -55,11 +55,11 @@ const config: StorybookConfig = {
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@components': path.resolve(__dirname, '../src/main/resources/react4xp/components'),
-      '@common': path.resolve(__dirname, '../src/main/resources/react4xp/components/common'),
-      '@parts': path.resolve(__dirname, '../src/main/resources/react4xp/components/parts'),
-      '@layouts': path.resolve(__dirname, '../src/main/resources/react4xp/components/layouts'),
-      '@pages': path.resolve(__dirname, '../src/main/resources/react4xp/components/pages'),
+      '@common': path.resolve(__dirname, '../src/main/resources/react4xp/common'),
+      '@parts': path.resolve(__dirname, '../src/main/resources/react4xp/parts'),
+      '@layouts': path.resolve(__dirname, '../src/main/resources/react4xp/layouts'),
+      '@pages': path.resolve(__dirname, '../src/main/resources/react4xp/pages'),
+      '@utils': path.resolve(__dirname, '../src/main/resources/react4xp/utils'),
       '@lib': path.resolve(__dirname, '../src/main/resources/lib')
     };
 

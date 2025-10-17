@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { ImageBlock } from '@parts/imageblock/ImageBlock';
+import { ImageBlock } from '@common/ImageBlock/ImageBlock';
 
 const meta = {
   title: 'Parts/ImageBlock',

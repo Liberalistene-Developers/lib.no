@@ -1,4 +1,4 @@
-import {Mission} from '/react4xp/common/Mission/Mission';
+import {Mission} from '@common/Mission/Mission';
 
 interface MissionItem {
   description?: string;

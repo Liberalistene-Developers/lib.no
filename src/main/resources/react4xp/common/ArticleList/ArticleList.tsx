@@ -1,6 +1,6 @@
 import {type FC} from 'react';
 
-import {buildQueryArticleList, extractArticleList} from '/react4xp/utils/guillotine/requests';
+import {buildQueryArticleList, extractArticleList} from '@utils/guillotine/requests';
 
 import {ArticleListView} from '../ArticleListView/ArticleListView';
 import {DynamicLoader} from '../DynamicLoader/DynamicLoader';

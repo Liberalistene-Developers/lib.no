@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Join } from '@parts/join/Join';
+import { JoinFlipCard } from '@common/JoinFlipCard/JoinFlipCard';
 
 const meta = {
-  title: 'Parts/Join',
-  component: Join,
+  title: 'Parts/JoinFlipCard',
+  component: JoinFlipCard,
   tags: ['autodocs']
-} satisfies Meta<typeof Join>;
+} satisfies Meta<typeof JoinFlipCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { LBCandidateBlock } from '@parts/candidateblock/LBCandidateBlock';
+import { CandidateBlock } from '@common/CandidateBlock/CandidateBlock';
 
 const meta = {
-  title: 'Parts/LBCandidateBlock',
-  component: LBCandidateBlock,
+  title: 'Parts/CandidateBlock',
+  component: CandidateBlock,
   tags: ['autodocs']
-} satisfies Meta<typeof LBCandidateBlock>;
+} satisfies Meta<typeof CandidateBlock>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

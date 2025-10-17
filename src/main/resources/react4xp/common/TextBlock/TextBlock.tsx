@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
 export interface TextBlockProps {
   text?: string;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import {logger} from '/react4xp/utils/logger';
+import {logger} from '@utils/logger';
 
 interface MapProps {
   address?: string;

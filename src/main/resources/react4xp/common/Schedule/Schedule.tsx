@@ -1,8 +1,8 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import {AuthorLink} from '/react4xp/common/AuthorLink/AuthorLink';
-import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+import {AuthorLink} from '@common/AuthorLink/AuthorLink';
+import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
 interface Speaker {
   personID?: string;

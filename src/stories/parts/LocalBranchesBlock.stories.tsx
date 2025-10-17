@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { LocalBranchesBlock } from '@parts/localbranches/LocalBranchesBlock';
+import { LocalBranches } from '@common/LocalBranches/LocalBranches';
 
 const meta = {
-  title: 'Parts/LocalBranchesBlock',
-  component: LocalBranchesBlock,
+  title: 'Parts/LocalBranches',
+  component: LocalBranches,
   tags: ['autodocs']
-} satisfies Meta<typeof LocalBranchesBlock>;
+} satisfies Meta<typeof LocalBranches>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

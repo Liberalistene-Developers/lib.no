@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {PersonListItem} from '/react4xp/common/PersonListItem/PersonListItem';
+import {PersonListItem} from '@common/PersonListItem/PersonListItem';
 
 interface BoardMember {
   itemId?: string;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import {Image, type ImageData} from '/react4xp/common/Image/Image';
-import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+import {Image, type ImageData} from '@common/Image/Image';
+import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
 interface Author {
   authorID?: string;

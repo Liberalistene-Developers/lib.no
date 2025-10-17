@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Card } from '@common/Card';
+import { Card } from '@common/Card/Card';
 
 const meta = {
   title: 'Shared/Card',

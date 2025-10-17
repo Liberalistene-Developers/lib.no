@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {logger} from '/react4xp/utils/logger';
+import {logger} from '@utils/logger';
 
 interface ErrorBoundaryProps {
   children?: React.ReactNode;

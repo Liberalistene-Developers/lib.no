@@ -2,7 +2,7 @@ import { PageDescriptor } from '@enonic-types/core';
 import type { ComponentProcessor } from '@enonic-types/lib-react4xp/DataFetcher';
 import { assetUrl } from '/lib/enonic/asset';
 import { getMenuTree } from '/lib/menu';
-import { imageUrl } from '/react4xp/utils/image';
+import { imageUrl } from '@utils/image';
 
 import { getSite, getSiteConfig } from '/lib/xp/content';
 // import { getSite as getPortalSite } from '/lib/xp/portal';

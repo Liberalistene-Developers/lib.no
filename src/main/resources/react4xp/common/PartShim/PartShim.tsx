@@ -12,8 +12,8 @@ import type {FC} from 'react';
  *
  * @example
  * ```tsx
- * import {Event} from '/react4xp/common/Event/Event';
- * import {createPartShim} from '/react4xp/common/PartShim/PartShim';
+ * import {Event} from '@common/Event/Event';
+ * import {createPartShim} from '@common/PartShim/PartShim';
  *
  * export const EventPart = createPartShim(Event);
  * ```

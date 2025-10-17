@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { EventCard } from '@common/EventCard';
+import { EventCard } from '@common/EventCard/EventCard';
 
 const meta = {
   title: 'Shared/EventCard',

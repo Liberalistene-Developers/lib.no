@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Board } from '@parts/board/Board';
+import { Board } from '@common/Board/Board';
 
 const meta = {
   title: 'Parts/Board',

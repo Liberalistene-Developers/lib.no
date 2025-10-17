@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import {ImageBlock} from '/react4xp/common/ImageBlock/ImageBlock';
-import {PersonListItem} from '/react4xp/common/PersonListItem/PersonListItem';
-import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+import {ImageBlock} from '@common/ImageBlock/ImageBlock';
+import {PersonListItem} from '@common/PersonListItem/PersonListItem';
+import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
-import { type ImageData } from '/react4xp/common/Image/Image';
+import { type ImageData } from '@common/Image/Image';
 
 interface BoardMember {
   itemId?: string;

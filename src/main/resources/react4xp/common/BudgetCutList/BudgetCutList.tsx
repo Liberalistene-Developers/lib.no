@@ -1,5 +1,5 @@
-import {BudgetCutItem} from '/react4xp/common/BudgetCut/BudgetCutExpandable';
-import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+import {BudgetCutItem} from '@common/BudgetCut/BudgetCutExpandable';
+import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
 interface CutItem {
   name?: string;

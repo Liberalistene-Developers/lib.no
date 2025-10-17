@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { BudgetCutList } from '@parts/budgetcutlist/BudgetCutList';
+import { BudgetCutList } from '@common/BudgetCutList/BudgetCutList';
 
 const meta = {
   title: 'Parts/BudgetCutList',

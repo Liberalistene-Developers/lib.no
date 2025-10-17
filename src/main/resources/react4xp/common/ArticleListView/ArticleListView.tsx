@@ -1,10 +1,10 @@
 import { FC, ReactNode } from 'react';
 
-import { Image } from '/react4xp/common/Image/Image';
-import { SafeHtml } from '/react4xp/common/SafeHtml/SafeHtml';
-import { ArticleListItem } from '/react4xp/common/ArticleListItem/ArticleListItem';
-import { ArticleCard } from '/react4xp/common/ArticleCard/ArticleCard';
-import type { ImageData, ItemData } from '/react4xp/common/types';
+import { Image } from '@common/Image/Image';
+import { SafeHtml } from '@common/SafeHtml/SafeHtml';
+import { ArticleListItem } from '@common/ArticleListItem/ArticleListItem';
+import { ArticleCard } from '@common/ArticleCard/ArticleCard';
+import type { ImageData, ItemData } from '@common/types';
 
 interface ArticleItem {
   id?: string;

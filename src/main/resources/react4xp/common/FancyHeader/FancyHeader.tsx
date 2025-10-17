@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {Image, type ImageData} from '/react4xp/common/Image/Image';
+import {Image, type ImageData} from '@common/Image/Image';
 
 
 interface FancyHeaderProps {

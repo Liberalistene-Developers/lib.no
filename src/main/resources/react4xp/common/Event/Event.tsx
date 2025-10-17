@@ -1,11 +1,11 @@
-import {ImageBlock} from '/react4xp/common/ImageBlock/ImageBlock';
-import {Schedules, type ScheduleType} from '/react4xp/common/Schedule/Schedule';
-import {EventPlace} from '/react4xp/common/EventPlace/EventPlace';
-import {EventTime} from '/react4xp/common/EventTime/EventTime';
-import {MapLoader} from '/react4xp/common/MapLoader/MapLoader';
-import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+import {ImageBlock} from '@common/ImageBlock/ImageBlock';
+import {Schedules, type ScheduleType} from '@common/Schedule/Schedule';
+import {EventPlace} from '@common/EventPlace/EventPlace';
+import {EventTime} from '@common/EventTime/EventTime';
+import {MapLoader} from '@common/MapLoader/MapLoader';
+import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
-import { type ImageData } from '/react4xp/common/Image/Image';
+import { type ImageData } from '@common/Image/Image';
 
 interface LocationType {
   address?: string;

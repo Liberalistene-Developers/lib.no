@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {BoardPresentation} from '/react4xp/common/BoardPresentation/BoardPresentation';
+import {BoardPresentation} from '@common/BoardPresentation/BoardPresentation';
 
 interface BoardMember {
   itemId?: string;

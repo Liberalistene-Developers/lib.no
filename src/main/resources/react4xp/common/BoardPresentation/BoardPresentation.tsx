@@ -1,8 +1,8 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import {Image} from '/react4xp/common/Image/Image';
-import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+import {Image} from '@common/Image/Image';
+import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
 interface BoardMember {
   itemId?: string;

@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import {GridItem} from '/react4xp/common/GridItem/GridItem';
-import {Image, type ImageData} from '/react4xp/common/Image/Image';
-import {ListItem} from '/react4xp/common/ListItem/ListItem';
-import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+import {GridItem} from '@common/GridItem/GridItem';
+import {Image, type ImageData} from '@common/Image/Image';
+import {ListItem} from '@common/ListItem/ListItem';
+import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
 interface PersonItem {
   itemID?: string;

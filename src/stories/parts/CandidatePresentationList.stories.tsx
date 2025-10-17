@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { CandidatePresentationList } from '@parts/candidatepresentation/CandidatePresentationList';
+import { CandidatePresentation } from '@common/CandidatePresentation/CandidatePresentation';
 
 const meta = {
-  title: 'Parts/CandidatePresentationList',
-  component: CandidatePresentationList,
+  title: 'Parts/CandidatePresentation',
+  component: CandidatePresentation,
   tags: ['autodocs']
-} satisfies Meta<typeof CandidatePresentationList>;
+} satisfies Meta<typeof CandidatePresentation>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

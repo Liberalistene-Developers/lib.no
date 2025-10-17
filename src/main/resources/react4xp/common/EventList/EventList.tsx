@@ -1,6 +1,6 @@
 import {type FC} from 'react';
 
-import {buildQueryEventList, extractEventList} from '/react4xp/utils/guillotine/requests';
+import {buildQueryEventList, extractEventList} from '@utils/guillotine/requests';
 
 import {EventListView} from '../EventListView/EventListView';
 import {DynamicLoader} from '../DynamicLoader/DynamicLoader';

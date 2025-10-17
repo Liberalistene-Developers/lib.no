@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { BudgetCutItem } from '@parts/budgetcutlist/BudgetCutExpandable';
+import { BudgetCutItem } from '@common/BudgetCut/BudgetCutExpandable';
 
 const meta = {
   title: 'Parts/BudgetCutExpandable',

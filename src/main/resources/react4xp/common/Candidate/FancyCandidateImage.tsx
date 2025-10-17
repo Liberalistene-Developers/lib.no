@@ -1,4 +1,4 @@
-import { type ImageData } from '/react4xp/common/Image/Image';
+import { type ImageData } from '@common/Image/Image';
 
 interface FancyCandidateImageProps {
   artImage?: ImageData;

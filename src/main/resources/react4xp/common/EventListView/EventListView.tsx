@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import {Image, type ImageData} from '/react4xp/common/Image/Image';
-import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
-import {EventListItem} from '/react4xp/common/EventListItem/EventListItem';
-import {EventCard} from '/react4xp/common/EventCard/EventCard';
+import {Image, type ImageData} from '@common/Image/Image';
+import {SafeHtml} from '@common/SafeHtml/SafeHtml';
+import {EventListItem} from '@common/EventListItem/EventListItem';
+import {EventCard} from '@common/EventCard/EventCard';
 
 interface EventItem {
   id?: string;

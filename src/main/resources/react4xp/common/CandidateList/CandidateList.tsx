@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import {PersonListItem} from '/react4xp/common/PersonListItem/PersonListItem';
+import {PersonListItem} from '@common/PersonListItem/PersonListItem';
 
 interface CandidateItem {
   itemId?: string;

@@ -1,6 +1,6 @@
-import {FancyCandidateImage} from '/react4xp/common/Candidate/FancyCandidateImage';
-import {Image, type ImageData} from '/react4xp/common/Image/Image';
-import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+import {FancyCandidateImage} from '@common/Candidate/FancyCandidateImage';
+import {Image, type ImageData} from '@common/Image/Image';
+import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
 
 export interface CandidatePageProps {

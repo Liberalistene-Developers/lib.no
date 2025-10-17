@@ -2,7 +2,7 @@ import * as React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEnvelope, faPhone} from '@fortawesome/free-solid-svg-icons';
 
-import {Image, ImageData} from '/react4xp/common/Image/Image';
+import {Image, ImageData} from '@common/Image/Image';
 
 
 interface LBCandidateProps {

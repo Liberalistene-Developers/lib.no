@@ -1,6 +1,6 @@
 import { type RequestMode, LiteralUnion } from '@enonic-types/core';
 import type { MenuTree } from '/lib/menu';
-import type { ImageData } from '/react4xp/common/types';
+import type { ImageData } from '@common/types';
 
 export interface Social {
   href: string;

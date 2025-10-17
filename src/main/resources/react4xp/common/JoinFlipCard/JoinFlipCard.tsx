@@ -1,9 +1,9 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import {Button} from '/react4xp/common/Button/Button';
-import {Image, type ImageData} from '/react4xp/common/Image/Image';
-import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+import {Button} from '@common/Button/Button';
+import {Image, type ImageData} from '@common/Image/Image';
+import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
 
 export interface JoinFlipCardProps {

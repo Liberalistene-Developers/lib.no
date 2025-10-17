@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react-webpack5';
 import { INITIAL_VIEWPORTS } from 'storybook/viewport';
-import '../src/main/resources/assets/styles/tailwind.css';
+import '../src/assets/tailwind.css';
 
 const preview: Preview = {
   parameters: {

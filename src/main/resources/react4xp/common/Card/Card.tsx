@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 
 import type { ImageData } from '../types';
-import { getImageAlt } from '/react4xp/utils/image.client';
+import { getImageAlt } from '@utils/image.client';
 import { SafeHtml } from '../SafeHtml/SafeHtml';
 
 interface CardProps {

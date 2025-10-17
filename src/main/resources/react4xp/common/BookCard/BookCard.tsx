@@ -1,7 +1,7 @@
 import {type FC} from 'react';
 
-import {type ImageData} from '/react4xp/common/Image/Image';
-import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+import {type ImageData} from '@common/Image/Image';
+import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
 
 interface AuthorType {
