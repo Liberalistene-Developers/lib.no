@@ -1,12 +1,4 @@
-import type {ComponentProps, PartData} from '@enonic/react-components';
-
 import {Button} from '/react4xp/common/Button/Button';
-import type {ButtonProps} from '/react4xp/common/Button/ButtonProps';
+import {createPartShim} from '/react4xp/common/PartShim/PartShim';
 
-export const ButtonPart = ({data}: ComponentProps<PartData>) => {
-  const props = data as ButtonProps
-
-  return (
-    <Button {...props} />
-  );
-};
+export const ButtonPart = createPartShim(Button);

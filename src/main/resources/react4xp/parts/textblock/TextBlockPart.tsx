@@ -1,10 +1,4 @@
-import * as React from 'react';
-import type {ComponentProps} from '@enonic/react-components';
-
 import {TextBlock} from '/react4xp/common/TextBlock/TextBlock';
+import {createPartShim} from '/react4xp/common/PartShim/PartShim';
 
-export const TextBlockPart = ({data}: ComponentProps) => {
-  return (
-    <TextBlock {...data} />
-  );
-};
+export const TextBlockPart = createPartShim(TextBlock);

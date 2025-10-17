@@ -1,8 +1,4 @@
-import * as React from 'react';
-import type {ComponentProps} from '@enonic/react-components';
-
 import {Article} from '/react4xp/common/Article/Article';
+import {createPartShim} from '/react4xp/common/PartShim/PartShim';
 
-export const ArticlePart = ({data}: ComponentProps) => {
-  return <Article {...data} />;
-};
+export const ArticlePart = createPartShim(Article);
