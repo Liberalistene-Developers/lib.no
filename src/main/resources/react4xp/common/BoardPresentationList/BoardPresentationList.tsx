@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {BoardPresentationPart} from '/react4xp/parts/boardpresentation/BoardPresentationPart';
+import {BoardPresentation} from '/react4xp/common/BoardPresentation/BoardPresentation';
 
 interface BoardMember {
   itemId?: string;
@@ -46,7 +46,7 @@ export const BoardPresentationList: React.FC<BoardPresentationListProps> = ({
         title,
         board
       }) => (
-        <BoardPresentationPart
+        <BoardPresentation
           key={itemId}
           noHighlighting={noHighlighting}
           imagesize={imagesize as unknown as string}
