@@ -5,18 +5,54 @@ import { Image } from '/react4xp/common/Image/Image';
 import { SafeHtml } from '/react4xp/common/SafeHtml/SafeHtml';
 import type { ImageData } from '/react4xp/common/types';
 
+/**
+ * Props for the CandidatePresentationItem component
+ */
 interface CandidatePresentationItemProps {
+  /** CSS class name ('main' for highlighted/larger layout) */
   className?: string;
+  /** Candidate's profile image data */
   image?: ImageData;
+  /** Candidate's name */
   name?: string;
+  /** Geographic location (e.g., city, region) */
   place?: string;
+  /** Candidate's position/role */
   position?: string;
+  /** Introduction text (HTML) */
   ingress?: string;
+  /** Full description text (HTML) */
   description?: string;
+  /** Text prefix to display before the candidate's name */
   preText?: string;
+  /** URL to the candidate's detail page */
   url?: string;
 }
 
+/**
+ * CandidatePresentationItem component displays a single candidate in presentation format.
+ *
+ * Provides two layout modes:
+ * - Standard: Compact card with image, name, and position
+ * - Main (className="main"): Larger horizontal layout with additional details
+ *
+ * The component shows/hides certain elements based on the layout mode using
+ * Tailwind CSS classes.
+ *
+ * @example
+ * ```tsx
+ * <CandidatePresentationItem
+ *   className="main"
+ *   image={{url: '/candidate.jpg', alternativeText: 'Jane Doe'}}
+ *   name="Jane Doe"
+ *   position="Party Leader"
+ *   place="Oslo"
+ *   preText="Top candidate:"
+ *   ingress="<p>Leading the change...</p>"
+ *   url="/candidates/jane-doe"
+ * />
+ * ```
+ */
 export const CandidatePresentationItem: FC<CandidatePresentationItemProps> = ({
   className,
   image,
