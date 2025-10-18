@@ -1,11 +1,25 @@
 import {type FC} from 'react';
 import { FAIconEdit } from '/react4xp/common/FAIcon/FAIconEdit';
 
+/**
+ * Location data for event information
+ *
+ * @property address - Physical address or URL for the event location
+ * @property name - Display name of the location
+ */
 interface LocationData {
   address?: string;
   name?: string;
 }
 
+/**
+ * Props for the EventInfo component
+ *
+ * @property date - Event date string to display
+ * @property location - Location data with address and/or name
+ * @property locationType - Type of location: 'place' for physical location or 'virtual' for online events
+ * @property locationLabel - Label text displayed before the location (e.g., "Sted:", "Place:")
+ */
 interface EventInfoProps {
   date?: string;
   location?: LocationData;
@@ -14,7 +28,31 @@ interface EventInfoProps {
 }
 
 /**
- * Primary Image holder for solution.
+ * Event metadata component that displays location and date information in a compact format.
+ *
+ * This component shows an icon-based metadata row with the event's location (with a link)
+ * and date/time. The location icon changes based on whether it's a physical place (map icon)
+ * or virtual event (globe icon). Used as a child component in EventCard and EventListItem.
+ *
+ * @example
+ * ```tsx
+ * <EventInfo
+ *   date="15. mars 2024, 18:00"
+ *   location={{ address: "Oslo City Hall", name: "Oslo Rådhus" }}
+ *   locationType="place"
+ *   locationLabel="Sted:"
+ * />
+ * ```
+ *
+ * @example Virtual event
+ * ```tsx
+ * <EventInfo
+ *   date="20. april 2024, 10:00"
+ *   location={{ address: "https://zoom.us/meeting/123", name: "Zoom Meeting" }}
+ *   locationType="virtual"
+ *   locationLabel="Online:"
+ * />
+ * ```
  */
 export const EventInfo: FC<EventInfoProps> = ({
   date = '',

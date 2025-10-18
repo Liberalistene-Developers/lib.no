@@ -10,6 +10,32 @@ interface LocationType {
   address?: string;
 }
 
+/**
+ * Props for the Event component
+ *
+ * @property date - Event date string (e.g., "2024-01-15")
+ * @property time - Event time string (e.g., "18:00")
+ * @property headerColor - Color for the title when displayed in image
+ * @property headerPosition - Position of title in image ('left' | 'center' | 'right')
+ * @property title - Event title/name
+ * @property titleInImage - Whether to display title overlaid on the image
+ * @property description - Full HTML description of the event
+ * @property location - Location object with address information
+ * @property image - Image data for the event header
+ * @property ingress - Short introductory text/summary
+ * @property ingressInImage - Whether to display ingress overlaid on the image
+ * @property informationLabel - Label for the information section
+ * @property moreInformationLabel - Label for the contact information section
+ * @property locationLabel - Label for the location section
+ * @property contactLabel - Label text before contact email
+ * @property placeLabel - Label for the place/venue display
+ * @property agendaLabel - Label for the agenda/schedule section
+ * @property dateLabel - Label text before the date
+ * @property timeLabel - Label text before the time
+ * @property email - Contact email for the event
+ * @property schedules - Array of schedule items for the event agenda
+ * @property map - Map coordinates [latitude, longitude] for the event location
+ */
 export interface EventProps {
   date?: string;
   time?: string;
@@ -35,6 +61,32 @@ export interface EventProps {
   map?: number[];
 }
 
+/**
+ * Full event page component that displays comprehensive event information including
+ * header image, description, agenda, location details, and interactive map.
+ *
+ * The component uses a two-column layout with the main content (description, contact,
+ * agenda) on the left (2/3 width) and location information (map, place, time) on the
+ * right (1/3 width).
+ *
+ * @example
+ * ```tsx
+ * <Event
+ *   title="Annual Conference 2024"
+ *   date="2024-03-15"
+ *   time="09:00"
+ *   location={{ address: "Oslo Congress Centre, Oslo" }}
+ *   map={[59.9139, 10.7522]}
+ *   ingress="Join us for our annual conference"
+ *   description="<p>Full event description...</p>"
+ *   email="contact@example.com"
+ *   schedules={[
+ *     { time: '09:00', title: 'Registration' },
+ *     { time: '10:00', title: 'Opening Keynote' }
+ *   ]}
+ * />
+ * ```
+ */
 export const Event = ({
   date,
   time,
