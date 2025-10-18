@@ -2,13 +2,35 @@ import {type FC} from 'react';
 
 import {Image, type ImageData} from '@common/Image/Image';
 
-
+/**
+ * Props for the FancyHeader component
+ */
 interface FancyHeaderProps {
+  /** Header title text */
   title?: string;
+  /** Decorative effect image (shown floating on desktop) */
   effect?: ImageData | null;
+  /** Main header image */
   image?: ImageData | null;
 }
 
+/**
+ * FancyHeader component displays a stylized page header with title and images.
+ *
+ * Creates a two-column layout with a prominently styled title on the left
+ * (with optional decorative effect image) and a main image on the right.
+ * The title has a purple background with shadow effects. On mobile, the
+ * layout switches to a single column with the image first.
+ *
+ * @example
+ * ```tsx
+ * <FancyHeader
+ *   title="Welcome to Our Party"
+ *   effect={{url: '/images/effect.png', alternativeText: 'Decoration'}}
+ *   image={{url: '/images/header.jpg', alternativeText: 'Header'}}
+ * />
+ * ```
+ */
 export const FancyHeader: FC<FancyHeaderProps> = ({
   title = '',
   effect = null,
