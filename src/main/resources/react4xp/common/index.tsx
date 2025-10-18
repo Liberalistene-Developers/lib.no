@@ -49,7 +49,8 @@ export * from './ListItem/ListItem';
 export * from './LocalBlock/LocalBlock';
 export * from './LocalBranch/LocalBranch';
 export * from './LocalBranches/LocalBranches';
-export * from './Map/Map';
+// Map is not exported here - it's only loaded dynamically through MapLoader
+// export * from './Map/Map';
 export * from './MapLoader/MapLoader';
 export * from './Menu/Menu';
 export * from './MenuItem/MenuItem';

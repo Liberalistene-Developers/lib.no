@@ -1,5 +1,4 @@
-import {type FC, useEffect, useState} from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import {type ComponentType, type FC, useEffect, useState} from 'react';
 import {logger} from '@utils/logger';
 
 /**
@@ -23,13 +22,39 @@ interface NominatimResult {
 }
 
 /**
+ * react-leaflet components loaded dynamically
+ */
+interface LeafletComponents {
+  MapContainer: ComponentType<{
+    center: [number, number];
+    zoom: number;
+    scrollWheelZoom: boolean;
+    className: string;
+    children: React.ReactNode;
+  }>;
+  TileLayer: ComponentType<{
+    attribution: string;
+    url: string;
+  }>;
+  Marker: ComponentType<{
+    position: [number, number];
+    children: React.ReactNode;
+  }>;
+  Popup: ComponentType<{
+    children: React.ReactNode;
+  }>;
+}
+
+/**
  * Map component displays an interactive OpenStreetMap with location marker.
  *
- * Renders a Leaflet map using react-leaflet with OpenStreetMap tiles. If only
- * an address is provided (no position), automatically geocodes it using the
- * Nominatim API. Client-side only component (returns null during SSR). Shows
- * error message if geocoding fails. The map is fixed at zoom level 17 with
- * scroll wheel zoom disabled.
+ * Dynamically imports react-leaflet to avoid bundling Leaflet in vendors.js,
+ * significantly reducing initial bundle size. Renders a Leaflet map using
+ * react-leaflet with OpenStreetMap tiles. If only an address is provided (no
+ * position), automatically geocodes it using the Nominatim API. Client-side
+ * only component (returns null during SSR). Shows loading state while react-leaflet
+ * loads, and error message if geocoding or loading fails. The map is fixed at
+ * zoom level 17 with scroll wheel zoom disabled.
  *
  * @example
  * ```tsx
@@ -52,10 +77,22 @@ export const Map: FC<MapProps> = ({
   const [pos, setPos] = useState<[number, number]>(position as [number, number]);
   const [isSsr, setIsSsr] = useState(true);
   const [hasError, setHasError] = useState(false);
+  const [leafletComponents, setLeafletComponents] = useState<LeafletComponents | null>(null);
 
   useEffect(() => {
     setIsSsr(false);
 
+    // Dynamically import react-leaflet to avoid bundling it in vendors.js
+    // @ts-expect-error - Dynamic imports supported at runtime but not in ES2015 module setting
+    import('react-leaflet').then((module: LeafletComponents) => {
+      setLeafletComponents(module);
+    }).catch((error: Error) => {
+      logger.error('Failed to load react-leaflet', error);
+      setHasError(true);
+    });
+  }, []);
+
+  useEffect(() => {
     if (position.length < 2 && address) {
       logger.debug('Geocoding address', {address});
 
@@ -97,6 +134,15 @@ export const Map: FC<MapProps> = ({
     return null;
   }
 
+  // Wait for react-leaflet to load
+  if (!leafletComponents) {
+    return (
+      <div className="map-loading p-4 bg-gray-50 border border-gray-200 rounded">
+        <p className="text-gray-600">Loading map...</p>
+      </div>
+    );
+  }
+
   // Handle missing or invalid position
   if (!pos || pos.length < 2) {
     if (hasError) {
@@ -109,21 +155,16 @@ export const Map: FC<MapProps> = ({
     return null;
   }
 
+  const {MapContainer, TileLayer, Marker, Popup} = leafletComponents;
+
   return (
     <MapContainer
-      // MapContainerProps extends MapOptions from leaflet, but without @types/leaflet
-      // installed, TypeScript can't properly resolve the inherited props. The center prop
-      // is valid and required - it's a [number, number] tuple for [lat, lng].
-      // @ts-expect-error - MapOptions props not properly exposed without @types/leaflet
       center={pos}
       zoom={17}
       scrollWheelZoom={false}
       className="map-container"
     >
       <TileLayer
-        // TileLayer accepts attribution as a string prop, but the type definition
-        // may not properly expose it due to the same leaflet types issue.
-        // @ts-expect-error - TileLayer props not properly exposed without @types/leaflet
         attribution='&amp;copy <a href="http://osm.org/copyright" rel="noreferrer">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />

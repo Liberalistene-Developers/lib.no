@@ -54,6 +54,10 @@ module.exports = function(env, config) {
 			if (/^@enonic-types\//.test(request)) {
 				return callback(null, 'commonjs ' + request);
 			}
+			// Externalize react-leaflet and leaflet - loaded dynamically via CDN
+			if (request === 'react-leaflet' || request === 'leaflet') {
+				return callback(null, 'root ' + request);
+			}
 			callback();
 		}
 	];
