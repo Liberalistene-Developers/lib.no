@@ -20,8 +20,7 @@ jest.mock('@common/SafeHtml/SafeHtml', () => ({
     return React.createElement(Component, {
       'data-testid': 'safe-html',
       className,
-      children: html,
-    });
+    }, html);
   },
 }));
 

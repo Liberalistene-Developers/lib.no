@@ -9,7 +9,7 @@ import type {ImageData} from '/react4xp/common/types';
 
 // Mock dependencies
 jest.mock('@common/ImageBlock/ImageBlock', () => ({
-  ImageBlock: ({title, image, ingress, position}: {
+  ImageBlock: ({title, image, ingress, position: _position}: {
     title: Array<{title: string; titleColor?: string}>;
     image?: ImageData;
     ingress?: string;

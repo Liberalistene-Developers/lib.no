@@ -130,7 +130,7 @@ describe('AuthorLink', () => {
     });
 
     it('should wrap link in div', () => {
-      const {container} = render(<AuthorLink author="John Doe" url="/author/john" />);
+      render(<AuthorLink author="John Doe" url="/author/john" />);
 
       const link = screen.getByRole('link');
       const div = link.parentElement;

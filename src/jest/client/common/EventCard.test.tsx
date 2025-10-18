@@ -227,7 +227,7 @@ describe('EventCard', () => {
 
   describe('edge cases', () => {
     it('should render EventInfo as child of Card', () => {
-      const {container} = render(<EventCard title="Event" />);
+      render(<EventCard title="Event" />);
 
       const card = screen.getByTestId('card');
       const eventInfo = screen.getByTestId('event-info');

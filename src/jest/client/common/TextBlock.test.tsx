@@ -163,7 +163,7 @@ describe('TextBlock', () => {
     });
 
     it('should wrap text in a div', () => {
-      const {container} = render(<TextBlock text="Text" />);
+      render(<TextBlock text="Text" />);
 
       const textWrapper = screen.getByTestId('safe-html').parentElement;
       expect(textWrapper?.tagName).toBe('DIV');
