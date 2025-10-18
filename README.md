@@ -188,6 +188,8 @@ Comprehensive documentation is available:
   - Testing guidelines
   - Release process
 
+- **[Component Catalog](docs/COMPONENTS.md)** - Complete reference for all React components
+
 - **[Sandbox Setup Guide](docs/sandbox-setup.md)** - Enonic sandbox configuration
 
 - **[GitHub Issues](https://github.com/Liberalistene-Developers/lib.no/issues)** - Issue tracking and roadmap
