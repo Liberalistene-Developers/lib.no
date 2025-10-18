@@ -19,6 +19,49 @@ interface PersonData {
   'short-description'?: string;
 }
 
+/**
+ * Processes a configured list of persons for display.
+ *
+ * This processor fetches multiple person content items by their IDs and transforms them
+ * into a formatted list with images, URLs, and descriptions. Uses the Enonic Content API
+ * to retrieve person data and the Portal API to generate page URLs.
+ *
+ * @param {object} params - The processor parameters from React4xp
+ * @param {Component} params.component - The part component instance containing configuration
+ * @returns {object} Props for the PersonList component including:
+ *   - title: List title from configuration
+ *   - displaytype: Display style configuration
+ *   - description: List description text
+ *   - shortDescription: Brief description for the list
+ *   - imagesize: Size configuration for person images
+ *   - imagetype: Image type/style configuration
+ *   - items: Array of person objects, each containing:
+ *     - itemID: Content ID of the person
+ *     - url: Page URL to the person's profile
+ *     - name: Person's display name
+ *     - shortDescription: Brief description of the person
+ *     - image: Optimized image URL (256x256 square)
+ *
+ * @example
+ * // Returns props with a list of persons
+ * {
+ *   title: "Our Team",
+ *   displaytype: "grid",
+ *   description: "Meet our leadership team",
+ *   shortDescription: "Leadership",
+ *   imagesize: "medium",
+ *   imagetype: true,
+ *   items: [
+ *     {
+ *       itemID: "abc123",
+ *       url: "/people/john-doe",
+ *       name: "John Doe",
+ *       shortDescription: "CEO",
+ *       image: "/_/image/abc123:def456/square(256)/photo.jpg"
+ *     }
+ *   ]
+ * }
+ */
 export const personListProcessor: ComponentProcessor<'lib.no:personlist'> = ({component}) => {
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as PersonListConfig;

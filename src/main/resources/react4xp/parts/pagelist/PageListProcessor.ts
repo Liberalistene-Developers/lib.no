@@ -34,6 +34,61 @@ interface PageData {
   'short-description'?: string;
 }
 
+/**
+ * Processes the PageList component to display a curated list of pages.
+ *
+ * This processor creates a customizable list or grid of pages with support for multiple
+ * display modes (gridlist or list), configurable image display (size, shape, visibility),
+ * and flexible content sourcing. Each item can override the default image and ingress text.
+ *
+ * The processor handles complex configuration logic including:
+ * - Two display types: gridlist (cards) and list (rows)
+ * - Conditional image display for list mode
+ * - Image size options (small, medium, large, full)
+ * - Image shape (round/circular or rectangular)
+ * - Fallback logic: custom image → content image, custom ingress → content ingress → short-description
+ * - XML mixin defaults: imagetype defaults to true (round images)
+ *
+ * @param {object} params - The processor parameters from React4xp
+ * @param {Component} params.component - The part component instance containing configuration
+ * @returns {object} Props for the PageList component including:
+ *   - title: Optional heading text for the page list
+ *   - displaytype: Display mode ('gridlist' or 'list')
+ *   - showImage: Whether to show images in list mode (always true for gridlist)
+ *   - imageSize: Size variant ('small', 'medium', 'large', 'full')
+ *   - titleCenter: Center align titles in gridlist mode
+ *   - imageType: Image shape ('round' for circular, '' for rectangular)
+ *   - items: Array of page objects with id, name, url, shortDescription, and image
+ *   - noIngress: Hide ingress/description text if true
+ *
+ * @example
+ * // Returns props with gridlist of pages
+ * {
+ *   title: "Featured Pages",
+ *   displaytype: "gridlist",
+ *   showImage: false,
+ *   imageSize: "medium",
+ *   titleCenter: true,
+ *   imageType: "round",
+ *   items: [
+ *     {
+ *       id: "abc123",
+ *       name: "About Us",
+ *       url: "/about",
+ *       shortDescription: "Learn about our history and values",
+ *       image: "/_/image/abc123:def456/block-300-300/about.jpg"
+ *     },
+ *     {
+ *       id: "def456",
+ *       name: "Get Involved",
+ *       url: "/join",
+ *       shortDescription: "Join our movement for freedom",
+ *       image: "/_/image/ghi789:jkl012/block-300-300/join.jpg"
+ *     }
+ *   ],
+ *   noIngress: false
+ * }
+ */
 export const pageListProcessor: ComponentProcessor<'lib.no:pagelist'> = ({component}) => {
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as PageListConfig;
