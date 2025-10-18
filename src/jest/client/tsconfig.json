@@ -14,7 +14,9 @@
     "paths": {
       "/react4xp/*": ["../../main/resources/react4xp/*"],
       "/assets/*": ["../../main/resources/assets/*"],
+      "@common/*": ["../../main/resources/react4xp/common/*"],
       "@utils/*": ["../../main/resources/react4xp/utils/*"],
+      "/lib/menu": ["../../../node_modules/@item-enonic-types/lib-menu"],
     },
 
     "sourceMap": true, // Important to get correct line numbers when running coverage tests

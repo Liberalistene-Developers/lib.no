@@ -4,8 +4,7 @@ import {EventPlace} from '@common/EventPlace/EventPlace';
 import {EventTime} from '@common/EventTime/EventTime';
 import {MapLoader} from '@common/MapLoader/MapLoader';
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
-
-import { type ImageData } from '@common/Image/Image';
+import type {ImageData} from '@common/types';
 
 interface LocationType {
   address?: string;

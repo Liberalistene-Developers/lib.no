@@ -38,7 +38,9 @@ const clientSideConfig: Config.InitialProjectOptions = {
   moduleNameMapper: {
     '^/react4xp/(.*)$': `<rootDir>/${DIR_SRC}/react4xp/$1`,
     '^/assets/(.*)$': `<rootDir>/${DIR_SRC}/assets/$1`,
+    '^@common/(.*)$': `<rootDir>/${DIR_SRC}/react4xp/common/$1`,
     '^@utils/(.*)$': `<rootDir>/${DIR_SRC}/react4xp/utils/$1`,
+    '^/lib/menu$': '<rootDir>/node_modules/@item-enonic-types/lib-menu',
     '^/(.*)$': `<rootDir>/${DIR_SRC}/$1`,
   },
 
