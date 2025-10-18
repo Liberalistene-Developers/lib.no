@@ -9,6 +9,15 @@ import { getSite, getSiteConfig } from '/lib/xp/content';
 
 import { type CommonProcessorData, type SiteConfig, Social } from './CommonProps';
 
+/**
+ * Processes social media addresses into icon-ready format
+ *
+ * Extracts domain names from URLs to generate FontAwesome icon class names.
+ * For example, "https://facebook.com/page" becomes "fa-facebook".
+ *
+ * @param social - Array of social media addresses from site config
+ * @returns Array of Social objects with href and className for icon rendering
+ */
 function processSocialMedia(social?: Array<{address: string}>): Social[] {
   if (!social) return [];
 
@@ -23,8 +32,28 @@ function processSocialMedia(social?: Array<{address: string}>): Social[] {
   });
 }
 
-
-
+/**
+ * Common processor for page-level data shared across all pages
+ *
+ * This processor runs for every page and provides common data like site configuration,
+ * menu structure, edit mode status, and social media links. The data is merged into
+ * every page component's props.
+ *
+ * **Processed data includes:**
+ * - Site title and display name
+ * - Menu tree structure
+ * - Site configuration (logo, social media, etc.)
+ * - Edit mode detection
+ * - CSS asset URLs
+ * - Language settings
+ * - Social media links with icon classes
+ *
+ * **Used by:** All page components via React4xp page rendering
+ *
+ * @param content - Current content item
+ * @param request - Request object with mode information
+ * @returns CommonProcessorData object merged into page props
+ */
 export const commonProcessor: ComponentProcessor<PageDescriptor> = ({ content, request: { mode } }): CommonProcessorData  => {
   const menu = getMenuTree(1);
     // Get common site data first (needed for both paths)
