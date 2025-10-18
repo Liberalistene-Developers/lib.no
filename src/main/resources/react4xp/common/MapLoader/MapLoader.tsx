@@ -1,19 +1,48 @@
 import {type ComponentType, type FC, useEffect, useState} from 'react';
 
+/**
+ * Fallback component shown while map is loading
+ */
 const Fallback: FC = () => (
   <div>Will show map in preview/production</div>
 );
 
+/**
+ * Props for the MapLoader component
+ */
 interface MapLoaderProps {
+  /** Address to display on the map */
   address?: string;
+  /** Map center position as [latitude, longitude] */
   position?: number[];
 }
 
+/**
+ * Props for the dynamically loaded Map component
+ */
 interface MapProps {
+  /** Address to display on the map */
   address?: string;
+  /** Map center position as [latitude, longitude] */
   position?: number[];
 }
 
+/**
+ * MapLoader component lazy-loads the Map component with Leaflet dependencies.
+ *
+ * Dynamically loads Leaflet CSS and JavaScript from CDN, then code-splits
+ * and loads the Map component only on the client side. Shows a fallback
+ * message during loading. This pattern avoids including Leaflet in the
+ * initial bundle and ensures SSR compatibility.
+ *
+ * @example
+ * ```tsx
+ * <MapLoader
+ *   address="Stortinget, Oslo"
+ *   position={[59.9127, 10.7461]}
+ * />
+ * ```
+ */
 export const MapLoader: FC<MapLoaderProps> = ({
   address = 'Allegaten 6, 4400 Flekkefjord',
   position = [58.2953903, 6.6580986]

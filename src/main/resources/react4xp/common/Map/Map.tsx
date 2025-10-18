@@ -2,16 +2,49 @@ import {type FC, useEffect, useState} from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import {logger} from '@utils/logger';
 
+/**
+ * Props for the Map component
+ */
 interface MapProps {
+  /** Address to display on the map (geocoded if position not provided) */
   address?: string;
+  /** Map center position as [latitude, longitude] */
   position?: number[] | [number, number];
 }
 
+/**
+ * Nominatim geocoding API result
+ */
 interface NominatimResult {
+  /** Latitude as string */
   lat: string;
+  /** Longitude as string */
   lon: string;
 }
 
+/**
+ * Map component displays an interactive OpenStreetMap with location marker.
+ *
+ * Renders a Leaflet map using react-leaflet with OpenStreetMap tiles. If only
+ * an address is provided (no position), automatically geocodes it using the
+ * Nominatim API. Client-side only component (returns null during SSR). Shows
+ * error message if geocoding fails. The map is fixed at zoom level 17 with
+ * scroll wheel zoom disabled.
+ *
+ * @example
+ * ```tsx
+ * <Map
+ *   address="Stortinget, Oslo"
+ *   position={[59.9127, 10.7461]}
+ * />
+ * ```
+ *
+ * @example
+ * ```tsx
+ * // Address-only (will geocode)
+ * <Map address="Karl Johans gate 22, Oslo" />
+ * ```
+ */
 export const Map: FC<MapProps> = ({
   address = 'Allegaten 6, 4400 Flekkefjord',
   position = [58.2953903, 6.6580986]
