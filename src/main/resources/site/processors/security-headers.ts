@@ -18,11 +18,11 @@ exports.responseProcessor = (req: unknown, res: Response): Response => {
   // This is a basic CSP - adjust based on your needs
   const cspDirectives = [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval'", // unsafe-inline/eval needed for React and dynamic content
-    "style-src 'self' 'unsafe-inline'", // unsafe-inline needed for styled-components/inline styles
-    "img-src 'self' data: https:",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com", // unsafe-inline/eval needed for React; unpkg.com for Leaflet
+    "style-src 'self' 'unsafe-inline' https://unpkg.com", // unsafe-inline needed for styled-components; unpkg.com for Leaflet CSS
+    "img-src 'self' data: https: https://*.tile.openstreetmap.org", // https: for general images; OSM for map tiles
     "font-src 'self' data:",
-    "connect-src 'self'",
+    "connect-src 'self' https://nominatim.openstreetmap.org", // nominatim for geocoding
     "frame-src 'self' https://www.youtube.com https://player.vimeo.com", // For video embeds
     "object-src 'none'",
     "base-uri 'self'",
