@@ -3,15 +3,53 @@ import slugify from 'react-slugify';
 
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
+/**
+ * Props for the Faq component.
+ */
 interface FaqProps {
+  /** Unique identifier for the FAQ item */
   itemID?: string;
+  /** The question text */
   question?: string;
+  /** The answer content (HTML) */
   answer?: string;
+  /** Whether the FAQ item should be expanded by default */
   expanded?: boolean;
+  /** HTML heading tag to use for the question ('h2' or 'h3') */
   Tag?: 'h2' | 'h3';
+  /** Accessible text for the anchor link */
   anchorText?: string;
 }
 
+/**
+ * FAQ component for displaying expandable question and answer pairs.
+ *
+ * Renders an interactive FAQ item with:
+ * - Expandable/collapsible answer section
+ * - Deep-linkable anchor for direct navigation
+ * - Schema.org markup for rich search results
+ * - Auto-expansion when accessed via URL hash
+ * - Accessible keyboard navigation
+ *
+ * @example
+ * ```tsx
+ * <Faq
+ *   itemID="1"
+ *   question="What is liberalism?"
+ *   answer="<p>Liberalism is a political philosophy...</p>"
+ *   expanded={false}
+ *   Tag="h2"
+ *   anchorText="Link to this question"
+ * />
+ * ```
+ *
+ * @remarks
+ * - The question is slugified to create a URL-safe anchor ID
+ * - If the URL hash matches the FAQ ID, the item auto-expands
+ * - Uses Schema.org Question/Answer markup for SEO
+ * - The expand/collapse is controlled via CSS and a hidden checkbox
+ * - Answer has a max-height animation when expanding
+ */
 export const Faq: FC<FaqProps> = ({
   itemID,
   question = '',

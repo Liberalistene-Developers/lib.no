@@ -1,34 +1,65 @@
 import {BudgetCutItem} from '@common/BudgetCut/BudgetCutExpandable';
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
+/**
+ * Individual budget cut sub-item within a budget cut list item.
+ */
 interface CutItem {
+  /** Name or category of the budget cut */
   name?: string;
+  /** Original budget amount */
   budget?: number;
+  /** Amount to be cut from this category */
   cut?: number;
+  /** Percentage of the budget to be cut */
   percent?: number;
+  /** Detailed description explaining the budget cut (HTML) */
   description?: string;
 }
 
+/**
+ * Individual item in the budget cut list with expandable details.
+ */
 interface BudgetCutListItem {
+  /** Unique identifier for the list item */
   itemID?: string;
+  /** Title of the budget category */
   title?: string;
+  /** Total budget amount */
   budget?: number;
+  /** Total amount to be cut */
   cut?: number;
+  /** List of sub-cuts within this category */
   cuts?: CutItem[];
+  /** Description of the budget cut (HTML) */
   description?: string;
+  /** Percentage of budget to be cut */
   percent?: number;
+  /** Summary text (HTML) - Note: typo in original name */
   sumary?: string;
 }
 
+/**
+ * Props for the BudgetCutList component.
+ */
 export interface BudgetCutListProps {
+  /** Introductory text displayed before the list (HTML) */
   ingress?: string;
+  /** Main title for the budget cut list */
   title?: string;
+  /** Array of budget cut items to display */
   items?: BudgetCutListItem[];
+  /** Localized label for "Total cut" */
   labelSumCut?: string;
+  /** Localized label for "Budget" */
   labelBudget?: string;
+  /** Localized label for "Title" column header */
   labelTitle?: string;
+  /** Localized label for "Percent" column header */
   labelPercent?: string;
+  /** Localized label for "Cut" column header */
   labelCut?: string;
+  /** Localized explanatory text for numbers */
   labelNumberText?: string;
 }
 
