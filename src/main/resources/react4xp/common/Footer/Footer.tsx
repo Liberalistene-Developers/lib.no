@@ -1,17 +1,61 @@
 import type { MenuTree } from '/lib/menu';
 import { Menu } from '/react4xp/common/Menu/Menu';
 
-interface FooterProps {
-  email?: string;
-  phone?: string;
-  place?: string;
-  menu?: MenuTree;
-  some?: Array<{
-    href: string;
-    className: string;
-  }>;
+/**
+ * Social media link configuration.
+ */
+interface SocialLink {
+  /** URL to the social media profile */
+  href: string;
+  /** FontAwesome icon class name (e.g., "fa-facebook") */
+  className: string;
 }
 
+/**
+ * Props for the Footer component.
+ */
+interface FooterProps {
+  /** Contact email address */
+  email?: string;
+  /** Contact phone number */
+  phone?: string;
+  /** Physical location/address */
+  place?: string;
+  /** Menu tree structure for footer navigation */
+  menu?: MenuTree;
+  /** Array of social media links */
+  some?: SocialLink[];
+}
+
+/**
+ * Footer component for the site-wide footer section.
+ *
+ * Renders a two-row footer with:
+ * - **Top row:** Social media icons (left), footer menu (center)
+ * - **Bottom row:** Contact information (place, phone, email) in three columns
+ *
+ * The footer is absolutely positioned at the bottom of the page.
+ *
+ * @example
+ * ```tsx
+ * <Footer
+ *   email="post@liberalistene.org"
+ *   phone="+47 123 45 678"
+ *   place="Oslo, Norway"
+ *   menu={footerMenuTree}
+ *   some={[
+ *     {href: 'https://facebook.com/liberalistene', className: 'fa-facebook'},
+ *     {href: 'https://twitter.com/liberalistene', className: 'fa-twitter'}
+ *   ]}
+ * />
+ * ```
+ *
+ * @remarks
+ * - Social icons are displayed on the left side (or centered on mobile)
+ * - Contact sections are evenly distributed (1/3 width each) and stack on mobile
+ * - Email is rendered as a clickable mailto link
+ * - Uses FontAwesome icons for social media (via the `fab` class prefix)
+ */
 export const Footer = ({
   menu,
   email,
