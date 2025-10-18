@@ -6,24 +6,11 @@ import React from 'react';
 import {render, screen} from '@testing-library/react';
 import {EventInfo} from '@common/EventInfo/EventInfo';
 
-// Mock dependencies
-jest.mock('@common/FAIcon/FAIconEdit', () => ({
-  FAIconEdit: ({iconType}: {iconType: string}) => (
-    <span data-testid="fa-icon-edit" data-icon-type={iconType}>
-      {iconType}
-    </span>
-  ),
-}));
-
 describe('EventInfo', () => {
   const mockLocation = {
     address: 'Oslo, Norway',
     name: 'Oslo City Hall',
   };
-
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
 
   describe('basic rendering', () => {
     it('should render wrapper with correct classes', () => {
@@ -110,35 +97,35 @@ describe('EventInfo', () => {
 
   describe('icon rendering', () => {
     it('should render map icon for place locationType', () => {
-      render(<EventInfo location={mockLocation} locationType="place" />);
+      const {container} = render(<EventInfo location={mockLocation} locationType="place" />);
 
-      const icons = screen.getAllByTestId('fa-icon-edit');
-      const mapIcon = icons.find((icon) => icon.getAttribute('data-icon-type') === 'fa-map');
+      const mapIcon = container.querySelector('.fa-map');
       expect(mapIcon).toBeInTheDocument();
+      expect(mapIcon).toHaveClass('fas');
     });
 
     it('should render globe icon for virtual locationType', () => {
-      render(<EventInfo location={mockLocation} locationType="virtual" />);
+      const {container} = render(<EventInfo location={mockLocation} locationType="virtual" />);
 
-      const icons = screen.getAllByTestId('fa-icon-edit');
-      const globeIcon = icons.find((icon) => icon.getAttribute('data-icon-type') === 'fa-globe');
+      const globeIcon = container.querySelector('.fa-globe');
       expect(globeIcon).toBeInTheDocument();
+      expect(globeIcon).toHaveClass('fas');
     });
 
     it('should render clock icon for date', () => {
-      render(<EventInfo date="2025-10-18" />);
+      const {container} = render(<EventInfo date="2025-10-18" />);
 
-      const icons = screen.getAllByTestId('fa-icon-edit');
-      const clockIcon = icons.find((icon) => icon.getAttribute('data-icon-type') === 'fa-clock');
+      const clockIcon = container.querySelector('.fa-clock');
       expect(clockIcon).toBeInTheDocument();
+      expect(clockIcon).toHaveClass('fas');
     });
 
     it('should default locationType to place', () => {
-      render(<EventInfo location={mockLocation} />);
+      const {container} = render(<EventInfo location={mockLocation} />);
 
-      const icons = screen.getAllByTestId('fa-icon-edit');
-      const mapIcon = icons.find((icon) => icon.getAttribute('data-icon-type') === 'fa-map');
+      const mapIcon = container.querySelector('.fa-map');
       expect(mapIcon).toBeInTheDocument();
+      expect(mapIcon).toHaveClass('fas');
     });
   });
 
@@ -175,7 +162,7 @@ describe('EventInfo', () => {
 
   describe('edge cases', () => {
     it('should render with all props', () => {
-      render(
+      const {container} = render(
         <EventInfo
           date="2025-12-25"
           location={mockLocation}
@@ -187,7 +174,10 @@ describe('EventInfo', () => {
       expect(screen.getByText('Location:')).toBeInTheDocument();
       expect(screen.getByText('Oslo City Hall')).toBeInTheDocument();
       expect(screen.getByText('2025-12-25')).toBeInTheDocument();
-      expect(screen.getAllByTestId('fa-icon-edit')).toHaveLength(2);
+
+      // Verify icons are rendered
+      expect(container.querySelector('.fa-map')).toBeInTheDocument();
+      expect(container.querySelector('.fa-clock')).toBeInTheDocument();
     });
 
     it('should render with minimal props', () => {
