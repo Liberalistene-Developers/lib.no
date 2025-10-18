@@ -2,79 +2,69 @@
 
 Thank you for your interest in contributing to the Liberalistene homepage project!
 
-## Contributors
+## Quick Start
 
-This project is maintained by:
+1. Fork and clone the repository
+2. Install dependencies: `npm install`
+3. Build the project: `npm run build`
+4. Make your changes
+5. Run checks: `npm run check && npm test`
+6. Submit a pull request
 
-- **Benny Thomas** - Lead Developer
+## Comprehensive Guide
 
-## How to Contribute
+For detailed contribution guidelines, please see:
 
-### Getting Started
+**[docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)**
 
-1. Fork the repository
-2. Clone your fork: `git clone https://github.com/YOUR-USERNAME/lib.no.git`
-3. Follow the setup instructions in [CLAUDE.md](CLAUDE.md)
-4. Create a new branch for your feature: `git checkout -b feature/your-feature-name`
+This comprehensive guide includes:
 
-### Development Guidelines
+- **Getting Started** - Setup and environment configuration
+- **Development Workflow** - Branch naming, commits, creating new Parts/Components
+- **Testing Guide** - How to write and run tests
+- **Debugging Guide** - Common issues and troubleshooting
+- **Pull Request Process** - Checklist and requirements
+- **Common Pitfalls** - React4xp v6, TypeScript, and Enonic XP gotchas
 
-#### Code Style
+## Quick Reference
 
-- Follow the existing code style
-- Use TypeScript for all new code
-- Run `npm run lint` before committing
-- Run `npm run check:types` to ensure type safety
+### Commit Message Format
 
-#### Commit Messages
+We use [Conventional Commits](https://www.conventionalcommits.org/):
 
-We follow [Conventional Commits](https://www.conventionalcommits.org/):
+```
+feat: add new feature
+fix: resolve bug
+docs: update documentation
+test: add tests
+refactor: improve code structure
+chore: maintenance tasks
+```
 
-- `feat:` - New features
-- `fix:` - Bug fixes
-- `chore:` - Maintenance tasks
-- `docs:` - Documentation
-- `style:` - Code style changes
-- `refactor:` - Code refactoring
-- `perf:` - Performance improvements
-- `test:` - Tests
+### Before Submitting PR
 
-Example: `feat: add new article list component`
-
-Commit messages are enforced by Commitlint via Husky pre-commit hooks.
-
-#### Pull Requests
-
-1. Ensure your code passes all checks:
-   ```bash
-   npm run check
-   npm run test
-   ```
-
-2. Update documentation if needed
-
-3. Create a pull request against the `develop` branch
-
-4. Provide a clear description of your changes
-
-5. Link any relevant issues
-
-### Testing
-
-- Write tests for new features
-- Ensure existing tests pass: `npm run test`
-- Test your changes in a local Enonic XP instance
-
-### Questions?
-
-If you have questions, please open an issue on GitHub or contact the maintainers.
+- [ ] Code compiles: `npm run build`
+- [ ] Type checks pass: `npm run check:types`
+- [ ] Linting passes: `npm run lint`
+- [ ] Tests pass: `npm test`
+- [ ] Documentation updated (if needed)
 
 ## Code of Conduct
 
 - Be respectful and inclusive
-- Focus on constructive feedback
+- Provide constructive feedback
 - Help create a welcoming environment for all contributors
 
 ## License
 
 By contributing, you agree that your contributions will be licensed under the Apache-2.0 License.
+
+## Need Help?
+
+- Read [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) for detailed guidance
+- Check [CLAUDE.md](CLAUDE.md) for project documentation
+- Open an issue for questions or problems
+
+---
+
+**Maintainers:** Benny Thomas
