@@ -81,4 +81,10 @@ export default tseslint.config(// If ignores is used without any other keys in t
   rules: {
     'no-console': 'off'
   }
+}, {
+  // Allow console in test setup files (for test environment configuration)
+  files: ['src/jest/**/setupFile.ts'],
+  rules: {
+    'no-console': 'off'
+  }
 }, storybook.configs["flat/recommended"]);
