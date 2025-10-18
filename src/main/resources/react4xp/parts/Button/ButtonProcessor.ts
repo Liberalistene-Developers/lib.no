@@ -29,6 +29,46 @@ interface ButtonConfig extends NestedRecord {
   };
 }
 
+/**
+ * Processes button part configuration and generates button props.
+ *
+ * Transforms Enonic XP button part configuration into props for the Button component.
+ * Handles both internal (content page) and external URLs, resolving internal content
+ * references to full page URLs.
+ *
+ * **Data Flow:**
+ * 1. Extracts button configuration from part component
+ * 2. Resolves URL based on selected type (intern/extern)
+ * 3. For internal URLs: Fetches content and generates page URL
+ * 4. For external URLs: Uses URL directly with optional target
+ * 5. Returns ButtonProps with title, url, target, and className
+ *
+ * @param component - The button part component from Enonic XP
+ * @returns ButtonProps for rendering the Button component
+ *
+ * @example
+ * ```ts
+ * // Internal link
+ * {
+ *   buttonText: "Learn More",
+ *   urlSelector: {
+ *     _selected: "intern",
+ *     intern: { url: "abc123" }  // Content ID
+ *   }
+ * }
+ * // Returns: { title: "Learn More", url: "/path/to/page", target: undefined, className: "medium-margin" }
+ *
+ * // External link
+ * {
+ *   buttonText: "Visit Website",
+ *   urlSelector: {
+ *     _selected: "extern",
+ *     extern: { externUrl: "https://example.com", target: "_blank" }
+ *   }
+ * }
+ * // Returns: { title: "Visit Website", url: "https://example.com", target: "_blank", className: "medium-margin" }
+ * ```
+ */
 export const buttonProcessor: ComponentProcessor<'lib.no:button'> = ({component}): Record<string, unknown> => {
   try {
 

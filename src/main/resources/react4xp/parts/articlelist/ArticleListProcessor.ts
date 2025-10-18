@@ -5,6 +5,12 @@ import { mapArticle, type MappedArticle } from '/react4xp/utils/articles';
 import { findItems } from '/react4xp/utils/query';
 import { buildParentPathQuery } from '/react4xp/utils/guillotine/helpers';
 
+/**
+ * Article list part configuration from articlelist.xml schema.
+ *
+ * Supports two display modes (gridlist/list), two item selection modes (manual/query),
+ * and optional dynamic loading via Guillotine API.
+ */
 interface ArticleListConfig {
   description?: string;
   displaytype?: {
@@ -45,6 +51,62 @@ interface ArticleListConfig {
   loadMoreEnabled?: boolean;
 }
 
+/**
+ * Processes article list configuration and fetches articles for the ArticleList component.
+ *
+ * Supports two item selection modes:
+ * - **Manual mode:** Uses explicitly selected articles from configuration
+ * - **Query mode:** Fetches articles dynamically via Guillotine API with pagination
+ *
+ * Handles both server-side rendering (initial article load) and client-side dynamic loading
+ * (infinite scroll via Guillotine API).
+ *
+ * **Data Flow:**
+ * 1. Extracts article list configuration from part component
+ * 2. Determines selection mode (manual/query) and display type (gridlist/list)
+ * 3. For manual mode: Maps selected article IDs to article data
+ * 4. For query mode:
+ *    - Fetches initial articles server-side via findItems
+ *    - Prepares Guillotine API endpoint for client-side pagination
+ *    - Builds query parameters (path, sorting, count)
+ * 5. Processes featured articles configuration
+ * 6. Returns ArticleListView props with articles and API configuration
+ *
+ * @param component - The articlelist part component from Enonic XP
+ * @param request - The HTTP request object containing branch information
+ * @returns ArticleListView props including articles, display settings, and API configuration
+ *
+ * @example
+ * ```ts
+ * // Manual mode
+ * {
+ *   itemsSet: {
+ *     _selected: "manual",
+ *     manual: { items: ["article1", "article2", "article3"] }
+ *   }
+ * }
+ * // Returns: { items: [mapped articles], apiUrl: "", ... }
+ *
+ * // Query mode (dynamic loading)
+ * {
+ *   itemsSet: {
+ *     _selected: "query",
+ *     query: {
+ *       queryroot: "/articles",
+ *       querysorting: "desc",
+ *       count: 12
+ *     }
+ *   }
+ * }
+ * // Returns: { items: [initial 12 articles], apiUrl: "/api/master", parentPathQuery: "...", ... }
+ * ```
+ *
+ * @remarks
+ * - Query mode uses Guillotine v7 API endpoint based on request branch
+ * - Featured articles can have custom styles and date display settings
+ * - Sort expression is converted from simplified format (asc/desc/normal) to XP query format
+ * - Initial server-side fetch ensures SEO and fast first paint
+ */
 export const articleListProcessor: ComponentProcessor<'lib.no:articlelist'> = ({component, request}) => {
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as ArticleListConfig;
