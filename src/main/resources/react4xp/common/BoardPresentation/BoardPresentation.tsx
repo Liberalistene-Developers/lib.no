@@ -4,29 +4,70 @@ import cx from 'classnames';
 import {Image} from '@common/Image/Image';
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
+/**
+ * Represents a member of the board
+ */
 interface BoardMember {
+  /** Unique identifier for the board member */
   itemId?: string;
+  /** Board member's image data */
   image?: {
+    /** Image URL */
     url?: string;
   };
+  /** Board member's role/position */
   role?: string;
+  /** Board member's name */
   name?: string;
+  /** Board member's email address */
   email?: string;
 }
 
+/**
+ * Props for the BoardPresentation component
+ */
 export interface BoardPresentationProps {
+  /** Array of board members to display */
   board?: BoardMember[];
+  /** Title for the board members list */
   boardTitle?: string;
+  /** HTML description text */
   description?: string;
+  /** Size of member images - 'small', 'medium', or 'large' */
   imagesize?: string;
+  /** Image style type - 'round' for circular images */
   imagetype?: string;
+  /** Whether to highlight the first member - 'no', 'yes', or 'noimage' */
   memberHighlighted?: 'no' | 'yes' | 'noimage';
+  /** If true, disables member highlighting */
   noHighlighting?: boolean;
+  /** If true, reverses the layout order */
   reverseOrder?: boolean;
+  /** Email visibility setting - 'no', 'first', or 'all' */
   showEmail?: 'no' | 'first' | 'all';
+  /** Main title for the board presentation */
   title?: string;
 }
 
+/**
+ * BoardPresentation component displays board members with flexible layout options.
+ *
+ * Provides a two-column layout with an optional highlighted member on one side
+ * and a list of all members on the other. Supports various display options including
+ * image styles, email visibility, and layout reversal.
+ *
+ * @example
+ * ```tsx
+ * <BoardPresentation
+ *   title="Our Board"
+ *   boardTitle="Board Members"
+ *   board={boardMembers}
+ *   memberHighlighted="yes"
+ *   imagesize="medium"
+ *   showEmail="first"
+ * />
+ * ```
+ */
 export const BoardPresentation: FC<BoardPresentationProps> = ({
   board = [],
   boardTitle,

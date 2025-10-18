@@ -2,23 +2,56 @@ import {type FC} from 'react';
 
 import {PersonListItem} from '@common/PersonListItem/PersonListItem';
 
+/**
+ * Represents a member of the board
+ */
 interface BoardMember {
+  /** Unique identifier for the board member */
   itemId?: string;
+  /** Board member's image data */
   image?: {
+    /** Image URL */
     url?: string;
   };
+  /** Board member's role/position */
   role?: string;
+  /** Board member's name */
   name?: string;
 }
 
+/**
+ * Props for the Board component
+ */
 interface BoardProps {
+  /** Size of member images - 'small', 'medium', or 'large' */
   imagesize?: string;
+  /** Image style type - 'round' for circular images */
   imagetype?: string;
+  /** Array of board members to display */
   board?: BoardMember[];
+  /** Email visibility setting - 'no', 'first', or 'all' */
   showemail?: string;
+  /** Whether to show member descriptions */
   showDescriptions?: boolean;
 }
 
+/**
+ * Board component displays an organization's board members in a special layout.
+ *
+ * The first board member is displayed prominently at the top, with remaining
+ * members shown in a grid below. Used for displaying organizational leadership.
+ *
+ * @example
+ * ```tsx
+ * <Board
+ *   board={boardMembers}
+ *   imagesize="medium"
+ *   imagetype="round"
+ *   showemail="first"
+ *   showDescriptions={true}
+ * />
+ * ```
+ */
 export const Board: FC<BoardProps> = ({
   imagesize = 'medium',
   imagetype = 'round',
