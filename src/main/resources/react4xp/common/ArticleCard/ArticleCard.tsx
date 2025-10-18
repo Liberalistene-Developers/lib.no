@@ -7,24 +7,106 @@ import type { ItemData } from '/react4xp/common/types';
 // Re-export ItemData for backward compatibility
 export type { ItemData } from '/react4xp/common/types';
 
+/**
+ * Props for the ArticleCard component
+ */
 export interface ArticleCardProps {
+  /** Optional child elements (e.g., badges, metadata) */
   children?: ReactNode;
+  /** If true, renders children after content. If false, before content */
   childrenLast?: boolean;
+  /** Additional CSS classes */
   className?: string;
+  /** Image/content layout direction */
   direction?: 'left' | 'right' | '' | undefined;
+  /** Image display size */
   imageSize?: 'small' | 'medium' | 'large' | 'full';
+  /** Image shape style */
   imageType?: 'round' | '';
+  /** Article data (title, image, url, authors, date, etc.) */
   item?: ItemData;
+  /** If true, hides the article summary/ingress */
   noIngress?: boolean;
+  /** If true, uses presentation styling */
   presentation?: boolean;
+  /** Text for "read more" link */
   readMore?: string;
+  /** If true, shows "read more" link */
   readMoreEnabled?: boolean;
+  /** If true, displays article authors. Defaults to true */
   showAuthors?: boolean;
+  /** If true, displays publication date. Defaults to true */
   showDate?: boolean;
+  /** If true, displays article image */
   showImage?: boolean;
+  /** If true, centers the article title */
   titleCenter?: boolean;
 }
 
+/**
+ * Article card component for article lists and grids
+ *
+ * A flexible card component for displaying article previews in lists, grids, or related
+ * content sections. Built on top of GridItem with article-specific metadata (authors, date).
+ *
+ * **Features:**
+ * - Configurable image size and shape
+ * - Author byline with first author only
+ * - Publication date display
+ * - Optional "read more" link
+ * - Flexible layout direction (left/right)
+ * - Optional ingress/summary
+ * - Responsive presentation mode
+ *
+ * **Common use cases:**
+ * - Article list pages
+ * - Related articles section
+ * - Search results
+ * - Author archive pages
+ * - Homepage featured articles
+ *
+ * **Layout:**
+ * - Image (configurable size)
+ * - Title (linked to article)
+ * - Ingress/summary (optional)
+ * - Author byline (first author with image)
+ * - Publication date
+ * - Read more link (optional)
+ *
+ * @example
+ * ```tsx
+ * // Standard article card
+ * <ArticleCard
+ *   item={{
+ *     name: 'Article Title',
+ *     url: '/articles/my-article',
+ *     image: articleImage,
+ *     shortDescription: '<p>Summary...</p>',
+ *     authors: [{person: 'John Doe', personUrl: '/authors/john'}],
+ *     datePublished: 'January 15, 2025'
+ *   }}
+ *   imageSize="medium"
+ *   showAuthors={true}
+ *   showDate={true}
+ * />
+ *
+ * // Card without ingress, with read more link
+ * <ArticleCard
+ *   item={articleData}
+ *   noIngress={true}
+ *   readMoreEnabled={true}
+ *   readMore="Les mer"
+ * />
+ *
+ * // Horizontal layout card
+ * <ArticleCard
+ *   item={articleData}
+ *   direction="left"
+ *   imageSize="small"
+ *   imageType="round"
+ * />
+ * ```
+ */
 export const ArticleCard: FC<ArticleCardProps> = ({
   className,
   direction = '',
