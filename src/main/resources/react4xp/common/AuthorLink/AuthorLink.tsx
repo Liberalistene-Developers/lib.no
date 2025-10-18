@@ -1,7 +1,7 @@
-import { FC } from 'react';
+import {type FC} from 'react';
 
-import { Image } from '../Image/Image';
-import type { ImageData } from '../types';
+import { Image } from '/react4xp/common/Image/Image';
+import type { ImageData } from '/react4xp/common/types';
 
 interface AuthorLinkProps {
   url?: string;

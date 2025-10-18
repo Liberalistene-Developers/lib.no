@@ -193,6 +193,65 @@ Enforced by Commitlint via Husky pre-commit hooks.
 - **Use proper TypeScript only** - All code must be written in proper TypeScript following recommended patterns
 - **Prefer destructuring** - Use object and array destructuring wherever possible
 - **Prefer template strings** - Use template literals (backticks) instead of string concatenation
+- **React imports with inline type modifier** - Use single import statement with inline `type` for type-only imports
+
+**React Import Convention:**
+
+The project uses the modern JSX transform (`"jsx": "react-jsx"` in tsconfig), so React doesn't need to be imported for JSX. Always use inline `type` modifier for type imports and keep only ONE import statement from 'react' per file.
+
+```tsx
+// ✅ Type-only imports (FC, ReactNode, etc.)
+import {type FC} from 'react';
+
+// ✅ Runtime imports (hooks, Component, etc.)
+import {useState, useEffect} from 'react';
+
+// ✅ Combined (type + runtime in ONE import)
+import {useState, useEffect, type FC, type ReactNode} from 'react';
+
+// ❌ Don't use separate type import statement
+import type {FC} from 'react';  // WRONG
+
+// ❌ Don't import types as runtime
+import {FC} from 'react';  // WRONG
+```
+
+### Import Paths and Barrel Exports
+
+The project uses **absolute imports** with path aliases configured in `tsconfig.react4xp.json`:
+
+```tsx
+// ✅ Absolute imports (preferred)
+import {Article} from '/react4xp/common/Article/Article';
+import {imageUrl} from '/react4xp/utils/image';
+
+// ✅ Path aliases (also valid)
+import {imageUrl} from '@utils/image';
+import {Article} from '@common/Article/Article';
+
+// ❌ Relative imports (avoid for cross-directory imports)
+import {Article} from '../Article/Article';  // WRONG
+```
+
+**Barrel Exports Available:**
+
+The project provides barrel exports for convenience:
+
+```tsx
+// Option 1: Direct import (explicit)
+import {Article} from '/react4xp/common/Article/Article';
+
+// Option 2: Barrel export (convenient for multiple imports)
+import {Article, Card, Button} from '/react4xp/common';
+
+// Both work the same - use whichever is clearer for your use case
+```
+
+**Barrel export files:**
+- `/react4xp/common/index.tsx` - All React components
+- `/react4xp/utils/index.ts` - All utility functions
+
+**Note:** Barrel exports are tree-shakeable - only imported items are bundled.
 
 ## Release Process
 

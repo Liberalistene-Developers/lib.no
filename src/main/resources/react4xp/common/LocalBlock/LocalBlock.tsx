@@ -1,4 +1,4 @@
-import type {FC} from 'react';
+import {type FC} from 'react';
 import {Image, type ImageData} from '@common/Image/Image';
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 import cx from 'classnames';

@@ -1,11 +1,11 @@
-import type {FC} from 'react';
+import {type FC} from 'react';
 import cx from 'classnames';
 
-import type { ImageData } from '../types';
+import type { ImageData } from '/react4xp/common/types';
 import { getImageAlt } from '@utils/image.client';
 
 // Re-export types for backward compatibility
-export type { ImageData, ImageType } from '../types';
+export type { ImageData, ImageType } from '/react4xp/common/types';
 
 interface ImageProps {
   className?: string;

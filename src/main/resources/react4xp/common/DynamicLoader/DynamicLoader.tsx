@@ -2,7 +2,7 @@ import {type FC, type ReactNode, useEffect, useState} from 'react';
 
 import doGuillotineRequest from '@utils/guillotine/request';
 
-import {Button} from '../Button/Button';
+import {Button} from '/react4xp/common/Button/Button';
 
 export interface DynamicLoaderItem {
   id?: string;

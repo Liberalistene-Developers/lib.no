@@ -1,4 +1,4 @@
-import type {FC} from 'react';
+import {type FC} from 'react';
 import cx from 'classnames';
 
 import type {ButtonProps} from './ButtonProps';

@@ -1,5 +1,5 @@
-import {extractList} from '../helpers';
-import {type ImageData, type ImageMapper} from '../../image';
+import {extractList} from '/react4xp/utils/guillotine/helpers';
+import {type ImageData, type ImageMapper} from '/react4xp/utils/image';
 
 interface EventData {
   id?: string;

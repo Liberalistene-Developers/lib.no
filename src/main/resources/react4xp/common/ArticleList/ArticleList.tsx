@@ -2,10 +2,10 @@ import {type FC} from 'react';
 
 import {buildQueryArticleList, extractArticleList} from '@utils/guillotine/requests';
 
-import {ArticleListView} from '../ArticleListView/ArticleListView';
-import {DynamicLoader} from '../DynamicLoader/DynamicLoader';
+import {ArticleListView} from '/react4xp/common/ArticleListView/ArticleListView';
+import {DynamicLoader} from '/react4xp/common/DynamicLoader/DynamicLoader';
 
-import type {ImageData} from '../types';
+import type {ImageData} from '/react4xp/common/types';
 
 interface ArticleItem {
   id?: string;

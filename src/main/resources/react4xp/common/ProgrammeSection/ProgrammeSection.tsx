@@ -1,7 +1,7 @@
 import {Fragment, type FC} from 'react';
 import slugify from 'react-slugify';
 
-import {ProgrammePart, type ProgrammePartProps} from '../ProgrammePart/ProgrammePart';
+import {ProgrammePart, type ProgrammePartProps} from '/react4xp/common/ProgrammePart/ProgrammePart';
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
 interface ConclusionProps {

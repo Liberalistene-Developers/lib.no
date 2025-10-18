@@ -27,7 +27,7 @@ import { BoardPresentationPart } from '/react4xp/parts/boardpresentation/BoardPr
 import { BookPart } from '/react4xp/parts/book/BookPart';
 import { BookListPart } from '/react4xp/parts/booklist/BookListPart';
 import { BudgetCutListPart } from '/react4xp/parts/budgetcutlist/BudgetCutListPart';
-import { ButtonPart } from '/react4xp/parts/Button/ButtonPart';
+import { ButtonPart } from '/react4xp/parts/button/ButtonPart';
 import { CandidateBlockPart } from '/react4xp/parts/candidateblock/CandidateBlockPart';
 import { CandidateListPart } from '/react4xp/parts/candidatelist/CandidateListPart';
 import { CandidatePagePart } from '/react4xp/parts/candidatepage/CandidatePagePart';

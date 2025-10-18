@@ -1,4 +1,4 @@
-import {FC} from 'react';
+import {type FC} from 'react';
 
 import {Image} from '@common/Image/Image';
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';

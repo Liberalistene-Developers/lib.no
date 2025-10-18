@@ -1,7 +1,7 @@
-import { FC } from 'react';
+import {type FC} from 'react';
 
-import { ListItem } from '../ListItem/ListItem';
-import type { ItemData as BaseItemData } from '../types';
+import { ListItem } from '/react4xp/common/ListItem/ListItem';
+import type { ItemData as BaseItemData } from '/react4xp/common/types';
 
 interface ItemData extends BaseItemData {
   role?: string;

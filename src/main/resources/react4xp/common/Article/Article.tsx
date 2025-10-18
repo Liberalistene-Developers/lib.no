@@ -1,9 +1,9 @@
-import { FC } from 'react';
+import {type FC} from 'react';
 
-import {ImageBlock} from '../ImageBlock/ImageBlock';
-import {AuthorLink} from '../AuthorLink/AuthorLink';
-import {SafeHtml} from '../SafeHtml/SafeHtml';
-import type {ImageData} from '../types';
+import {ImageBlock} from '/react4xp/common/ImageBlock/ImageBlock';
+import {AuthorLink} from '/react4xp/common/AuthorLink/AuthorLink';
+import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
+import type {ImageData} from '/react4xp/common/types';
 
 interface Author {
   authorID?: string;

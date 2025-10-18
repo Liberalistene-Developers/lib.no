@@ -1,8 +1,8 @@
 import {type FC} from 'react';
 import slugify from 'react-slugify';
 
-import {ProgrammeSection} from '../ProgrammeSection/ProgrammeSection';
-import {TableOfContent} from '../TableOfContent/TableOfContent';
+import {ProgrammeSection} from '/react4xp/common/ProgrammeSection/ProgrammeSection';
+import {TableOfContent} from '/react4xp/common/TableOfContent/TableOfContent';
 
 interface SectionType {
   key?: string;

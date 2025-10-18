@@ -1,9 +1,9 @@
-import { FC, ReactNode } from 'react';
+import {type FC, type ReactNode} from 'react';
 import cx from 'classnames';
 
-import { ListItem } from '../ListItem/ListItem';
-import { AuthorLink } from '../AuthorLink/AuthorLink';
-import type { ItemData } from '../types';
+import { ListItem } from '/react4xp/common/ListItem/ListItem';
+import { AuthorLink } from '/react4xp/common/AuthorLink/AuthorLink';
+import type { ItemData } from '/react4xp/common/types';
 
 interface ArticleListItemProps {
   children?: ReactNode;

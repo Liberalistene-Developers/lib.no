@@ -1,6 +1,6 @@
 import {pageUrl} from '/lib/xp/portal';
 import {get as getContent} from '/lib/xp/content';
-import {processHtml} from './html';
+import {processHtml} from '/react4xp/utils/html';
 import {imageUrl} from '/react4xp/utils/image';
 
 interface EventData {

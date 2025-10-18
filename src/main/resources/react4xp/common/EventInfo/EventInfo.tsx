@@ -1,5 +1,5 @@
 import {type FC} from 'react';
-import { FAIconEdit } from '../FAIcon/FAIconEdit';
+import { FAIconEdit } from '/react4xp/common/FAIcon/FAIconEdit';
 
 interface LocationData {
   address?: string;

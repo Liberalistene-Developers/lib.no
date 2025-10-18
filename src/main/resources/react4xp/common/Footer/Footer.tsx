@@ -1,5 +1,5 @@
 import type { MenuTree } from '/lib/menu';
-import { Menu } from '../Menu/Menu';
+import { Menu } from '/react4xp/common/Menu/Menu';
 
 interface FooterProps {
   email?: string;

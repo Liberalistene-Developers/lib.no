@@ -1,8 +1,8 @@
-import type {FC, ReactNode} from 'react';
+import {type FC, type ReactNode} from 'react';
 
-import type {ImageData} from '../types';
+import type {ImageData} from '/react4xp/common/types';
 import { getImageAlt } from '@utils/image.client';
-import { SafeHtml } from '../SafeHtml/SafeHtml';
+import { SafeHtml } from '/react4xp/common/SafeHtml/SafeHtml';
 
 interface CardProps {
   children?: ReactNode;

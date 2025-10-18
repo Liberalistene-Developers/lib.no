@@ -1,11 +1,11 @@
-import { FC, ReactNode } from 'react';
+import {type FC, type ReactNode} from 'react';
 
-import { GridItem } from '../GridItem/GridItem';
-import { AuthorLink } from '../AuthorLink/AuthorLink';
-import type { ItemData } from '../types';
+import { GridItem } from '/react4xp/common/GridItem/GridItem';
+import { AuthorLink } from '/react4xp/common/AuthorLink/AuthorLink';
+import type { ItemData } from '/react4xp/common/types';
 
 // Re-export ItemData for backward compatibility
-export type { ItemData } from '../types';
+export type { ItemData } from '/react4xp/common/types';
 
 export interface ArticleCardProps {
   children?: ReactNode;

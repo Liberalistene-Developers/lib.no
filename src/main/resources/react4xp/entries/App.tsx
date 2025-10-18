@@ -3,7 +3,7 @@ import {AppProps} from '/types/AppProps';
 import type {MetaData} from '@enonic/react-components';
 import {BaseComponent} from '@enonic/react-components';
 import {type FC} from 'react';
-import {componentRegistry} from '../componentRegistry';
+import {componentRegistry} from '/react4xp/componentRegistry';
 
 const App: FC<AppProps> = ({component, data, common, meta}) => {
     const compMeta: MetaData = meta as MetaData;

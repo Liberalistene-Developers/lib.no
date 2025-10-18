@@ -1,6 +1,6 @@
 import {type FC} from 'react';
-import { ListItem } from '../ListItem/ListItem';
-import { EventInfo } from '../EventInfo/EventInfo';
+import { ListItem } from '/react4xp/common/ListItem/ListItem';
+import { EventInfo } from '/react4xp/common/EventInfo/EventInfo';
 
 interface LocationData {
   address?: string;

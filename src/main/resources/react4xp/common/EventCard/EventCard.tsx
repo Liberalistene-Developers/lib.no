@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import {type FC} from 'react';
 
-import { Card } from '../Card/Card';
-import { EventInfo } from '../EventInfo/EventInfo';
-import type { ImageData, LocationData } from '../types';
+import { Card } from '/react4xp/common/Card/Card';
+import { EventInfo } from '/react4xp/common/EventInfo/EventInfo';
+import type { ImageData, LocationData } from '/react4xp/common/types';
 
 interface EventCardProps {
   date?: string;

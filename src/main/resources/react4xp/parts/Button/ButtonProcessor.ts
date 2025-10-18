@@ -2,7 +2,7 @@ import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {NestedRecord, PartComponent} from '@enonic-types/core';
 import {get as getContent} from '/lib/xp/content';
 import {pageUrl} from '/lib/xp/portal';
-import { type ButtonProps } from '../../common/Button/ButtonProps';
+import { type ButtonProps } from '/react4xp/common/Button/ButtonProps';
 
 /**
  * Button part configuration matching button.xml schema

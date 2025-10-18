@@ -2,10 +2,10 @@ import {type FC} from 'react';
 
 import {buildQueryEventList, extractEventList} from '@utils/guillotine/requests';
 
-import {EventListView} from '../EventListView/EventListView';
-import {DynamicLoader} from '../DynamicLoader/DynamicLoader';
+import {EventListView} from '/react4xp/common/EventListView/EventListView';
+import {DynamicLoader} from '/react4xp/common/DynamicLoader/DynamicLoader';
 
-import {type ImageData} from '../Image/Image';
+import {type ImageData} from '/react4xp/common/Image/Image';
 
 interface EventItem {
   id?: string;

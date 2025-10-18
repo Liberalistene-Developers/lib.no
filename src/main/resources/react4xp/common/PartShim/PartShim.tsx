@@ -1,5 +1,5 @@
 import type {ComponentProps} from '@enonic/react-components';
-import type {FC} from 'react';
+import {type FC} from 'react';
 
 /**
  * Creates a minimalistic Part shim that extracts data from ComponentProps

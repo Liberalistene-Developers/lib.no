@@ -1,4 +1,4 @@
-import { type ImageData, type ImageMapper } from '../image';
+import { type ImageData, type ImageMapper } from '/react4xp/utils/image';
 
 export const buildParentPathQuery = (parentPath: string): string =>
   `_parentPath = '/content${parentPath}'`;

@@ -1,9 +1,9 @@
-import { FC } from 'react';
+import {type FC} from 'react';
 import cx from 'classnames';
 
-import { Image } from '../Image/Image';
-import { SafeHtml } from '../SafeHtml/SafeHtml';
-import type { ImageData } from '../types';
+import { Image } from '/react4xp/common/Image/Image';
+import { SafeHtml } from '/react4xp/common/SafeHtml/SafeHtml';
+import type { ImageData } from '/react4xp/common/types';
 
 interface TitleItem {
   title?: string;
