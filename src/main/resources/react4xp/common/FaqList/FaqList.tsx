@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 
 import {Faq} from '@common/Faq/Faq';
 
@@ -15,7 +15,7 @@ interface FaqListProps {
   anchorText?: string;
 }
 
-export const FaqList: React.FC<FaqListProps> = ({
+export const FaqList: FC<FaqListProps> = ({
   items = [],
   expanded = true,
   anchorText

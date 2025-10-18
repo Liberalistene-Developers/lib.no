@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC, type ReactNode} from 'react';
 
 import {Image, type ImageData} from '@common/Image/Image';
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
@@ -19,7 +19,7 @@ interface EventItem {
 }
 
 interface EventListViewProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   description?: string;
   displaytype?: string;
   image?: ImageData;
@@ -29,7 +29,7 @@ interface EventListViewProps {
   noIngress?: boolean;
 }
 
-export const EventListView: React.FC<EventListViewProps> = ({
+export const EventListView: FC<EventListViewProps> = ({
   children,
   description,
   displaytype = 'grid',

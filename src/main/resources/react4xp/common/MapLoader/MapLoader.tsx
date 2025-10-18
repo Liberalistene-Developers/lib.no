@@ -1,6 +1,6 @@
-import * as React from 'react';
+import {type ComponentType, type FC, useEffect, useState} from 'react';
 
-const Fallback: React.FC = () => (
+const Fallback: FC = () => (
   <div>Will show map in preview/production</div>
 );
 
@@ -14,14 +14,14 @@ interface MapProps {
   position?: number[];
 }
 
-export const MapLoader: React.FC<MapLoaderProps> = ({
+export const MapLoader: FC<MapLoaderProps> = ({
   address = 'Allegaten 6, 4400 Flekkefjord',
   position = [58.2953903, 6.6580986]
 }) => {
-  const [MapComponent, setMapComponent] = React.useState<React.ComponentType<MapProps> | null>(null);
-  const [leafletLoaded, setLeafletLoaded] = React.useState(false);
+  const [MapComponent, setMapComponent] = useState<ComponentType<MapProps> | null>(null);
+  const [leafletLoaded, setLeafletLoaded] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // Load Leaflet CSS and JS if not already loaded
     if (typeof window !== 'undefined' && !document.getElementById('leaflet-css')) {
       const css = document.createElement('link');
@@ -44,14 +44,14 @@ export const MapLoader: React.FC<MapLoaderProps> = ({
     }
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!leafletLoaded) return;
 
     // Dynamic import for client-side code splitting. This code only runs in the browser.
     // tsconfig uses module: "ES2015" for GraalJS compatibility, but dynamic imports work
     // at runtime in modern browsers. TypeScript requires module >= "ES2020" for type checking.
     // @ts-expect-error - Dynamic imports supported at runtime but not in ES2015 module setting
-    import('../Map/Map').then((module: {Map: React.ComponentType<{address?: string; position: number[]}>}) => {
+    import('../Map/Map').then((module: {Map: ComponentType<{address?: string; position: number[]}>}) => {
       setMapComponent(() => module.Map);
     }).catch(() => {
       // Ignore import errors

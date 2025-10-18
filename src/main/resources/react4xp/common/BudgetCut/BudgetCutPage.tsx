@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 
 import {BudgetCut} from './BudgetCut';
 
@@ -26,7 +26,7 @@ interface BudgetCutPageProps {
   labelNumberText?: string;
 }
 
-export const BudgetCutPage: React.FC<BudgetCutPageProps> = ({
+export const BudgetCutPage: FC<BudgetCutPageProps> = ({
   title,
   budget,
   cut,

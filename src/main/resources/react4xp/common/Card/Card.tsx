@@ -1,6 +1,6 @@
-import { FC, ReactNode } from 'react';
+import type {FC, ReactNode} from 'react';
 
-import type { ImageData } from '../types';
+import type {ImageData} from '../types';
 import { getImageAlt } from '@utils/image.client';
 import { SafeHtml } from '../SafeHtml/SafeHtml';
 

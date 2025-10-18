@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 import slugify from 'react-slugify';
 
 const createLink = (title: string): string => `#${slugify(title)}`.trim();
@@ -8,7 +8,7 @@ interface ContentLinkProps {
   parentTitle?: string;
 }
 
-const ContentLink: React.FC<ContentLinkProps> = ({ title = '', parentTitle = '' }) => (
+const ContentLink: FC<ContentLinkProps> = ({ title = '', parentTitle = '' }) => (
   <a href={createLink(`${parentTitle} ${title}`)} title={title}>{title}</a>
 );
 
@@ -24,7 +24,7 @@ interface SectionProps {
   parts?: PartItem[];
 }
 
-const Section: React.FC<SectionProps> = ({
+const Section: FC<SectionProps> = ({
   title = '',
   parentTitle = '',
   parts = []
@@ -58,7 +58,7 @@ interface TableOfContentProps {
   title?: string;
 }
 
-export const TableOfContent: React.FC<TableOfContentProps> = ({
+export const TableOfContent: FC<TableOfContentProps> = ({
   title = '',
   sections = []
 }) => (

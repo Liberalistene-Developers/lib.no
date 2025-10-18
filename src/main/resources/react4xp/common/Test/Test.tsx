@@ -1,10 +1,10 @@
-import * as React from 'react';
+import {type FC} from 'react';
 
 interface TestProps {
   message?: string;
 }
 
-export const Test: React.FC<TestProps> = ({
+export const Test: FC<TestProps> = ({
   message = 'Hello from React4xp v6!'
 }) => (
   <div className="p-4 bg-blue-100 border-2 border-blue-500 rounded-lg">

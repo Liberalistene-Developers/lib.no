@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe, faMap } from '@fortawesome/free-solid-svg-icons';
 
@@ -16,7 +16,7 @@ interface EventPlaceProps {
 /**
  * Primary Event Place holder for solution.
  */
-export const EventPlace: React.FC<EventPlaceProps> = ({
+export const EventPlace: FC<EventPlaceProps> = ({
   location = { address: '', url: '', name: '' },
   locationLabel = 'Sted:'
 }) => {

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
@@ -9,7 +9,7 @@ interface OrganizationalPositionProps {
   tags?: string[];
 }
 
-export const OrganizationalPosition: React.FC<OrganizationalPositionProps> = ({
+export const OrganizationalPosition: FC<OrganizationalPositionProps> = ({
   title = '',
   description = '',
   shortDescription = ''

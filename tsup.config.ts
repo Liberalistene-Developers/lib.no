@@ -1,5 +1,8 @@
 import {globSync} from 'glob';
 import {defineConfig, type Options} from 'tsup';
+import * as path from 'path';
+import {existsSync} from 'fs';
+import type {Plugin} from 'esbuild';
 
 
 interface MyOptions extends Options {
@@ -23,11 +26,53 @@ const SERVER_FILES = globSync(
 	}
 );
 
+// esbuild plugin to resolve path aliases
+const pathAliasPlugin: Plugin = {
+	name: 'path-alias',
+	setup(build) {
+		const tryResolve = (basePath: string, modulePath: string): string | null => {
+			const extensions = ['.ts', '.tsx', '.js', '.jsx'];
+			for (const ext of extensions) {
+				const fullPath = path.resolve(basePath, modulePath + ext);
+				if (existsSync(fullPath)) {
+					return fullPath;
+				}
+			}
+			// Try index files
+			for (const ext of extensions) {
+				const indexPath = path.resolve(basePath, modulePath, 'index' + ext);
+				if (existsSync(indexPath)) {
+					return indexPath;
+				}
+			}
+			return null;
+		};
+
+		// Resolve @utils/* to src/main/resources/react4xp/utils/*
+		build.onResolve({ filter: /^@utils\// }, args => {
+			const modulePath = args.path.replace(/^@utils\//, '');
+			const resolved = tryResolve(path.join(__dirname, 'src/main/resources/react4xp/utils'), modulePath);
+			if (resolved) {
+				return { path: resolved };
+			}
+		});
+
+		// Resolve @common/* to src/main/resources/react4xp/common/*
+		build.onResolve({ filter: /^@common\// }, args => {
+			const modulePath = args.path.replace(/^@common\//, '');
+			const resolved = tryResolve(path.join(__dirname, 'src/main/resources/react4xp/common'), modulePath);
+			if (resolved) {
+				return { path: resolved };
+			}
+		});
+	},
+};
+
 export default defineConfig((options: MyOptions) => {
 	if (options.d === 'build/resources/main') {
 		return {
 			entry: SERVER_FILES.map(dir => dir.replace(/\\/g,'/')),
-			esbuildPlugins: [],
+			esbuildPlugins: [pathAliasPlugin],
 			external: [
 				// All these should be built to their own file and resolved at runtime, not bundled at compiletime:
 				/^\/admin\//,

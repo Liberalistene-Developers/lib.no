@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 import { FAIconEdit } from '../FAIcon/FAIconEdit';
 
 interface LocationData {
@@ -16,7 +16,7 @@ interface EventInfoProps {
 /**
  * Primary Image holder for solution.
  */
-export const EventInfo: React.FC<EventInfoProps> = ({
+export const EventInfo: FC<EventInfoProps> = ({
   date = '',
   location = { address: '', name: '' },
   locationType = 'place',

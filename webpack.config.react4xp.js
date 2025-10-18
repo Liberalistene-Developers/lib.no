@@ -27,13 +27,15 @@ module.exports = function(env, config) {
 	// Enable sourcemaps for easier debugging
 	config.devtool = 'source-map';
 
-	// Add resolve alias for Enonic XP libraries to help rspack find them
+	// Add resolve alias for Enonic XP libraries and local paths to help rspack find them
 	const path = require('path');
 	config.resolve.alias = {
 		...config.resolve.alias,
 		'/lib/menu': path.resolve(__dirname, 'node_modules/@item-enonic-types/lib-menu/index.d.ts'),
 		'/lib/xp/content': path.resolve(__dirname, 'node_modules/@enonic-types/lib-content/content.d.ts'),
 		'/lib/xp/portal': path.resolve(__dirname, 'node_modules/@enonic-types/lib-portal/portal.d.ts'),
+		'@common': path.resolve(__dirname, 'src/main/resources/react4xp/common'),
+		'@utils': path.resolve(__dirname, 'src/main/resources/react4xp/utils'),
 	};
 
 	// Externalize server-side imports so they're not bundled in client code

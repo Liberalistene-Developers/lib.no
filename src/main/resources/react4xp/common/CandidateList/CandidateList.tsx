@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 import cx from 'classnames';
 
 import {PersonListItem} from '@common/PersonListItem/PersonListItem';
@@ -22,7 +22,7 @@ interface CandidateListProps {
   className?: string;
 }
 
-export const CandidateList: React.FC<CandidateListProps> = ({
+export const CandidateList: FC<CandidateListProps> = ({
   imagesize = '',
   imagetype = true,
   items = [],

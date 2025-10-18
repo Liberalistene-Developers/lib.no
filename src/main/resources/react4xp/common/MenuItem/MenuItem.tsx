@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 
 interface MenuItemProps {
   title?: string;
@@ -6,7 +6,7 @@ interface MenuItemProps {
   onClick?: () => void;
 }
 
-export const MenuItem: React.FC<MenuItemProps> = ({
+export const MenuItem: FC<MenuItemProps> = ({
   title = '',
   url,
   onClick

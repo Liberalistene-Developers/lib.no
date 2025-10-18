@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
+import {type FC, type ReactNode, useEffect, useState} from 'react';
 
 import doGuillotineRequest from '@utils/guillotine/request';
 
@@ -13,7 +12,7 @@ export interface DynamicLoaderItem {
 interface DynamicLoaderProps {
   apiUrl?: string;
   buildQueryList?: () => string;
-  children?: (args: { items: DynamicLoaderItem[]; children: React.ReactNode }) => React.ReactNode;
+  children?: (args: { items: DynamicLoaderItem[]; children: ReactNode }) => ReactNode;
   count?: number;
   extractList?: (data: unknown) => DynamicLoaderItem[];
   items?: DynamicLoaderItem[];
@@ -23,7 +22,7 @@ interface DynamicLoaderProps {
   sortExpression?: string;
 }
 
-export const DynamicLoader: React.FC<DynamicLoaderProps> = ({
+export const DynamicLoader: FC<DynamicLoaderProps> = ({
   apiUrl = '',
   buildQueryList,
   children,

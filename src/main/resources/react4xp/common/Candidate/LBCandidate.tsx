@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEnvelope, faPhone} from '@fortawesome/free-solid-svg-icons';
 
@@ -13,7 +13,7 @@ interface LBCandidateProps {
   position?: string;
 }
 
-export const LBCandidate: React.FC<LBCandidateProps> = ({
+export const LBCandidate: FC<LBCandidateProps> = ({
   email,
   image,
   name,

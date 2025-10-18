@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 import { ListItem } from '../ListItem/ListItem';
 import { EventInfo } from '../EventInfo/EventInfo';
 
@@ -20,7 +20,7 @@ interface EventListItemProps {
 /**
  * Primary Image holder for solution.
  */
-export const EventListItem: React.FC<EventListItemProps> = ({
+export const EventListItem: FC<EventListItemProps> = ({
   date,
   location = { address: '' },
   locationType = 'place',

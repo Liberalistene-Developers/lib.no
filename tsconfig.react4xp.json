@@ -9,8 +9,8 @@
 		"allowSyntheticDefaultImports": true,
 		"allowUmdGlobalAccess": true,
 		"esModuleInterop": true,
-		// Allow import React from 'react';
-		"jsx": "react",
+		// Modern JSX transform - no need to import React
+		"jsx": "react-jsx",
 		"lib": [
 			"DOM", // console
 			"ES2015"
@@ -39,6 +39,13 @@
 			],
 			"/lib/xp/*": [
 				"./node_modules/@enonic-types/lib-*"
+			],
+			// Path mappings for local project aliases
+			"@common/*": [
+				"./src/main/resources/react4xp/common/*"
+			],
+			"@utils/*": [
+				"./src/main/resources/react4xp/utils/*"
 			],
 			// So one can import local files using absolute path same as
 			// * react4xp resolves during build time

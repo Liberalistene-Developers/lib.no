@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
@@ -8,7 +8,7 @@ export interface TextBlockProps {
   titleColor?: string;
 }
 
-export const TextBlock: React.FC<TextBlockProps> = ({
+export const TextBlock: FC<TextBlockProps> = ({
   text = '',
   title = '',
   titleColor = ''

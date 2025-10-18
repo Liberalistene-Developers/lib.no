@@ -1,5 +1,4 @@
 import type {MacroComponentParams} from '@enonic/react-components';
-import React from 'react';
 import {SafeHtml} from '/react4xp/common/SafeHtml/SafeHtml';
 import {logger} from '/react4xp/utils/logger';
 

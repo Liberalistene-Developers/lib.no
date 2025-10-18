@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useState } from 'react';
+import {type FC, useState} from 'react';
 import slugify from 'react-slugify';
 
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
@@ -13,7 +12,7 @@ interface FaqProps {
   anchorText?: string;
 }
 
-export const Faq: React.FC<FaqProps> = ({
+export const Faq: FC<FaqProps> = ({
   itemID,
   question = '',
   answer = '',

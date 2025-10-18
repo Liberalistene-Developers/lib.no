@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 import cx from 'classnames';
 
 import {AuthorLink} from '@common/AuthorLink/AuthorLink';
@@ -29,7 +29,7 @@ interface TopicTitleProps {
   duration?: string;
 }
 
-const TopicTitle: React.FC<TopicTitleProps> = ({title, start, duration}) => (
+const TopicTitle: FC<TopicTitleProps> = ({title, start, duration}) => (
   <>
     {start && (
       <>
@@ -59,7 +59,7 @@ interface TopicTitleSelectorProps {
   description?: string;
 }
 
-const TopicTitleSelector: React.FC<TopicTitleSelectorProps> = ({title, start, duration, description}) => {
+const TopicTitleSelector: FC<TopicTitleSelectorProps> = ({title, start, duration, description}) => {
   const titleElement = (
     <TopicTitle title={title} start={start} duration={duration} />
   );
@@ -79,7 +79,7 @@ interface TopicProps {
   topic: TopicType;
 }
 
-export const Topic: React.FC<TopicProps> = ({topic: {title, speakers, start, duration, description, report}}) => (
+export const Topic: FC<TopicProps> = ({topic: {title, speakers, start, duration, description, report}}) => (
   <div className="topic">
     <div className="topic-title">
       <TopicTitleSelector title={title} start={start} duration={duration} description={description || report} />
@@ -116,7 +116,7 @@ interface ScheduleProps {
   schedule: ScheduleType;
 }
 
-export const Schedule: React.FC<ScheduleProps> = ({schedule: {name, date, description, topics}}) => (
+export const Schedule: FC<ScheduleProps> = ({schedule: {name, date, description, topics}}) => (
   <div className="schedule">
     <div className="schedule-title">
       <h3>{name} {date && (<span className="schedule-title-date">{date}</span>)}</h3>
@@ -138,7 +138,7 @@ interface SchedulesProps {
   schedules?: ScheduleType[];
 }
 
-export const Schedules: React.FC<SchedulesProps> = ({schedules = []}) => (
+export const Schedules: FC<SchedulesProps> = ({schedules = []}) => (
   <div className="schedule-list">
     {schedules && schedules.map((schedule) => (
       <Schedule key={schedule.itemId} schedule={schedule} />

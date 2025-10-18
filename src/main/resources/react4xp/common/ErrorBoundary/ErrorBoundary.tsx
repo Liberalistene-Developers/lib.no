@@ -1,16 +1,16 @@
-import * as React from 'react';
+import {Component, type ErrorInfo, type ReactNode} from 'react';
 import {logger} from '@utils/logger';
 
 interface ErrorBoundaryProps {
-  children?: React.ReactNode;
-  fallback?: React.ReactNode;
-  onError?: (error: Error, errorInfo: React.ErrorInfo) => void;
+  children?: ReactNode;
+  fallback?: ReactNode;
+  onError?: (error: Error, errorInfo: ErrorInfo) => void;
 }
 
 interface ErrorBoundaryState {
   hasError: boolean;
   error?: Error;
-  errorInfo?: React.ErrorInfo;
+  errorInfo?: ErrorInfo;
 }
 
 /**
@@ -23,7 +23,7 @@ interface ErrorBoundaryState {
  * </ErrorBoundary>
  * ```
  */
-export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false };
@@ -33,7 +33,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
     return { hasError: true, error };
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
     // Log error with full context
     logger.error('ErrorBoundary caught error', {
       message: error.message,
@@ -58,7 +58,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
     this.setState({ hasError: false, error: undefined, errorInfo: undefined });
   };
 
-  render(): React.ReactNode {
+  render(): ReactNode {
     if (this.state.hasError) {
       // Use custom fallback if provided
       if (this.props.fallback) {

@@ -26,6 +26,12 @@
           "/react4xp/*": [
             "./src/main/resources/react4xp/*"
           ],
+          "@common/*": [
+            "./src/main/resources/react4xp/common/*"
+          ],
+          "@utils/*": [
+            "./src/main/resources/react4xp/utils/*"
+          ],
           "/*": [
             "./src/main/resources/*"
           ]

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 
 import {CandidatePresentationItem} from '@common/CandidatePresentationItem/CandidatePresentationItem';
 
@@ -13,7 +13,7 @@ interface CandidatePresentationProps {
   preText?: string;
 }
 
-export const CandidatePresentation: React.FC<CandidatePresentationProps> = ({
+export const CandidatePresentation: FC<CandidatePresentationProps> = ({
   items = [],
   highlighted = true,
   preText = ''

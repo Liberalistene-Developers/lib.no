@@ -14,6 +14,7 @@
     "paths": {
       "/react4xp/*": ["../../main/resources/react4xp/*"],
       "/assets/*": ["../../main/resources/assets/*"],
+      "@utils/*": ["../../main/resources/react4xp/utils/*"],
     },
 
     "sourceMap": true, // Important to get correct line numbers when running coverage tests
@@ -21,6 +22,7 @@
     "types": [
       "@types/jest",
       "@testing-library/jest-dom",
+      "node",
     ],
 
   }, // compilerOptions

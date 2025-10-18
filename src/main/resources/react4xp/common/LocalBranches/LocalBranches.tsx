@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 import cx from 'classnames';
 
 interface BranchItem {
@@ -13,7 +13,7 @@ interface LocalBranchesProps {
   title?: string;
 }
 
-export const LocalBranches: React.FC<LocalBranchesProps> = ({
+export const LocalBranches: FC<LocalBranchesProps> = ({
   headingClassName = '',
   items = [],
   title

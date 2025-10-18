@@ -1,6 +1,5 @@
 import type {ComponentProps, LayoutData} from '@enonic/react-components';
 import {Region} from '@enonic/react-components';
-import * as React from 'react';
 
 export const UnderConstruction = ({component: {regions} = {} as LayoutData, meta}: ComponentProps<LayoutData>) => {
 

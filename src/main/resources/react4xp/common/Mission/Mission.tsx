@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 
 import {Image, type ImageData} from '@common/Image/Image';
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
@@ -9,7 +9,7 @@ interface MissionProps {
   title?: string;
 }
 
-export const Mission: React.FC<MissionProps> = ({
+export const Mission: FC<MissionProps> = ({
   description,
   image,
   title

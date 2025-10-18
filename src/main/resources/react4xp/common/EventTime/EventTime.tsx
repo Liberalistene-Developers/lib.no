@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
 
@@ -12,7 +12,7 @@ interface EventTimeProps {
 /**
  * Primary Event Place holder for solution.
  */
-export const EventTime: React.FC<EventTimeProps> = ({
+export const EventTime: FC<EventTimeProps> = ({
   date = '',
   dateLabel = '',
   time = '',

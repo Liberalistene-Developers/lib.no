@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 
 import {PersonListItem} from '@common/PersonListItem/PersonListItem';
 
@@ -19,7 +19,7 @@ interface BoardProps {
   showDescriptions?: boolean;
 }
 
-export const Board: React.FC<BoardProps> = ({
+export const Board: FC<BoardProps> = ({
   imagesize = 'medium',
   imagetype = 'round',
   board = [],

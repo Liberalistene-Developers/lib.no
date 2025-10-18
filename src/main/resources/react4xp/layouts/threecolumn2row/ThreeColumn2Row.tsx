@@ -1,6 +1,5 @@
 import type {ComponentProps, LayoutData} from '@enonic/react-components';
 import {Region} from '@enonic/react-components';
-import * as React from 'react';
 
 export interface ThreeColumn2RowData extends Record<string, unknown> {
   background?: string;

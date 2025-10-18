@@ -38,6 +38,7 @@ const clientSideConfig: Config.InitialProjectOptions = {
   moduleNameMapper: {
     '^/react4xp/(.*)$': `<rootDir>/${DIR_SRC}/react4xp/$1`,
     '^/assets/(.*)$': `<rootDir>/${DIR_SRC}/assets/$1`,
+    '^@utils/(.*)$': `<rootDir>/${DIR_SRC}/react4xp/utils/$1`,
     '^/(.*)$': `<rootDir>/${DIR_SRC}/$1`,
   },
 

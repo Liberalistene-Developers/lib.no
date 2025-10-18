@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 
 import {Faq} from '@common/Faq/Faq';
 
@@ -10,7 +10,7 @@ interface FaqItemProps {
   anchorText?: string;
 }
 
-export const FaqPartContent: React.FC<FaqItemProps> = ({
+export const FaqPartContent: FC<FaqItemProps> = ({
   itemID,
   answer,
   question,

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 
 import {GridItem} from '@common/GridItem/GridItem';
 import {Image, type ImageData} from '@common/Image/Image';
@@ -27,7 +27,7 @@ interface PersonListProps {
   title?: string;
 }
 
-export const PersonList: React.FC<PersonListProps> = ({
+export const PersonList: FC<PersonListProps> = ({
   description,
   displaytype = 'grid',
   imagesize,

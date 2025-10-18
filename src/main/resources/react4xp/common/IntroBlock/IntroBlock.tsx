@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 
 import {Image, type ImageData} from '@common/Image/Image';
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
@@ -10,7 +10,7 @@ interface IntroBlockProps {
   title?: string;
 }
 
-export const IntroBlock: React.FC<IntroBlockProps> = ({
+export const IntroBlock: FC<IntroBlockProps> = ({
   caption,
   description,
   image,

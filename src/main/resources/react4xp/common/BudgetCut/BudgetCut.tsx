@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC, Fragment} from 'react';
 
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
@@ -26,7 +26,7 @@ interface BudgetCutProps {
   labelSumary?: string;
 }
 
-export const BudgetCut: React.FC<BudgetCutProps> = ({
+export const BudgetCut: FC<BudgetCutProps> = ({
   budget,
   cut,
   cuts = [],
@@ -73,7 +73,7 @@ export const BudgetCut: React.FC<BudgetCutProps> = ({
             cut: itemCut,
             percent: itemPercent
           }) => (
-            <React.Fragment key={name?.replace(/ /g, '-')}>
+            <Fragment key={name?.replace(/ /g, '-')}>
               <div className="budget-cut-name">
                 {name}
               </div>
@@ -87,7 +87,7 @@ export const BudgetCut: React.FC<BudgetCutProps> = ({
                   <span>{itemCut}</span>
                 )}
               </div>
-            </React.Fragment>
+            </Fragment>
           ))) ||
           null}
         {cut && (
@@ -121,10 +121,10 @@ export const BudgetCut: React.FC<BudgetCutProps> = ({
                 name,
                 description: desc
               }) => (
-                <React.Fragment key={name?.replace(/ /g, '-')}>
+                <Fragment key={name?.replace(/ /g, '-')}>
                   <dt>{name}:</dt>
                   <SafeHtml html={desc || ''} as="dd" />
-                </React.Fragment>
+                </Fragment>
               ))}
           </dl>
         )) || null}

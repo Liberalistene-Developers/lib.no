@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 
 import {Image, type ImageData} from '@common/Image/Image';
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
@@ -20,7 +20,7 @@ interface BookProps {
   tags?: string[];
 }
 
-export const Book: React.FC<BookProps> = ({
+export const Book: FC<BookProps> = ({
   title = '',
   image,
   authors = [],

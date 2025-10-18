@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 
 import {ImageBlock} from '@common/ImageBlock/ImageBlock';
 import {PersonListItem} from '@common/PersonListItem/PersonListItem';
@@ -29,7 +29,7 @@ export interface GroupProps {
   board?: BoardMember[];
 }
 
-export const Group: React.FC<GroupProps> = ({
+export const Group: FC<GroupProps> = ({
   imagesize = 'medium',
   imagetype = true,
   headerColor,

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 import cx from 'classnames';
 
 import {Button} from '@common/Button/Button';
@@ -15,7 +15,7 @@ export interface JoinFlipCardProps {
   frontPlacement?: string;
 }
 
-export const JoinFlipCard: React.FC<JoinFlipCardProps> = ({
+export const JoinFlipCard: FC<JoinFlipCardProps> = ({
   message,
   backMessage,
   image = null,

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 
 import {BudgetCut} from './BudgetCut';
 
@@ -29,7 +29,7 @@ interface BudgetCutItemProps {
   labelNumberText?: string;
 }
 
-export const BudgetCutItem: React.FC<BudgetCutItemProps> = ({
+export const BudgetCutItem: FC<BudgetCutItemProps> = ({
   budget,
   checked = false,
   cut,

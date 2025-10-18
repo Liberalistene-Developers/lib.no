@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 
 import {Image, type ImageData} from '@common/Image/Image';
 
@@ -9,7 +9,7 @@ interface FancyHeaderProps {
   image?: ImageData | null;
 }
 
-export const FancyHeader: React.FC<FancyHeaderProps> = ({
+export const FancyHeader: FC<FancyHeaderProps> = ({
   title = '',
   effect = null,
   image = null

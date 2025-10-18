@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useEffect, useState } from 'react';
+import {type FC, useEffect, useState} from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import {logger} from '@utils/logger';
 
@@ -13,7 +12,7 @@ interface NominatimResult {
   lon: string;
 }
 
-export const Map: React.FC<MapProps> = ({
+export const Map: FC<MapProps> = ({
   address = 'Allegaten 6, 4400 Flekkefjord',
   position = [58.2953903, 6.6580986]
 }) => {

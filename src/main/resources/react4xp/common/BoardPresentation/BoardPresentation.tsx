@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 import cx from 'classnames';
 
 import {Image} from '@common/Image/Image';
@@ -27,7 +27,7 @@ export interface BoardPresentationProps {
   title?: string;
 }
 
-export const BoardPresentation: React.FC<BoardPresentationProps> = ({
+export const BoardPresentation: FC<BoardPresentationProps> = ({
   board = [],
   boardTitle,
   description = '',

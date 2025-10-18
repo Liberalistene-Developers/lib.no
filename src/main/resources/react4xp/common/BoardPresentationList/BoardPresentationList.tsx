@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {type FC} from 'react';
 
 import {BoardPresentation} from '@common/BoardPresentation/BoardPresentation';
 
@@ -29,7 +29,7 @@ interface BoardPresentationListProps {
   showEmail?: 'no' | 'first' | 'all';
 }
 
-export const BoardPresentationList: React.FC<BoardPresentationListProps> = ({
+export const BoardPresentationList: FC<BoardPresentationListProps> = ({
   boardTitle,
   imagesize,
   imagetype,
