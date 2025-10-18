@@ -12,6 +12,8 @@
 @import "./tailwind/grids.css";
 @import "./tailwind/layouts.css";
 @import "./tailwind/editor.css";
+@import "./tailwind/social-icons.css";
+@import "./tailwind/solid-icons.css";
 
 /* Component imports */
 @import "./tailwind/components/article.css";

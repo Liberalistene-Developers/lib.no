@@ -1,6 +1,5 @@
 import {type FC} from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGlobe, faMap } from '@fortawesome/free-solid-svg-icons';
+import {FAIcon} from '@common/FAIcon/FAIcon';
 
 /**
  * Location data for event place information
@@ -60,7 +59,7 @@ export const EventPlace: FC<EventPlaceProps> = ({
 
   return (
     <div className="event-place">
-      <FontAwesomeIcon icon={locationType === 'place' ? faMap : faGlobe} />  {locationLabel} <a href={locationType === 'place' ? `https://maps.google.com?q=${location.address}` : location.url} rel="noreferrer">{location.name || location.address?.replace(/\n/g, ', ') || location.url}</a>
+      <FAIcon iconType={locationType === 'place' ? 'faMap' : 'faGlobe'} />  {locationLabel} <a href={locationType === 'place' ? `https://maps.google.com?q=${location.address}` : location.url} rel="noreferrer">{location.name || location.address?.replace(/\n/g, ', ') || location.url}</a>
     </div>
   );
 };

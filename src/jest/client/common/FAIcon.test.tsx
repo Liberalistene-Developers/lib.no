@@ -1,141 +1,170 @@
 /**
  * Tests for FAIcon component
+ *
+ * Tests the CSS-based FontAwesome icon component with TypeScript type safety.
  */
 
 import React from 'react';
-import {render, screen} from '@testing-library/react';
-import {FAIcon} from '@common/FAIcon/FAIcon';
-
-// Mock FontAwesome dependencies
-jest.mock('@fortawesome/react-fontawesome', () => ({
-  FontAwesomeIcon: ({icon}: {icon: {iconName: string}}) => (
-    <span data-testid="fa-icon" data-icon-name={icon.iconName}>
-      Icon: {icon.iconName}
-    </span>
-  ),
-}));
-
-jest.mock('@fortawesome/free-solid-svg-icons', () => ({
-  faMap: {iconName: 'map'},
-  faGlobe: {iconName: 'globe'},
-  faClock: {iconName: 'clock'},
-}));
+import {render} from '@testing-library/react';
+import {FAIcon, type FAIconType} from '@common/FAIcon/FAIcon';
 
 describe('FAIcon', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
   describe('basic rendering', () => {
-    it('should render FontAwesomeIcon with faMap', () => {
-      render(<FAIcon iconType="faMap" />);
+    it('should render an <i> element with fas class', () => {
+      const {container} = render(<FAIcon iconType="faMap" />);
+      const icon = container.querySelector('i');
 
-      const icon = screen.getByTestId('fa-icon');
       expect(icon).toBeInTheDocument();
-      expect(icon).toHaveAttribute('data-icon-name', 'map');
+      expect(icon).toHaveClass('fas');
     });
 
-    it('should render FontAwesomeIcon with faGlobe', () => {
-      render(<FAIcon iconType="faGlobe" />);
+    it('should render with the correct CSS class for faMap', () => {
+      const {container} = render(<FAIcon iconType="faMap" />);
+      const icon = container.querySelector('i');
 
-      const icon = screen.getByTestId('fa-icon');
-      expect(icon).toBeInTheDocument();
-      expect(icon).toHaveAttribute('data-icon-name', 'globe');
+      expect(icon).toHaveClass('fas', 'fa-map');
     });
 
-    it('should render FontAwesomeIcon with faClock', () => {
-      render(<FAIcon iconType="faClock" />);
+    it('should render with the correct CSS class for faGlobe', () => {
+      const {container} = render(<FAIcon iconType="faGlobe" />);
+      const icon = container.querySelector('i');
 
-      const icon = screen.getByTestId('fa-icon');
-      expect(icon).toBeInTheDocument();
-      expect(icon).toHaveAttribute('data-icon-name', 'clock');
+      expect(icon).toHaveClass('fas', 'fa-globe');
+    });
+
+    it('should render with the correct CSS class for faClock', () => {
+      const {container} = render(<FAIcon iconType="faClock" />);
+      const icon = container.querySelector('i');
+
+      expect(icon).toHaveClass('fas', 'fa-clock');
+    });
+
+    it('should render with the correct CSS class for faEye', () => {
+      const {container} = render(<FAIcon iconType="faEye" />);
+      const icon = container.querySelector('i');
+
+      expect(icon).toHaveClass('fas', 'fa-eye');
+    });
+
+    it('should render with the correct CSS class for faEyeSlash', () => {
+      const {container} = render(<FAIcon iconType="faEyeSlash" />);
+      const icon = container.querySelector('i');
+
+      expect(icon).toHaveClass('fas', 'fa-eye-slash');
+    });
+
+    it('should render with the correct CSS class for faLink', () => {
+      const {container} = render(<FAIcon iconType="faLink" />);
+      const icon = container.querySelector('i');
+
+      expect(icon).toHaveClass('fas', 'fa-link');
+    });
+
+    it('should render with the correct CSS class for faEnvelope', () => {
+      const {container} = render(<FAIcon iconType="faEnvelope" />);
+      const icon = container.querySelector('i');
+
+      expect(icon).toHaveClass('fas', 'fa-envelope');
+    });
+
+    it('should render with the correct CSS class for faPhone', () => {
+      const {container} = render(<FAIcon iconType="faPhone" />);
+      const icon = container.querySelector('i');
+
+      expect(icon).toHaveClass('fas', 'fa-phone');
     });
   });
 
-  describe('null rendering', () => {
-    it('should return null when iconType is not provided', () => {
-      const {container} = render(<FAIcon />);
+  describe('icon type mapping', () => {
+    const iconMappings: Array<{iconType: FAIconType; expectedClass: string}> = [
+      {iconType: 'faMap', expectedClass: 'fa-map'},
+      {iconType: 'faGlobe', expectedClass: 'fa-globe'},
+      {iconType: 'faClock', expectedClass: 'fa-clock'},
+      {iconType: 'faEye', expectedClass: 'fa-eye'},
+      {iconType: 'faEyeSlash', expectedClass: 'fa-eye-slash'},
+      {iconType: 'faLink', expectedClass: 'fa-link'},
+      {iconType: 'faEnvelope', expectedClass: 'fa-envelope'},
+      {iconType: 'faPhone', expectedClass: 'fa-phone'}
+    ];
 
-      expect(container.firstChild).toBeNull();
-      expect(screen.queryByTestId('fa-icon')).not.toBeInTheDocument();
-    });
+    iconMappings.forEach(({iconType, expectedClass}) => {
+      it(`should map ${iconType} to ${expectedClass}`, () => {
+        const {container} = render(<FAIcon iconType={iconType} />);
+        const icon = container.querySelector('i');
 
-    it('should return null when iconType is empty string', () => {
-      const {container} = render(<FAIcon iconType="" />);
-
-      expect(container.firstChild).toBeNull();
-      expect(screen.queryByTestId('fa-icon')).not.toBeInTheDocument();
-    });
-
-    it('should return null when iconType is not in iconResolver', () => {
-      const {container} = render(<FAIcon iconType="faInvalid" />);
-
-      expect(container.firstChild).toBeNull();
-      expect(screen.queryByTestId('fa-icon')).not.toBeInTheDocument();
-    });
-
-    it('should return null when iconType is undefined', () => {
-      const {container} = render(<FAIcon iconType={undefined} />);
-
-      expect(container.firstChild).toBeNull();
-      expect(screen.queryByTestId('fa-icon')).not.toBeInTheDocument();
+        expect(icon).toHaveClass(expectedClass);
+      });
     });
   });
 
-  describe('icon resolver', () => {
-    it('should resolve faMap icon correctly', () => {
-      render(<FAIcon iconType="faMap" />);
+  describe('component structure', () => {
+    it('should render exactly one <i> element', () => {
+      const {container} = render(<FAIcon iconType="faMap" />);
+      const icons = container.querySelectorAll('i');
 
-      expect(screen.getByText('Icon: map')).toBeInTheDocument();
+      expect(icons).toHaveLength(1);
     });
 
-    it('should resolve faGlobe icon correctly', () => {
-      render(<FAIcon iconType="faGlobe" />);
+    it('should render an empty <i> element (no text content)', () => {
+      const {container} = render(<FAIcon iconType="faMap" />);
+      const icon = container.querySelector('i');
 
-      expect(screen.getByText('Icon: globe')).toBeInTheDocument();
+      expect(icon?.textContent).toBe('');
     });
 
-    it('should resolve faClock icon correctly', () => {
-      render(<FAIcon iconType="faClock" />);
+    it('should have both base class and icon-specific class', () => {
+      const {container} = render(<FAIcon iconType="faGlobe" />);
+      const icon = container.querySelector('i');
 
-      expect(screen.getByText('Icon: clock')).toBeInTheDocument();
-    });
-
-    it('should not resolve unknown icon types', () => {
-      const {container} = render(<FAIcon iconType="faUnknown" />);
-
-      expect(container.firstChild).toBeNull();
+      // Should have exactly 2 classes: fas and fa-globe
+      expect(icon?.className).toBe('fas fa-globe');
     });
   });
 
-  describe('edge cases', () => {
-    it('should handle case-sensitive icon types', () => {
-      const {container} = render(<FAIcon iconType="Famap" />);
+  describe('TypeScript type safety', () => {
+    it('should only accept valid FAIconType values', () => {
+      // This is a compile-time check - if these compile, TypeScript is enforcing types correctly
+      const validIcons: FAIconType[] = [
+        'faMap',
+        'faGlobe',
+        'faClock',
+        'faEye',
+        'faEyeSlash',
+        'faLink',
+        'faEnvelope',
+        'faPhone'
+      ];
 
-      // Should not match because iconType is case-sensitive
-      expect(container.firstChild).toBeNull();
+      validIcons.forEach(iconType => {
+        const {container} = render(<FAIcon iconType={iconType} />);
+        expect(container.querySelector('i')).toBeInTheDocument();
+      });
     });
+  });
 
-    it('should handle icon type with extra spaces', () => {
-      const {container} = render(<FAIcon iconType=" faMap " />);
+  describe('all supported icons', () => {
+    it('should support all 8 icon types', () => {
+      const allIcons: FAIconType[] = [
+        'faMap',
+        'faGlobe',
+        'faClock',
+        'faEye',
+        'faEyeSlash',
+        'faLink',
+        'faEnvelope',
+        'faPhone'
+      ];
 
-      // Should not match because of extra spaces
-      expect(container.firstChild).toBeNull();
-    });
+      allIcons.forEach(iconType => {
+        const {container} = render(<FAIcon iconType={iconType} />);
+        const icon = container.querySelector('i');
 
-    it('should only support three icon types', () => {
-      render(<FAIcon iconType="faMap" />);
-      expect(screen.getByTestId('fa-icon')).toBeInTheDocument();
+        expect(icon).toBeInTheDocument();
+        expect(icon).toHaveClass('fas');
+      });
 
-      render(<FAIcon iconType="faGlobe" />);
-      expect(screen.getAllByTestId('fa-icon')).toHaveLength(2);
-
-      render(<FAIcon iconType="faClock" />);
-      expect(screen.getAllByTestId('fa-icon')).toHaveLength(3);
-
-      // Any other icon should not render
-      const {container} = render(<FAIcon iconType="faHome" />);
-      expect(container.firstChild).toBeNull();
+      // Verify count
+      expect(allIcons).toHaveLength(8);
     });
   });
 });

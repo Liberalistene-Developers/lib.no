@@ -24,6 +24,7 @@
     "browserSync": "npx browser-sync start --proxy 'localhost:8080' --files build/resources/main/**/* --reload-delay 5000",
     "build": "./gradlew build",
     "build:prod": "./gradlew build -Penv=prod",
+    "build:analyze": "ANALYZE=true ./gradlew build",
     "build:assets": "npm run build:assets:js && npm run build:assets:css",
     "build:assets:js": "npx tsup -d build/resources/main/assets || exit 0",
     "build:assets:css": "npx postcss src/assets/tailwind.css -o build/resources/main/assets/styles/tailwind.css",
@@ -53,10 +54,6 @@
     "@enonic/cli": "^3.3.1",
     "@enonic/js-utils": "^1",
     "@enonic/react-components": "^6.0.0",
-    "@fortawesome/fontawesome-free": "^5.15.4",
-    "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/react-fontawesome": "^0.2.0",
     "classnames": "^2.3.1",
     "dompurify": "^3.3.0",
     "html-react-parser": "^5.2.6",
@@ -157,6 +154,7 @@
     "typescript-eslint": "^8.40.0",
     "typescript-plugin-css-modules": "^5",
     "webpack": "^5",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^5"
   },
   "browserslist": [

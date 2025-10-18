@@ -1,6 +1,5 @@
 import {type FC} from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock } from '@fortawesome/free-solid-svg-icons';
+import {FAIcon} from '@common/FAIcon/FAIcon';
 
 /**
  * Props for the EventTime component
@@ -52,6 +51,6 @@ export const EventTime: FC<EventTimeProps> = ({
   timeLabel = ''
 }) => (
   <div className="event-time">
-    <FontAwesomeIcon icon={faClock} /> <time dateTime={`${date} ${time}`.trim()}>{date ? `${dateLabel} ${date}`.trim() : ''}&nbsp;{time ? `${timeLabel} ${time}`.trim() : ''}</time>
+    <FAIcon iconType="faClock" /> <time dateTime={`${date} ${time}`.trim()}>{date ? `${dateLabel} ${date}`.trim() : ''}&nbsp;{time ? `${timeLabel} ${time}`.trim() : ''}</time>
   </div>
 );

@@ -1,52 +1,74 @@
 import {type FC} from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faGlobe, faMap } from '@fortawesome/free-solid-svg-icons';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
-const iconResolver: Record<string, IconDefinition> = {
-  faMap,
-  faGlobe,
-  faClock
+/**
+ * Type-safe icon identifiers for available FontAwesome solid icons.
+ *
+ * These icons are rendered via CSS (solid-icons.css) for minimal bundle size.
+ * To add a new icon, update this type AND add the corresponding CSS in solid-icons.css.
+ */
+export type FAIconType = 'faMap' | 'faGlobe' | 'faClock' | 'faEye' | 'faEyeSlash' | 'faLink' | 'faEnvelope' | 'faPhone';
+
+/**
+ * Maps icon type to CSS class name
+ */
+const iconClassMap: Record<FAIconType, string> = {
+  faMap: 'fa-map',
+  faGlobe: 'fa-globe',
+  faClock: 'fa-clock',
+  faEye: 'fa-eye',
+  faEyeSlash: 'fa-eye-slash',
+  faLink: 'fa-link',
+  faEnvelope: 'fa-envelope',
+  faPhone: 'fa-phone'
 };
 
 /**
  * Props for the FAIcon component
  */
 export interface FAIconProps {
-  /** Icon type identifier matching iconResolver keys ('faMap', 'faGlobe', 'faClock') */
-  iconType?: string;
+  /** Icon type identifier - TypeScript enforces only known icons can be used */
+  iconType: FAIconType;
 }
 
 /**
- * FontAwesome icon component with predefined icon set
+ * Minimal FontAwesome icon component with CSS-based rendering.
  *
- * Renders FontAwesome icons from a predefined resolver map. Returns null if iconType
- * is not provided or not found in the resolver.
+ * Renders FontAwesome solid icons using pure CSS (no React component overhead).
+ * Type-safe via TypeScript union type - only defined icons can be used.
+ *
+ * **Benefits:**
+ * - ✅ Type-safe: TypeScript errors on unknown icons
+ * - ✅ Minimal bundle: CSS only, no FontAwesome React packages
+ * - ✅ Tree-shakeable: Only used icon CSS is included
+ * - ✅ Clean API: Simple component interface
  *
  * **Available icons:**
  * - `faMap` - Map/location icon
  * - `faGlobe` - Globe/website icon
  * - `faClock` - Clock/time icon
+ * - `faEye` - Eye/view icon
+ * - `faEyeSlash` - Eye-slash/hide icon
+ * - `faLink` - Link/hyperlink icon
+ * - `faEnvelope` - Envelope/email icon
+ * - `faPhone` - Phone/telephone icon
  *
- * **Note:** To add new icons, import from `@fortawesome/free-solid-svg-icons` and
- * add to the `iconResolver` object.
+ * **To add new icons:**
+ * 1. Add icon to `FAIconType` union type
+ * 2. Add mapping to `iconClassMap`
+ * 3. Add icon CSS to `solid-icons.css`
  *
  * @example
  * ```tsx
  * // Render a map icon
  * <FAIcon iconType="faMap" />
  *
- * // Render a clock icon
- * <FAIcon iconType="faClock" />
+ * // Render an eye icon
+ * <FAIcon iconType="faEye" />
  *
- * // Invalid icon type returns null
- * <FAIcon iconType="faInvalid" /> // renders nothing
+ * // TypeScript error - icon doesn't exist
+ * <FAIcon iconType="faInvalid" /> // TS Error!
  * ```
  */
-export const FAIcon: FC<FAIconProps> = ({ iconType }) => {
-  if (!iconType || !iconResolver[iconType]) {
-    return null;
-  }
-
-  return <FontAwesomeIcon icon={iconResolver[iconType]} />;
-};
+export const FAIcon: FC<FAIconProps> = ({ iconType }) => (
+  <i className={`fas ${iconClassMap[iconType]}`}></i>
+);

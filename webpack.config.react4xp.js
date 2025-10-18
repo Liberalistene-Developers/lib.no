@@ -9,6 +9,7 @@
 //──────────────────────────────────────────────────────────────────────────────
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const rspack = require('@rspack/core');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = function(env, config) {
 
@@ -24,8 +25,8 @@ module.exports = function(env, config) {
 	// This makes 'npm link' symlinks in node_modules work:
 	config.resolve.symlinks = true;
 
-	// Enable sourcemaps for easier debugging
-	config.devtool = 'source-map';
+	// Enable sourcemaps only in development for easier debugging
+	config.devtool = process.env.NODE_ENV !== 'production' ? 'source-map' : false;
 
 	// Add resolve alias for Enonic XP libraries and local paths to help rspack find them
 	const path = require('path');
@@ -89,8 +90,21 @@ module.exports = function(env, config) {
 		new rspack.CssExtractRspackPlugin({
 			chunkFilename: '[id].[contenthash:9].css',
 			filename: '[name].[contenthash:9].css',
-		})
-	]
+		}),
+	];
+
+	// Add bundle analyzer when ANALYZE=true
+	if (process.env.ANALYZE === 'true') {
+		config.plugins.push(
+			new BundleAnalyzerPlugin({
+				analyzerMode: 'static',
+				reportFilename: '../../../bundle-report.html',
+				openAnalyzer: false,
+				generateStatsFile: true,
+				statsFilename: '../../../bundle-stats.json',
+			})
+		);
+	}
 
 	return config;
 };

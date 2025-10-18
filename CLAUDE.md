@@ -16,7 +16,12 @@ This is the official homepage for Liberalistene (Norwegian political party), bui
 2. **Never reset files from git** - Don't undo changes that have already been made to the codebase
 3. **Never mention controller files for site folder items** - This is React4xp v6 architecture with processors and component registry, not v3 controllers
 4. **Never commit without explicit approval** - ALWAYS show what will be staged/committed and wait for user confirmation. Never use `git add -A` or `git commit` without asking first. List the specific files to be committed and get approval.
-5. **Work in small batches (3-4 files maximum)** - Never modify more than 3-4 files in a single batch. Break larger tasks into smaller batches and get approval for each batch before proceeding.
+5. **Work in small batches and STOP** - Never modify more than 3-4 files in a single batch. After completing a batch:
+   - Show the results and changes made
+   - Mark todos as completed
+   - **STOP and wait for explicit approval**
+   - **User must restart the conversation for the next batch**
+   - This prevents autopilot mode and ensures proper review of each batch
 
 ## Tech Stack
 

@@ -1,6 +1,7 @@
 import {type FC} from 'react';
 
 import {BudgetCut} from './BudgetCut';
+import {FAIcon} from '/react4xp/common/FAIcon/FAIcon';
 
 interface CutItem {
   name?: string;
@@ -52,8 +53,8 @@ export const BudgetCutItem: FC<BudgetCutItemProps> = ({
           <label htmlFor={`checkbox-${titleAsID(title)}`}>
             {title}
 
-            <i className="fas fa-eye open"></i>
-            <i className="fas fa-eye-slash closed"></i>
+            <span className="open"><FAIcon iconType="faEye" /></span>
+            <span className="closed"><FAIcon iconType="faEyeSlash" /></span>
           </label>
         </h3>
       </div>

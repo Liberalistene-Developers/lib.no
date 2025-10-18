@@ -2,6 +2,7 @@ import {type FC, useState} from 'react';
 import slugify from 'react-slugify';
 
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
+import {FAIcon} from '@common/FAIcon/FAIcon';
 
 /**
  * Props for the Faq component.
@@ -64,7 +65,7 @@ export const Faq: FC<FaqProps> = ({
 
   const link = (
     <a href={`#${id}`} title={anchorText} onClick={() => setChecked(true)}>
-      <i className="fas fa-link"></i>
+      <FAIcon iconType="faLink" />
     </a>
   );
 
