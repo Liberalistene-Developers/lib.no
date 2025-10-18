@@ -6,50 +6,136 @@ import {imageUrl} from '/react4xp/utils/image';
 import {processHtml} from '/react4xp/utils/html';
 import {mapPerson} from '/react4xp/utils/board';
 
+/**
+ * Configuration for the event part.
+ */
 interface EventConfig {
+  /** Header background color */
   headerColor?: string;
+  /** Header image position/alignment */
   headerPosition?: string;
+  /** Whether to display ingress text over the header image */
   ingressInImage?: boolean;
+  /** Whether to display title over the header image */
   titleInImage?: boolean;
+  /** Custom label for information section */
   informationLabel?: string;
+  /** Custom label for more information section */
   moreInformationLabel?: string;
+  /** Custom label for location section */
   locationLabel?: string;
+  /** Custom label for contact section */
   contactLabel?: string;
+  /** Custom label for place/venue */
   placeLabel?: string;
+  /** Custom label for agenda section */
   agendaLabel?: string;
+  /** Custom label for date */
   dateLabel?: string;
+  /** Custom label for time */
   timeLabel?: string;
 }
 
+/**
+ * Event content data structure.
+ */
 interface EventData {
+  /** Event start date/time */
   from?: string;
+  /** Event end date/time */
   to?: string;
+  /** Full event description (HTML) */
   description?: string;
+  /** Event header image ID */
   image?: string;
+  /** Short event description/summary (HTML) */
   ingress?: string;
+  /** Event tags/categories */
   tags?: string;
+  /** Map coordinates in "lat,lng" format */
   map_geopoint?: string;
+  /** Event schedule with topics and speakers */
   schedule?: Array<{
+    /** Schedule section name */
     name: string;
+    /** Schedule section description */
     description: string;
+    /** Schedule date */
     date: string;
+    /** Topics/sessions in this schedule section */
     topics?: Array<{
+      /** Topic/session title */
       topic: string;
+      /** Speaker(s) person content ID(s) */
       speaker?: string | string[];
+      /** Start time (HH:MM format) */
       start?: string;
+      /** Duration (HH:MM format) */
       duration?: string;
+      /** Topic description (HTML) */
       topic_description?: string;
+      /** Post-event report/summary (HTML) */
       topic_report?: string;
     }>;
   }>;
+  /** Event organizer(s) person content ID(s) */
   organizerSelector?: string | string[];
+  /** Event speaker(s) person content ID(s) */
   speakers?: string | string[];
 }
 
+/**
+ * Person content data structure.
+ */
 interface PersonData {
+  /** Person's profile image ID */
   image?: string;
 }
 
+/**
+ * Processor for event component.
+ *
+ * Fetches comprehensive event data including:
+ * - Basic event info (title, dates, description, images)
+ * - Speakers and organizers (with profile data)
+ * - Schedule with topics, speakers, and timing
+ * - Map location coordinates
+ * - Custom labels for UI elements
+ *
+ * The processor handles complex schedule structures with multiple topics per day,
+ * including speaker information and duration formatting. Duration is formatted
+ * as "X timer Y min" in Norwegian (e.g., "2 timer 30 min").
+ *
+ * @param component - The React4xp component configuration
+ * @param content - The current content item (event)
+ * @returns Props object for Event component with full event data
+ *
+ * @example
+ * ```ts
+ * // Returns:
+ * {
+ *   from: "2024-06-15T10:00:00Z",
+ *   to: "2024-06-15T16:00:00Z",
+ *   title: "Annual Conference 2024",
+ *   description: "<p>Join us for...</p>",
+ *   image: "https://example.com/_/image/abc123:full",
+ *   ingress: "<p>A full day of...</p>",
+ *   speakers: [{person: "John Doe", image: "..."}],
+ *   organizers: [{person: "Jane Smith", image: "..."}],
+ *   map: [59.9139, 10.7522],
+ *   schedules: [{
+ *     name: "Day 1",
+ *     date: "2024-06-15",
+ *     topics: [{
+ *       title: "Opening keynote",
+ *       start: "10:00",
+ *       duration: "1 time 30 min",
+ *       speakers: [...]
+ *     }]
+ *   }]
+ * }
+ * ```
+ */
 export const eventProcessor: ComponentProcessor<'lib.no:event'> = ({component, content}) => {
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as EventConfig;

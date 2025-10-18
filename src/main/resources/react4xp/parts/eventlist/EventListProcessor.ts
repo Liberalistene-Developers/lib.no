@@ -5,40 +5,114 @@ import {mapEvent, type MappedEvent} from '/react4xp/utils/events';
 import {findItems} from '/react4xp/utils/query';
 import {buildParentPathQuery} from '/react4xp/utils/guillotine/helpers';
 
+/**
+ * Configuration for the event list part.
+ */
 interface EventListConfig {
+  /** List description text */
   description?: string;
+  /** Display type configuration (list or grid) */
   displaytype?: {
+    /** Selected display type: 'list' or 'grid' */
     _selected?: string;
+    /** List display configuration */
     list?: {
+      /** Image display configuration for list view */
       image?: {
+        /** Image visibility: 'show' or 'hide' */
         _selected?: string;
+        /** Configuration when images are shown */
         show?: {
+          /** Image size variant */
           imagesize?: string;
+          /** Whether to use round image style */
           imagetype?: boolean;
         };
       };
     };
   };
+  /** Item selection configuration (manual or query-based) */
   itemsSet?: {
+    /** Selection mode: 'manual' or 'query' */
     _selected?: string;
+    /** Manual selection configuration */
     manual?: {
+      /** Array of manually selected event content IDs */
       items?: string[];
     };
+    /** Query-based selection configuration */
     query?: {
+      /** Root path for content query */
       queryroot?: string;
+      /** Sorting option: 'asc', 'desc', or 'normal' */
       querysorting?: string;
+      /** Maximum number of items to fetch */
       count?: number;
     };
   };
+  /** Whether to hide event ingress text */
   hideIngress?: boolean;
+  /** Short description for the list */
   shortDescription?: string;
+  /** List title */
   title?: string;
+  /** Custom "read more" link text */
   readMore?: string;
+  /** Whether to show "read more" links */
   readMoreEnabled?: boolean;
+  /** Custom "load more" button text */
   loadMore?: string;
+  /** Whether to enable "load more" functionality */
   loadMoreEnabled?: boolean;
 }
 
+/**
+ * Processor for event list component.
+ *
+ * Fetches and configures an event list with support for:
+ * - **Manual selection:** Specific events chosen by editor
+ * - **Query selection:** Dynamic events fetched via content query with Guillotine API
+ *
+ * For query mode, the processor:
+ * - Fetches initial events server-side for SSR
+ * - Configures Guillotine API endpoint for client-side loading
+ * - Sets up parent path query for filtering
+ * - Prepares sorting expressions for dynamic queries
+ *
+ * Display options include:
+ * - List or grid layout
+ * - Image visibility and styling
+ * - "Read more" and "Load more" functionality
+ *
+ * @param component - The React4xp component configuration
+ * @param request - The HTTP request object (used to determine branch)
+ * @returns Props object for EventList component with events and configuration
+ *
+ * @example
+ * ```ts
+ * // Manual selection returns:
+ * {
+ *   title: "Upcoming Events",
+ *   displaytype: "list",
+ *   showImage: true,
+ *   imageSize: "medium",
+ *   items: [{title: "Event 1", from: "2024-06-15", ...}],
+ *   useLoader: false
+ * }
+ *
+ * // Query selection returns:
+ * {
+ *   title: "All Events",
+ *   displaytype: "grid",
+ *   items: [{...}], // Initial 10 events
+ *   apiUrl: "/api/master",
+ *   parentPathQuery: "...",
+ *   sortExpression: "data.from DESC",
+ *   count: 20,
+ *   useLoader: true
+ * }
+ * ```
+ */
 export const eventListProcessor: ComponentProcessor<'lib.no:eventlist'> = ({component, request}) => {
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as EventListConfig;

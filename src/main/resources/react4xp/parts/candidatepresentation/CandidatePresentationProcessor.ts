@@ -5,35 +5,96 @@ import {pageUrl} from '/lib/xp/portal';
 import {imageUrl} from '/react4xp/utils/image';
 import {runQuery} from '/react4xp/utils/query';
 
+/**
+ * Configuration for the candidate presentation part.
+ */
 interface CandidatePresentationConfig {
+  /** Item selection configuration (manual or query-based) */
   itemsSet?: {
+    /** Selection mode: 'manual' or 'query' */
     _selected?: string;
+    /** Manual selection configuration */
     manual?: {
+      /** Array of manually selected candidate content IDs */
       items?: string[];
     };
+    /** Query-based selection configuration */
     query?: {
+      /** Root path for content query */
       queryroot?: string;
+      /** Sorting option (e.g., 'asc', 'desc', 'normal') */
       querysorting?: string;
+      /** Maximum number of items to fetch */
       count?: number;
     };
   };
+  /** Whether to display candidates with highlighted styling */
   highlighted?: boolean;
+  /** Optional text to display before the candidate list */
   preText?: string;
 }
 
+/**
+ * Candidate content data structure.
+ */
 interface CandidateData {
+  /** Reference to associated person content */
   person?: string;
+  /** Candidate's image ID */
   image?: string;
+  /** Candidate's location */
   place?: string;
+  /** Candidate's position/role */
   position?: string;
+  /** Candidate's short description/bio */
   ingress?: string;
 }
 
+/**
+ * Person content data structure.
+ */
 interface PersonData {
+  /** Person's profile image ID */
   image?: string;
+  /** Person's short description */
   'short-description'?: string;
 }
 
+/**
+ * Processor for candidate presentation component.
+ *
+ * Fetches and formats a list of candidates for display. Supports two modes:
+ * - **Manual selection:** Specific candidates chosen by editor
+ * - **Query selection:** Dynamic candidates fetched via content query
+ *
+ * For each candidate, the processor:
+ * - Fetches candidate content and associated person data
+ * - Merges candidate and person data (candidate data takes precedence)
+ * - Generates page URLs and processes images
+ * - Returns formatted list with name, image, position, place, and ingress
+ *
+ * @param component - The React4xp component configuration
+ * @returns Props object for CandidatePresentation component
+ *
+ * @example
+ * ```ts
+ * // Returns:
+ * {
+ *   items: [
+ *     {
+ *       name: "Jane Smith",
+ *       image: "https://example.com/_/image/abc123:full",
+ *       place: "Bergen",
+ *       position: "City Council Candidate",
+ *       ingress: "Experienced leader...",
+ *       url: "/candidates/jane-smith"
+ *     }
+ *   ],
+ *   highlighted: true,
+ *   preText: "Meet our candidates"
+ * }
+ * ```
+ */
 export const candidatePresentationProcessor: ComponentProcessor<'lib.no:candidatepresentation'> = ({component}) => {
   const partComponent = component as unknown as PartComponent;
   const config = partComponent.config as CandidatePresentationConfig;
