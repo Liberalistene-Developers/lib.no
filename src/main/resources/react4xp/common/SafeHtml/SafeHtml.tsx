@@ -2,28 +2,65 @@ import {type FC, useMemo} from 'react';
 import cx from 'classnames';
 import DOMPurify from 'dompurify';
 
+/**
+ * Props for the SafeHtml component
+ */
 interface SafeHtmlProps {
+  /** HTML string to sanitize and render */
   html: string;
+  /** Additional CSS classes to apply to the wrapper element */
   className?: string;
+  /** HTML element type to use as wrapper. Defaults to 'div' */
   as?: 'div' | 'span' | 'p' | 'dd' | 'dt' | 'li' | 'section' | 'article' | 'aside' | 'header' | 'footer';
   /**
-   * Optional DOMPurify configuration
-   * By default, allows most safe HTML tags and attributes commonly used in CMS content
+   * Optional DOMPurify configuration to customize sanitization rules
+   * Merged with default configuration that allows most safe HTML tags and attributes commonly used in CMS content
    */
   sanitizeConfig?: DOMPurify.Config;
 }
 
 /**
- * Component for safely rendering HTML content from CMS
- * Uses DOMPurify to sanitize HTML and prevent XSS attacks
+ * Component for safely rendering HTML content from CMS with XSS protection
  *
- * Default configuration allows:
- * - Common formatting tags (p, div, span, strong, em, etc.)
- * - Links with href and target attributes
- * - Images with src and alt attributes
- * - Lists (ul, ol, li)
- * - Tables
- * - Headers (h1-h6)
+ * Uses DOMPurify to sanitize HTML before rendering, preventing XSS attacks while preserving
+ * safe HTML formatting. Memoized for performance - only re-sanitizes when HTML or config changes.
+ *
+ * **Default allowed tags:**
+ * - Formatting: p, div, span, strong, em, u, b, i, br
+ * - Lists: ul, ol, li
+ * - Headers: h1-h6
+ * - Blocks: blockquote, pre, code
+ * - Tables: table, thead, tbody, tr, td, th
+ * - Definition lists: dl, dt, dd
+ * - Other: img, hr, sup, sub
+ *
+ * **Default allowed attributes:**
+ * - Links: href, target, rel
+ * - Images: src, alt, title
+ * - Styling: class, id, width, height, style
+ *
+ * **Security:**
+ * - Data attributes are blocked by default (ALLOW_DATA_ATTR: false)
+ * - All script tags and event handlers are removed
+ * - Dangerous protocols (javascript:, data:) are blocked
+ *
+ * @example
+ * ```tsx
+ * // Basic usage
+ * <SafeHtml html={content.htmlText} />
+ *
+ * // With custom wrapper element
+ * <SafeHtml html={content.description} as="section" />
+ *
+ * // With additional CSS classes
+ * <SafeHtml html={content.body} className="article-content" />
+ *
+ * // With custom sanitization config (allow data attributes)
+ * <SafeHtml
+ *   html={content.html}
+ *   sanitizeConfig={{ ALLOW_DATA_ATTR: true }}
+ * />
+ * ```
  */
 export const SafeHtml: FC<SafeHtmlProps> = ({
   html,

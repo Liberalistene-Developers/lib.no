@@ -3,6 +3,28 @@ import cx from 'classnames';
 
 import type {ButtonProps} from './ButtonProps';
 
+/**
+ * Button component with support for different variants and both button/link rendering
+ *
+ * Renders as a `<button>` element when onClick is provided without URL,
+ * or as an `<a>` element when URL is provided.
+ *
+ * Supports two variants controlled by className:
+ * - **Default (dark):** Primary color background with hover effects
+ * - **Light:** Light background with primary color text
+ *
+ * @example
+ * ```tsx
+ * // Button element with onClick
+ * <Button title="Click me" onClick={handleClick} />
+ *
+ * // Link element
+ * <Button title="Learn more" url="/about" target="_blank" />
+ *
+ * // Light variant
+ * <Button title="Light button" url="/page" className="light" />
+ * ```
+ */
 export const Button: FC<ButtonProps> = ({
   title,
   target,

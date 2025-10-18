@@ -1,9 +1,15 @@
 import {Component, type ErrorInfo, type ReactNode} from 'react';
 import {logger} from '@utils/logger';
 
+/**
+ * Props for the ErrorBoundary component
+ */
 interface ErrorBoundaryProps {
+  /** Child components to wrap with error boundary */
   children?: ReactNode;
+  /** Custom fallback UI to display when an error occurs. If not provided, uses default error UI */
   fallback?: ReactNode;
+  /** Optional callback function called when an error is caught */
   onError?: (error: Error, errorInfo: ErrorInfo) => void;
 }
 
@@ -14,11 +20,41 @@ interface ErrorBoundaryState {
 }
 
 /**
- * Error Boundary component that catches React component errors and provides graceful fallback UI.
+ * Error Boundary component that catches React component errors and provides graceful fallback UI
+ *
+ * Catches errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.
+ * Errors are logged using the logger utility and can be handled with a custom callback.
+ *
+ * **Features:**
+ * - Prevents entire app from crashing due to component errors
+ * - Provides default error UI with "Try Again" and "Refresh Page" buttons
+ * - Shows detailed error information in development mode
+ * - Logs errors with full stack traces
+ * - Supports custom fallback UI
+ * - Supports custom error handlers
+ *
+ * **Default Error UI includes:**
+ * - User-friendly error message
+ * - Try Again button (resets error state)
+ * - Refresh Page button
+ * - Error details in development mode (collapsible)
  *
  * @example
  * ```tsx
+ * // Basic usage with default fallback
+ * <ErrorBoundary>
+ *   <YourComponent />
+ * </ErrorBoundary>
+ *
+ * // With custom fallback UI
  * <ErrorBoundary fallback={<CustomErrorPage />}>
+ *   <YourComponent />
+ * </ErrorBoundary>
+ *
+ * // With error handler callback
+ * <ErrorBoundary onError={(error, errorInfo) => {
+ *   reportErrorToService(error, errorInfo);
+ * }}>
  *   <YourComponent />
  * </ErrorBoundary>
  * ```
