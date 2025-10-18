@@ -8,6 +8,10 @@ import type {Response} from '@enonic-types/core';
  * - X-Content-Type-Options
  * - X-Frame-Options
  * - Referrer-Policy
+ *
+ * Note: HTTPS enforcement (upgrade-insecure-requests) should be handled
+ * at the infrastructure level (reverse proxy, CDN) rather than in CSP,
+ * to avoid breaking local HTTP development.
  */
 exports.responseProcessor = (req: unknown, res: Response): Response => {
   // Content Security Policy
@@ -23,8 +27,9 @@ exports.responseProcessor = (req: unknown, res: Response): Response => {
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self'",
-    "frame-ancestors 'self'",
-    "upgrade-insecure-requests"
+    "frame-ancestors 'self'"
+    // Note: upgrade-insecure-requests removed to support local HTTP development
+    // HTTPS should be enforced at infrastructure level in production
   ].join('; ');
 
   const headers = res.headers || {};
