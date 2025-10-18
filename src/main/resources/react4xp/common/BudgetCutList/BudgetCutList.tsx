@@ -32,6 +32,39 @@ export interface BudgetCutListProps {
   labelNumberText?: string;
 }
 
+/**
+ * BudgetCutList component displays a list of budget cuts with detailed breakdowns.
+ *
+ * Presents a title, optional introductory text (ingress), and a collection of expandable
+ * budget cut items showing financial data including budgets, cuts, percentages, and descriptions.
+ * Each item can contain nested sub-cuts for detailed breakdowns.
+ *
+ * Used for displaying political party budget proposals and government spending cuts.
+ *
+ * @example
+ * ```tsx
+ * <BudgetCutList
+ *   title="Proposed Budget Cuts 2025"
+ *   ingress="<p>Our plan to reduce government spending.</p>"
+ *   labelBudget="Current Budget"
+ *   labelCut="Proposed Cut"
+ *   labelPercent="Percentage"
+ *   items={[
+ *     {
+ *       itemID: "1",
+ *       title: "Department of Example",
+ *       budget: 1000000,
+ *       cut: 250000,
+ *       percent: 25,
+ *       description: "Reduce administrative overhead",
+ *       cuts: [
+ *         { name: "Office supplies", budget: 100000, cut: 50000, percent: 50 }
+ *       ]
+ *     }
+ *   ]}
+ * />
+ * ```
+ */
 export const BudgetCutList = ({
   ingress,
   title,

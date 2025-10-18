@@ -32,6 +32,31 @@ export interface BookListProps {
   items?: BookItem[];
 }
 
+/**
+ * BookList component displays a collection of books as a grid of book cards.
+ *
+ * Renders an optional title followed by a list of BookCard components,
+ * each representing a book with its cover image, author, description, and purchase links.
+ *
+ * @example
+ * ```tsx
+ * <BookList
+ *   title="Recommended Reading"
+ *   buyFromText="Buy from"
+ *   items={[
+ *     {
+ *       itemID: "1",
+ *       title: "Book Title",
+ *       author: { name: "Author Name", url: "/author" },
+ *       image: { src: "/book-cover.jpg", alt: "Book cover" },
+ *       text: "Book description",
+ *       url: "/books/book-title",
+ *       buy: { url: "https://store.com", shop: "Store Name" }
+ *     }
+ *   ]}
+ * />
+ * ```
+ */
 export const BookList = ({
   title = '',
   items = [],

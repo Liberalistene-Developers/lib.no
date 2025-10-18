@@ -19,6 +19,33 @@ interface LocalBlockProps {
   titleClassName?: string;
 }
 
+/**
+ * LocalBlock component displays a hero-style content block with customizable styling.
+ *
+ * Creates a visually prominent section with an optional background image, multi-line colored title,
+ * and introductory text. The title supports multiple lines with individual color styling per line.
+ * Content can be positioned left, center, or right, and the ingress text can be styled with
+ * different color options.
+ *
+ * Commonly used for local branch pages and regional landing pages.
+ *
+ * @example
+ * ```tsx
+ * <LocalBlock
+ *   Tag="h1"
+ *   image={{ src: "/oslo-skyline.jpg", alt: "Oslo skyline" }}
+ *   position="center"
+ *   overlay="overlay-dark"
+ *   titleClassName="full"
+ *   title={[
+ *     { title: "Liberalistene", titleColor: "light" },
+ *     { title: "Oslo", titleColor: "yellow" }
+ *   ]}
+ *   ingress="<p>Join us in Oslo for freedom and liberty.</p>"
+ *   ingressColor="light"
+ * />
+ * ```
+ */
 export const LocalBlock: FC<LocalBlockProps> = ({
   Tag = 'h1',
   image,

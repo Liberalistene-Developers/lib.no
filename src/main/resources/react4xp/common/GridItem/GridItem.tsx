@@ -21,6 +21,33 @@ interface GridItemProps {
   titleCenter?: boolean;
 }
 
+/**
+ * GridItem component displays an item in a grid layout with an image and text content.
+ *
+ * Renders a flexible grid item with an image, title, description, and optional "read more" link.
+ * Supports various image sizes (small, medium, large), image shapes (round), and content
+ * positioning (left, right, centered title). Can optionally render children for additional content.
+ *
+ * Used in various grid-based layouts throughout the site for displaying people, articles,
+ * events, and other content types.
+ *
+ * @example
+ * ```tsx
+ * <GridItem
+ *   item={{
+ *     name: "John Doe",
+ *     shortDescription: "Political activist and speaker",
+ *     url: "/people/john-doe",
+ *     image: { src: "/john.jpg", alt: "John Doe" }
+ *   }}
+ *   imageSize="medium"
+ *   imageType="round"
+ *   titleCenter={true}
+ *   readMore="Read more"
+ *   readMoreEnabled={true}
+ * />
+ * ```
+ */
 export const GridItem: FC<GridItemProps> = ({
   children,
   direction = '',

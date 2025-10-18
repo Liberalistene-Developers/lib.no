@@ -58,6 +58,44 @@ interface TableOfContentProps {
   title?: string;
 }
 
+/**
+ * TableOfContent component generates a hierarchical table of contents with anchor links.
+ *
+ * Creates a navigable table of contents from a structured list of sections and their parts.
+ * Each section and part generates an anchor link using slugified titles. The component
+ * automatically filters to show only programme parts (type: 'lib.no:programme-part').
+ *
+ * Used primarily for programme pages and long-form documents to provide quick navigation.
+ *
+ * @example
+ * ```tsx
+ * <TableOfContent
+ *   title="Our Programme 2025"
+ *   sections={[
+ *     {
+ *       key: "section-1",
+ *       title: "Economy",
+ *       parts: [
+ *         { key: "part-1", type: "lib.no:programme-part", title: "Tax Policy" },
+ *         { key: "part-2", type: "lib.no:programme-part", title: "Budget Reform" }
+ *       ]
+ *     },
+ *     {
+ *       key: "section-2",
+ *       title: "Healthcare",
+ *       parts: [
+ *         { key: "part-3", type: "lib.no:programme-part", title: "Patient Rights" }
+ *       ]
+ *     }
+ *   ]}
+ * />
+ * ```
+ *
+ * @remarks
+ * - Anchor links are generated using slugified section and part titles
+ * - Only parts with type 'lib.no:programme-part' are displayed
+ * - Nested parts use parent section title in their anchor links
+ */
 export const TableOfContent: FC<TableOfContentProps> = ({
   title = '',
   sections = []

@@ -17,6 +17,34 @@ interface ListItemProps {
   fields?: Record<string, unknown>;
 }
 
+/**
+ * ListItem component displays an item in a vertical list layout.
+ *
+ * Renders a flexible list item with an optional image, title, and description.
+ * The component supports customizable image sizing and styling (including rounded images),
+ * and allows for children to be rendered either before or after the description.
+ *
+ * Commonly used for displaying people, candidates, board members, and other
+ * content in vertical list layouts.
+ *
+ * @example
+ * ```tsx
+ * <ListItem
+ *   item={{
+ *     name: "Jane Smith",
+ *     shortDescription: "<p>Board member and policy advisor</p>",
+ *     url: "/people/jane-smith",
+ *     image: { src: "/jane.jpg", alt: "Jane Smith" }
+ *   }}
+ *   imageSize="medium"
+ *   imageType="round"
+ *   showImage={true}
+ *   showDescriptions={true}
+ * >
+ *   <button>Contact</button>
+ * </ListItem>
+ * ```
+ */
 export const ListItem: FC<ListItemProps> = ({
   children,
   childrenLast = false,
