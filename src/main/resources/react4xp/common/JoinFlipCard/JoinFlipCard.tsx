@@ -5,16 +5,45 @@ import {Button} from '@common/Button/Button';
 import {Image, type ImageData} from '@common/Image/Image';
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
-
+/**
+ * Props for the JoinFlipCard component
+ */
 export interface JoinFlipCardProps {
+  /** Front side message text (HTML) */
   message?: string;
+  /** Back side message text (HTML) */
   backMessage?: string;
+  /** Front side image */
   image?: ImageData | null;
+  /** CTA button URL on back side */
   url?: string;
+  /** CTA button text on back side */
   buttonText?: string;
+  /** Front side layout - 'row' (side-by-side) or 'column' (stacked) */
   frontPlacement?: string;
 }
 
+/**
+ * JoinFlipCard component displays an interactive 3D flip card on hover.
+ *
+ * Renders a card that flips on hover using CSS 3D transforms (rotateX). The
+ * front side displays an image and message in either row or column layout.
+ * The back side shows a message and call-to-action button. Fixed at 300px
+ * height and 600px width (responsive on mobile). Uses perspective transforms
+ * for smooth 3D flip animation.
+ *
+ * @example
+ * ```tsx
+ * <JoinFlipCard
+ *   message="<h2>Join our movement</h2>"
+ *   backMessage="<p>Be part of the change</p>"
+ *   image={{url: '/join.jpg', alternativeText: 'Join'}}
+ *   url="/membership"
+ *   buttonText="Become a Member"
+ *   frontPlacement="row"
+ * />
+ * ```
+ */
 export const JoinFlipCard: FC<JoinFlipCardProps> = ({
   message,
   backMessage,

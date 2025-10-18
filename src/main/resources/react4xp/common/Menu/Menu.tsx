@@ -1,9 +1,34 @@
 import type { MenuTree } from '/lib/menu';
 
+/**
+ * Props for the Menu component
+ */
 interface MenuProps {
+  /** Menu tree data structure containing menu items */
   menu?: MenuTree;
 }
 
+/**
+ * Menu component displays the main navigation menu with mobile responsive overlay.
+ *
+ * Renders a horizontal navigation menu on desktop that transforms into a hamburger
+ * menu with full-screen overlay on mobile. The mobile menu uses a checkbox-based
+ * toggle mechanism with animated hamburger icon. Menu items support external links
+ * with target="_blank" when newWindow is true.
+ *
+ * @example
+ * ```tsx
+ * <Menu
+ *   menu={{
+ *     ariaLabel: 'Main navigation',
+ *     menuItems: [
+ *       {title: 'Home', url: '/', newWindow: false},
+ *       {title: 'About', url: '/about', newWindow: false}
+ *     ]
+ *   }}
+ * />
+ * ```
+ */
 export const Menu = ({ menu }: MenuProps ) => {
 
   return (
