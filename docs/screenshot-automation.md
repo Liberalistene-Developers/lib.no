@@ -44,16 +44,16 @@ The tool will:
 Screenshots are saved to:
 ```
 docs/screenshots/
-├── article.png
+├── article.webp
 ├── button.png
-├── candidatepage.png
+├── candidatepage.webp
 └── ... (38 total)
 ```
 
 ### Naming Convention
 
 Screenshots are named using kebab-case matching the component names in the documentation:
-- `article` → `article.png`
+- `article` → `article.webp`
 - `candidateblock` → `candidateblock.png`
 - `programme-main` → `programme-main.png`
 
@@ -160,7 +160,7 @@ After running the screenshot tool, update the component catalog documentation to
 
 ```markdown
 **Screenshot:**
-![Article](../screenshots/article.png)
+![Article](../screenshots/article.webp)
 ```
 
 ## Future Improvements

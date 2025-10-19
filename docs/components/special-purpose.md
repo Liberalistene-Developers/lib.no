@@ -277,7 +277,7 @@ Domain-specific components designed for particular use cases.
 | description | string | No | Full biography or description (HTML content) |
 
 **Screenshot:**
-![CandidatePage](../../screenshots/candidatepage.png)
+![CandidatePage](../../screenshots/candidatepage.webp)
 
 **Storybook:** [View in Storybook](http://localhost:6006/?path=/story/parts-candidatepage)
 
@@ -440,7 +440,7 @@ Domain-specific components designed for particular use cases.
 | speakers | Person[] | Speakers for this topic |
 
 **Screenshot:**
-![Event](../../screenshots/event.png)
+![Event](../../screenshots/event.webp)
 
 **Storybook:** [View in Storybook](http://localhost:6006/?path=/story/parts-event)
 
@@ -606,7 +606,7 @@ Domain-specific components designed for particular use cases.
 | image | ImageData | Member's profile image |
 
 **Screenshot:**
-![Group](../../screenshots/group.png)
+![Group](../../screenshots/group.webp)
 
 **Storybook:** [View in Storybook](http://localhost:6006/?path=/story/parts-group)
 
@@ -1068,7 +1068,7 @@ import {LocalBranch} from '@common/LocalBranch/LocalBranch';
 | message | string | No | Custom test message to display (default: 'Hello from React4xp v6!') |
 
 **Screenshot:**
-![Test](../../screenshots/test.png)
+![Test](../../screenshots/test.webp)
 
 **Storybook:** [View in Storybook](http://localhost:6006/?path=/story/parts-test)
 

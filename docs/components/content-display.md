@@ -33,7 +33,7 @@ Components for displaying text, images, and other content.
 | description | string | No | Article meta description |
 
 **Screenshot:**
-![Article](../../screenshots/article.png)
+![Article](../../screenshots/article.webp)
 
 **Storybook:** [View in Storybook](http://localhost:6006/?path=/story/parts-article)
 

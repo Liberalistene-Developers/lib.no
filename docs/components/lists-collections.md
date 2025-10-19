@@ -266,7 +266,7 @@ Components for displaying collections of items.
 | url | string | Link to person's full profile page |
 
 **Screenshot:**
-![PersonList](../../screenshots/personlist.png)
+![PersonList](../../screenshots/personlist.webp)
 
 **Storybook:** [View in Storybook](http://localhost:6006/?path=/story/parts-personlist)
 

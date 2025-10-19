@@ -24,7 +24,7 @@ Components that define page structure and help users navigate the site.
 | effect | ImageData | No | Decorative effect image shown floating on desktop (hidden on mobile) |
 
 **Screenshot:**
-![FancyHeader](../../screenshots/fancyheader.png)
+![FancyHeader](../../screenshots/fancyheader.webp)
 
 **Storybook:** [View in Storybook](http://localhost:6006/?path=/story/parts-fancyheader)
 
