@@ -28,7 +28,7 @@ jobs:
       pull-requests: write
 
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
       ENONIC_CLI_REMOTE_URL: ${{ secrets.ENONIC_CLI_REMOTE_URL }}
       ENONIC_CLI_REMOTE_USER: ${{ secrets.ENONIC_CLI_REMOTE_USER }}
       ENONIC_CLI_REMOTE_PASS: ${{ secrets.ENONIC_CLI_REMOTE_PASS }}
@@ -38,6 +38,7 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
+          token: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
