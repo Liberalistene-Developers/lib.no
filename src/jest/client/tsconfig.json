@@ -1,0 +1,32 @@
+{
+  "extends": "../../../tsconfig.react4xp.json",
+
+  "include": [
+    "./**/*.spec.ts",
+    "./**/*.spec.tsx",
+    "./**/*.test.ts",
+    "./**/*.test.tsx",
+  ],
+
+  "compilerOptions": {
+    // A series of entries which re-map imports to lookup locations relative
+    // to the baseUrl if set, or to the tsconfig file itself otherwise.
+    "paths": {
+      "/react4xp/*": ["../../main/resources/react4xp/*"],
+      "/assets/*": ["../../main/resources/assets/*"],
+      "@common/*": ["../../main/resources/react4xp/common/*"],
+      "@utils/*": ["../../main/resources/react4xp/utils/*"],
+      "/lib/menu": ["../../../node_modules/@item-enonic-types/lib-menu"],
+    },
+
+    "sourceMap": true, // Important to get correct line numbers when running coverage tests
+
+    "types": [
+      "@types/jest",
+      "@testing-library/jest-dom",
+      "node",
+    ],
+
+  }, // compilerOptions
+
+}

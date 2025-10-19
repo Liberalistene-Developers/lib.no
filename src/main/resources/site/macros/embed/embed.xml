@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<macro>
+    <display-name>Embed</display-name>
+    <name>embed</name>
+    <description>A component to embed.</description>
+    <editor-display-name>Embed</editor-display-name>
+    <config>
+        <param name="header" type="text" label="Header">Embed</param>
+    </config>
+</macro>

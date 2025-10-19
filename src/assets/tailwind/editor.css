@@ -1,0 +1,30 @@
+/* Content Studio Editor Styles */
+
+/* Special styles for Content Studio edit mode to ensure regions are visible and droppable */
+
+@layer components {
+  /* Content Studio edit mode - Region placeholders */
+  .xp-page-editor-region-placeholder {
+    min-height: 200px !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Only apply min-height to empty regions when in edit mode context */
+  .xp-page-editor-region-placeholder + [data-portal-region]:empty,
+  .xp-page-editor-item-view [data-portal-region]:empty {
+    min-height: 200px !important;
+  }
+
+  /* Layout regions - ensure empty regions are visible and droppable only in edit mode */
+  .xp-page-editor-item-view .content-item.items {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .xp-page-editor-item-view .content-item.items > .content-child:empty {
+    flex: 1 !important;
+    min-width: 200px !important;
+    min-height: 200px !important;
+  }
+}

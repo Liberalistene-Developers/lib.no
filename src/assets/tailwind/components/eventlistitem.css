@@ -1,0 +1,19 @@
+/* Event List Item Component */
+
+/* Event list item with event info displays */
+
+@layer components {
+  .list-item-content .event-info {
+    @apply flex justify-between w-full mb-[10px] font-semibold text-sm leading-[17px];
+
+    color: var(--lib-color-subtext-100);
+  }
+
+  .list-item-content .event-info .event-place {
+    @apply max-w-[60%] overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+
+  .list-item-content .event-info a {
+    color: var(--lib-color-subtext-100);
+  }
+}

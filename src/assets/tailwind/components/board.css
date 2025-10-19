@@ -1,0 +1,21 @@
+/* Board Component */
+
+/* Board member layouts and leader displays */
+
+@layer components {
+  .board-wrapper .board > .leader {
+    @apply flex justify-center content-center;
+  }
+
+  .board-wrapper .board > .members {
+    @apply flex flex-wrap justify-end content-center;
+  }
+
+  .board-wrapper .board .list-item.person {
+    @apply w-1/2;
+  }
+
+  .board-wrapper .board .list-item.person img {
+    @apply object-cover w-[180px] h-[180px];
+  }
+}

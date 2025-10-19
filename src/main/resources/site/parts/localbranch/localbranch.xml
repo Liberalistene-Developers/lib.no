@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part xmlns="urn:enonic:xp:model:1.0">
+  <display-name>Local branch top banner</display-name>
+  <form>
+    <input name="title" type="TextLine">
+      <label i18n="site.heading.label">Heading</label>
+      <default>Liberalistene</default>
+      <occurrences minimum="1" maximum="1"/>
+    </input>
+  </form>
+</part>

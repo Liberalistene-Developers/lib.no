@@ -1,11 +1,9 @@
-<content-type>
+<content-type xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="content_types.book.displayname">Book</display-name>
   <display-name-label i18n="common_types.book.displayname.label">Book</display-name-label>
-  <description i18n="content_types.book.description">Create a new book</description>
   <super-type>base:structured</super-type>
   <is-abstract>false</is-abstract>
   <is-final>true</is-final>
-  <is-built-in>false</is-built-in>
   <allow-child-content>true</allow-child-content>
   <form>
     <mixin name="image" />
@@ -33,7 +31,7 @@
       <label i18n="content_types.book.buy.label">Where to buy</label>
       <occurrences minimum="0" maximum="0"/>
       <items>
-        <input name="topic" type="TextLine">
+        <input name="store" type="TextLine">
           <label i18n="content_types.book.buy.site.label">Store name</label>          
         </input>
         <input name="url" type="TextLine">

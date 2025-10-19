@@ -1,0 +1,204 @@
+/* Layout System */
+
+/* Layout containers, content holders, and divider styles */
+
+@layer components {
+  /* Layout system */
+  main > [data-portal-component-type="layout"].content-holder {
+    @apply block;
+  }
+
+  main > .content-holder {
+    @apply max-w-full block;
+  }
+
+  main > .content-holder:empty {
+    @apply hidden;
+  }
+
+  main > .content-holder.light-purple {
+    background-color: var(--lib-color-background-300);
+  }
+
+  main > .content-holder.light-grey {
+    background-color: var(--lib-color-background-500);
+  }
+
+  main > .content-holder.purple {
+    background-color: #4a104a;
+    color: #fff;
+  }
+
+  main > .content-holder.purple .content,
+  main > .content-holder.purple .content-item,
+  main > .content-holder.purple .content-child {
+    background-color: transparent;
+  }
+
+  main > .content-holder.purple h1,
+  main > .content-holder.purple h2,
+  main > .content-holder.purple h3 {
+    color: #fff;
+  }
+
+  main > .content-holder.purple a {
+    color: #ffea00;
+  }
+
+  main > .content-holder.white {
+    @apply bg-white;
+  }
+
+  main > .content-holder.yellow {
+    @apply bg-[rgb(255,255,0)];
+  }
+
+  main > .content-holder.padding-top {
+    @apply pt-[50px];
+  }
+
+  main > .content-holder.padding-bottom {
+    @apply pb-[50px];
+  }
+
+  main .content-holder .content {
+    @apply w-full max-w-[1296px] mx-auto pb-5 pt-5;
+  }
+
+  main .content-holder .content .content-item {
+    @apply flex flex-col justify-center items-center mx-auto w-[911px] max-w-full;
+  }
+
+  main .content-holder .content .content-item .xp-page-editor-item-view.empty {
+    @apply w-full;
+  }
+
+  main .content-holder .content .content-item p > a {
+    @apply underline;
+  }
+
+  main .content-holder .content .content-item .page-content,
+  main .content-holder .content .content-item section[data-portal-component-type="text"] > *,
+  main .content-holder .content .content-item div[data-portal-component-type="text"] > section > * {
+    @apply mx-auto w-[600px] max-w-full;
+  }
+
+  main .content-holder .content .content-item div[data-portal-component-type="part"] {
+    @apply w-full;
+  }
+
+  main .content-holder .content .content-item section[data-portal-component-type="text"] > figure {
+    @apply w-full;
+  }
+
+  main .content-holder .content .content-item section[data-portal-component-type="text"] > figure img {
+    @apply max-w-full;
+  }
+
+  main .content-holder .content .content-item.items {
+    @apply flex flex-row flex-wrap justify-between items-start gap-y-10;
+  }
+
+  main .content-holder .content .content-item.items.reverse {
+    @apply flex-wrap-reverse;
+  }
+
+  main .content-holder .content .content-item.items .content-child.items {
+    @apply flex flex-row justify-around;
+  }
+
+  main .content-holder .content .content-item.items .content-child.left {
+    @apply -mr-5;
+  }
+
+  main .content-holder .content .content-item.items .content-child.left > * {
+    @apply pr-5;
+  }
+
+  main .content-holder .content .content-item.items .content-child.middle {
+    @apply -mx-[10px];
+  }
+
+  main .content-holder .content .content-item.items .content-child.middle > * {
+    @apply px-2;
+  }
+
+  main .content-holder .content .content-item.items .content-child.right {
+    @apply -ml-5;
+  }
+
+  main .content-holder .content .content-item.items .content-child.right > * {
+    @apply pl-5;
+  }
+
+  .content-item.items .content-child.full {
+    display: block !important;
+    width: 100% !important;
+    flex: none !important;
+  }
+
+  main .content-holder .content .content-item.items .content-child.one {
+    @apply w-1/2;
+  }
+
+  main .content-holder .content .content-item.items .content-child.one-20 {
+    @apply w-[20%];
+  }
+
+  main .content-holder .content .content-item.items .content-child.one-25 {
+    @apply w-1/4;
+  }
+
+  main .content-holder .content .content-item.items .content-child.one-30 {
+    @apply w-[30%];
+  }
+
+  main .content-holder .content .content-item.items .content-child.one-33 {
+    @apply w-[33%];
+  }
+
+  main .content-holder .content .content-item.items .content-child.one-40 {
+    @apply w-[40%];
+  }
+
+  main .content-holder .content .content-item.items .content-child.two-60 {
+    @apply w-[60%];
+  }
+
+  main .content-holder .content .content-item.items .content-child.two-66 {
+    @apply w-[66%];
+  }
+
+  main .content-holder .content .content-item.items .content-child.two-70 {
+    @apply w-[70%];
+  }
+
+  main .content-holder .content .content-item.items .content-child.two-75 {
+    @apply w-3/4;
+  }
+
+  main .content-holder .content .content-item.items .content-child.four {
+    @apply w-[80%];
+  }
+
+  main .content-holder .content .content-item.items .content-child.seven-10 {
+    @apply w-[70%];
+  }
+
+  main .content-holder .content .content-item.items .content-child.three-10 {
+    @apply w-[30%];
+  }
+
+  main > .content-holder > .content.full {
+    @apply max-w-[1800px];
+  }
+
+  main > .content-holder > .content.full > .content-item {
+    @apply w-full;
+  }
+
+  main .content-holder .content .divider.visible {
+    @apply border-b-2 border-[rgba(74,16,74,0.18)] min-h-[2px] my-4;
+  }
+
+}

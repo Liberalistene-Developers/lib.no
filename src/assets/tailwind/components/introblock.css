@@ -1,0 +1,21 @@
+/* Intro Block Component */
+
+/* Introduction blocks with image and text side by side */
+
+@layer components {
+  .intro-block {
+    @apply flex flex-row pt-[15px] pb-[15px] gap-x-5;
+  }
+
+  .intro-block > div {
+    width: calc(50% - 10px);
+  }
+
+  .intro-block img {
+    @apply w-full;
+  }
+
+  .intro-block .description {
+    @apply mt-[15px];
+  }
+}

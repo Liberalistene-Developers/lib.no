@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<page>
+<page xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="component.page.name">Under construction</display-name>  
   <description>Under construction page </description> 
   <form> 

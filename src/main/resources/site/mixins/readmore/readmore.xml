@@ -1,0 +1,23 @@
+<mixin xmlns="urn:enonic:xp:model:1.0">
+  <display-name i18n="mixin.readmore.displayname">Read more</display-name>
+  <form>
+    <field-set>
+      <label i18n="mixin.readMore.label">Lenke for å lese mer</label>
+      <items>
+        <input  name="readMoreEnabled" type="CheckBox">
+          <label i18n="mixin.readmore.enabled.label">Vis lenke</label>
+          <config>
+            <alignment>right</alignment>
+          </config>
+        </input>
+        <input type="TextLine" name="readMore" > 
+          <label i18n="mixin.readmore.button.label">Lenke tekst</label> 
+          <default>Les mer...</default>
+          <occurrences minimum="0" maximum="1"/>  
+          <config/> 
+        </input>
+      </items>
+    </field-set>
+  </form>
+</mixin>
+

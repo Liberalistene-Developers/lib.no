@@ -1,0 +1,9 @@
+/* Submenu Component */
+
+/* Secondary navigation menu styles */
+
+@layer components {
+  .sub-menu {
+    @apply flex justify-center flex-wrap content-center;
+  }
+}

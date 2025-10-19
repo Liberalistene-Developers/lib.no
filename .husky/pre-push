@@ -1,0 +1,4 @@
+# .husky/pre-push
+#
+# run linting before push
+npm run lint

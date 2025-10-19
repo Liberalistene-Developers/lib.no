@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<layout>
-  <display-name i18n="layouts.singlecolumn.displayname">Single column</display-name>
+<layout xmlns="urn:enonic:xp:model:1.0">
+  <display-name i18n="layouts.singlecolumn.displayname">1 column</display-name>
+  <description i18n="layouts.singlecolumn.description">A layout with one full width column</description>
   <form>
     <mixin name="fullwidth" />
     <mixin name="borderbottom" />

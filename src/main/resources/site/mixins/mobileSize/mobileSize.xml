@@ -1,0 +1,16 @@
+<mixin xmlns="urn:enonic:xp:model:1.0">
+  <display-name i18n="mixin.mobileSize.displayname">MobileSize</display-name>
+  <form>
+    <input name="mobileSize" type="ComboBox">
+      <label i18n="parts.mobilesize.label">Title size on mobile</label>
+      <occurrences minimum="1" maximum="1"/>
+      <config>
+        <option value="full" i18n="mixin.mobilesize.full.label">Full</option>
+        <option value="treequarter" i18n="mixin.mobilesize.treequarter.label">3/4</option>
+        <option value="half" i18n="mixin.mobilesize.half.label">1/2</option>
+        <option value="quarter" i18n="mixin.mobilesize.quarter.label">1/4</option>
+      </config>
+      <default>full</default>
+    </input>
+  </form>
+</mixin>

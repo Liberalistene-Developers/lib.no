@@ -1,0 +1,19 @@
+/* Menu Item Component */
+
+/* Individual menu items with skew effects */
+
+@layer components {
+  .menu-item {
+    @apply flex items-center justify-center h-[66px] w-[278px] text-[25px] font-medium leading-[30px] border border-white;
+
+    background-color: var(--lib-color-primary-700);
+    color: var(--lib-color-button-color-100);
+    transform: skew(20deg);
+  }
+
+  .menu-item .menu-item-title {
+    @apply z-10;
+
+    transform: skew(-20deg);
+  }
+}

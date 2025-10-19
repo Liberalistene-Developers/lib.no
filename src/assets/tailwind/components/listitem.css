@@ -1,0 +1,15 @@
+/* List Item Component */
+
+/* Generic list item content styles */
+
+@layer components {
+  .list-item-content {
+    @apply justify-center flex flex-col w-full;
+  }
+
+  .list-item-content .list-item-title {
+    @apply font-bold text-2xl leading-[29px] mb-[5px];
+
+    color: var(--lib-color-primary-700);
+  }
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part xmlns="urn:enonic:xp:model:1.0">
+  <display-name i18n="parts.submenu.name">Sub menu</display-name>
+  <description i18n="parts.submenu.description">Display Submenu items</description>
+  <form>
+    <option-set name="itemsSet">
+      <label i18n="checkOptionSet.label">Items</label>
+      <expanded>true</expanded> 
+      <occurrences minimum="1" maximum="1"/> 
+      <help-text>You can select up to 1 options</help-text>
+      <options minimum="1" maximum="1">    
+        <option name="manual">
+          <label>Manual selection</label>
+          <help-text>Select menu items to show</help-text>
+          <items>
+            <input name="items" type="ContentSelector">
+              <label i18n="parts.articlelist.articles.label">Article(s)</label>
+              <occurrences minimum="1" maximum="0"/>
+              <config>
+                <allowPath>${site}/*</allowPath>
+                <allowPath>./*</allowPath>
+                <treeMode>false</treeMode>
+                <showStatus>true</showStatus>
+                <hideToggleIcon>true</hideToggleIcon>
+              </config>
+            </input>
+          </items>
+        </option>
+        <option name="query">
+          <label>Query selection</label>
+          <help-text>Select which query to use for menu items</help-text>
+          <items>
+            <mixin name="query" />
+          </items>
+        </option>
+      </options>
+    </option-set>
+  </form>
+</part>

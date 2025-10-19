@@ -1,0 +1,88 @@
+<content-type xmlns="urn:enonic:xp:model:1.0">
+  <display-name i18n="content_types.localbranch.displayname">localbranch</display-name>
+  <display-name-label i18n="content_types.article.displayname.label">Local Branch</display-name-label>
+  <super-type>base:structured</super-type>
+  <is-abstract>false</is-abstract>
+  <is-final>true</is-final>
+  <allow-child-content>true</allow-child-content>
+  <form>
+    <field-set>
+      <label i18n="content_types.localbranch.topbanner.displayname">Top Banner info</label>
+      <items>
+        <mixin name="image" />
+        <input name="ingress" type="TextLine">
+          <label i18n="content_types.localbranch.slogan.label">Slogan</label>
+        </input>
+      </items>
+    </field-set>
+    <field-set>
+      <label i18n="content_types.localbranch.intro.displayname">Intro</label>
+      <items>
+        <input name="introtitle" type="TextLine">
+          <label i18n="content_types.localbranch.intro.title.label">Intro title</label>
+        </input>
+        <input name="introdescription" type="HtmlArea">
+          <label i18n="content_types.localbranch.intro.description.label">Intro body</label>
+        </input>
+        <input name="introimage" type="ImageSelector">
+          <label i18n="content_types.localbranch.intro.introimage.displayname.label">Intro Image</label>
+          <occurrences minimum="0" maximum="1"/>
+          <config>
+            <allowPath>${site}/*</allowPath>
+            <treeMode>false</treeMode>
+            <showStatus>true</showStatus>
+            <hideToggleIcon>true</hideToggleIcon>
+          </config>
+        </input>
+        <input name="introcaption" type="TextLine">
+          <label i18n="content_types.localbranch.intro.groupimage.text.label">Intro Image caption</label>
+        </input>
+      </items>
+    </field-set>
+    <field-set>
+      <label i18n="content_types.localbranch.missions.label">Missions</label>
+      <items>
+        <item-set name="missions">
+          <occurrences minimum="0" maximum="0"/>
+          <items>
+            <input name="title" type="TextLine">
+              <label i18n="content_types.localbranch.missions.title.text.label">Title</label>
+            </input>
+
+            <input name="description" type="HtmlArea">
+              <label i18n="content_types.localbranch.missions.description.label">Text</label>
+            </input>
+          </items>
+        </item-set>
+      </items>
+    </field-set>
+    <field-set>
+      <label i18n="content_types.localbranch.candidates.label">Candidates</label>
+      <items>
+        <item-set name="candidates">
+          <occurrences minimum="0" maximum="0"/>
+          <items>
+            <input name="person" type="ContentSelector">
+              <label i18n="content_types.localbranch.candidates.candidate.label">Candidate</label>
+              <occurrences minimum="1" maximum="1"/>
+              <config>
+                <allowContentType>person</allowContentType>
+                <allowPath>/*/person/*</allowPath>
+                <allowPath>${site}/*/person/*</allowPath>
+                <allowPath>./*</allowPath>
+                <treeMode>false</treeMode>
+                <showStatus>true</showStatus>
+                <hideToggleIcon>true</hideToggleIcon>
+              </config>
+            </input>
+            <input name="position" type="TextLine">
+              <label i18n="content_types.localbranch.candidates.candidate.position.label">Candidate position</label>
+              <default>1. candidate Norway</default>
+            </input>
+          </items>
+        </item-set>
+      </items>
+    </field-set>
+    <mixin name="tags" />
+  </form>
+</content-type>

@@ -1,0 +1,24 @@
+/* Persons List Component */
+
+/* List of persons with roles and images */
+
+@layer components {
+  .list-item.person .role {
+    @apply font-bold text-[22px] leading-[26px] mb-[5px];
+
+    color: var(--lib-color-primary-300);
+    font-style: normal;
+  }
+
+  .person-list {
+    @apply flex;
+  }
+
+  .person-list.grid {
+    @apply flex-row;
+  }
+
+  .person-list.list {
+    @apply flex-col;
+  }
+}

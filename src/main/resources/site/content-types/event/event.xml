@@ -1,11 +1,9 @@
-<content-type>
+<content-type xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="content_types.event.displayname">Event</display-name>
   <display-name-label i18n="content_types.fact.displayname.label">Event</display-name-label>
-  <description i18n="content_types.event.description">Create a new event</description>
   <super-type>base:structured</super-type>
   <is-abstract>false</is-abstract>
   <is-final>true</is-final>
-  <is-built-in>false</is-built-in>
   <allow-child-content>true</allow-child-content>
   <form>
     <mixin name="image" />
@@ -44,6 +42,8 @@
             <allowPath>/*/person/*</allowPath>
             <allowPath>${site}/*/person/*</allowPath>
             <allowPath>${site}/lag/</allowPath>
+            <allowPath>${site}/forfatter/*</allowPath>
+            <allowPath>${site}/ekstern-person/*</allowPath>
             <allowPath>./*</allowPath>
             <treeMode>false</treeMode>
             <showStatus>true</showStatus>
@@ -62,6 +62,8 @@
             <allowContentType>Person</allowContentType>
             <allowPath>/*/person/*</allowPath>
             <allowPath>${site}/*/person/*</allowPath>
+            <allowPath>${site}/forfatter/*</allowPath>
+            <allowPath>${site}/ekstern-person/*</allowPath>
             <allowPath>./*</allowPath>
             <treeMode>false</treeMode>
             <showStatus>true</showStatus>
@@ -73,29 +75,55 @@
     <field-set>
       <label i18n="content_types.event.agenda">Agenda</label>
       <items>
-        <item-set name="topics">
-          <label i18n="content_types.event.agenda.topic">Topic</label>
+        <item-set name="schedule">
+          <label i18n="content_types.event.agenda.topic">Schedule</label>
           <occurrences minimum="0" maximum="0"/>
           <items>
-            <input name="topic" type="TextLine">
-              <label i18n="content_types.event.agenda.topic.label">Topic</label>
+            <input name="name" type="TextLine">
+              <label i18n="content_types.event.place">Name</label>
             </input>
-            <input name="speaker" type="ContentSelector">
-              <label i18n="content_types.event.speaker.label">Speaker</label>
-              <occurrences minimum="0" maximum="0"/>
-              <config>
-                <allowContentType>Person</allowContentType>
-                <allowPath>/*/person/*</allowPath>
-                <allowPath>${site}/*/person/*</allowPath>
-                <allowPath>./*</allowPath>
-                <treeMode>false</treeMode>
-                <showStatus>true</showStatus>
-                <hideToggleIcon>false</hideToggleIcon>
-              </config>
+            <input name="date" type="Date">
+              <label>Date</label>
             </input>
-            <input name="topic_description" type="HtmlArea">
+            <input name="description" type="HtmlArea">
               <label i18n="content_types.description">Description</label>
             </input>
+            <item-set name="topics">
+              <label i18n="content_types.event.agenda.topic">Topic</label>
+              <occurrences minimum="1" maximum="0"/>
+              <items>
+                <input name="topic" type="TextLine">
+                  <label i18n="content_types.event.agenda.topic.label">Topic</label>
+                </input>
+                <input name="speaker" type="ContentSelector">
+                  <label i18n="content_types.event.speaker.label">Speaker</label>
+                  <occurrences minimum="0" maximum="0"/>
+                  <config>
+                    <allowContentType>Person</allowContentType>
+                    <allowPath>/*/person/*</allowPath>
+                    <allowPath>${site}/*/person/*</allowPath>
+                    <allowPath>${site}/forfatter/*</allowPath>
+                    <allowPath>${site}/ekstern-person/*</allowPath>
+                    <allowPath>./*</allowPath>
+                    <treeMode>false</treeMode>
+                    <showStatus>true</showStatus>
+                    <hideToggleIcon>false</hideToggleIcon>
+                  </config>
+                </input>
+                <input name="start" type="Time">
+                  <label i18n="content_types.event.agenda.start">Start time</label>
+                </input>
+                <input name="duration" type="Time">
+                  <label i18n="content_types.event.agenda.duration">Duration</label>
+                </input>
+                <input name="topic_description" type="HtmlArea">
+                  <label i18n="content_types.description">Description</label>
+                </input>
+                <input name="topic_report" type="HtmlArea">
+                  <label i18n="content_types.event.agenda.topic.report">Report</label>
+                </input>
+              </items>
+            </item-set>
           </items>
         </item-set>
       </items>

@@ -1,0 +1,22 @@
+<mixin xmlns="urn:enonic:xp:model:1.0">
+  <display-name i18n="mixin.loadmore.displayname">Load more</display-name>
+  <form>
+    <field-set>
+      <label i18n="mixin.loadmore.label">Last inn flere knapp</label>
+      <items>
+        <input  name="loadMoreEnabled" type="CheckBox">
+          <label i18n="mixin.loadMore.enabled.label">Vis knapp</label>
+          <config>
+            <alignment>right</alignment>
+          </config>
+        </input>
+        <input type="TextLine" name="loadMore" > 
+          <label i18n="mixin.loadMore.button.label">Text knapp</label> 
+          <default>Last inn flere</default>
+          <occurrences minimum="0" maximum="1"/>
+          <config/> 
+        </input>
+      </items>
+    </field-set>
+  </form>
+</mixin>

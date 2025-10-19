@@ -1,0 +1,17 @@
+/* Text Block Component */
+
+/* Centered text content blocks */
+
+@layer components {
+  .text-block {
+    @apply flex flex-col justify-center items-center gap-y-5;
+  }
+
+  .text-block .text-block-title {
+    @apply flex flex-col justify-center items-center;
+  }
+
+  .text-block .text-block-title h2 {
+    @apply font-bold text-5xl leading-[60px];
+  }
+}

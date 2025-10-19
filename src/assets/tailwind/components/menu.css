@@ -1,0 +1,9 @@
+/* Menu Component */
+
+/* Basic menu container styles */
+
+@layer components {
+  .menu {
+    @apply flex;
+  }
+}

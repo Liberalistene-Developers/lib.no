@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<layout xmlns="urn:enonic:xp:model:1.0">
+  <display-name i18n="layouts.singlecolumn2row.displayname">1 column + 1</display-name>
+  <form>
+    <mixin name="fullwidth" />
+    <mixin name="borderbottom" />
+    <mixin name="background" />
+    <mixin name="paddingtop" />
+    <mixin name="paddingbottom" />
+    <mixin name="reverseroworder" />
+  </form>
+  <regions>
+    <region name="top"/>
+    <region name="bottom"/>
+  </regions>
+</layout>

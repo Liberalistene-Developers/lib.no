@@ -1,0 +1,16 @@
+{
+	"extends": "./node_modules/@enonic/react4xp/tsconfig.browserAndGraalJS.json",
+	"compilerOptions": {
+		"paths": {
+			"/lib/menu": [
+				"./node_modules/@item-enonic-types/lib-menu"
+			],
+			"/lib/xp/*": [
+				"./node_modules/@enonic-types/lib-*"
+			],
+			"/*": [
+				"./src/main/resources/*"
+			]
+		}
+	}
+}

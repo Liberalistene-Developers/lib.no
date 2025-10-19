@@ -1,4 +1,4 @@
-<mixin>
+<mixin xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="mixin.ingressinimage.displayname">Add ingress to headder image</display-name>
   <form>
     <input  name="ingressInImage" type="CheckBox">

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<part xmlns="urn:enonic:xp:model:1.0">
+  <display-name>Test Part</display-name>
+  <form>
+    <input name="message" type="TextLine">
+      <label>Message</label>
+      <default>Hello from React4xp v6!</default>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+  </form>
+</part>

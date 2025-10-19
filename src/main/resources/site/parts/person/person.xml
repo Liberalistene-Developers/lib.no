@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<part>
+<part xmlns="urn:enonic:xp:model:1.0">
   <display-name>Person</display-name>
-  <description>
-    Display Person
-  </description>
-  <form />
+  <form>
+    <field-set>
+      <label i18n="parts.person.email.title">E-post</label>
+      <items>
+        <input name="emailPrefix" type="TextLine">
+          <label i18n="parts.person.emailPrefix.title">Tekst foran navn på link</label>
+          <occurrences minimum="1" maximum="1"/>
+        </input>
+      </items>
+    </field-set>
+  </form>
 </part>

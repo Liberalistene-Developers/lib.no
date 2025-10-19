@@ -1,16 +1,14 @@
-<content-type>
+<content-type xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="content_types.fact.displayname">Fact</display-name>
   <display-name-label i18n="content_types.fact.displayname.label">Fact</display-name-label>
-  <description>Create a new fact</description>
   <super-type>base:structured</super-type>
   <is-abstract>false</is-abstract>
   <is-final>true</is-final>
-  <is-built-in>false</is-built-in>
   <allow-child-content>true</allow-child-content>
   <form>
     <input name="fact" type="HtmlArea">
       <label i18n="content_types.input.fact.label">Fact</label>
-      <default i18n="content_types.input.fact.default">Enter your fact here</default>
+      <default>Enter your fact here</default>
     </input>
     <mixin name="tags" />
   </form>

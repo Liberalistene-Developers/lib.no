@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part xmlns="urn:enonic:xp:model:1.0">
+  <display-name>Header Title/Image Block</display-name>
+  <form>
+    <mixin name="titleSet" />
+    <mixin name="headerposition" />
+    <mixin name="image" />
+    <mixin name="imageoverlay" />
+    <input name="ingress" type="HtmlArea">
+      <label i18n="content_types.ingress">Ingress</label>
+      <config>
+        <exclude>*</exclude>
+        <include>Format | Bold Italic Underline TextColor | JustifyBlock JustifyLeft JustifyCenter JustifyRight | BulletedList NumberedList Outdent Indent | SpecialChar Anchor Image Macro Link Unlink | Table</include>
+      </config>
+    </input>
+    <input name="ingressColor" type="ComboBox">
+      <label i18n="parts.ingresscolor.label">Ingress color</label>
+      <occurrences minimum="1" maximum="1"/>
+      <config>
+        <option value="normal" i18n="mixin.background.standard.label">Standard (adjust to background)</option>
+        <option value="light" i18n="mixin.background.white.label">White</option>
+        <option value="yellow" i18n="mixin.background.white.label">Yellow</option>
+        <option value="purple" i18n="mixin.background.purple.label">Purple</option>
+      </config>
+      <default>normal</default>
+    </input>
+    <mixin name="mobileSize" />
+  </form>
+</part>

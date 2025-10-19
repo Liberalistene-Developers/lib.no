@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part xmlns="urn:enonic:xp:model:1.0">
+  <display-name i18n="parts.candidatelist.name">Candidate list</display-name>
+  <description i18n="parts.candidatelist.description">Display Candidate list</description>
+  <form>
+    <field-set>
+      <label i18n="parts.candidatelist.candidates.label">Candidates</label>
+      <items>
+        <item-set name="candidate">
+          <label i18n="parts.candidatelist.candidates.candidate.label">Candidate</label>
+          <occurrences minimum="0" maximum="0"/>
+          <items>
+            <input name="person" type="ContentSelector">
+              <label i18n="parts.candidatelist.candidates.candidate.label">Member</label>
+              <occurrences minimum="1" maximum="1"/>
+              <config>
+                <allowContentType>person</allowContentType>
+                <allowPath>/*/person/*</allowPath>
+                <allowPath>${site}/*/person/*</allowPath>
+                <allowPath>./*</allowPath>
+                <treeMode>false</treeMode>
+                <showStatus>true</showStatus>
+                <hideToggleIcon>true</hideToggleIcon>
+              </config>
+            </input>
+            <input type="TextLine" name="role">
+              <label i18n="parts.candidatelist.role.label">Role</label>               
+              <help-text i18n="parts.candidatelist.role.help-text">Role for the candidate.</help-text>  
+              <occurrences minimum="0" maximum="1"/>  
+              <config/> 
+            </input>
+            <input type="HtmlArea" name="description">
+              <label i18n="parts.candidatelist.description.label">Ingress</label>
+            </input>
+          </items>
+        </item-set>
+      </items>
+    </field-set>
+    <input type="CheckBox" name="showrole" >
+      <label i18n="parts.articlelist.noingress.label">Show role</label>
+      <config>
+        <alignment>right</alignment>
+      </config>
+    </input>
+    <field-set>
+      <label>How to show candidates</label>
+      <items>
+        <mixin name="imagesize" />
+        <mixin name="imagetype" />
+      </items>
+    </field-set>
+  </form>
+</part>

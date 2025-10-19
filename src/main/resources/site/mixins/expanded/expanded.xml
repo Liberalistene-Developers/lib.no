@@ -1,0 +1,11 @@
+<mixin xmlns="urn:enonic:xp:model:1.0">
+  <display-name i18n="mixin.expanded.displayname">Expanded</display-name>
+  <form>
+    <input  name="expanded" type="CheckBox">
+      <label i18n="mixin.expanded.label">Expanded</label>
+      <config>
+        <alignment>right</alignment>
+      </config>
+    </input>
+  </form>
+</mixin>

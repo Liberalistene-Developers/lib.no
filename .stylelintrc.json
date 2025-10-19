@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-tailwindcss"
+  ],
+  "ignoreFiles": [
+    "src/main/resources/assets/styles/**/*"
+  ]
+}

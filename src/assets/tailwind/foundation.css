@@ -1,0 +1,125 @@
+/* Foundation */
+
+/* Header, Footer, Lists, and Tables styles */
+
+@layer components {
+  /* Header and Footer */
+  header,
+  footer {
+    background-color: var(--lib-color-background-700);
+
+    @apply flex min-h-[60px];
+  }
+
+  header .main-menu,
+  footer .main-menu {
+    @apply flex list-none pl-0;
+  }
+
+  header .main-menu li a,
+  footer .main-menu li a {
+    @apply font-semibold text-sm leading-[17px] flex items-center text-center px-5;
+
+    color: var(--lib-color-primary-100);
+  }
+
+  header .main-menu li a:hover,
+  footer .main-menu li a:hover {
+    color: var(--lib-color-primary-700);
+  }
+
+  header {
+    @apply items-center justify-between;
+  }
+
+  header img {
+    @apply mr-5;
+  }
+
+  header .main-menu-wrapper > input[type="checkbox"] {
+    @apply hidden;
+  }
+
+  header .main-menu-wrapper > input[type="checkbox"] ~ label {
+    @apply hidden;
+  }
+
+  footer {
+    @apply bottom-0 flex-col absolute w-full;
+  }
+
+  footer > .footer-menu {
+    @apply flex border border-[#F4F4F4] -mx-px min-h-[60px] px-5 content-center items-center justify-center;
+  }
+
+  footer > .contact {
+    @apply flex justify-between items-center;
+  }
+
+  footer > .contact > * {
+    @apply h-[60px] flex items-center justify-center w-[33%];
+  }
+
+  /* Lists */
+  .list {
+    @apply flex flex-col w-full items-center justify-center gap-y-10;
+  }
+
+  .list .list-item {
+    @apply flex flex-row gap-x-5 w-full;
+  }
+
+  .list .list-item img {
+    @apply m-[10px];
+  }
+
+  .list .list-item .small > img {
+    @apply w-[100px];
+  }
+
+  .list .list-item .medium > img {
+    @apply w-[220px];
+  }
+
+  .list .list-item .large > img {
+    @apply w-[300px];
+  }
+
+  .list .list-item .full > img {
+    @apply w-full;
+  }
+
+  /* Table styles */
+  .table-wrapper > table {
+    @apply border-collapse border border-gray-500;
+
+    border-spacing: 0;
+  }
+
+  .table-wrapper > table td,
+  .table-wrapper > table th {
+    @apply border border-gray-500 px-[10px];
+  }
+
+  .table-wrapper > table td p,
+  .table-wrapper > table th p {
+    margin-block: .5em;
+  }
+
+  .table-wrapper > table.small-header td {
+    @apply text-sm;
+  }
+
+  .table-wrapper > table.small-header th {
+    @apply text-xs;
+  }
+
+  .table-wrapper > table.small-header td,
+  .table-wrapper > table.small-header th {
+    @apply px-[2px];
+  }
+
+  .table-wrapper > table.small-width tr td:first-child {
+    @apply w-[300px];
+  }
+}

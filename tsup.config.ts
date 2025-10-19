@@ -1,0 +1,238 @@
+import {globSync} from 'glob';
+import {defineConfig, type Options} from 'tsup';
+import * as path from 'path';
+import {existsSync} from 'fs';
+import type {Plugin} from 'esbuild';
+
+
+interface MyOptions extends Options {
+	d?: string
+}
+
+
+const RESOURCES_PATH = 'src/main/resources';
+const ASSETS_PATH = `${RESOURCES_PATH}/assets`;
+const CLIENT_GLOB_EXTENSIONS = '{tsx,ts,jsx,js}';
+const SERVER_GLOB_EXTENSIONS = '{ts,js}';
+
+const CLIENT_FILES = globSync(`${ASSETS_PATH}/**/*.${CLIENT_GLOB_EXTENSIONS}`);
+
+const SERVER_FILES = globSync(
+	`${RESOURCES_PATH}/**/*.${SERVER_GLOB_EXTENSIONS}`,
+	{
+		absolute: false,
+		ignore: globSync(`${ASSETS_PATH}/**/*.${SERVER_GLOB_EXTENSIONS}`)
+			.concat(globSync(`${RESOURCES_PATH}/**/*.d.ts`))
+	}
+);
+
+// esbuild plugin to resolve path aliases
+const pathAliasPlugin: Plugin = {
+	name: 'path-alias',
+	setup(build) {
+		const tryResolve = (basePath: string, modulePath: string): string | null => {
+			const extensions = ['.ts', '.tsx', '.js', '.jsx'];
+			for (const ext of extensions) {
+				const fullPath = path.resolve(basePath, modulePath + ext);
+				if (existsSync(fullPath)) {
+					return fullPath;
+				}
+			}
+			// Try index files
+			for (const ext of extensions) {
+				const indexPath = path.resolve(basePath, modulePath, 'index' + ext);
+				if (existsSync(indexPath)) {
+					return indexPath;
+				}
+			}
+			return null;
+		};
+
+		// Resolve @utils/* to src/main/resources/react4xp/utils/*
+		build.onResolve({ filter: /^@utils\// }, args => {
+			const modulePath = args.path.replace(/^@utils\//, '');
+			const resolved = tryResolve(path.join(__dirname, 'src/main/resources/react4xp/utils'), modulePath);
+			if (resolved) {
+				return { path: resolved };
+			}
+		});
+
+		// Resolve @common/* to src/main/resources/react4xp/common/*
+		build.onResolve({ filter: /^@common\// }, args => {
+			const modulePath = args.path.replace(/^@common\//, '');
+			const resolved = tryResolve(path.join(__dirname, 'src/main/resources/react4xp/common'), modulePath);
+			if (resolved) {
+				return { path: resolved };
+			}
+		});
+	},
+};
+
+export default defineConfig((options: MyOptions) => {
+	if (options.d === 'build/resources/main') {
+		return {
+			entry: SERVER_FILES.map(dir => dir.replace(/\\/g,'/')),
+			esbuildPlugins: [pathAliasPlugin],
+			external: [
+				// All these should be built to their own file and resolved at runtime, not bundled at compiletime:
+				/^\/admin\//,
+				/^\/error\//,
+				/^\/headless\//,
+				/^\/lib\//,
+				/^\/react4xp\//,
+				/^\/services\//,
+				/^\/site\//,
+				/^\/types\//,
+				/^\/webapp\//,
+				// These are not available at compiletime, so they must be external
+				'/lib/enonic/react4xp',
+				'/lib/guillotine',
+        '/lib/menu',
+				'/lib/xp/admin',
+				'/lib/xp/app',
+				'/lib/xp/auditlog',
+				'/lib/xp/auth',
+				'/lib/xp/cluster',
+				'/lib/xp/common',
+				'/lib/xp/content',
+				'/lib/xp/context',
+				'/lib/xp/event',
+				'/lib/xp/export',
+				'/lib/xp/grid',
+				'/lib/xp/i18n',
+				'/lib/xp/io',
+				'/lib/xp/mail',
+				'/lib/xp/node',
+				'/lib/xp/portal',
+				'/lib/xp/project',
+				'/lib/xp/repo',
+				'/lib/xp/scheduler',
+				'/lib/xp/schema',
+				'/lib/xp/task',
+				'/lib/xp/value',
+				'/lib/xp/vhost',
+				'/lib/xp/websocket',
+			],
+			format: 'cjs',
+
+			// https://esbuild.github.io/api/#main-fields
+			//
+			// main: This is the standard field for all packages that are meant
+			// to be used with node. The name main is hard-coded in to node's
+			// module resolution logic itself. Because it's intended for use
+			// with node, it's reasonable to expect that the file path in this
+			// field is a CommonJS-style module.
+			//
+			// module: This field came from a proposal for how to integrate
+			// ECMAScript modules into node. Because of this, it's reasonable to
+			// expect that the file path in this field is an ECMAScript-style
+			// module. This proposal wasn't adopted by node (node uses "type":
+			// "module" instead) but it was adopted by major bundlers because
+			// ECMAScript-style modules lead to better tree shaking, or dead
+			// code removal.
+			// For package authors: Some packages incorrectly use the module
+			// field for browser-specific code, leaving node-specific code for
+			// the main field. This is probably because node ignores the module
+			// field and people typically only use bundlers for browser-specific
+			// code. However, bundling node-specific code is valuable too (e.g.
+			// it decreases download and boot time) and packages that put
+			// browser-specific code in module prevent bundlers from being able
+			// to do tree shaking effectively. If you are trying to publish
+			// browser-specific code in a package, use the browser field instead
+			//
+			// browser: This field came from a proposal that allows bundlers to
+			// replace node-specific files or modules with their
+			// browser-friendly versions. It lets you specify an alternate
+			// browser-specific entry point. Note that it is possible for a
+			// package to use both the browser and module field together (see
+			// the note below).
+			//
+			// Use 'main' and 'module' fields for Node.js compatibility and tree shaking
+			'main-fields': 'main,module',
+
+			minify: false, // minified server-side code makes debugging harder!
+
+			// tsup automatically excludes packages specified in the
+			// dependencies and peerDependencies fields in the packages.json
+			// You can still use the noExternal option to reinclude packages in
+			// the bundle
+			noExternal: [
+				/^@enonic\/js-utils/,
+				/^@enonic\/react-components/,
+			],
+
+			// https://esbuild.github.io/api/#platform
+			//
+			// node:
+			// * When bundling is enabled the default output format is set to
+			// cjs, which stands for CommonJS (the module format used by node).
+			// ES6-style exports using export statements will be converted into
+			// getters on the CommonJS exports object.
+			// * All built-in node modules such as fs are automatically marked
+			// as external so they don't cause errors when the bundler tries to
+			// bundle them.
+			// * The main fields setting is set to main,module. This means tree
+			// shaking will likely not happen for packages that provide both
+			// module and main since tree shaking works with ECMAScript modules
+			// but not with CommonJS modules.
+			// Unfortunately some packages incorrectly treat module as meaning
+			// "browser code" instead of "ECMAScript module code" so this
+			// default behavior is required for compatibility. You can manually
+			// configure the main fields setting to module,main if you want to
+			// enable tree shaking and know it is safe to do so.
+			// * The conditions setting automatically includes the node
+			// condition. This changes how the exports field in package.json
+			// files is interpreted to prefer node-specific code.
+			// * If no custom conditions are configured, the Webpack-specific
+			// module condition is also included. The module condition is used
+			// by package authors to provide a tree-shakable ESM alternative to
+			// a CommonJS file without creating a dual package hazard. You can
+			// prevent the module condition from being included by explicitly
+			// configuring some custom conditions (even an empty list).
+			// * When the format is set to cjs but the entry point is ESM,
+			// esbuild will add special annotations for any named exports to
+			// enable importing those named exports using ESM syntax from the
+			// resulting CommonJS file. Node's documentation has more
+			// information about node's detection of CommonJS named exports.
+			// * The binary loader will make use of node's built-in Buffer.from
+			// API to decode the base64 data embedded in the bundle into a
+			// Uint8Array. This is faster than what esbuild can do otherwise
+			// since it's implemented by node in native code.
+			// platform: 'node',
+			//
+			// neutral:
+			// * When bundling is enabled the default output format is set to
+			// esm, which uses the export syntax introduced with ECMAScript 2015
+			// (i.e. ES6). You can change the output format if this default is
+			// not appropriate.
+			// * The main fields setting is empty by default. If you want to use
+			// npm-style packages, you will likely have to configure this to be
+			// something else such as main for the standard main field used by
+			// node.
+			// * The conditions setting does not automatically include any
+			// platform-specific values.
+			platform: 'neutral',
+
+			shims: false, // https://tsup.egoist.dev/#inject-cjs-and-esm-shims
+			sourcemap: process.env.NODE_ENV !== 'production', // Enable sourcemaps only in development
+			target: 'es5',
+			tsconfig: 'tsconfig.json'
+		};
+	}
+	if (options.d === 'build/resources/main/assets') {
+		return {
+			entry: CLIENT_FILES.map(dir => dir.replace(/\\/g,'/')),
+			external: [
+				'react'
+			],
+			format: [
+				'cjs',
+				'esm'
+			],
+			minify: true,
+			platform: 'browser',
+			sourcemap: process.env.NODE_ENV !== 'production', // Enable sourcemaps only in development
+		};
+	}
+	throw new Error(`Unconfigured directory:${options.d}!`)
+})

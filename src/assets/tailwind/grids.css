@@ -1,0 +1,117 @@
+/* Grid System */
+
+/* Grid list layouts and responsive grid items */
+
+@layer components {
+  /* Grid system */
+  .grid-list,
+  .gridlist {
+    @apply flex content-start flex-wrap max-w-[1800px] w-full mx-auto gap-y-10 gap-x-5 justify-center flex-row;
+  }
+
+  .grid-list .grid-item,
+  .gridlist .grid-item {
+    @apply flex flex-col gap-y-[17px];
+  }
+
+  .grid-list .grid-item.presentation,
+  .gridlist .grid-item.presentation {
+    @apply flex flex-row-reverse gap-x-5;
+  }
+
+  .grid-list .grid-item.presentation.right,
+  .gridlist .grid-item.presentation.right {
+    @apply flex-row;
+  }
+
+  .grid-list .grid-item > .image,
+  .gridlist .grid-item > .image {
+    @apply m-auto;
+  }
+
+  .grid-list .grid-item img,
+  .gridlist .grid-item img {
+    @apply w-full;
+  }
+
+  .grid-list .grid-item .grid-item-info,
+  .gridlist .grid-item .grid-item-info {
+    @apply flex flex-col gap-y-[17px];
+  }
+
+  .grid-list .grid-item .grid-item-info .grid-item-title,
+  .gridlist .grid-item .grid-item-info .grid-item-title {
+    @apply font-bold text-[22px] leading-[100%] text-primary-700 max-w-full overflow-hidden whitespace-nowrap text-ellipsis;
+  }
+
+  .grid-list .grid-item .grid-item-info .grid-item-title.center,
+  .gridlist .grid-item .grid-item-info .grid-item-title.center {
+    @apply text-center;
+  }
+
+  .grid-list .grid-item .grid-item-info .rich-text > p,
+  .gridlist .grid-item .grid-item-info .rich-text > p {
+    @apply m-0;
+  }
+
+  .grid-list .grid-item .grid-item-info .read-more::before,
+  .gridlist .grid-item .grid-item-info .read-more::before {
+    content: ' ';
+
+    @apply w-[6px] inline-block;
+  }
+
+  main .content-holder .content .content-item .grid-list .grid-item,
+  main .content-holder .content .content-item .gridlist .grid-item,
+  main .content-holder .content .content-item .grid-list .card-holder,
+  main .content-holder .content .content-item .gridlist .card-holder {
+    flex-grow: 1;
+    max-width: calc(50% - 30px);
+    width: calc(33% - 30px);
+  }
+
+  main .content-holder .content .content-item .grid-list .grid-item.presentation,
+  main .content-holder .content .content-item .gridlist .grid-item.presentation,
+  main .content-holder .content .content-item .grid-list .card-holder.presentation,
+  main .content-holder .content .content-item .gridlist .card-holder.presentation {
+    @apply max-w-full w-full;
+  }
+
+  main .content-holder .content .content-item .grid-list .grid-item.presentation > div:first-child,
+  main .content-holder .content .content-item .gridlist .grid-item.presentation > div:first-child,
+  main .content-holder .content .content-item .grid-list .card-holder.presentation > div:first-child,
+  main .content-holder .content .content-item .gridlist .card-holder.presentation > div:first-child {
+    width: calc(66% - 20px);
+    flex-grow: 1;
+  }
+
+  main .content-holder .content .content-item .grid-list .grid-item.presentation .grid-item-info,
+  main .content-holder .content .content-item .gridlist .grid-item.presentation .grid-item-info,
+  main .content-holder .content .content-item .grid-list .card-holder.presentation .grid-item-info,
+  main .content-holder .content .content-item .gridlist .card-holder.presentation .grid-item-info {
+    @apply w-[34%] h-full justify-center;
+  }
+
+  main .content-holder .content .content-item .grid-list .grid-item.presentation .grid-item-info > *,
+  main .content-holder .content .content-item .gridlist .grid-item.presentation .grid-item-info > *,
+  main .content-holder .content .content-item .grid-list .card-holder.presentation .grid-item-info > *,
+  main .content-holder .content .content-item .gridlist .card-holder.presentation .grid-item-info > * {
+    @apply w-full;
+  }
+
+  main > .content-holder > .content.full > .content-item .grid-list .grid-item,
+  main > .content-holder > .content.full > .content-item .gridlist .grid-item,
+  main > .content-holder > .content.full > .content-item .grid-list .card-holder,
+  main > .content-holder > .content.full > .content-item .gridlist .card-holder {
+    flex-grow: 1;
+    max-width: calc(50% - 30px);
+    width: calc(25% - 40px);
+  }
+
+  main > .content-holder > .content.full > .content-item .grid-list .grid-item.presentation,
+  main > .content-holder > .content.full > .content-item .gridlist .grid-item.presentation,
+  main > .content-holder > .content.full > .content-item .grid-list .card-holder.presentation,
+  main > .content-holder > .content.full > .content-item .gridlist .card-holder.presentation {
+    @apply max-w-full w-full;
+  }
+}

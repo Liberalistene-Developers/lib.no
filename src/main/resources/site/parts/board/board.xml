@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part xmlns="urn:enonic:xp:model:1.0">
+  <display-name>Board</display-name>
+  <form>
+    <field-set>
+      <label>Board from group</label>
+      <items>
+        <input name="board" type="ContentSelector">
+          <label i18n="parts.board.group.label">Group</label>
+          <occurrences minimum="1" maximum="1"/>
+          <config>
+            <allowContentType>group</allowContentType>
+            <allowPath>/*/organisasjon/*</allowPath>
+            <allowPath>${site}/*/organisasjon/*</allowPath>
+            <allowPath>${site}/*</allowPath>
+            <allowPath>./*</allowPath>
+            <treeMode>false</treeMode>
+            <showStatus>true</showStatus>
+            <hideToggleIcon>true</hideToggleIcon>
+          </config>
+        </input>
+      </items>
+    </field-set>
+    <field-set>
+      <label>How to show board members</label>
+      <items>
+        <mixin name="imagesize" />
+        <mixin name="imagetype" />
+        <mixin name="showemail" />
+        <mixin name="showdescription" />
+      </items>
+    </field-set>
+  </form>
+</part>

@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<layout>
+<layout xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="layouts.3columns.displayname">3 Columns</display-name>
   <form>
+    <input name="columnsLayout" type="ComboBox">
+      <label i18n="mixin.columnlayout.label">Column layout</label>
+      <occurrences minimum="1" maximum="1"/>
+      <config>
+        <option value="one-20,one-40,one-40">20% - 40% - 40%</option>
+        <option value="one-25,one-25,one">25% - 25% - 50%</option>
+        <option value="one-25,one,one-25">25% - 50% - 25%</option>
+        <option value="one-30,one-30,one-30">30% - 30% - 30%</option>
+        <option value="one-33,one-33,one-33">33% - 33% - 33%</option>
+        <option value="one-40,one-20,one-40">40% - 20% - 40%</option>
+        <option value="one-40,one-40,one-20">40% - 40% - 20%</option>
+        <option value="one,one-25,one-25">50% - 25% - 25%</option>
+      </config>
+      <default>one-30,one-30,one-30</default> 
+    </input>
     <mixin name="fullwidth" />
     <mixin name="borderbottom" />
+    <mixin name="background" />
+    <mixin name="paddingtop" />
+    <mixin name="paddingbottom" />
   </form>
   <regions>
     <region name="left"/>

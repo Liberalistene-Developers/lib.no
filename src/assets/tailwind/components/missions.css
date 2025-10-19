@@ -1,0 +1,25 @@
+/* Missions Component */
+
+/* Mission statement displays with icons */
+
+@layer components {
+  .missions {
+    @apply flex flex-row flex-wrap gap-y-5 gap-x-5 my-5;
+  }
+
+  .missions > * {
+    width: calc(50% - 10px);
+  }
+
+  .mission {
+    max-width: fit-content;
+  }
+
+  .mission h3 .image {
+    @apply inline;
+  }
+
+  .mission h3 .image img {
+    @apply h-8;
+  }
+}
