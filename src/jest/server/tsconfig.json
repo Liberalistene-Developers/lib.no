@@ -1,0 +1,55 @@
+{
+  "extends": "../../../tsconfig.xp.nashorn.json",
+
+  // Specifies an array of filenames or patterns to include in the program.
+  // These filenames are resolved relative to the directory containing the
+  // tsconfig.json file.
+  "include": [
+    "./**/*.spec.ts",
+    "./**/*.spec.tsx",
+    "./**/*.test.ts",
+    "./**/*.test.tsx",
+  ],
+
+  "compilerOptions": {
+    // Import CommonJS modules in compliance with es6 modules spec
+    "esModuleInterop": true,
+
+    // Allow lib for Jest
+    "noLib": false,
+    "lib": ["ES2015"],
+
+    // A series of entries which re-map imports to lookup locations relative
+    // to the baseUrl if set, or to the tsconfig file itself otherwise.
+    "baseUrl": "../../..",
+    "paths": {
+      "/lib/enonic/asset": [
+        "./node_modules/@enonic-types/lib-asset"
+      ],
+      "/lib/enonic/react4xp": [
+        "./node_modules/@enonic-types/lib-react4xp"
+      ],
+      "/lib/menu": [
+        "./node_modules/@item-enonic-types/lib-menu"
+      ],
+      "/lib/xp/*": [
+        "./node_modules/@enonic-types/lib-*"
+      ],
+      "/react4xp": [
+        "./src/main/resources/react4xp"
+      ],
+      "/react4xp/*": [
+        "./src/main/resources/react4xp/*"
+      ],
+      "/*": [
+        "./src/main/resources/*"
+      ]
+    },
+    "sourceMap": true, // Important to get correct line numbers when running coverage tests
+    "types": [
+      "@enonic-types/global",
+      "jest",
+      "node", // console
+    ],
+  }, // compilerOptions
+}

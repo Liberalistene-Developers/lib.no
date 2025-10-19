@@ -1,0 +1,31 @@
+/* Event Card Component */
+
+/* Event card styles with event info (place and time) */
+
+@layer components {
+  .card-holder {
+    @apply flex flex-col w-full;
+  }
+
+  .card-holder .card-image-holder {
+    @apply flex flex-col w-full;
+  }
+
+  .card-holder .card-image-holder .event-info {
+    @apply flex flex-row justify-between mx-[15px] mb-[10px] font-semibold text-sm leading-[17px];
+
+    color: var(--lib-color-subtext-100);
+  }
+
+  .card-holder .card-image-holder .event-info .event-place {
+    @apply max-w-[60%] overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+
+  .card-holder .card-image-holder .event-info .event-time {
+    @apply max-w-[40%] overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+
+  .card-holder .card-image-holder .event-info a {
+    color: var(--lib-color-subtext-100);
+  }
+}

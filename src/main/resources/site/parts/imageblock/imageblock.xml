@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<part>
+<part xmlns="urn:enonic:xp:model:1.0">
   <display-name>Image Block</display-name>
-  <description>
-    Display Image Block
-  </description>
   <form>
     <mixin name="titleSet" />
     <mixin name="image" />

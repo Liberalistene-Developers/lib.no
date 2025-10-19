@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<part>
+<part xmlns="urn:enonic:xp:model:1.0">
   <display-name>Programme main</display-name>
-  <description>
-    Display Programme main
-  </description>
   <form>
     <input  name="tableOfContent" type="CheckBox">
       <label i18n="mixin.readmore.enabled.label">Vis innholdsfortegnelse</label>

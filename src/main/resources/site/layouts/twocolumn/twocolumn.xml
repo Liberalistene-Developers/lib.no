@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<layout>
+<layout xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="layouts.twocolumn.displayname">2 column</display-name>
-  <description>Create a row with 2 columns.</description>
   <form>
     <input name="columnsLayout" type="ComboBox">
       <label i18n="mixin.columnlayout.label">Column layout</label>

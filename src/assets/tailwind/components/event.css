@@ -1,0 +1,134 @@
+/* Event Component */
+
+/* Event list and event detail page styles with schedules and maps */
+
+@layer components {
+  .events-list-wrapper {
+    @apply w-full mb-10;
+  }
+
+  .events-list-wrapper .events-list-title {
+    @apply my-10 text-center;
+  }
+
+  .events-list-wrapper .events-list.list {
+    @apply w-full max-w-[600px];
+  }
+
+  .events-list-wrapper .events-list.list .list-item {
+    @apply w-full;
+  }
+
+  .events-list-wrapper .events-list.gridlist > * {
+    width: calc(50% - 40px);
+  }
+
+  .full .events-list.gridlist > * {
+    width: calc(33% - 40px);
+  }
+
+  .schedule-list .schedule .schedule-title .schedule-title-date::before {
+    content: ' - ';
+  }
+
+  .schedule-list .schedule .topic-list .topic .topic-title h4 {
+    margin-block: 10px;
+  }
+
+  .schedule-list .schedule .topic-list .topic .topic-title .topic-title-start {
+    @apply float-left text-center w-[50px];
+  }
+
+  .schedule-list .schedule .topic-list .topic .topic-title .topic-title-divider {
+    @apply float-left w-[30px] text-center;
+  }
+
+  .schedule-list .schedule .topic-list .topic .topic-title .topic-title-duration::before {
+    content: ' ';
+  }
+
+  .schedule-list .schedule .topic-list .topic .topic-speakers.start {
+    @apply pl-20;
+  }
+
+  .schedule-list .schedule .topic-list .topic .topic-speakers ul.authors {
+    @apply list-none m-0 mb-5 p-0;
+
+    margin-block: 0;
+    margin-inline: 0;
+    padding-inline-start: 0;
+  }
+
+  .schedule-list .schedule .topic-list .topic .topic-speakers ul.authors a {
+    @apply flex items-center flex-row;
+  }
+
+  .schedule-list .schedule .topic-list .topic .topic-speakers ul.authors a img {
+    @apply mb-0 mr-[5px] pt-[5px];
+  }
+
+  .schedule-list .schedule .topic-list .topic .topic-description {
+    @apply mt-[-10px];
+  }
+
+  .schedule-list .schedule .topic-list .topic .topic-description.start {
+    @apply pl-20;
+  }
+
+  .schedule-list .schedule .topic-list .topic .topic-report {
+    @apply relative mt-[10px] italic;
+  }
+
+  .schedule-list .schedule .topic-list .topic .topic-report.start {
+    @apply pl-20;
+  }
+
+  .schedule-list .schedule .topic-list .topic .topic-report.start::after {
+    @apply absolute block text-center w-[50px] h-full top-0;
+
+    content: '-';
+    margin-left: -80px;
+  }
+
+  .event .leaflet-container {
+    @apply h-[500px] w-full;
+  }
+
+  .event .event-content {
+    @apply flex justify-between pt-10 w-full;
+  }
+
+  .event .event-content h2 {
+    @apply text-[38px] leading-[46px] mb-5;
+  }
+
+  .event .event-content .details {
+    @apply w-2/3;
+  }
+
+  .event .event-content .details .info,
+  .event .event-content .details .more-info {
+    @apply mb-10;
+  }
+
+  .event .event-content .details .info .text,
+  .event .event-content .details .more-info .text {
+    @apply max-w-[964px];
+  }
+
+  .event .event-content .location {
+    @apply w-1/3;
+  }
+
+  .event .event-content .location .map-container,
+  .event .event-content .location .event-place {
+    @apply mb-10;
+  }
+
+  .event .event-content .location .event-place,
+  .event .event-content .location .event-time {
+    @apply text-[25px] font-semibold leading-[30px];
+
+    color: var(--lib-color-subtext-100);
+  }
+}

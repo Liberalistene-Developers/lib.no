@@ -1,0 +1,70 @@
+/* Typography */
+
+/* Heading styles, rich text, and text utilities */
+
+@layer base {
+  /* Typography - Desktop */
+  h1 {
+    @apply text-primary-700 font-sans m-0;
+
+    font-size: var(--text-h1);
+    line-height: var(--text-h1-line-height);
+    font-weight: var(--font-weight-heading);
+  }
+
+  h2 {
+    @apply text-primary-500 font-sans m-0;
+
+    font-size: var(--text-h2);
+    line-height: var(--text-h2-line-height);
+    font-weight: var(--font-weight-heading);
+  }
+
+  h3 {
+    @apply text-primary-500 font-sans m-0;
+
+    font-size: var(--text-h3);
+    line-height: var(--text-h3-line-height);
+    font-weight: var(--font-weight-heading);
+  }
+
+  /* Typography - Mobile */
+  @media (width <= 414px) {
+    h1 {
+      font-size: var(--text-h1-mobile);
+      line-height: var(--text-h1-mobile-line-height);
+      font-weight: var(--font-weight-heading-mobile);
+    }
+
+    h2 {
+      font-size: var(--text-h2-mobile);
+      line-height: var(--text-h2-mobile-line-height);
+      font-weight: var(--font-weight-heading-mobile);
+    }
+
+    h3 {
+      font-size: var(--text-h3-mobile);
+      line-height: var(--text-h3-mobile-line-height);
+      font-weight: var(--font-weight-heading-mobile);
+    }
+  }
+}
+
+@layer components {
+  /* Rich text content */
+  .rich-text {
+    @apply text-primary-300 font-sans;
+
+    font-size: var(--text-rich);
+    line-height: var(--text-rich-line-height);
+  }
+
+  /* Typography utilities */
+  .text-link {
+    @apply font-bold;
+  }
+
+  .title {
+    @apply font-bold text-primary-700 text-center;
+  }
+}

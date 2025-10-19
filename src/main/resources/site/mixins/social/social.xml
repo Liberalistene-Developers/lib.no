@@ -1,4 +1,4 @@
-<mixin>
+<mixin xmlns="urn:enonic:xp:model:1.0">
   <form>
     <item-set name="social">
       <label i18n="content_types.social.label">Social</label>

@@ -1,4 +1,4 @@
-<mixin>
+<mixin xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="mixin.conclusiontitle.displayname">Conclusion Title</display-name>
   <form>
     <input type="TextLine" name="conclusionTitle" >

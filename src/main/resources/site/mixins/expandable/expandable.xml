@@ -1,4 +1,4 @@
-<mixin>
+<mixin xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="mixin.expandable.displayname">Expandable</display-name>
   <form>
     <input  name="expandable" type="CheckBox">

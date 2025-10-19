@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<part>
+<part xmlns="urn:enonic:xp:model:1.0">
   <display-name>Local branch missions block</display-name>
-  <description>
-    Display Local Branch Missions Block
-  </description>
   <form>
     <input name="title" type="TextLine">
       <label i18n="site.heading.label">Heading</label>

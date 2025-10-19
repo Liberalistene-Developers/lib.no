@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<part>
+<part xmlns="urn:enonic:xp:model:1.0">
   <display-name>Board</display-name>
-  <description>
-    Display Board
-  </description>
   <form>
     <field-set>
       <label>Board from group</label>

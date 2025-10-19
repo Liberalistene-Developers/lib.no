@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<part>
+<part xmlns="urn:enonic:xp:model:1.0">
   <display-name>FAQ List</display-name>
-  <description>
-    Display FAQ List
-  </description>
   <form>
     <mixin name="expandable" />
     <mixin name="expanded" />
@@ -45,7 +42,7 @@
     </option-set>
     <input name="anchorText" type="TextLine">
       <label i18n="parts.faqlist.anchorText.title">Anchor text</label>
-      <default i18n="parts.faqlist.anchorText.default">Link til dette elementet</default>
+      <default>Link til dette elementet</default>
     </input>
   </form>
 </part>

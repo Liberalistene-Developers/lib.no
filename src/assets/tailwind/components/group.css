@@ -1,0 +1,29 @@
+/* Group Component */
+
+/* Group content and board member layouts */
+
+@layer components {
+  .group .group-content {
+    @apply max-w-[1200px] mx-auto pt-5 pb-5;
+  }
+
+  .group .group-description {
+    @apply flex pt-5;
+  }
+
+  .group .group-description .details .info h2 {
+    @apply mb-5;
+  }
+
+  .group .board > .leader {
+    @apply flex justify-center;
+  }
+
+  .group .board > .members {
+    @apply flex flex-wrap;
+  }
+
+  .group .board .list-item.person {
+    @apply w-1/2;
+  }
+}

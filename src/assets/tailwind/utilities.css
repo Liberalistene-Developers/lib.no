@@ -1,0 +1,71 @@
+/* Utilities */
+
+/* Embed macros, inline display, image utilities, and typography utilities */
+
+@layer utilities {
+  /* Embed macro styles */
+  .embed-macro {
+    @apply w-full flex justify-center;
+  }
+
+  .embed-macro iframe {
+    @apply border-0;
+  }
+
+  /* Inline display utility */
+  .as-span {
+    @apply inline;
+  }
+
+  .as-span > p {
+    @apply inline;
+  }
+
+  /* Image utilities */
+  img.round {
+    @apply rounded-full object-cover aspect-square;
+
+    box-shadow: 0 20px 46px -15px rgb(74 16 74 / 50%);
+    object-position: center;
+  }
+
+  .extra-small.image {
+    @apply w-[25px];
+  }
+
+  .extra-small > img {
+    @apply w-full;
+  }
+
+  .small.image {
+    @apply w-[100px];
+  }
+
+  .small > img {
+    @apply w-full object-cover;
+  }
+
+  .medium.image {
+    @apply w-[220px];
+  }
+
+  .medium > img {
+    @apply w-full;
+  }
+
+  .large.image {
+    @apply w-[356px];
+  }
+
+  .large > img {
+    @apply w-full;
+  }
+
+  .full.image {
+    @apply w-full;
+  }
+
+  .full > img {
+    @apply w-full;
+  }
+}

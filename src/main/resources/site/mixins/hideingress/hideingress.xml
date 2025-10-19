@@ -1,4 +1,4 @@
-<mixin>
+<mixin xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="mixin.hideingress.displayname">Ingress</display-name>
   <form>
     <field-set>

@@ -1,0 +1,65 @@
+/* Book Component */
+
+/* Book card displays with cover images and information */
+
+@layer components {
+  .bookcard-list-wrapper .bookcard-list-title {
+    @apply text-center mt-10 mb-10;
+  }
+
+  .bookcard-list-wrapper .bookcard-list {
+    @apply mx-auto mb-10;
+  }
+
+  .bookcard-list-wrapper .bookcard-list.grid {
+    @apply flex max-w-[1296px] flex-wrap gap-y-10 gap-x-10 content-between justify-center;
+  }
+
+  .bookcard-holder {
+    @apply flex flex-row gap-x-5 h-[239px];
+  }
+
+  .bookcard-holder .bookcard-image img {
+    @apply w-[157px] h-[239px];
+  }
+
+  .bookcard-holder .bookcard-content {
+    @apply flex flex-col w-[201px] gap-y-[6px];
+  }
+
+  .bookcard-holder .bookcard-content .bookcard-title {
+    @apply font-bold text-2xl leading-[29px];
+
+    color: var(--lib-color-primary-700);
+    flex: 0.3 0 0%;
+  }
+
+  .bookcard-holder .bookcard-content .bookcard-author {
+    @apply text-lg font-bold leading-[22px];
+
+    flex: 0;
+    color: #5D5664;
+    font-style: normal;
+  }
+
+  .bookcard-holder .bookcard-content .rich-text {
+    @apply w-full font-bold text-sm leading-[17px] overflow-hidden;
+
+    flex: 0.7 0 0%;
+    font-family: Lato, sans-serif;
+    font-style: normal;
+    text-overflow: ellipsis;
+    color: #696F88;
+  }
+
+  .bookcard-holder .bookcard-content .bookcard-buy {
+    flex: 0;
+  }
+
+  .bookcard-holder .bookcard-content .bookcard-buy a {
+    @apply font-bold text-lg leading-[22px] underline;
+
+    font-style: normal;
+    color: var(--lib-color-primary-700);
+  }
+}

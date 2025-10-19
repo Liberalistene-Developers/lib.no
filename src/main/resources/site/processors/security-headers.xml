@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response-processor xmlns="urn:enonic:xp:model:1.0">
+  <display-name>Security Headers</display-name>
+  <description>Adds security headers including Content-Security-Policy</description>
+</response-processor>

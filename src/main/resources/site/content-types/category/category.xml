@@ -1,11 +1,9 @@
-<content-type>
+<content-type xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="cty.category.displayname">Category</display-name> 
   <display-name-label i18n="cty.category.displayname.label">Category</display-name-label>
-  <description>Create a new category</description> 
   <super-type>base:structured</super-type> 
   <is-abstract>false</is-abstract> 
   <is-final>true</is-final> 
-  <is-built-in>false</is-built-in>  
   <allow-child-content>true</allow-child-content> 
   <form> 
     <input name="category" type="TextLine">

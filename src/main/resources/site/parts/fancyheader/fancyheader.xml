@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<part>
+<part xmlns="urn:enonic:xp:model:1.0">
   <display-name>Fancy Header</display-name>
-  <description>
-    Fancy Header (H1 - only use once pr page)
-  </description>
   <form>
     <input name="title" type="TextLine">
       <label i18n="mixin.title.label">Title</label>          

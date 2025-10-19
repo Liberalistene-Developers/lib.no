@@ -1,11 +1,9 @@
-<content-type>
+<content-type xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="content_types.group.displayname">Group</display-name>
   <display-name-label i18n="content_types.group.displayname.label">Group</display-name-label>
-  <description i18n="content_types.group.description">Create a new Group</description>
   <super-type>base:structured</super-type>
   <is-abstract>false</is-abstract>
   <is-final>true</is-final>
-  <is-built-in>false</is-built-in>
   <allow-child-content>true</allow-child-content>
   <form>
     <mixin name="image" />
@@ -14,9 +12,7 @@
     </input>
     <input name="description" type="HtmlArea">
       <label i18n="content_types.description">Description</label>
-      <default i18n="content_types.description.default">
-        <p>Enter full description here</p>
-      </default>
+      <default><p>Enter full description here</p></default>
     </input>
     <input name="address" type="TextArea">
       <label i18n="content_types.address">Address</label>

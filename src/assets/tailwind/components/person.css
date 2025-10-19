@@ -1,0 +1,13 @@
+/* Person Component */
+
+/* Individual person display with contact information */
+
+@layer components {
+  .person-wrapper {
+    @apply mt-10;
+  }
+
+  .person-wrapper > .contact-information {
+    @apply mt-[30px];
+  }
+}

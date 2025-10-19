@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<part>
+<part xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="parts.submenu.name">Sub menu</display-name>
-  <description i18n="parts.submenu.description">
-    Display Submenu items
-  </description>
+  <description i18n="parts.submenu.description">Display Submenu items</description>
   <form>
     <option-set name="itemsSet">
       <label i18n="checkOptionSet.label">Items</label>

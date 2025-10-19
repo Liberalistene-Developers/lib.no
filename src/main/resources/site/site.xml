@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
   <x-data name="menu-item" />
+  <processors>
+    <response-processor name="security-headers" order="10" />
+  </processors>
   <mappings>
-   <mapping controller="/site/pages/default/default.js">
-      <match>type:'portal:fragment'</match>
+    <!-- React4xp v6 essential mappings -->
+    <mapping controller="/site/app.js" order="10">
+      <pattern invert="true">/r4xp5.*</pattern>
     </mapping>
-    <mapping controller="/headless/guillotineApi.js" order="50">
-      <pattern>/api/headless</pattern>
+    <mapping controller="/site/component.js" order="10">
+      <service>component</service>
     </mapping>
+    <!-- Custom mappings from v3 -->
+    <!-- Removed /api/headless mapping - migrated to Guillotine app v7 -->
     <mapping controller="/lib/urlredirect.js">
       <match>type:'lib.no:url'</match>
     </mapping>

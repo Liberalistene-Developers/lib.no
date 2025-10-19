@@ -1,0 +1,34 @@
+import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
+import type {LayoutComponent} from '@enonic-types/core';
+
+interface FourColumn2RowConfig {
+  background?: string;
+  borderbottom?: boolean;
+  fullwidth?: boolean;
+  paddingbottom?: boolean;
+  paddingtop?: boolean;
+  columnsLayout?: string;
+  reverseroworder?: boolean;
+}
+
+export const fourColumn2RowProcessor: ComponentProcessor<'lib.no:fourcolumn2row'> = ({component}) => {
+  const layoutComponent = component as unknown as LayoutComponent;
+  const config = layoutComponent.config as FourColumn2RowConfig;
+
+
+  const columnsLayout = config?.columnsLayout || '';
+  const [leftClassName, middleLeftClassName, middleRightClassName, rightClassName] = columnsLayout ? columnsLayout.split(',') : ['', '', '', ''];
+
+  return {
+    background: config?.background,
+    borderBottom: config?.borderbottom,
+    fullWidth: config?.fullwidth,
+    paddingBottom: config?.paddingbottom,
+    paddingTop: config?.paddingtop,
+    leftClassName,
+    middleLeftClassName,
+    middleRightClassName,
+    rightClassName,
+    orderClass: config?.reverseroworder ? 'reverse' : '',
+  };
+};

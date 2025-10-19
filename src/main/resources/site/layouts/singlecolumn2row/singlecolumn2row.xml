@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<layout>
+<layout xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="layouts.singlecolumn2row.displayname">1 column + 1</display-name>
-  <description>Top row (single column) with a row underneath with 1 column.</description>
   <form>
     <mixin name="fullwidth" />
     <mixin name="borderbottom" />

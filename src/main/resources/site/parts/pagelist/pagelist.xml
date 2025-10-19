@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<part>
+<part xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="parts.pagelist.name">Item/Page list</display-name>
-  <description i18n="parts.pagelist.description">
-    Display Page/Item list
-  </description>
+  <description i18n="parts.pagelist.description">Display Page/Item list</description>
   <form>
     <input type="TextLine" name="title" >
       <label i18n="parts.title.label">Title</label>
-      <default i18n="parts.title.default">Title</default>
+      <default>Title</default>
       <help-text i18n="parts.title.help-text">Input your title.</help-text>
       <occurrences minimum="0" maximum="1"/>
       <config/>

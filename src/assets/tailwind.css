@@ -1,0 +1,52 @@
+/* Main Tailwind CSS Entry Point */
+
+/* All @import statements must come first per CSS specification */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;800&display=swap');
+@import "tailwindcss";
+@import "./tailwind/theme.css";
+@import "./tailwind/base.css";
+@import "./tailwind/typography.css";
+@import "./tailwind/utilities.css";
+@import "./tailwind/foundation.css";
+@import "./tailwind/grids.css";
+@import "./tailwind/layouts.css";
+@import "./tailwind/editor.css";
+@import "./tailwind/social-icons.css";
+@import "./tailwind/solid-icons.css";
+
+/* Component imports */
+@import "./tailwind/components/article.css";
+@import "./tailwind/components/board.css";
+@import "./tailwind/components/boardpresentation.css";
+@import "./tailwind/components/book.css";
+@import "./tailwind/components/budgetcut.css";
+@import "./tailwind/components/button.css";
+@import "./tailwind/components/candidatepresentation.css";
+@import "./tailwind/components/card.css";
+@import "./tailwind/components/event.css";
+@import "./tailwind/components/eventcard.css";
+@import "./tailwind/components/eventlistitem.css";
+@import "./tailwind/components/fancyheader.css";
+@import "./tailwind/components/faq.css";
+@import "./tailwind/components/group.css";
+@import "./tailwind/components/imageblock.css";
+@import "./tailwind/components/introblock.css";
+@import "./tailwind/components/join.css";
+@import "./tailwind/components/listitem.css";
+@import "./tailwind/components/localbranch.css";
+@import "./tailwind/components/menu.css";
+@import "./tailwind/components/menuitem.css";
+@import "./tailwind/components/missions.css";
+@import "./tailwind/components/person.css";
+@import "./tailwind/components/personslist.css";
+@import "./tailwind/components/programme.css";
+@import "./tailwind/components/submenu.css";
+@import "./tailwind/components/textblock.css";
+@import "./tailwind/components/titleblock.css";
+
+/* Mobile responsive styles - must come last to override desktop styles */
+@import "./tailwind/mobile.css";
+
+/* Scan React components for Tailwind class usage */
+@source "src/main/resources/react4xp/**/*.{jsx,tsx}";

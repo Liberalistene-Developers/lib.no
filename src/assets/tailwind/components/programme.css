@@ -1,0 +1,33 @@
+/* Programme Component */
+
+/* Political programme sections and parts */
+
+@layer components {
+  .programme-main {
+    @apply mt-10;
+  }
+
+  .programme-section {
+    @apply mt-10;
+  }
+
+  .programme-section .programme-section-description {
+    @apply mt-5;
+  }
+
+  .programme-section .programme-sections-parts .conclusions-header {
+    margin-block-end: 1em;
+  }
+
+  .programme-section .programme-sections-parts > .conclusions > ul {
+    @apply m-0;
+  }
+
+  .programme-part {
+    @apply mt-10;
+  }
+
+  .programme-part .programme-part-description {
+    @apply mt-5;
+  }
+}

@@ -1,0 +1,29 @@
+/* Content Studio Edit Mode Styles */
+
+/* Pure CSS - no Tailwind dependencies */
+
+/* Only apply when Content Studio edit mode classes are present */
+.xp-page-editor-region-placeholder {
+  margin-bottom: 0 !important;
+  min-height: 200px !important;
+}
+
+/* Only apply to regions that have the edit mode placeholder class nearby */
+.xp-page-editor-region-placeholder + [data-portal-region]:empty,
+.xp-page-editor-item-view [data-portal-region]:empty {
+  min-height: 200px !important;
+  min-width: 200px !important;
+}
+
+/* Layout regions - only in edit mode contexts */
+.xp-page-editor-item-view .content-item.items {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.xp-page-editor-item-view .content-item.items > .content-child:empty {
+  flex: 1 !important;
+  min-width: 200px !important;
+  min-height: 200px !important;
+}

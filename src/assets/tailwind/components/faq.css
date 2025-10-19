@@ -1,0 +1,74 @@
+/* FAQ Component */
+
+/* Collapsible FAQ items with arrow indicators */
+
+@layer components {
+  .faq-list {
+    @apply flex flex-col gap-y-5 w-full max-w-[600px];
+  }
+
+  div[itemprop="acceptedAnswer"] {
+    @apply rounded-b-[3px] max-h-0;
+
+    transition: max-height 0.25s ease-in-out;
+  }
+
+  div[itemprop="acceptedAnswer"] div {
+    @apply p-[15px];
+  }
+
+  div[itemprop="mainEntity"] {
+    @apply rounded-[3px] overflow-hidden;
+
+    background-color: var(--lib-color-menu-background);
+    border: 1px solid rgb(74 16 74 / 10%);
+    border-top-right-radius: 3px;
+    box-shadow: 0 2px 10px rgb(74 16 74 / 14%);
+  }
+
+  div[itemprop="mainEntity"] label [itemprop="name"] {
+    @apply min-h-[50px] rounded-t-[3px] px-[15px] flex flex-row items-center justify-between;
+
+    background-color: var(--lib-color-header-100);
+  }
+
+  div[itemprop="mainEntity"] label [itemprop="name"] h2,
+  div[itemprop="mainEntity"] label [itemprop="name"] h3 {
+    @apply flex flex-row items-center font-medium text-[17px] leading-5 mr-[5px] gap-x-[15px] py-[10px];
+
+    font-style: normal;
+    margin-block: 0;
+    color: var(--lib-color-primary-100);
+  }
+
+  div[itemprop="mainEntity"] label [itemprop="name"] .arrow-purple {
+    @apply w-0 h-0 rounded-[5px];
+
+    transform: matrix(1, 0, 0, -1, 0, 0);
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 22px solid var(--lib-color-primary-700);
+    transition: transform 0.5s linear;
+  }
+
+  div[itemprop="mainEntity"] > input[type="checkbox"] {
+    @apply hidden;
+  }
+
+  div[itemprop="mainEntity"] > input[type="checkbox"]:checked ~ label .arrow-purple {
+    transform: rotate(0deg);
+    transition: transform 0.5s linear;
+  }
+
+  div[itemprop="mainEntity"] > input[type="checkbox"]:checked ~ div[itemprop="acceptedAnswer"] {
+    @apply max-h-[500px];
+
+    transition: max-height 0.25s ease-in;
+  }
+
+  /* FAQ arrow rotation based on checkbox state */
+  div[itemprop="mainEntity"] > input[type="checkbox"]:not(:checked) ~ label .arrow-purple {
+    transform: rotate(180deg);
+    transition: transform 0.5s linear;
+  }
+}
