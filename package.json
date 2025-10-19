@@ -57,7 +57,6 @@
     "@enonic/react-components": "^6.0.0",
     "classnames": "^2.3.1",
     "html-react-parser": "^5.2.6",
-    "ini": "^3.0.1",
     "leaflet": "^1.9.4",
     "node-fetch": "^3.2.10",
     "react": "^18",
