@@ -50,7 +50,7 @@ This project powers the Liberalistene party website, providing:
 ### Additional Libraries
 - **Maps:** Leaflet + react-leaflet
 - **Icons:** FontAwesome
-- **Security:** DOMPurify for XSS protection
+- **Security:** Enonic XP's processHtml for HTML sanitization
 
 ## Prerequisites
 
