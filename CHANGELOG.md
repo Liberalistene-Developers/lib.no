@@ -1,3 +1,11 @@
+## [2.0.1](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.0...v2.0.1) (2025-10-19)
+
+
+### Bug Fixes
+
+* anchor banner images to top to prevent heads being cropped ([e1d3ba6](https://github.com/Liberalistene-Developers/lib.no/commit/e1d3ba6bad3353686eca7a8893cb4a23dbacf573))
+* use fine-grained PAT for semantic-release to bypass branch protection ([7290007](https://github.com/Liberalistene-Developers/lib.no/commit/7290007a76b68a3edea2c015a3fa17415338bdaa))
+
 # [2.0.0](https://github.com/Liberalistene-Developers/lib.no/compare/v1.0.1...v2.0.0) (2025-10-19)
 
 
