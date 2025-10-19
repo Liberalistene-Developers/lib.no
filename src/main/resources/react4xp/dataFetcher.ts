@@ -28,7 +28,7 @@ import { boardPresentationProcessor } from '/react4xp/parts/boardpresentation/Bo
 import { bookProcessor } from '/react4xp/parts/book/BookProcessor';
 import { bookListProcessor } from '/react4xp/parts/booklist/BookListProcessor';
 import { budgetCutListProcessor } from '/react4xp/parts/budgetcutlist/BudgetCutListProcessor';
-import { buttonProcessor } from '/react4xp/parts/button/ButtonProcessor';
+import { buttonProcessor } from '/react4xp/parts/Button/ButtonProcessor';
 import { candidateBlockProcessor } from '/react4xp/parts/candidateblock/CandidateBlockProcessor';
 import { candidateListProcessor } from '/react4xp/parts/candidatelist/CandidateListProcessor';
 import { candidatePageProcessor } from '/react4xp/parts/candidatepage/CandidatePageProcessor';
