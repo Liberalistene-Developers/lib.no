@@ -30,7 +30,7 @@
   }
 
   .image-block .full > img {
-    @apply w-full object-cover h-full;
+    @apply w-full object-cover h-full object-top;
   }
 
   .image-block > .content {
