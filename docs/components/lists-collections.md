@@ -86,17 +86,35 @@ Components for displaying collections of items.
 
 ## EventList
 
-**Description:** Displays a list of events with dates and details
+**Description:** Displays a list of events with dates and location details. Supports both server-side rendering and client-side dynamic loading via Guillotine API with "Load More" functionality. Can display events in grid or list layout with configurable image options.
 
 **Use Cases:**
-- Events calendar
-- Upcoming events
-- Event archive
+- Event calendar with pagination
+- Upcoming events showcase with dynamic loading
+- Event archive with filtering by location
+- Conference or meetup listings
 
 **Props:**
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
-| TBD | TBD | TBD | To be documented in batch issues |
+| title | string | No | List title/heading |
+| description | string | No | Full HTML description of the event list |
+| shortDescription | string | No | Short description/ingress for the list |
+| items | EventItem[] | No | Initial event items (server-side rendered) |
+| displaytype | string | No | Display layout: 'grid' for card layout or 'list' for list layout (default: 'list') |
+| showImage | boolean | No | If true, shows event images in list view (default: false) |
+| imageSize | string | No | Image display size: 'small', 'medium', or 'large' |
+| imageType | string | No | Image shape: 'round' for circular images |
+| readMore | string | No | Text for "read more" link on events |
+| readMoreEnabled | boolean | No | If true, shows "read more" links (default: false) |
+| loadMoreEnabled | boolean | No | If true, enables "Load More" button for pagination (default: false) |
+| loadMore | string | No | Text for "Load More" button (default: "Load more") |
+| apiUrl | string | No | Guillotine API URL for loading more events dynamically |
+| count | number | No | Number of events to load per request (default: 10) |
+| sortExpression | string | No | Sort expression for Guillotine query (e.g., "data.from DESC") |
+| parentPathQuery | string | No | Parent path query filter for Guillotine request |
+| noIngress | boolean | No | If true, hides event ingress/summary (default: false) |
+| useLoader | boolean | No | If true, uses dynamic loading; if false, static rendering (default: false) |
 
 **Screenshot:**
 ![EventList](../../screenshots/eventlist.png)
@@ -105,8 +123,39 @@ Components for displaying collections of items.
 
 **Example:**
 ```tsx
-// To be documented in batch issues
+// Basic event list in grid layout
+<EventListPart
+  title="Upcoming Events"
+  displaytype="grid"
+  items={events}
+  showImage={true}
+  imageSize="medium"
+/>
+
+// Event list with dynamic loading and "Load More"
+<EventListPart
+  title="All Events"
+  displaytype="list"
+  items={initialEvents}
+  loadMoreEnabled={true}
+  loadMore="Load more events"
+  apiUrl="/api/master"
+  count={12}
+  sortExpression="data.from DESC"
+  parentPathQuery="/content/events"
+  useLoader={true}
+/>
+
+// Simple event list without images
+<EventListPart
+  title="Event Archive"
+  items={events}
+  displaytype="list"
+  noIngress={true}
+/>
 ```
+
+**Note:** The component supports both manual selection and query-based fetching via the processor. When using dynamic loading (useLoader=true), the DynamicLoader component handles pagination via the Guillotine API.
 
 ---
 
@@ -395,17 +444,28 @@ Components for displaying collections of items.
 
 ## FaqList
 
-**Description:** Displays a list of frequently asked questions
+**Description:** Displays a collection of FAQ items with expandable/collapsible functionality. Supports both manual selection and query-based fetching of FAQ content items. Each FAQ item includes a question and answer pair.
 
 **Use Cases:**
-- FAQ page
-- Help documentation
-- Support content
+- FAQ pages with multiple question-answer pairs
+- Help documentation with collapsible sections
+- Support content with categorized questions
+- Knowledge base with deep-linkable Q&A items
 
 **Props:**
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
-| TBD | TBD | TBD | To be documented in batch issues |
+| items | FaqListItem[] | No | Array of FAQ items to display |
+| expanded | boolean | No | If true, all FAQs are expanded by default (default: true) |
+| anchorText | string | No | Accessible text for anchor link icons on each FAQ |
+
+**FaqListItem Structure:**
+| Property | Type | Description |
+|----------|------|-------------|
+| itemID | string | Unique identifier for the FAQ item |
+| question | string | The question text (used as heading) |
+| answer | string | The answer content (HTML, automatically sanitized) |
+| url | string | Link to the full FAQ page |
 
 **Screenshot:**
 ![FaqList](../../screenshots/faqlist.png)
@@ -414,24 +474,79 @@ Components for displaying collections of items.
 
 **Example:**
 ```tsx
-// To be documented in batch issues
+// FAQ list with expanded items
+<FaqListPart
+  expanded={true}
+  anchorText="Link to this question"
+  items={[
+    {
+      itemID: "1",
+      question: "What is Liberalistene?",
+      answer: "<p>Liberalistene is a Norwegian political party...</p>",
+      url: "/faq/what-is-liberalistene"
+    },
+    {
+      itemID: "2",
+      question: "How can I join?",
+      answer: "<p>You can join by visiting our membership page...</p>",
+      url: "/faq/how-to-join"
+    }
+  ]}
+/>
+
+// FAQ list collapsed by default
+<FaqListPart
+  expanded={false}
+  items={faqItems}
+/>
 ```
+
+**Note:** The processor supports both manual FAQ selection and query-based fetching from the content repository. Each FAQ item uses the Faq component internally with Tag="h3" for proper heading hierarchy. Questions are rendered as H3 headings within the list.
 
 ---
 
 ## LocalBranches
 
-**Description:** Displays a list of local party branches
+**Part Name:** `lib.no:localbranches`
+**Component:** `LocalBranches`
+**Processor:** `/react4xp/parts/localbranches/LocalBranchesProcessor.ts`
+
+**Description:** Displays a responsive grid of links to local party branches
 
 **Use Cases:**
-- Branch directory
-- Location finder
-- Organization structure
+- Branch directory/finder page
+- "Find Your Local Chapter" sections
+- Organization structure display
+- Regional navigation hub
 
 **Props:**
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
-| TBD | TBD | TBD | To be documented in batch issues |
+| `title` | `string` | No | Section heading text |
+| `headingClassName` | `string` | No | CSS class for heading container (e.g., 'center' for centered) |
+| `items` | `BranchItem[]` | No | Array of branch items to display |
+
+**BranchItem Interface:**
+```tsx
+interface BranchItem {
+  name?: string;   // Display name of the branch
+  path?: string;   // URL path to the branch page
+  title?: string;  // Alternative title (optional)
+}
+```
+
+**Key Features:**
+- **Responsive Grid Layout:** 4 columns on desktop, 2 columns on mobile
+- **Auto-Query:** Automatically fetches all child content items of type `lib.no:localbranch`
+- **Empty State Handling:** Returns null if no branches found
+- **Underlined Links:** Branch names displayed as underlined links
+- **Configurable Heading:** Optional centered heading
+- **High Capacity:** Queries up to 999 branches
+
+**Layout:**
+- Desktop: 4 columns with 10px horizontal gap, 5px vertical gap
+- Mobile: 2 columns with 10px vertical gap
+- Responsive breakpoint handled via Tailwind `mobile:` prefix
 
 **Screenshot:**
 ![LocalBranches](../../screenshots/localbranches.png)
@@ -440,8 +555,25 @@ Components for displaying collections of items.
 
 **Example:**
 ```tsx
-// To be documented in batch issues
+import {LocalBranches} from '@common/LocalBranches/LocalBranches';
+
+<LocalBranches
+  title="Find Your Local Chapter"
+  headingClassName="center"
+  items={[
+    {name: 'Oslo', path: '/localbranches/oslo', id: 'abc123'},
+    {name: 'Bergen', path: '/localbranches/bergen', id: 'def456'},
+    {name: 'Trondheim', path: '/localbranches/trondheim', id: 'ghi789'},
+    {name: 'Stavanger', path: '/localbranches/stavanger', id: 'jkl012'}
+  ]}
+/>
 ```
+
+**Part Config (XML):**
+- `title` (TextLine) - Heading text (default: "Our local branches")
+- `centerheading` (Mixin) - Boolean to center the heading
+
+**Note:** The processor uses `findChildren()` to automatically query all child content items of type `lib.no:localbranch` under the current content path. Branch names and URLs are automatically generated from content metadata. The component returns early (null) if no items are provided.
 
 ---
 

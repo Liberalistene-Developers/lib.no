@@ -514,17 +514,23 @@ Domain-specific components designed for particular use cases.
 
 ## Faq
 
-**Description:** Individual FAQ item
+**Description:** Interactive FAQ component for displaying expandable question and answer pairs with deep-linking support, Schema.org markup for SEO, and accessible keyboard navigation. Features auto-expansion when accessed via URL hash.
 
 **Use Cases:**
-- Help documentation
-- Question-answer pairs
-- Support content
+- Help documentation with searchable FAQs
+- Question-answer pairs with direct links
+- Support content with collapsible sections
+- Policy explanations with deep-linkable sections
 
 **Props:**
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
-| TBD | TBD | TBD | To be documented in batch issues |
+| itemID | string | No | Unique identifier for the FAQ item |
+| question | string | No | The question text (used as display text and slugified for anchor ID) |
+| answer | string | No | The answer content (HTML, automatically sanitized) |
+| expanded | boolean | No | If true, FAQ is expanded by default (default: true) |
+| Tag | 'h2' \| 'h3' | No | HTML heading tag to use for the question (default: 'h2') |
+| anchorText | string | No | Accessible text for the anchor link icon |
 
 **Screenshot:**
 ![Faq](../../screenshots/faq.png)
@@ -533,24 +539,71 @@ Domain-specific components designed for particular use cases.
 
 **Example:**
 ```tsx
-// To be documented in batch issues
+// Basic FAQ with default expansion
+<FaqPart
+  itemID="1"
+  question="What is liberalism?"
+  answer="<p>Liberalism is a political philosophy that emphasizes individual liberty...</p>"
+  expanded={true}
+/>
+
+// FAQ with custom heading tag and collapsed by default
+<FaqPart
+  itemID="2"
+  question="How can I join?"
+  answer="<p>You can join by visiting our membership page...</p>"
+  expanded={false}
+  Tag="h3"
+  anchorText="Link to this question"
+/>
+
+// FAQ auto-expands when URL is #how-can-i-join
+<FaqPart
+  itemID="3"
+  question="How can I join?"
+  answer="<p>Membership details...</p>"
+/>
 ```
+
+**Note:** The question text is automatically slugified to create a URL-safe anchor ID (e.g., "What is liberalism?" becomes "#what-is-liberalism"). If the URL hash matches the FAQ ID, the item auto-expands. Uses Schema.org Question/Answer markup for rich search results. The expand/collapse animation is CSS-based with a max-height transition.
 
 ---
 
 ## Group
 
-**Description:** Grouping component for related items
+**Description:** Displays group or organization information with optional header image, title, descriptions, and board member list. Features flexible title/ingress positioning (in image or below) and a special layout where the first board member is displayed prominently in the center, with remaining members in a two-column grid below.
 
 **Use Cases:**
-- Content sections
-- Related items
-- Organizational grouping
+- Local chapter/branch pages with leadership
+- Organization profile pages with board members
+- Group information pages with team displays
+- Regional party pages with contact information
 
 **Props:**
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
-| TBD | TBD | TBD | To be documented in batch issues |
+| title | string | No | Group title/name |
+| image | ImageData | No | Header background image |
+| titleInImage | boolean | No | If true, displays title overlaid on header image (default: true) |
+| ingressInImage | boolean | No | If true, displays short description overlaid on header image (default: true) |
+| headerColor | string | No | CSS color class for header text when displayed in image |
+| headerPosition | string | No | Header text alignment: 'left', 'center', or 'right' |
+| shortDescription | string | No | Short description/ingress (HTML) |
+| description | string | No | Full detailed description (HTML) |
+| informationLabel | string | No | Custom label for the information section |
+| board | BoardMember[] | No | Array of board members to display |
+| imagesize | string | No | Size of member images: 'small', 'medium', or 'large' (default: 'medium') |
+| imagetype | boolean | No | If true, uses round/circular member images (default: true) |
+
+**BoardMember Structure:**
+| Property | Type | Description |
+|----------|------|-------------|
+| itemId | string | Unique member identifier |
+| name | string | Member's name |
+| role | string | Member's role/title in the group |
+| shortDescription | string | Brief description about the member |
+| url | string | Link to member's profile page |
+| image | ImageData | Member's profile image |
 
 **Screenshot:**
 ![Group](../../screenshots/group.png)
@@ -559,24 +612,94 @@ Domain-specific components designed for particular use cases.
 
 **Example:**
 ```tsx
-// To be documented in batch issues
+// Group with header image and board members
+<GroupPart
+  title="Oslo Liberalistene"
+  image={{url: '/images/oslo-chapter.jpg', alternativeText: 'Oslo'}}
+  titleInImage={true}
+  ingressInImage={false}
+  headerPosition="center"
+  headerColor="text-white"
+  shortDescription="<p>The Oslo chapter of Liberalistene</p>"
+  description="<p>Oslo Liberalistene represents the party in the capital region with over 200 active members...</p>"
+  informationLabel="About Our Chapter"
+  board={[
+    {
+      itemId: "1",
+      name: "Jane Doe",
+      role: "Chairperson",
+      shortDescription: "Political activist and entrepreneur",
+      url: "/people/jane-doe",
+      image: {url: "/images/jane.jpg"}
+    },
+    {
+      itemId: "2",
+      name: "John Smith",
+      role: "Vice Chair",
+      shortDescription: "Policy expert",
+      url: "/people/john-smith",
+      image: {url: "/images/john.jpg"}
+    }
+  ]}
+  imagesize="medium"
+  imagetype={true}
+/>
+
+// Simple group without header image
+<GroupPart
+  title="Bergen Chapter"
+  shortDescription="<p>Local branch in Bergen</p>"
+  description="<p>Meet our team and learn about our activities...</p>"
+  board={members}
+/>
 ```
+
+**Note:** The processor fetches member data from person content items in the repository and merges role information. The first board member is displayed in a centered, prominent position, while remaining members appear in a two-column grid. The component uses ImageBlock internally for the header. HTML content is automatically sanitized.
 
 ---
 
 ## LocalBlock
 
-**Description:** Local branch information block
+**Part Name:** `lib.no:localblock`
+**Component:** `PageHeader` (via `LocalBlock`)
+**Processor:** `/react4xp/parts/localblock/LocalBlockProcessor.ts`
+
+**Description:** Hero-style content block with customizable multi-color title and background image
 
 **Use Cases:**
-- Branch details
-- Local organization info
-- Regional content
+- Local chapter landing page headers
+- Regional branch hero sections
+- Branded page headers with multi-line colored titles
+- Custom hero banners with overlay effects
 
 **Props:**
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
-| TBD | TBD | TBD | To be documented in batch issues |
+| `Tag` | `'h1' \| 'h2' \| 'h3'` | No | HTML heading tag (default: 'h1') |
+| `image` | `ImageData` | No | Background image |
+| `title` | `TitleItem[]` | No | Array of title objects with text and color |
+| `position` | `string` | No | Content position - 'left', 'center', or 'right' |
+| `ingress` | `string` | No | Introductory text (HTML) |
+| `ingressColor` | `string` | No | Ingress color - 'normal', 'light', 'yellow', or 'purple' |
+| `overlay` | `string` | No | Image overlay CSS class (e.g., 'overlay dark') |
+| `titleClassName` | `string` | No | Responsive size - 'full' (5vw/9vw) or 'half' (3vw/6vw) |
+
+**TitleItem Interface:**
+```tsx
+interface TitleItem {
+  title: string;        // Text for this title line
+  titleColor: string;   // Color: 'light', 'yellow', 'purple', or custom
+}
+```
+
+**Key Features:**
+- Multi-line titles with individual color styling per line
+- Configurable content positioning (left/center/right)
+- Background image with optional overlay effects
+- Responsive font sizing (viewport-based)
+- Support for both simple and fancy multi-color titles
+- Sanitized HTML ingress text
+- Flexible heading level (h1/h2/h3)
 
 **Screenshot:**
 ![LocalBlock](../../screenshots/localblock.png)
@@ -585,24 +708,75 @@ Domain-specific components designed for particular use cases.
 
 **Example:**
 ```tsx
-// To be documented in batch issues
+import {LocalBlock} from '@common/LocalBlock/LocalBlock';
+
+<LocalBlock
+  Tag="h1"
+  image={{url: '/_/image/123:456/full/oslo.jpg', alternativeText: 'Oslo skyline'}}
+  position="center"
+  overlay="overlay dark"
+  titleClassName="full"
+  title={[
+    {title: 'Liberalistene', titleColor: 'light'},
+    {title: 'Oslo', titleColor: 'yellow'}
+  ]}
+  ingress="<p>Join us in Oslo for freedom and liberty.</p>"
+  ingressColor="light"
+/>
 ```
+
+**Part Config (XML):**
+- `titleSet` (Mixin) - Simple or fancy multi-color title configuration
+- `headerPosition` (Mixin) - Content alignment (left/center/right)
+- `image` (Mixin) - Background image
+- `imageOverlay` (Mixin) - Overlay effect
+- `ingress` (HtmlArea) - Introductory text
+- `ingressColor` (ComboBox) - Ingress text color
+- `mobileSize` (Mixin) - Responsive font size ('full' or 'half')
+
+**Note:** Supports legacy single-title configuration for backward compatibility. The processor automatically converts old title/headerColor config to the new titleSet format.
 
 ---
 
 ## LocalBranch
 
-**Description:** Individual local branch display
+**Part Name:** `lib.no:localbranch`
+**Component:** `PageHeader` (via `LocalBlock` alias)
+**Processor:** `/react4xp/parts/localbranch/LocalBranchProcessor.ts`
+
+**Description:** Specialized page header for individual local branch pages with automatic two-part title
 
 **Use Cases:**
-- Branch profiles
-- Location information
-- Contact details
+- Individual local chapter/branch landing pages
+- Automatic display of "Party Name + Branch Name" titles
+- Branch profile pages with hero headers
+- Regional chapter pages with standardized branding
 
 **Props:**
+*Same as LocalBlock* - This component is an alias for `LocalBlock` and accepts identical props:
+
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
-| TBD | TBD | TBD | To be documented in batch issues |
+| `Tag` | `'h1' \| 'h2' \| 'h3'` | No | HTML heading tag (default: 'h1') |
+| `image` | `ImageData` | No | Background image from content data |
+| `title` | `TitleItem[]` | No | Two-part array: [party name, branch name] |
+| `position` | `string` | No | Content position (default: 'left') |
+| `ingress` | `string` | No | Introductory text from content data |
+| `ingressColor` | `string` | No | Ingress color (default: 'light') |
+| `overlay` | `string` | No | Image overlay CSS class |
+| `titleClassName` | `string` | No | Responsive size (default: 'full') |
+
+**Key Features:**
+- **Automatic Two-Part Title:** Combines party name (from config) with branch display name (from content)
+- **Content-Driven:** Image and ingress text fetched from content item's data
+- **Consistent Branding:** Party name defaults to "Liberalistene" with configurable colors
+- **Branch Name Highlighting:** Branch name displayed in separate color (default: yellow)
+- Inherits all LocalBlock styling and layout features
+
+**Processor Behavior:**
+The processor automatically creates a two-part title:
+1. **Part 1:** Party name (from `title` config, defaults to "Liberalistene") in configured color (default: white)
+2. **Part 2:** Branch name (from `content.displayName`) in configured color (default: yellow)
 
 **Screenshot:**
 ![LocalBranch](../../screenshots/localbranch.png)
@@ -611,8 +785,33 @@ Domain-specific components designed for particular use cases.
 
 **Example:**
 ```tsx
-// To be documented in batch issues
+// The component automatically generates a two-part title
+// Content displayName: "Oslo"
+// Result: ["Liberalistene", "Oslo"] with different colors
+
+import {LocalBranch} from '@common/LocalBranch/LocalBranch';
+
+<LocalBranch
+  Tag="h1"
+  image={{url: '/_/image/123:456/full/oslo.jpg', alternativeText: 'Oslo'}}
+  position="left"
+  overlay="overlay dark"
+  title={[
+    {title: 'Liberalistene', titleColor: 'light'},
+    {title: 'Oslo', titleColor: 'yellow'}
+  ]}
+  ingress="<p>Our local chapter in the capital</p>"
+  ingressColor="light"
+  titleClassName="full"
+/>
 ```
+
+**Part Config (XML):**
+- `title` (TextLine) - Party name (default: "Liberalistene")
+- Branch name is automatically pulled from `content.displayName`
+- Image and ingress come from content data, not config
+
+**Note:** This component is functionally identical to LocalBlock but uses a specialized processor that automatically structures the title as a two-part display combining party and branch names. The actual React component is the same (LocalBlock).
 
 ---
 
