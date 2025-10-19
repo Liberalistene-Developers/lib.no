@@ -55,17 +55,19 @@ Components that define page structure and help users navigate the site.
 
 ## Submenu
 
-**Description:** Navigation submenu for secondary navigation options
+**Description:** A flexible navigation submenu that displays a grid of menu items. Items can be selected manually or populated dynamically via content queries. Renders as a responsive flexbox grid with centered content.
 
 **Use Cases:**
-- Section navigation
-- Nested menu items
-- Contextual navigation
+- Section navigation submenus
+- Call-to-action button groups
+- Dynamic navigation based on content queries
+- Context-sensitive navigation options
+- Sidebar menu displays
 
 **Props:**
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
-| TBD | TBD | TBD | To be documented in batch issues |
+| items | MenuItemType[] | No | Array of menu items to display. Each item has itemID, title, and url properties |
 
 **Screenshot:**
 ![Submenu](../../screenshots/submenu.png)
@@ -74,8 +76,25 @@ Components that define page structure and help users navigate the site.
 
 **Example:**
 ```tsx
-// To be documented in batch issues
+// Manual menu items
+<SubmenuPart
+  items={[
+    {itemID: '1', title: 'Join Us', url: '/join'},
+    {itemID: '2', title: 'Donate', url: '/donate'},
+    {itemID: '3', title: 'Volunteer', url: '/volunteer'}
+  ]}
+/>
+
+// Items populated by processor from content query
+// The processor supports two modes:
+// 1. Manual selection - Select specific pages in the admin
+// 2. Query selection - Dynamically fetch pages from a content root
+<SubmenuPart
+  items={queryResults}
+/>
 ```
+
+**Note:** The component adapts to different screen sizes - displays as a flex-wrap grid on desktop and switches to single-column layout on mobile. Items are rendered using the MenuItem component with consistent styling.
 
 ---
 

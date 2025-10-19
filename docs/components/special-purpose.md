@@ -815,45 +815,24 @@ import {LocalBranch} from '@common/LocalBranch/LocalBranch';
 
 ---
 
-## MissionsBlock
-
-**Description:** Party missions and goals display
-
-**Use Cases:**
-- Mission statements
-- Party goals
-- Vision statements
-
-**Props:**
-| Prop | Type | Required | Description |
-|------|------|----------|-------------|
-| TBD | TBD | TBD | To be documented in batch issues |
-
-**Screenshot:**
-![MissionsBlock](../../screenshots/missionsblock.png)
-
-**Storybook:** [View in Storybook](http://localhost:6006/?path=/story/parts-missionsblock)
-
-**Example:**
-```tsx
-// To be documented in batch issues
-```
-
----
-
 ## OrganizationalPosition
 
-**Description:** Display of organizational positions and roles
+**Description:** Displays information about an organizational role or position within the party structure. Shows position title, brief summary, and full description of responsibilities and requirements.
 
 **Use Cases:**
-- Leadership positions
-- Committee roles
-- Organizational structure
+- Available board position postings
+- Committee role descriptions
+- Leadership position information
+- Volunteer position listings
+- Organizational structure documentation
 
 **Props:**
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
-| TBD | TBD | TBD | To be documented in batch issues |
+| title | string | No | Position name/title (displayed as H1, from content displayName) |
+| shortDescription | string | No | Brief one-line summary of the position (HTML) |
+| description | string | No | Detailed description of responsibilities and requirements (HTML) |
+| tags | string[] | No | Topic tags for classification (currently unused in rendering) |
 
 **Screenshot:**
 ![OrganizationalPosition](../../screenshots/organizational-position.png)
@@ -862,50 +841,53 @@ import {LocalBranch} from '@common/LocalBranch/LocalBranch';
 
 **Example:**
 ```tsx
-// To be documented in batch issues
+// Full organizational position with all details
+<OrganizationalPositionPart
+  title="Communications Director"
+  shortDescription="<p>Lead the party's communication strategy and media relations.</p>"
+  description="<p><strong>Responsibilities:</strong></p><ul><li>Develop and execute communication strategies</li><li>Manage media relations and press inquiries</li><li>Oversee social media presence</li><li>Coordinate with local chapters</li></ul><p><strong>Requirements:</strong></p><ul><li>Experience in communications or journalism</li><li>Strong writing and public speaking skills</li><li>Familiarity with social media platforms</li></ul>"
+  tags={["communications", "leadership", "full-time"]}
+/>
+
+// Simple position description
+<OrganizationalPositionPart
+  title="Volunteer Coordinator"
+  shortDescription="<p>Organize and manage volunteer activities.</p>"
+  description="<p>Help coordinate our volunteer team and ensure smooth operations for events and campaigns.</p>"
+/>
+
+// Minimal position posting
+<OrganizationalPositionPart
+  title="Social Media Manager"
+  description="<p>Manage our social media accounts and create engaging content for our followers.</p>"
+/>
 ```
 
----
-
-## Person
-
-**Description:** Individual person profile display
-
-**Use Cases:**
-- Staff profiles
-- Member profiles
-- Contact information
-
-**Props:**
-| Prop | Type | Required | Description |
-|------|------|----------|-------------|
-| TBD | TBD | TBD | To be documented in batch issues |
-
-**Screenshot:**
-![Person](../../screenshots/person.png)
-
-**Storybook:** [View in Storybook](http://localhost:6006/?path=/story/parts-person)
-
-**Example:**
-```tsx
-// To be documented in batch issues
-```
+**Note:** The component uses a simple layout with H1 title, followed by short description and full description. Both description fields accept HTML content which is automatically rendered with SafeHtml. The tags prop is accepted by the processor but currently not displayed in the component rendering.
 
 ---
 
 ## ProgrammeMain
 
-**Description:** Main programme or platform component
+**Description:** Top-level political programme component that displays a complete structured programme with optional table of contents and hierarchical sections
 
 **Use Cases:**
-- Political platform
-- Party programme
-- Policy overview
+- Complete party political programme display
+- Policy platform with navigable sections
+- Manifesto with table of contents
+- Structured policy document with deep linking
 
 **Props:**
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
-| TBD | TBD | TBD | To be documented in batch issues |
+| title | string | No | Main title of the programme (automatically gets anchor ID) |
+| sections | SectionType[] | No | Array of programme sections with nested parts and conclusions |
+| tableOfContent | boolean | No | Whether to display table of contents for navigation (default: false) |
+
+**Part Configuration:**
+| Config | Type | Description |
+|--------|------|-------------|
+| tableOfContent | CheckBox | "Vis innholdsfortegnelse" - Show table of contents |
 
 **Screenshot:**
 ![ProgrammeMain](../../screenshots/programme-main.png)
@@ -914,24 +896,58 @@ import {LocalBranch} from '@common/LocalBranch/LocalBranch';
 
 **Example:**
 ```tsx
-// To be documented in batch issues
+// Complete programme with table of contents
+<ProgrammeMainPart
+  title="Liberal Programme 2025"
+  tableOfContent={true}
+  sections={[
+    {
+      key: "1",
+      title: "Economic Policy",
+      description: "<p>Our vision for the economy</p>",
+      parts: [...]
+    },
+    {
+      key: "2",
+      title: "Education Policy",
+      description: "<p>Our education policies</p>",
+      parts: [...]
+    }
+  ]}
+/>
 ```
+
+**Architecture:**
+- **Processor:** `ProgrammeMainProcessor.ts` - Fetches hierarchical programme structure via `getSections()` utility
+- **Component:** `ProgrammeMain.tsx` - Renders programme with TableOfContent and ProgrammeSection components
+- **Data Flow:** Content path → getSections() → hierarchical structure → render with anchors
 
 ---
 
 ## ProgrammePart
 
-**Description:** Section of a programme or platform
+**Description:** Individual policy section component that displays a single policy area with description and list of conclusions
 
 **Use Cases:**
-- Policy sections
-- Programme chapters
-- Platform segments
+- Major policy sections (e.g., "Education", "Healthcare", "Economy")
+- Policy areas with detailed conclusions
+- Programme categories with key points
+- Standalone policy documents
 
 **Props:**
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
-| TBD | TBD | TBD | To be documented in batch issues |
+| title | string | No | Title of this programme part |
+| description | string | No | Detailed policy description (HTML content) |
+| conclusionTitle | string | No | Title for the conclusions section (default: empty string) |
+| conclusions | ConclusionItem[] | No | Array of policy conclusions/key points |
+| anchor | boolean | No | Whether to enable anchor ID for deep linking (default: false) |
+| parentTitle | string | No | Parent section title for generating composite anchor IDs |
+
+**Part Configuration:**
+| Config | Type | Description |
+|--------|------|-------------|
+| conclusionTitle | Mixin | Custom title for the conclusions section |
 
 **Screenshot:**
 ![ProgrammePart](../../screenshots/programme-part.png)
@@ -940,24 +956,53 @@ import {LocalBranch} from '@common/LocalBranch/LocalBranch';
 
 **Example:**
 ```tsx
-// To be documented in batch issues
+// Policy section with conclusions
+<ProgrammePartPart
+  title="Tax Reform"
+  description="<p>We propose simplifying the tax code to promote economic growth and fairness...</p>"
+  conclusionTitle="Key Points"
+  conclusions={[
+    {key: "1", conclusion: "Reduce income tax by 5%"},
+    {key: "2", conclusion: "Simplify tax brackets"},
+    {key: "3", conclusion: "Eliminate loopholes"}
+  ]}
+  parentTitle="Economic Policy"
+  anchor={true}
+/>
 ```
+
+**Architecture:**
+- **Processor:** `ProgrammePartProcessor.ts` - Fetches child conclusions via `getConclusions()` utility
+- **Component:** `ProgrammePart.tsx` - Renders with hierarchical headings (h1/h2/h3) based on context
+- **Data Flow:** Content path → getConclusions() → conclusions array → render with SafeHtml
+- **Hierarchy:** Used within ProgrammeSection as mid-level component (Section > Part > Conclusion)
 
 ---
 
 ## ProgrammeSection
 
-**Description:** Subsection of a programme
+**Description:** Top-level programme section component that organizes multiple policy parts and conclusions into a major category with optional description
 
 **Use Cases:**
-- Detailed policy points
-- Programme subsections
-- Specific topics
+- High-level policy categories (e.g., "Domestic Policy", "Foreign Policy")
+- Programme sections with multiple sub-parts
+- Policy area grouping with conclusions
+- Structured programme organization
 
 **Props:**
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
-| TBD | TBD | TBD | To be documented in batch issues |
+| title | string | No | Title of this programme section |
+| description | string | No | Section overview description (HTML content) |
+| conclusionTitle | string | No | Title for conclusions section (default: "Liberalistene vil:") |
+| parts | PartItem[] | No | Array of programme parts and/or conclusions |
+| anchor | boolean | No | Whether child parts should have anchor IDs (default: false) |
+| parentTitle | string | No | Parent programme title for generating composite anchor IDs |
+
+**Part Configuration:**
+| Config | Type | Description |
+|--------|------|-------------|
+| conclusionTitle | Mixin | Custom title for conclusions section |
 
 **Screenshot:**
 ![ProgrammeSection](../../screenshots/programme-section.png)
@@ -966,24 +1011,61 @@ import {LocalBranch} from '@common/LocalBranch/LocalBranch';
 
 **Example:**
 ```tsx
-// To be documented in batch issues
+// Programme section with parts and conclusions
+<ProgrammeSectionPart
+  title="Economic Policy"
+  description="<p>Our comprehensive economic vision for Norway...</p>"
+  conclusionTitle="Liberalistene vil:"
+  parentTitle="Liberal Programme 2025"
+  anchor={true}
+  parts={[
+    {
+      key: "1",
+      type: "lib.no:programme-part",
+      title: "Tax Reform",
+      description: "<p>Simplify tax code...</p>",
+      conclusions: [...]
+    },
+    {
+      key: "2",
+      type: "conclusion",
+      title: "Reduce government spending"
+    },
+    {
+      key: "3",
+      type: "conclusion",
+      title: "Promote free markets"
+    }
+  ]}
+/>
 ```
+
+**Architecture:**
+- **Processor:** `ProgrammeSectionProcessor.ts` - Fetches child parts via `getParts()` utility
+- **Component:** `ProgrammeSection.tsx` - Intelligently groups and renders ProgrammePart and Conclusion components
+- **Data Flow:** Content path → getParts() → mixed parts array → smart rendering with conclusion grouping
+- **Hierarchy:** Top-level in programme structure (Section > Part > Conclusion)
+- **Smart Rendering:** Displays conclusionTitle header only once when transitioning from parts to conclusions
+
+**Note:** This is the highest-level component in the programme hierarchy, designed to organize the complete policy structure with proper heading levels and anchor navigation.
 
 ---
 
 ## Test
 
-**Description:** Test component for development purposes
+**Description:** A simple diagnostic component for verifying React4xp v6 integration and configuration. Displays a styled blue box with title, custom message, and explanatory text to confirm that React components are rendering correctly and Tailwind CSS is applying styles.
 
 **Use Cases:**
-- Component testing
-- Development experimentation
-- Feature prototyping
+- Verifying React4xp v6 setup and configuration
+- Testing component rendering pipeline
+- Troubleshooting React4xp integration issues
+- Confirming Tailwind CSS is loading correctly
+- Development and debugging
 
 **Props:**
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
-| TBD | TBD | TBD | To be documented in batch issues |
+| message | string | No | Custom test message to display (default: 'Hello from React4xp v6!') |
 
 **Screenshot:**
 ![Test](../../screenshots/test.png)
@@ -992,8 +1074,16 @@ import {LocalBranch} from '@common/LocalBranch/LocalBranch';
 
 **Example:**
 ```tsx
-// To be documented in batch issues
+// Default test component
+<TestPart />
+
+// Custom test message
+<TestPart
+  message="Integration test successful!"
+/>
 ```
+
+**Note:** This component is intended for **development and testing purposes only** and should be removed or disabled in production environments. The processor returns a static message and requires no configuration.
 
 ---
 

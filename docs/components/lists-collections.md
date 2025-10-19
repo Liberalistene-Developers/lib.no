@@ -234,17 +234,36 @@ Components for displaying collections of items.
 
 ## PersonList
 
-**Description:** Displays a list of people with details
+**Description:** Displays a collection of people in either list or grid layout with configurable image options. Fetches person data from content repository by content IDs and supports optional title, header image, and descriptions.
 
 **Use Cases:**
-- Team members
-- Contributors
-- Staff directory
+- Team member directories with photos
+- Staff listings with roles
+- Contributor showcases
+- Board member listings
+- Author directories
+- Speaker rosters with bios
 
 **Props:**
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
-| TBD | TBD | TBD | To be documented in batch issues |
+| title | string | No | List title/heading (displayed as H2) |
+| description | string | No | Full description text (HTML) |
+| shortDescription | string | No | Brief introduction/summary (HTML) |
+| displaytype | string | No | Display layout: 'list' or 'grid' (default: 'grid') |
+| imagesize | 'small' \| 'medium' \| 'large' | No | Size of person images |
+| imagetype | boolean | No | If true, uses round/circular images (default: false) |
+| image | ImageData | No | Optional header image for the list |
+| items | PersonItem[] | No | Array of person items to display |
+
+**PersonItem Structure:**
+| Property | Type | Description |
+|----------|------|-------------|
+| itemID | string | Unique identifier for the person |
+| image | ImageData | Person's profile image (optimized as 256x256 square) |
+| name | string | Person's name |
+| shortDescription | string | Brief description or role |
+| url | string | Link to person's full profile page |
 
 **Screenshot:**
 ![PersonList](../../screenshots/personlist.png)
@@ -253,8 +272,62 @@ Components for displaying collections of items.
 
 **Example:**
 ```tsx
-// To be documented in batch issues
+// Grid layout with round images
+<PersonListPart
+  title="Our Team"
+  displaytype="grid"
+  imagesize="medium"
+  imagetype={true}
+  shortDescription="<p>Meet the people who make it happen.</p>"
+  items={[
+    {
+      itemID: "1",
+      name: "John Doe",
+      shortDescription: "CEO and Founder",
+      url: "/people/john-doe",
+      image: {url: "/images/john.jpg", alternativeText: "John Doe"}
+    },
+    {
+      itemID: "2",
+      name: "Jane Smith",
+      shortDescription: "Chief Technology Officer",
+      url: "/people/jane-smith",
+      image: {url: "/images/jane.jpg", alternativeText: "Jane Smith"}
+    },
+    {
+      itemID: "3",
+      name: "Bob Johnson",
+      shortDescription: "Marketing Director",
+      url: "/people/bob-johnson",
+      image: {url: "/images/bob.jpg", alternativeText: "Bob Johnson"}
+    }
+  ]}
+/>
+
+// List layout with square images
+<PersonListPart
+  title="Contributors"
+  displaytype="list"
+  imagesize="small"
+  imagetype={false}
+  description="<p>Thank you to our contributors for their valuable work.</p>"
+  items={contributors}
+/>
+
+// Grid with header image
+<PersonListPart
+  title="Board Members 2025"
+  displaytype="grid"
+  image={{url: "/images/board-header.jpg", alternativeText: "Board meeting"}}
+  shortDescription="<p>Our elected leadership team.</p>"
+  description="<p>The board is elected annually and guides the party's strategic direction.</p>"
+  imagesize="large"
+  imagetype={true}
+  items={boardMembers}
+/>
 ```
+
+**Note:** The processor fetches person data from the content repository using the Enonic Content API. Each person content item is queried by ID, and images are automatically optimized to 256x256 square format. The component uses either ListItem or GridItem internally based on displaytype. Items with null/missing content are filtered out automatically. HTML content in descriptions is automatically rendered with SafeHtml.
 
 ---
 

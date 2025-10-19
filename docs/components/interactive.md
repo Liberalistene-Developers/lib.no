@@ -8,17 +8,33 @@ Components that facilitate user interaction.
 
 ## Button
 
-**Description:** Interactive button component with various styles
+**Description:** Flexible button/link component with dual rendering modes and two visual variants. Renders as a native `<button>` element for click handlers or as an `<a>` element for navigation. Supports both internal (content page) and external URLs with configurable link targets. Features dark (default) and light style variants with hover effects.
 
 **Use Cases:**
-- Call-to-action buttons
-- Form submissions
-- Navigation actions
+- Call-to-action buttons on landing pages
+- Navigation buttons linking to internal pages
+- External link buttons to partner sites or resources
+- Form submission triggers (with onClick)
+- Interactive buttons with custom click handlers
+- Light-style buttons on dark backgrounds
 
 **Props:**
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
-| TBD | TBD | TBD | To be documented in batch issues |
+| title | string | Yes | Button text label displayed to user |
+| url | string | No | Link destination URL (internal or external). If provided, renders as `<a>` element |
+| target | '_self' \| '_blank' | No | Link target - '_self' opens in same window, '_blank' in new tab (only used when url is provided) |
+| className | string | No | Additional CSS classes. Include 'light' for light variant, or any custom classes |
+| onClick | () => void | No | Click event handler. If provided without url, renders as `<button>` element. Can be combined with url for link tracking |
+
+**Key Features:**
+- **Dual Rendering:** Renders as `<button>` when onClick without URL, or `<a>` when URL is provided
+- **Two Variants:** Default (dark) with primary color background, or light with white background
+- **Hover Effects:** Paper-raise effect with shadow on hover (0_15px_10px_-10px)
+- **Internal/External URLs:** Processor handles both content references and external URLs
+- **Safe Links:** All anchor elements include `rel="noreferrer"` for security
+- **Responsive:** Minimum width 124px with flexible padding
+- **Centered:** Automatically centers within flex container
 
 **Screenshot:**
 ![Button](../../screenshots/button.png)
@@ -27,8 +43,59 @@ Components that facilitate user interaction.
 
 **Example:**
 ```tsx
-// To be documented in batch issues
+// Default dark button with internal link
+<ButtonPart
+  title="Join Us"
+  url="/membership"
+/>
+
+// Light variant button with external link (opens in new tab)
+<ButtonPart
+  title="Visit Website"
+  url="https://example.com"
+  target="_blank"
+  className="light"
+/>
+
+// Button element with onClick handler
+<ButtonPart
+  title="Click Me"
+  onClick={handleClick}
+/>
+
+// Link with click tracking (combines url and onClick)
+<ButtonPart
+  title="Track This Link"
+  url="/tracked-page"
+  onClick={trackEvent}
+/>
+
+// Custom styled button
+<ButtonPart
+  title="Custom Button"
+  url="/page"
+  className="light custom-class"
+/>
 ```
+
+**Architecture:**
+- **Processor:** `ButtonProcessor.ts` - Resolves internal content IDs to page URLs, handles external URLs with targets
+- **Component:** `Button.tsx` - Renders as button or anchor based on props
+- **URL Types:**
+  - **Internal (intern):** Content ID → getContent() → pageUrl() → generates internal URL
+  - **External (extern):** Direct URL with optional target (_self or _blank)
+- **Data Flow:** Config → determine URL type → resolve URL → return ButtonProps
+
+**Processor Configuration (XML):**
+- `buttonText` (TextLine) - Button label text
+- `urlSelector` (OptionSet) - URL type selection
+  - `intern` - Internal page reference
+    - `url` (ContentSelector) - Content ID to link to
+  - `extern` - External URL
+    - `externUrl` (TextLine) - External URL
+    - `target` (RadioButton) - Link target: '_self' or '_blank'
+
+**Note:** The processor adds a default className of 'medium-margin' to all buttons. When urlSelector is not configured or invalid, the processor returns an error state. The component automatically applies hover effects (border color change, shadow) using Tailwind CSS classes with 250ms transitions.
 
 ---
 

@@ -182,6 +182,33 @@ Uses [Conventional Commits](https://www.conventionalcommits.org/):
 - `perf:` - Performance improvements
 - `test:` - Tests
 
+**Commit Message Guidelines:**
+- Focus on **what** changed and **why** in the message body
+- **Don't list modified files** unless they provide special context not obvious from the commit itself
+- The file list is already visible in the commit diff - avoid redundancy
+- Use the message body to explain the changes, their purpose, or relevant details
+
+**Example:**
+```
+✅ Good:
+docs: document batch 3 part 3 components (issue #53)
+
+Documented 3 components in the component catalog:
+- submenu - Flexible navigation with manual/query selection
+- test - React4xp v6 diagnostic component
+- textblock - Centered text block with optional title
+
+Progress: 11/13 components complete (85%)
+
+❌ Avoid:
+docs: document batch 3 part 3 components (issue #53)
+
+Updated files:
+- docs/components/layout-navigation.md
+- docs/components/content-display.md
+- docs/components/special-purpose.md
+```
+
 Enforced by Commitlint via Husky pre-commit hooks.
 
 ### Code Style
