@@ -695,7 +695,7 @@ dataFetcher.addPart('lib.no:myfeature', {processor: myFeatureProcessor});
 
 #### Current Status
 
-- **Total Parts:** 36
+- **Total Parts:** 38
 - **Architecture Compliance:** 100% (all Parts use createPartShim)
 - **Processor Pattern:** Consistently applied across all Parts
 - **Component Registry:** Centralized in `componentRegistry.tsx`
@@ -703,6 +703,7 @@ dataFetcher.addPart('lib.no:myfeature', {processor: myFeatureProcessor});
 
 ## Additional Resources
 
+- [Component Catalog](docs/COMPONENTS.md) - Complete reference for all 38 React components with screenshots and examples
 - [Enonic XP Docs](https://developer.enonic.com/docs)
 - [React4xp Documentation](https://developer.enonic.com/docs/react4xp)
 - [Semantic Release Docs](https://semantic-release.gitbook.io/)

@@ -60,7 +60,9 @@ const config: StorybookConfig = {
       '@layouts': path.resolve(__dirname, '../src/main/resources/react4xp/layouts'),
       '@pages': path.resolve(__dirname, '../src/main/resources/react4xp/pages'),
       '@utils': path.resolve(__dirname, '../src/main/resources/react4xp/utils'),
-      '@lib': path.resolve(__dirname, '../src/main/resources/lib')
+      '@lib': path.resolve(__dirname, '../src/main/resources/lib'),
+      // Add absolute path mapping for /react4xp/* imports
+      '/react4xp': path.resolve(__dirname, '../src/main/resources/react4xp')
     };
 
     // Add TypeScript loader for .ts and .tsx files

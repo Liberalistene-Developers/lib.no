@@ -87,4 +87,16 @@ export default tseslint.config(// If ignores is used without any other keys in t
   rules: {
     'no-console': 'off'
   }
+}, {
+  // Allow console in util scripts (CLI tools)
+  files: ['util/**/*.mjs', 'util/**/*.js'],
+  languageOptions: {
+    globals: {
+      console: 'readonly',
+      process: 'readonly'
+    }
+  },
+  rules: {
+    'no-console': 'off'
+  }
 }, storybook.configs["flat/recommended"]);

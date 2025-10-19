@@ -23,11 +23,11 @@ The Component Catalog serves as:
 Components are organized into the following category files:
 
 - **[Layout & Navigation](layout-navigation.md)** - Site structure and navigation components (2 components)
-- **[Content Display](content-display.md)** - Components for displaying text and media (9 components)
-- **[Lists & Collections](lists-collections.md)** - Components for displaying multiple items (10 components)
+- **[Content Display](content-display.md)** - Components for displaying text and media (8 components)
+- **[Lists & Collections](lists-collections.md)** - Components for displaying multiple items (9 components)
 - **[Interactive Components](interactive.md)** - User interaction components (3 components)
 - **[Forms & User Input](#forms--user-input)** - Form fields and input components (none yet)
-- **[Special Purpose](special-purpose.md)** - Domain-specific components (18 components)
+- **[Special Purpose](special-purpose.md)** - Domain-specific components (16 components)
 
 ## Documentation Style Guide
 
