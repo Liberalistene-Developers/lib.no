@@ -1,4 +1,4 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
+# .husky/pre-push
+#
+# run linting before push
 npm run lint
