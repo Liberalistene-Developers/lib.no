@@ -62,7 +62,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-leaflet": "^4.2.1",
-    "react-slugify": "^3.0.2"
+    "react-slugify": "^5.0.0"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.27.1",
