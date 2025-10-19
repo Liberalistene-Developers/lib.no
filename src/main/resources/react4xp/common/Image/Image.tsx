@@ -21,6 +21,8 @@ interface ImageProps {
   url?: string;
   /** Optional title for the link and alt text fallback */
   title?: string;
+  /** Enable lazy loading (default: true). Set to false for above-the-fold images */
+  lazy?: boolean;
 }
 
 /**
@@ -33,12 +35,21 @@ interface ImageProps {
  * - Automatic alt text from image.alternativeText, image.displayName, or title prop
  * - Optional link wrapper
  * - Separate styling for wrapper and image element
+ * - Lazy loading by default (can be disabled for above-the-fold images)
  * - Null-safe rendering
+ *
+ * **Performance:**
+ * Images are lazy loaded by default using the native `loading="lazy"` attribute.
+ * For critical above-the-fold images (headers, hero images), set `lazy={false}` to
+ * load immediately and combine with image preloading in the HTML head.
  *
  * @example
  * ```tsx
- * // Basic image
+ * // Basic image with lazy loading (default)
  * <Image image={articleImage} />
+ *
+ * // Critical header image (no lazy loading)
+ * <Image image={heroImage} lazy={false} />
  *
  * // Image with custom styling
  * <Image
@@ -60,7 +71,8 @@ export const Image: FC<ImageProps> = ({
   image = null,
   imageClassName = '',
   url = '',
-  title
+  title,
+  lazy = true
 }) => {
   if (!image) {
     return null;
@@ -71,6 +83,7 @@ export const Image: FC<ImageProps> = ({
       src={image.url}
       alt={getImageAlt(image, title)}
       className={imageClassName}
+      loading={lazy ? 'lazy' : 'eager'}
     />
   );
 

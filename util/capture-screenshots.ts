@@ -134,7 +134,7 @@ async function main(): Promise<void> {
   console.log(`📷 Capturing ${totalComponents} component screenshots...\n`);
 
   let successCount = 0;
-  let failureCount = 0;
+  const failureCount = 0;
 
   for (const [componentName, storyPath] of Object.entries(COMPONENT_MAP)) {
     await captureScreenshot(page, componentName, storyPath);

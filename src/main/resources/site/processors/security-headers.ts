@@ -19,11 +19,11 @@ exports.responseProcessor = (req: unknown, res: Response): Response => {
   const cspDirectives = [
     "default-src 'self'",
     "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com", // unsafe-inline/eval needed for React; unpkg.com for Leaflet
-    "style-src 'self' 'unsafe-inline' https://unpkg.com", // unsafe-inline needed for styled-components; unpkg.com for Leaflet CSS
+    "style-src 'self' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com", // unpkg.com for Leaflet CSS; Google Fonts
     "img-src 'self' data: https: https://*.tile.openstreetmap.org", // https: for general images; OSM for map tiles
-    "font-src 'self' data:",
+    "font-src 'self' data: https://fonts.gstatic.com", // Google Fonts
     "connect-src 'self' https://nominatim.openstreetmap.org", // nominatim for geocoding
-    "frame-src 'self' https://www.youtube.com https://player.vimeo.com", // For video embeds
+    "frame-src 'self' https://www.youtube.com https://youtube.com https://player.vimeo.com https://docs.google.com", // For video embeds and Google Docs
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self'",
