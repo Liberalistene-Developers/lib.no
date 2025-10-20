@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.2...v2.0.3) (2025-10-20)
+
+
+### Bug Fixes
+
+* clean up .env.example to remove unused variables ([ef214ab](https://github.com/Liberalistene-Developers/lib.no/commit/ef214abdda8c64bf368f998fda7cedc7d4ec533d))
+
 ## [2.0.2](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.1...v2.0.2) (2025-10-20)
 
 
