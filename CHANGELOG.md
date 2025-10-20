@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.1...v2.0.2) (2025-10-20)
+
+
+### Bug Fixes
+
+* update lib-asset to 1.0.3 ([e4ff3a3](https://github.com/Liberalistene-Developers/lib.no/commit/e4ff3a325394946b26ea80b196b38a38b4afd972))
+
 ## [2.0.1](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.0...v2.0.1) (2025-10-19)
 
 
