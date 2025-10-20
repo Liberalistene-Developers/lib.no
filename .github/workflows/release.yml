@@ -65,3 +65,13 @@ jobs:
 
       - name: Release
         run: npx semantic-release
+
+      - name: Deploy to Enonic
+        if: env.RELEASE_BUILT == 'true'
+        uses: docker://enonic/enonic-ci:7.15
+        env:
+          ENONIC_CLI_REMOTE_URL: ${{ secrets.ENONIC_CLI_REMOTE_URL }}
+          ENONIC_CLI_REMOTE_USER: ${{ secrets.ENONIC_CLI_REMOTE_USER }}
+          ENONIC_CLI_REMOTE_PASS: ${{ secrets.ENONIC_CLI_REMOTE_PASS }}
+        with:
+          args: enonic app install --file build/libs/Liberalistene.jar

@@ -179,8 +179,7 @@
       [
         "@semantic-release/exec",
         {
-          "prepareCmd": "sed -i \"s/^version = .*/version = ${nextRelease.version}/\" gradle.properties && ./gradlew clean build -Penv=prod",
-          "publishCmd": "enonic app install --file build/libs/Liberalistene.jar"
+          "prepareCmd": "sed -i \"s/^version = .*/version = ${nextRelease.version}/\" gradle.properties && ./gradlew clean build -Penv=prod && echo 'RELEASE_BUILT=true' >> $GITHUB_ENV"
         }
       ],
       [
