@@ -5,6 +5,10 @@
     <response-processor name="security-headers" order="10" />
   </processors>
   <mappings>
+    <!-- URL redirect mapping - must run before React4xp -->
+    <mapping controller="/lib/urlredirect.js" order="5">
+      <match>type:'lib.no:url'</match>
+    </mapping>
     <!-- React4xp v6 essential mappings -->
     <mapping controller="/site/app.js" order="10">
       <pattern invert="true">/r4xp5.*</pattern>
@@ -14,9 +18,6 @@
     </mapping>
     <!-- Custom mappings from v3 -->
     <!-- Removed /api/headless mapping - migrated to Guillotine app v7 -->
-    <mapping controller="/lib/urlredirect.js">
-      <match>type:'lib.no:url'</match>
-    </mapping>
   </mappings>
   <form>
     <mixin name="image" />
