@@ -1,3 +1,11 @@
+## [2.0.4](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.3...v2.0.4) (2025-10-22)
+
+
+### Bug Fixes
+
+* add lib-urlredirect and configure site.xml mapping (closes [#90](https://github.com/Liberalistene-Developers/lib.no/issues/90)) ([44bccfd](https://github.com/Liberalistene-Developers/lib.no/commit/44bccfd7bf252c050d7ad94b0ae9860454268250)), closes [#29](https://github.com/Liberalistene-Developers/lib.no/issues/29)
+* add missing @testing-library/dom dependency (closes [#89](https://github.com/Liberalistene-Developers/lib.no/issues/89)) ([9fef23d](https://github.com/Liberalistene-Developers/lib.no/commit/9fef23d784ee5099af06b2fc491a9e3967b637ed))
+
 ## [2.0.3](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.2...v2.0.3) (2025-10-20)
 
 
