@@ -1,3 +1,10 @@
+## [2.0.5](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.4...v2.0.5) (2026-02-11)
+
+
+### Bug Fixes
+
+* add comprehensive CSS styling for rich-text user-generated HTML content (closes [#111](https://github.com/Liberalistene-Developers/lib.no/issues/111)) ([2ce2d71](https://github.com/Liberalistene-Developers/lib.no/commit/2ce2d71fb1ecc9da4fa6d99e40f7e22ba14a2743))
+
 ## [2.0.4](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.3...v2.0.4) (2025-10-22)
 
 
