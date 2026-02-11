@@ -23,6 +23,194 @@ This is the official homepage for Liberalistene (Norwegian political party), bui
    - **User must restart the conversation for the next batch**
    - This prevents autopilot mode and ensures proper review of each batch
 
+## Git Worktrees Workflow
+
+This project uses **git worktrees** for all feature development. Worktrees enable parallel work on multiple issues without context switching or stashing changes.
+
+### Benefits
+
+- **Parallel work** on multiple issues without context switching
+- **Clean separation** between different feature branches
+- **No stashing** required when switching tasks
+- **Quick hotfix handling** without disrupting current work
+- **Testing different approaches** simultaneously
+
+### Directory Structure
+
+```
+~/github/lib.no/                    # Main repository (master branch)
+└── .worktrees/                     # All feature worktrees (gitignored)
+    ├── fix-111-rich-text-css/      # Bug fix worktree
+    ├── feat-112-dark-mode/         # Feature worktree
+    └── docs-113-workflow/          # Documentation worktree
+```
+
+**Important:** The `.worktrees/` directory is gitignored and hidden (dot-prefix) to prevent conflicts with potential future needs for a `worktrees/` directory.
+
+### Naming Conventions
+
+**Worktree directory format:** `{type}-{issue}-{short-description}`
+
+**Branch format:** `{type}/{issue}_{description}`
+
+**Types:**
+- `fix` - Bug fixes
+- `feat` or `feature` - New features
+- `docs` - Documentation
+- `refactor` - Code refactoring
+- `chore` - Maintenance tasks
+- `style` - CSS/styling changes
+- `test` - Test additions/updates
+
+**Examples:**
+```bash
+# Worktree directory          Branch name
+fix-111-rich-text-css    →    fix/111_rich-text-css
+feat-112-dark-mode       →    feat/112_dark-mode
+docs-113-workflow        →    docs/113_workflow
+```
+
+### Three-Phase Workflow
+
+#### Phase 1: Issue-First Setup
+
+**Claude's responsibilities:**
+
+```bash
+# 1. Verify current branch (should be master)
+git branch --show-current
+
+# 2. Create worktree for feature branch
+git worktree add .worktrees/{type}-{issue}-{desc} -b {type}/{issue}_{desc}
+
+# Example:
+git worktree add .worktrees/fix-111-rich-text-css -b fix/111_rich-text-css
+
+# 3. Add "🔧 current-work" label to issue
+gh issue edit 111 --add-label "🔧 current-work"
+
+# 4. Navigate to worktree
+cd .worktrees/fix-111-rich-text-css
+```
+
+**No restart required** - Claude continues working in the same session after navigating to the worktree.
+
+#### Phase 2: Batch Development
+
+- Work on 3-4 tasks maximum per batch
+- Show changes and commit message
+- Ask for approval before committing
+- Commit only after approval
+- Repeat until feature complete
+- **STOP after each batch** and wait for user to restart conversation
+
+#### Phase 3: Completion
+
+```bash
+# 1. Verify we're in the worktree
+pwd && git branch --show-current
+
+# 2. Rebase commits if needed (with approval)
+git rebase -i master
+
+# 3. Remove "🔧 current-work" label
+gh issue edit 111 --remove-label "🔧 current-work"
+
+# 4. USER pushes to remote
+git push -u origin fix/111_rich-text-css
+
+# 5. USER creates PR
+gh pr create --title "..." --body "..."
+
+# 6. After PR is merged - Claude navigates out and cleans up
+cd /home/virtueme/github/lib.no  # Must exit worktree first!
+git worktree remove .worktrees/fix-111-rich-text-css
+git branch -d fix/111_rich-text-css
+```
+
+### Critical Path Rules
+
+**⚠️ ABSOLUTE vs RELATIVE PATHS:**
+
+When working in a worktree, Claude must **ALWAYS use relative paths**, never absolute paths:
+
+```bash
+# ✅ CORRECT - Relative path (edits worktree's file)
+Edit file_path=".gitignore"
+Edit file_path="CLAUDE.md"
+
+# ❌ WRONG - Absolute path (edits main repo's file!)
+Edit file_path="/home/virtueme/github/lib.no/.gitignore"
+Edit file_path="/home/virtueme/github/lib.no/CLAUDE.md"
+```
+
+**Why this matters:** Git worktrees share the same file structure, but absolute paths always point to the main repo, not the worktree. Using absolute paths will accidentally modify the main branch instead of the feature branch.
+
+**Rule:** When in a worktree, ONLY use relative paths for file operations (Read, Edit, Write).
+
+### Git Safety Rules
+
+**Claude will NEVER:**
+- ❌ Push to GitHub (`git push`)
+- ❌ Pull from GitHub (`git pull`)
+- ❌ Run destructive git commands (`git reset --hard`, `git clean -fd`)
+- ❌ Skip git hooks (`--no-verify`)
+- ❌ Force push to main/master
+- ❌ Amend other developers' commits
+- ❌ Use absolute file paths when in a worktree
+
+**Claude CAN:**
+- ✅ Create worktrees
+- ✅ Navigate to worktrees
+- ✅ Create commits locally (after approval)
+- ✅ Stage files
+- ✅ Run git status, diff, log
+- ✅ Help with rebasing
+- ✅ Remove worktrees (after navigating out of them)
+
+### Worktree Safety
+
+1. **One Claude session per worktree** - Never run multiple sessions across different worktrees
+2. **Verify context before operations** - Always run `pwd` and `git branch --show-current` before critical operations
+3. **Exit before cleanup** - Must navigate OUT of worktree directory before removing it
+4. **Regular pruning** - Run `git worktree prune` to clean stale references
+
+### Quick Reference Commands
+
+```bash
+# Create worktree
+git worktree add .worktrees/{type}-{issue}-{desc} -b {type}/{issue}_{desc}
+
+# List all worktrees
+git worktree list
+
+# Navigate to worktree
+cd .worktrees/{type}-{issue}-{desc}
+
+# Verify context
+pwd && git branch --show-current
+
+# After PR merged - cleanup (from main repo!)
+cd /home/virtueme/github/lib.no
+git worktree remove .worktrees/{type}-{issue}-{desc}
+git branch -d {type}/{issue}_{desc}
+
+# Prune stale worktree references
+git worktree prune
+```
+
+### Integration with Existing Rules
+
+The worktree workflow integrates seamlessly with all other CLAUDE.md rules:
+
+- ✅ Rule #1: Never rewrite without asking - Still applies
+- ✅ Rule #2: Never reset from git - Still applies
+- ✅ Rule #3: React4xp v6 architecture - Still applies
+- ✅ Rule #4: Never commit without approval - Still applies
+- ✅ Rule #5: Work in small batches - Still applies
+
+**The only difference:** Feature branches are created as worktrees instead of regular branches.
+
 ## Tech Stack
 
 - **CMS:** Enonic XP 7.7+
