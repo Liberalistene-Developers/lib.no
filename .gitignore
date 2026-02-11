@@ -124,3 +124,6 @@ components.json
 
 # Test coverage
 coverage/
+
+# Git worktrees
+.worktrees/
