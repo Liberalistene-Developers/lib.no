@@ -66,12 +66,22 @@ jobs:
       - name: Release
         run: npx semantic-release
 
-      - name: Deploy to Enonic
+      - name: Upload JAR artifact
         if: env.RELEASE_BUILT == 'true'
-        uses: docker://enonic/enonic-ci:7.15
-        env:
-          ENONIC_CLI_REMOTE_URL: ${{ secrets.ENONIC_CLI_REMOTE_URL }}
-          ENONIC_CLI_REMOTE_USER: ${{ secrets.ENONIC_CLI_REMOTE_USER }}
-          ENONIC_CLI_REMOTE_PASS: ${{ secrets.ENONIC_CLI_REMOTE_PASS }}
+        uses: actions/upload-artifact@v6
         with:
-          args: enonic app install --file build/libs/Liberalistene.jar
+          name: liberalistene-jar-${{ github.sha }}
+          path: build/libs/Liberalistene.jar
+          retention-days: 90
+          if-no-files-found: error
+
+      # Disabled: Enonic deployment currently not working
+      # - name: Deploy to Enonic
+      #   if: env.RELEASE_BUILT == 'true'
+      #   uses: docker://enonic/enonic-ci:7.15
+      #   env:
+      #     ENONIC_CLI_REMOTE_URL: ${{ secrets.ENONIC_CLI_REMOTE_URL }}
+      #     ENONIC_CLI_REMOTE_USER: ${{ secrets.ENONIC_CLI_REMOTE_USER }}
+      #     ENONIC_CLI_REMOTE_PASS: ${{ secrets.ENONIC_CLI_REMOTE_PASS }}
+      #   with:
+      #     args: enonic app install --file build/libs/Liberalistene.jar
