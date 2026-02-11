@@ -52,3 +52,11 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Upload JAR artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: liberalistene-jar-ci-${{ github.sha }}
+          path: build/libs/Liberalistene.jar
+          retention-days: 30
+          if-no-files-found: error
