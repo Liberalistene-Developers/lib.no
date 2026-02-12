@@ -1,3 +1,10 @@
+## [2.0.11](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.10...v2.0.11) (2026-02-12)
+
+
+### Bug Fixes
+
+* handle number-only titles in TableOfContents (closes [#128](https://github.com/Liberalistene-Developers/lib.no/issues/128)) ([0445571](https://github.com/Liberalistene-Developers/lib.no/commit/04455715b3bacd5c281451cbf71d5cacb6393674)), closes [#1](https://github.com/Liberalistene-Developers/lib.no/issues/1)
+
 ## [2.0.10](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.9...v2.0.10) (2026-02-12)
 
 
