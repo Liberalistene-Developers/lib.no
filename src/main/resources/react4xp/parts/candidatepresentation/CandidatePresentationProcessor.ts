@@ -111,7 +111,7 @@ export const candidatePresentationProcessor: ComponentProcessor<'lib.no:candidat
       const queryItems = runQuery(
         queryConfig.queryroot,
         queryConfig.count || 10,
-        undefined,
+        'lib.no:candidate',
         queryConfig.querysorting
       );
       if (queryItems) {

@@ -126,7 +126,7 @@ export const boardPresentationProcessor: ComponentProcessor<'lib.no:boardpresent
       const queryItems = runQuery(
         queryConfig.queryroot,
         queryConfig.count || 10,
-        undefined,
+        'lib.no:group',
         queryConfig.querysorting
       );
       if (queryItems) {
