@@ -147,7 +147,7 @@ export const budgetCutListProcessor: ComponentProcessor<'lib.no:budgetcutlist'> 
       const queryItems = runQuery(
         queryConfig.queryroot,
         queryConfig.count || 10,
-        undefined,
+        'lib.no:budgetcut',
         queryConfig.querysorting
       );
       if (queryItems) {

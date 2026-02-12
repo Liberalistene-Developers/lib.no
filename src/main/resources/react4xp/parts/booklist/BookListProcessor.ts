@@ -133,7 +133,7 @@ export const bookListProcessor: ComponentProcessor<'lib.no:booklist'> = ({compon
       const queryItems = runQuery(
         queryConfig.queryroot,
         queryConfig.count || 10,
-        undefined,
+        'lib.no:book',
         queryConfig.querysorting
       );
       if (queryItems) {
