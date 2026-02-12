@@ -1,7 +1,7 @@
-import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
-import type {PartComponent} from '@enonic-types/core';
-import {runQuery} from '/react4xp/utils/query';
-import {mapGroup} from '/react4xp/utils/board';
+import type { PartComponent } from '@enonic-types/core';
+import type { ComponentProcessor } from '@enonic-types/lib-react4xp/DataFetcher';
+import { mapGroup } from '/react4xp/utils/board';
+import { runQuery } from '/react4xp/utils/query';
 
 /**
  * Board presentation part configuration from boardpresentation.xml schema.
@@ -38,8 +38,8 @@ interface BoardPresentationConfig {
     _selected?: string;
     /** Manual selection configuration */
     manual?: {
-      /** Array of manually selected group content IDs */
-      items?: string[];
+      /** Array of manually selected group content IDs (or single string if one item) */
+      items?: string | string[];
     };
     /** Query-based selection configuration */
     query?: {
@@ -119,7 +119,8 @@ export const boardPresentationProcessor: ComponentProcessor<'lib.no:boardpresent
   const items: string[] = [];
 
   if (selection === 'manual') {
-    items.push(...(config?.itemsSet?.manual?.items || []));
+    const manualItems = config?.itemsSet?.manual?.items ?? [];
+    items.push(...(Array.isArray(manualItems) ? manualItems : [manualItems]));
   } else if (selection === 'query') {
     const queryConfig = config?.itemsSet?.query;
     if (queryConfig?.queryroot) {
