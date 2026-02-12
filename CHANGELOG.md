@@ -1,3 +1,10 @@
+## [2.0.6](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.5...v2.0.6) (2026-02-12)
+
+
+### Bug Fixes
+
+* handle 'normal' sort option in runQuery function (closes [#118](https://github.com/Liberalistene-Developers/lib.no/issues/118)) ([401d215](https://github.com/Liberalistene-Developers/lib.no/commit/401d2159c0f4718c056014138546a7390a92528b))
+
 ## [2.0.5](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.4...v2.0.5) (2026-02-11)
 
 
