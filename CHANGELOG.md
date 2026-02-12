@@ -1,3 +1,10 @@
+## [2.0.12](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.11...v2.0.12) (2026-02-12)
+
+
+### Bug Fixes
+
+* restore typography for XP Text component (closes [#131](https://github.com/Liberalistene-Developers/lib.no/issues/131)) ([7a74c54](https://github.com/Liberalistene-Developers/lib.no/commit/7a74c5435e20d46f6964734f8db4aa0e9912a347))
+
 ## [2.0.11](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.10...v2.0.11) (2026-02-12)
 
 
