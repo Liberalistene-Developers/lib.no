@@ -99,7 +99,7 @@ export const faqListProcessor: ComponentProcessor<'lib.no:faqlist'> = ({componen
       const queryItems = runQuery(
         queryConfig.queryroot,
         queryConfig.count || 10,
-        undefined,
+        'lib.no:faq',
         queryConfig.querysorting
       );
       if (queryItems) {
