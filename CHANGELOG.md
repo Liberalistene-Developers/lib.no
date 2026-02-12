@@ -1,3 +1,10 @@
+## [2.0.10](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.9...v2.0.10) (2026-02-12)
+
+
+### Bug Fixes
+
+* improve spacing in programme TOC (closes [#127](https://github.com/Liberalistene-Developers/lib.no/issues/127)) ([4d64e20](https://github.com/Liberalistene-Developers/lib.no/commit/4d64e205b218d21b857b85aaf0ad00bfafd78f71))
+
 ## [2.0.9](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.8...v2.0.9) (2026-02-12)
 
 
