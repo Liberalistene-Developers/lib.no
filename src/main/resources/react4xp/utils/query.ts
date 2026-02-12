@@ -26,7 +26,7 @@ export const findChildren = (
   }
 
   return children.hits.filter(({type}) =>
-    type ? type === contentType : true
+    type && contentType ? type === contentType : true
   );
 };
 
