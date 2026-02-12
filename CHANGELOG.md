@@ -1,3 +1,10 @@
+## [2.0.8](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.7...v2.0.8) (2026-02-12)
+
+
+### Bug Fixes
+
+* add missing content type filters to list processors (closes [#122](https://github.com/Liberalistene-Developers/lib.no/issues/122)) ([ec9bc90](https://github.com/Liberalistene-Developers/lib.no/commit/ec9bc9061edb757200f98fae9967c26eca9176a8)), closes [#120](https://github.com/Liberalistene-Developers/lib.no/issues/120)
+
 ## [2.0.7](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.6...v2.0.7) (2026-02-12)
 
 
