@@ -38,9 +38,23 @@ const Section: FC<SectionProps> = ({
         ? (
           <ul className="content-section-parts list-circle pl-6 mt-2">
             {displayParts.map(({ key, title: partTitle }, index) => {
-              const displayTitle = partTitle && partTitle.trim() !== ''
-                ? partTitle
-                : `${title} #${index + 1}`;
+              const displayTitle = (() => {
+                const trimmedTitle = partTitle?.trim() || '';
+
+                // Check if title is empty
+                if (trimmedTitle === '') {
+                  return `${title} #${index + 1}`;
+                }
+
+                // Check if title is just a number with dot (and optional whitespace)
+                const match = partTitle?.match(/^(\d+)\.\s*$/);
+                if (match) {
+                  const number = match[1]; // Captured number from regex
+                  return `${number}. ${title} #${number}`;
+                }
+
+                return trimmedTitle;
+              })();
 
               return (
                 <li key={key} className="content-section-part">
