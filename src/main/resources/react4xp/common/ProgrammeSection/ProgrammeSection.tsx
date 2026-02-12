@@ -1,38 +1,9 @@
 import {Fragment, type FC} from 'react';
 import slugify from 'react-slugify';
 
+import {Conclusions} from '/react4xp/common/Conclusions/Conclusions';
 import {ProgrammePart, type ProgrammePartProps} from '/react4xp/common/ProgrammePart/ProgrammePart';
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
-
-/**
- * Props for the internal ConclusionGroup component.
- */
-interface ConclusionGroupProps {
-  /** Title to display above the conclusions */
-  conclusionTitle?: string;
-  /** Array of conclusion items to render */
-  items: Array<{key?: string; title?: string}>;
-}
-
-/**
- * Internal ConclusionGroup component for rendering a group of conclusions.
- */
-const ConclusionGroup: FC<ConclusionGroupProps> = ({conclusionTitle, items}) => (
-  <div className="conclusions mt-10">
-    {conclusionTitle && (
-      <div className="conclusions-header">
-        <div className="title font-bold text-left">{conclusionTitle}</div>
-      </div>
-    )}
-    <ul className="list-disc pl-6">
-      {items.map(({key, title: conclusion}) => (
-        <li key={key}>
-          {conclusion}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
 
 /**
  * Props for the internal Title component.
@@ -144,7 +115,6 @@ export const ProgrammeSection: FC<ProgrammeSectionProps> = ({
   }> = [];
 
   let currentConclusionGroup: Array<{key?: string; title?: string}> = [];
-  let showConclusionTitle = false;
 
   parts.forEach((item, index) => {
     if (item.type === 'lib.no:programme-part') {
@@ -156,7 +126,6 @@ export const ProgrammeSection: FC<ProgrammeSectionProps> = ({
           data: currentConclusionGroup
         });
         currentConclusionGroup = [];
-        showConclusionTitle = false;
       }
 
       // Add the programme part
@@ -167,9 +136,6 @@ export const ProgrammeSection: FC<ProgrammeSectionProps> = ({
       });
     } else {
       // Accumulate conclusion
-      if (currentConclusionGroup.length === 0 && groupedContent.length > 0) {
-        showConclusionTitle = true;
-      }
       currentConclusionGroup.push({
         key: item.key || `conclusion-${index}`,
         title: item.title
@@ -198,27 +164,25 @@ export const ProgrammeSection: FC<ProgrammeSectionProps> = ({
       )}
 
       {groupedContent.length > 0 && (
-        <div className="[&_.conclusions-header]:mb-4 [&>.conclusions>ul]:my-0">
-          {groupedContent.map((group, index) => {
+        <>
+          {groupedContent.map((group) => {
             if (group.type === 'part') {
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
               const {key, type, ...props} = group.data as PartItem;
               return (
-                <ProgrammePart key={group.key} {...props} parentTitle={title} anchor={anchor} />
+                <ProgrammePart key={key} {...props} parentTitle={title} anchor={anchor} />
               );
             }
 
-            // Show conclusion title only for the first conclusion group after parts
-            const shouldShowTitle = index > 0 && groupedContent[index - 1].type === 'part';
-
             return (
-              <ConclusionGroup
+              <Conclusions
                 key={group.key}
-                conclusionTitle={shouldShowTitle ? conclusionTitle : undefined}
+                title={conclusionTitle}
                 items={group.data as Array<{key?: string; title?: string}>}
               />
             );
           })}
-        </div>
+        </>
       )}
     </div>
   </div>

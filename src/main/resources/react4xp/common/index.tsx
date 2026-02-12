@@ -22,6 +22,7 @@ export * from './CandidatePage/CandidatePage';
 export * from './CandidatePresentation/CandidatePresentation';
 export * from './CandidatePresentationItem/CandidatePresentationItem';
 export * from './Card/Card';
+export * from './Conclusions/Conclusions';
 export * from './DynamicLoader/DynamicLoader';
 export * from './ErrorBoundary/ErrorBoundary';
 export * from './Event/Event';
