@@ -1,3 +1,10 @@
+## [2.0.15](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.14...v2.0.15) (2026-02-12)
+
+
+### Bug Fixes
+
+* restore list styling and group conclusions in programme-main (closes [#137](https://github.com/Liberalistene-Developers/lib.no/issues/137)) ([8daffea](https://github.com/Liberalistene-Developers/lib.no/commit/8daffea9890d36e0e3a48c2c331489fd1df8a078))
+
 ## [2.0.14](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.13...v2.0.14) (2026-02-12)
 
 
