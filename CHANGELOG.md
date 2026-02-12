@@ -1,3 +1,10 @@
+## [2.0.14](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.13...v2.0.14) (2026-02-12)
+
+
+### Bug Fixes
+
+* handle single item from manual ItemSet selection (closes [#135](https://github.com/Liberalistene-Developers/lib.no/issues/135)) ([7d240de](https://github.com/Liberalistene-Developers/lib.no/commit/7d240de38d462dd10668746eab11ddb56d40865f))
+
 ## [2.0.13](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.12...v2.0.13) (2026-02-12)
 
 
