@@ -1,17 +1,8 @@
 import {type FC} from 'react';
 import slugify from 'react-slugify';
 
+import {Conclusions, type ConclusionItem} from '/react4xp/common/Conclusions/Conclusions';
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
-
-/**
- * Individual conclusion item in a programme part.
- */
-interface ConclusionItem {
-  /** Unique key for React rendering */
-  key?: string;
-  /** The conclusion text */
-  conclusion?: string;
-}
 
 /**
  * Props for the internal Title component.
@@ -119,20 +110,9 @@ export const ProgrammePart: FC<ProgrammePartProps> = ({
           <SafeHtml html={description} className="mt-5" />
         )}
 
-        {conclusions && conclusions.length > 0
-          ? (
-            <div className="conclusions">
-              <div className="title">{conclusionTitle}</div>
-              <ul>
-                {conclusions.map(({key, conclusion}) => (
-                  <li key={key}>
-                    {conclusion}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )
-          : null}
+        {conclusions && conclusions.length > 0 && (
+          <Conclusions title={conclusionTitle} items={conclusions} />
+        )}
       </div>
     </div>
   );
