@@ -1,3 +1,10 @@
+## [2.0.9](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.8...v2.0.9) (2026-02-12)
+
+
+### Bug Fixes
+
+* restore list styling and add fallback titles in TableOfContents (closes [#125](https://github.com/Liberalistene-Developers/lib.no/issues/125)) ([ff1f891](https://github.com/Liberalistene-Developers/lib.no/commit/ff1f891a72b41b726e4bbbb94666f87688380618)), closes [#1](https://github.com/Liberalistene-Developers/lib.no/issues/1) [#2](https://github.com/Liberalistene-Developers/lib.no/issues/2)
+
 ## [2.0.8](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.7...v2.0.8) (2026-02-12)
 
 
