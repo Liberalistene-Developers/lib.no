@@ -50,7 +50,9 @@ export const runQuery = (
   sortMethod?: string,
   start: number = 0
 ): string[] | undefined => {
-  const sort = sortMethod ? `_modifiedTime ${sortMethod}` : undefined;
+  const sort = sortMethod && sortMethod !== 'normal'
+    ? `_modifiedTime ${sortMethod}`
+    : undefined;
 
   const search: SearchParams = {
     key,
