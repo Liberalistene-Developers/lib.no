@@ -5,22 +5,31 @@ import {ProgrammePart, type ProgrammePartProps} from '/react4xp/common/Programme
 import {SafeHtml} from '@common/SafeHtml/SafeHtml';
 
 /**
- * Props for the internal Conclusion component.
+ * Props for the internal ConclusionGroup component.
  */
-interface ConclusionProps {
-  /** The conclusion text to display */
-  title?: string;
+interface ConclusionGroupProps {
+  /** Title to display above the conclusions */
+  conclusionTitle?: string;
+  /** Array of conclusion items to render */
+  items: Array<{key?: string; title?: string}>;
 }
 
 /**
- * Internal Conclusion component for rendering a single conclusion item.
+ * Internal ConclusionGroup component for rendering a group of conclusions.
  */
-const Conclusion: FC<ConclusionProps> = ({title: conclusion}) => (
-  <div className="conclusions">
-    <ul>
-      <li>
-        {conclusion}
-      </li>
+const ConclusionGroup: FC<ConclusionGroupProps> = ({conclusionTitle, items}) => (
+  <div className="conclusions mt-10">
+    {conclusionTitle && (
+      <div className="conclusions-header">
+        <div className="title font-bold text-left">{conclusionTitle}</div>
+      </div>
+    )}
+    <ul className="list-disc pl-6">
+      {items.map(({key, title: conclusion}) => (
+        <li key={key}>
+          {conclusion}
+        </li>
+      ))}
     </ul>
   </div>
 );
@@ -127,7 +136,55 @@ export const ProgrammeSection: FC<ProgrammeSectionProps> = ({
   description,
   parts = []
 }) => {
-  let lastElement = '';
+  // Group consecutive conclusions together
+  const groupedContent: Array<{
+    type: 'part' | 'conclusions';
+    key: string;
+    data: PartItem | Array<{key?: string; title?: string}>;
+  }> = [];
+
+  let currentConclusionGroup: Array<{key?: string; title?: string}> = [];
+  let showConclusionTitle = false;
+
+  parts.forEach((item, index) => {
+    if (item.type === 'lib.no:programme-part') {
+      // If we have accumulated conclusions, add them as a group
+      if (currentConclusionGroup.length > 0) {
+        groupedContent.push({
+          type: 'conclusions',
+          key: `conclusions-${index}`,
+          data: currentConclusionGroup
+        });
+        currentConclusionGroup = [];
+        showConclusionTitle = false;
+      }
+
+      // Add the programme part
+      groupedContent.push({
+        type: 'part',
+        key: item.key || `part-${index}`,
+        data: item
+      });
+    } else {
+      // Accumulate conclusion
+      if (currentConclusionGroup.length === 0 && groupedContent.length > 0) {
+        showConclusionTitle = true;
+      }
+      currentConclusionGroup.push({
+        key: item.key || `conclusion-${index}`,
+        title: item.title
+      });
+    }
+  });
+
+  // Add any remaining conclusions
+  if (currentConclusionGroup.length > 0) {
+    groupedContent.push({
+      type: 'conclusions',
+      key: `conclusions-final`,
+      data: currentConclusionGroup
+    });
+  }
 
   return (
     <div className={parentTitle ? '' : 'page-content'}>
@@ -140,40 +197,29 @@ export const ProgrammeSection: FC<ProgrammeSectionProps> = ({
         <SafeHtml html={description} className="mt-5 mobile:[&_.standard]:w-[calc(100%-2em)] mobile:[&>ul]:w-[calc(100%-80px)]" />
       )}
 
-      {parts && parts.length > 0
-        ? (
-          <div className="[&_.conclusions-header]:mb-4 [&>.conclusions>ul]:my-0">
-            {parts.map(({key, type, ...props}) => {
-              if (type === 'lib.no:programme-part') {
-                lastElement = type;
-
-                return (
-                  <ProgrammePart key={key} {...props} parentTitle={title} anchor={anchor} />
-                );
-              }
-
-              if (lastElement !== type) {
-                lastElement = type || '';
-
-                return (
-                  <Fragment key={key}>
-                    {conclusionTitle && (
-                      <div className="conclusions-header">
-                        <div className="title">{conclusionTitle}</div>
-                      </div>
-                    )}
-                    <Conclusion {...props} />
-                  </Fragment>
-                );
-              }
-
+      {groupedContent.length > 0 && (
+        <div className="[&_.conclusions-header]:mb-4 [&>.conclusions>ul]:my-0">
+          {groupedContent.map((group, index) => {
+            if (group.type === 'part') {
+              const {key, type, ...props} = group.data as PartItem;
               return (
-                <Conclusion key={key} {...props} />
+                <ProgrammePart key={group.key} {...props} parentTitle={title} anchor={anchor} />
               );
-            })}
-          </div>
-        )
-        : null}
+            }
+
+            // Show conclusion title only for the first conclusion group after parts
+            const shouldShowTitle = index > 0 && groupedContent[index - 1].type === 'part';
+
+            return (
+              <ConclusionGroup
+                key={group.key}
+                conclusionTitle={shouldShowTitle ? conclusionTitle : undefined}
+                items={group.data as Array<{key?: string; title?: string}>}
+              />
+            );
+          })}
+        </div>
+      )}
     </div>
   </div>
   );
