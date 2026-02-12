@@ -68,7 +68,7 @@ export const ProgrammeMain: FC<ProgrammeMainProps> = ({
 
         {tableOfContent
           ? (
-            <div>
+            <div className="mt-8 mb-10">
               <TableOfContent title={title} sections={sections} />
             </div>
           )

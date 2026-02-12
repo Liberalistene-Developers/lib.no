@@ -32,7 +32,7 @@ const Section: FC<SectionProps> = ({
   const displayParts = parts.filter(({ type }) => type === 'lib.no:programme-part');
 
   return (
-    <li className="content-section">
+    <li className="content-section mb-4">
       <ContentLink title={title} parentTitle={parentTitle} />
       {displayParts && displayParts.length > 0
         ? (
