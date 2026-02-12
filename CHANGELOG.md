@@ -1,3 +1,10 @@
+## [2.0.7](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.6...v2.0.7) (2026-02-12)
+
+
+### Bug Fixes
+
+* add content type filter to FaqList query and fix filter logic (closes [#120](https://github.com/Liberalistene-Developers/lib.no/issues/120)) ([c72be37](https://github.com/Liberalistene-Developers/lib.no/commit/c72be37a0faa03407e5199e310d0b472279a30ed))
+
 ## [2.0.6](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.5...v2.0.6) (2026-02-12)
 
 
