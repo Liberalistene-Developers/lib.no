@@ -51,8 +51,9 @@
 }
 
 @layer components {
-  /* Rich text content */
-  .rich-text {
+  /* Rich text content - applies to SafeHtml components and XP Text components */
+  .rich-text,
+  main .content-holder .content .content-item .xp-region > section {
     @apply text-primary-300 font-sans;
 
     font-size: var(--text-rich);
@@ -60,7 +61,8 @@
   }
 
   /* Rich text nested element styles */
-  .rich-text h1 {
+  .rich-text h1,
+  main .content-holder .content .content-item .xp-region > section h1 {
     @apply text-primary-700 font-sans mb-6 mt-8;
 
     font-size: var(--text-h1);
@@ -68,11 +70,13 @@
     font-weight: var(--font-weight-heading);
   }
 
-  .rich-text h1:first-child {
+  .rich-text h1:first-child,
+  main .content-holder .content .content-item .xp-region > section h1:first-child {
     @apply mt-0;
   }
 
-  .rich-text h2 {
+  .rich-text h2,
+  main .content-holder .content .content-item .xp-region > section h2 {
     @apply text-primary-500 font-sans mb-5 mt-7;
 
     font-size: var(--text-h2);
@@ -80,11 +84,13 @@
     font-weight: var(--font-weight-heading);
   }
 
-  .rich-text h2:first-child {
+  .rich-text h2:first-child,
+  main .content-holder .content .content-item .xp-region > section h2:first-child {
     @apply mt-0;
   }
 
-  .rich-text h3 {
+  .rich-text h3,
+  main .content-holder .content .content-item .xp-region > section h3 {
     @apply text-primary-500 font-sans mb-4 mt-6;
 
     font-size: var(--text-h3);
@@ -92,119 +98,148 @@
     font-weight: var(--font-weight-heading);
   }
 
-  .rich-text h3:first-child {
+  .rich-text h3:first-child,
+  main .content-holder .content .content-item .xp-region > section h3:first-child {
     @apply mt-0;
   }
 
-  .rich-text p {
+  .rich-text p,
+  main .content-holder .content .content-item .xp-region > section p {
     @apply mb-4;
   }
 
-  .rich-text p:last-child {
+  .rich-text p:last-child,
+  main .content-holder .content .content-item .xp-region > section p:last-child {
     @apply mb-0;
   }
 
-  .rich-text a {
+  .rich-text a,
+  main .content-holder .content .content-item .xp-region > section a {
     @apply text-primary-700 underline font-bold;
   }
 
-  .rich-text a:hover {
+  .rich-text a:hover,
+  main .content-holder .content .content-item .xp-region > section a:hover {
     @apply text-primary-500;
   }
 
-  .rich-text strong {
+  .rich-text strong,
+  main .content-holder .content .content-item .xp-region > section strong {
     @apply font-bold;
   }
 
-  .rich-text em {
+  .rich-text em,
+  main .content-holder .content .content-item .xp-region > section em {
     @apply italic;
   }
 
   .rich-text ul,
-  .rich-text ol {
+  .rich-text ol,
+  main .content-holder .content .content-item .xp-region > section ul,
+  main .content-holder .content .content-item .xp-region > section ol {
     @apply mb-4 pl-8;
   }
 
-  .rich-text ul {
+  .rich-text ul,
+  main .content-holder .content .content-item .xp-region > section ul {
     @apply list-disc;
   }
 
-  .rich-text ol {
+  .rich-text ol,
+  main .content-holder .content .content-item .xp-region > section ol {
     @apply list-decimal;
   }
 
-  .rich-text li {
+  .rich-text li,
+  main .content-holder .content .content-item .xp-region > section li {
     @apply mb-2;
   }
 
-  .rich-text li:last-child {
+  .rich-text li:last-child,
+  main .content-holder .content .content-item .xp-region > section li:last-child {
     @apply mb-0;
   }
 
-  .rich-text blockquote {
+  .rich-text blockquote,
+  main .content-holder .content .content-item .xp-region > section blockquote {
     @apply border-l-4 border-primary-500 pl-4 py-2 mb-4 italic text-primary-500;
   }
 
-  .rich-text img {
+  .rich-text img,
+  main .content-holder .content .content-item .xp-region > section img {
     @apply max-w-full h-auto my-4;
   }
 
-  .rich-text figure {
+  .rich-text figure,
+  main .content-holder .content .content-item .xp-region > section figure {
     @apply my-6 mx-0;
   }
 
-  .rich-text figure img {
+  .rich-text figure img,
+  main .content-holder .content .content-item .xp-region > section figure img {
     @apply max-w-full h-auto;
   }
 
-  .rich-text figcaption {
+  .rich-text figcaption,
+  main .content-holder .content .content-item .xp-region > section figcaption {
     @apply text-sm text-primary-500 mt-2 text-center;
   }
 
-  .rich-text hr {
+  .rich-text hr,
+  main .content-holder .content .content-item .xp-region > section hr {
     @apply border-t-2 border-primary-300 my-6;
   }
 
-  .rich-text table {
+  .rich-text table,
+  main .content-holder .content .content-item .xp-region > section table {
     @apply w-full mb-4 border-collapse;
   }
 
   .rich-text th,
-  .rich-text td {
+  .rich-text td,
+  main .content-holder .content .content-item .xp-region > section th,
+  main .content-holder .content .content-item .xp-region > section td {
     @apply border border-primary-300 px-4 py-2 text-left;
   }
 
-  .rich-text th {
+  .rich-text th,
+  main .content-holder .content .content-item .xp-region > section th {
     @apply bg-primary-700 text-white font-bold;
   }
 
-  .rich-text code {
+  .rich-text code,
+  main .content-holder .content .content-item .xp-region > section code {
     @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono;
   }
 
-  .rich-text pre {
+  .rich-text pre,
+  main .content-holder .content .content-item .xp-region > section pre {
     @apply bg-gray-100 p-4 rounded mb-4 overflow-x-auto;
   }
 
-  .rich-text pre code {
+  .rich-text pre code,
+  main .content-holder .content .content-item .xp-region > section pre code {
     @apply bg-transparent p-0;
   }
 
   /* Mobile responsive styles for rich-text */
   @media (width <= 414px) {
-    .rich-text h1 {
+    .rich-text h1,
+    main .content-holder .content .content-item .xp-region > section h1 {
       font-size: var(--text-h1-mobile);
       line-height: var(--text-h1-mobile-line-height);
       font-weight: var(--font-weight-heading-mobile);
     }
 
-    .rich-text h2 {
+    .rich-text h2,
+    main .content-holder .content .content-item .xp-region > section h2 {
       font-size: var(--text-h2-mobile);
       line-height: var(--text-h2-mobile-line-height);
       font-weight: var(--font-weight-heading-mobile);
     }
 
-    .rich-text h3 {
+    .rich-text h3,
+    main .content-holder .content .content-item .xp-region > section h3 {
       font-size: var(--text-h3-mobile);
       line-height: var(--text-h3-mobile-line-height);
       font-weight: var(--font-weight-heading-mobile);
