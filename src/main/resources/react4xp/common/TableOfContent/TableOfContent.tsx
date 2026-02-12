@@ -36,12 +36,18 @@ const Section: FC<SectionProps> = ({
       <ContentLink title={title} parentTitle={parentTitle} />
       {displayParts && displayParts.length > 0
         ? (
-          <ul className="content-section-parts">
-            {displayParts.map(({ key, title: partTitle }) => (
-              <li key={key} className="content-section-part">
-                <ContentLink title={partTitle} parentTitle={title} />
-              </li>
-            ))}
+          <ul className="content-section-parts list-circle pl-6 mt-2">
+            {displayParts.map(({ key, title: partTitle }, index) => {
+              const displayTitle = partTitle && partTitle.trim() !== ''
+                ? partTitle
+                : `${title} #${index + 1}`;
+
+              return (
+                <li key={key} className="content-section-part">
+                  <ContentLink title={displayTitle} parentTitle={title} />
+                </li>
+              );
+            })}
           </ul>
         )
         : null}
@@ -100,7 +106,7 @@ export const TableOfContent: FC<TableOfContentProps> = ({
   title = '',
   sections = []
 }) => (
-  <ul className="table-of-content">
+  <ul className="table-of-content list-disc pl-6">
     {sections && sections.map(({ key, ...props }) =>
       <Section key={key} {...props} parentTitle={title} />
     )}
