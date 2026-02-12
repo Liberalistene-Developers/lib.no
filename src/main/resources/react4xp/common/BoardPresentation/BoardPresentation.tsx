@@ -87,7 +87,8 @@ export const BoardPresentation: FC<BoardPresentationProps> = ({
 
     {board && board.length > 0
       ? (
-        <div className={cx('w-full flex flex-row justify-center items-center [&>*]:w-1/2', {
+        <div className={cx('w-full flex flex-row justify-center items-center', {
+          '[&>*]:w-1/2': !noHighlighting, // Only apply 50% width when highlighting is enabled
           'flex-row-reverse gap-x-[10px] [&_.members]:flex-[0_0_content]': reverseOrder
         })}>
           {!noHighlighting && (
