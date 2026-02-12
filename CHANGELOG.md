@@ -1,3 +1,10 @@
+## [2.0.13](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.12...v2.0.13) (2026-02-12)
+
+
+### Bug Fixes
+
+* use BoardPresentationList component for board presentation part (closes [#133](https://github.com/Liberalistene-Developers/lib.no/issues/133)) ([ce4b560](https://github.com/Liberalistene-Developers/lib.no/commit/ce4b5602092d9a48f0f0c78136edf8d7271f0d10))
+
 ## [2.0.12](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.11...v2.0.12) (2026-02-12)
 
 
