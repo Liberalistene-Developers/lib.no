@@ -1,3 +1,10 @@
+## [2.0.16](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.15...v2.0.16) (2026-02-12)
+
+
+### Bug Fixes
+
+* simple list layout takes full width in BoardPresentation (closes [#141](https://github.com/Liberalistene-Developers/lib.no/issues/141)) ([f3f8737](https://github.com/Liberalistene-Developers/lib.no/commit/f3f8737be8e6eaafbd954d1bb3bec1191955bf0b))
+
 ## [2.0.15](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.14...v2.0.15) (2026-02-12)
 
 
