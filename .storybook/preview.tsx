@@ -1,8 +1,9 @@
-import type { Preview } from '@storybook/react-webpack5';
-import { INITIAL_VIEWPORTS } from 'storybook/viewport';
-import '../src/assets/tailwind.css';
+import addonDocs from "@storybook/addon-docs";
+import { definePreview } from '@storybook/react-webpack5'
+import { INITIAL_VIEWPORTS } from 'storybook/viewport'
+import '../src/assets/tailwind.css'
 
-const preview: Preview = {
+export default definePreview({
   parameters: {
     controls: {
       matchers: {
@@ -55,7 +56,6 @@ const preview: Preview = {
     }
   },
 
-  tags: ['autodocs']
-};
-
-export default preview;
+  tags: ['autodocs'],
+  addons: [addonDocs()]
+})

@@ -1,16 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { MissionsBlock } from '@common/MissionsBlock/MissionsBlock';
+import preview from '../../../.storybook/preview'
+import { MissionsBlock } from '@common/MissionsBlock/MissionsBlock'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/MissionsBlock',
   component: MissionsBlock,
   tags: ['autodocs']
-} satisfies Meta<typeof MissionsBlock>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     items: [
       {
@@ -47,4 +44,4 @@ export const Default: Story = {
       }
     ]
   }
-};
+})

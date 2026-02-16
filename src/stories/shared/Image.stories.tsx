@@ -1,63 +1,60 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Image } from '@common/Image/Image';
+import preview from '../../../.storybook/preview'
+import { Image } from '@common/Image/Image'
 
-const meta = {
+const meta = preview.meta({
   title: 'Shared/Image',
   component: Image,
   tags: ['autodocs']
-} satisfies Meta<typeof Image>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
+})
 
 const sampleImage = {
   url: 'https://picsum.photos/400/400'
-};
+}
 
-export const Small: Story = {
+export const Small = meta.story({
   args: {
     className: 'small',
     image: sampleImage,
     imageClassName: ''
   }
-};
+})
 
-export const Medium: Story = {
+export const Medium = meta.story({
   args: {
     className: 'medium',
     image: sampleImage,
     imageClassName: ''
   }
-};
+})
 
-export const Large: Story = {
+export const Large = meta.story({
   args: {
     className: 'large',
     image: sampleImage,
     imageClassName: ''
   }
-};
+})
 
-export const RoundSmall: Story = {
+export const RoundSmall = meta.story({
   args: {
     className: 'small',
     image: sampleImage,
     imageClassName: 'round'
   }
-};
+})
 
-export const RoundMedium: Story = {
+export const RoundMedium = meta.story({
   args: {
     className: 'medium',
     image: sampleImage,
     imageClassName: 'round'
   }
-};
+})
 
-export const RoundLarge: Story = {
+export const RoundLarge = meta.story({
   args: {
     className: 'large',
     image: sampleImage,
     imageClassName: 'round'
   }
-};
+})

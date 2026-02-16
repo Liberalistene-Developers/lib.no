@@ -1,16 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { FancyCandidateImage } from '@common/Candidate/FancyCandidateImage';
+import preview from '../../../.storybook/preview'
+import { FancyCandidateImage } from '@common/Candidate/FancyCandidateImage'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/FancyCandidateImage',
   component: FancyCandidateImage,
   tags: ['autodocs']
-} satisfies Meta<typeof FancyCandidateImage>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Normal: Story = {
+export const Normal = meta.story({
   args: {
     artImage: {
       url: 'https://example.com/backdrop-art.svg'
@@ -21,4 +18,4 @@ export const Normal: Story = {
     title: 'Ronny Skjæveland',
     subTitle: '1 kandidat, Rogaland'
   }
-};
+})

@@ -1,16 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Group } from '@common/Group/Group';
+import preview from '../../../.storybook/preview'
+import { Group } from '@common/Group/Group'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/Group',
   component: Group,
   tags: ['autodocs']
-} satisfies Meta<typeof Group>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Normal: Story = {
+export const Normal = meta.story({
   args: {
     headerColor: 'light',
     headerPosition: 'right',
@@ -26,4 +23,4 @@ export const Normal: Story = {
     },
     informationLabel: 'Informasjon'
   }
-};
+})

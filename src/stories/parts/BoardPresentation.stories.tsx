@@ -1,14 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { BoardPresentation } from '@common/BoardPresentation/BoardPresentation';
+import preview from '../../../.storybook/preview'
+import { BoardPresentation } from '@common/BoardPresentation/BoardPresentation'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/BoardPresentation',
   component: BoardPresentation,
   tags: ['autodocs']
-} satisfies Meta<typeof BoardPresentation>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
+})
 
 const boardMembers = [
   {
@@ -36,7 +33,8 @@ const boardMembers = [
     name: 'Aleksander Aas',
     email: 'ass@liberalistene.no',
     role: 'Organisatorisk Nestleder',
-    shortDescription: 'Aleksander Aas er organisatorisk nestleder i Liberalistene.',
+    shortDescription:
+      'Aleksander Aas er organisatorisk nestleder i Liberalistene.',
     image: {
       url: 'https://picsum.photos/200/200?random=3'
     }
@@ -79,9 +77,9 @@ const boardMembers = [
       url: 'https://picsum.photos/200/200?random=7'
     }
   }
-];
+]
 
-export const SentralStyret: Story = {
+export const SentralStyret = meta.story({
   args: {
     title: 'Liberalistene Sentralstyre',
     boardTitle: 'Styre',
@@ -90,32 +88,32 @@ export const SentralStyret: Story = {
     imagesize: 'medium',
     imagetype: 'round'
   }
-};
+})
 
-export const SentralStyretEmailFirst: Story = {
+export const SentralStyretEmailFirst = meta.story({
   args: {
-    ...SentralStyret.args,
+    ...SentralStyret.input.args,
     showEmail: 'first'
   }
-};
+})
 
-export const SentralStyretEmailAll: Story = {
+export const SentralStyretEmailAll = meta.story({
   args: {
-    ...SentralStyret.args,
+    ...SentralStyret.input.args,
     showEmail: 'all'
   }
-};
+})
 
-export const SentralStyretNotHighlighted: Story = {
+export const SentralStyretNotHighlighted = meta.story({
   args: {
-    ...SentralStyret.args,
+    ...SentralStyret.input.args,
     noHighlighting: true
   }
-};
+})
 
-export const SentralStyretHighlightingRight: Story = {
+export const SentralStyretHighlightingRight = meta.story({
   args: {
-    ...SentralStyret.args,
+    ...SentralStyret.input.args,
     reverseOrder: true
   }
-};
+})

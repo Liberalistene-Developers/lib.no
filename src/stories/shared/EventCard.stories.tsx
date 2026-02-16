@@ -1,16 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { EventCard } from '@common/EventCard/EventCard';
+import preview from '../../../.storybook/preview'
+import { EventCard } from '@common/EventCard/EventCard'
 
-const meta = {
+const meta = preview.meta({
   title: 'Shared/EventCard',
   component: EventCard,
   tags: ['autodocs']
-} satisfies Meta<typeof EventCard>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Normal: Story = {
+export const Normal = meta.story({
   args: {
     image: {
       url: 'https://picsum.photos/400/300'
@@ -23,15 +20,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula, libero 
     },
     date: '12:00'
   }
-};
+})
 
-export const Virtual: Story = {
+export const Virtual = meta.story({
   args: {
-    ...Normal.args,
+    ...Normal.input.args,
     location: {
       address: 'https://www.facebook.com/events/759331661457410/',
       name: 'Facebook'
     },
     locationType: 'virtual'
   }
-};
+})

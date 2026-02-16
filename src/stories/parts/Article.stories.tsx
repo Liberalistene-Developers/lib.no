@@ -1,16 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Article } from '@common/Article/Article';
+import preview from '../../../.storybook/preview'
+import { Article } from '@common/Article/Article'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/Article',
   component: Article,
   tags: ['autodocs']
-} satisfies Meta<typeof Article>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Normal: Story = {
+export const Normal = meta.story({
   args: {
     headerColor: 'light',
     headerPosition: 'right',
@@ -38,7 +35,8 @@ export const Normal: Story = {
     image: {
       url: 'https://picsum.photos/1200/458'
     },
-    ingress: 'Nå får Norge et nytt og friskt parti som kjemper for konsekvent liberalisme.',
+    ingress:
+      'Nå får Norge et nytt og friskt parti som kjemper for konsekvent liberalisme.',
     ingressInImage: false,
     title: 'Norge får ny, liberal røst: Liberalistene',
     titleInImage: false,
@@ -57,4 +55,4 @@ export const Normal: Story = {
     ],
     informationLabel: 'Informasjon'
   }
-};
+})

@@ -1,7 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Card } from '@common/Card/Card';
+import preview from '../../../.storybook/preview'
+import type { StoryObj } from '@storybook/react-webpack5'
+import { Card } from '@common/Card/Card'
 
-const meta = {
+const meta = preview.meta({
   title: 'Shared/Card',
   component: Card,
   tags: ['autodocs'],
@@ -12,20 +13,19 @@ const meta = {
       </div>
     )
   ]
-} satisfies Meta<typeof Card>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     title: 'Card Title',
     text: '<p>This is a card with some content inside.</p>',
     url: '#'
   }
-};
+})
 
-export const WithImage: Story = {
+export const WithImage = meta.story({
   args: {
     title: 'Image Card',
     text: '<p>A card with an image at the top.</p>',
@@ -34,4 +34,4 @@ export const WithImage: Story = {
     },
     url: '#'
   }
-};
+})

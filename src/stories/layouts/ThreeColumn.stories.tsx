@@ -1,29 +1,26 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { ThreeColumnWrapper } from './LayoutWrappers';
+import preview from '../../../.storybook/preview'
+import { ThreeColumnWrapper } from './LayoutWrappers'
 
-const meta = {
+const meta = preview.meta({
   title: 'Layouts/ThreeColumn',
   component: ThreeColumnWrapper,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen'
   }
-} satisfies Meta<typeof ThreeColumnWrapper>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
+})
 
 const sampleContent = (num: number) => (
   <div style={{ paddingTop: 20, paddingBottom: 20 }}>
     <h1>Lorem ipsum {num}</h1>
     <p className="rich-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper lorem a felis
-      posuere, eu convallis lorem tempor.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper
+      lorem a felis posuere, eu convallis lorem tempor.
     </p>
   </div>
-);
+)
 
-export const Standard_33_33_33: Story = {
+export const Standard_33_33_33 = meta.story({
   args: {
     background: 'standard',
     fullWidth: false,
@@ -38,9 +35,9 @@ export const Standard_33_33_33: Story = {
       {sampleContent(3)}
     </ThreeColumnWrapper>
   )
-};
+})
 
-export const Purple_33_33_33: Story = {
+export const Purple_33_33_33 = meta.story({
   args: {
     background: 'purple',
     fullWidth: false,
@@ -55,9 +52,9 @@ export const Purple_33_33_33: Story = {
       {sampleContent(3)}
     </ThreeColumnWrapper>
   )
-};
+})
 
-export const Standard_25_50_25: Story = {
+export const Standard_25_50_25 = meta.story({
   args: {
     background: 'standard',
     fullWidth: false,
@@ -72,4 +69,4 @@ export const Standard_25_50_25: Story = {
       {sampleContent(3)}
     </ThreeColumnWrapper>
   )
-};
+})

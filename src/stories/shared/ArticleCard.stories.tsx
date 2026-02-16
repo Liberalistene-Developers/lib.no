@@ -1,7 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { ArticleCard, type ItemData } from '@common/ArticleCard/ArticleCard';
+import preview from '../../../.storybook/preview'
+import type { StoryObj } from '@storybook/react-webpack5'
+import { ArticleCard, type ItemData } from '@common/ArticleCard/ArticleCard'
 
-const meta = {
+const meta = preview.meta({
   title: 'Shared/ArticleCard',
   component: ArticleCard,
   tags: ['autodocs'],
@@ -14,10 +15,9 @@ const meta = {
       </div>
     )
   ]
-} satisfies Meta<typeof ArticleCard>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>
 
 const sampleItem: ItemData = {
   image: {
@@ -38,40 +38,40 @@ const sampleItem: ItemData = {
     }
   ],
   datePublished: '2020-12-10'
-};
+}
 
-export const Normal: Story = {
+export const Normal = meta.story({
   args: {
     item: sampleItem
   }
-};
+})
 
-export const WideLeft: Story = {
+export const WideLeft = meta.story({
   args: {
     item: sampleItem,
     presentation: true,
     direction: 'left'
   }
-};
+})
 
-export const WideLeftNoDate: Story = {
+export const WideLeftNoDate = meta.story({
   args: {
-    ...WideLeft.args,
+    ...WideLeft.input.args,
     showDate: false
   }
-};
+})
 
-export const WideRight: Story = {
+export const WideRight = meta.story({
   args: {
     item: sampleItem,
     presentation: true,
     direction: 'right'
   }
-};
+})
 
-export const WideRightNoDate: Story = {
+export const WideRightNoDate = meta.story({
   args: {
-    ...WideRight.args,
+    ...WideRight.input.args,
     showDate: false
   }
-};
+})

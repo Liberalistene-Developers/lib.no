@@ -1,16 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Person } from '@common/Person/Person';
+import preview from '../../../.storybook/preview'
+import { Person } from '@common/Person/Person'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/Person',
   component: Person,
   tags: ['autodocs']
-} satisfies Meta<typeof Person>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     image: {
       url: 'https://picsum.photos/200/200'
@@ -18,12 +15,12 @@ export const Default: Story = {
     title: 'Kenneth Tolås',
     shortDescription: 'Kenneth Tolås er leder for Liberalistene Agder.'
   }
-};
+})
 
-export const WithEmail: Story = {
+export const WithEmail = meta.story({
   args: {
-    ...Default.args,
+    ...Default.input.args,
     email: 'kenneth@liberalistene.org',
     emailPrefix: 'Send e-post til'
   }
-};
+})

@@ -1,14 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { BookList } from '@common/BookList/BookList';
+import preview from '../../../.storybook/preview'
+import { BookList } from '@common/BookList/BookList'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/BookList',
   component: BookList,
   tags: ['autodocs']
-} satisfies Meta<typeof BookList>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
+})
 
 const book = {
   image: {
@@ -24,19 +21,19 @@ const book = {
     store: 'Amazon',
     url: 'https://amazon.com/buythisbook'
   }
-};
+}
 
-export const Empty: Story = {
+export const Empty = meta.story({
   args: {
     items: [],
     className: 'grid',
     buyFromText: 'Kjøp fra'
   }
-};
+})
 
-export const Items: Story = {
+export const Items = meta.story({
   args: {
-    ...Empty.args,
+    ...Empty.input.args,
     items: [book, book, book, book]
   }
-};
+})

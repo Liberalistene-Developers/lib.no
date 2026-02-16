@@ -1,16 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Event } from '@common/Event/Event';
+import preview from '../../../.storybook/preview'
+import { Event } from '@common/Event/Event'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/Event',
   component: Event,
   tags: ['autodocs']
-} satisfies Meta<typeof Event>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Normal: Story = {
+export const Normal = meta.story({
   args: {
     headerColor: 'light',
     headerPosition: 'right',
@@ -37,15 +34,15 @@ export const Normal: Story = {
     moreInformationLabel: 'Er det noe du lurer på?',
     contactLabel: 'Kontakt oss på'
   }
-};
+})
 
-export const Virtual: Story = {
+export const Virtual = meta.story({
   args: {
-    ...Normal.args,
+    ...Normal.input.args,
     location: {
       url: 'https://www.facebook.com/events/759331661457410/',
       name: 'Facebook'
     },
     locationType: 'virtual'
   }
-};
+})

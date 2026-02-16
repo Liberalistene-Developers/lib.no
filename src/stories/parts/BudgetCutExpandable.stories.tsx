@@ -1,23 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { BudgetCutItem } from '@common/BudgetCut/BudgetCutExpandable';
+import preview from '../../../.storybook/preview'
+import { BudgetCutItem } from '@common/BudgetCut/BudgetCutExpandable'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/BudgetCutExpandable',
   component: BudgetCutItem,
   tags: ['autodocs']
-} satisfies Meta<typeof BudgetCutItem>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Normal: Story = {
+export const Normal = meta.story({
   args: {
     title: 'Kommunal- og moderningsdepartmentet',
     budget: 213638,
     cut: 4535.3,
     percent: 2.1,
-    description: '<p>En beskrivelse av departmentet og hvorfor det er viktig å kutte.</p>',
-    sumary: '<p><strong>Oppsummering:</strong><br />Vil vi gjerne forklare hvorfor</p>',
+    description:
+      '<p>En beskrivelse av departmentet og hvorfor det er viktig å kutte.</p>',
+    sumary:
+      '<p><strong>Oppsummering:</strong><br />Vil vi gjerne forklare hvorfor</p>',
     labelSumCut: 'Sum kutt:',
     labelTitle: '',
     labelBudget: 'Budsjett',
@@ -85,4 +84,4 @@ export const Normal: Story = {
       }
     ]
   }
-};
+})
