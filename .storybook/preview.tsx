@@ -4,7 +4,6 @@ import '../src/assets/tailwind.css';
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -12,17 +11,17 @@ const preview: Preview = {
       }
     },
     backgrounds: {
-      default: 'light',
-      values: [
-        {
+      options: {
+        light: {
           name: 'light',
           value: '#ffffff'
         },
-        {
+
+        dark: {
           name: 'dark',
           value: '#333333'
         }
-      ]
+      }
     },
     viewport: {
       options: {
@@ -49,6 +48,10 @@ const preview: Preview = {
     viewport: {
       value: 'responsive',
       isRotated: false
+    },
+
+    backgrounds: {
+      value: 'light'
     }
   },
 
