@@ -57,7 +57,7 @@ export const Purple_50_50: Story = {
     rightClassName: 'one'
   },
   parameters: {
-    backgrounds: { disable: true }
+    backgrounds: { disabled: true }
   },
   render: (args) => (
     <TwoColumnWrapper {...args}>
