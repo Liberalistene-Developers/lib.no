@@ -1,29 +1,26 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { TwoColumn2RowWrapper } from './LayoutWrappers';
+import preview from '../../../.storybook/preview'
+import { TwoColumn2RowWrapper } from './LayoutWrappers'
 
-const meta = {
+const meta = preview.meta({
   title: 'Layouts/TwoColumn2row',
   component: TwoColumn2RowWrapper,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen'
   }
-} satisfies Meta<typeof TwoColumn2RowWrapper>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
+})
 
 const sampleContent = (num: number) => (
   <div style={{ paddingTop: 20, paddingBottom: 20 }}>
     <h1>Lorem ipsum {num}</h1>
     <p className="rich-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper lorem a felis
-      posuere, eu convallis lorem tempor.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque semper
+      lorem a felis posuere, eu convallis lorem tempor.
     </p>
   </div>
-);
+)
 
-export const Standard_20_80: Story = {
+export const Standard_20_80 = meta.story({
   args: {
     background: 'standard',
     fullWidth: false,
@@ -38,9 +35,9 @@ export const Standard_20_80: Story = {
       {sampleContent(3)}
     </TwoColumn2RowWrapper>
   )
-};
+})
 
-export const Purple_20_80: Story = {
+export const Purple_20_80 = meta.story({
   args: {
     background: 'purple',
     fullWidth: false,
@@ -55,9 +52,9 @@ export const Purple_20_80: Story = {
       {sampleContent(3)}
     </TwoColumn2RowWrapper>
   )
-};
+})
 
-export const Standard_20_80_Reversed: Story = {
+export const Standard_20_80_Reversed = meta.story({
   args: {
     background: 'standard',
     fullWidth: false,
@@ -72,4 +69,4 @@ export const Standard_20_80_Reversed: Story = {
       {sampleContent(3)}
     </TwoColumn2RowWrapper>
   )
-};
+})

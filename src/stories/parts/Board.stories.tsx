@@ -1,14 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Board } from '@common/Board/Board';
+import preview from '../../../.storybook/preview'
+import { Board } from '@common/Board/Board'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/Board',
   component: Board,
   tags: ['autodocs']
-} satisfies Meta<typeof Board>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
+})
 
 const boardMembers = [
   {
@@ -30,7 +27,8 @@ const boardMembers = [
   {
     name: 'Aleksander Aas',
     role: 'Organisatorisk Nestleder',
-    shortDescription: 'Aleksander Aas er organisatorisk nestleder i Liberalistene.',
+    shortDescription:
+      'Aleksander Aas er organisatorisk nestleder i Liberalistene.',
     image: {
       url: 'https://picsum.photos/200/200?random=3'
     }
@@ -67,12 +65,12 @@ const boardMembers = [
       url: 'https://picsum.photos/200/200?random=7'
     }
   }
-];
+]
 
-export const SentralStyret: Story = {
+export const SentralStyret = meta.story({
   args: {
     board: boardMembers,
     imagesize: 'medium',
     imagetype: 'round'
   }
-};
+})

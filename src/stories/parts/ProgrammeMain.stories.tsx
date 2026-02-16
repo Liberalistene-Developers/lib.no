@@ -1,16 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { ProgrammeMain } from '@common/ProgrammeMain/ProgrammeMain';
+import preview from '../../../.storybook/preview'
+import { ProgrammeMain } from '@common/ProgrammeMain/ProgrammeMain'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/ProgrammeMain',
   component: ProgrammeMain,
   tags: ['autodocs']
-} satisfies Meta<typeof ProgrammeMain>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     title: 'Fylkesprogram',
     sections: [
@@ -48,4 +45,4 @@ export const Default: Story = {
     ],
     tableOfContent: false
   }
-};
+})

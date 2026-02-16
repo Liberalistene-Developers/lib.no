@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { ImageBlock } from '@common/ImageBlock/ImageBlock';
+import preview from '../../../.storybook/preview'
+import { ImageBlock } from '@common/ImageBlock/ImageBlock'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/ImageBlock',
   component: ImageBlock,
   tags: ['autodocs'],
@@ -15,46 +15,37 @@ const meta = {
       options: ['', 'purple', 'dark']
     }
   }
-} satisfies Meta<typeof ImageBlock>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const CenterWithTitle: Story = {
+export const CenterWithTitle = meta.story({
   args: {
     image: {
       url: 'https://picsum.photos/1200/458'
     },
-    title: [
-      { title: 'Frihet for fremtiden', titleColor: 'purple' }
-    ],
+    title: [{ title: 'Frihet for fremtiden', titleColor: 'purple' }],
     position: 'center',
     overlay: 'purple'
   }
-};
+})
 
-export const LeftWithIngress: Story = {
+export const LeftWithIngress = meta.story({
   args: {
     image: {
       url: 'https://picsum.photos/1200/458'
     },
-    title: [
-      { title: 'Våre verdier', titleColor: 'yellow' }
-    ],
+    title: [{ title: 'Våre verdier', titleColor: 'yellow' }],
     ingress: '<p>Vi kjemper for individuell frihet og ansvar</p>',
     position: 'left',
     overlay: 'purple'
   }
-};
+})
 
-export const RightNoOverlay: Story = {
+export const RightNoOverlay = meta.story({
   args: {
     image: {
       url: 'https://picsum.photos/1200/458'
     },
-    title: [
-      { title: 'Bli med oss', titleColor: 'light' }
-    ],
+    title: [{ title: 'Bli med oss', titleColor: 'light' }],
     position: 'right'
   }
-};
+})

@@ -1,26 +1,23 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Schedule } from '@common/Schedule/Schedule';
+import preview from '../../../.storybook/preview'
+import { Schedule } from '@common/Schedule/Schedule'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/Schedule',
   component: Schedule,
   tags: ['autodocs']
-} satisfies Meta<typeof Schedule>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
+})
 
 interface TopicItem {
-  title?: string;
-  start?: string;
-  duration?: string;
-  description?: string;
-  report?: string;
+  title?: string
+  start?: string
+  duration?: string
+  description?: string
+  report?: string
   speakers?: Array<{
-    person?: string;
-    personUrl?: string;
-    image?: { url?: string };
-  }>;
+    person?: string
+    personUrl?: string
+    image?: { url?: string }
+  }>
 }
 
 const createTopics = (items: TopicItem[] = []) =>
@@ -31,9 +28,9 @@ const createTopics = (items: TopicItem[] = []) =>
     description: '',
     report: '',
     ...item
-  }));
+  }))
 
-export const Empty: Story = {
+export const Empty = meta.story({
   args: {
     schedule: {
       name: '',
@@ -41,9 +38,9 @@ export const Empty: Story = {
       topics: []
     }
   }
-};
+})
 
-export const WithTitle: Story = {
+export const WithTitle = meta.story({
   args: {
     schedule: {
       name: '',
@@ -51,9 +48,9 @@ export const WithTitle: Story = {
       topics: createTopics([{ title: 'Registration' }])
     }
   }
-};
+})
 
-export const WithStart: Story = {
+export const WithStart = meta.story({
   args: {
     schedule: {
       name: '',
@@ -61,19 +58,21 @@ export const WithStart: Story = {
       topics: createTopics([{ title: 'Registration', start: '09:00' }])
     }
   }
-};
+})
 
-export const WithDuration: Story = {
+export const WithDuration = meta.story({
   args: {
     schedule: {
       name: '',
       date: '',
-      topics: createTopics([{ title: 'Registration', start: '09:00', duration: '30 min' }])
+      topics: createTopics([
+        { title: 'Registration', start: '09:00', duration: '30 min' }
+      ])
     }
   }
-};
+})
 
-export const WithDescription: Story = {
+export const WithDescription = meta.story({
   args: {
     schedule: {
       name: '',
@@ -87,9 +86,9 @@ export const WithDescription: Story = {
       ])
     }
   }
-};
+})
 
-export const WithReport: Story = {
+export const WithReport = meta.story({
   args: {
     schedule: {
       name: '',
@@ -104,9 +103,9 @@ export const WithReport: Story = {
       ])
     }
   }
-};
+})
 
-export const FullSchedule: Story = {
+export const FullSchedule = meta.story({
   args: {
     schedule: {
       name: 'Lørdag',
@@ -138,4 +137,4 @@ export const FullSchedule: Story = {
       ])
     }
   }
-};
+})

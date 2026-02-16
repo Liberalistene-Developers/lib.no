@@ -1,17 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5'
+import preview from '../../../.storybook/preview'
 import { TwoColumnWrapper } from './LayoutWrappers'
 
-const meta = {
+const meta = preview.meta({
   title: 'Layouts/TwoColumn',
   component: TwoColumnWrapper,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen'
   }
-} satisfies Meta<typeof TwoColumnWrapper>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 const sampleContent = (num: number) => (
   <div
@@ -34,7 +31,7 @@ const sampleContent = (num: number) => (
   </div>
 )
 
-export const Standard_50_50: Story = {
+export const Standard_50_50 = meta.story({
   args: {
     background: 'standard',
     fullWidth: false,
@@ -47,9 +44,9 @@ export const Standard_50_50: Story = {
       {sampleContent(2)}
     </TwoColumnWrapper>
   )
-}
+})
 
-export const Purple_50_50: Story = {
+export const Purple_50_50 = meta.story({
   args: {
     background: 'purple',
     fullWidth: false,
@@ -65,9 +62,9 @@ export const Purple_50_50: Story = {
       {sampleContent(2)}
     </TwoColumnWrapper>
   )
-}
+})
 
-export const Standard_30_70: Story = {
+export const Standard_30_70 = meta.story({
   args: {
     background: 'standard',
     fullWidth: false,
@@ -80,9 +77,9 @@ export const Standard_30_70: Story = {
       {sampleContent(2)}
     </TwoColumnWrapper>
   )
-}
+})
 
-export const Standard_70_30: Story = {
+export const Standard_70_30 = meta.story({
   args: {
     background: 'standard',
     fullWidth: false,
@@ -95,4 +92,4 @@ export const Standard_70_30: Story = {
       {sampleContent(2)}
     </TwoColumnWrapper>
   )
-}
+})

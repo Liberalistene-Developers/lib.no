@@ -1,7 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { ArticleListItem } from '@common/ArticleListItem/ArticleListItem';
+import preview from '../../../.storybook/preview'
+import type { StoryObj } from '@storybook/react-webpack5'
+import { ArticleListItem } from '@common/ArticleListItem/ArticleListItem'
 
-const meta = {
+const meta = preview.meta({
   title: 'Shared/ArticleListItem',
   component: ArticleListItem,
   tags: ['autodocs'],
@@ -12,12 +13,11 @@ const meta = {
       </div>
     )
   ]
-} satisfies Meta<typeof ArticleListItem>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>
 
-export const Normal: Story = {
+export const Normal = meta.story({
   args: {
     item: {
       shortDescription:
@@ -37,4 +37,4 @@ export const Normal: Story = {
       datePublished: '2020-12-10'
     }
   }
-};
+})

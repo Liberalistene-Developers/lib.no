@@ -1,16 +1,17 @@
 // This file has been automatically migrated to valid ESM format by Storybook.
-import { fileURLToPath } from "node:url";
-import { createRequire } from "node:module";
-import type { StorybookConfig } from '@storybook/react-webpack5';
-import path, { dirname } from 'path';
-import webpack from 'webpack';
-import postcss from 'postcss';
+import { defineMain } from '@storybook/react-webpack5/node'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const require = createRequire(import.meta.url);
+import { fileURLToPath } from 'node:url'
+import { createRequire } from 'node:module'
+import path, { dirname } from 'path'
+import webpack from 'webpack'
+import postcss from 'postcss'
 
-const config: StorybookConfig = {
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+const require = createRequire(import.meta.url)
+
+export default defineMain({
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
 
   addons: [
@@ -52,28 +53,35 @@ const config: StorybookConfig = {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true)
+      propFilter: (prop) =>
+        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true
     }
   },
 
   webpackFinal: async (config) => {
     // Add TypeScript path aliases
-    config.resolve = config.resolve || {};
+    config.resolve = config.resolve || {}
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@common': path.resolve(__dirname, '../src/main/resources/react4xp/common'),
+      '@common': path.resolve(
+        __dirname,
+        '../src/main/resources/react4xp/common'
+      ),
       '@parts': path.resolve(__dirname, '../src/main/resources/react4xp/parts'),
-      '@layouts': path.resolve(__dirname, '../src/main/resources/react4xp/layouts'),
+      '@layouts': path.resolve(
+        __dirname,
+        '../src/main/resources/react4xp/layouts'
+      ),
       '@pages': path.resolve(__dirname, '../src/main/resources/react4xp/pages'),
       '@utils': path.resolve(__dirname, '../src/main/resources/react4xp/utils'),
       '@lib': path.resolve(__dirname, '../src/main/resources/lib'),
       // Add absolute path mapping for /react4xp/* imports
       '/react4xp': path.resolve(__dirname, '../src/main/resources/react4xp')
-    };
+    }
 
     // Add TypeScript loader for .ts and .tsx files
-    config.module = config.module || {};
-    config.module.rules = config.module.rules || [];
+    config.module = config.module || {}
+    config.module.rules = config.module.rules || []
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
       use: [
@@ -86,20 +94,18 @@ const config: StorybookConfig = {
         }
       ],
       exclude: /node_modules/
-    });
+    })
 
-    config.resolve.extensions?.push('.ts', '.tsx');
+    config.resolve.extensions?.push('.ts', '.tsx')
 
     // Automatically import React in all components
-    config.plugins = config.plugins || [];
+    config.plugins = config.plugins || []
     config.plugins.push(
       new webpack.ProvidePlugin({
         React: 'react'
       })
-    );
+    )
 
-    return config;
+    return config
   }
-};
-
-export default config;
+})

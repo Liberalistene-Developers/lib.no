@@ -1,16 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { CandidateList } from '@common/CandidateList/CandidateList';
+import preview from '../../../.storybook/preview'
+import { CandidateList } from '@common/CandidateList/CandidateList'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/CandidateList',
   component: CandidateList,
   tags: ['autodocs']
-} satisfies Meta<typeof CandidateList>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     imagesize: 'medium',
     imagetype: true,
@@ -36,4 +33,4 @@ export const Default: Story = {
       }
     ]
   }
-};
+})

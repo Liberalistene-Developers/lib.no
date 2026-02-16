@@ -1,19 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { FancyHeader } from '@common/FancyHeader/FancyHeader';
+import preview from '../../../.storybook/preview'
+import { FancyHeader } from '@common/FancyHeader/FancyHeader'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/FancyHeader',
   component: FancyHeader,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen'
   }
-} satisfies Meta<typeof FancyHeader>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Normal: Story = {
+export const Normal = meta.story({
   args: {
     title: 'Organisasjon',
     image: {
@@ -23,4 +20,4 @@ export const Normal: Story = {
       url: '/effect.svg'
     }
   }
-};
+})

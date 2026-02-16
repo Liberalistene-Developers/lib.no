@@ -1,35 +1,33 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Faq } from '@common/Faq/Faq';
+import preview from '../../../.storybook/preview'
+import { Faq } from '@common/Faq/Faq'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/Faq',
   component: Faq,
   tags: ['autodocs']
-} satisfies Meta<typeof Faq>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const NotExpandable: Story = {
+export const NotExpandable = meta.story({
   args: {
     question: 'Hvor mange er liberalister',
-    answer: 'Alle er født liberalister, men de fleste blir hjernevasket til å bli semi-sosialister.',
+    answer:
+      'Alle er født liberalister, men de fleste blir hjernevasket til å bli semi-sosialister.',
     expandable: false,
     expanded: true
   }
-};
+})
 
-export const ExpandableExpanded: Story = {
+export const ExpandableExpanded = meta.story({
   args: {
-    ...NotExpandable.args,
+    ...NotExpandable.input.args,
     expandable: true
   }
-};
+})
 
-export const ExpandableNotExpanded: Story = {
+export const ExpandableNotExpanded = meta.story({
   args: {
-    ...NotExpandable.args,
+    ...NotExpandable.input.args,
     expandable: true,
     expanded: false
   }
-};
+})

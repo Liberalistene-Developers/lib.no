@@ -1,22 +1,21 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { BudgetCutList } from '@common/BudgetCutList/BudgetCutList';
+import preview from '../../../.storybook/preview'
+import { BudgetCutList } from '@common/BudgetCutList/BudgetCutList'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/BudgetCutList',
   component: BudgetCutList,
   tags: ['autodocs']
-} satisfies Meta<typeof BudgetCutList>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
+})
 
 const sampleDepartment = {
   title: 'Kommunal- og moderningsdepartmentet',
   budget: 213638,
   cut: 4535.3,
   percent: 2.1,
-  description: '<p>En beskrivelse av departmentet og hvorfor det er viktig å kutte.</p>',
-  sumary: '<p><strong>Oppsummering:</strong><br />Vil vi gjerne forklare hvorfor</p>',
+  description:
+    '<p>En beskrivelse av departmentet og hvorfor det er viktig å kutte.</p>',
+  sumary:
+    '<p><strong>Oppsummering:</strong><br />Vil vi gjerne forklare hvorfor</p>',
   labelSumCut: 'Sum kutt:',
   labelTitle: '',
   labelBudget: 'Budsjett',
@@ -83,9 +82,9 @@ const sampleDepartment = {
         '<p>Statens kartverk kuttes med 20% men videreføres inntil privatisering kan ordnes. Alt annet legges ned.</p>'
     }
   ]
-};
+}
 
-export const Normal: Story = {
+export const Normal = meta.story({
   args: {
     title: 'Kutt',
     ingress: '<p>Her skal vi beskrive hvor mye vi ønsker å kutte.</p>',
@@ -97,4 +96,4 @@ export const Normal: Story = {
     labelNumberText: 'Tall i hele millioner',
     items: [sampleDepartment, sampleDepartment]
   }
-};
+})

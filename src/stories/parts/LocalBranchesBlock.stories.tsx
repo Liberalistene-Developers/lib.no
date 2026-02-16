@@ -1,16 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { LocalBranches } from '@common/LocalBranches/LocalBranches';
+import preview from '../../../.storybook/preview'
+import { LocalBranches } from '@common/LocalBranches/LocalBranches'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/LocalBranches',
   component: LocalBranches,
   tags: ['autodocs']
-} satisfies Meta<typeof LocalBranches>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-const county = 'agder';
+const county = 'agder'
 const branches = [
   'arendal',
   'farsund',
@@ -23,9 +20,9 @@ const branches = [
   'lyngdal',
   'risør',
   'tvedestrand'
-];
+]
 
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     title: 'Våre lokallag',
     headingClassName: 'center',
@@ -34,4 +31,4 @@ export const Default: Story = {
       name: `${town.slice(0, 1).toUpperCase()}${town.slice(1)}`
     }))
   }
-};
+})

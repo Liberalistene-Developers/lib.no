@@ -1,26 +1,25 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { FourColumnWrapper } from './LayoutWrappers';
+import preview from '../../../.storybook/preview'
+import { FourColumnWrapper } from './LayoutWrappers'
 
-const meta = {
+const meta = preview.meta({
   title: 'Layouts/FourColumn',
   component: FourColumnWrapper,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen'
   }
-} satisfies Meta<typeof FourColumnWrapper>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
+})
 
 const sampleContent = (num: number) => (
   <div style={{ paddingTop: 20, paddingBottom: 20 }}>
     <h1>Column {num}</h1>
-    <p className="rich-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p className="rich-text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </p>
   </div>
-);
+)
 
-export const Standard_25_25_25_25: Story = {
+export const Standard_25_25_25_25 = meta.story({
   args: {
     background: 'standard',
     fullWidth: false,
@@ -37,9 +36,9 @@ export const Standard_25_25_25_25: Story = {
       {sampleContent(4)}
     </FourColumnWrapper>
   )
-};
+})
 
-export const Purple_25_25_25_25: Story = {
+export const Purple_25_25_25_25 = meta.story({
   args: {
     background: 'purple',
     fullWidth: false,
@@ -56,4 +55,4 @@ export const Purple_25_25_25_25: Story = {
       {sampleContent(4)}
     </FourColumnWrapper>
   )
-};
+})

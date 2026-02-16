@@ -1,33 +1,34 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { SingleColumnWrapper } from './LayoutWrappers';
-import { Button } from '@common/Button/Button';
-import { TextBlock } from '@common/TextBlock/TextBlock';
+import preview from '../../../.storybook/preview'
+import { SingleColumnWrapper } from './LayoutWrappers'
+import { Button } from '@common/Button/Button'
+import { TextBlock } from '@common/TextBlock/TextBlock'
 
-const meta = {
+const meta = preview.meta({
   title: 'Layouts/SingleColumn',
   component: SingleColumnWrapper,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen'
   }
-} satisfies Meta<typeof SingleColumnWrapper>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const WithButton: Story = {
+export const WithButton = meta.story({
   args: {
     background: 'standard',
     fullWidth: false
   },
   render: (args) => (
     <SingleColumnWrapper {...args}>
-      <Button title="Bli medlem" url="https://liberalistene.org" className="light" />
+      <Button
+        title="Bli medlem"
+        url="https://liberalistene.org"
+        className="light"
+      />
     </SingleColumnWrapper>
   )
-};
+})
 
-export const WithMultipleComponents: Story = {
+export const WithMultipleComponents = meta.story({
   args: {
     background: 'standard',
     fullWidth: false
@@ -39,7 +40,11 @@ export const WithMultipleComponents: Story = {
         text="<p>Vi kjemper for individuell frihet og ansvar.</p>"
         centered={true}
       />
-      <Button title="Les mer" url="https://liberalistene.org" className="dark" />
+      <Button
+        title="Les mer"
+        url="https://liberalistene.org"
+        className="dark"
+      />
     </SingleColumnWrapper>
   )
-};
+})

@@ -1,16 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { TitleBlock } from '@common/TitleBlock/TitleBlock';
+import preview from '../../../.storybook/preview'
+import { TitleBlock } from '@common/TitleBlock/TitleBlock'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/TitleBlock',
   component: TitleBlock,
   tags: ['autodocs']
-} satisfies Meta<typeof TitleBlock>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const SingleTitle: Story = {
+export const SingleTitle = meta.story({
   args: {
     title: 'My Title',
     titleCenter: '',
@@ -18,20 +15,20 @@ export const SingleTitle: Story = {
     image: undefined,
     imageClass: ''
   }
-};
+})
 
-export const SingleCenterTitle: Story = {
+export const SingleCenterTitle = meta.story({
   args: {
-    ...SingleTitle.args,
+    ...SingleTitle.input.args,
     titleCenter: 'center'
   }
-};
+})
 
-export const TitleImage: Story = {
+export const TitleImage = meta.story({
   args: {
-    ...SingleTitle.args,
+    ...SingleTitle.input.args,
     image: {
       url: 'https://picsum.photos/1200/400'
     }
   }
-};
+})

@@ -1,16 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { IntroBlock } from '@common/IntroBlock/IntroBlock';
+import preview from '../../../.storybook/preview'
+import { IntroBlock } from '@common/IntroBlock/IntroBlock'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/IntroBlock',
   component: IntroBlock,
   tags: ['autodocs']
-} satisfies Meta<typeof IntroBlock>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     caption: 'Fra venstre: Per, Pål og Espen Askeladd',
     description: `
@@ -25,4 +22,4 @@ export const Default: Story = {
     },
     title: 'Stå opp for individuell frihet!'
   }
-};
+})

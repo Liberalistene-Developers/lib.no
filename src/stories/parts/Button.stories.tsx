@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Button } from '@common/Button/Button';
+import preview from '../../../.storybook/preview'
+import { Button } from '@common/Button/Button'
 
-const meta = {
+const meta = preview.meta({
   title: 'Parts/Button',
   component: Button,
   tags: ['autodocs'],
@@ -11,30 +11,27 @@ const meta = {
       description: 'CSS classes (use "light" for light variant)'
     }
   }
-} satisfies Meta<typeof Button>;
+})
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Light: Story = {
+export const Light = meta.story({
   args: {
     title: 'Bli medlem',
     url: 'https://liberalistene.org',
     className: 'light'
   }
-};
+})
 
-export const Dark: Story = {
+export const Dark = meta.story({
   args: {
     title: 'Les mer',
     url: 'https://liberalistene.org',
     className: 'dark'
   }
-};
+})
 
-export const WithoutURL: Story = {
+export const WithoutURL = meta.story({
   args: {
     title: 'Click me',
     className: 'light'
   }
-};
+})
