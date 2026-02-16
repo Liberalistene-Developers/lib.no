@@ -6,8 +6,7 @@ import {type FC} from 'react';
 import {componentRegistry} from '/react4xp/componentRegistry';
 
 const App: FC<AppProps> = ({component, data, common, meta}) => {
-    const compMeta: MetaData = meta as MetaData;
-    compMeta.componentRegistry = componentRegistry;
+    const compMeta: MetaData = {...meta as MetaData, componentRegistry};
 
     return (
         <>

@@ -1,0 +1,37 @@
+diff --git a/node_modules/@enonic/react4xp/dist/webpack.config.globals.js b/node_modules/@enonic/react4xp/dist/webpack.config.globals.js
+index c8dc658..fad1974 100644
+--- a/node_modules/@enonic/react4xp/dist/webpack.config.globals.js
++++ b/node_modules/@enonic/react4xp/dist/webpack.config.globals.js
+@@ -174,6 +174,7 @@ function webpackLogLevel(r4xBuildLogLevel = "LIFECYCLE" /* LIFECYCLE */) {
+ 
+ // src/webpack.config.globals.ts
+ var import_filemanager_webpack_plugin = __toESM(require("filemanager-webpack-plugin"));
++var import_rspack = require("@rspack/core");
+ var webpack_config_globals_default = () => {
+   const R4X_DIR_PATH_ABSOLUTE_PROJECT = process.env.R4X_DIR_PATH_ABSOLUTE_PROJECT;
+   if (!(0, import_path.isAbsolute)(R4X_DIR_PATH_ABSOLUTE_PROJECT)) {
+@@ -234,6 +235,24 @@ var webpack_config_globals_default = () => {
+     new import_chunks_2_json_webpack_plugin.default({
+       outputDir: DIR_PATH_ABSOLUTE_BUILD_ASSETS_R4X,
+       filename: GLOBALS_FILENAME
++    }),
++    new import_rspack.BannerPlugin({
++      banner: [
++        '// GraalVM polyfills for React 19 SSR compatibility',
++        'if (typeof atob === "undefined") {',
++        '  globalThis.atob = function(input) {',
++        '    var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";',
++        '    var str = String(input).replace(/=+$/, "");',
++        '    var output = "";',
++        '    for (var bc = 0, bs, buffer, idx = 0; buffer = str.charAt(idx++); ~buffer && (bs = bc % 4 ? bs * 64 + buffer : buffer, bc++ % 4) ? output += String.fromCharCode(255 & bs >> (-2 * bc & 6)) : 0) {',
++        '      buffer = chars.indexOf(buffer);',
++        '    }',
++        '    return output;',
++        '  };',
++        '}',
++      ].join('\n'),
++      raw: true,
++      entryOnly: true
+     })
+   ] : void 0;
+   return {
