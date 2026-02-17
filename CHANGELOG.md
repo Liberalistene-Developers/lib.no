@@ -1,3 +1,13 @@
+## [2.0.17](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.16...v2.0.17) (2026-02-17)
+
+
+### Bug Fixes
+
+* center board member grid on page (closes [#157](https://github.com/Liberalistene-Developers/lib.no/issues/157)) ([8610483](https://github.com/Liberalistene-Developers/lib.no/commit/8610483e6c14470dd91db07d2ec9193e4995163f))
+* content-holder selectors broken by .xp-region wrapper (closes [#155](https://github.com/Liberalistene-Developers/lib.no/issues/155)) ([8aeabff](https://github.com/Liberalistene-Developers/lib.no/commit/8aeabff4029e96ebb785c58af02dc5aad9de9e47))
+* handle single-item cuts field in BudgetCutList (closes [#159](https://github.com/Liberalistene-Developers/lib.no/issues/159)) ([1095ab5](https://github.com/Liberalistene-Developers/lib.no/commit/1095ab5da2293bc92fbf2c7ec11b2a6313e6529d))
+* increase body text line-height for readability (closes [#156](https://github.com/Liberalistene-Developers/lib.no/issues/156)) ([0d2f8b5](https://github.com/Liberalistene-Developers/lib.no/commit/0d2f8b5ed59587a1845ef979d4d7ab2bdc8ff700))
+
 ## [2.0.16](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.15...v2.0.16) (2026-02-12)
 
 
