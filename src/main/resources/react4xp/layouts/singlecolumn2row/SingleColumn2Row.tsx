@@ -1,65 +1,31 @@
 import {Region, type ComponentProps, type LayoutData} from '@enonic/react-components';
+import {type BaseLayoutProps} from '/react4xp/layouts/layoutUtils';
+import {LayoutWrapper} from '/react4xp/layouts/LayoutWrapper';
 
-export interface SingleColumn2RowData extends Record<string, unknown> {
-  background?: string;
-  borderBottom?: boolean;
-  fullWidth?: boolean;
-  paddingBottom?: boolean;
-  paddingTop?: boolean;
-  orderClass?: string;
+interface SingleColumn2RowData extends BaseLayoutProps {
+	orderClass?: string;
 }
 
 export const SingleColumn2Row = ({meta, data = {}, component}: ComponentProps<LayoutData>) => {
-  const {
-    background = '',
-    borderBottom = false,
-    fullWidth = false,
-    paddingBottom = false,
-    paddingTop = false,
-    orderClass = '',
-  } = data as SingleColumn2RowData;
-  const {regions} = component;
+	const {orderClass = '', ...baseProps} = data as SingleColumn2RowData;
+	const {regions} = component;
 
-  const contentHolderClasses = [
-    'content-holder',
-    background,
-    paddingBottom ? 'padding-bottom' : '',
-    paddingTop ? 'padding-top' : ''
-  ].filter(Boolean).join(' ');
-
-  const contentClasses = [
-    'content',
-    fullWidth ? 'full' : ''
-  ].filter(Boolean).join(' ');
-
-  const dividerClasses = [
-    'divider',
-    borderBottom ? 'visible' : ''
-  ].filter(Boolean).join(' ');
-
-  const itemsClasses = ['content-item', 'items', orderClass].filter(Boolean).join(' ');
-
-  return (
-    <div className={contentHolderClasses}>
-      <div className={contentClasses}>
-        <div className={itemsClasses}>
-          <div className="content-child full">
-            <Region
-              data={regions?.top?.components}
-              meta={meta}
-              name="top"
-            />
-          </div>
-          <div className="content-child full">
-            <Region
-              data={regions?.bottom?.components}
-              meta={meta}
-              name="bottom"
-            />
-          </div>
-        </div>
-        <div className={dividerClasses}></div>
-      </div>
-    </div>
-  );
+	return (
+		<LayoutWrapper {...baseProps} contentItemClassName={['items', orderClass].filter(Boolean).join(' ')}>
+			<div className="content-child full">
+				<Region
+					data={regions?.top?.components}
+					meta={meta}
+					name="top"
+				/>
+			</div>
+			<div className="content-child full">
+				<Region
+					data={regions?.bottom?.components}
+					meta={meta}
+					name="bottom"
+				/>
+			</div>
+		</LayoutWrapper>
+	);
 };

@@ -1,33 +1,19 @@
-import type { LayoutComponent } from '@enonic-types/core';
-import type { ComponentProcessor } from '@enonic-types/lib-react4xp/DataFetcher';
-
-interface ThreeColumn2RowConfig {
-  background?: string;
-  borderbottom?: boolean;
-  fullwidth?: boolean;
-  paddingbottom?: boolean;
-  paddingtop?: boolean;
-  columnsLayout?: string;
-  reverseroworder?: boolean;
-}
+import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
+import type {LayoutComponent} from '@enonic-types/core';
+import {extractBaseConfig} from '/react4xp/layouts/layoutUtils';
 
 export const threeColumn2RowProcessor: ComponentProcessor<'lib.no:threecolumn2row'> = ({component}) => {
-  const layoutComponent = component as LayoutComponent;
-  const config = layoutComponent.config as ThreeColumn2RowConfig;
+	const layoutComponent = component as unknown as LayoutComponent;
+	const config = layoutComponent.config as {columnsLayout?: string; reverseroworder?: boolean};
 
+	const columnsLayout = config?.columnsLayout || '';
+	const [leftClassName, middleClassName, rightClassName] = columnsLayout ? columnsLayout.split(',') : ['', '', ''];
 
-  const columnsLayout = config?.columnsLayout || '';
-  const [leftClassName, middleClassName, rightClassName] = columnsLayout ? columnsLayout.split(',') : ['', '', ''];
-
-  return {
-    background: config?.background,
-    borderBottom: config?.borderbottom,
-    fullWidth: config?.fullwidth,
-    paddingBottom: config?.paddingbottom,
-    paddingTop: config?.paddingtop,
-    leftClassName,
-    middleClassName,
-    rightClassName,
-    orderClass: config?.reverseroworder ? 'reverse' : '',
-  };
+	return {
+		...extractBaseConfig(component),
+		leftClassName,
+		middleClassName,
+		rightClassName,
+		orderClass: config?.reverseroworder ? 'reverse' : '',
+	};
 };

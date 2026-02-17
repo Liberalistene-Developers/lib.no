@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mixin xmlns="urn:enonic:xp:model:1.0">
+  <display-name>Article width</display-name>
+  <form>
+    <input name="articlewidth" type="CheckBox">
+      <label>Article width (600px)</label>
+      <config>
+        <alignment>right</alignment>
+      </config>
+    </input>
+  </form>
+</mixin>

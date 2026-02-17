@@ -69,6 +69,10 @@
     @apply flex flex-col justify-center items-center mx-auto w-[911px] max-w-full;
   }
 
+  main .content-holder .content .content-item.article-width {
+    @apply w-[600px];
+  }
+
   main .content-holder .content .content-item .xp-page-editor-item-view.empty {
     @apply w-full;
   }
