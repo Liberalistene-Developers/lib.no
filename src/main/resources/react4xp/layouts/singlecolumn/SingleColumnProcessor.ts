@@ -1,24 +1,7 @@
-import type { LayoutComponent, LayoutDescriptor } from '@enonic-types/core';
-import type { ComponentProcessor } from '@enonic-types/lib-react4xp/DataFetcher';
+import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
+import type {LayoutDescriptor} from '@enonic-types/core';
+import {extractBaseConfig} from '/react4xp/layouts/layoutUtils';
 
-interface SingleColumnConfig {
-  background?: string;
-  borderbottom?: boolean;
-  fullwidth?: boolean;
-  paddingbottom?: boolean;
-  paddingtop?: boolean;
-}
-
-export const singleColumnProcessor: ComponentProcessor<LayoutDescriptor> = ({component}) => {
-  const layoutComponent = component as LayoutComponent;
-  const config = layoutComponent.config as SingleColumnConfig;
-
-
-  return {
-    background: config?.background,
-    borderBottom: config?.borderbottom,
-    fullWidth: config?.fullwidth,
-    paddingBottom: config?.paddingbottom,
-    paddingTop: config?.paddingtop,
-  };
-};
+export const singleColumnProcessor: ComponentProcessor<LayoutDescriptor> = ({component}) => ({
+	...extractBaseConfig(component),
+});

@@ -1,32 +1,19 @@
 import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {LayoutComponent} from '@enonic-types/core';
-
-interface FourColumnConfig {
-  background?: string;
-  borderbottom?: boolean;
-  fullwidth?: boolean;
-  paddingbottom?: boolean;
-  paddingtop?: boolean;
-  columnsLayout?: string;
-}
+import {extractBaseConfig} from '/react4xp/layouts/layoutUtils';
 
 export const fourColumnProcessor: ComponentProcessor<'lib.no:fourcolumn'> = ({component}) => {
-  const layoutComponent = component as unknown as LayoutComponent;
-  const config = layoutComponent.config as FourColumnConfig;
+	const layoutComponent = component as unknown as LayoutComponent;
+	const config = layoutComponent.config as {columnsLayout?: string};
 
+	const columnsLayout = config?.columnsLayout || '';
+	const [leftClassName, middleLeftClassName, middleRightClassName, rightClassName] = columnsLayout ? columnsLayout.split(',') : ['', '', '', ''];
 
-  const columnsLayout = config?.columnsLayout || '';
-  const [leftClassName, middleLeftClassName, middleRightClassName, rightClassName] = columnsLayout ? columnsLayout.split(',') : ['', '', '', ''];
-
-  return {
-    background: config?.background,
-    borderBottom: config?.borderbottom,
-    fullWidth: config?.fullwidth,
-    paddingBottom: config?.paddingbottom,
-    paddingTop: config?.paddingtop,
-    leftClassName,
-    middleLeftClassName,
-    middleRightClassName,
-    rightClassName,
-  };
+	return {
+		...extractBaseConfig(component),
+		leftClassName,
+		middleLeftClassName,
+		middleRightClassName,
+		rightClassName,
+	};
 };

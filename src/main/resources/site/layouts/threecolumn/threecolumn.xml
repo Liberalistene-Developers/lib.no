@@ -17,6 +17,7 @@
       </config>
       <default>one-30,one-30,one-30</default> 
     </input>
+    <mixin name="articlewidth" />
     <mixin name="fullwidth" />
     <mixin name="borderbottom" />
     <mixin name="background" />
