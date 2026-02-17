@@ -99,19 +99,19 @@
     @apply w-full;
   }
 
-  main > .content-holder > .content.full > .content-item .grid-list .grid-item,
-  main > .content-holder > .content.full > .content-item .gridlist .grid-item,
-  main > .content-holder > .content.full > .content-item .grid-list .card-holder,
-  main > .content-holder > .content.full > .content-item .gridlist .card-holder {
+  main .content-holder > .content.full > .content-item .grid-list .grid-item,
+  main .content-holder > .content.full > .content-item .gridlist .grid-item,
+  main .content-holder > .content.full > .content-item .grid-list .card-holder,
+  main .content-holder > .content.full > .content-item .gridlist .card-holder {
     flex-grow: 1;
     max-width: calc(50% - 30px);
     width: calc(25% - 40px);
   }
 
-  main > .content-holder > .content.full > .content-item .grid-list .grid-item.presentation,
-  main > .content-holder > .content.full > .content-item .gridlist .grid-item.presentation,
-  main > .content-holder > .content.full > .content-item .grid-list .card-holder.presentation,
-  main > .content-holder > .content.full > .content-item .gridlist .card-holder.presentation {
+  main .content-holder > .content.full > .content-item .grid-list .grid-item.presentation,
+  main .content-holder > .content.full > .content-item .gridlist .grid-item.presentation,
+  main .content-holder > .content.full > .content-item .grid-list .card-holder.presentation,
+  main .content-holder > .content.full > .content-item .gridlist .card-holder.presentation {
     @apply max-w-full w-full;
   }
 }
