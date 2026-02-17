@@ -4,7 +4,32 @@ import { Board } from '@common/Board/Board'
 const meta = preview.meta({
   title: 'Parts/Board',
   component: Board,
-  tags: ['autodocs']
+  tags: ['autodocs'],
+  decorators: [
+    (Story) => (
+      <main>
+        <div className="content-holder normal">
+          <div className="content">
+            <div className="content-item">
+              <div className="xp-region" data-portal-region="content">
+                <section>
+                  <h1 style={ { textAlign: 'center' } }>Sentralstyret</h1>
+                </section>
+              </div>
+            </div>
+            <div className="divider"></div>
+          </div>
+        </div>
+        <div className="content-holder normal padding-bottom">
+          <div className="content">
+            <div className="content-item">
+              <Story />
+            </div>
+          </div>
+        </div>
+      </main>
+    )
+  ]
 })
 
 const boardMembers = [

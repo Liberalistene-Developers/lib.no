@@ -62,8 +62,8 @@ export const Board: FC<BoardProps> = ({
   <div>
     {board && board.length > 0
       ? (
-        <div className="[&_.list-item.person]:w-1/2 [&_.list-item.person_img]:object-cover [&_.list-item.person_img]:w-[180px] [&_.list-item.person_img]:h-[180px] max-[834px]:[&_.list-item.person_.medium>img.round]:w-[160px] max-[834px]:[&_.list-item.person_.medium>img.round]:h-[160px] mobile:[&_.list-item.person]:w-full">
-          <div className="flex justify-center items-center mobile:mb-10">
+        <div className="[&_.list-item.person]:w-1/2 [&_.list-item.person]:flex [&_.list-item.person]:flex-col [&_.list-item.person]:items-center [&_.list-item.person]:text-center [&_.list-item.person_.image]:w-[180px] [&_.list-item.person_img]:object-cover [&_.list-item.person_img]:w-[180px] [&_.list-item.person_img]:h-[180px] max-[834px]:[&_.list-item.person_.medium>img.round]:w-[160px] max-[834px]:[&_.list-item.person_.medium>img.round]:h-[160px] max-[414px]:[&_.list-item.person]:w-full">
+          <div className="flex justify-center items-center mb-10">
             {board.slice(0, 1).map((item) => (
               <PersonListItem
                 key={item.itemId}
@@ -76,7 +76,7 @@ export const Board: FC<BoardProps> = ({
             ))}
           </div>
           {board.length > 1 && (
-            <div className="flex flex-wrap justify-end items-center mobile:mt-10 mobile:flex-col mobile:gap-y-10 mobile:justify-center">
+            <div className="flex flex-wrap justify-center items-center gap-y-10 max-[414px]:gap-y-14 max-[414px]:mt-10 max-[414px]:flex-col">
               {board.slice(1).map((item) => (
                 <PersonListItem
                   key={item.itemId}
