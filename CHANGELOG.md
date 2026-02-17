@@ -1,3 +1,10 @@
+## [2.0.19](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.18...v2.0.19) (2026-02-17)
+
+
+### Bug Fixes
+
+* rich text typography selectors broken by .xp-region wrapper (closes [#164](https://github.com/Liberalistene-Developers/lib.no/issues/164)) ([a033b51](https://github.com/Liberalistene-Developers/lib.no/commit/a033b51830ae2096b49412c5d489a0341def34bc))
+
 ## [2.0.18](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.17...v2.0.18) (2026-02-17)
 
 
