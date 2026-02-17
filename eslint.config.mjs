@@ -1,6 +1,6 @@
 // For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
 import storybook from "eslint-plugin-storybook";
-import react from "eslint-plugin-react";
+import eslintReact from "@eslint-react/eslint-plugin";
 import reactHooks from "eslint-plugin-react-hooks";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 
@@ -46,28 +46,22 @@ export default tseslint.config(// If ignores is used without any other keys in t
   }
 }, {
   files: ['**/*.tsx', '**/*.jsx'],
+  ...eslintReact.configs["recommended-typescript"],
   plugins: {
-    react,
+    ...eslintReact.configs["recommended-typescript"].plugins,
     'react-hooks': reactHooks,
     'jsx-a11y': jsxA11y
   },
-  settings: {
-    react: {
-      version: 'detect'
-    }
-  },
   rules: {
-    ...react.configs.recommended.rules,
+    ...eslintReact.configs["recommended-typescript"].rules,
     ...reactHooks.configs.recommended.rules,
-    'react/react-in-jsx-scope': 'off', // Not needed with webpack ProvidePlugin
-    'react/prop-types': 'off', // Using TypeScript for prop validation
-    'react/no-danger': 'error' // Prevent dangerouslySetInnerHTML - use SafeHtml component instead
+    '@eslint-react/dom/no-dangerously-set-innerhtml': 'error' // Prevent dangerouslySetInnerHTML - use SafeHtml component instead
   }
 }, {
   // Allow dangerouslySetInnerHTML only in SafeHtml component
   files: ['src/main/resources/react4xp/common/SafeHtml/SafeHtml.tsx'],
   rules: {
-    'react/no-danger': 'off'
+    '@eslint-react/dom/no-dangerously-set-innerhtml': 'off'
   }
 }, {
   // Allow console in logger utility (internal implementation)
