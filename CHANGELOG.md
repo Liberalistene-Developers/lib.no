@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.19...v2.1.0) (2026-02-17)
+
+
+### Features
+
+* add narrow article-width option to all column layouts (closes [#165](https://github.com/Liberalistene-Developers/lib.no/issues/165)) ([d0f850b](https://github.com/Liberalistene-Developers/lib.no/commit/d0f850b53cf8913eb8b96e13658aab0620de2888))
+
 ## [2.0.19](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.18...v2.0.19) (2026-02-17)
 
 
