@@ -1,8 +1,8 @@
-import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
-import type {PartComponent} from '@enonic-types/core';
-import {get as getContent} from '/lib/xp/content';
-import {processHtml} from '/react4xp/utils/html';
-import {runQuery} from '/react4xp/utils/query';
+import type { PartComponent } from '@enonic-types/core';
+import type { ComponentProcessor } from '@enonic-types/lib-react4xp/DataFetcher';
+import { get as getContent } from '/lib/xp/content';
+import { processHtml } from '/react4xp/utils/html';
+import { runQuery } from '/react4xp/utils/query';
 
 /**
  * Budget cut list part configuration from budgetcutlist.xml schema.
@@ -183,7 +183,7 @@ export const budgetCutListProcessor: ComponentProcessor<'lib.no:budgetcutlist'> 
         budget: itemData.budget,
         cut: itemData.cut,
         percent: itemData.percent,
-        cuts: (itemData.cuts || []).map(({description, ...rest}) => ({
+        cuts: (itemData.cuts ? (Array.isArray(itemData.cuts) ? itemData.cuts : [itemData.cuts]) : []).map(({description, ...rest}) => ({
           ...rest,
           description: processHtml(description)
         })),
