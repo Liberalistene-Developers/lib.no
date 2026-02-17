@@ -55,6 +55,7 @@
     "@enonic/cli": "^3.3.1",
     "@enonic/js-utils": "^1",
     "@enonic/react-components": "^6.1.1",
+    "@eslint-react/eslint-plugin": "^2.13.0",
     "classnames": "^2.3.1",
     "html-react-parser": "^5.2.6",
     "leaflet": "^1.9.4",
@@ -96,7 +97,7 @@
     "@enonic-types/lib-vhost": "^7",
     "@enonic-types/lib-websocket": "^7",
     "@enonic/react4xp": "^6.1.0",
-    "@eslint/js": "^9.33.0",
+    "@eslint/js": "^10.0.1",
     "@item-enonic-types/lib-menu": "^4.2.1",
     "@playwright/test": "^1.56.1",
     "@semantic-release/changelog": "^6.0.3",
@@ -121,9 +122,8 @@
     "concurrently": "^9.2.0",
     "css-loader": "^7",
     "esbuild": "^0.25.10",
-    "eslint": "^9.33.0",
+    "eslint": "^10.0.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-storybook": "^10.2.8",
     "glob": "^11",
@@ -157,6 +157,14 @@
     "webpack": "^5",
     "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^5"
+  },
+  "overrides": {
+    "eslint-plugin-react-hooks": {
+      "eslint": "$eslint"
+    },
+    "eslint-plugin-jsx-a11y": {
+      "eslint": "$eslint"
+    }
   },
   "browserslist": [
     "extends browserslist-config-enonic"
