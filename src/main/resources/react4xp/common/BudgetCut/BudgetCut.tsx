@@ -174,7 +174,7 @@ export const BudgetCut: FC<BudgetCutProps> = ({
         <div className="text-right"><em><span>{labelNumberText}</span></em></div>
       )}
 
-      <div className="[&_dl_dt]:font-bold">
+      <div className="leading-relaxed [&_dl_dt]:mt-4 [&_dl_dt]:font-bold">
         {(cuts && cuts.length > 0 && (
           <dl>
             {cuts
