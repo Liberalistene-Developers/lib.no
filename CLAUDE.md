@@ -61,6 +61,7 @@ This project uses **git worktrees** for all feature development. Worktrees enabl
 - `chore` - Maintenance tasks
 - `style` - CSS/styling changes
 - `test` - Test additions/updates
+- `release` - Release issues (groups related child issues)
 
 **Examples:**
 ```bash
@@ -91,6 +92,9 @@ gh issue edit 111 --add-label "🔧 current-work"
 
 # 4. Navigate to worktree
 cd .worktrees/fix-111-rich-text-css
+
+# 5. Install dependencies (worktrees don't share node_modules)
+npm install
 ```
 
 **No restart required** - Claude continues working in the same session after navigating to the worktree.
@@ -197,6 +201,79 @@ git branch -d {type}/{issue}_{desc}
 
 # Prune stale worktree references
 git worktree prune
+```
+
+### Release Issues
+
+A **release issue** groups related child issues into a single branch, worktree, and PR. Each child issue becomes a commit on the parent's branch.
+
+#### Concept
+
+- **Parent issue (release issue)** = one worktree + one branch + one PR
+- **Child issues** = individual commits within that branch
+- Each commit references its child issue with `closes #N`
+- The PR references the parent issue with `closes #N`
+
+#### When to Use
+
+Use release issues when multiple issues are **logically related** and benefit from being reviewed together:
+- Dependency upgrade batches
+- Multi-step refactoring efforts
+- Feature rollouts with sub-tasks
+
+Use **single issues** when the work is self-contained and independent.
+
+#### Naming Conventions
+
+**Parent issue title:** `release: {description}`
+
+**Worktree/branch:** Uses the parent issue number:
+```bash
+# Worktree directory          Branch name
+release-200-dep-upgrades →    release/200_dep-upgrades
+```
+
+#### Workflow
+
+**1. Create parent issue with child issue references:**
+```markdown
+## Child Issues
+- [ ] #201 - Upgrade semantic-release
+- [ ] #202 - Upgrade Storybook
+- [ ] #203 - Upgrade ESLint
+```
+
+**2. Create worktree from parent issue:**
+```bash
+git worktree add .worktrees/release-200-dep-upgrades -b release/200_dep-upgrades
+```
+
+**3. Work on each child issue as a separate commit:**
+```bash
+# Work on child issue #201
+git commit -m "chore: upgrade semantic-release 24 → 25 (closes #201)"
+
+# Work on child issue #202
+git commit -m "chore: upgrade Storybook 9 → 10 (closes #202)"
+
+# Work on child issue #203
+git commit -m "chore: upgrade ESLint 9 → 10 (closes #203)"
+```
+
+**4. Create PR referencing parent issue:**
+```bash
+gh pr create --title "release: dependency upgrades (closes #200)"
+```
+
+#### Example
+
+```
+Parent: #200 "release: dependency upgrades Q1 2026"
+  ├── Commit 1: "chore: upgrade semantic-release 24 → 25 (closes #201)"
+  ├── Commit 2: "chore: upgrade Storybook 9 → 10 (closes #202)"
+  └── Commit 3: "chore: upgrade ESLint 9 → 10 (closes #203)"
+
+→ PR closes #200, each commit closes its child issue
 ```
 
 ### Integration with Existing Rules
