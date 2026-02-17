@@ -4,60 +4,60 @@
 
 @layer components {
   /* Layout system */
-  main > [data-portal-component-type="layout"].content-holder {
+  main [data-portal-component-type="layout"].content-holder {
     @apply block;
   }
 
-  main > .content-holder {
+  main .content-holder {
     @apply max-w-full block;
   }
 
-  main > .content-holder:empty {
+  main .content-holder:empty {
     @apply hidden;
   }
 
-  main > .content-holder.light-purple {
+  main .content-holder.light-purple {
     background-color: var(--lib-color-background-300);
   }
 
-  main > .content-holder.light-grey {
+  main .content-holder.light-grey {
     background-color: var(--lib-color-background-500);
   }
 
-  main > .content-holder.purple {
+  main .content-holder.purple {
     background-color: #4a104a;
     color: #fff;
   }
 
-  main > .content-holder.purple .content,
-  main > .content-holder.purple .content-item,
-  main > .content-holder.purple .content-child {
+  main .content-holder.purple .content,
+  main .content-holder.purple .content-item,
+  main .content-holder.purple .content-child {
     background-color: transparent;
   }
 
-  main > .content-holder.purple h1,
-  main > .content-holder.purple h2,
-  main > .content-holder.purple h3 {
+  main .content-holder.purple h1,
+  main .content-holder.purple h2,
+  main .content-holder.purple h3 {
     color: #fff;
   }
 
-  main > .content-holder.purple a {
+  main .content-holder.purple a {
     color: #ffea00;
   }
 
-  main > .content-holder.white {
+  main .content-holder.white {
     @apply bg-white;
   }
 
-  main > .content-holder.yellow {
+  main .content-holder.yellow {
     @apply bg-[rgb(255,255,0)];
   }
 
-  main > .content-holder.padding-top {
+  main .content-holder.padding-top {
     @apply pt-[50px];
   }
 
-  main > .content-holder.padding-bottom {
+  main .content-holder.padding-bottom {
     @apply pb-[50px];
   }
 
@@ -189,11 +189,11 @@
     @apply w-[30%];
   }
 
-  main > .content-holder > .content.full {
+  main .content-holder > .content.full {
     @apply max-w-[1800px];
   }
 
-  main > .content-holder > .content.full > .content-item {
+  main .content-holder > .content.full > .content-item {
     @apply w-full;
   }
 

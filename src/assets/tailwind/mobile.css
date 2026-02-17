@@ -11,10 +11,10 @@
     width: calc(50% - 30px);
   }
 
-  main > .content-holder > .content.full > .content-item .grid-list .grid-item,
-  main > .content-holder > .content.full > .content-item .gridlist .grid-item,
-  main > .content-holder > .content.full > .content-item .grid-list .card-holder,
-  main > .content-holder > .content.full > .content-item .gridlist .card-holder {
+  main .content-holder > .content.full > .content-item .grid-list .grid-item,
+  main .content-holder > .content.full > .content-item .gridlist .grid-item,
+  main .content-holder > .content.full > .content-item .grid-list .card-holder,
+  main .content-holder > .content.full > .content-item .gridlist .card-holder {
     width: calc(50% - 30px);
   }
 }
@@ -34,14 +34,14 @@
     @apply w-full max-w-full;
   }
 
-  main > .content-holder > .content.full > .content-item {
+  main .content-holder > .content.full > .content-item {
     @apply flex-col;
   }
 
-  main > .content-holder > .content.full > .content-item .grid-list .grid-item,
-  main > .content-holder > .content.full > .content-item .gridlist .grid-item,
-  main > .content-holder > .content.full > .content-item .grid-list .card-holder,
-  main > .content-holder > .content.full > .content-item .gridlist .card-holder {
+  main .content-holder > .content.full > .content-item .grid-list .grid-item,
+  main .content-holder > .content.full > .content-item .gridlist .grid-item,
+  main .content-holder > .content.full > .content-item .grid-list .card-holder,
+  main .content-holder > .content.full > .content-item .gridlist .card-holder {
     @apply w-full max-w-full;
   }
 
