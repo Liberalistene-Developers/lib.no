@@ -1,3 +1,10 @@
+## [2.0.18](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.17...v2.0.18) (2026-02-17)
+
+
+### Bug Fixes
+
+* increase spacing in budget cut summary section (closes [#161](https://github.com/Liberalistene-Developers/lib.no/issues/161)) ([a388bc4](https://github.com/Liberalistene-Developers/lib.no/commit/a388bc4c05c98166f5fb87af02c3dca5b9057364))
+
 ## [2.0.17](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.16...v2.0.17) (2026-02-17)
 
 
