@@ -75,13 +75,11 @@ export const Map: FC<MapProps> = ({
   position = [58.2953903, 6.6580986]
 }) => {
   const [pos, setPos] = useState<[number, number]>(position as [number, number]);
-  const [isSsr, setIsSsr] = useState(true);
+  const isSsr = typeof window === 'undefined';
   const [hasError, setHasError] = useState(false);
   const [leafletComponents, setLeafletComponents] = useState<LeafletComponents | null>(null);
 
   useEffect(() => {
-    setIsSsr(false);
-
     // Dynamically import react-leaflet to avoid bundling it in vendors.js
     // @ts-expect-error - Dynamic imports supported at runtime but not in ES2015 module setting
     import('react-leaflet').then((module: LeafletComponents) => {

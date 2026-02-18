@@ -23,7 +23,8 @@ export const TwoColumnWrapper: React.FC<TwoColumnProps> = ({
   rightClassName = 'one',
   children
 }) => {
-  const [first, second] = React.Children.toArray(children);
+  const slots = Array.isArray(children) ? children : [children];
+  const [first, second] = slots;
 
   return (
     <main>
@@ -62,7 +63,8 @@ export const ThreeColumnWrapper: React.FC<ThreeColumnProps> = ({
   rightClassName = 'one-33',
   children
 }) => {
-  const [first, second, third] = React.Children.toArray(children);
+  const slots = Array.isArray(children) ? children : [children];
+  const [first, second, third] = slots;
 
   return (
     <main>
@@ -106,7 +108,8 @@ export const FourColumnWrapper: React.FC<FourColumnProps> = ({
   rightClassName = 'one-25',
   children
 }) => {
-  const [first, second, third, fourth] = React.Children.toArray(children);
+  const slots = Array.isArray(children) ? children : [children];
+  const [first, second, third, fourth] = slots;
 
   return (
     <main>
@@ -155,7 +158,8 @@ export const TwoColumn2RowWrapper: React.FC<TwoColumn2RowProps> = ({
   order = '',
   children
 }) => {
-  const [first, second, third] = React.Children.toArray(children);
+  const slots = Array.isArray(children) ? children : [children];
+  const [first, second, third] = slots;
 
   return (
     <main>

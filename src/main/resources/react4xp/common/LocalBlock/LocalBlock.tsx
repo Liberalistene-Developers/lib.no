@@ -89,9 +89,9 @@ export const LocalBlock: FC<LocalBlockProps> = ({
             'font-black leading-[1.2]',
             titleClassName === 'full' ? 'text-[5vw] mobile:text-[9vw]' : 'text-[3vw] mobile:text-[6vw]'
           )}>
-            {title.map((item, index) => (
+            {title.map((item) => (
               <span
-                key={index}
+                key={item.title}
                 className={cx(
                   'block',
                   item.titleColor === 'light' && 'text-button-100',
