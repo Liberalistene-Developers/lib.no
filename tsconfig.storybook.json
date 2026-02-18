@@ -7,14 +7,6 @@
 	],
 	"compilerOptions": {
 		"jsx": "react-jsx",
-		"allowUmdGlobalAccess": false,
-		"paths": {
-			"@components/*": ["./src/main/resources/react4xp/components/*"],
-			"@common/*": ["./src/main/resources/react4xp/components/common/*"],
-			"@parts/*": ["./src/main/resources/react4xp/components/parts/*"],
-			"@layouts/*": ["./src/main/resources/react4xp/components/layouts/*"],
-			"@pages/*": ["./src/main/resources/react4xp/components/pages/*"],
-			"@lib/*": ["./src/main/resources/lib/*"]
-		}
+		"allowUmdGlobalAccess": false
 	}
 }
