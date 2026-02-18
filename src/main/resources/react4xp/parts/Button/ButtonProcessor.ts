@@ -2,7 +2,8 @@ import type {ComponentProcessor} from '@enonic-types/lib-react4xp/DataFetcher';
 import type {NestedRecord, PartComponent} from '@enonic-types/core';
 import {get as getContent} from '/lib/xp/content';
 import {pageUrl} from '/lib/xp/portal';
-import { type ButtonProps } from '/react4xp/common/Button/ButtonProps';
+import {type ButtonProps} from '/react4xp/common/Button/ButtonProps';
+import {logger} from '/react4xp/utils/logger';
 
 /**
  * Button part configuration matching button.xml schema
@@ -97,7 +98,7 @@ export const buttonProcessor: ComponentProcessor<'lib.no:button'> = ({component}
           config?.urlSelector?.extern?.target
         ];
       } catch (error) {
-        log.error('Error creating URL:', error);
+        logger.error('Error creating URL:', error);
 
         return [undefined, undefined];
       }
@@ -113,7 +114,7 @@ export const buttonProcessor: ComponentProcessor<'lib.no:button'> = ({component}
     } as ButtonProps;
   }
   catch (error) {
-    log.error('Error in buttonProcessor:', error);
+    logger.error('Error in buttonProcessor:', error);
 
     return {
       title: 'Error',
