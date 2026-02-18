@@ -120,18 +120,19 @@ export const BoardPresentation: FC<BoardPresentationProps> = ({
             </div>
           )}
 
-          <div className="flex pl-[10px]">
-            <div className="flex flex-col gap-y-[6px] w-full">
+          <div className="members flex pl-[10px]">
+            <div className="members-inner flex flex-col gap-y-2 w-full">
               <div className="font-bold text-[22px] leading-[26px] text-primary-300">
                 {boardTitle}
               </div>
               {board.map(({itemId, role, name, email}) => (
-                <div key={itemId} className="flex flex-col text-[18px] leading-[22px] text-primary-300 w-full">
-                  <div className="flex w-full">
-                    <span className="font-medium w-[40%] after:content-[':_']">{role}</span><span className="w-[60%]">{name}</span>
+                <div key={itemId} className="member-item flex flex-col text-[18px] leading-[22px] text-primary-300 w-full">
+                  <div className="flex w-full gap-x-2">
+                    <span className="role font-semibold shrink-0">{role}:</span>
+                    <span className="name font-normal flex-1 break-words">{name}</span>
                   </div>
                   {showEmail === 'all' && email && (
-                    <div className="member-item-email mb-5">
+                    <div className="member-item-email">
                       <a href={`mailto:${email}`} rel="noreferrer">
                         {email}
                       </a>
