@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/Liberalistene-Developers/lib.no/compare/v2.1.1...v2.1.2) (2026-02-18)
+
+
+### Bug Fixes
+
+* improve BoardPresentation layout and spacing (closes [#143](https://github.com/Liberalistene-Developers/lib.no/issues/143)) ([2061f6f](https://github.com/Liberalistene-Developers/lib.no/commit/2061f6f0d50737f2142d9fabca8fb88f66694cd2))
+
 ## [2.1.1](https://github.com/Liberalistene-Developers/lib.no/compare/v2.1.0...v2.1.1) (2026-02-18)
 
 
