@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/Liberalistene-Developers/lib.no/compare/v2.1.0...v2.1.1) (2026-02-18)
+
+
+### Bug Fixes
+
+* add missing logger import to ButtonProcessor (closes [#168](https://github.com/Liberalistene-Developers/lib.no/issues/168)) ([a3cd172](https://github.com/Liberalistene-Developers/lib.no/commit/a3cd1721fece65965dfaa4dbf1bdbb57eb21f382))
+
 # [2.1.0](https://github.com/Liberalistene-Developers/lib.no/compare/v2.0.19...v2.1.0) (2026-02-17)
 
 
