@@ -4,25 +4,53 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 5
     assignees:
       - 'virtueme'
     reviewers:
       - 'virtueme'
+
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: 'weekly'
-    open-pull-requests-limit: 10
+      interval: 'monthly'
+    open-pull-requests-limit: 5
     assignees:
       - 'virtueme'
     reviewers:
       - 'virtueme'
+    # Packages managed manually during major upgrades
+    ignore:
+      - dependency-name: 'react'
+      - dependency-name: 'react-dom'
+      - dependency-name: 'react-leaflet'
+    groups:
+      storybook:
+        patterns:
+          - 'storybook'
+          - '@storybook/*'
+          - 'eslint-plugin-storybook'
+      tailwind:
+        patterns:
+          - 'tailwindcss'
+          - '@tailwindcss/*'
+      eslint:
+        patterns:
+          - 'eslint'
+          - 'typescript-eslint'
+          - '@typescript-eslint/*'
+          - 'eslint-plugin-*'
+      enonic:
+        patterns:
+          - '@enonic/*'
+          - '@enonic-types/*'
+          - '@item-enonic-types/*'
+
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
       interval: 'monthly'
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 5
     assignees:
       - 'virtueme'
     reviewers:
