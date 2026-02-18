@@ -107,6 +107,9 @@ const serverSideConfig: Config.InitialProjectOptions = {
   // backreferences.
   moduleNameMapper: {
     '^/react4xp/(.*)$': `<rootDir>/${DIR_SRC}/react4xp/$1`,
+    // Explicit stubs for XP runtime modules (types-only packages have no JS entrypoint)
+    '^/lib/xp/content$': `<rootDir>/${DIR_SRC_JEST_SERVER}/__mocks__/xp-content.ts`,
+    '^/lib/xp/portal$': `<rootDir>/${DIR_SRC_JEST_SERVER}/__mocks__/xp-portal.ts`,
     '^/lib/xp/(.*)$': '<rootDir>/node_modules/@enonic-types/lib-$1',
     '^/lib/enonic/(.*)$': '<rootDir>/node_modules/@enonic-types/lib-$1',
     '^/(.*)$': `<rootDir>/${DIR_SRC}/$1`,
