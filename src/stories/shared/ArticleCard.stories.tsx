@@ -1,5 +1,4 @@
 import preview from '../../../.storybook/preview'
-import type { StoryObj } from '@storybook/react-webpack5'
 import { ArticleCard, type ItemData } from '@common/ArticleCard/ArticleCard'
 
 const meta = preview.meta({
@@ -16,8 +15,6 @@ const meta = preview.meta({
     )
   ]
 })
-
-type Story = StoryObj<typeof meta>
 
 const sampleItem: ItemData = {
   image: {

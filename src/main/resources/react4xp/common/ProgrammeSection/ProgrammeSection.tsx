@@ -1,4 +1,4 @@
-import {Fragment, type FC} from 'react';
+import {type FC} from 'react';
 import slugify from 'react-slugify';
 
 import {Conclusions} from '/react4xp/common/Conclusions/Conclusions';

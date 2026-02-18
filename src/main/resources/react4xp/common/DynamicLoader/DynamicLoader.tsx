@@ -1,4 +1,4 @@
-import {type FC, type ReactNode, useEffect, useState} from 'react';
+import {type FC, type ReactNode, useState} from 'react';
 
 import doGuillotineRequest from '@utils/guillotine/request';
 
@@ -105,11 +105,7 @@ export const DynamicLoader: FC<DynamicLoaderProps> = ({
   const [list, setList] = useState<DynamicLoaderItem[]>(items);
   const [more, setMore] = useState(loadMoreEnabled && !!apiUrl && items.length === count);
   const [loading, setLoading] = useState(false);
-  const [nextOffset, setNextOffset] = useState(items.length);
-
-  useEffect(() => {
-    setNextOffset(list.length);
-  }, [list]);
+  const nextOffset = list.length;
 
   const updateItems = (data: DynamicLoaderItem[]): void => {
     if (data.length > 0) {

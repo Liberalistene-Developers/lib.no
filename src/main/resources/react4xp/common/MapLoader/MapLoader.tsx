@@ -48,7 +48,9 @@ export const MapLoader: FC<MapLoaderProps> = ({
   position = [58.2953903, 6.6580986]
 }) => {
   const [MapComponent, setMapComponent] = useState<ComponentType<MapProps> | null>(null);
-  const [leafletLoaded, setLeafletLoaded] = useState(false);
+  const [leafletLoaded, setLeafletLoaded] = useState(
+    () => typeof window !== 'undefined' && !!document.getElementById('leaflet-css')
+  );
 
   useEffect(() => {
     // Load Leaflet CSS and JS if not already loaded
@@ -68,8 +70,6 @@ export const MapLoader: FC<MapLoaderProps> = ({
       script.crossOrigin = '';
       script.onload = () => setLeafletLoaded(true);
       document.head.appendChild(script);
-    } else if (typeof window !== 'undefined') {
-      setLeafletLoaded(true);
     }
   }, []);
 

@@ -45,8 +45,8 @@ export const Menu = ({ menu }: MenuProps ) => {
           </label>
           <div className="overlay mobile:h-[110vh] mobile:w-screen mobile:bg-menu-bg mobile:z-20 mobile:invisible mobile:fixed mobile:left-0 mobile:top-0 peer-checked:visible">
             <ul className="main-menu flex list-none p-0 mobile:flex-col mobile:justify-center mobile:items-center mobile:text-center mobile:h-screen" aria-label={menu.ariaLabel}>
-              {menu.menuItems.map((menuItem, index) => (
-                <li key={index} className="mobile:p-4">
+              {menu.menuItems.map((menuItem) => (
+                <li key={menuItem.url} className="mobile:p-4">
                   <a
                     href={menuItem.url}
                     title={menuItem.title}

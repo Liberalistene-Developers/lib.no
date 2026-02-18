@@ -67,8 +67,8 @@ export const Footer = ({
     <div className="footer-menu flex border border-[#F4F4F4] -mx-px min-h-[60px] px-5 items-center justify-center content-center mobile:flex-col">
       {some.length > 0 && (
         <div className="social-icons flex items-center text-[23px] gap-[10px] leading-[23px] absolute pl-5 left-0 mobile:justify-center mobile:pl-0 mobile:static">
-          {some.map((social, index) => (
-            <a key={index} href={social.href} rel="noreferrer" className="bg-background-700 text-[#63678A] no-underline">
+          {some.map((social) => (
+            <a key={social.href} href={social.href} rel="noreferrer" className="bg-background-700 text-[#63678A] no-underline">
               <i className={`fab ${social.className} text-center min-w-[24px] min-h-[24px]`}></i>
             </a>
           ))}
