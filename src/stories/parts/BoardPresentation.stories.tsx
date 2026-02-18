@@ -4,7 +4,20 @@ import { BoardPresentation } from '@common/BoardPresentation/BoardPresentation'
 const meta = preview.meta({
   title: 'Parts/BoardPresentation',
   component: BoardPresentation,
-  tags: ['autodocs']
+  tags: ['autodocs'],
+  decorators: [
+    (Story) => (
+      <main>
+        <div className="content-holder normal padding-bottom">
+          <div className="content">
+            <div className="content-item">
+              <Story />
+            </div>
+          </div>
+        </div>
+      </main>
+    )
+  ]
 })
 
 const boardMembers = [
@@ -115,5 +128,61 @@ export const SentralStyretHighlightingRight = meta.story({
   args: {
     ...SentralStyret.input.args,
     reverseOrder: true
+  }
+})
+
+const longNameMembers = [
+  {
+    itemId: 1,
+    name: 'Kristoffer Aleksander Johannessen-Haugen',
+    email: 'kristoffer@liberalistene.no',
+    role: 'Partileder',
+    image: {url: 'https://picsum.photos/200/200?random=10'}
+  },
+  {
+    itemId: 2,
+    name: 'Åsgård Ottervig',
+    email: 'asgard@liberalistene.no',
+    role: 'Webredaktør',
+    image: {url: 'https://picsum.photos/200/200?random=11'}
+  },
+  {
+    itemId: 3,
+    name: 'Sondre Thorvaldsen-Brekke',
+    email: 'sondre@liberalistene.no',
+    role: 'Organisatorisk Nestleder',
+    image: {url: 'https://picsum.photos/200/200?random=12'}
+  },
+  {
+    itemId: 4,
+    name: 'Li',
+    email: 'li@liberalistene.no',
+    role: 'Sekretær',
+    image: {url: 'https://picsum.photos/200/200?random=13'}
+  }
+]
+
+export const LongNamesHighlighted = meta.story({
+  args: {
+    title: 'Edge Case: Long Names',
+    boardTitle: 'Styre',
+    showEmail: 'no',
+    board: longNameMembers,
+    imagesize: 'medium',
+    imagetype: 'round'
+  }
+})
+
+export const LongNamesNoHighlighting = meta.story({
+  args: {
+    ...LongNamesHighlighted.input.args,
+    noHighlighting: true
+  }
+})
+
+export const LongNamesEmailAll = meta.story({
+  args: {
+    ...LongNamesHighlighted.input.args,
+    showEmail: 'all'
   }
 })
