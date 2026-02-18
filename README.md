@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D22.15.1-brightgreen.svg)](https://nodejs.org/)
-[![Build](https://github.com/Liberalistene-Developers/lib.no/workflows/Enonic%20CI/badge.svg)](https://github.com/Liberalistene-Developers/lib.no/actions)
+[![Build](https://github.com/Liberalistene-Developers/lib.no/workflows/CI/badge.svg)](https://github.com/Liberalistene-Developers/lib.no/actions)
 [![Latest Release](https://img.shields.io/github/v/release/Liberalistene-Developers/lib.no)](https://github.com/Liberalistene-Developers/lib.no/releases/latest)
 [![Download JAR](https://img.shields.io/badge/Download-JAR-blue)](https://github.com/Liberalistene-Developers/lib.no/releases/latest/download/Liberalistene.jar)
 
@@ -30,22 +30,21 @@ This project powers the Liberalistene party website, providing:
 - Comprehensive testing with Jest
 - Automated releases with semantic versioning
 
-**Version:** 1.10.2
 **Repository:** https://github.com/Liberalistene-Developers/lib.no
 
 ## Tech Stack
 
 ### Core Technologies
 - **CMS:** Enonic XP 7.7+
-- **Framework:** React4xp v6.0.2
-- **Frontend:** React 18, TypeScript 5+
+- **Framework:** React4xp v6.1.0
+- **Frontend:** React 19, TypeScript 5+
 - **Styling:** Tailwind CSS v4, PostCSS
 - **Build System:** Gradle + tsup + esbuild
 
 ### Development Tools
-- **Component Development:** Storybook 9.1
+- **Component Development:** Storybook 10.x
 - **Testing:** Jest 30 + React Testing Library
-- **Code Quality:** ESLint 9 + TypeScript ESLint 8
+- **Code Quality:** ESLint 10 + TypeScript ESLint 8
 - **Version Control:** Git with Conventional Commits
 - **CI/CD:** GitHub Actions + semantic-release
 
@@ -125,6 +124,7 @@ npm run rewatch               # Clean, deploy, then watch
 # Type Checking
 npm run check                 # Run all type checks and linting
 npm run check:types           # Run all TypeScript type checks
+npm run check:types:node      # Check Node tooling types
 npm run check:types:react4xp  # Check React components
 npm run check:types:xp        # Check XP server-side code
 
@@ -198,7 +198,7 @@ Comprehensive documentation is available:
 
 - **[Roadmap Issue #31](https://github.com/Liberalistene-Developers/lib.no/issues/31)** - Codebase modernization roadmap
 
-- **[Storybook](http://localhost:6006)** - Interactive component documentation (run `npm run storybook`)
+- **Storybook** - Interactive component documentation (run `npm run storybook`, then visit http://localhost:6006)
 
 ## Contributing
 
@@ -230,12 +230,13 @@ Commit messages are enforced by Commitlint via Husky pre-commit hooks.
 
 ### Pull Requests
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes following the code style guidelines
-4. Run tests and type checks (`npm run check` and `npm test`)
-5. Commit with conventional commit messages
-6. Push to your fork and submit a pull request
+This project uses **git worktrees** for all feature development. See [CLAUDE.md](CLAUDE.md) for the full worktree workflow.
+
+1. Create a worktree for your branch (`git worktree add .worktrees/feat-123-my-feature -b feat/123_my-feature`)
+2. Make your changes following the code style guidelines
+3. Run tests and type checks (`npm run check` and `npm test`)
+4. Commit with conventional commit messages
+5. Push your branch and submit a pull request
 
 ### Architecture Guidelines
 
@@ -251,7 +252,7 @@ See [CLAUDE.md](CLAUDE.md) for detailed architecture documentation.
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE.txt](LICENSE.txt) file for details.
 
-Copyright 2025 Liberalistene
+Copyright 2026 Liberalistene
 
 ## Contact
 
