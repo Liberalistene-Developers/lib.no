@@ -3,6 +3,8 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D22.15.1-brightgreen.svg)](https://nodejs.org/)
 [![Build](https://github.com/Liberalistene-Developers/lib.no/workflows/Enonic%20CI/badge.svg)](https://github.com/Liberalistene-Developers/lib.no/actions)
+[![Latest Release](https://img.shields.io/github/v/release/Liberalistene-Developers/lib.no)](https://github.com/Liberalistene-Developers/lib.no/releases/latest)
+[![Download JAR](https://img.shields.io/badge/Download-JAR-blue)](https://github.com/Liberalistene-Developers/lib.no/releases/latest/download/Liberalistene.jar)
 
 The official homepage for **Liberalistene** (Norwegian political party), built on Enonic XP CMS with modern React components and React4xp v6 architecture.
 
