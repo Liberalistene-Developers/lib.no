@@ -4,6 +4,7 @@
   <super-type>base:structured</super-type>
   <is-abstract>false</is-abstract>
   <is-final>true</is-final>
+  <allow-new-content>false</allow-new-content>
   <allow-child-content>true</allow-child-content>
   <form>
     <input name="description" type="HtmlArea">
