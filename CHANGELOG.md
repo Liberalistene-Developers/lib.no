@@ -1,3 +1,16 @@
+# [2.2.0](https://github.com/Liberalistene-Developers/lib.no/compare/v2.1.2...v2.2.0) (2026-02-19)
+
+
+### Bug Fixes
+
+* deprecate content types by disabling new content creation (closes [#198](https://github.com/Liberalistene-Developers/lib.no/issues/198)) ([39a983f](https://github.com/Liberalistene-Developers/lib.no/commit/39a983fa1e485cb97f4b3aabec14148f346955ab))
+* remove part XML descriptors to prevent adding deprecated parts (closes [#199](https://github.com/Liberalistene-Developers/lib.no/issues/199)) ([cb24c56](https://github.com/Liberalistene-Developers/lib.no/commit/cb24c566c97ebfad05a0ca5857d6102a7e2be556))
+
+
+### Features
+
+* upgrade Enonic XP 7.15.1 → 7.16.1 (closes [#197](https://github.com/Liberalistene-Developers/lib.no/issues/197)) ([8eba4a0](https://github.com/Liberalistene-Developers/lib.no/commit/8eba4a09ae5778c067332802f6e34503ee8246c4))
+
 ## [2.1.2](https://github.com/Liberalistene-Developers/lib.no/compare/v2.1.1...v2.1.2) (2026-02-18)
 
 
