@@ -23,9 +23,16 @@ jobs:
       (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude'))
 
     steps:
+      - name: Install Claude Code v2.1.18
+        run: |
+          sudo rm -f /usr/local/bin/claude
+          npm install -g @anthropic-ai/claude-code@2.1.18
+          CLAUDE_BIN=$(which claude)
+          echo "CLAUDE_PATH=$CLAUDE_BIN" >> $GITHUB_ENV
+
       - name: Claude Code Review
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          claude_args: --model ${{ vars.ANTHROPIC_DEFAULT_MODEL || 'claude-sonnet-4-6-default' }}
+          path_to_claude_code_executable: ${{ env.CLAUDE_PATH }}
