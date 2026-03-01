@@ -22,6 +22,13 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Install Claude Code v2.1.18
+        run: |
+          sudo rm -f /usr/local/bin/claude
+          npm install -g @anthropic-ai/claude-code@2.1.18
+          CLAUDE_BIN=$(which claude)
+          echo "CLAUDE_PATH=$CLAUDE_BIN" >> $GITHUB_ENV
+
       - name: Claude Review Dependabot PR
         uses: anthropics/claude-code-action@v1
         env:
@@ -29,7 +36,7 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          claude_args: --model ${{ vars.ANTHROPIC_DEFAULT_MODEL || 'claude-sonnet-4-6-default' }}
+          path_to_claude_code_executable: ${{ env.CLAUDE_PATH }}
           allowed_bots: dependabot[bot]
           prompt: |
             Review this Dependabot dependency update PR:
