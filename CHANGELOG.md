@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/Liberalistene-Developers/lib.no/compare/v2.2.1...v2.2.2) (2026-03-01)
+
+
+### Bug Fixes
+
+* allow dependabot[bot] in Claude Dependabot Review workflow (closes [#207](https://github.com/Liberalistene-Developers/lib.no/issues/207)) ([ec7ec75](https://github.com/Liberalistene-Developers/lib.no/commit/ec7ec7508898ead59801928412c33f4dad6ebbea))
+
 ## [2.2.1](https://github.com/Liberalistene-Developers/lib.no/compare/v2.2.0...v2.2.1) (2026-03-01)
 
 
