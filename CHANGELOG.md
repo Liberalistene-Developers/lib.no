@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/Liberalistene-Developers/lib.no/compare/v2.2.0...v2.2.1) (2026-03-01)
+
+
+### Bug Fixes
+
+* switch Claude Actions from grll to official anthropics action (closes [#204](https://github.com/Liberalistene-Developers/lib.no/issues/204)) ([9653a4e](https://github.com/Liberalistene-Developers/lib.no/commit/9653a4eb7085955d2c89599a6ebe2a9bd08e0a36))
+
 # [2.2.0](https://github.com/Liberalistene-Developers/lib.no/compare/v2.1.2...v2.2.0) (2026-02-19)
 
 
