@@ -1,3 +1,10 @@
+## [2.2.3](https://github.com/Liberalistene-Developers/lib.no/compare/v2.2.2...v2.2.3) (2026-03-03)
+
+
+### Bug Fixes
+
+* restore checkout step and add failure debug dump (closes [#225](https://github.com/Liberalistene-Developers/lib.no/issues/225)) ([dbb80ee](https://github.com/Liberalistene-Developers/lib.no/commit/dbb80ee3efa578702df9c5305df659ff36b055a4))
+
 ## [2.2.2](https://github.com/Liberalistene-Developers/lib.no/compare/v2.2.1...v2.2.2) (2026-03-01)
 
 
