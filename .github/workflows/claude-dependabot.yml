@@ -17,6 +17,11 @@ jobs:
     if: github.actor == 'dependabot[bot]'
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
       - name: Claude Review Dependabot PR
         uses: anthropics/claude-code-action@v1.0.66
         with:
@@ -36,3 +41,17 @@ jobs:
             - Risk level (Low/Medium/High)
             - Key changes
             - Action recommendation
+
+      - name: Dump claude debug info
+        if: failure()
+        run: |
+          echo "=== ~/.claude/ ==="
+          find ~/.claude/ -type f 2>/dev/null | while read f; do
+            echo "--- $f ---"
+            cat "$f"
+          done || echo "No ~/.claude dir"
+          echo "=== project .claude/ ==="
+          find .claude/ -type f 2>/dev/null | while read f; do
+            echo "--- $f ---"
+            cat "$f"
+          done || echo "No project .claude dir"
