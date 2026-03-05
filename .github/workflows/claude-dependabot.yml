@@ -1,13 +1,14 @@
 name: Claude Dependabot Review
 
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize]
 
 permissions:
   contents: read
   pull-requests: write
   issues: write
+  actions: read
   id-token: write
 
 jobs:
@@ -18,8 +19,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
       - name: Claude Review Dependabot PR
@@ -27,7 +29,10 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          allowed_bots: dependabot[bot]
+          claude_args: >-
+            --model ${{ vars.ANTHROPIC_DEFAULT_MODEL || 'claude-sonnet-4-6-default' }}
+            --max-turns 5
+            --allowedTools "Read,Grep,Glob,Bash(gh:*),Bash(git:*),Bash(jq:*)"
           prompt: |
             Review this Dependabot dependency update PR:
 
@@ -43,7 +48,7 @@ jobs:
             - Action recommendation
 
       - name: Dump claude debug info
-        if: failure()
+        if: failure() && vars.CLAUDE_DEBUG == 'true'
         run: |
           echo "=== ~/.claude/ ==="
           find ~/.claude/ -type f 2>/dev/null | while read f; do
