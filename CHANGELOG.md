@@ -1,3 +1,10 @@
+## [2.2.4](https://github.com/Liberalistene-Developers/lib.no/compare/v2.2.3...v2.2.4) (2026-03-05)
+
+
+### Bug Fixes
+
+* switch claude workflows to pull_request_target (closes [#227](https://github.com/Liberalistene-Developers/lib.no/issues/227)) ([6968b7c](https://github.com/Liberalistene-Developers/lib.no/commit/6968b7c829a749e530a8cb67fae3887124002dbb))
+
 ## [2.2.3](https://github.com/Liberalistene-Developers/lib.no/compare/v2.2.2...v2.2.3) (2026-03-03)
 
 
