@@ -1,3 +1,10 @@
+## [2.2.5](https://github.com/Liberalistene-Developers/lib.no/compare/v2.2.4...v2.2.5) (2026-03-06)
+
+
+### Bug Fixes
+
+* switch auth to CLAUDE_CODE_OAUTH_TOKEN and restore allowed_bots ([0320742](https://github.com/Liberalistene-Developers/lib.no/commit/0320742831785848469a8d10a9244691caa5f35b))
+
 ## [2.2.4](https://github.com/Liberalistene-Developers/lib.no/compare/v2.2.3...v2.2.4) (2026-03-05)
 
 
