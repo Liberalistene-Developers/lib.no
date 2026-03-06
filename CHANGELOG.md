@@ -1,3 +1,10 @@
+## [2.2.6](https://github.com/Liberalistene-Developers/lib.no/compare/v2.2.5...v2.2.6) (2026-03-06)
+
+
+### Bug Fixes
+
+* correct reviewer username capitalization in dependabot.yml (closes [#221](https://github.com/Liberalistene-Developers/lib.no/issues/221)) ([93d5162](https://github.com/Liberalistene-Developers/lib.no/commit/93d5162743c121c2b2406556c81a8e7abe5f6f4a))
+
 ## [2.2.5](https://github.com/Liberalistene-Developers/lib.no/compare/v2.2.4...v2.2.5) (2026-03-06)
 
 
