@@ -187,7 +187,19 @@
       [
         "@semantic-release/exec",
         {
-          "prepareCmd": "sed -i \"s/^version = .*/version = ${nextRelease.version}/\" gradle.properties && ./gradlew clean build -Penv=prod && echo 'RELEASE_BUILT=true' >> $GITHUB_ENV"
+          "prepareCmd": "sed -i \"s/^version = .*/version = ${nextRelease.version}/\" gradle.properties"
+        }
+      ],
+      [
+        "@semantic-release/exec",
+        {
+          "prepareCmd": "sed -i \"s/^\\*\\*Current Version:\\*\\* .*/\\*\\*Current Version:\\*\\* ${nextRelease.version}/\" CLAUDE.md"
+        }
+      ],
+      [
+        "@semantic-release/exec",
+        {
+          "prepareCmd": "./gradlew clean build -Penv=prod && echo 'RELEASE_BUILT=true' >> $GITHUB_ENV"
         }
       ],
       [
@@ -197,7 +209,8 @@
             "CHANGELOG.md",
             "package.json",
             "package-lock.json",
-            "gradle.properties"
+            "gradle.properties",
+            "CLAUDE.md"
           ]
         }
       ],
