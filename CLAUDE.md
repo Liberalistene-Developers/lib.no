@@ -6,7 +6,7 @@ This is the official homepage for Liberalistene (Norwegian political party), bui
 
 **Repository:** https://github.com/Liberalistene-Developers/lib.no
 **License:** Apache-2.0
-**Current Version:** 1.10.2
+**Current Version:** 2.2.7
 
 ## Working with Claude Code
 

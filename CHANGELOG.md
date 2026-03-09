@@ -1,3 +1,10 @@
+## [2.2.7](https://github.com/Liberalistene-Developers/lib.no/compare/v2.2.6...v2.2.7) (2026-03-09)
+
+
+### Bug Fixes
+
+* add repository and PR context to Claude workflow prompts (closes [#237](https://github.com/Liberalistene-Developers/lib.no/issues/237)) ([56bdaa9](https://github.com/Liberalistene-Developers/lib.no/commit/56bdaa98ad3b8d01918266505ec88b62e4459dce))
+
 ## [2.2.6](https://github.com/Liberalistene-Developers/lib.no/compare/v2.2.5...v2.2.6) (2026-03-06)
 
 
