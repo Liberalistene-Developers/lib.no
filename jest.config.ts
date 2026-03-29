@@ -151,6 +151,7 @@ const serverSideConfig: Config.InitialProjectOptions = {
 
 const customJestConfig: Config.InitialOptions = {
   coverageProvider: 'v8', // To get correct line numbers under jsdom
+  coverageReporters: ['text', 'lcov'],
   passWithNoTests: true,
   projects: [clientSideConfig, serverSideConfig],
 };
