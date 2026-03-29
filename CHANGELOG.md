@@ -1,3 +1,10 @@
+## [2.2.8](https://github.com/Liberalistene-Developers/lib.no/compare/v2.2.7...v2.2.8) (2026-03-29)
+
+
+### Bug Fixes
+
+* skip claude-pr-review for Dependabot PRs (closes [#255](https://github.com/Liberalistene-Developers/lib.no/issues/255)) ([854d32b](https://github.com/Liberalistene-Developers/lib.no/commit/854d32b165da2c8536439ec5bbf3c4ee19256605))
+
 ## [2.2.7](https://github.com/Liberalistene-Developers/lib.no/compare/v2.2.6...v2.2.7) (2026-03-09)
 
 
