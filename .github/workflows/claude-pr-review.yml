@@ -45,7 +45,7 @@ jobs:
             Review this pull request for code quality, correctness, and adherence to project conventions.
           claude_args: >-
             --model ${{ vars.ANTHROPIC_DEFAULT_MODEL || 'claude-sonnet-4-6-default' }}
-            --max-turns 5
+            --max-turns ${{ vars.CLAUDE_PR_REVIEW_MAX_TURNS || '10' }}
             --allowedTools "mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)"
 
       - name: Dump claude debug info
