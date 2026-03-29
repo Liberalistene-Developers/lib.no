@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/Liberalistene-Developers/lib.no/compare/v2.2.8...v2.3.0) (2026-03-29)
+
+
+### Features
+
+* switch claude-pr-review to pull_request_target with workflow safety check (closes [#240](https://github.com/Liberalistene-Developers/lib.no/issues/240)) ([e368348](https://github.com/Liberalistene-Developers/lib.no/commit/e36834812315cb8c01350894be29870bf62d534d))
+
 ## [2.2.8](https://github.com/Liberalistene-Developers/lib.no/compare/v2.2.7...v2.2.8) (2026-03-29)
 
 
